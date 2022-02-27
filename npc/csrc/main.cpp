@@ -11,7 +11,7 @@ VerilatedContext* contextp = new VerilatedContext ;
 contextp->commandArgs(argc, argv) ;
 Vtop* top = new Vtop(contextp) ;
 
-while(!context->gotFinish()){
+while(!contextp->gotFinish()){
   int a = rand() & 1 ;
   int b = rand() & 1 ;
   top->a = a ;
@@ -25,5 +25,3 @@ delete top ;
 delete contextp ;
 return 0;
 }
-
-  }
