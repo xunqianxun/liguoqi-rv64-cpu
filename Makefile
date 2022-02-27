@@ -1,5 +1,5 @@
 STUID = ysyx_22040228
-STUNAME = Li Guo qi
+STUNAME = Li Guo Qi
 
 # DO NOT modify the following code!!!
 
