@@ -14,6 +14,8 @@ cmp:
 	make -C obj_dir -f ./obj_dir/Vtop.mk Vtop
 run:
 	./obj_dir/Vtop
+gtk:
+	gtkwave ./obj_dir/Vtop.vcd
 sim:
 	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
 	@echo "Write this Makefile by your self."
