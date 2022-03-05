@@ -76,7 +76,8 @@ static int cmd_x(char *args){
   sscanf(args, "%d%x", &num , &exprs);
   int i ;
   for(i = 0 ; i < num ;i++){
-    printf("0x%x 0x%lx\n",exprs + i*32,vaddr_read(exprs+ i*32,32));
+    int temp = vaddr_read(exprs+ i*4,4);
+    printf("0x%x 0x%x\n",exprs + i*4,temp);
   }
   return 0;
 }
