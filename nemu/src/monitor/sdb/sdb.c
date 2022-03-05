@@ -45,31 +45,7 @@ static int cmd_info (char *args) {
   if(args[0] == 'r') isa_reg_display() ;
   return 0;
 }
-/*
-static int cmd_x (char *args) {
-  if(args == NULL) return 1;
-  char *arg=strtok(args," ");
-  if(args == NULL) return 1;
-  int n = atoi(arg);
-  char *EXPR = strtok(NULL," ");
-  if(EXPR == NULL) return 1;
-  if(strtok(NULL," ") != NULL) return 1;
-  bool success = true ;
-  if(success != true) return 1;
-  char *str ;
-  vaddr_t addr = strtol(EXPR &str ,16);
-  for(int i=0; i<n; i++){
-    uint32_t data = vaddr_read(addr+i*4,4);
-    printf("0x%08x",addr+i*4);
-    for(int j=0; j<4; j++){
-      printf(0x%02x,data & 0xff);
-      data = data >> 8 ;
-    }
-    printf("\n");
-  }
-  return 0;
-}
-*/
+
 static int cmd_x(char *args){
   if(args == NULL) return 0;
   int num , exprs ;
