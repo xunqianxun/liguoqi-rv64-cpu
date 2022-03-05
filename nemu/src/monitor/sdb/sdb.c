@@ -8,6 +8,7 @@ static int is_batch_mode = false;
 
 void init_regex();
 void init_wp_pool();
+word_t vaddr_read(vaddr_t addr, int len) ;
 
 /* We use the `readline' library to provide more flexibility to read from stdin. */
 static char* rl_gets() {
@@ -44,6 +45,41 @@ static int cmd_info (char *args) {
   if(args[0] == 'r') isa_reg_display() ;
   return 0;
 }
+/*
+static int cmd_x (char *args) {
+  if(args == NULL) return 1;
+  char *arg=strtok(args," ");
+  if(args == NULL) return 1;
+  int n = atoi(arg);
+  char *EXPR = strtok(NULL," ");
+  if(EXPR == NULL) return 1;
+  if(strtok(NULL," ") != NULL) return 1;
+  bool success = true ;
+  if(success != true) return 1;
+  char *str ;
+  vaddr_t addr = strtol(EXPR &str ,16);
+  for(int i=0; i<n; i++){
+    uint32_t data = vaddr_read(addr+i*4,4);
+    printf("0x%08x",addr+i*4);
+    for(int j=0; j<4; j++){
+      printf(0x%02x,data & 0xff);
+      data = data >> 8 ;
+    }
+    printf("\n");
+  }
+  return 0;
+}
+*/
+static int cmd_x(char *args){
+  if(args == NULL) return 0;
+  int num , exprs ;
+  sscanf(args, "%d%x", &num , &exprs);
+  int i ;
+  for(i = 0 ; i < num ;i++){
+    printf("0x%x 0x%lx\n",exprs + i*32,vaddr_read(exprs+ i*32,32));
+  }
+  return 0;
+}
 
 static int cmd_q(char *args) {
   return -1;
@@ -61,6 +97,7 @@ static struct {
   { "q", "Exit NEMU", cmd_q },
   { "si","step by step execution", cmd_si},
   { "info", "print status information", cmd_info},
+  { "x", "scan memory", cmd_x},
   /* TODO: Add more commands */
 
 };
