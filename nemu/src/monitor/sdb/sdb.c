@@ -58,6 +58,10 @@ static int cmd_x(char *args){
   return 0;
 }
 
+//static int cmd_p(){
+
+//}
+
 static int cmd_q(char *args) {
   return -1;
 }
@@ -75,6 +79,7 @@ static struct {
   { "si","step by step execution", cmd_si},
   { "info", "print status information", cmd_info},
   { "x", "scan memory", cmd_x},
+ // { "w", "EXPR",cmd_p},
   /* TODO: Add more commands */
 
 };
