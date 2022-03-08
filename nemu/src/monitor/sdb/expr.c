@@ -31,7 +31,7 @@ static struct rule {
   {"==", TK_EQ},        // equal
   {"0x[0-9,a-f]+", HEXTYPE},
   {"[0-9]+", DTYPE},
-  {"\\$[a-z]{2-3}", REGNAME},
+  {"\\$[a-z0-9]{1,31}", REGNAME},
   {"\\(", TK_RIGHT},
   {"\\)", TK_LIFT},
   {"\\*", TK_CHENG},
