@@ -29,8 +29,8 @@ static struct rule {
   {" +", TK_NOTYPE},    // spaces
   //{"\\+", '+'},         // plus
   {"==", TK_EQ},        // equal
-  {"0x[0-9,a-f]+", HEXTYPE},
-  {"[0-9]+", DTYPE},
+  {"0x[0-9a-fA-F]{1,16}", HEXTYPE},
+  {"[0-9]{1,10}", DTYPE},
   {"\\$[a-z0-9]{1,31}", REGNAME},
   {"\\(", TK_RIGHT},
   {"\\)", TK_LIFT},
