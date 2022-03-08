@@ -7,7 +7,7 @@
 
 bool check_parentheses(int p, int q);
 int dominant_operator(int p , int q);
-
+word_t expr(char *e, bool *success) ;
 
 enum {
   TK_NOTYPE = 256, TK_OR = 4, TK_AND = 5, TK_EQ = 9, TK_UNEQ = 9, REGNAME = 252, TK_JIA = 11, TK_JIAN = 12, TK_CHENG = 13, TK_CHU = 14, TK_RIGHT = 255, TK_LIFT = 255, HEXTYPE = 254, DTYPE = 253,
@@ -176,6 +176,12 @@ static bool make_token(char *e) {
   return true;
 }
 
+word_t set_watchpoint(char *e){
+  bool success ;
+  word_t val = expr(e, &success);
+
+  return val ;
+}
 
 word_t expr(char *e, bool *success) {
   if (!make_token(e)) {

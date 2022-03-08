@@ -9,6 +9,7 @@ static int is_batch_mode = false;
 void init_regex();
 void init_wp_pool();
 word_t vaddr_read(vaddr_t addr, int len) ;
+word_t set_watchpoint(char *e);
 
 /* We use the `readline' library to provide more flexibility to read from stdin. */
 static char* rl_gets() {
@@ -58,9 +59,12 @@ static int cmd_x(char *args){
   return 0;
 }
 
-//static int cmd_p(){
-
-//}
+static int cmd_p(char *args){
+  if(args != NULL) 
+  
+  printf("%ld", set_watchpoint(args));
+  return 0;
+}
 
 static int cmd_q(char *args) {
   return -1;
@@ -79,7 +83,7 @@ static struct {
   { "si","step by step execution", cmd_si},
   { "info", "print status information", cmd_info},
   { "x", "scan memory", cmd_x},
- // { "w", "EXPR",cmd_p},
+  { "w", "EXPR",cmd_p},
   /* TODO: Add more commands */
 
 };
