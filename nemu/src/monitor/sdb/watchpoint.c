@@ -1,4 +1,7 @@
 #include "sdb.h"
+#ifdef _ICS_EXPORT
+#include<stdio.h>
+#endif
 
 #define NR_WP 32
 
@@ -7,6 +10,10 @@ typedef struct watchpoint {
   struct watchpoint *next;
 
   /* TODO: Add more members if necessary */
+#ifndef _ICS_EXPORT
+  char *expr;
+  word_t old_val ;
+#endif
 
 } WP;
 
@@ -24,5 +31,10 @@ void init_wp_pool() {
   free_ = wp_pool;
 }
 
+int set_watchpoint(char *e) {
+  bool success;
+  word_t val = expr(e, &success);
+  return val ;
+}
 /* TODO: Implement the functionality of watchpoint */
 

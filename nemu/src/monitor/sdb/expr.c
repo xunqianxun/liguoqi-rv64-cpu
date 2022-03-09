@@ -8,6 +8,7 @@
 bool check_parentheses(int p, int q);
 int dominant_operator(int p , int q);
 word_t expr(char *e, bool *success) ;
+//static Token tokens[32] __attribute__((used));
 
 enum {
   TK_NOTYPE = 256, TK_OR = 4, TK_AND = 5, TK_EQ = 9, TK_UNEQ = 9, REGNAME = 252, TK_JIA = 11, TK_JIAN = 12, TK_CHENG = 13, TK_CHU = 14, TK_RIGHT = 255, TK_LIFT = 255, HEXTYPE = 254, DTYPE = 253,
@@ -47,68 +48,7 @@ static struct rule {
 
 static regex_t re[NR_REGEX] = {};
 
-int eval(int p, int q){
-  if(p > q) assert(0) ;
-  else if(p == q) {
-    if(rules[p].token_type == 254) return strtoul(rules[p].regex, NULL, 0);
-    else if(rules[p].token_type == 253) return strtoul(rules[p].regex, NULL, 0); 
-    else if(rules[p].token_type == 252) return isa_reg_str2val(rules[p].regex+1, NULL);
-  }
-  else if(check_parentheses(p, q) == true){
-    return eval(p+1, q-1) ;
-  }
-  else {
-    int op = dominant_operator(p, q);
-    int val1 = eval(p, op-1);
-    int val2 = eval(op+1, q);
 
-    switch(op){
-      case TK_JIA : return val1 + val2 ;
-      case TK_JIAN : return val1 - val2 ;
-      case TK_CHENG : return val1 * val2 ;
-      case TK_CHU : return val1 / val2 ;
-      default: assert(0) ;
-    }
-  }
-  return 0 ;
-}
-  int khdt;
-bool check_parentheses(int p, int q){
-  int i;
-
-  if(rules[p].token_type != TK_RIGHT || rules[q].token_type != TK_LIFT ) return false ;
-  for(i = p; i < q; i++){
-    if(rules[i].token_type == TK_RIGHT) khdt += 1;
-    else if(rules[i].token_type == TK_LIFT) khdt -= 1;
-    if(khdt == 0 && i < q) return false ;
-  }
-  if(khdt != 0) return false ;
-  return true ;
-}
-
-int dominant_operator(int p , int q){
-  int i, dominant = p, lift_n = 0, jcq = 256 ;
-  for(i=p; i<=q; i++){
-    if(rules[i].token_type == TK_RIGHT){
-      lift_n +=1;
-      i++;
-      while(1){
-        if(rules[i].token_type == TK_RIGHT) lift_n +=1 ;
-        else if(rules[i].token_type == TK_LIFT) lift_n = lift_n - 1;
-        i++;
-        if(lift_n == 0) break ;
-      }
-      if(i>q) break ;
-    }
-    else if(rules[i].token_type == DTYPE) continue;
-    else if(rules[i].token_type == HEXTYPE) continue;
-    else if(rules[i].token_type < jcq){
-      jcq = rules[i].token_type ;
-      dominant = i ;
-    }
-  }
-  return dominant;
-}
 
 /* Rules are used for many times.
  * Therefore we compile them only once before any usage.
@@ -160,7 +100,13 @@ static bool make_token(char *e) {
          */
 
         switch (rules[i].token_type) {
-          default: TODO();
+//          default: TODO();
+          case TK_NOTYPE: break;
+          case HEXTYPE:
+          case DTYPE:
+          case REGNAME: sprintf(tokens[nr_token].str, "%.*s", substr_len, substr_start);
+          default: tokens[nr_token].type = rules[i].token_type;
+                   nr_token ++;
         }
 
         break;
@@ -176,11 +122,71 @@ static bool make_token(char *e) {
   return true;
 }
 
-word_t set_watchpoint(char *e){
-  bool success ;
-  word_t val = expr(e, &success);
+static int eval(int p, int q, bool *success){
+  if(p > q) {
+    *success = false ;
+    return 0;
+  }
+  else if(p == q) {
+    if(tokens[p].type == HEXTYPE) return strtoul(tokens[p].str, NULL, 0);
+    else if(tokens[p].type == DTYPE) return strtoul(tokens[p].str, NULL, 0); 
+    else if(tokens[p].type == REGNAME) return isa_reg_str2val(tokens[p].str, success);
+  }
+  else if(check_parentheses(p, q) == true){
+    return eval(p+1, q-1, success) ;
+  }
+  else {
+    int op = dominant_operator(p, q);
+    int op_type = tokens[op].type;
+    int val1 = eval(p, op-1, success);
+    int val2 = eval(op+1, q, success);
 
-  return val ;
+    switch(op_type){
+      case TK_JIA : return val1 + val2 ;
+      case TK_JIAN : return val1 - val2 ;
+      case TK_CHENG : return val1 * val2 ;
+      case TK_CHU : return val1 / val2 ;
+      default: assert(0) ;
+    }
+  }
+  return 0 ;
+}
+  int khdt;
+bool check_parentheses(int p, int q){
+  int i;
+
+  if(tokens[p].type != TK_RIGHT || tokens[q].type != TK_LIFT ) return false ;
+  for(i = p; i < q; i++){
+    if(tokens[i].type == TK_RIGHT) khdt += 1;
+    else if(tokens[i].type == TK_LIFT) khdt -= 1;
+    if(khdt == 0 && i < q) return false ;
+  }
+  if(khdt != 0) return false ;
+  return true ;
+}
+
+int dominant_operator(int p , int q){
+  int i, dominant = p, lift_n = 0, jcq = 256 ;
+  for(i=p; i<=q; i++){
+    if(tokens[p].type == TK_RIGHT){
+      lift_n +=1;
+      i++;
+      while(1){
+        if(tokens[i].type == TK_RIGHT) lift_n +=1 ;
+        else if(tokens[i].type == TK_LIFT) lift_n = lift_n - 1;
+        i++;
+        if(lift_n == 0) break ;
+      }
+      if(i>q) break ;
+    }
+    else if(tokens[i].type == DTYPE) continue;
+    else if(tokens[i].type == HEXTYPE) continue;
+    else if(tokens[i].type < jcq){
+      jcq = tokens[i].type ;
+      dominant = i ;
+    }
+  }
+  return dominant;
 }
 
 word_t expr(char *e, bool *success) {
@@ -192,5 +198,5 @@ word_t expr(char *e, bool *success) {
   /* TODO: Insert codes to evaluate the expression. */
 //  TODO();
 
-  return eval(0, nr_token -1);
+  return eval(0, nr_token -1, success);
 }
