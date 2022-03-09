@@ -62,7 +62,7 @@ static int cmd_x(char *args){
 static int cmd_p(char *args){
   if(args != NULL) 
   
-  printf("%lx", set_watchpoint(args));
+  printf("0x%lx", set_watchpoint(args));
   return 0;
 }
 
