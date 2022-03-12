@@ -44,7 +44,7 @@ static int cmd_si (char *args) {
 
 static int cmd_info (char *args) {
   if(args[0] == 'r') isa_reg_display() ;
-  else if(args[0]== 'w')print_wp();
+  else if(args[0]== 'w') print_wp();
   return 0;
 }
 

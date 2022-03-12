@@ -97,7 +97,7 @@ void print_wp(){
   if(head == NULL) printf("no watchpoint\n");
   return;
 
-WP *p; 
+  WP *p; 
   for(p = head; p != NULL; p = p->next){
     printf("%8d\t%s\t" FMT_WORD "\n", p->NO, p->exp, p->value);
   }
