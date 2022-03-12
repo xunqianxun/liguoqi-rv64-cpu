@@ -44,6 +44,7 @@ static int cmd_si (char *args) {
 
 static int cmd_info (char *args) {
   if(args[0] == 'r') isa_reg_display() ;
+  else print_wp();
   return 0;
 }
 
@@ -56,6 +57,21 @@ static int cmd_x(char *args){
     int temp = vaddr_read(exprs+ i*4,4);
     printf("0x%x 0x%x\n",exprs + i*4,temp);
   }
+  return 0;
+}
+
+static int cmd_w(char *args){
+  comandw(args);
+  return 0;
+}
+
+static int cmd_d(char *args){
+  char *arg = strtok(NULL," ");
+  int num = 0;
+  sscanf(arg,"%d",&num);
+  bool ans = delete_wp(num);
+  if(ans) printf("delete watchpoint %d successfully!\n",num);
+  else printf("there is ont number id %d.\n",num);
   return 0;
 }
 
@@ -84,6 +100,8 @@ static struct {
   { "info", "print status information", cmd_info},
   { "x", "scan memory", cmd_x},
   { "p", "EXPR",cmd_p},
+  { "w", "set watch point", cmd_w},
+  { "d", "delete watch point", cmd_d},
   /* TODO: Add more commands */
 
 };
