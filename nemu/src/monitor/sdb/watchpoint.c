@@ -70,7 +70,7 @@ return 1;
 */
 
 static void free_WP(WP *p) {
-  assert(p >= wp_pool && p < wp_pool + NR_WP);
+ // assert(p >= wp_pool && p < wp_pool + NR_WP);
   free(p->exp);
   p->next = free_;
   free_ = p;
