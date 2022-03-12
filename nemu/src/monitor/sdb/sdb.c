@@ -71,7 +71,7 @@ static int cmd_d(char *args){
   sscanf(args,"%d",&num);
   bool ans = delete_wp(num);
   if(ans) printf("delete watchpoint %d successfully!\n",num);
-  else printf("there is ont number id %d.\n",num);
+  else if(!ans) printf("there is ont number id %d.\n",num);
   return 0;
 }
 
