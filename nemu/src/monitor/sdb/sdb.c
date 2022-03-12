@@ -66,9 +66,9 @@ static int cmd_w(char *args){
 }
 
 static int cmd_d(char *args){
-  char *arg = strtok(NULL," ");
+  if(args == NULL) return 0;
   int num = 0;
-  sscanf(arg,"%d",&num);
+  sscanf(args,"%d",&num);
   bool ans = delete_wp(num);
   if(ans) printf("delete watchpoint %d successfully!\n",num);
   else printf("there is ont number id %d.\n",num);
