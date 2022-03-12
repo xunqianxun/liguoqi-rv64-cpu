@@ -95,7 +95,6 @@ return true;
 
 void print_wp(){
   if(head == NULL) printf("no watchpoint\n");
-  return;
 
   WP *p; 
   for(p = head; p != NULL; p = p->next){
