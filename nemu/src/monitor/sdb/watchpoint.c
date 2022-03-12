@@ -44,7 +44,7 @@ temp->next = NULL ;
 bool success ;
 strcpy(temp->exp, exp);
 temp->value = expr(temp->exp,&success);
-assert(success);
+//assert(success);
 if(head == NULL) head = temp ;
 else{
   WP *p = head ;
