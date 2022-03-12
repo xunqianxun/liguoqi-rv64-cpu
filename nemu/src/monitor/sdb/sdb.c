@@ -8,6 +8,8 @@ static int is_batch_mode = false;
 
 void init_regex();
 void init_wp_pool();
+word_t vaddr_read(vaddr_t addr, int len) ;
+word_t set_watchpoint(char *e);
 
 /* We use the `readline' library to provide more flexibility to read from stdin. */
 static char* rl_gets() {
@@ -32,6 +34,53 @@ static int cmd_c(char *args) {
   return 0;
 }
 
+static int cmd_si (char *args) {
+  int step ;
+  if(args == NULL) step = 1 ;
+  else sscanf(args, "%d", &step);
+  cpu_exec(step) ;
+  return 0;
+}
+
+static int cmd_info (char *args) {
+  if(args[0] == 'r') isa_reg_display() ;
+  else if(args[0]== 'w') print_wp();
+  return 0;
+}
+
+static int cmd_x(char *args){
+  if(args == NULL) return 0;
+  int num , exprs ;
+  sscanf(args, "%d%x", &num , &exprs);
+  int i ;
+  for(i = 0 ; i < num ;i++){
+    int temp = vaddr_read(exprs+ i*4,4);
+    printf("0x%x 0x%x\n",exprs + i*4,temp);
+  }
+  return 0;
+}
+
+static int cmd_w(char *args){
+  comandw(args);
+  return 0;
+}
+
+static int cmd_d(char *args){
+  if(args == NULL) return 0;
+  int num = 0;
+  sscanf(args,"%d",&num);
+  bool ans = delete_wp(num);
+  if(ans) printf("delete watchpoint %d successfully!\n",num);
+  else if(!ans) printf("there is ont number id %d.\n",num);
+  return 0;
+}
+
+static int cmd_p(char *args){
+  if(args != NULL) 
+  
+  printf("0x%lx", set_watchpoint(args));
+  return 0;
+}
 
 static int cmd_q(char *args) {
   return -1;
@@ -47,7 +96,12 @@ static struct {
   { "help", "Display informations about all supported commands", cmd_help },
   { "c", "Continue the execution of the program", cmd_c },
   { "q", "Exit NEMU", cmd_q },
-
+  { "si","step by step execution", cmd_si},
+  { "info", "print status information", cmd_info},
+  { "x", "scan memory", cmd_x},
+  { "p", "EXPR",cmd_p},
+  { "w", "set watch point", cmd_w},
+  { "d", "delete watch point", cmd_d},
   /* TODO: Add more commands */
 
 };

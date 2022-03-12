@@ -7,8 +7,12 @@ const char *regs[] = {
   "a6", "a7", "s2", "s3", "s4", "s5", "s6", "s7",
   "s8", "s9", "s10", "s11", "t3", "t4", "t5", "t6"
 };
-
+//riscv64_CPU_state regsfile ;
 void isa_reg_display() {
+  int i ;
+  for (i=0;i<32;i++) {
+    printf("%s is %lx\n", regs[i] , gpr(i));
+  }
 }
 
 word_t isa_reg_str2val(const char *s, bool *success) {
