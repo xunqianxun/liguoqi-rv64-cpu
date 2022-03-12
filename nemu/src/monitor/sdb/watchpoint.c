@@ -53,19 +53,27 @@ else{
 }
 return temp;
 }
-
-void free_wp(WP *wp){
+/*
+int free_wp(WP *wp){
 if(wp == NULL) printf("input something\n");
 if(wp == head) head = head->next;
 else{
   WP *p = head ;
   while(p->next != wp) p = p->next;
-//  if(p == NULL) return 0;
+  if(p == NULL) return 0;
   p->next = wp->next;
 }
 wp->next = free_;
 free_ = wp;
-//return 1;
+return 1;
+}
+*/
+
+static void free_WP(WP *p) {
+  assert(p >= wp_pool && p < wp_pool + NR_WP);
+  free(p->exp);
+  p->next = free_;
+  free_ = p;
 }
 
 bool test_change(){
@@ -87,7 +95,7 @@ if(p == NULL) return false;
 if(q == NULL) head = p->next;
 else q->next = p->next;
 
-free_wp(p);
+free_WP(p);
 return true;
 }
 
