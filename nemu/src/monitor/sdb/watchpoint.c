@@ -41,7 +41,7 @@ WP *temp = free_;
 free_ = free_->next ;
 temp->next = NULL ;
 
-bool success = false ;
+bool success ;
 strcpy(temp->exp, exp);
 temp->value = expr(temp->exp,&success);
 assert(success);
