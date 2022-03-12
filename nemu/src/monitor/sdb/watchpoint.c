@@ -81,13 +81,11 @@ return 0;
 bool delete_wp(int NO){
 WP *p, *q = NULL;
 for(p=head; p != NULL; q=p, p = p->next){
-if(p->NO == NO) {
-  break;
-}
+if(p->NO == NO) {break;}
 }
 if(p == NULL) return false;
 if(q == NULL) head = p->next;
-else q-> next = p->next;
+else q->next = p->next;
 
 free_wp(p);
 return true;
