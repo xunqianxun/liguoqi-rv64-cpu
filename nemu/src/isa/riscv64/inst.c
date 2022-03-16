@@ -35,7 +35,7 @@ static void decode_operand(Decode *s, word_t *dest, word_t *src1, word_t *src2, 
     case TYPE_I: src1R(rs1);     src2I(immI(i)); destI(rd);  break;
     case TYPE_U: src1I(immU(i)); destI(rd);      break;
     case TYPE_S: destI(immS(i)); src1R(rs1);     src2R(rs2); break;
-    case TYPE_J: src1I(s->pc);   src2I(j_of(i)); destI(rd);  s->pc=R(rd); break;
+    case TYPE_J: src1I(s->pc);   src2I(j_of(i)); destI(rd);  s->snpc=R(rd); break;
   }
 }
 
