@@ -75,8 +75,7 @@ static int decode_exec(Decode *s) {
   INSTPAT("??????? ????? ????? 110 ????? 11000 11", bltu   , B, if(src1 <= src2) s->dnpc =src1 + src2; else s->pc = s->pc;);
   INSTPAT("??????? ????? ????? 001 ????? 11000 11", bne    , B, if(src1 != src2) s->dnpc =src1 + src2; else s->pc = s->pc;);
   //INSTPAT("??????? ????? ????? 011 ????? 11100 11", csrrc  , I, )
-  INSTPAT("??????? ????? ????? 000 ????? 00000 11", lb     , I, switch ((src1 + src2) & 0b111)
-  {
+  INSTPAT("??????? ????? ????? 000 ????? 00000 11", lb     , I, switch ((src1 + src2) & 0b111){
   case 0b000: R(dest) = (Mr(src1 + src2, 8) & 0b11111111) | 0xffffffffffffff00; break;
   case 0b001: R(dest) = (Mr(src1 + src2, 8) & 0b11111111) | 0xffffffffffff00ff; break;
   case 0b010: R(dest) = (Mr(src1 + src2, 8) & 0b11111111) | 0xffffffffff00ffff; break;
@@ -84,10 +83,54 @@ static int decode_exec(Decode *s) {
   case 0b100: R(dest) = (Mr(src1 + src2, 8) & 0b11111111) | 0xffffff00ffffffff; break;
   case 0b101: R(dest) = (Mr(src1 + src2, 8) & 0b11111111) | 0xffff00ffffffffff; break;
   case 0b110: R(dest) = (Mr(src1 + src2, 8) & 0b11111111) | 0xff00ffffffffffff; break;
-  default:    R(dest) = (Mr(src1 + src2, 8) & 0b11111111) | 0x00ffffffffffffff; break;
-  });
-  INSTPAT("??????? ????? ????? 100 ????? 00000 11", lbu    , I, R(dest) = Mr(src1 + src2, 1));
-  INSTPAT("??????? ????? ????? 001 ????? 00000 11", lh     , I, R(dest) = Mr(src1 + src2, 2));
+  default:    R(dest) = (Mr(src1 + src2, 8) & 0b11111111) | 0x00ffffffffffffff; break; });
+  INSTPAT("??????? ????? ????? 100 ????? 00000 11", lbu    , I, switch ((src1 + src2) & 0b111){
+  case 0b000: R(dest) = (Mr(src1 + src2, 8) & 0b11111111) | 0xffffffffffffff00; break;
+  case 0b001: R(dest) = (Mr(src1 + src2, 8) & 0b11111111) | 0xffffffffffff00ff; break;
+  case 0b010: R(dest) = (Mr(src1 + src2, 8) & 0b11111111) | 0xffffffffff00ffff; break;
+  case 0b011: R(dest) = (Mr(src1 + src2, 8) & 0b11111111) | 0xffffffff00ffffff; break;
+  case 0b100: R(dest) = (Mr(src1 + src2, 8) & 0b11111111) | 0xffffff00ffffffff; break;
+  case 0b101: R(dest) = (Mr(src1 + src2, 8) & 0b11111111) | 0xffff00ffffffffff; break;
+  case 0b110: R(dest) = (Mr(src1 + src2, 8) & 0b11111111) | 0xff00ffffffffffff; break;
+  default:    R(dest) = (Mr(src1 + src2, 8) & 0b11111111) | 0x00ffffffffffffff; break; });
+  INSTPAT("??????? ????? ????? 001 ????? 00000 11", lh     , I, switch ((src1 + src2) & 0b110){
+  case 0b000: R(dest) = (Mr(src1 + src2, 8) & 0b11111111) | 0xffffffffffff0000; break;
+  case 0b010: R(dest) = (Mr(src1 + src2, 8) & 0b11111111) | 0xffffffff0000ffff; break;
+  case 0b100: R(dest) = (Mr(src1 + src2, 8) & 0b11111111) | 0xffff0000ffffffff; break;
+  default:    R(dest) = (Mr(src1 + src2, 8) & 0b11111111) | 0x0000ffffffffffff; break; });
+  INSTPAT("??????? ????? ????? 101 ????? 00000 11", lhu    , I, switch ((src1 + src2) & 0b110){
+  case 0b000: R(dest) = (Mr(src1 + src2, 8) & 0b11111111) | 0xffffffffffff0000; break;
+  case 0b010: R(dest) = (Mr(src1 + src2, 8) & 0b11111111) | 0xffffffff0000ffff; break;
+  case 0b100: R(dest) = (Mr(src1 + src2, 8) & 0b11111111) | 0xffff0000ffffffff; break;
+  default:    R(dest) = (Mr(src1 + src2, 8) & 0b11111111) | 0x0000ffffffffffff; break; });
+  INSTPAT("??????? ????? ????? 010 ????? 00000 11", lw     , I, switch ((src1 + src2) & 0b100){
+  case 0b000: R(dest) = (Mr(src1 + src2, 8) & 0b11111111) | 0x00000000ffffffff; break;
+  default:    R(dest) = (Mr(src1 + src2, 8) & 0b11111111) | 0xffffffff00000000; break; });
+  INSTPAT("??????? ????? ????? 110 ????? 00000 11", lwu    , I, switch ((src1 + src2) & 0b100){
+  case 0b000: R(dest) = (Mr(src1 + src2, 8) & 0b11111111) | 0x00000000ffffffff; break;
+  default:    R(dest) = (Mr(src1 + src2, 8) & 0b11111111) | 0xffffffff00000000; break; });
+  INSTPAT("0000000 ????? ????? 110 ????? 01100 11", or     , R, R(dest) = src1 | src2);
+  INSTPAT("??????? ????? ????? 110 ????? 00100 11", ori    , I, R(dest) = src1 + src2);
+  INSTPAT("??????? ????? ????? 000 ????? 01011 11", sb     , S, switch ((dest + src1) & 0b111){
+  case 0b000: Mw(src1 + dest, 8, ((Mr(src1 + dest, 8) & 0xffffffffffffff00) | (src2 & 0x00000000000000ff)));  break;
+  case 0b001: Mw(src1 + dest, 8, ((Mr(src1 + dest, 8) & 0xffffffffffff00ff) | (src2 & 0x00000000000000ff)));  break;
+  case 0b010: Mw(src1 + dest, 8, ((Mr(src1 + dest, 8) & 0xffffffffff00ffff) | (src2 & 0x00000000000000ff)));  break;
+  case 0b011: Mw(src1 + dest, 8, ((Mr(src1 + dest, 8) & 0xffffffff00ffffff) | (src2 & 0x00000000000000ff)));  break;
+  case 0b100: Mw(src1 + dest, 8, ((Mr(src1 + dest, 8) & 0xffffff00ffffffff) | (src2 & 0x00000000000000ff)));  break;
+  case 0b101: Mw(src1 + dest, 8, ((Mr(src1 + dest, 8) & 0xffff00ffffffffff) | (src2 & 0x00000000000000ff)));  break;
+  case 0b110: Mw(src1 + dest, 8, ((Mr(src1 + dest, 8) & 0xff00ffffffffffff) | (src2 & 0x00000000000000ff)));  break;
+  default:    Mw(src1 + dest, 8, ((Mr(src1 + dest, 8) & 0x00ffffffffffffff) | (src2 & 0x00000000000000ff)));  break; });
+  INSTPAT("??????? ????? ????? 001 ????? 01000 11", sh      , S, switch ((dest + src1) & 0b110){
+  case 0b000: Mw(src1 + dest, 8, ((Mr(src1 + dest, 8) & 0xffffffffffff0000) | (src2 & 0x000000000000ffff)));  break;
+  case 0b010: Mw(src1 + dest, 8, ((Mr(src1 + dest, 8) & 0xffffffff0000ffff) | (src2 & 0x000000000000ffff)));  break;
+  case 0b100: Mw(src1 + dest, 8, ((Mr(src1 + dest, 8) & 0xffff0000ffffffff) | (src2 & 0x000000000000ffff)));  break;
+  default:    Mw(src1 + dest, 8, ((Mr(src1 + dest, 8) & 0x0000ffffffffffff) | (src2 & 0x000000000000ffff)));  break; });
+  INSTPAT("??????? ????? ????? 010 ????? 01000 11", sw      , S, switch ((dest + src1) & 0b100){
+  case 0b000: Mw(src1 + dest, 8, ((Mr(src1 + dest, 8) & 0xffffffff00000000) | (src2 & 0x00000000ffffffff)));  break;
+  default:    Mw(src1 + dest, 8, ((Mr(src1 + dest, 8) & 0x00000000ffffffff) | (src2 & 0x00000000ffffffff)));  break; });
+  INSTPAT("0000000 ????? ????? 001 ????? 01100 11", sll     , R, R(dest) = (src1 << (src2 & 0x00000000000000e0)));
+  INSTPAT("0000000 ????? ????? 001 ????? 00110 11", slliw   , I, R(dest) = (src1 << src2) & 0x00000000ffffffff);
+ // INSTPAT("")
   INSTPAT("??????? ????? ????? ??? ????? ????? ??", inv    , N, INV(s->pc));
   INSTPAT_END();
 
