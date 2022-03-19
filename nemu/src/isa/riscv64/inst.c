@@ -25,6 +25,7 @@ static word_t immI(uint32_t i) { return SEXT(BITS(i, 31, 20), 12); }
 static word_t immU(uint32_t i) { return SEXT(BITS(i, 31, 12), 20) << 12; }
 static word_t immS(uint32_t i) { return (SEXT(BITS(i, 31, 25), 7) << 5) | BITS(i, 11, 7); }
 static word_t j_of(uint32_t i) { return (SEXT(BITS(i, 31, 31), 1) << 19) | (BITS(i, 19, 12) << 11) | (BITS(i, 20, 20) << 10) | BITS(i, 30, 21) << 1; }
+static word_t immB(uint32_t i) { return (SEXT(BITS(i, 31, 31), 1) << 12) | (BITS(i, 7, 7) << 11) | (BITS(i, 30, 25) << 4) | BITS(i, 11, 8);}
 
 static void decode_operand(Decode *s, word_t *dest, word_t *src1, word_t *src2, int type) {
   uint32_t i = s->isa.inst.val;
@@ -39,7 +40,7 @@ static void decode_operand(Decode *s, word_t *dest, word_t *src1, word_t *src2, 
     case TYPE_S: destI(immS(i)); src1R(rs1);     src2R(rs2); break;
     case TYPE_J: src1I(s->pc);   src2I(j_of(i)); destI(rd);  break;
     case TYPE_R: src1R(rs1);     src2R(rs2);     destI(rd);  break;
-    case TYPE_B: src1R(rs1);     src2R(rs2);     break;
+    case TYPE_B: src1R(rs1);     src2R(immB(i)); break;
   }
 }
 
@@ -68,6 +69,25 @@ static int decode_exec(Decode *s) {
   //INSTPAT("0000000 ????? ????? 000 ????? 01110 11", addiw  , I, );
   INSTPAT("0000000 ????? ????? 111 ????? 01100 11", and    , R, R(dest) = src1 & src2);
   INSTPAT("??????? ????? ????? 000 ????? 11000 11", beq    , B, if(src1 == src2) s->dnpc =src1 + src2; else s->pc = s->pc;);
+  INSTPAT("??????? ????? ????? 101 ????? 11000 11", bge    , B, if(src1 >= src2) s->dnpc =src1 + src2; else s->pc = s->pc;);
+  INSTPAT("??????? ????? ????? 111 ????? 11000 11", begu   , B, if(src1 >= src2) s->dnpc =src1 + src2; else s->pc = s->pc;);
+  INSTPAT("??????? ????? ????? 100 ????? 11000 11", blt    , B, if(src1 <= src2) s->dnpc =src1 + src2; else s->pc = s->pc;);
+  INSTPAT("??????? ????? ????? 110 ????? 11000 11", bltu   , B, if(src1 <= src2) s->dnpc =src1 + src2; else s->pc = s->pc;);
+  INSTPAT("??????? ????? ????? 001 ????? 11000 11", bne    , B, if(src1 != src2) s->dnpc =src1 + src2; else s->pc = s->pc;);
+  //INSTPAT("??????? ????? ????? 011 ????? 11100 11", csrrc  , I, )
+  INSTPAT("??????? ????? ????? 000 ????? 00000 11", lb     , I, switch ((src1 + src2) & 0b111)
+  {
+  case 0b000: R(dest) = (Mr(src1 + src2, 8) & 0b11111111) | 0xffffffffffffff00; break;
+  case 0b001: R(dest) = (Mr(src1 + src2, 8) & 0b11111111) | 0xffffffffffff00ff; break;
+  case 0b010: R(dest) = (Mr(src1 + src2, 8) & 0b11111111) | 0xffffffffff00ffff; break;
+  case 0b011: R(dest) = (Mr(src1 + src2, 8) & 0b11111111) | 0xffffffff00ffffff; break;
+  case 0b100: R(dest) = (Mr(src1 + src2, 8) & 0b11111111) | 0xffffff00ffffffff; break;
+  case 0b101: R(dest) = (Mr(src1 + src2, 8) & 0b11111111) | 0xffff00ffffffffff; break;
+  case 0b110: R(dest) = (Mr(src1 + src2, 8) & 0b11111111) | 0xff00ffffffffffff; break;
+  default:    R(dest) = (Mr(src1 + src2, 8) & 0b11111111) | 0x00ffffffffffffff; break;
+  });
+  INSTPAT("??????? ????? ????? 100 ????? 00000 11", lbu    , I, R(dest) = Mr(src1 + src2, 1));
+  INSTPAT("??????? ????? ????? 001 ????? 00000 11", lh     , I, R(dest) = Mr(src1 + src2, 2));
   INSTPAT("??????? ????? ????? ??? ????? ????? ??", inv    , N, INV(s->pc));
   INSTPAT_END();
 
