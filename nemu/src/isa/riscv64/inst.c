@@ -25,7 +25,7 @@ static word_t immI(uint32_t i) { return SEXT(BITS(i, 31, 20), 12); }
 static word_t immU(uint32_t i) { return SEXT(BITS(i, 31, 12), 20) << 12; }
 static word_t immS(uint32_t i) { return (SEXT(BITS(i, 31, 25), 7) << 5) | BITS(i, 11, 7); }
 static word_t j_of(uint32_t i) { return (SEXT(BITS(i, 31, 31), 1) << 19) | (BITS(i, 19, 12) << 11) | (BITS(i, 20, 20) << 10) | BITS(i, 30, 21) << 1; }
-static word_t immB(uint32_t i) { return (SEXT(BITS(i, 31, 31), 1) << 11) | (BITS(i, 7, 7) << 10) | (BITS(i, 30, 25) << 4) | BITS(i, 11, 8) << 1;}
+static word_t immB(uint32_t i) { return (SEXT(BITS(i, 31, 31), 1) << 12) | (BITS(i, 7, 7) << 11) | (BITS(i, 30, 25) << 5) | BITS(i, 11, 8) << 1;}
 
 static void decode_operand(Decode *s, word_t *dest, word_t *src1, word_t *src2, int type) {
   uint32_t i = s->isa.inst.val;
@@ -74,7 +74,7 @@ static int decode_exec(Decode *s) {
   INSTPAT("??????? ????? ????? 111 ????? 11000 11", begu   , B, if(src1 >= src2) s->dnpc =s->pc + dest; else s->pc = s->pc;);
   INSTPAT("??????? ????? ????? 100 ????? 11000 11", blt    , B, if(src1 <= src2) s->dnpc =s->pc + dest; else s->pc = s->pc;);
   INSTPAT("??????? ????? ????? 110 ????? 11000 11", bltu   , B, if(src1 <= src2) s->dnpc =s->pc + dest; else s->pc = s->pc;);
-  INSTPAT("??????? ????? ????? 001 ????? 11000 11", bne    , B, if(src1 != src2) { if((dest & 0x800) == 1) s->dnpc =s->pc - (~dest + 1); else s->dnpc =s->pc + dest;} else s->pc = s->pc;);
+  INSTPAT("??????? ????? ????? 001 ????? 11000 11", bne    , B, if(src1 != src2) { if((dest & 0x1000) == 1) s->dnpc =s->pc - (~dest + 1); else s->dnpc =s->pc + dest;} else s->pc = s->pc;);
   //INSTPAT("??????? ????? ????? 011 ????? 11100 11", csrrc  , I, )
   INSTPAT("??????? ????? ????? 000 ????? 00000 11", lb     , I, switch ((src1 + src2) & 0b111){
   case 0b000: src1 = (Mr(src1 + src2, 8) & 0x00000000000000ff); if((src1 & 0x0000000000000080) == 1) R(dest) = 0xffffffffffffff00 | src1 ; else R(dest) = src1; break;
