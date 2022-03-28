@@ -5,31 +5,44 @@
 // The class here is then constructed to instantiate the design.
 // See the Verilator manual for examples.
 
-#ifndef VERILATED_VTOP_H_
-#define VERILATED_VTOP_H_  // guard
+#ifndef VERILATED_VRVCPU_H_
+#define VERILATED_VRVCPU_H_  // guard
 
 #include "verilated_heavy.h"
+#include "svdpi.h"
 
-class Vtop__Syms;
-class Vtop___024root;
+class Vrvcpu__Syms;
+class Vrvcpu___024root;
 class VerilatedVcdC;
-class Vtop_VerilatedVcd;
+class Vrvcpu_VerilatedVcd;
 
 
 // This class is the main interface to the Verilated model
-class Vtop VL_NOT_FINAL {
+class Vrvcpu VL_NOT_FINAL {
   private:
     // Symbol table holding complete model state (owned by this class)
-    Vtop__Syms* const vlSymsp;
+    Vrvcpu__Syms* const vlSymsp;
 
   public:
 
     // PORTS
     // The application code writes and reads these signals to
     // propagate new values into/out from the Verilated model.
-    VL_IN8(&a,0,0);
-    VL_IN8(&b,0,0);
-    VL_OUT8(&f,0,0);
+    VL_IN8(&clk,0,0);
+    VL_IN8(&rst,0,0);
+    VL_OUT64(&inst_addr,63,0);
+    VL_OUT8(&inst_ena,0,0);
+    VL_OUT8(&inst_ready,0,0);
+    VL_IN(&inst,31,0);
+    VL_IN8(&bui_inst_valid,0,0);
+    VL_OUT64(&data_addr,63,0);
+    VL_OUT8(&wmask,7,0);
+    VL_OUT64(&data_o,63,0);
+    VL_IN64(&data_i,63,0);
+    VL_OUT8(&we,0,0);
+    VL_OUT8(&re,0,0);
+    VL_IN8(&mem_finish,0,0);
+    VL_IN8(&timer_intr,0,0);
 
     // CELLS
     // Public to allow access to /* verilator public */ items.
@@ -37,19 +50,19 @@ class Vtop VL_NOT_FINAL {
 
     // Root instance pointer to allow access to model internals,
     // including inlined /* verilator public_flat_* */ items.
-    Vtop___024root* const rootp;
+    Vrvcpu___024root* const rootp;
 
     // CONSTRUCTORS
     /// Construct the model; called by application code
     /// If contextp is null, then the model will use the default global context
     /// If name is "", then makes a wrapper with a
     /// single model invisible with respect to DPI scope names.
-    explicit Vtop(VerilatedContext* contextp, const char* name = "TOP");
-    explicit Vtop(const char* name = "TOP");
+    explicit Vrvcpu(VerilatedContext* contextp, const char* name = "TOP");
+    explicit Vrvcpu(const char* name = "TOP");
     /// Destroy the model; called (often implicitly) by application code
-    virtual ~Vtop();
+    virtual ~Vrvcpu();
   private:
-    VL_UNCOPYABLE(Vtop);  ///< Copying not allowed
+    VL_UNCOPYABLE(Vrvcpu);  ///< Copying not allowed
 
   public:
     // API METHODS
@@ -69,6 +82,9 @@ class Vtop VL_NOT_FINAL {
     VerilatedContext* contextp() const;
     /// Retrieve name of this model instance (as passed to constructor).
     const char* name() const;
+
+    /// DPI Export functions
+    static void svtoc(int* inst_data);
 } VL_ATTR_ALIGNED(VL_CACHE_LINE_BYTES);
 
 #endif  // guard
