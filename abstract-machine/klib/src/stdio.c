@@ -17,15 +17,34 @@ int printf(const char *fmt, ...) {
 }
 
 int vsprintf(char *out, const char *fmt, va_list ap) {
- panic("Not implemented");
-// char* p;
-// char tmp[256];
-// va_list p_next_arg = ap;
+  panic("Not implemented");
+// int len;
+// unsigned long num;
+// int i, base;
+// char *str;
+// const char *s;
+
+// int flags;
+
+// int field_width;
+// int precision;
+// int qualifier;
+
+// for(str = buf; *fmt; ++fmt){
+//   if(*fmt != '%'){
+
+//   }
+// }
 }
 
 int sprintf(char *out, const char *fmt, ...) {
-  panic("Not implemented");
-
+ panic("Not implemented");
+// va_list args;
+// int val;
+// va_start(args, fmt);
+// val = vsprintf(out, fmt, args);
+// va_end(args);
+// return val;
 }
 
 int snprintf(char *out, size_t n, const char *fmt, ...) {
