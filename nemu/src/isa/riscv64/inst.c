@@ -137,8 +137,8 @@ static int decode_exec(Decode *s) {
   INSTPAT("??????? ????? ????? 010 ????? 00100 11", slti    , I, R(dest) = (src1 < src2) ? 1 : 0);
   INSTPAT("??????? ????? ????? 011 ????? 00100 11", sltiu   , I, R(dest) = (src1 < src2) ? 1 : 0);
   INSTPAT("0000000 ????? ????? 011 ????? 01100 11", sltu    , R, R(dest) = (src1 < src2) ? 1 : 0);
-  INSTPAT("0100000 ????? ????? 101 ????? 01100 11", sra     , R, if((src1 & 0x1000000000000000) == 1) R(dest) = (0xffffffffffffffff << (64 - (src2 & 0x000000000000001f)) | (src2 >> (src2 & 0x000000000000001f))); else R(dest) = (src1 >> (src2 & 0x000000000000001f)); );
-  INSTPAT("0100000 ????? ????? 101 ????? 00100 11", srai    , I, if((src1 & 0x1000000000000000) == 1) R(dest) = ((0xffffffffffffffff << (64 - src2)) | (src1 >> src2)); else R(dest) = src2 >> src1; );
+  INSTPAT("0100000 ????? ????? 101 ????? 01100 11", sra     , R, if((src1 & 0x1000000000000000) == 1) R(dest) = (0xffffffffffffffff << (64 - (src2 & 0x000000000000001f)) | (src1 >> (src2 & 0x000000000000001f))); else R(dest) = (src1 >> (src2 & 0x000000000000001f)); );
+  INSTPAT("0100000 ????? ????? 101 ????? 00100 11", srai    , I, if((src1 & 0x1000000000000000) == 1) R(dest) = ((0xffffffffffffffff << (64 - src2)) | (src1 >> src2)); else R(dest) = src1 >> src2; );
   INSTPAT("0100000 ????? ????? 101 ????? 00110 11", sraiw   , I, if((src1 & 0x10000000) == 1) R(dest) = ((0xffffffff00000000 >> (src2 & 0x000000000000001f) | 0xffffffff00000000) | ((src1 | 0x00000000ffffffff) >> (src2 & 0x000000000000001f))); else R(dest) = ((src1 | 0x00000000ffffffff) >> (src2 & 0x000000000000001f)); );
   INSTPAT("0100000 ????? ????? 101 ????? 01110 11", sraw    , R, if((src1 & 0x10000000) == 1) R(dest) = ((0xffffffff00000000 >> (src2 & 0x000000000000001f) | 0xffffffff00000000) | ((src1 | 0x00000000ffffffff) >> (src2 & 0x000000000000001f))); else R(dest) = ((src1 | 0x00000000ffffffff) >> (src2 & 0x000000000000001f)); );
   INSTPAT("0000000 ????? ????? 101 ????? 01100 11", srl     , R, R(dest) = (src1 >> (src2 & 0x000000000000001f)));
