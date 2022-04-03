@@ -21,7 +21,8 @@ module regfile (
 	input                   wire                                     re2            ,     
 
 	input                   wire                                     x1_read_ena    ,
-	output                  wire     [`ysyx22040228_REGBUS]          x1_data        //,
+	output                  wire     [`ysyx22040228_REGBUS]          x1_data        ,
+	input                   wire     [`ysyx22040228_REGADDRBUS]      x1_addr        
 
 //	output                  wire     [ 7:0]                         trap_code      ,
 
@@ -48,7 +49,7 @@ end
 assign rdata1 = ((rst == `ysyx22040228_RSTENA) && (re1 == `ysyx22040228_RENABLE)) ? (((waddr == raddr1) && (we == `ysyx22040228_WENABLE) ? wdata : regs[raddr1])) : `ysyx22040228_ZEROWORD ;
 assign rdata2 = ((rst == `ysyx22040228_RSTENA) && (re2 == `ysyx22040228_RENABLE)) ? (((waddr == raddr2) && (we == `ysyx22040228_WENABLE) ? wdata : regs[raddr2])) : `ysyx22040228_ZEROWORD ;
 
-assign x1_data  = ((rst == `ysyx22040228_RSTENA) && (x1_read_ena == `ysyx22040228_RENABLE)) ? (((waddr == 5'b00001) && (we == `ysyx22040228_WENABLE) ? wdata : regs[raddr1])) : `ysyx22040228_ZEROWORD ;
+assign x1_data  = ((rst == `ysyx22040228_RSTENA) && (x1_read_ena == `ysyx22040228_RENABLE)) ? (((waddr == x1_addr) && (we == `ysyx22040228_WENABLE) ? wdata : regs[raddr1])) : `ysyx22040228_ZEROWORD ;
 
 endmodule//regfile
 

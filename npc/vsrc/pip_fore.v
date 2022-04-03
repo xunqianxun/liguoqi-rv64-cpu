@@ -11,6 +11,7 @@ module pip_fore (
     input            wire    [`ysyx22040228_REGBUS]         x1_data  ,
     
     output           wire    [`ysyx22040228_PCBUS]          pc_o     ,
+    output           wire    [`ysyx22040228_REGADDRBUS]     x1_addr  ,
     output           wire                                   x1_ena   
 );
 
@@ -22,6 +23,7 @@ wire   [12:1] b_imm;
 assign {b_imm[12] , b_imm[10:5] , b_imm[4:1] , b_imm[11]} = {inst[31:25] , inst[11:7]} ; 
 
 wire [6:0] opcode;
+assign x1_addr = inst[19:15];
 assign opcode = inst[6:0];
 wire inst_jal  ;
 wire inst_jalr ;

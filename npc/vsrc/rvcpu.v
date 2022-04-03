@@ -61,6 +61,7 @@ assign inst_addr = pc                                ;
 //about Pip_prediction
 wire    [`ysyx22040228_REGBUS]           pip_regfile_x1     ;
 wire                                     pip_refflie_x1_ena ;
+wire    [`ysyx22040228_REGADDRBUS]       pip_regfile_x1_addr;
 wire    [`ysyx22040228_PCBUS]            pip_pc             ;
 
 //about pc
@@ -147,6 +148,7 @@ pip_fore pip_fore0 (
     .inst                (inst                 ),
     .x1_data             (pip_regfile_x1       ),
     .x1_ena              (pip_refflie_x1_ena   ),
+    .x1_addr             (pip_regfile_x1_addr  ),
     .pc_o                (pip_pc               )
 );
 
@@ -389,7 +391,8 @@ regfile regfile10 (
    .re2                  (id_reg_ena2          ),     
 
    .x1_read_ena          (pip_refflie_x1_ena   ),
-   .x1_data              (pip_regfile_x1       )//,
+   .x1_data              (pip_regfile_x1       ),
+   .x1_addr              (pip_regfile_x1_addr  )
 
    //.trap_code            () ,
 

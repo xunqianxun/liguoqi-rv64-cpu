@@ -230,7 +230,7 @@ wire wb_op1 ;
 assign wb_op1 = (wb_rd_addr == op1_addr_o) && wb_rd_ena ;
 
 wire [`ysyx22040228_PCBUS] jalr_pc_temp = {{52{imm[11]}} , imm} + op1_o ;
-wire predict_success = ~ex_op1 & ~mem_op1 & ~wb_op1 & (op1_addr_o == 5'd1) ;
+wire predict_success = ~ex_op1 & ~mem_op1 & ~wb_op1 ;//& (op1_addr_o == 5'd1) ;
 
 assign jalr_pc_ena = (rst == `ysyx22040228_RSTENA) ? 0 : inst_jalr && ~predict_success ;
 assign jalr_pc     = inst_jalr ? {jalr_pc_temp[63:1] , 1'b0 & jalr_pc_temp[0]} : `ysyx22040228_ZEROWORD ;
