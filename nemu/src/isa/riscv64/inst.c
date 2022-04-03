@@ -122,13 +122,13 @@ static int decode_exec(Decode *s) {
   case 0b101: Mw(src1 + dest, 8, ((Mr(src1 + dest, 8) & 0xffff00ffffffffff) | ((src2 & 0x00000000000000ff) << 40)));  break;
   case 0b110: Mw(src1 + dest, 8, ((Mr(src1 + dest, 8) & 0xff00ffffffffffff) | ((src2 & 0x00000000000000ff) << 48)));  break;
   default:    Mw(src1 + dest, 8, ((Mr(src1 + dest, 8) & 0x00ffffffffffffff) | ((src2 & 0x00000000000000ff) << 56)));  break; });
-  INSTPAT("??????? ????? ????? 001 ????? 01000 11", sh      , S, switch ((dest + src1) & 0b110){
-  case 0b000: Mw(src1 + dest, 8, ((Mr(src1 + dest, 8) & 0xffffffffffff0000) | (src2 & 0x000000000000ffff)));  break;
-  case 0b010: Mw(src1 + dest, 8, ((Mr(src1 + dest, 8) & 0xffffffff0000ffff) | ((src2 & 0x000000000000ffff) << 16)));  break;
-  case 0b100: Mw(src1 + dest, 8, ((Mr(src1 + dest, 8) & 0xffff0000ffffffff) | ((src2 & 0x000000000000ffff) << 32)));  break;
+  INSTPAT("??????? ????? ????? 001 ????? 01000 11", sh      , S, switch ((dest + src1) & 0b11){
+  case 0b00: Mw(src1 + dest, 8, ((Mr(src1 + dest, 8) & 0xffffffffffff0000) | (src2 & 0x000000000000ffff)));  break;
+  case 0b01: Mw(src1 + dest, 8, ((Mr(src1 + dest, 8) & 0xffffffff0000ffff) | ((src2 & 0x000000000000ffff) << 16)));  break;
+  case 0b10: Mw(src1 + dest, 8, ((Mr(src1 + dest, 8) & 0xffff0000ffffffff) | ((src2 & 0x000000000000ffff) << 32)));  break;
   default:    Mw(src1 + dest, 8, ((Mr(src1 + dest, 8) & 0x0000ffffffffffff) | ((src2 & 0x000000000000ffff) << 48)));  break; });
-  INSTPAT("??????? ????? ????? 010 ????? 01000 11", sw      , S, switch ((dest + src1) & 0b100){
-  case 0b000: Mw(src1 + dest, 8, ((Mr(src1 + dest, 8) & 0xffffffff00000000) | (src2 & 0x00000000ffffffff)));  break;
+  INSTPAT("??????? ????? ????? 010 ????? 01000 11", sw      , S, switch ((dest + src1) & 0b1){
+  case 0b0: Mw(src1 + dest, 8, ((Mr(src1 + dest, 8) & 0xffffffff00000000) | (src2 & 0x00000000ffffffff)));  break;
   default:    Mw(src1 + dest, 8, ((Mr(src1 + dest, 8) & 0x00000000ffffffff) | ((src2 & 0x00000000ffffffff) << 32)));  break; });
   INSTPAT("0000000 ????? ????? 001 ????? 01100 11", sll     , R, R(dest) = (src1 << (src2 & 0x000000000000001f)));
   INSTPAT("0000000 ????? ????? 001 ????? 00110 11", slliw   , I, R(dest) = (src1 << src2) & 0x00000000ffffffff);
