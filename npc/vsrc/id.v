@@ -223,7 +223,7 @@ always @(*) begin
   else if(inst_type[4] |inst_type[5] |inst_type[7]) begin op2_o = {{52{imm[11]}},imm}     ; end
   else if(inst_lui|inst_auipc)                      begin op2_o = {{44{u_imm[19]}},u_imm} ; end
   else if(inst_jump)                                begin op2_o = pc_i                    ; end 
-  else                                              begin op2_o = `ysyx22040228_ZEROWORD              ; end    
+  else                                              begin op2_o = `ysyx22040228_ZEROWORD  ; end    
 end
 
 wire wb_op1 ;
