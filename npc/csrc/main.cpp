@@ -4,31 +4,11 @@
 #include "Vrvcpu.h"
 #include <verilated.h>          
 #include <verilated_vcd_c.h>  
-//#include <svdpi.h>
-#include "pmem.cpp"
+#include "paddr.cpp"
 #include <Vrvcpu__Dpi.h>
 
 #define right 0
 #define fals  1
-#define EBREAK 0x100073
-
-//extern int svtoc(int b);
-//int returninst(int i){
-//  if(i == 0b1110011) return fals;
-//  else return right;
-//}
-
-bool instfsv(){
-  int inst;
-  svtoc(&inst);
-  if(inst == EBREAK){return right;}
-  else {return fals;}
-}
-
-//int falsethat(){
-//  if(svtoc(EBREAK) == EBREAK) return fals;
-//  else return right;
-//}
 
 vluint64_t main_time = 0;
 double sc_time_stamp(){
@@ -45,7 +25,7 @@ rvcpu->trace(tfp,0) ;
 tfp->open("obj_dir/rvcpu.vcd") ; // open vcd
 rvcpu->rst = 1;
 rvcpu->bui_inst_valid = fals;
-while(sc_time_stamp()<1000 && !contextp->gotFinish()){
+while(sc_time_stamp()<1000 && (!contextp->gotFinish())){
 //  int a = rand() & 1 ;
 //  int b = rand() & 1 ;
 if(main_time > 10){

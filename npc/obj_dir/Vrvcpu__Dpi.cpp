@@ -14,11 +14,11 @@
 #include "Vrvcpu__Dpi.h"
 #include "Vrvcpu.h"
 
-#ifndef VL_DPIDECL_svtoc_
-#define VL_DPIDECL_svtoc_
-void svtoc(int* inst_data) {
-    // DPI export at vsrc/rvcpu.v:43:6
-    return Vrvcpu::svtoc(inst_data);
+#ifndef VL_DPIDECL_Ebreak_teap_
+#define VL_DPIDECL_Ebreak_teap_
+svBit Ebreak_teap() {
+    // DPI export at vsrc/ex.v:50:14
+    return Vrvcpu::Ebreak_teap();
 }
 #endif
 

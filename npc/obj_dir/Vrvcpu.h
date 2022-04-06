@@ -84,7 +84,7 @@ class Vrvcpu VL_NOT_FINAL {
     const char* name() const;
 
     /// DPI Export functions
-    static void svtoc(int* inst_data);
+    static svBit Ebreak_teap();
 } VL_ATTR_ALIGNED(VL_CACHE_LINE_BYTES);
 
 #endif  // guard

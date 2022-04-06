@@ -13,8 +13,8 @@ extern "C" {
 
 
     // DPI EXPORTS
-    // DPI export at vsrc/rvcpu.v:43:6
-    extern void svtoc(int* inst_data);
+    // DPI export at vsrc/ex.v:50:14
+    extern svBit Ebreak_teap();
 
 #ifdef __cplusplus
 }

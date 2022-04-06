@@ -39,11 +39,11 @@ module rvcpu (
 );
 
 //import "DPI-C" function int returninst(output int a);
-export "DPI-C" function svtoc;
-task svtoc;
-output int inst_data;
-inst_data = inst;
-endtask
+// export "DPI-C" function svtoc;
+// task svtoc;
+// output int inst_data;
+// inst_data = inst;
+// endtask
 
 //initial run();
 //function int svtoc(void);

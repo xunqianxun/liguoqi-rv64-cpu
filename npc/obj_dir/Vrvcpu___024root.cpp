@@ -9,11 +9,11 @@
 
 //==========
 
-void Vrvcpu___024root____Vdpiexp_rvcpu__DOT__svtoc_TOP(Vrvcpu__Syms* __restrict vlSymsp, IData/*31:0*/ &inst_data) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vrvcpu___024root____Vdpiexp_rvcpu__DOT__svtoc_TOP\n"); );
+void Vrvcpu___024root____Vdpiexp_rvcpu__DOT__ex5__DOT__Ebreak_teap_TOP(Vrvcpu__Syms* __restrict vlSymsp, CData/*0:0*/ &Ebreak_teap__Vfuncrtn) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vrvcpu___024root____Vdpiexp_rvcpu__DOT__ex5__DOT__Ebreak_teap_TOP\n"); );
     // Variables
     // Body
-    inst_data = vlSymsp->TOP.inst;
+    Ebreak_teap__Vfuncrtn = (0x10U == (IData)(vlSymsp->TOP.rvcpu__DOT__idex_ex_opcode));
 }
 
 VL_INLINE_OPT void Vrvcpu___024root___combo__TOP__1(Vrvcpu___024root* vlSelf) {

@@ -1,20 +1,25 @@
+ifeq ($(wildcard /home/mulin/ysyx-workbench/npc/csrc/main.cpp),)
+  $(error can't find the sim cpp file)
+endif
+
 VERILOG= ./vsrc/
 TARGET=main
 CC=g++
 OBJ=main.o
+Q=@
 
-all:cmp
+all:
 	@echo "yes i know"
 $(TARGET):$(OBJ)
-	$(CC) -o $(TARGET) $(OBJ)
+	$(Q)$(CC) -o $(TARGET) $(OBJ)
 $(OBJ):main.cpp stdio.h stdlib.h assert.h ./obj_dir/Vrvcpu.h
-	$(CC) -c main.cpp
-run:
-	verilator -Wall --trace --cc --exe -build ./csrc/main.cpp $(VERILOG)rvcpu.v
-	make -C obj_dir -f Vrvcpu.mk Vrvcpu
-	./obj_dir/Vrvcpu
+	$(Q)$(CC) -c main.cpp
+run:sim
+	$(Q)verilator -Wall --trace --cc --exe -build ./csrc/main.cpp $(VERILOG)rvcpu.v
+	$(Q)make -C obj_dir -f Vrvcpu.mk Vrvcpu
+	$(Q)./obj_dir/Vrvcpu
 gtk:
-	gtkwave ./obj_dir/rvcpu.vcd
+	$(Q)gtkwave ./obj_dir/rvcpu.vcd
 sim:
 	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
 	@echo "Write this Makefile by your self."
