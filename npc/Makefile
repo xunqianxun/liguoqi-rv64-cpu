@@ -9,11 +9,11 @@ Q=@
 all:
 
 run:sim
-	$(Q)verilator -Wall --trace --cc --exe -build ./csrc/main.cpp $(VERILOG)rvcpu.v
-	$(Q)make -C obj_dir -f Vrvcpu.mk Vrvcpu
-	$(Q)./obj_dir/Vrvcpu
+	verilator -Wall --trace --cc --exe -build ./csrc/main.cpp $(VERILOG)rvcpu.v
+	make -C obj_dir -f Vrvcpu.mk Vrvcpu
+	./obj_dir/Vrvcpu
 gtk:
-	$(Q)gtkwave ./obj_dir/rvcpu.vcd
+	gtkwave ./obj_dir/rvcpu.vcd
 sim:
 	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
 clean:
