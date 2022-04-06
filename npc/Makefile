@@ -3,9 +3,7 @@ ifeq ($(wildcard /home/mulin/ysyx-workbench/npc/csrc/main.cpp),)
 endif
 
 VERILOG= ./vsrc/
-TARGET=main
 CC=g++
-OBJ=main.o
 Q=@
 
 all:
@@ -19,6 +17,5 @@ gtk:
 sim:
 	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
 clean:
-	rm -rf *.o $(TARGET)
 .PHONY:clean
 include ../Makefile
