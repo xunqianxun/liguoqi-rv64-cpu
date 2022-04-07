@@ -7,8 +7,8 @@
 // }
 
 
-u_int64_t memery(int addr){
-    return (int *)addr;
+u_int64_t* memery(int addr){
+    return (u_int64_t *)addr;
     // switch (addr)
     // {
     // case 0x80000000: return 0xffc10113; break;
