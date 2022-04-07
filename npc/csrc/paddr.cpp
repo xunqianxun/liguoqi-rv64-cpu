@@ -1,14 +1,14 @@
 #include <iostream>
 
-u_int64_t *returnaddr(u_int64_t addr){ return addr;}
+// u_int64_t *returnaddr(u_int64_t addr){ return addr;}
 
-u_int64_t mem_rade(void *addr){
-    return *(u_int64_t *)addr;
-}
+// u_int64_t mem_rade(void *addr){
+//     return *(u_int64_t *)addr;
+// }
 
 
 u_int64_t memery(int addr){
-    return mem_rade(returnaddr(addr));
+    return int (int *)addr;
     // switch (addr)
     // {
     // case 0x80000000: return 0xffc10113; break;
