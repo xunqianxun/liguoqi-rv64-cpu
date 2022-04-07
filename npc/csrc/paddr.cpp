@@ -18,9 +18,9 @@ u_int32_t memery(u_int64_t addr){
      case 0x80000004: return 0xff010113; break;
      case 0x80000008: return 0x00000517; break;
      case 0x8000000c: return 0x01c50513; break;
-     //case 0x80000010: return *(u_int64_t *)0x80000010; break;
+     case 0x80000010: return 0x00000517; break;
     
-     default: return 0; break;
+     default: return *(u_int64_t *)0x80000010; break;
      }
 }
 
