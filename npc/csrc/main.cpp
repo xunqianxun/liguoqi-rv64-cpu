@@ -33,17 +33,14 @@ if(main_time > 10){
 }
 if((main_time % 10) == 1){
   rvcpu->clk = 1;
-  rvcpu->inst = memery(rvcpu->inst_addr);
+//  rvcpu->inst = memery(rvcpu->inst_addr);
   rvcpu->eval();
 
 }
 if((main_time % 10) == 6){
   rvcpu->clk = 0;
 }
-  //contextp-> timeInc(1) ;
   rvcpu->eval();
-  //printf("a= %d , b=%d , f=%d\n",a,b,top->f);
-  //assert(top->f == a^b);
   tfp->dump(main_time);
   main_time++;
 }
