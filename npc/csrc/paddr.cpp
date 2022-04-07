@@ -10,7 +10,7 @@
 
 u_int64_t memery(int addr){
     u_int64_t *inst = (u_int64_t *)addr;
-    std::cout << *inst << addr << (int *)0x80000000 << srd::endl
+    std::cout << *inst << addr << (int *)0x80000000 << std::endl;
     return *inst;
     // switch (addr)
     // {
