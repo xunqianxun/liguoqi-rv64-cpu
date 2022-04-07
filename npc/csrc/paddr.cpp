@@ -8,8 +8,8 @@
 // }
 
 
-u_int64_t memery(u_int64_t addr){
-    u_int64_t *inst = (u_int64_t *)addr;
+u_int32_t memery(u_int64_t addr){
+    u_int32_t *inst = (u_int64_t *)addr;
 //    std::cout << *inst << addr << (int *)0x80000000 << std::endl;
     return *inst;
     // switch (addr)
