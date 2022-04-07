@@ -25,7 +25,7 @@ rvcpu->trace(tfp,0) ;
 tfp->open("obj_dir/rvcpu.vcd") ; // open vcd
 rvcpu->rst = 1;
 rvcpu->bui_inst_valid = fals;
-while(sc_time_stamp()<1000 && (!contextp->gotFinish())){
+while(sc_time_stamp()<10000 && (!contextp->gotFinish())){
 //  int a = rand() & 1 ;
 //  int b = rand() & 1 ;
 if(main_time > 10){
