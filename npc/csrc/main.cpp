@@ -33,7 +33,7 @@ if(main_time > 10){
 }
 if((main_time % 10) == 1){
   rvcpu->clk = 1;
-//  rvcpu->inst = memery(rvcpu->inst_addr);
+  rvcpu->inst = memery(rvcpu->inst_addr);
   rvcpu->eval();
 
 }
