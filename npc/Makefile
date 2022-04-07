@@ -15,7 +15,7 @@ run:git
 	./obj_dir/Vrvcpu
 gtk:
 	gtkwave ./obj_dir/rvcpu.vcd
-git:
+git:gtk
 	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
 clean:
 	rm -rf $(SIM_DIR)
