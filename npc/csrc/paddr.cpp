@@ -8,7 +8,7 @@
 
 
 u_int64_t memery(int addr){
-    u_int64_t *inst = (u_int64_t *)addr;
+    u_int64_t *inst = addr;
     return inst;
     // switch (addr)
     // {
