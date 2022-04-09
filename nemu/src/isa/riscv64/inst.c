@@ -90,7 +90,7 @@ static int decode_exec(Decode *s) {
   INSTPAT("??????? ????? ????? 100 ????? 00000 11", lbu    , I, switch ((src1 + src2) & 0b111){
   case 0b000: R(dest) = (Mr(src1 + src2, 8) & 0x00000000000000ff); break;
   case 0b001: R(dest) = ((Mr(src1 + src2, 8) & 0x00000000000000ff) ); break;
-  case 0b010: R(dest) = ((Mr(src1 + src2, 8) & 0x0000000000ff0000) >> 16); break;
+  case 0b010: R(dest) = ((Mr(src1 + src2, 8) & 0x00000000000000ff) ); break;
   case 0b011: R(dest) = ((Mr(src1 + src2, 8) & 0x00000000ff000000) >> 24); break;
   case 0b100: R(dest) = ((Mr(src1 + src2, 8) & 0x000000ff00000000) >> 32); break;
   case 0b101: R(dest) = ((Mr(src1 + src2, 8) & 0x0000ff0000000000) >> 40); break;
