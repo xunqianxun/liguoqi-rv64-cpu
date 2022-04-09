@@ -132,7 +132,7 @@ static int decode_exec(Decode *s) {
   case 0b0: Mw(src1 + dest, 8, ((Mr(src1 + dest, 8) & 0xffffffff00000000) | (src2 & 0x00000000ffffffff)));  break;
   default:    Mw(src1 + dest, 8, ((Mr(src1 + dest, 8) & 0x00000000ffffffff) | ((src2 & 0x00000000ffffffff) << 32)));  break; });
   INSTPAT("0000000 ????? ????? 001 ????? 01100 11", sll     , R, R(dest) = (src1 << (src2 & 0x000000000000001f)));
-  INSTPAT("0000000 ????? ????? 001 ????? 00110 11", slliw   , I, src1 = (src1 << src2) & 0x00000000ffffffff; if((src1 & 0x8000000000000000) == 0x8000000000000000) R(dest) = 0xffffffff00000000 | src1; else R(dest) = src1;);
+  INSTPAT("0000000 ????? ????? 001 ????? 00110 11", slliw   , I, src1 = (src1 << src2) & 0x00000000ffffffff; if((src1 & 0x0000000080000000) == 0x0000000080000000) R(dest) = 0xffffffff00000000 | src1; else R(dest) = src1;);
   INSTPAT("0000000 ????? ????? 001 ????? 01110 11", sllw    , R, R(dest) = (src1 & 0x00000000ffffffff) << (src2 & 0x000000000000001f));
   INSTPAT("0000000 ????? ????? 010 ????? 01100 11", slt     , R, R(dest) = (src1 < src2) ? 1 : 0);
   INSTPAT("??????? ????? ????? 010 ????? 00100 11", slti    , I, R(dest) = (src1 < src2) ? 1 : 0);
