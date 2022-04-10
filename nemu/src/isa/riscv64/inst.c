@@ -87,15 +87,15 @@ static int decode_exec(Decode *s) {
   case 0b101: src1 = (Mr(src1 + src2, 8) & 0x0000ff0000000000); if((src1 & 0x0000800000000000) == 0x0000800000000000) R(dest) = (((0xffff000000000000 | src1) >> 40) | 0xffffffffff000000) ; else R(dest) = src1 >> 40; break;
   case 0b110: src1 = (Mr(src1 + src2, 8) & 0x00ff000000000000); if((src1 & 0x0080000000000000) == 0x0080000000000000) R(dest) = (((0xff00000000000000 | src1) >> 48) | 0xffffffffffff0000) ; else R(dest) = src1 >> 48; break;
   default:    src1 = (Mr(src1 + src2, 8) & 0xff00000000000000); if((src1 & 0x8000000000000000) == 0x8000000000000000) R(dest) = ((src1 >> 56) | 0xffffffffffffff00) ; else R(dest) = src1 >> 56; break; });
-  INSTPAT("??????? ????? ????? 100 ????? 00000 11", lbu    , I, switch ((src1 + src2) & 0b111){
-  case 0b000: R(dest) = (Mr(src1 + src2, 8) & 0x00000000000000ff); break;
-  case 0b001: R(dest) = ((Mr(src1 + src2, 8) & 0x000000000000ffff)); break;
-  case 0b010: R(dest) = ((Mr(src1 + src2, 8) & 0x0000000000ff0000) >> 16); break;
-  case 0b011: R(dest) = ((Mr(src1 + src2, 8) & 0x00000000ff000000) >> 24); break;
-  case 0b100: R(dest) = ((Mr(src1 + src2, 8) & 0x000000ff00000000) >> 32); break;
-  case 0b101: R(dest) = ((Mr(src1 + src2, 8) & 0x0000ff0000000000) >> 40); break;
-  case 0b110: R(dest) = ((Mr(src1 + src2, 8) & 0x00ff000000000000) >> 48); break;
-  default:    R(dest) = ((Mr(src1 + src2, 8) & 0xff00000000000000) >> 56); break; });
+  INSTPAT("??????? ????? ????? 100 ????? 00000 11", lbu    , I, R(dest) = (Mr(src1 + src2, 8) & 0x00000000000000ff); );//switch ((src1 + src2) & 0b111){
+  // case 0b000: R(dest) = (Mr(src1 + src2, 8) & 0x00000000000000ff); break;
+  // case 0b001: R(dest) = ((Mr(src1 + src2, 8) & 0x000000000000ff00) >> 8); break;
+  // case 0b010: R(dest) = ((Mr(src1 + src2, 8) & 0x0000000000ff0000) >> 16); break;
+  // case 0b011: R(dest) = ((Mr(src1 + src2, 8) & 0x00000000ff000000) >> 24); break;
+  // case 0b100: R(dest) = ((Mr(src1 + src2, 8) & 0x000000ff00000000) >> 32); break;
+  // case 0b101: R(dest) = ((Mr(src1 + src2, 8) & 0x0000ff0000000000) >> 40); break;
+  // case 0b110: R(dest) = ((Mr(src1 + src2, 8) & 0x00ff000000000000) >> 48); break;
+  // default:    R(dest) = ((Mr(src1 + src2, 8) & 0xff00000000000000) >> 56); break; });
   INSTPAT("??????? ????? ????? 001 ????? 00000 11", lh     , I, switch ((src1 + src2) & 0b10){
   case 0b00: src1 = (Mr(src1 + src2, 8) & 0x000000000000ffff); if((src1 & 0x0000000000008000) == 0x0000000000008000) R(dest) = 0xffffffffffff0000 | src1 ; else R(dest) = src1; break;
   case 0b01: src1 = (Mr(src1 + src2, 8) & 0x00000000ffff0000); if((src1 & 0x0000000080000000) == 0x0000000080000000) R(dest) = (((0xffffffff00000000 | src1) >> 16) | 0xffff000000000000) ; else R(dest) = src1 >> 16; break;
