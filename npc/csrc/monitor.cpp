@@ -11,7 +11,7 @@ long load_img_getsize(string path){
   infile.seekg(0, infile.end);
   int size = infile.tellg();
   infile.seekg(0, infile.beg);
-  infile.close();
+  infile.close;
   return size;
 }
 
@@ -36,7 +36,7 @@ void init_monitor(int argc, char *argv[]){
 
     init_mem();
 
-    long img_size = load_img_getsize();
+    int img_size = load_img_getsize();
 
     inst_sdb();
 
