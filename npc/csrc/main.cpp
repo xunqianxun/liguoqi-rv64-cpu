@@ -5,6 +5,7 @@
 #include <verilated.h>          
 #include <verilated_vcd_c.h>  
 #include "paddr.cpp"
+#include "monitor.cpp"
 #include <Vrvcpu__Dpi.h>
 
 #define right 0
@@ -33,7 +34,7 @@ if(main_time > 10){
 }
 if((main_time % 10) == 1){
   rvcpu->clk = 1;
-  rvcpu->inst = memery(rvcpu->inst_addr);
+  rvcpu->inst = ifetch(rvcpu->inst_addr);
   rvcpu->eval();
 
 }
