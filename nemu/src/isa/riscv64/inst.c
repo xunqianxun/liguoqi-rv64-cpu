@@ -47,8 +47,8 @@ static void decode_operand(Decode *s, word_t *dest, word_t *src1, word_t *src2, 
 static int decode_exec(Decode *s) {
   word_t dest = 0, src1 = 0, src2 = 0;
   s->dnpc = s->snpc;
-  signed int op1data;
-  signed int op2data;
+  sword_t op1data;
+  sword_t op2data;
 #define INSTPAT_INST(s) ((s)->isa.inst.val)
 #define INSTPAT_MATCH(s, name, type, ... /* body */ ) { \
   decode_operand(s, &dest, &src1, &src2, concat(TYPE_, type)); \
@@ -108,7 +108,7 @@ static int decode_exec(Decode *s) {
    default:    R(dest) = ((Mr(src1 + src2, 8) & 0xffff000000000000) >> 48); break; });
   INSTPAT("??????? ????? ????? 010 ????? 00000 11", lw     , I, op1data = src1 + src2; switch (op1data & 0b100){
   case 0b000: /*R(dest) = Mr(src1 + src2, 8); break;*/  src1 = (Mr(src1 + src2, 8) & 0x00000000ffffffff); if((src1 & 0x0000000080000000) == 0x0000000080000000) R(dest) = (0xffffffff00000000 | src1) ; else R(dest) = src1; break;
-  default:  /*R(dest) = Mr(src1 + src2, 8); break;}); */ R(dest) = (Mr(src1 + src2, 8) & 0xffffffff00000000);}); //if((src1 & 0x8000000000000000) == 0x8000000000000000) R(dest) = ((src1 >> 32) | 0xffffffff00000000) ; else R(dest) = (src1 >> 32); break;  });
+  default:  /*R(dest) = Mr(src1 + src2, 8); break;}); */ src1 = (Mr(src1 + src2, 8) & 0xffffffff00000000); if((src1 & 0x8000000000000000) == 0x8000000000000000) R(dest) = ((src1 >> 32) | 0xffffffff00000000) ; else R(dest) = (src1 >> 32); break;  });
   INSTPAT("??????? ????? ????? 110 ????? 00000 11", lwu    , I, switch ((src1 + src2) & 0b100){
   case 0b000: R(dest) = (Mr(src1 + src2, 8) & 0x00000000ffffffff); break;
   default:    R(dest) = ((Mr(src1 + src2, 8) & 0xffffffff00000000) >> 32); break; });
