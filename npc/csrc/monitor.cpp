@@ -3,9 +3,14 @@
 #include"sdb.cpp"
 using namespace std;
 
+int load_img_getsize(string path);
+void readbin(string path, char * buf, int size);
+static img_load();
+void init_monitor(int argc, char *argv[]);
+
 static uint8_t pmem[0x8000000] __attribute((aligned(4096)))  = {};
 
-long load_img_getsize(string path){
+int load_img_getsize(string path){
   int size = 0;
   ifstream infile(path, ifstream::binary);
   infile.seekg(0, infile.end);
@@ -34,10 +39,10 @@ static img_load(){
 void init_monitor(int argc, char *argv[]){
  //   parseargs(argc, argv);
 
-    init_mem();
+//    init_mem();
 
     int img_size = load_img_getsize();
 
-    inst_sdb();
+ //   inst_sdb();
 
 }

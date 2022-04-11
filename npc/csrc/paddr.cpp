@@ -26,6 +26,12 @@ using namespace srd;
 //     infile.close();
 //     return siez;
 // }
+uint8_t * gi_to_hi(uint32_t addr);
+uint32_t hi_to_gi(uint8_t *addr);
+static uint64_t pmem_read(uint32_t addr, int len);
+static void pmem_write(uint32_t addr, int len, word_t data);
+static inline uint64_t host_read(void *addr, int len);
+static inline void host_write(void *addr, int len, uint64_t data);
 
 uint32_t ifetch(uint64_t addr, int len){
     (uint32_t)addr;
