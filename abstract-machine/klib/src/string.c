@@ -77,7 +77,7 @@ unsigned char *vu;
 for (vu = s; 0<n; ++vu, --n)
   *vu = uc;
 
-return vu;
+return s;
 }
 
 void *memmove(void *dst, const void *src, size_t n) {
