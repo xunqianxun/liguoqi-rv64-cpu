@@ -96,7 +96,7 @@ static int decode_exec(Decode *s) {
     case 0b101: R(dest) = ((Mr(src1 + src2, 8) & 0x0000ff0000000000) >> 40); break;
     case 0b110: R(dest) = ((Mr(src1 + src2, 8) & 0x00ff000000000000) >> 48); break;
     default:    R(dest) = ((Mr(src1 + src2, 8) & 0xff00000000000000) >> 56); break; });
-  INSTPAT("??????? ????? ????? 001 ????? 00000 11", lh     , I, switch ((src1 + src2) & 0b110){
+  INSTPAT("??????? ????? ????? 001 ????? 00000 11", lh     , I, op1data = src1 + src2; switch (op1data & 0b110){
    case 0b000: src1 = (Mr(src1 + src2, 8) & 0x000000000000ffff); if((src1 & 0x0000000000008000) == 0x0000000000008000) R(dest) = 0xffffffffffff0000 | src1 ; else R(dest) = src1; break;
    case 0b010: src1 = (Mr(src1 + src2, 8) & 0x00000000ffff0000); if((src1 & 0x0000000080000000) == 0x0000000080000000) R(dest) = (((0xffffffff00000000 | src1) >> 16) | 0xffff000000000000) ; else R(dest) = src1 >> 16; break;
    case 0b100: src1 = (Mr(src1 + src2, 8) & 0x0000ffff00000000); if((src1 & 0x0000800000000000) == 0x0000800000000000) R(dest) = (((0xffff000000000000 | src1) >> 32) | 0xffffffff00000000) ; else R(dest) = src1 >> 32; break;
