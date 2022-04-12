@@ -2,7 +2,7 @@
 #include <verilated.h> 
 #include "monitor.cpp"
 
-using namespace srd;
+using namespace std;
 // u_int32_t memery(u_int64_t addr){
 //      switch (addr)
 //      {
@@ -29,7 +29,7 @@ using namespace srd;
 uint8_t * gi_to_hi(uint32_t addr);
 uint32_t hi_to_gi(uint8_t *addr);
 static uint64_t pmem_read(uint32_t addr, int len);
-static void pmem_write(uint32_t addr, int len, word_t data);
+static void pmem_write(uint32_t addr, int len, uint64_t data);
 static inline uint64_t host_read(void *addr, int len);
 static inline void host_write(void *addr, int len, uint64_t data);
 
@@ -48,7 +48,7 @@ static uint64_t pmem_read(uint32_t addr, int len) {
   return ret;
 }
 
-static void pmem_write(uint32_t addr, int len, word_t data) {
+static void pmem_write(uint32_t addr, int len, uint64_t data) {
   host_write(gi_to_hi(addr), len, data);
 }
 

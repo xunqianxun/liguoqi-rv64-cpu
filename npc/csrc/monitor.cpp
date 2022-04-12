@@ -1,8 +1,10 @@
 #include<iostream>
 #include<fstream>
 #include"sdb.cpp"
+
 using namespace std;
 
+string filepach = "/home/mulin/ysyx-workbench/am-kernels/tests/cpu-tests/build/dummy-riscv64-nemu.bin";
 int load_img_getsize(string path);
 void readbin(string path, char * buf, int size);
 static void img_load();
@@ -20,9 +22,9 @@ int load_img_getsize(string path){
   return size;
 }
 
-void readbin(string path, char * buf, int size){
+void readbin(string path, uint8_t * buf, int size){
   ifstream infile(path, ifstream::binary);
-  infile.read(static_cast<char *>(buf), size);
+  infile.read(buf, size);
   infile.close();
 }
 
@@ -31,7 +33,7 @@ void readbin(string path, char * buf, int size){
 // }
 
 static void img_load(){
-    string filepach = "/home/mulin/ysyx-workbench/am-kernels/tests/cpu-tests/build/dummy-riscv64-nemu.bin";
+    // string filepach = "/home/mulin/ysyx-workbench/am-kernels/tests/cpu-tests/build/dummy-riscv64-nemu.bin";
     int size = load_img_getsize(filepach);
     readbin(filepach, pmem, size);
 }
@@ -41,7 +43,7 @@ void init_monitor(int argc, char *argv[]){
 
 //    init_mem();
 
-    int img_size = load_img_getsize();
+    int img_size = load_img_getsize(filepach);
 
  //   inst_sdb();
 
