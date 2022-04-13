@@ -6,7 +6,7 @@ using namespace std;
 
 string filepach = "/home/mulin/ysyx-workbench/am-kernels/tests/cpu-tests/build/dummy-riscv64-nemu.bin";
 int load_img_getsize(string path);
-void readbin(string path, char * buf, int size);
+void readbin(string path, uint8_t * buf, int size);
 static void img_load();
 void init_monitor(int argc, char *argv[]);
 
