@@ -24,7 +24,7 @@ int load_img_getsize(string path){
 
 void readbin(string path, uint8_t * buf, int size){
   ifstream infile(path, ifstream::binary);
-  infile.read(uint8_t *buf, size);
+  infile.read(buf, size);
   infile.close();
 }
 
