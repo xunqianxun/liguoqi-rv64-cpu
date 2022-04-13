@@ -56,7 +56,7 @@ static long load_img() {
  // Log("The image is %s, size = %ld", img_file, size);
 
   fseek(fp, 0, SEEK_SET);
-  int ret = fread(gi_to_hi(0x8000000), size, 1, fp);
+  int ret = fread(gi_to_hi(0x80000000), size, 1, fp);
   assert(ret == 1);
 
   fclose(fp);

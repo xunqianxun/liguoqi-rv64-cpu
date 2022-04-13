@@ -40,8 +40,8 @@ uint32_t ifetch(uint64_t addr, int len){
 }
 
 
-uint8_t *gi_to_hi(uint32_t addr) {return pmem + addr - 0x8000000;}
-uint32_t hi_to_gi(uint8_t *addr) {return addr - pmem + 0x8000000;}
+uint8_t *gi_to_hi(uint32_t addr) {return pmem + addr - 0x80000000;}
+uint32_t hi_to_gi(uint8_t *addr) {return addr - pmem + 0x80000000;}
 
 static uint64_t pmem_read(uint32_t addr, int len) {
   uint64_t ret = host_read(gi_to_hi(addr), len);
