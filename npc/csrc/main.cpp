@@ -38,7 +38,7 @@ if(main_time > 10){
 if((main_time % 10) == 1){
   rvcpu->clk = 1;
   rvcpu->inst = ifetch(rvcpu->inst_addr, 4);
-  cout << rvcpu->inst << endl;
+  cout << 14677 << rvcpu->inst << endl;
   rvcpu->eval();
 
 }
