@@ -8,7 +8,7 @@ string filepach = "/home/mulin/ysyx-workbench/am-kernels/tests/cpu-tests/build/d
 int load_img_getsize(string path);
 void readbin(string path, uint8_t * buf, int size);
 static void img_load();
-void init_monitor(int argc, char *argv[]);
+void init_monitorp(int argc, char *argv[]);
 
 static uint8_t pmem[0x8000000] __attribute((aligned(4096)))  = {};
 
@@ -38,7 +38,7 @@ static void img_load(){
     readbin(filepach, pmem, size);
 }
 
-void init_monitor(int argc, char *argv[]){
+void init_monitorp(int argc, char *argv[]){
  //   parseargs(argc, argv);
 
 //    init_mem();

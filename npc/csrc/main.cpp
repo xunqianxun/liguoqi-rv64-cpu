@@ -5,7 +5,6 @@
 #include <verilated.h>          
 #include <verilated_vcd_c.h>  
 #include "paddr.cpp"
-#include "monitor.cpp"
 #include <Vrvcpu__Dpi.h>
 
 #define right 0
