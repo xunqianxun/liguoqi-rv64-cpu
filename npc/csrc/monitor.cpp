@@ -6,11 +6,11 @@ using namespace std;
 
 string filepach = "/home/mulin/ysyx-workbench/am-kernels/tests/cpu-tests/build/dummy-riscv64-nemu.bin";
 int load_img_getsize(string path);
-void readbin(string path, uint8_t * buf, int size);
+void readbin(string path, char * buf, int size);
 static void img_load();
 void init_monitorp(int argc, char *argv[]);
 
-static uint8_t pmem[0x8000000] __attribute((aligned(4096)))  = {};
+static char pmem[0x8000000] __attribute((aligned(4096)))  = {};
 
 int load_img_getsize(string path){
   int size = 0;
@@ -22,7 +22,7 @@ int load_img_getsize(string path){
   return size;
 }
 
-void readbin(string path, uint8_t * buf, int size){
+void readbin(string path, char * buf, int size){
   ifstream infile(path, ifstream::binary);
   infile.read(buf, size);
   infile.close();
