@@ -28,7 +28,7 @@ void readbin(string path, uint8_t * buf, int size){
   ifstream infile(path, ifstream::binary);
   infile.read(reinterpret_cast<char *> (buf), size);
   for(int count; count < size; count++)
-  cout << buf[count] << endl;
+  cout << hex << buf[count] << endl;
   infile.close();
 }
 
