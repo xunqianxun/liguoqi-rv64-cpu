@@ -1,6 +1,6 @@
 #include <iostream>
 #include <verilated.h> 
-#include "monitor.cpp"
+
 
 using namespace std;
 // u_int32_t memery(u_int64_t addr){
