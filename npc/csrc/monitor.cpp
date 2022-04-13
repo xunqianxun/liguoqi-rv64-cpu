@@ -42,17 +42,17 @@
 static long load_img() {
   static char *img_file = "/home/mulin/ysyx-workbench/am-kernels/tests/cpu-tests/build/dummy-riscv64-nemu.bin";
   if (img_file == NULL) {
-    Log("No image is given. Use the default build-in image.");
+//    Log("No image is given. Use the default build-in image.");
     return 4096; // built-in image size
   }
 
   FILE *fp = fopen(img_file, "rb");
-  Assert(fp, "Can not open '%s'", img_file);
+//  Assert(fp, "Can not open '%s'", img_file);
 
   fseek(fp, 0, SEEK_END);
   long size = ftell(fp);
 
-  Log("The image is %s, size = %ld", img_file, size);
+ // Log("The image is %s, size = %ld", img_file, size);
 
   fseek(fp, 0, SEEK_SET);
   int ret = fread(gi_to_hi(0x80000000), size, 1, fp);
