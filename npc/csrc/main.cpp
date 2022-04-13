@@ -15,6 +15,7 @@ vluint64_t main_time = 0;
 double sc_time_stamp(){
   return main_time;
 }
+img_load();
 
 int main(int argc , char** argv , char** env) {
 VerilatedContext* contextp = new VerilatedContext ;

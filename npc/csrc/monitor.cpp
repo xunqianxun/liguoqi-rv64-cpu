@@ -27,10 +27,7 @@ void readbin(string path, uint8_t * buf, int size){
 //   (char *)buf = buff;
   ifstream infile(path, ifstream::binary);
   infile.read(reinterpret_cast<char *> (buf), size);
-  cout << 11112233 << endl;
-  for(int count ; count < size; count++ )
-    cout << buf[count] << endl;
-    infile.close();
+  infile.close();
 }
 
 // string returnpach(string filepacht){
@@ -47,6 +44,7 @@ void init_monitorp(int argc, char *argv[]){
  //   parseargs(argc, argv);
 
 //    init_mem();
+    img_load();
 
     int img_size = load_img_getsize(filepach);
 
