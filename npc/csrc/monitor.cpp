@@ -22,9 +22,10 @@ int load_img_getsize(string path){
   return size;
 }
 
-void readbin(string path, void * buf, int size){
+void readbin(string path, uint8_t * buf, int size){
+  char *buff = (char *)buf;
   ifstream infile(path, ifstream::binary);
-  infile.read((uint8_t *)buf, size);
+  infile.read(buff, size);
   infile.close();
 }
 
