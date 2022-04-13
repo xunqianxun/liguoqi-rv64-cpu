@@ -19,7 +19,7 @@ double sc_time_stamp(){
 }
 
 int main(int argc , char** argv , char** env) {
-img_load();
+load_img();
 VerilatedContext* contextp = new VerilatedContext ;
 contextp->commandArgs(argc, argv) ;
 Vrvcpu* rvcpu = new Vrvcpu(contextp);
