@@ -40,7 +40,7 @@
 // }
 
 static long load_img() {
-  char img_file = "/home/mulin/ysyx-workbench/am-kernels/tests/cpu-tests/build/dummy-riscv64-nemu.bin"
+  const char img_file = "/home/mulin/ysyx-workbench/am-kernels/tests/cpu-tests/build/dummy-riscv64-nemu.bin"
   if (img_file == NULL) {
     Log("No image is given. Use the default build-in image.");
     return 4096; // built-in image size
@@ -55,7 +55,7 @@ static long load_img() {
   Log("The image is %s, size = %ld", img_file, size);
 
   fseek(fp, 0, SEEK_SET);
-  int ret = fread(gi_to_hi(RESET_VECTOR), size, 1, fp);
+  int ret = fread(gi_to_hi(0x80000000), size, 1, fp);
   assert(ret == 1);
 
   fclose(fp);
@@ -66,9 +66,9 @@ void init_monitorp(int argc, char *argv[]){
  //   parseargs(argc, argv);
 
 //    init_mem();
-    img_load();
+    //load_img();
 
-    int img_size = load_img_getsize(filepach);
+    long img_size = load_img();
 
  //   inst_sdb();
 
