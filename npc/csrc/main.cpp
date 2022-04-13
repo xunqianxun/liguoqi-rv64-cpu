@@ -7,6 +7,8 @@
 #include "paddr.cpp"
 #include <Vrvcpu__Dpi.h>
 
+using namespace std;
+
 #define right 0
 #define fals  1
 uint32_t ifetch(uint64_t addr, int len);
@@ -36,6 +38,7 @@ if(main_time > 10){
 if((main_time % 10) == 1){
   rvcpu->clk = 1;
   rvcpu->inst = ifetch(rvcpu->inst_addr, 4);
+  cout << rvcpu->inst << endl;
   rvcpu->eval();
 
 }
