@@ -23,12 +23,11 @@ int load_img_getsize(string path){
 }
 
 void readbin(string path, uint8_t * buf, int size){
-//   char *buff[0x8000000] ;
-//   (char *)buf = buff;
+  int buff[0x8000000] ;
   ifstream infile(path, ifstream::binary);
-  infile.read(reinterpret_cast<char *> (buf), size);
+  infile.read(reinterpret_cast<char *> (buff), size);
   for(int count; count < size; count++)
-  cout << hex << buf[count] << endl;
+  cout << hex << buff[count] << endl;
   infile.close();
 }
 
