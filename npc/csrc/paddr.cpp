@@ -33,6 +33,7 @@ static uint64_t pmem_read(uint32_t addr, int len);
 static void pmem_write(uint32_t addr, int len, uint64_t data);
 static inline uint64_t host_read(void *addr, int len);
 static inline void host_write(void *addr, int len, uint64_t data);
+uint64_t paddr_read(uint32_t addr, int len) ;
 
 uint32_t ifetch(uint64_t addr, int len){
     return paddr_read(addr, len);
