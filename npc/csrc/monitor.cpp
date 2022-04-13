@@ -58,7 +58,7 @@ static long load_img() {
   fseek(fp, 0, SEEK_SET);
   int ret = fread(gi_to_hi(0x80000000), size, 1, fp);
   assert(ret == 1);
-
+  cout << peme[1] << pmem[2] << pmem[3] << endl;
   fclose(fp);
   return size;
 }
