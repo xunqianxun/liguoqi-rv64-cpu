@@ -29,7 +29,7 @@ void readbin(string path, uint8_t * buf, int size){
   infile.read(reinterpret_cast<char *> (buf), size);
   
   for(int count ; count < size; count++ )
-    cout << buf[i] << endl;
+    cout << buf[count] << endl;
     infile.close();
 }
 
