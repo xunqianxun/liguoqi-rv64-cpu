@@ -3,6 +3,7 @@
 
 
 using namespace std;
+ static uint8_t pmem[0x8000000] __attribute((aligned(4096)))  = {};
 // u_int32_t memery(u_int64_t addr){
 //      switch (addr)
 //      {

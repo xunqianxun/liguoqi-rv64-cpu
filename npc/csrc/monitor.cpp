@@ -11,7 +11,7 @@
 // static void img_load();
 // void init_monitorp(int argc, char *argv[]);
 
- static uint8_t pmem[0x8000000] __attribute((aligned(4096)))  = {};
+//  static uint8_t pmem[0x8000000] __attribute((aligned(4096)))  = {};
 
 // int load_img_getsize(string path){
 //   int size = 0;
