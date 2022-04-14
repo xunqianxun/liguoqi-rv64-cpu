@@ -10,11 +10,11 @@ sim:
 	@$(shell if[!-e$(SIM_DIR)];then mkdir -p$(SIM_DIR);fi)
 
 run:git
-	verilator -Wall --trace --cc --exe -build ./csrc/main.cpp $(VERILOG)rvcpu.v
-	make -C obj_dir -f Vrvcpu.mk Vrvcpu
-	./obj_dir/Vrvcpu
+	@verilator -Wall --trace --cc --exe -build ./csrc/main.cpp $(VERILOG)rvcpu.v
+	@make -C obj_dir -f Vrvcpu.mk Vrvcpu
+	@./obj_dir/Vrvcpu
 gtk:
-	gtkwave ./obj_dir/rvcpu.vcd
+	@gtkwave ./obj_dir/rvcpu.vcd
 git:
 	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
 clean:

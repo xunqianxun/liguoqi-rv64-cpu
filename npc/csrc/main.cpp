@@ -40,8 +40,8 @@ if((main_time % 10) == 1){
   if(rvcpu->inst_addr >= 0x80000000){
   rvcpu->inst = ifetch(rvcpu->inst_addr, 4);
   }
-  // cout << rvcpu->inst << endl;
-  // cout << rvcpu->inst_addr << endl;
+   cout << rvcpu->inst << endl;
+   cout << rvcpu->inst_addr << endl;
   rvcpu->eval();
 
 }
