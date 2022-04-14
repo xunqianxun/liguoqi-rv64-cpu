@@ -62,14 +62,40 @@ static long load_img() {
   return size;
 }
 
-void init_monitorp(int argc, char *argv[]){
- //   parseargs(argc, argv);
 
-//    init_mem();
-    //load_img();
+void init_monitor(int argc, char *argv[]) {
+  /* Perform some global initialization. */
 
-    long img_size = load_img();
+  /* Parse arguments. */
+  parse_args(argc, argv);
 
- //   inst_sdb();
+  /* Set random seed. */
+  init_rand();
 
-}
+//   /* Open the log file. */
+//   init_log(log_file);
+
+  /* Initialize memory. */
+  init_mem();
+
+  /* Initialize devices. */
+  IFDEF(CONFIG_DEVICE, init_device());
+
+  /* Perform ISA dependent initialization. */
+  init_isa();
+
+  /* Load the image to memory. This will overwrite the built-in image. */
+  long img_size = load_img();
+
+  /* Initialize differential testing. */
+  init_difftest(diff_so_file, img_size, difftest_port);
+
+  /* Initialize the simple debugger. */
+  init_sdb();
+
+//   IFDEF(CONFIG_ITRACE, init_disasm(
+//     MUXDEF(CONFIG_ISA_x86,     "i686",
+//     MUXDEF(CONFIG_ISA_mips32,  "mipsel",
+//     MUXDEF(CONFIG_ISA_riscv32, "riscv32",
+//     MUXDEF(CONFIG_ISA_riscv64, "riscv64", "bad")))) "-pc-linux-gnu"
+  ));
