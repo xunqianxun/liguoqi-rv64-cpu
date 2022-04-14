@@ -29,7 +29,7 @@ rvcpu->trace(tfp,0) ;
 tfp->open("obj_dir/rvcpu.vcd") ; // open vcd
 rvcpu->rst = 1;
 rvcpu->bui_inst_valid = fals;
-while(sc_time_stamp()<10000 && (!contextp->gotFinish())){
+while(sc_time_stamp()<300 && (!contextp->gotFinish())){
 //  int a = rand() & 1 ;
 //  int b = rand() & 1 ;
 if(main_time > 10){
@@ -39,6 +39,7 @@ if((main_time % 10) == 1){
   rvcpu->clk = 1;
   rvcpu->inst = ifetch(0x80000004, 4);
   cout << rvcpu->inst << endl;
+  cout << rvcpu->inst_addr << endl;
   rvcpu->eval();
 
 }
