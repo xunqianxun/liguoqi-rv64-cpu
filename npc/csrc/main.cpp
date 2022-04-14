@@ -12,6 +12,7 @@ using namespace std;
 #define right 0
 #define fals  1
 uint32_t ifetch(uint64_t addr, int len);
+extern svBit Ebreak_teap();
 
 vluint64_t main_time = 0;
 double sc_time_stamp(){
