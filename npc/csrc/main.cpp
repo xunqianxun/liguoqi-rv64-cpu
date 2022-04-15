@@ -36,7 +36,7 @@ rvcpu->trace(tfp,0) ;
 tfp->open("obj_dir/rvcpu.vcd") ; // open vcd
 rvcpu->rst = 1;
 rvcpu->bui_inst_valid = fals;
-while(ebreaksign && !contextp->gotFinish()){
+while(~ebreaksign && !contextp->gotFinish()){
 //  int a = rand() & 1 ;
 //  int b = rand() & 1 ;
 if(main_time > 10){
