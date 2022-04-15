@@ -72,7 +72,7 @@ end
 //        return 0;
 //    end
     
-endfunction
+//endfunction
 
 reg      [`ysyx22040228_REGBUS]       exe_res   ;
 
