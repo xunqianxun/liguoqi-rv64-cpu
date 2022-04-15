@@ -16,7 +16,7 @@ sim:
 
 run:git
 	@verilator -Wall --trace --cc --exe -build ./csrc/main.cpp $(VERILOG)rvcpu.v
-	@make -C $(OBJ_PATH) -f Vrvcpu.mk Vrvcpu SIMFLAG= PACH_IMG=\"$(PACH_ADD)\"
+	@make -C $(OBJ_PATH) -f Vrvcpu.mk Vrvcpu CXXFLAGS+= -DPACH_IMG=\"$(PACH_ADD)\"
 	@./obj_dir/Vrvcpu
 
 gtk:
