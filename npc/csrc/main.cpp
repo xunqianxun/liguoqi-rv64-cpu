@@ -14,6 +14,11 @@ using namespace std;
 #define fals  1
 uint32_t ifetch(uint64_t addr, int len);
 
+int ebreaksign;
+extern void Ebreak_teap(svLogic rvsign)(
+  if(rvsign == 1) ebreaksign = 1;
+  else            ebreaksign = 0;
+  )
 
 vluint64_t main_time = 0;
 double sc_time_stamp(){
@@ -31,7 +36,7 @@ rvcpu->trace(tfp,0) ;
 tfp->open("obj_dir/rvcpu.vcd") ; // open vcd
 rvcpu->rst = 1;
 rvcpu->bui_inst_valid = fals;
-while(Ebreak_teap() && !contextp->gotFinish()){
+while(ebreaksign && !contextp->gotFinish()){
 //  int a = rand() & 1 ;
 //  int b = rand() & 1 ;
 if(main_time > 10){

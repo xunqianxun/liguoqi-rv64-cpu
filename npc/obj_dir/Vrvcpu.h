@@ -82,9 +82,6 @@ class Vrvcpu VL_NOT_FINAL {
     VerilatedContext* contextp() const;
     /// Retrieve name of this model instance (as passed to constructor).
     const char* name() const;
-
-    /// DPI Export functions
-    static svBit Ebreak_teap();
 } VL_ATTR_ALIGNED(VL_CACHE_LINE_BYTES);
 
 #endif  // guard

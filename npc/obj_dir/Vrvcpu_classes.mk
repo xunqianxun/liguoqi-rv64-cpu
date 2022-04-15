@@ -26,7 +26,6 @@ VM_TRACE_FST_WRITER_THREAD = 0
 # Generated module classes, fast-path, compile with highest optimization
 VM_CLASSES_FAST += \
 	Vrvcpu \
-	Vrvcpu__Dpi_Export_0 \
 	Vrvcpu___024root \
 
 # Generated module classes, non-fast-path, compile with low/medium optimization

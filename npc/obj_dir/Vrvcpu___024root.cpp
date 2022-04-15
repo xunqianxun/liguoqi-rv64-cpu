@@ -9,23 +9,14 @@
 
 //==========
 
-void Vrvcpu___024root____Vdpiexp_rvcpu__DOT__ex5__DOT__Ebreak_teap_TOP(Vrvcpu__Syms* __restrict vlSymsp, CData/*0:0*/ &Ebreak_teap__Vfuncrtn) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vrvcpu___024root____Vdpiexp_rvcpu__DOT__ex5__DOT__Ebreak_teap_TOP\n"); );
-    // Variables
+extern "C" void Ebreak_teap(svLogic rvsign);
+
+VL_INLINE_OPT void Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__ex5__DOT__Ebreak_teap_TOP(CData/*0:0*/ rvsign) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__ex5__DOT__Ebreak_teap_TOP\n"); );
     // Body
-    {
-        {
-            if ((0x10U == (IData)(vlSymsp->TOP.rvcpu__DOT__idex_ex_opcode))) {
-                Ebreak_teap__Vfuncrtn = 1U;
-                goto __Vlabel2;
-            } else {
-                Ebreak_teap__Vfuncrtn = 0U;
-                goto __Vlabel1;
-            }
-            __Vlabel2: ;
-        }
-        __Vlabel1: ;
-    }
+    svLogic rvsign__Vcvt;
+    for (size_t rvsign__Vidx = 0; rvsign__Vidx < 1; ++rvsign__Vidx) rvsign__Vcvt = rvsign;
+    Ebreak_teap(rvsign__Vcvt);
 }
 
 VL_INLINE_OPT void Vrvcpu___024root___combo__TOP__1(Vrvcpu___024root* vlSelf) {
@@ -501,6 +492,11 @@ VL_INLINE_OPT void Vrvcpu___024root___sequent__TOP__3(Vrvcpu___024root* vlSelf) 
                                                               & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))))
                                                      ? 0U
                                                      : (IData)(vlSelf->rvcpu__DOT__idex_ex_rdaddr))));
+    if ((0x10U == (IData)(vlSelf->rvcpu__DOT__idex_ex_opcode))) {
+        Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__ex5__DOT__Ebreak_teap_TOP(1U);
+    } else {
+        Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__ex5__DOT__Ebreak_teap_TOP(0U);
+    }
     vlSelf->rvcpu__DOT__ex5__DOT__op1_subw_op2 = ((IData)(vlSelf->rvcpu__DOT__idex_ex_op2) 
                                                   - (IData)(vlSelf->rvcpu__DOT__idex_ex_op2));
     vlSelf->rvcpu__DOT__ex5__DOT__upper_imm = (((QData)((IData)(

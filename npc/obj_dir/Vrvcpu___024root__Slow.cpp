@@ -27,6 +27,8 @@ void Vrvcpu___024root::__Vconfigure(Vrvcpu__Syms* _vlSymsp, bool first) {
 Vrvcpu___024root::~Vrvcpu___024root() {
 }
 
+void Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__ex5__DOT__Ebreak_teap_TOP(CData/*0:0*/ rvsign);
+
 void Vrvcpu___024root___settle__TOP__2(Vrvcpu___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     Vrvcpu__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
@@ -64,6 +66,11 @@ void Vrvcpu___024root___settle__TOP__2(Vrvcpu___024root* vlSelf) {
                                                              == 
                                                              (0x7fU 
                                                               & vlSelf->inst)));
+    if ((0x10U == (IData)(vlSelf->rvcpu__DOT__idex_ex_opcode))) {
+        Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__ex5__DOT__Ebreak_teap_TOP(1U);
+    } else {
+        Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__ex5__DOT__Ebreak_teap_TOP(0U);
+    }
     vlSelf->inst_addr = vlSelf->rvcpu__DOT__pc;
     vlSelf->data_addr = ((IData)(vlSelf->rst) ? 0ULL
                           : vlSelf->rvcpu__DOT__exmem_mem_lsaddr);
