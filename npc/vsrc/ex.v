@@ -45,7 +45,7 @@ module ex (
  //   output        wire                                       tmr_trap_ena_o
 );
 
-export "DPI-C" task Ebreak_teap;
+export "DPI-C" context task Ebreak_teap;
 //input [7:0] inst_opcode_i;
 // task Ebreak_teap;
 // output bit Ebreak_teaps;
