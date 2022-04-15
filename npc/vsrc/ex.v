@@ -59,10 +59,10 @@ export "DPI-C" task Ebreak_teap;
 
 function bit Ebreak_teap();
    if(inst_opcode_i == `INST_ECALL) begin
-       return = 1;
+       return 1;
    end
    else begin
-       return = 0;
+       return 0;
    end
     
 endfunction
