@@ -45,7 +45,7 @@ module ex (
  //   output        wire                                       tmr_trap_ena_o
 );
 
-export "DPI-C" context task Ebreak_teap;
+import "DPI-C" function void Ebreak_teap(input rvsign);
 //input [7:0] inst_opcode_i;
 // task Ebreak_teap;
 // output bit Ebreak_teaps;
@@ -56,14 +56,21 @@ export "DPI-C" context task Ebreak_teap;
 //     Ebreak_teaps = 1'b0;
 // end
 // endtask
-
-function bit Ebreak_teap();
-   if(inst_opcode_i == `INST_ECALL) begin
-       return 1;
-   end
-   else begin
-       return 0;
-   end
+always@(*)begin
+ if(inst_opcode_i == `INST_ECALL) begin
+     Ebreak_teaps(1);
+ end
+ else begin
+     Ebreak_teaps(0);
+ end
+end
+// function bit Ebreak_teap();
+//    if(inst_opcode_i == `INST_ECALL) begin
+//        return 1;
+//    end
+//    else begin
+//        return 0;
+//    end
     
 endfunction
 
