@@ -48,11 +48,12 @@ module ex (
 export "DPI-C" task Ebreak_teap;
 //input [7:0] inst_opcode_i;
 task Ebreak_teap;
+output bit Ebreak_teaps;
 if(inst_opcode_i == `INST_ECALL) begin
-    Ebreak_teap = 1'b1;
+    Ebreak_teaps = 1'b1;
 end
 else begin
-    Ebreak_teap = 1'b0;
+    Ebreak_teaps = 1'b0;
 end
 endtask
 
