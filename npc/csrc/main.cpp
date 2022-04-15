@@ -6,6 +6,7 @@
 #include <verilated_vcd_c.h>  
 #include "monitor.cpp"
 #include <Vrvcpu__Dpi.h>
+#include <svdpi.h>
 
 using namespace std;
 
@@ -60,4 +61,10 @@ exit(0) ;
 return 0;
 }
 
+//read regsfile
+// void readregfile(){
+//   for(int i; i < 32; i++)
+//   cout << 
+// }
 
+//
