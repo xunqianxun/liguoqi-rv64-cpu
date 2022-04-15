@@ -45,16 +45,16 @@ module ex (
  //   output        wire                                       tmr_trap_ena_o
 );
 
-export "DPI-C" function Ebreak_teap;
+export "DPI-C" task Ebreak_teap;
 //input [7:0] inst_opcode_i;
-function bit Ebreak_teap();
+task Ebreak_teap;
 if(inst_opcode_i == `INST_ECALL) begin
     Ebreak_teap = 1'b1;
 end
 else begin
     Ebreak_teap = 1'b0;
 end
-endfunction
+endtask
 
 reg      [`ysyx22040228_REGBUS]       exe_res   ;
 
