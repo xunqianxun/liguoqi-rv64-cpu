@@ -15,10 +15,10 @@ using namespace std;
 uint32_t ifetch(uint64_t addr, int len);
 
 int ebreaksign;
-extern void Ebreak_teap(svLogic rvsign)(
+extern void Ebreak_teap(svLogic rvsign){
   if(rvsign == 1) ebreaksign = 1;
   else            ebreaksign = 0;
-  )
+}
 
 vluint64_t main_time = 0;
 double sc_time_stamp(){
