@@ -8,13 +8,15 @@ CC=g++
 SIM_DIR= ./csrc/build
 TEST_PATH="/home/mulin/ysyx-workbench/am-kernels/tests/cpu-tests/build/riscv64-nemu/"
 IMG_NPC?=
+PACH_ADD=$(TEST_PATH)
+PACH_ADD+=$(IMG_NPC)
 
 sim:
 	@$(shell if[!-e$(SIM_DIR)];then mkdir -p$(SIM_DIR);fi)
 
 run:git
 	@verilator -Wall --trace --cc --exe -build ./csrc/main.cpp $(VERILOG)rvcpu.v
-	@make -C $(OBJ_PATH) -f Vrvcpu.mk Vrvcpu SIMFLAG= -DPACH_IMG=\"$(TEST_PATH)\"\"$(IMG_NPC)\"
+	@make -C $(OBJ_PATH) -f Vrvcpu.mk Vrvcpu SIMFLAG= PACH_IMG=\"$(PACH_ADD)\"
 	@./obj_dir/Vrvcpu
 
 gtk:
