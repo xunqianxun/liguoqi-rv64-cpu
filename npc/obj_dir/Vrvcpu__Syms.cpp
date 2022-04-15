@@ -5,7 +5,7 @@
 #include "Vrvcpu.h"
 #include "Vrvcpu___024root.h"
 
-void Vrvcpu___024root____Vdpiexp_rvcpu__DOT__ex5__DOT__Ebreak_teap_TOP(Vrvcpu__Syms* __restrict vlSymsp, CData/*0:0*/ &Ebreak_teap__Vfuncrtn);
+void Vrvcpu___024root____Vdpiexp_rvcpu__DOT__ex5__DOT__Ebreak_teap_TOP(Vrvcpu__Syms* __restrict vlSymsp, CData/*0:0*/ &Ebreak_teaps);
 
 // FUNCTIONS
 Vrvcpu__Syms::~Vrvcpu__Syms()

@@ -47,15 +47,25 @@ module ex (
 
 export "DPI-C" task Ebreak_teap;
 //input [7:0] inst_opcode_i;
-task Ebreak_teap;
-output bit Ebreak_teaps;
-if(inst_opcode_i == `INST_ECALL) begin
-    Ebreak_teaps = 1'b1;
-end
-else begin
-    Ebreak_teaps = 1'b0;
-end
-endtask
+// task Ebreak_teap;
+// output bit Ebreak_teaps;
+// if(inst_opcode_i == `INST_ECALL) begin
+//     Ebreak_teaps = 1'b1;
+// end
+// else begin
+//     Ebreak_teaps = 1'b0;
+// end
+// endtask
+
+function bit Ebreak_teap();
+   if(inst_opcode_i == `INST_ECALL) begin
+       return = 1;
+   end
+   else begin
+       return = 0;
+   end
+    
+endfunction
 
 reg      [`ysyx22040228_REGBUS]       exe_res   ;
 

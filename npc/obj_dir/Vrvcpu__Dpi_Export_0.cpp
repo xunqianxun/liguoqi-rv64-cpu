@@ -6,17 +6,15 @@
 #include "verilated_dpi.h"
 
 
-svBit Vrvcpu::Ebreak_teap() {
+void Vrvcpu::Ebreak_teap(svBit* Ebreak_teaps) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vrvcpu___024root::Ebreak_teap\n"); );
     // Variables
-    CData/*0:0*/ Ebreak_teap__Vfuncrtn__Vcvt;
+    CData/*0:0*/ Ebreak_teaps__Vcvt;
     // Body
     static int __Vfuncnum = -1;
     if (VL_UNLIKELY(__Vfuncnum == -1)) __Vfuncnum = Verilated::exportFuncNum("Ebreak_teap");
     const VerilatedScope* __Vscopep = Verilated::dpiScope();
     Vrvcpu__Vcb_Ebreak_teap_t __Vcb = (Vrvcpu__Vcb_Ebreak_teap_t)(VerilatedScope::exportFind(__Vscopep, __Vfuncnum));
-    (*__Vcb)((Vrvcpu__Syms*)(__Vscopep->symsp()), Ebreak_teap__Vfuncrtn__Vcvt);
-    svBit Ebreak_teap__Vfuncrtn;
-    for (size_t Ebreak_teap__Vfuncrtn__Vidx = 0; Ebreak_teap__Vfuncrtn__Vidx < 1; ++Ebreak_teap__Vfuncrtn__Vidx) Ebreak_teap__Vfuncrtn = Ebreak_teap__Vfuncrtn__Vcvt;
-    return Ebreak_teap__Vfuncrtn;
+    (*__Vcb)((Vrvcpu__Syms*)(__Vscopep->symsp()), Ebreak_teaps__Vcvt);
+    for (size_t Ebreak_teaps__Vidx = 0; Ebreak_teaps__Vidx < 1; ++Ebreak_teaps__Vidx) *Ebreak_teaps = Ebreak_teaps__Vcvt;
 }

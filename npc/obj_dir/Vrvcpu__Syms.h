@@ -17,7 +17,7 @@
 #include "Vrvcpu___024root.h"
 
 // DPI TYPES for DPI Export callbacks (Internal use)
-using Vrvcpu__Vcb_Ebreak_teap_t = void (*) (Vrvcpu__Syms* __restrict vlSymsp, CData/*0:0*/ &Ebreak_teap__Vfuncrtn);
+using Vrvcpu__Vcb_Ebreak_teap_t = void (*) (Vrvcpu__Syms* __restrict vlSymsp, CData/*0:0*/ &Ebreak_teaps);
 
 // SYMS CLASS (contains all model state)
 class Vrvcpu__Syms final : public VerilatedSyms {

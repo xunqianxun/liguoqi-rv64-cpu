@@ -13,8 +13,8 @@ extern "C" {
 
 
     // DPI EXPORTS
-    // DPI export at vsrc/ex.v:50:14
-    extern svBit Ebreak_teap();
+    // DPI export at vsrc/ex.v:50:6
+    extern void Ebreak_teap(svBit* Ebreak_teaps);
 
 #ifdef __cplusplus
 }
