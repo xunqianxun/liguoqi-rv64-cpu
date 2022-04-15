@@ -16,9 +16,9 @@
 
 #ifndef VL_DPIDECL_Ebreak_teap_
 #define VL_DPIDECL_Ebreak_teap_
-void Ebreak_teap(svBit* Ebreak_teaps) {
-    // DPI export at vsrc/ex.v:50:6
-    return Vrvcpu::Ebreak_teap(Ebreak_teaps);
+svBit Ebreak_teap() {
+    // DPI export at vsrc/ex.v:60:14
+    return Vrvcpu::Ebreak_teap();
 }
 #endif
 
