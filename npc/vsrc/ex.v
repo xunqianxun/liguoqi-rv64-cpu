@@ -58,10 +58,10 @@ import "DPI-C" function void Ebreak_teap(input rvsign);
 // endtask
 always@(*)begin
  if(inst_opcode_i == `INST_ECALL) begin
-     Ebreak_teaps(1);
+     Ebreak_teap(1);
  end
  else begin
-     Ebreak_teaps(0);
+     Ebreak_teap(0);
  end
 end
 // function bit Ebreak_teap();
