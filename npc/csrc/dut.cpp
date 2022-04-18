@@ -1,5 +1,21 @@
 #include <iostream>
 
+enum { NEMU_RUNNING, NEMU_STOP, NEMU_END, NEMU_ABORT, NEMU_QUIT };
+
+typedef struct 
+{
+  uint64_t gpr[31];
+  uint64_t pc;
+} CPU_state;
+
+typedef struct dut
+{
+  int state;
+  uint64_t halt_pc;
+  uint32_t halt_ret;
+} npc_state;
+
+
 void (*ref_difftest_memcpy)(uint32_t, void *buf, unsigned long n, bool direction) = NULL;
 void (*ref_difftest_regcpy)(void *dut, bool direction) = NULL;
 void (*ref_difftest_exec)(uint64_t n) = NULL;
@@ -72,9 +88,9 @@ void init_difftest(char *ref_so_file, long img_size, int port) {
 
 static void checkregs(CPU_state *ref, uint64_t pc) {
   if (!isa_difftest_checkregs(ref, pc)) {
-    nemu_state.state = NEMU_ABORT;
-    nemu_state.halt_pc = pc;
-    isa_reg_display();
+    npc_state.state = NEMU_ABORT;
+    npc_state.halt_pc = pc;
+//    isa_reg_display();
   }
 }
 
