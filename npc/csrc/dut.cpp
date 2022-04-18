@@ -2,6 +2,9 @@
 
 enum { NEMU_RUNNING, NEMU_STOP, NEMU_END, NEMU_ABORT, NEMU_QUIT };
 
+static bool is_skip_ref = false;
+static int skip_dut_nr_inst = 0;
+
 typedef struct 
 {
   uint64_t gpr[31];
@@ -58,7 +61,7 @@ void init_difftest(char *ref_so_file, long img_size, int port) {
   assert(ref_so_file != NULL);
 
   void *handle;
-  handle = dlopen(ref_so_file, RTLD_LAZY | MUXNDEF(CONFIG_CC_ASAN, RTLD_DEEPBIND, 0));
+  handle = dlopen(ref_so_file, 0x00001);
   assert(handle);
 
   ref_difftest_memcpy = dlsym(handle, "difftest_memcpy");
