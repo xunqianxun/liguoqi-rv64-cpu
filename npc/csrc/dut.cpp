@@ -21,9 +21,9 @@ typedef struct dut
 } npc_state;
 
 
-void (*ref_difftest_memcpy)(uint32_t, void *buf, unsigned long n, bool direction) = NULL;
-void (*ref_difftest_regcpy)(void *dut, bool direction) = NULL;
-void (*ref_difftest_exec)(uint64_t n) = NULL;
+void ( *ref_difftest_memcpy)(uint32_t, void *buf, unsigned long n, bool direction) = NULL;
+void ( *ref_difftest_regcpy)(void *dut, bool direction) = NULL;
+void ( *ref_difftest_exec)(uint64_t n) = NULL;
 //void (*ref_difftest_raise_intr)(uint64_t NO) = NULL;
 #define DIFFTEST_TO_REF 1
 
