@@ -2,6 +2,8 @@
 #include <dlfcn.h>
 #include <stdlib.h>
 
+extern "C" {
+
 enum { NEMU_RUNNING, NEMU_STOP, NEMU_END, NEMU_ABORT, NEMU_QUIT };
 
 static bool is_skip_ref = false;
@@ -140,4 +142,6 @@ bool isa_difftest_checkregs(CPU_state *ref_r, uint64_t pc) {
     return false;
   }
   return true;
+}
+
 }
