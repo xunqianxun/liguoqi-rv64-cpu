@@ -4,12 +4,6 @@
 
 enum { NEMU_RUNNING, NEMU_STOP, NEMU_END, NEMU_ABORT, NEMU_QUIT };
 
-extern "C"{
-typedef void ( *difftest_memcpy)(uint32_t, void *buf, unsigned long n, bool direction) = NULL;
-typedef void ( *difftest_regcpy)(void *dut, bool direction) = NULL;
-typedef void ( *difftest_exec)(uint64_t n) = NULL;
-}
-
 static bool is_skip_ref = false;
 static int skip_dut_nr_inst = 0;
 
@@ -26,11 +20,10 @@ typedef struct dut
   uint32_t halt_ret;
 } npc_state;
 
-// extern "C"{
-// typedef void ( *difftest_memcpy)(uint32_t, void *buf, unsigned long n, bool direction) = NULL;
-// typedef void ( *difftest_regcpy)(void *dut, bool direction) = NULL;
-// typedef void ( *difftest_exec)(uint64_t n) = NULL;
-// }
+
+void ( *ref_difftest_memcpy)(uint32_t, void *buf, unsigned long n, bool direction) = NULL;
+void ( *ref_difftest_regcpy)(void *dut, bool direction) = NULL;
+void ( *ref_difftest_exec)(uint64_t n) = NULL;
 //void (*ref_difftest_raise_intr)(uint64_t NO) = NULL;
 #define DIFFTEST_TO_REF 1
 
@@ -62,7 +55,7 @@ void difftest_skip_dut(int nr_ref, int nr_dut) {
   skip_dut_nr_inst += nr_dut;
 
   while (nr_ref -- > 0) {
-    h_difftest_exec(1);
+    ref_difftest_exec(1);
   }
 }
 
@@ -73,13 +66,13 @@ void init_difftest(char *ref_so_file, long img_size, int port) {
   handle = dlopen(ref_so_file, 0x00001);
 //  assert(handle);
 
-  difftest_memcpy h_difftest_memcpy = (difftest_memcpy)dlsym(handle, "difftest_memcpy");
+  ref_difftest_memcpy = dlsym(handle, "difftest_memcpy");
 //  assert(ref_difftest_memcpy);
 
-  difftest_regcpy h_difftest_regcpy = (difftest_regcpy)dlsym(handle, "difftest_regcpy");
+  ref_difftest_regcpy = dlsym(handle, "difftest_regcpy");
 //  assert(ref_difftest_regcpy);
 
-  difftest_exec h_difftest_exec = (difftest_exec)dlsym(handle, "difftest_exec");
+  ref_difftest_exec = dlsym(handle, "difftest_exec");
 //  assert(ref_difftest_exec);
 
   // ref_difftest_raise_intr = dlsym(handle, "difftest_raise_intr");
@@ -94,8 +87,8 @@ void init_difftest(char *ref_so_file, long img_size, int port) {
 //       "If it is not necessary, you can turn it off in menuconfig.", ref_so_file);
 
 //   ref_difftest_init(port);
-  h_difftest_memcpy(0x80000000, gi_to_hi(0x80000000), img_size, DIFFTEST_TO_REF);
-  h_difftest_regcpy(&cpu, DIFFTEST_TO_REF);
+  ref_difftest_memcpy(0x80000000, gi_to_hi(0x80000000), img_size, DIFFTEST_TO_REF);
+  ref_difftest_regcpy(&cpu, DIFFTEST_TO_REF);
 }
 
 static void checkregs(CPU_state *ref, uint64_t pc) {
@@ -110,7 +103,7 @@ void difftest_step(uint64_t pc, uint64_t npc) {
   CPU_state ref_r;
 
   if (skip_dut_nr_inst > 0) {
-    h_difftest_regcpy(&ref_r, DIFFTEST_TO_DUT);
+    ref_difftest_regcpy(&ref_r, DIFFTEST_TO_DUT);
     if (ref_r.pc == npc) {
       skip_dut_nr_inst = 0;
       checkregs(&ref_r, npc);
@@ -124,13 +117,13 @@ void difftest_step(uint64_t pc, uint64_t npc) {
 
   if (is_skip_ref) {
     // to skip the checking of an instruction, just copy the reg state to reference design
-    h_difftest_regcpy(&cpu, DIFFTEST_TO_REF);
+    ref_difftest_regcpy(&cpu, DIFFTEST_TO_REF);
     is_skip_ref = false;
     return;
   }
 
-  h_difftest_exec(1);
-  h_difftest_regcpy(&ref_r, DIFFTEST_TO_DUT);
+  ref_difftest_exec(1);
+  ref_difftest_regcpy(&ref_r, DIFFTEST_TO_DUT);
 
   checkregs(&ref_r, pc);
 }
