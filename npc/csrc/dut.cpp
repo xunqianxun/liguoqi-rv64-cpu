@@ -18,9 +18,12 @@ typedef struct dut
   int state;
   uint64_t halt_pc;
   uint32_t halt_ret;
-} npc_state;
+} NPC_state;
 
+CPU_state cpu = {};
+NPC_state npc_state = { .state = NEMU_STOP };
 
+bool isa_difftest_checkregs(CPU_state *ref_r, uint64_t pc); 
 void ( *ref_difftest_memcpy)(uint32_t, void *buf, unsigned long n, bool direction) = NULL;
 void ( *ref_difftest_regcpy)(void *dut, bool direction) = NULL;
 void ( *ref_difftest_exec)(uint64_t n) = NULL;
@@ -95,6 +98,7 @@ static void checkregs(CPU_state *ref, uint64_t pc) {
   if (!isa_difftest_checkregs(ref, pc)) {
     npc_state.state = NEMU_ABORT;
     npc_state.halt_pc = pc;
+    
 //    isa_reg_display();
   }
 }
