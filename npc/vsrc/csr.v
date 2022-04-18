@@ -41,12 +41,13 @@ import "DPI-C" function void difftest_dut_csrs(
 always@(*)begin
 difftest_dut_csrs(    
     csr_mcycle  ,
-    csr_mscrstch,
+    csr_mstatus ,
     csr_mtvec   ,
     csr_mepc    ,
     csr_mcause  ,
     csr_mie     ,
-    csr_mip     
+    csr_mip     ,
+    csr_mscrstch,
 );
 end
 // 0xb00
