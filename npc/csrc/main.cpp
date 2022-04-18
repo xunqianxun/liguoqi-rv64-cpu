@@ -26,8 +26,8 @@ double sc_time_stamp(){
 }
 
 int main(int argc , char** argv , char** env) {
-init_monitor(argc, argv);  
-//load_img();
+//init_monitor(argc, argv);  
+load_img();
 VerilatedContext* contextp = new VerilatedContext ;
 contextp->commandArgs(argc, argv) ;
 Vrvcpu* rvcpu = new Vrvcpu(contextp);
