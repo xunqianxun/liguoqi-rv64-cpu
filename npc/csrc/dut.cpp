@@ -108,7 +108,7 @@ void difftest_step(uint64_t pc, uint64_t npc) {
 }
 // void init_difftest(char *ref_so_file, long img_size, int port) { }
 // #endif
-bool isa_difftest_checkregs(CPU_state *ref_r, vaddr_t pc) {
+bool isa_difftest_checkregs(CPU_state *ref_r, uint64_t pc) {
     if (memcmp(&cpu.gpr[1], &ref_r->gpr[1], DIFFTEST_REG_SIZE - sizeof(cpu.gpr[0]))) {
     int i;
     // do not check $0
