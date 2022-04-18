@@ -61,7 +61,7 @@ import "DPI-C" function void difftest_dut_regs(
     input longint t3 ,
 	input longint t4 ,
 	input longint t5 ,
-	input longint t6 ,
+	input longint t6 
 );
 
 always@(*)begin
@@ -97,7 +97,7 @@ always@(*)begin
 		regs[28],
 		regs[29],
 		regs[30],
-		regs[31],
+		regs[31]
 	);
 end
 

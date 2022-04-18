@@ -35,17 +35,19 @@ import "DPI-C" function void difftest_dut_regs(
     input longint mcause_val, //0x342
     input longint mie_val, //0x304
     input longint mip_val, //0x344
-    input longint mscratch_val, //0x340
+    input longint mscratch_val //0x340
 );
 
 always@(*)begin
-    mcycle_val    = csr_mcycle  ;
-    mscratch_val  = csr_mscrstch;
-    mtvec_val     = csr_mtvec   ;
-    mepc_val      = csr_mepc    ;
-    mcause_val    = csr_mcause  ;
-    mie_val       = csr_mie     ;
-    mip_val       = csr_mip     ;
+difftest_dut_regs(    
+    csr_mcycle  ,
+    csr_mscrstch,
+    csr_mtvec   ,
+    csr_mepc    ,
+    csr_mcause  ,
+    csr_mie     ,
+    csr_mip     
+);
 end
 // 0xb00
 wire       sel_mcycle  =  (csr_idx == 12'hb00) ;
