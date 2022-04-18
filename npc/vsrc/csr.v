@@ -27,7 +27,7 @@ module csr (
     input          wire                                        ex_stall       
 );
 
-import "DPI-C" function void difftest_dut_regs(
+import "DPI-C" function void difftest_dut_csrs(
     input longint mcycle_val, //0xb00
     input longint mstatus_val, //0x300
     input longint mtvec_val, //0x305
@@ -39,7 +39,7 @@ import "DPI-C" function void difftest_dut_regs(
 );
 
 always@(*)begin
-difftest_dut_regs(    
+difftest_dut_csrs(    
     csr_mcycle  ,
     csr_mscrstch,
     csr_mtvec   ,
