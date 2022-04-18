@@ -1,4 +1,6 @@
 #include <iostream>
+#include <dface.h>
+#include <stdlib.h>
 
 enum { NEMU_RUNNING, NEMU_STOP, NEMU_END, NEMU_ABORT, NEMU_QUIT };
 
