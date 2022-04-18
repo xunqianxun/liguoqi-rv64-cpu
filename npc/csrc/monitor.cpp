@@ -6,6 +6,11 @@
 
  using namespace std;
 
+static char *log_file = NULL;
+static char *diff_so_file = NULL;
+static char *img_file = NULL;
+static int difftest_port = 1234;
+
 static long load_img() {
    #ifdef PACH_IMG
    char *img_file = (char *)PACH_IMG;
@@ -33,12 +38,12 @@ static long load_img() {
 
 static int parse_args(int argc, char *argv[]) {
   const struct option table[] = {
-    {"batch"    , no_argument      , NULL, 'b'},
-    {"log"      , required_argument, NULL, 'l'},
-    {"diff"     , required_argument, NULL, 'd'},
-    {"port"     , required_argument, NULL, 'p'},
-    {"help"     , no_argument      , NULL, 'h'},
-    {0          , 0                , NULL,  0 },
+    {"batch"    , 0      , NULL, 'b'},
+    {"log"      , 1      , NULL, 'l'},
+    {"diff"     , 1      , NULL, 'd'},
+    {"port"     , 1      , NULL, 'p'},
+    {"help"     , 0      , NULL, 'h'},
+    {0          , 0      , NULL,  0 },
   };
   int o;
   while ( (o = getopt_long(argc, argv, "-bhl:d:p:", table, NULL)) != -1) {
@@ -85,3 +90,4 @@ void init_monitor(int argc, char *argv[]) {
 //     MUXDEF(CONFIG_ISA_riscv32, "riscv32",
 //     MUXDEF(CONFIG_ISA_riscv64, "riscv64", "bad")))) "-pc-linux-gnu"
   ));
+}
