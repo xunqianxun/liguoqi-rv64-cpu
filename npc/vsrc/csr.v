@@ -47,7 +47,7 @@ difftest_dut_csrs(
     csr_mcause  ,
     csr_mie     ,
     csr_mip     ,
-    csr_mscrstch,
+    csr_mscrstch
 );
 end
 // 0xb00
