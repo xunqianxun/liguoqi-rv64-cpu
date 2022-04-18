@@ -27,6 +27,26 @@ module csr (
     input          wire                                        ex_stall       
 );
 
+import "DPI-C" function void difftest_dut_regs(
+    input longint mcycle_val, //0xb00
+    input longint mstatus_val, //0x300
+    input longint mtvec_val, //0x305
+    input longint mepc_val, //0x341
+    input longint mcause_val, //0x342
+    input longint mie_val, //0x304
+    input longint mip_val, //0x344
+    input longint mscratch_val, //0x340
+);
+
+always@(*)begin
+    mcycle_val    = csr_mcycle  ;
+    mscratch_val  = csr_mscrstch;
+    mtvec_val     = csr_mtvec   ;
+    mepc_val      = csr_mepc    ;
+    mcause_val    = csr_mcause  ;
+    mie_val       = csr_mie     ;
+    mip_val       = csr_mip     ;
+end
 // 0xb00
 wire       sel_mcycle  =  (csr_idx == 12'hb00) ;
 wire       rd_mcycle   =  csr_rd_en && sel_mcycle  ;
@@ -37,7 +57,7 @@ always @(posedge clk) begin
     else if(wr_mcycle)     begin csr_mcycle <= wbck_csr_data ; end
     else                   begin csr_mcycle <= csr_mcycle + 64'd1 ;end 
 end
-//ox300
+//0x300
 wire      sel_mstatus  =  (csr_idx == 12'h300) ;
 wire      rd_mstatus   =  sel_mstatus && csr_rd_en  ;
 wire      wr_mstatus   =  sel_mstatus && csr_wr_en  ;           
