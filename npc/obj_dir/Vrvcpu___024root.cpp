@@ -19,30 +19,6 @@ VL_INLINE_OPT void Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__ex5__DOT__Ebreak_t
     Ebreak_teap(rvsign__Vcvt);
 }
 
-extern "C" void difftest_dut_csrs(long long mcycle_val, long long mstatus_val, long long mtvec_val, long long mepc_val, long long mcause_val, long long mie_val, long long mip_val, long long mscratch_val);
-
-VL_INLINE_OPT void Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__ex5__DOT__csr0__DOT__difftest_dut_csrs_TOP(QData/*63:0*/ mcycle_val, QData/*63:0*/ mstatus_val, QData/*63:0*/ mtvec_val, QData/*63:0*/ mepc_val, QData/*63:0*/ mcause_val, QData/*63:0*/ mie_val, QData/*63:0*/ mip_val, QData/*63:0*/ mscratch_val) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__ex5__DOT__csr0__DOT__difftest_dut_csrs_TOP\n"); );
-    // Body
-    long long mcycle_val__Vcvt;
-    for (size_t mcycle_val__Vidx = 0; mcycle_val__Vidx < 1; ++mcycle_val__Vidx) mcycle_val__Vcvt = mcycle_val;
-    long long mstatus_val__Vcvt;
-    for (size_t mstatus_val__Vidx = 0; mstatus_val__Vidx < 1; ++mstatus_val__Vidx) mstatus_val__Vcvt = mstatus_val;
-    long long mtvec_val__Vcvt;
-    for (size_t mtvec_val__Vidx = 0; mtvec_val__Vidx < 1; ++mtvec_val__Vidx) mtvec_val__Vcvt = mtvec_val;
-    long long mepc_val__Vcvt;
-    for (size_t mepc_val__Vidx = 0; mepc_val__Vidx < 1; ++mepc_val__Vidx) mepc_val__Vcvt = mepc_val;
-    long long mcause_val__Vcvt;
-    for (size_t mcause_val__Vidx = 0; mcause_val__Vidx < 1; ++mcause_val__Vidx) mcause_val__Vcvt = mcause_val;
-    long long mie_val__Vcvt;
-    for (size_t mie_val__Vidx = 0; mie_val__Vidx < 1; ++mie_val__Vidx) mie_val__Vcvt = mie_val;
-    long long mip_val__Vcvt;
-    for (size_t mip_val__Vidx = 0; mip_val__Vidx < 1; ++mip_val__Vidx) mip_val__Vcvt = mip_val;
-    long long mscratch_val__Vcvt;
-    for (size_t mscratch_val__Vidx = 0; mscratch_val__Vidx < 1; ++mscratch_val__Vidx) mscratch_val__Vcvt = mscratch_val;
-    difftest_dut_csrs(mcycle_val__Vcvt, mstatus_val__Vcvt, mtvec_val__Vcvt, mepc_val__Vcvt, mcause_val__Vcvt, mie_val__Vcvt, mip_val__Vcvt, mscratch_val__Vcvt);
-}
-
 extern "C" void difftest_dut_regs(long long Z0, long long ra, long long sp, long long gp, long long tp, long long t0, long long t1, long long t2, long long fp, long long s1, long long a0, long long a1, long long a2, long long a3, long long a4, long long a5, long long a6, long long a7, long long s2, long long s3, long long s4, long long s5, long long s6, long long s7, long long s8, long long s9, long long s10, long long a11, long long t3, long long t4, long long t5, long long t6);
 
 VL_INLINE_OPT void Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__regfile10__DOT__difftest_dut_regs_TOP(QData/*63:0*/ Z0, QData/*63:0*/ ra, QData/*63:0*/ sp, QData/*63:0*/ gp, QData/*63:0*/ tp, QData/*63:0*/ t0, QData/*63:0*/ t1, QData/*63:0*/ t2, QData/*63:0*/ fp, QData/*63:0*/ s1, QData/*63:0*/ a0, QData/*63:0*/ a1, QData/*63:0*/ a2, QData/*63:0*/ a3, QData/*63:0*/ a4, QData/*63:0*/ a5, QData/*63:0*/ a6, QData/*63:0*/ a7, QData/*63:0*/ s2, QData/*63:0*/ s3, QData/*63:0*/ s4, QData/*63:0*/ s5, QData/*63:0*/ s6, QData/*63:0*/ s7, QData/*63:0*/ s8, QData/*63:0*/ s9, QData/*63:0*/ s10, QData/*63:0*/ a11, QData/*63:0*/ t3, QData/*63:0*/ t4, QData/*63:0*/ t5, QData/*63:0*/ t6) {
@@ -830,13 +806,6 @@ VL_INLINE_OPT void Vrvcpu___024root___sequent__TOP__3(Vrvcpu___024root* vlSelf) 
                                                       & (IData)(
                                                                 (vlSelf->rvcpu__DOT__ex5__DOT__op1_sub_op2 
                                                                  >> 0x3fU)))));
-    Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__ex5__DOT__csr0__DOT__difftest_dut_csrs_TOP(vlSelf->rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mcycle, vlSelf->rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mstatus, 
-                                                                                (vlSelf->rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mtvec_base 
-                                                                                << 2U), vlSelf->rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mepc, vlSelf->rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mcause, 
-                                                                                ((QData)((IData)(vlSelf->rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mie_mtie)) 
-                                                                                << 7U), (QData)((IData)(
-                                                                                ((IData)(vlSelf->rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mip_mtip) 
-                                                                                << 7U))), vlSelf->rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mscrstch);
     vlSelf->rvcpu__DOT__idex_ex_rdaddr = ((IData)(vlSelf->rst)
                                            ? 0U : ((IData)(
                                                            (0U 

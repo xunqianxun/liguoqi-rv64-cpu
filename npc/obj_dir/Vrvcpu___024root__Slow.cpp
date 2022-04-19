@@ -29,7 +29,6 @@ Vrvcpu___024root::~Vrvcpu___024root() {
 
 void Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__ex5__DOT__Ebreak_teap_TOP(CData/*0:0*/ rvsign);
 void Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__regfile10__DOT__difftest_dut_regs_TOP(QData/*63:0*/ Z0, QData/*63:0*/ ra, QData/*63:0*/ sp, QData/*63:0*/ gp, QData/*63:0*/ tp, QData/*63:0*/ t0, QData/*63:0*/ t1, QData/*63:0*/ t2, QData/*63:0*/ fp, QData/*63:0*/ s1, QData/*63:0*/ a0, QData/*63:0*/ a1, QData/*63:0*/ a2, QData/*63:0*/ a3, QData/*63:0*/ a4, QData/*63:0*/ a5, QData/*63:0*/ a6, QData/*63:0*/ a7, QData/*63:0*/ s2, QData/*63:0*/ s3, QData/*63:0*/ s4, QData/*63:0*/ s5, QData/*63:0*/ s6, QData/*63:0*/ s7, QData/*63:0*/ s8, QData/*63:0*/ s9, QData/*63:0*/ s10, QData/*63:0*/ a11, QData/*63:0*/ t3, QData/*63:0*/ t4, QData/*63:0*/ t5, QData/*63:0*/ t6);
-void Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__ex5__DOT__csr0__DOT__difftest_dut_csrs_TOP(QData/*63:0*/ mcycle_val, QData/*63:0*/ mstatus_val, QData/*63:0*/ mtvec_val, QData/*63:0*/ mepc_val, QData/*63:0*/ mcause_val, QData/*63:0*/ mie_val, QData/*63:0*/ mip_val, QData/*63:0*/ mscratch_val);
 
 void Vrvcpu___024root___settle__TOP__2(Vrvcpu___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
@@ -638,13 +637,6 @@ void Vrvcpu___024root___settle__TOP__2(Vrvcpu___024root* vlSelf) {
                                         : vlSelf->rvcpu__DOT__exmem_mem_data);
     vlSelf->rvcpu__DOT__id3__DOT__inst_jump = ((IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_jal) 
                                                | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_jalr));
-    Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__ex5__DOT__csr0__DOT__difftest_dut_csrs_TOP(vlSelf->rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mcycle, vlSelf->rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mstatus, 
-                                                                                (vlSelf->rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mtvec_base 
-                                                                                << 2U), vlSelf->rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mepc, vlSelf->rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mcause, 
-                                                                                ((QData)((IData)(vlSelf->rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mie_mtie)) 
-                                                                                << 7U), (QData)((IData)(
-                                                                                ((IData)(vlSelf->rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mip_mtip) 
-                                                                                << 7U))), vlSelf->rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mscrstch);
     vlSelf->rvcpu__DOT__ex5__DOT__sllw_res = (((QData)((IData)(
                                                                (- (IData)(
                                                                           (vlSelf->rvcpu__DOT__ex5__DOT__op1_sllw_op2 
