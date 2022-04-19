@@ -7,5 +7,10 @@ int sdb(){
 }
 
 void sdb_set_batch_mode(){
-    
+
+}
+
+void init_sdb(){
+
+
 }
