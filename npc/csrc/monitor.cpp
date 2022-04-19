@@ -1,6 +1,6 @@
 #include<iostream>
 #include<fstream>
-#include</usr/include/x86_64-linux-gnu/bits/getopt_ext.h>
+#include<getopt.h>
 #include"sdb.cpp"
 #include"paddr.cpp"
 #include"dut.cpp"
