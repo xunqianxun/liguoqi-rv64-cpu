@@ -7,8 +7,8 @@
 
  using namespace std;
 
-static char *log_file = NULL;
-static char *diff_so_file = NULL;
+static char *log_file = (char *)"/home/mulin/ysyx-workbench/am-kernels/tests/cpu-tests/build/dummy-riscv64-nemu.bin";
+static char *diff_so_file = (char *)"/home/mulin/ysyx-workbench/nemu/build/riscv64-nemu-interpreter-so";
 static char *img_file = NULL;
 static int difftest_port = 1234;
 
