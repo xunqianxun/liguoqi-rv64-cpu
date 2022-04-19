@@ -27,8 +27,8 @@ void Vrvcpu___024root::__Vconfigure(Vrvcpu__Syms* _vlSymsp, bool first) {
 Vrvcpu___024root::~Vrvcpu___024root() {
 }
 
-void Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__pc1__DOT__difftest_dut_pc_TOP(QData/*63:0*/ pc_data);
 void Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__ex5__DOT__Ebreak_teap_TOP(CData/*0:0*/ rvsign);
+void Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__mem_wb8__DOT__difftest_dut_pc_TOP(QData/*63:0*/ pc_data, CData/*0:0*/ exe);
 void Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__regfile10__DOT__difftest_dut_regs_TOP(QData/*63:0*/ Z0, QData/*63:0*/ ra, QData/*63:0*/ sp, QData/*63:0*/ gp, QData/*63:0*/ tp, QData/*63:0*/ t0, QData/*63:0*/ t1, QData/*63:0*/ t2, QData/*63:0*/ fp, QData/*63:0*/ s1, QData/*63:0*/ a0, QData/*63:0*/ a1, QData/*63:0*/ a2, QData/*63:0*/ a3, QData/*63:0*/ a4, QData/*63:0*/ a5, QData/*63:0*/ a6, QData/*63:0*/ a7, QData/*63:0*/ s2, QData/*63:0*/ s3, QData/*63:0*/ s4, QData/*63:0*/ s5, QData/*63:0*/ s6, QData/*63:0*/ s7, QData/*63:0*/ s8, QData/*63:0*/ s9, QData/*63:0*/ s10, QData/*63:0*/ a11, QData/*63:0*/ t3, QData/*63:0*/ t4, QData/*63:0*/ t5, QData/*63:0*/ t6);
 
 void Vrvcpu___024root___settle__TOP__2(Vrvcpu___024root* vlSelf) {
@@ -68,11 +68,15 @@ void Vrvcpu___024root___settle__TOP__2(Vrvcpu___024root* vlSelf) {
                                                              == 
                                                              (0x7fU 
                                                               & vlSelf->inst)));
-    Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__pc1__DOT__difftest_dut_pc_TOP(vlSelf->rvcpu__DOT__pc);
     if ((0x10U == (IData)(vlSelf->rvcpu__DOT__idex_ex_opcode))) {
         Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__ex5__DOT__Ebreak_teap_TOP(1U);
     } else {
         Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__ex5__DOT__Ebreak_teap_TOP(0U);
+    }
+    if ((0ULL == vlSelf->rvcpu__DOT__nouse)) {
+        Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__mem_wb8__DOT__difftest_dut_pc_TOP(vlSelf->rvcpu__DOT__nouse, 0U);
+    } else {
+        Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__mem_wb8__DOT__difftest_dut_pc_TOP(vlSelf->rvcpu__DOT__nouse, 1U);
     }
     Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__regfile10__DOT__difftest_dut_regs_TOP(
                                                                                 vlSelf->rvcpu__DOT__regfile10__DOT__regs
@@ -140,8 +144,13 @@ void Vrvcpu___024root___settle__TOP__2(Vrvcpu___024root* vlSelf) {
                                                                                 vlSelf->rvcpu__DOT__regfile10__DOT__regs
                                                                                 [0x1fU]);
     vlSelf->inst_addr = vlSelf->rvcpu__DOT__pc;
-    vlSelf->data_addr = ((IData)(vlSelf->rst) ? 0ULL
-                          : vlSelf->rvcpu__DOT__exmem_mem_lsaddr);
+    if (vlSelf->rst) {
+        vlSelf->rvcpu__DOT__mem_mem_wb_pc = 0ULL;
+        vlSelf->data_addr = 0ULL;
+    } else {
+        vlSelf->rvcpu__DOT__mem_mem_wb_pc = vlSelf->rvcpu__DOT__ex_mem_mem_pc;
+        vlSelf->data_addr = vlSelf->rvcpu__DOT__exmem_mem_lsaddr;
+    }
     vlSelf->rvcpu__DOT__ex_mem_addr = ((IData)((0U 
                                                 != 
                                                 (3U 
@@ -2179,6 +2188,10 @@ void Vrvcpu___024root___ctor_var_reset(Vrvcpu___024root* vlSelf) {
     vlSelf->rvcpu__DOT__exmem_mem_addr = VL_RAND_RESET_I(5);
     vlSelf->rvcpu__DOT__exmem_mem_sel = VL_RAND_RESET_I(3);
     vlSelf->rvcpu__DOT__exmem_mem_lsaddr = VL_RAND_RESET_Q(64);
+    vlSelf->rvcpu__DOT__ex_ex_mem_pc = VL_RAND_RESET_Q(64);
+    vlSelf->rvcpu__DOT__ex_mem_mem_pc = VL_RAND_RESET_Q(64);
+    vlSelf->rvcpu__DOT__mem_mem_wb_pc = VL_RAND_RESET_Q(64);
+    vlSelf->rvcpu__DOT__nouse = VL_RAND_RESET_Q(64);
     vlSelf->rvcpu__DOT__pip_fore0__DOT__j_imm = VL_RAND_RESET_I(20);
     vlSelf->rvcpu__DOT__pip_fore0__DOT__b_imm = VL_RAND_RESET_I(12);
     vlSelf->rvcpu__DOT__pip_fore0__DOT__inst_jalr = VL_RAND_RESET_I(1);

@@ -74,6 +74,7 @@ end
 //    end
     
 //endfunction
+assign ex_pc_o = (rst == `ysyx22040228_RSTENA) ? `ysyx22040228_ZEROWORD : ex_pc_i ;
 
 reg      [`ysyx22040228_REGBUS]       exe_res   ;
 

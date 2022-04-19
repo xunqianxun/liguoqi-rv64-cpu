@@ -148,6 +148,10 @@ VL_MODULE(Vrvcpu___024root) {
         QData/*63:0*/ rvcpu__DOT__idex_ex_op2;
         QData/*63:0*/ rvcpu__DOT__exmem_mem_data;
         QData/*63:0*/ rvcpu__DOT__exmem_mem_lsaddr;
+        QData/*63:0*/ rvcpu__DOT__ex_ex_mem_pc;
+        QData/*63:0*/ rvcpu__DOT__ex_mem_mem_pc;
+        QData/*63:0*/ rvcpu__DOT__mem_mem_wb_pc;
+        QData/*63:0*/ rvcpu__DOT__nouse;
         QData/*63:0*/ rvcpu__DOT__pip_fore0__DOT__j_pc;
         QData/*63:0*/ rvcpu__DOT__ex5__DOT__exe_res;
         QData/*63:0*/ rvcpu__DOT__ex5__DOT__op1_sub_op2;
@@ -164,12 +168,12 @@ VL_MODULE(Vrvcpu___024root) {
         QData/*63:0*/ rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mcycle;
         QData/*63:0*/ rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mstatus;
         QData/*61:0*/ rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mtvec_base;
+    };
+    struct {
         QData/*63:0*/ rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mepc;
         QData/*63:0*/ rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mcause_nxt;
         QData/*63:0*/ rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mcause;
         QData/*63:0*/ rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mscrstch;
-    };
-    struct {
         QData/*63:0*/ rvcpu__DOT__mem7__DOT__store_data;
         VlUnpacked<QData/*63:0*/, 32> rvcpu__DOT__regfile10__DOT__regs;
     };

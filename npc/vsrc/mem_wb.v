@@ -16,9 +16,10 @@ module mem_wb (
 
     output                  reg           [`ysyx22040228_REGBUS]             wb_rd_data     ,
     output                  reg           [`ysyx22040228_REGADDRBUS]         wb_rd_addr     ,
-    output                  reg                                              wb_rd_ena      ,
-    output                  reg           [`ysyx22040228_PCBUS]              wb_pc_o        
+    output                  reg                                              wb_rd_ena      
+//    output                  reg           [`ysyx22040228_PCBUS]              wb_pc_o        
 );
+reg  [`ysyx22040228_PCBUS]  wb_pc_o;
 
 import "DPI-C" function void difftest_dut_pc(longint pc_data , bit exe);
 
