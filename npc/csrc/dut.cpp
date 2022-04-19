@@ -44,7 +44,7 @@ void ( *ref_difftest_exec)(uint64_t n) = NULL;
 
 static inline const char* reg_name(int idx, int width) {
   return regs[idx];
-
+}
 
 // static bool is_skip_ref = false;
 // static int skip_dut_nr_inst = 0;
