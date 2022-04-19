@@ -12,14 +12,14 @@ using namespace std;
 
 bool exe_success;
 int ebreaksign;
-char sdb;
+char sdb_sign;
 #define right 0
 #define fals  1
 uint32_t ifetch(uint64_t addr, int len);
 bool isa_difftest_checkregs(CPU_state *ref_r, uint64_t pc);
 
 void statistic(){
-   char data = scanf("%c", &sdb);
+   char data = scanf("%c", &sdb_sign);
    if(data == "q"){exe_success  = 0 ;}
 }
 
