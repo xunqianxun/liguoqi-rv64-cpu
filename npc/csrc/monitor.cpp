@@ -72,7 +72,7 @@ void init_monitor(int argc, char *argv[]) {
 
   parse_args(argc, argv);
 
-  init_rand();
+ // init_rand();
 //  init_log(log_file);
 //  init_mem();
 //  IFDEF(CONFIG_DEVICE, init_device());
@@ -90,5 +90,5 @@ void init_monitor(int argc, char *argv[]) {
 //     MUXDEF(CONFIG_ISA_mips32,  "mipsel",
 //     MUXDEF(CONFIG_ISA_riscv32, "riscv32",
 //     MUXDEF(CONFIG_ISA_riscv64, "riscv64", "bad")))) "-pc-linux-gnu"
-  ));
+//  ));
 }
