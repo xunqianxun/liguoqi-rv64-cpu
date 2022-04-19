@@ -22,12 +22,7 @@ module pc (
     output   reg     [`ysyx22040228_PCBUS]                  pc           ,
     output   wire                                           ce
 );
-import "DPI-C" function void difftest_dut_pc(longint pc_data);
-
-always@(*)begin
-    difftest_dut_pc(pc);
-
-end    
+  
     always @(posedge clk) begin
         if(rst == `ysyx22040228_RSTENA) begin
             pc <= `ysyx22040228_START;   

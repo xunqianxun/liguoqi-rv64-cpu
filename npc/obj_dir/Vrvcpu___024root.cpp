@@ -9,6 +9,16 @@
 
 //==========
 
+extern "C" void difftest_dut_pc(long long pc_data);
+
+VL_INLINE_OPT void Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__pc1__DOT__difftest_dut_pc_TOP(QData/*63:0*/ pc_data) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__pc1__DOT__difftest_dut_pc_TOP\n"); );
+    // Body
+    long long pc_data__Vcvt;
+    for (size_t pc_data__Vidx = 0; pc_data__Vidx < 1; ++pc_data__Vidx) pc_data__Vcvt = pc_data;
+    difftest_dut_pc(pc_data__Vcvt);
+}
+
 extern "C" void Ebreak_teap(svLogic rvsign);
 
 VL_INLINE_OPT void Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__ex5__DOT__Ebreak_teap_TOP(CData/*0:0*/ rvsign) {
@@ -736,6 +746,7 @@ VL_INLINE_OPT void Vrvcpu___024root___sequent__TOP__3(Vrvcpu___024root* vlSelf) 
                                               ? (0xfffU 
                                                  & (IData)(vlSelf->rvcpu__DOT__idex_ex_op2))
                                               : 0U);
+    Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__pc1__DOT__difftest_dut_pc_TOP(vlSelf->rvcpu__DOT__pc);
     vlSelf->inst_addr = vlSelf->rvcpu__DOT__pc;
     vlSelf->rvcpu__DOT__idex_ex_pc = ((IData)(vlSelf->rst)
                                        ? 0ULL : ((IData)(

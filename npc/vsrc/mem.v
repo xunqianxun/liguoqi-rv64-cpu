@@ -10,6 +10,7 @@ module mem (
     input                wire                                                rd_ena_i             ,
     input                wire          [`ysyx22040228_REGBUS]                rd_data_i            ,
     input                wire          [`ysyx22040228_REGADDRBUS]            rd_addr_i            ,
+    input                wire          [`ysyx22040228_PCBUS]                 mem_pc_i             ,
 
     input                wire          [`ysyx22040228_DATAADDRBUS]           ls_addr_i            ,
     input                wire          [ 2:0]                                ls_sel_i             ,
@@ -25,9 +26,12 @@ module mem (
     output               wire                                                rd_ena_o             ,
     output               wire          [`ysyx22040228_REGBUS]                rd_data_o            ,
     output               wire          [`ysyx22040228_REGADDRBUS]            rd_addr_o            ,
+    output               wire          [`ysyx22040228_PCBUS]                 mem_pc_o             ,
 
     output               wire                                                mem_stall_req        
 );
+
+assign mem_pc_o = (rst == `ysyx22040228_RSTENA) ? `ysyx22040228_ZEROWORD : mem_pc_i ;
     
 assign mem_stall_req = (rst == `ysyx22040228_RSTENA) ? 1'b0 : ((re|we) && (mem_finish == 1'b0)) ;
 

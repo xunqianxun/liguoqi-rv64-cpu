@@ -25,6 +25,7 @@ module ex (
     output        wire                                        rd_ena_o          ,
     output        wire          [`ysyx22040228_REGADDRBUS]    rd_addr_o         ,
     output        wire          [`ysyx22040228_REGBUS]        rd_data_o         ,
+    output        wire          [`ysyx22040228_PCBUS]         ex_pc_o           ,
 
     output        wire          [ 2:0]                        ls_sel_o          ,
     output        wire          [`ysyx22040228_REGBUS]        ls_addr_o         ,

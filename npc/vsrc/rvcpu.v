@@ -141,6 +141,10 @@ wire    [`ysyx22040228_REGBUS]         exmem_mem_data     ;
 wire    [`ysyx22040228_REGADDRBUS]     exmem_mem_addr     ;
 wire    [ 2:0]                         exmem_mem_sel      ;
 wire    [`ysyx22040228_DATAADDRBUS]    exmem_mem_lsaddr   ;
+//difftest use
+wire    [`ysyx22040228_PCBUS]          ex_ex_mem_pc       ;
+wire    [`ysyx22040228_PCBUS]          ex_mem_mem_pc      ;
+wire    [`ysyx22040228_PCBUS]          mem_mem_wb_pc      ;
 
 pip_fore pip_fore0 (
     .rst                 (rst                  ),
@@ -282,6 +286,7 @@ ex ex5 (
     .rd_ena_o            (ex_id_rd_ena         ),
     .rd_addr_o           (ex_id_rd_addr        ),
     .rd_data_o           (ex_id_rd_data        ),
+    .ex_pc_o             (ex_ex_mem_pc         ),
 
     .ls_sel_o            (ex_mem_sel           ),
     .ls_addr_o           (ex_mem_addr          ),
@@ -305,6 +310,7 @@ ex ex5 (
 ex_mem ex_mem6 (
     .clk                 (clk                  ),
     .rst                 (rst                  ),
+    .ex_mem_pc_i         (ex_ex_mem_pc         ),
     .stall_ctrl          (stall_ctrl           ),
 
     .ex_inst_type        (ex_id_rd_type        ),
@@ -319,6 +325,7 @@ ex_mem ex_mem6 (
     .mem_rd_ena          (exmem_mem_ena        ),
     .mem_rd_data         (exmem_mem_data       ),
     .mem_rd_addr         (exmem_mem_addr       ),
+    .ex_mem_pc_o         (ex_mem_mem_pc        ),
 
     .mem_ls_sel          (exmem_mem_sel        ),
     .mem_ls_addr         (exmem_mem_lsaddr     )
@@ -330,6 +337,7 @@ mem mem7 (
    .rd_ena_i             (exmem_mem_ena        ),
    .rd_data_i            (exmem_mem_data       ),
    .rd_addr_i            (exmem_mem_addr       ),
+   .mem_pc_i             (ex_mem_mem_pc        ),
 
    .ls_addr_i            (exmem_mem_lsaddr     ),
    .ls_sel_i             (exmem_mem_sel        ),
@@ -345,6 +353,7 @@ mem mem7 (
    .rd_ena_o             (mem_id_ena           ),
    .rd_data_o            (mem_id_data          ),
    .rd_addr_o            (mem_id_addr          ),
+   .mem_pc_o             (mem_mem_wb_pc        ),
 
    .mem_stall_req        (mem_ctrl_req         )
 );
@@ -352,6 +361,7 @@ mem mem7 (
 mem_wb mem_wb8 (
    .clk                  (clk                  ),
    .rst                  (rst                  ),
+   .wb_pc_i              (mem_mem_wb_pc        ),
 
    .stall_ctrl           (stall_ctrl           ),
 
@@ -361,7 +371,8 @@ mem_wb mem_wb8 (
 
    .wb_rd_data           (wb_regfile_data      ),
    .wb_rd_addr           (wb_id_addr           ),
-   .wb_rd_ena            (wb_id_ena            )
+   .wb_rd_ena            (wb_id_ena            ),
+   .wb_pc_o              (                     )
 );
 
 ctrl ctrl9 (
