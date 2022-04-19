@@ -24,10 +24,10 @@ import "DPI-C" function void difftest_dut_pc(longint pc_data , bit exe);
 
 always@(*)begin
     if(wb_pc_o == `ysyx22040228_ZEROWORD) begin
-        difftest_dut_pc(pc,0);
+        difftest_dut_pc(wb_pc_o,0);
     end
     else begin
-        difftest_dut_pc(pc,1);
+        difftest_dut_pc(wb_pc_o,1);
     end
 end  
     
