@@ -10,14 +10,27 @@
 
 using namespace std;
 
+bool exe_success;
+int ebreaksign;
+char sdb;
 #define right 0
 #define fals  1
 uint32_t ifetch(uint64_t addr, int len);
+bool isa_difftest_checkregs(CPU_state *ref_r, uint64_t pc);
 
-int ebreaksign;
+void statistic(){
+   char data = scanf("%c", &sdb);
+   if(data == "q"){exe_success  = 0 ;}
+}
+
 extern void Ebreak_teap(svLogic rvsign){
   if(rvsign == 1) ebreaksign = 1;
   else            ebreaksign = 0;
+}
+
+extern void difftest_dut_pc(long long pc_data, svBit exe){
+  cpu.pc = pc_data;
+  exe_success = exe;
 }
 
 extern void difftest_dut_regs(long long Z0, long long ra, long long sp, long long gp, long long tp, long long t0, long long t1, long long t2, long long fp, long long s1, long long a0, long long a1, long long a2, long long a3, long long a4, long long a5, long long a6, long long a7, long long s2, long long s3, long long s4, long long s5, long long s6, long long s7, long long s8, long long s9, long long s10, long long a11, long long t3, long long t4, long long t5, long long t6){
@@ -55,13 +68,36 @@ extern void difftest_dut_regs(long long Z0, long long ra, long long sp, long lon
   cpu.gpr[31] = t6;
 }
 
+static void execute(uint64_t n) {
+
+ //   exec_once();
+    if(exe_success == 1){
+    difftest_step(cpu.pc, n);
+    }
+}
+
+void cpu_exec(uint64_t n) {
+
+  execute(n);
+
+  switch (nemu_state.state) {
+    case NEMU_RUNNING: nemu_state.state = NEMU_STOP; break;
+
+    case NEMU_END: case NEMU_ABORT:
+
+    case NEMU_QUIT: statistic();
+  }
+}
+
 vluint64_t main_time = 0;
 double sc_time_stamp(){
   return main_time;
 }
 
+void initial_npc
+
 int main(int argc , char** argv , char** env) {
-init_monitor(argc, argv);  
+init_monitor(argc, argv); 
 //load_img();
 VerilatedContext* contextp = new VerilatedContext ;
 contextp->commandArgs(argc, argv) ;
@@ -73,6 +109,7 @@ tfp->open("obj_dir/rvcpu.vcd") ; // open vcd
 rvcpu->rst = 1;
 rvcpu->bui_inst_valid = fals;
 while(~ebreaksign && !contextp->gotFinish()){
+  cpu_exec(1);
 //  int a = rand() & 1 ;
 //  int b = rand() & 1 ;
 if(main_time > 10){
