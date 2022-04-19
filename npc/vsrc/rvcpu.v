@@ -145,6 +145,7 @@ wire    [`ysyx22040228_DATAADDRBUS]    exmem_mem_lsaddr   ;
 wire    [`ysyx22040228_PCBUS]          ex_ex_mem_pc       ;
 wire    [`ysyx22040228_PCBUS]          ex_mem_mem_pc      ;
 wire    [`ysyx22040228_PCBUS]          mem_mem_wb_pc      ;
+wire    [`ysyx22040228_PCBUS]          nouse              ;
 
 pip_fore pip_fore0 (
     .rst                 (rst                  ),
@@ -372,7 +373,7 @@ mem_wb mem_wb8 (
    .wb_rd_data           (wb_regfile_data      ),
    .wb_rd_addr           (wb_id_addr           ),
    .wb_rd_ena            (wb_id_ena            ),
-   .wb_pc_o              (                     )
+   .wb_pc_o              (nouse                )
 );
 
 ctrl ctrl9 (
