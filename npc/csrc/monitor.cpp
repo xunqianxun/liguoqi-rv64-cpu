@@ -1,5 +1,6 @@
 #include<iostream>
 #include<fstream>
+#include<getopt_ext.h>
 #include"sdb.cpp"
 #include"paddr.cpp"
 #include"dut.cpp"
