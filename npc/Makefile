@@ -11,12 +11,13 @@ IMG_NPC?=
 PACH_ADD=$(TEST_PATH)
 PACH_ADD+=$(IMG_NPC)
 
+
 sim:
 	@$(shell if[!-e$(SIM_DIR)];then mkdir -p$(SIM_DIR);fi)
 
 run:git
 	@verilator -Wall --trace --cc --exe -build ./csrc/main.cpp $(VERILOG)rvcpu.v
-	@make -C $(OBJ_PATH) -f Vrvcpu.mk Vrvcpu CXXFLAGS+= -DPACH_IMG=\"$(PACH_ADD)\"
+	@make -C $(OBJ_PATH) -f Vrvcpu.mk Vrvcpu CXXFLAGS+= -DPACH_IMG=\"$(PACH_ADD)\" LDFLAGS+= -ldl
 	@./obj_dir/Vrvcpu
 
 gtk:
