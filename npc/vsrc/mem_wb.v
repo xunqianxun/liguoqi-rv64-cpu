@@ -21,7 +21,7 @@ module mem_wb (
 );
 reg  [`ysyx22040228_PCBUS]  wb_pc_o;
 
-import "DPI-C" function void difftest_dut_pc(longint pc_data , bit exe);
+import "DPI-C" function void difftest_dut_pc(input longint pc_data ,input bit exe);
 
 always@(*)begin
     if(wb_pc_o == `ysyx22040228_ZEROWORD) begin
