@@ -107,10 +107,9 @@ tfp->open("obj_dir/rvcpu.vcd") ; // open vcd
 rvcpu->rst = 1;
 rvcpu->bui_inst_valid = fals;
 while(~ebreaksign && !contextp->gotFinish() && sc_time_stamp() < 1000){
-cout << cpu.pc << endl;
-//  cpu_exec(1);
-//  int a = rand() & 1 ;
-//  int b = rand() & 1 ;
+//cout << cpu.pc << endl;
+  cpu_exec(1);
+
 if(main_time > 10){
   rvcpu->rst = 0 ; 
 }
