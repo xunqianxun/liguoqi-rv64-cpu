@@ -33,13 +33,18 @@ NPC_state npc_state = { .state = NEMU_STOP };
 
 bool isa_difftest_checkregs(CPU_state *ref_r, uint64_t pc); 
 static inline bool difftest_check_reg(const char *name, uint64_t pc, uint64_t ref, uint64_t dut);
+bool isa_difftest_checkregs(CPU_state *ref_r, uint64_t pc) ;
+void difftest_step(uint64_t pc, uint64_t npc);
+static void checkregs(CPU_state *ref, uint64_t pc);
+void init_difftest(char *ref_so_file, long img_size, int port);
+void difftest_skip_dut(int nr_ref, int nr_dut);
 void ( *ref_difftest_memcpy)(uint32_t, void *buf, unsigned long n, bool direction) = NULL;
 void ( *ref_difftest_regcpy)(void *dut, bool direction) = NULL;
 void ( *ref_difftest_exec)(uint64_t n) = NULL;
 //void (*ref_difftest_raise_intr)(uint64_t NO) = NULL;
 #define DIFFTEST_TO_REF 1
 #define DIFFTEST_TO_DUT 0
-#define DIFFTEST_REG_SIZE (sizeof(uint64_t) * 33)
+#define DIFFTEST_REG_SIZE (sizeof(uint64_t) * 32)
 #define ARRLEN(arr) (int)(sizeof(arr) / sizeof(arr[0]))
 
 static inline const char* reg_name(int idx, int width) {
