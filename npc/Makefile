@@ -4,7 +4,7 @@ endif
 
 include /usr/share/verilator/include/verilated.mk
 
-CXXFLAGS+= -ldl
+LDFLAGS+= -ldl
 OBJ_PATH=./obj_dir/
 VERILOG= ./vsrc/
 CC=g++
