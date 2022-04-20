@@ -70,7 +70,7 @@ extern void difftest_dut_regs(long long Z0, long long ra, long long sp, long lon
 
 static void execute(uint64_t n) {
 
- //   exec_once();
+   cout << cpu.pc << endl ;
     if((exe_success == 1) && (cpu.pc != 0x80000000)){
     difftest_step(cpu.pc, n);
     }
