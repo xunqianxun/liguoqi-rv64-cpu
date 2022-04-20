@@ -70,7 +70,6 @@ extern void difftest_dut_regs(long long Z0, long long ra, long long sp, long lon
 
 static void execute(uint64_t n) {
 
-   cout << cpu.pc << endl ;
     if((exe_success == 1) && (cpu.pc != 0x80000000)){
     difftest_step(cpu.pc, n);
     }
@@ -107,7 +106,8 @@ rvcpu->trace(tfp,0) ;
 tfp->open("obj_dir/rvcpu.vcd") ; // open vcd
 rvcpu->rst = 1;
 rvcpu->bui_inst_valid = fals;
-while(~ebreaksign && !contextp->gotFinish()){
+while(~ebreaksign && !contextp->gotFinish() && sc_time_stamp() < 1000){
+cout << cpu.pc << endl;
 //  cpu_exec(1);
 //  int a = rand() & 1 ;
 //  int b = rand() & 1 ;
