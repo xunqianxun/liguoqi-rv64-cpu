@@ -28,6 +28,9 @@ extern void Ebreak_teap(svLogic rvsign){
   else            ebreaksign = 0;
 }
 void exe_dpi_c() {
+  difftest_dut_pc();
+  difftest_dut_regs();
+}
 extern void difftest_dut_pc(long long pc_data, svBit exe){
   cpu.pc = pc_data;
   exe_success = exe;
@@ -66,7 +69,6 @@ extern void difftest_dut_regs(long long Z0, long long ra, long long sp, long lon
   cpu.gpr[29] = t4;
   cpu.gpr[30] = t5;
   cpu.gpr[31] = t6;
-}
 }
 
 static void execute(uint64_t n) {
