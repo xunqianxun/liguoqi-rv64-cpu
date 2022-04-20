@@ -94,7 +94,6 @@ double sc_time_stamp(){
   return main_time;
 }
 
-void initial_npc
 
 int main(int argc , char** argv , char** env) {
 init_monitor(argc, argv); 
