@@ -15,7 +15,7 @@ sim:
 	@$(shell if[!-e$(SIM_DIR)];then mkdir -p$(SIM_DIR);fi)
 
 run:git
-	verilator -Wall --trace --cc --exe -build -CFLAGS" -ldl" ./csrc/main.cpp $(VERILOG)rvcpu.v
+	verilator -Wall --trace --cc --exe -build -CFLAGS "-ldl" ./csrc/main.cpp $(VERILOG)rvcpu.v
 	make -C $(OBJ_PATH) -f Vrvcpu.mk Vrvcpu
 	@./obj_dir/Vrvcpu
 
