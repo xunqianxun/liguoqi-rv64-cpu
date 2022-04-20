@@ -14,7 +14,7 @@ sim:
 
 run:git
 	@verilator -Wall --trace --cc --exe -build ./csrc/main.cpp $(VERILOG)rvcpu.v
-	@make -C $(OBJ_PATH) -f Vrvcpu.mk Vrvcpu CXXFLAGS+= -ldl
+	@make -C $(OBJ_PATH) -f Vrvcpu.mk CXXFLAGS+= -ldl Vrvcpu
 	@./obj_dir/Vrvcpu
 
 gtk:
