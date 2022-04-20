@@ -2,6 +2,9 @@ ifeq ($(wildcard /home/mulin/ysyx-workbench/npc/csrc/main.cpp),)
   $(error can't find the sim cpp file)
 endif
 
+include /usr/share/verilator/include/verilated.mk
+
+CXXFLAGS+= -ldl
 OBJ_PATH=./obj_dir/
 VERILOG= ./vsrc/
 CC=g++
@@ -14,7 +17,7 @@ sim:
 
 run:git
 	verilator -Wall --trace --cc --exe -build ./csrc/main.cpp $(VERILOG)rvcpu.v
-	make -C $(OBJ_PATH) -f Vrvcpu.mk CXXFLAGS= -ldl Vrvcpu
+	make -C $(OBJ_PATH) -f Vrvcpu.mk Vrvcpu
 	@./obj_dir/Vrvcpu
 
 gtk:
