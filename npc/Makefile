@@ -13,8 +13,8 @@ sim:
 	@$(shell if[!-e$(SIM_DIR)];then mkdir -p$(SIM_DIR);fi)
 
 run:git
-	@verilator -Wall --trace --cc --exe -build CXXFLAGS= -ldl ./csrc/main.cpp $(VERILOG)rvcpu.v
-	@make -C $(OBJ_PATH) -f Vrvcpu.mk CXXFLAGS= -ldl Vrvcpu
+	verilator -Wall --trace --cc --exe -build ./csrc/main.cpp $(VERILOG)rvcpu.v
+	make -C $(OBJ_PATH) -f Vrvcpu.mk CXXFLAGS= -ldl Vrvcpu
 	@./obj_dir/Vrvcpu
 
 gtk:
