@@ -3,6 +3,7 @@
 
 using namespace std;
 
+#define ARRLEN(arr) (int)(sizeof(arr) / sizeof(arr[0]))
 bool check_parentheses(int p, int q);
 int dominant_operator(int p , int q);
 uint64_t expr(char *e, bool *success) ;
@@ -60,7 +61,7 @@ void init_regex() {
     ret = regcomp(&re[i], rules[i].regex, REG_EXTENDED);
     if (ret != 0) {
       regerror(ret, &re[i], error_msg, 128);
-      panic("regex compilation failed: %s\n%s", error_msg, rules[i].regex);
+      printf("regex compilation failed: %s\n%s", error_msg, rules[i].regex);
     }
   }
 }
@@ -87,7 +88,7 @@ static bool make_token(char *e) {
         char *substr_start = e + position;
         int substr_len = pmatch.rm_eo;
 
-        Log("match rules[%d] = \"%s\" at position %d with len %d: %.*s",
+        printf("match rules[%d] = \"%s\" at position %d with len %d: %.*s",
             i, rules[i].regex, position, substr_len, substr_len, substr_start);
 
         position += substr_len;
