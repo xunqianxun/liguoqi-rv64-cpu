@@ -7,6 +7,7 @@
 #include "monitor.cpp"
 #include <Vrvcpu__Dpi.h>
 #include <svdpi.h>
+#include "regs.h"
 
 using namespace std;
 
@@ -79,7 +80,7 @@ static void execute(uint64_t n) {
 
 void cpu_exec(uint64_t n) {
 
-  if(cpu.pc == 0) printf("%ld", cpu.pc);
+  if(cpu.pc == 0) //printf("%ld", cpu.pc);
   else {execute(n);}
 
   switch (npc_state.state) {

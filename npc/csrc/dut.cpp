@@ -2,6 +2,7 @@
 #include <dlfcn.h>
 #include <stdlib.h>
 #include <bits/stdc++.h>
+#include "regs.h"
 
 enum { NEMU_RUNNING, NEMU_STOP, NEMU_END, NEMU_ABORT, NEMU_QUIT };
 
@@ -15,18 +16,18 @@ const char *regs[] = {
 static bool is_skip_ref = false;
 static int skip_dut_nr_inst = 0;
 
-typedef struct 
-{
-  uint64_t gpr[31];
-  uint64_t pc;
-} CPU_state;
+// typedef struct 
+// {
+//   uint64_t gpr[31];
+//   uint64_t pc;
+// } CPU_state;
 
-typedef struct dut
-{
-  int state;
-  uint64_t halt_pc;
-  uint32_t halt_ret;
-} NPC_state;
+// typedef struct dut
+// {
+//   int state;
+//   uint64_t halt_pc;
+//   uint32_t halt_ret;
+// } NPC_state;
 
 CPU_state cpu = {};
 NPC_state npc_state = { .state = NEMU_STOP };
@@ -42,10 +43,10 @@ void ( *ref_difftest_memcpy)(uint32_t, void *buf, unsigned long n, bool directio
 void ( *ref_difftest_regcpy)(void *dut, bool direction) = NULL;
 void ( *ref_difftest_exec)(uint64_t n) = NULL;
 //void (*ref_difftest_raise_intr)(uint64_t NO) = NULL;
-#define DIFFTEST_TO_REF 1
-#define DIFFTEST_TO_DUT 0
-#define DIFFTEST_REG_SIZE (sizeof(uint64_t) * 32)
-#define ARRLEN(arr) (int)(sizeof(arr) / sizeof(arr[0]))
+// #define DIFFTEST_TO_REF 1
+// #define DIFFTEST_TO_DUT 0
+// #define DIFFTEST_REG_SIZE (sizeof(uint64_t) * 32)
+// #define ARRLEN(arr) (int)(sizeof(arr) / sizeof(arr[0]))
 
 void wirte_cpu(uint64_t data){
   cpu.pc = data;
