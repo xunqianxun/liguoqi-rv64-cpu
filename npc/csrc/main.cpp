@@ -121,6 +121,7 @@ if((main_time % 10) == 1){
   }
   if(rv64.pc != 0){
     cpu_exec(1);
+    printf("%ld", rv64.pc);
   }
   //  cout << rvcpu->inst << endl;
   //  cout << rvcpu->inst_addr << endl;
