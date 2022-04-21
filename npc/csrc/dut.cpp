@@ -47,6 +47,10 @@ void ( *ref_difftest_exec)(uint64_t n) = NULL;
 #define DIFFTEST_REG_SIZE (sizeof(uint64_t) * 32)
 #define ARRLEN(arr) (int)(sizeof(arr) / sizeof(arr[0]))
 
+void wirte_cpu(uint64_t data){
+  cpu.pc = data;
+}
+
 static inline const char* reg_name(int idx, int width) {
   return regs[idx];
 }
