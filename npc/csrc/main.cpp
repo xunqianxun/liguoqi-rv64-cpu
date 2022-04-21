@@ -119,7 +119,7 @@ if((main_time % 10) == 1){
   if(rvcpu->inst_addr >= 0x80000000){
   rvcpu->inst = ifetch(rvcpu->inst_addr, 4);
   }
-  if(rv64.cpu != 0){
+  if(rv64.pc != 0){
     cpu_exec(1);
   }
   //  cout << rvcpu->inst << endl;
