@@ -72,8 +72,8 @@ extern "C" void difftest_dut_regs(long long Z0, long long ra, long long sp, long
 static void execute(uint64_t n) {
 
     if((exe_success == 1) && (cpu.pc != 0x80000000)){
+    printf("%ld",cpu.pc);
     difftest_step(cpu.pc, n);
-    printf("%d",cpu.pc);
     }
 }
 
