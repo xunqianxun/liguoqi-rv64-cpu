@@ -155,6 +155,8 @@ void difftest_step(uint64_t pc, uint64_t npc) {
   ref_difftest_exec(1);
   ref_difftest_regcpy(&ref_r, DIFFTEST_TO_DUT);
 
+  printf("&ld",pc);
+
   checkregs(&ref_r, pc);
 }
 // void init_difftest(char *ref_so_file, long img_size, int port) { }
