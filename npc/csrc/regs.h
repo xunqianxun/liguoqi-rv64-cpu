@@ -3,7 +3,7 @@
 
 typedef struct 
 {
-  uint64_t gpr[31];
+  uint64_t gpr[32];
   uint64_t pc;
 } CPU_state;
 
