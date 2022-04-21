@@ -120,8 +120,9 @@ if((main_time % 10) == 1){
   rvcpu->inst = ifetch(rvcpu->inst_addr, 4);
   }
   if(rv64.pc != 0){
-    cpu_exec(1);
-    printf("%ld", rv64.pc);
+     printf("%ld", rv64.pc);
+     cpu_exec(1);
+ 
   }
   //  cout << rvcpu->inst << endl;
   //  cout << rvcpu->inst_addr << endl;
