@@ -50,7 +50,7 @@ void ( *ref_difftest_exec)(uint64_t n) = NULL;
 
 void wirte_cpu(uint64_t data){
   cpu.pc = data;
-  printf("%d",cpu.pc);
+//  printf("%d",cpu.pc);
 }
 
 static inline const char* reg_name(int idx, int width) {
