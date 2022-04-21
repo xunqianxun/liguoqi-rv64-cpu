@@ -14,6 +14,7 @@ using namespace std;
 bool exe_success;
 int ebreaksign;
 char sdb_sign;
+CPU_state rv64;
 #define right 0
 #define fals  1
 uint32_t ifetch(uint64_t addr, int len);
@@ -30,7 +31,7 @@ extern "C" void Ebreak_teap(svLogic rvsign){
 }
 
 extern "C" void difftest_dut_pc(long long pc_data, svBit exe){
-  wirte_cpu(pc_data);
+  rv64 = wirte_cpu(pc_data);
 //  printf("%d",pc_data );
   exe_success = exe;
 }
@@ -72,15 +73,15 @@ extern "C" void difftest_dut_regs(long long Z0, long long ra, long long sp, long
 
 static void execute(uint64_t n) {
 
-    if((exe_success == 1) && (cpu.pc != 0x80000000)){
-    printf("%ld",cpu.pc);
-    difftest_step(cpu.pc, n);
+    if((exe_success == 1) && (rv64.pc != 0x80000000)){
+    printf("%ld",rv64.pc);
+    difftest_step(rv64.pc, n);
     }
 }
 
 void cpu_exec(uint64_t n) {
 
-  if(cpu.pc == 0) printf("%ld", cpu.pc);
+  if(rv64.pc == 0) printf("%ld", rv64.pc);
   else {execute(n);}
 
   switch (npc_state.state) {
