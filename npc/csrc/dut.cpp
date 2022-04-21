@@ -29,7 +29,7 @@ static int skip_dut_nr_inst = 0;
 //   uint32_t halt_ret;
 // } NPC_state;
 
-CPU_state cpu = { };
+CPU_state cpu = { .pc =0x80000000};
 NPC_state npc_state = { .state = NEMU_STOP };
 
 bool isa_difftest_checkregs(CPU_state *ref_r, uint64_t pc); 
