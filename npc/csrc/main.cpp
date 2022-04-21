@@ -79,7 +79,8 @@ static void execute(uint64_t n) {
 
 void cpu_exec(uint64_t n) {
 
-  execute(n);
+  if(cpu.pc == 0) printf("%ld", cpu.pc);
+  else {execute(n);}
 
   switch (npc_state.state) {
     case NEMU_RUNNING: npc_state.state = NEMU_STOP; break;
