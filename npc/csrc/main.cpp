@@ -29,7 +29,9 @@ extern "C" void Ebreak_teap(svLogic rvsign){
 }
 
 extern "C" void difftest_dut_pc(long long pc_data, svBit exe){
-  cpu->pc = pc_data;
+  uint64_t * data = NULL;
+  data = &pc_data;
+  cpu.pc = data;
 //  printf("%d",pc_data );
   exe_success = exe;
 }
