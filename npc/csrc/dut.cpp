@@ -152,8 +152,6 @@ void difftest_step(uint64_t pc, uint64_t npc) {
   //   is_skip_ref = false;
   //   return;
   // }
-  printf("step-exe pc = %lx\n",ref_r.pc);
-    printf("adders pc = %lx\n",&cpu.pc);
   ref_difftest_exec(1);
   ref_difftest_regcpy(&ref_r, DIFFTEST_TO_DUT);
 

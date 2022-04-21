@@ -14,7 +14,7 @@ void difftest_regcpy(void *dut, bool direction) {
 //  assert(0);
   if (direction == DIFFTEST_TO_REF) {
     memcpy(&cpu, dut, DIFFTEST_REG_SIZE);
-    printf("the pc = %lx\n", cpu.pc);
+    printf("the pc = %lx\n", cpu->pc);
 //    csr_writeback();
   } else {
 //    csr_prepare();
