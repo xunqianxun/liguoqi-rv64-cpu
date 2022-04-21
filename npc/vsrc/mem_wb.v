@@ -19,9 +19,13 @@ module mem_wb (
     output                  reg                                              wb_rd_ena      
 //    output                  reg           [`ysyx22040228_PCBUS]              wb_pc_o        
 );
-reg  [`ysyx22040228_PCBUS]  wb_pc_o;
 
 import "DPI-C" function void difftest_dut_pc(input longint pc_data ,input bit exe);
+
+reg  [`ysyx22040228_PCBUS]  wb_pc_o;
+initial begin
+    wb_pc_o = wb_pc_i;
+end
 
 always@(*)begin
     if(wb_pc_o == `ysyx22040228_ZEROWORD) begin
