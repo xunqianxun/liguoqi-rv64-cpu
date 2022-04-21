@@ -11,6 +11,7 @@
 
 using namespace std;
 
+bool exe_once_sign ;
 bool exe_success;
 int ebreaksign;
 char sdb_sign;
@@ -19,6 +20,13 @@ CPU_state rv64;
 #define fals  1
 uint32_t ifetch(uint64_t addr, int len);
 bool isa_difftest_checkregs(CPU_state *ref_r, uint64_t pc);
+void npc_mainworkint(int argc, char *argv[]);
+void exe_once(int n);
+
+void npc_mainworkint(int argc, char *argv[]){
+   init_monitor(argc, argv);
+   sdb_mainloop();
+}
 
 void statistic(){
    char data = scanf("%c", &sdb_sign);
@@ -73,8 +81,13 @@ extern "C" void difftest_dut_regs(long long Z0, long long ra, long long sp, long
   cpu.gpr[31] = t6;
 }
 
-static void execute(uint64_t n) {
+void exe_once(int n){
+  if(n) {exe_once_sign = true; }
+  else  {exe_once_sign = false;}
+}
 
+static void execute(uint64_t n) {
+    exe_once(n);
     difftest_step(rv64.pc, n);
 }  
 
@@ -98,7 +111,8 @@ double sc_time_stamp(){
 
 
 int main(int argc , char** argv , char** env) {
-init_monitor(argc, argv); 
+npc_mainworkint(argc, argv);
+//init_monitor(argc, argv); 
 //load_img();
 VerilatedContext* contextp = new VerilatedContext ;
 contextp->commandArgs(argc, argv) ;
@@ -119,9 +133,9 @@ if((main_time % 10) == 1){
   if(rvcpu->inst_addr >= 0x80000000){
   rvcpu->inst = ifetch(rvcpu->inst_addr, 4);
   }
-  if(rv64.pc != 0){
-     cpu_exec(1);
- 
+  if(exe_once_sign ){
+  exe_once_sign = false;
+//     cpu_exec(1);
   }
   //  cout << rvcpu->inst << endl;
   //  cout << rvcpu->inst_addr << endl;
