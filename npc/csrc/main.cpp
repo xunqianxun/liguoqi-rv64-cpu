@@ -76,7 +76,7 @@ extern "C" void difftest_dut_regs(long long Z0, long long ra, long long sp, long
 static void execute(uint64_t n) {
 
     difftest_step(rv64.pc, n);
-    
+}  
 
 void cpu_exec(uint64_t n) {
 
