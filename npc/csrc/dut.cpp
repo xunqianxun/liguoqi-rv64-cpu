@@ -155,7 +155,7 @@ void difftest_step(uint64_t pc, uint64_t npc) {
   ref_difftest_exec(1);
   ref_difftest_regcpy(&ref_r, DIFFTEST_TO_DUT);
 
-  printf("&ld",pc);
+  printf("%ld",pc);
 
   checkregs(&ref_r, pc);
 }
