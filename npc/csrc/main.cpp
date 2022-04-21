@@ -118,7 +118,7 @@ if((main_time % 10) == 1){
   if(rvcpu->inst_addr >= 0x80000000){
   rvcpu->inst = ifetch(rvcpu->inst_addr, 4);
   }
-  printf("%d %ld \n", cpu.pc,rvcpu->inst_addr);
+  printf("%ld %ld \n", cpu.pc,rvcpu->inst_addr);
   //  cout << rvcpu->inst << endl;
   //  cout << rvcpu->inst_addr << endl;
   rvcpu->eval();
