@@ -18,6 +18,7 @@ void difftest_regcpy(void *dut, bool direction) {
   } else {
 //    csr_prepare();
     memcpy(dut, &cpu, DIFFTEST_REG_SIZE);
+      printf("the pc = %lx\n",cpu.pc);
   }
 }
 
