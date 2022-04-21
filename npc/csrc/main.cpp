@@ -107,7 +107,6 @@ tfp->open("obj_dir/rvcpu.vcd") ; // open vcd
 rvcpu->rst = 1;
 rvcpu->bui_inst_valid = fals;
 while(~ebreaksign && !contextp->gotFinish() && sc_time_stamp() < 1000){
-    cout << cpu.pc << rvcpu->inst_addr << endl;
 //  cpu_exec(1);
 
 if(main_time > 10){
@@ -118,6 +117,7 @@ if((main_time % 10) == 1){
   if(rvcpu->inst_addr >= 0x80000000){
   rvcpu->inst = ifetch(rvcpu->inst_addr, 4);
   }
+  cout << cpu.pc << rvcpu->inst_addr << endl;
   //  cout << rvcpu->inst << endl;
   //  cout << rvcpu->inst_addr << endl;
   rvcpu->eval();
