@@ -1,4 +1,5 @@
 #include <regex.h>
+#include <stdlib.h>
 #include <iostream>
 
 using namespace std;
@@ -7,6 +8,7 @@ using namespace std;
 bool check_parentheses(int p, int q);
 int dominant_operator(int p , int q);
 uint64_t expr(char *e, bool *success) ;
+uint64_t isa_reg_str2val(const char *s, bool *success);
 //static Token tokens[32] __attribute__((used));
 
 enum {
@@ -15,6 +17,10 @@ enum {
   /* TODO: Add more token types */
 
 };
+
+uint64_t isa_reg_str2val(const char *s, bool *success) {
+  return 0;
+}
 //static int pri[256]{};
 
 static struct rule {
