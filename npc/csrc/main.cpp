@@ -75,11 +75,8 @@ extern "C" void difftest_dut_regs(long long Z0, long long ra, long long sp, long
 
 static void execute(uint64_t n) {
 
-    if(rv64.pc != 0){
     difftest_step(rv64.pc, n);
-    }
-    else printf("%ld",rv64.pc);
-}
+    
 
 void cpu_exec(uint64_t n) {
 
@@ -122,8 +119,9 @@ if((main_time % 10) == 1){
   if(rvcpu->inst_addr >= 0x80000000){
   rvcpu->inst = ifetch(rvcpu->inst_addr, 4);
   }
-  cpu_exec(1);
-  printf("%ld" , rv64.pc);
+  if(rv64.cpu != 0){
+    cpu_exec(1);
+  }
   //  cout << rvcpu->inst << endl;
   //  cout << rvcpu->inst_addr << endl;
   rvcpu->eval();
