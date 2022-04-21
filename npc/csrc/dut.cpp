@@ -118,6 +118,7 @@ void init_difftest(char *ref_so_file, long img_size, int port) {
 //   ref_difftest_init(port);
   ref_difftest_memcpy(0x80000000, gi_to_hi(0x80000000), img_size, DIFFTEST_TO_REF);
   ref_difftest_regcpy(&cpu, DIFFTEST_TO_REF);
+  printf("initial pc = %lx", cpu.pc);
 }
 
 static void checkregs(CPU_state *ref, uint64_t pc) {
@@ -155,7 +156,7 @@ void difftest_step(uint64_t pc, uint64_t npc) {
   ref_difftest_exec(1);
   ref_difftest_regcpy(&ref_r, DIFFTEST_TO_DUT);
 
-  printf("%ld",pc);
+  printf("step-exe pc = %lx",ref_r.pc);
 
   checkregs(&ref_r, pc);
 }
