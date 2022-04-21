@@ -73,7 +73,7 @@ extern "C" void difftest_dut_regs(long long Z0, long long ra, long long sp, long
 
 static void execute(uint64_t n) {
 
-    if(rv64.pc != 0)){
+    if(rv64.pc != 0){
     difftest_step(rv64.pc, n);
     }
     else printf("%ld",rv64.pc);
