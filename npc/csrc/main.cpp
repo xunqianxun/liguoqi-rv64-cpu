@@ -27,10 +27,7 @@ extern "C" void Ebreak_teap(svLogic rvsign){
   if(rvsign == 1) ebreaksign = 1;
   else            ebreaksign = 0;
 }
-void exe_dpi_c() {
-  difftest_dut_pc();
-  difftest_dut_regs();
-}
+
 extern "C" void difftest_dut_pc(long long pc_data, svBit exe){
   cpu.pc = pc_data;
   exe_success = exe;
@@ -121,7 +118,6 @@ if((main_time % 10) == 1){
   if(rvcpu->inst_addr >= 0x80000000){
   rvcpu->inst = ifetch(rvcpu->inst_addr, 4);
   }
-  exe_dpi_c();
   //  cout << rvcpu->inst << endl;
   //  cout << rvcpu->inst_addr << endl;
   rvcpu->eval();
