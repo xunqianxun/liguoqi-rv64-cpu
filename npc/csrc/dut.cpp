@@ -80,13 +80,13 @@ static inline const char* reg_name(int idx, int width) {
 // The semantic is
 //   Let REF run `nr_ref` instructions first.
 //   We expect that DUT will catch up with REF within `nr_dut` instructions.
-void difftest_skip_dut(int nr_ref, int nr_dut) {
-  skip_dut_nr_inst += nr_dut;
+// void difftest_skip_dut(int nr_ref, int nr_dut) {
+//   skip_dut_nr_inst += nr_dut;
 
-  while (nr_ref -- > 0) {
-    ref_difftest_exec(1);
-  }
-}
+//   while (nr_ref -- > 0) {
+//     ref_difftest_exec(1);
+//   }
+// }
 
 void init_difftest(char *ref_so_file, long img_size, int port) {
 //  assert(ref_so_file != NULL);
