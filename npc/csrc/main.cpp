@@ -120,7 +120,7 @@ if((main_time % 10) == 1){
   rvcpu->inst = ifetch(rvcpu->inst_addr, 4);
   }
   if(rv64.pc != 0){
-     printf("%ld", rv64.pc);
+     printf("%lx", rv64.pc);
      cpu_exec(1);
  
   }
