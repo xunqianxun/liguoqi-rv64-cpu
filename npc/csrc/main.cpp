@@ -73,16 +73,14 @@ extern "C" void difftest_dut_regs(long long Z0, long long ra, long long sp, long
 
 static void execute(uint64_t n) {
 
-    if((exe_success == 1) && (rv64.pc != 0x80000000)){
-    printf("%ld",rv64.pc);
+    if((exe_success == 1) && (rv64.pc != 0)){
     difftest_step(rv64.pc, n);
     }
+    else printf("%ld",rv64.pc);
 }
 
 void cpu_exec(uint64_t n) {
-
-  if(rv64.pc == 0) printf("%ld", rv64.pc);
-  else {execute(n);}
+execute(n);}
 
   switch (npc_state.state) {
     case NEMU_RUNNING: npc_state.state = NEMU_STOP; break;
