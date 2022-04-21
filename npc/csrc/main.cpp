@@ -80,7 +80,8 @@ static void execute(uint64_t n) {
 }
 
 void cpu_exec(uint64_t n) {
-execute(n);}
+
+  execute(n);
 
   switch (npc_state.state) {
     case NEMU_RUNNING: npc_state.state = NEMU_STOP; break;
