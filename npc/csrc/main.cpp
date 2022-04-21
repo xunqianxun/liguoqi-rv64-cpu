@@ -73,6 +73,7 @@ static void execute(uint64_t n) {
 
     if((exe_success == 1) && (cpu.pc != 0x80000000)){
     difftest_step(cpu.pc, n);
+    printf("%d",cpu.pc);
     }
 }
 
@@ -108,7 +109,6 @@ tfp->open("obj_dir/rvcpu.vcd") ; // open vcd
 rvcpu->rst = 1;
 rvcpu->bui_inst_valid = fals;
 while(~ebreaksign && !contextp->gotFinish() && sc_time_stamp() < 1000){
-//  cpu_exec(1);
 
 if(main_time > 10){
   rvcpu->rst = 0 ; 
@@ -118,7 +118,7 @@ if((main_time % 10) == 1){
   if(rvcpu->inst_addr >= 0x80000000){
   rvcpu->inst = ifetch(rvcpu->inst_addr, 4);
   }
-  printf("%ld %ld \n", cpu.pc,rvcpu->inst_addr);
+  cpu_exec(1);
   //  cout << rvcpu->inst << endl;
   //  cout << rvcpu->inst_addr << endl;
   rvcpu->eval();
