@@ -1,7 +1,8 @@
 #include<iostream>
 #include <readline/readline.h>
 #include <readline/history.h>
-#include"watchpoint.cpp"
+#include "watchpoint.cpp"
+#include "dut.cpp"
 using namespace std;
 
 static int is_batch_mode = false;
@@ -12,6 +13,15 @@ uint64_t vaddr_read(uint64_t addr, int len) ;
 int set_watchpoint(char *e);
 
 /* We use the `readline' library to provide more flexibility to read from stdin. */
+
+void isa_reg_display() {
+  int i ;
+  for (i=0;i<32;i++) {
+    printf("%s is %lx\n", regs[i] , cpu.gpr[i]);
+  }
+}
+
+
 static char* rl_gets() {
   static char *line_read = NULL;
 
@@ -78,7 +88,7 @@ static int cmd_d(char *args){
 static int cmd_p(char *args){
   if(args != NULL) 
   
-  printf("0x%lx", set_watchpoint(args));
+  printf("0x%x", set_watchpoint(args));
   return 0;
 }
 

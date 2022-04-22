@@ -3,7 +3,7 @@
 #include<getopt.h>
 #include"sdb.cpp"
 #include"paddr.cpp"
-#include"dut.cpp"
+//#include"dut.cpp"
 
  using namespace std;
 
