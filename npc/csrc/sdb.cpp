@@ -9,7 +9,7 @@ static int is_batch_mode = false;
 void init_regex();
 void init_wp_pool();
 uint64_t vaddr_read(uint64_t addr, int len) ;
-uint64_t set_watchpoint(char *e);
+int set_watchpoint(char *e);
 
 /* We use the `readline' library to provide more flexibility to read from stdin. */
 static char* rl_gets() {
