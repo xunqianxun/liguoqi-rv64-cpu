@@ -1,6 +1,6 @@
 #include <iostream>
 #include "dut.cpp"
-#include <./obj_dir/Vrvcpu__Dpi.h>
+#include </home/mulin/ysyx-workbench/npc/obj_dir/Vrvcpu__Dpi.h>
 
 using namespace std;
 
