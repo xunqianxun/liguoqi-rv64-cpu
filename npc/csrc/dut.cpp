@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <bits/stdc++.h>
 #include "regs.h"
+#include"paddr.cpp"
 
 enum { NEMU_RUNNING, NEMU_STOP, NEMU_END, NEMU_ABORT, NEMU_QUIT };
 

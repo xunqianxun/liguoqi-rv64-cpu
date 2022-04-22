@@ -29,8 +29,6 @@ void npc_mainworkint(int argc, char *argv[]){
 }
 
 void statistic(){
-   char data = scanf("%c", &sdb_sign);
-   if(data == 'q'){exe_success  = 0 ;}
 }
 
 extern "C" void Ebreak_teap(svLogic rvsign){
