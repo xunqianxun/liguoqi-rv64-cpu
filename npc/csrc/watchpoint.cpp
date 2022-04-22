@@ -100,7 +100,7 @@ void print_wp(){
 
   WP *p; 
   for(p = head; p != NULL; p = p->next){
-    printf("%8d\t%s\t" FMT_WORD "\n", p->NO, p->exp, p->value);
+    printf("%8d\t%s\t 0x%016lx \n", p->NO, p->exp, p->value);
   }
 }
 void comandw(char *p){
