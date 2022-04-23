@@ -113,17 +113,17 @@ double sc_time_stamp(){
   return main_time;
 }
 
-void initial_verilater(int argc, char** argv[]){
-VerilatedContext* contextp = new VerilatedContext ;
-contextp->commandArgs(argc, argv) ;
-Vrvcpu* rvcpu = new Vrvcpu(contextp);
-Verilated::traceEverOn(true) ; //out vcd need
-VerilatedVcdC* tfp = new VerilatedVcdC ; // out vcd need
-rvcpu->trace(tfp,0) ;
-tfp->open("obj_dir/rvcpu.vcd") ; // open vcd
-rvcpu->rst = 1;
-rvcpu->bui_inst_valid = fals;
-}
+// void initial_verilater(int argc, char** argv[]){
+// VerilatedContext* contextp = new VerilatedContext ;
+// contextp->commandArgs(argc, argv) ;
+// Vrvcpu* rvcpu = new Vrvcpu(contextp);
+// Verilated::traceEverOn(true) ; //out vcd need
+// VerilatedVcdC* tfp = new VerilatedVcdC ; // out vcd need
+// rvcpu->trace(tfp,0) ;
+// tfp->open("obj_dir/rvcpu.vcd") ; // open vcd
+// rvcpu->rst = 1;
+// rvcpu->bui_inst_valid = fals;
+// }
 
 void exec_once(){
 int b;

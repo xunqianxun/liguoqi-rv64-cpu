@@ -77,16 +77,15 @@ using namespace std;
 
 int main(int argc , char** argv , char** env) {
 
-// VerilatedContext* contextp = new VerilatedContext ;
-// contextp->commandArgs(argc, argv) ;
-// Vrvcpu* rvcpu = new Vrvcpu(contextp);
-// Verilated::traceEverOn(true) ; //out vcd need
-// VerilatedVcdC* tfp = new VerilatedVcdC ; // out vcd need
-// rvcpu->trace(tfp,0) ;
-// tfp->open("obj_dir/rvcpu.vcd") ; // open vcd
-// rvcpu->rst = 1;
-// rvcpu->bui_inst_valid = fals;
-initial_verilater(argc, argv[]);
+VerilatedContext* contextp = new VerilatedContext ;
+contextp->commandArgs(argc, argv) ;
+Vrvcpu* rvcpu = new Vrvcpu(contextp);
+Verilated::traceEverOn(true) ; //out vcd need
+VerilatedVcdC* tfp = new VerilatedVcdC ; // out vcd need
+rvcpu->trace(tfp,0) ;
+tfp->open("obj_dir/rvcpu.vcd") ; // open vcd
+rvcpu->rst = 1;
+rvcpu->bui_inst_valid = fals;
 init_monitor(argc, argv);
 
 // npc_mainworkint(argc, argv);
