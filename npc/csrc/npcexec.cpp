@@ -4,7 +4,8 @@
 
 using namespace std;
 
-
+void statistic();
+bool exe_once_sign ;
 
 void exe_once(bool i ,bool exit){
     if(i == 1) {exe_once_sign = 1;}
@@ -18,7 +19,7 @@ static void execute(uint64_t n) {
 //    difftest_step(rv64.pc, 1);
   }
   if(i == n){
-    exe_once(0,1)
+    exe_once(0,1);
   }
 }  
 
@@ -33,5 +34,8 @@ void cpu_exec(uint64_t n) {
 
     case NEMU_QUIT: statistic();
   }
+}
+
+void statistic(){
 }
 

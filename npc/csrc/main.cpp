@@ -19,14 +19,10 @@ bool isa_difftest_checkregs(CPU_state *ref_r, uint64_t pc);
 void npc_mainworkint(int argc, char *argv[]);
 void exe_once(int n);
 
-bool exe_once_sign ;
 bool exe_success;
 int ebreaksign;
 CPU_state rv64;
 
-vluint64_t main_time = 0;
-double sc_time_stamp(){
-  return main_time;
 
 extern "C" void Ebreak_teap(svLogic rvsign){
   if(rvsign == 1) ebreaksign = 1;
@@ -76,9 +72,6 @@ extern "C" void difftest_dut_regs(long long Z0, long long ra, long long sp, long
   cpu.gpr[31] = t6;
 }
 
-void statistic(){
-}
-
 vluint64_t main_time = 0;
 double sc_time_stamp(){
   return main_time;
@@ -86,8 +79,7 @@ double sc_time_stamp(){
 
 
 int main(int argc , char** argv , char** env) {
-//init_monitor(argc, argv); 
-//load_img();
+
 VerilatedContext* contextp = new VerilatedContext ;
 contextp->commandArgs(argc, argv) ;
 Vrvcpu* rvcpu = new Vrvcpu(contextp);
