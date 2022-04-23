@@ -61,51 +61,19 @@ extern "C" void difftest_dut_regs(long long Z0, long long ra, long long sp, long
   cpu.gpr[31] = t6;
 }
 
-void exe_once(int i){
-   for(int x=0; x<i; x++){
-
-if(main_time > 10){
-  rvcpu->rst = 0 ; 
-}
-if((main_time % 10) == 1){
-  rvcpu->clk = 1;
-  if(rvcpu->inst_addr >= 0x80000000){
-  rvcpu->inst = ifetch(rvcpu->inst_addr, 4);
-  }
-  rvcpu->eval();
-
-}
-if((main_time % 10) == 6){
-  rvcpu->clk = 0;
-}
-  rvcpu->eval();
-  tfp->dump(main_time);
-  main_time++;
-}
-}
-
-
-void print_vcd(){
-    tfp->close() ;
-    delete rvcpu ;
-    delete contextp ;
-    exit(0) ;
-    return 0;
-}
-
-void exe_once(int n){
-  if(n) {exe_once_sign = true; }
-  else  {exe_once_sign = false;}
+void exe_once(bool i ,bool exit){
+    if(i == 1) {exe_once_sign = 1;}
+    if(exit == 1) {exe_once_sign = 0;}
 }
 
 static void execute(uint64_t n) {
   int i;
   for (i=0; i<n; i++){
-    exe_once(1);
-    difftest_step(rv64.pc, 1);
+    exe_once(1,0);
+//    difftest_step(rv64.pc, 1);
   }
   if(i == n){
-    print_vcd();
+    exe_once(0,1)
   }
 }  
 
@@ -122,7 +90,3 @@ void cpu_exec(uint64_t n) {
   }
 }
 
-vluint64_t main_time = 0;
-double sc_time_stamp(){
-  return main_time;
-}

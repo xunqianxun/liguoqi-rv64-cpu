@@ -3,7 +3,6 @@
 using namespace std;
 
 
-
 #define NR_WP 32
 
 typedef struct watchpoint {
