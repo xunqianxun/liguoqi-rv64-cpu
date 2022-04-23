@@ -20,7 +20,7 @@ static void execute(uint64_t n) {
   for (i=0; i<n; i++){
     exe_once(1,0);
 //    difftest_step(rv64.pc, 1);
-printf('sign2 = %ld \n',n);
+printf("sign3 = %ld \n",n);
   }
   if(i == n){
     exe_once(0,1);
