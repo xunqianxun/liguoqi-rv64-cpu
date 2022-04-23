@@ -10,7 +10,7 @@ bool exe_once_sign ;
 void exe_once(bool i ,bool exit){
     if(i == 1) {
         exe_once_sign = 1;
-        printf('sign2 = %ld \n',i);
+        printf("sign2 = %ld \n",i);
     }
     if(exit == 1) {exe_once_sign = 0;}
 }
