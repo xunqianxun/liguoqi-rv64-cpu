@@ -93,7 +93,8 @@ init_monitor(argc, argv);
 
 // npc_mainworkint(argc, argv);
 while(sc_time_stamp() < 100){
- sdb_mainloop();
+sdb_mainloop();
+printf("right\n");
 if(exe_once_sign == 1){
 
 if(main_time > 10){
