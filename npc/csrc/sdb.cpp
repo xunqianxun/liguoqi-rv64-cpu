@@ -3,6 +3,7 @@
 #include <readline/history.h>
 #include "watchpoint.cpp"
 #include "npcexec.cpp"
+#include "paddr.cpp"
 using namespace std;
 
 static int is_batch_mode = false;
