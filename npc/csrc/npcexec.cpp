@@ -53,32 +53,32 @@ void cpu_exec(uint64_t n) {
 void statistic(){
 }
 
-void exec_once(){
-while(1){
-if(main_time > 10){
-  rvcpu->rst = 0 ; 
-}
-if((main_time % 10) == 1){
-  rvcpu->clk = 1;
-  if(rvcpu->inst_addr >= 0x80000000){
-  rvcpu->inst = ifetch(rvcpu->inst_addr, 4);
-  }
-  if(rv64.pc != 0 ){
-    difftest_step(rv64.pc,1);
-    exit_exec_once = 1;
-  }
+// void exec_once(){
+// while(1){
+// if(main_time > 10){
+//   rvcpu->rst = 0 ; 
+// }
+// if((main_time % 10) == 1){
+//   rvcpu->clk = 1;
+//   if(rvcpu->inst_addr >= 0x80000000){
+//   rvcpu->inst = ifetch(rvcpu->inst_addr, 4);
+//   }
+//   if(rv64.pc != 0 ){
+//     difftest_step(rv64.pc,1);
+//     exit_exec_once = 1;
+//   }
   
-  rvcpu->eval();
+//   rvcpu->eval();
 
-}
-if(exit_exec_once == 1){
-    break;
-}
-if((main_time % 10) == 6){
-  rvcpu->clk = 0;
-}
-  rvcpu->eval();
-  tfp->dump(main_time);
-  main_time++;
-}
-}
+// }
+// if(exit_exec_once == 1){
+//     break;
+// }
+// if((main_time % 10) == 6){
+//   rvcpu->clk = 0;
+// }
+//   rvcpu->eval();
+//   tfp->dump(main_time);
+//   main_time++;
+// }
+// }

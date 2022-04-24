@@ -1,6 +1,8 @@
 #ifndef _REGS_H_
 #define _REGS_H_
 
+extern void exec_once();
+
 typedef struct 
 {
   uint64_t gpr[32];
