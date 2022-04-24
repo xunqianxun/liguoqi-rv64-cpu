@@ -11,6 +11,8 @@
 
 using namespace std;
 
+Vrvcpu* rvcpu ;
+VerilatedVcdC* tfp;
 
 #define right 0
 #define fals  1
@@ -79,9 +81,9 @@ int main(int argc , char** argv , char** env) {
 
 VerilatedContext* contextp = new VerilatedContext ;
 contextp->commandArgs(argc, argv) ;
-Vrvcpu* rvcpu = new Vrvcpu(contextp);
+rvcpu = new Vrvcpu(contextp);
 Verilated::traceEverOn(true) ; //out vcd need
-VerilatedVcdC* tfp = new VerilatedVcdC ; // out vcd need
+tfp = new VerilatedVcdC ; // out vcd need
 rvcpu->trace(tfp,0) ;
 tfp->open("obj_dir/rvcpu.vcd") ; // open vcd
 rvcpu->rst = 1;
