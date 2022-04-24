@@ -29,7 +29,7 @@ void statistic();
 static void execute(uint64_t n) {
   int i;
   for (i=0; i<n; i++){
-    exe_once();
+    exec_once();
 //    difftest_step(rv64.pc, 1);
   }
   if(i == n){
