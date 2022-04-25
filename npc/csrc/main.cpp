@@ -91,38 +91,15 @@ rvcpu->bui_inst_valid = fals;
 init_monitor(argc, argv);
 
 // npc_mainworkint(argc, argv);
-while(sc_time_stamp() < 100){
+//while(sc_time_stamp() < 100){
 sdb_mainloop();
-// if(exe_once_sign == 1){
 
-// if(main_time > 10){
-//   rvcpu->rst = 0 ; 
-// }
-// if((main_time % 10) == 1){
-//   rvcpu->clk = 1;
-//   if(rvcpu->inst_addr >= 0x80000000){
-//   rvcpu->inst = ifetch(rvcpu->inst_addr, 4);
-//   }
-//   if(rv64.pc != 0 ){
-//     difftest_step(rv64.pc,1);
-//   }
-  
-//   rvcpu->eval();
-
-// }
-// if((main_time % 10) == 6){
-//   rvcpu->clk = 0;
-// }
-//   rvcpu->eval();
-//   tfp->dump(main_time);
-//   main_time++;
-// }
-}
-// tfp->close() ;
-// delete rvcpu ;
-// delete contextp ;
-// exit(0) ;
-// return 0;
+//}
+tfp->close() ;
+delete rvcpu ;
+delete contextp ;
+exit(0) ;
+return 0;
 }
 
 extern void exec_once(){
