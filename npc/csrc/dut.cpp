@@ -177,7 +177,7 @@ bool isa_difftest_checkregs(CPU_state *ref_r, uint64_t pc) {
 static inline bool difftest_check_reg(const char *name, uint64_t pc, uint64_t ref, uint64_t dut) {
   if (ref != dut) {
     printf("%s is different after executing instruction at pc = 0x%016lx"
-        ", right = 0x%08lx" ", wrong = 0x%08lx" ", diff = 0x%08lx",
+        ", right = 0x%08lx" ", wrong = 0x%08lx" ", diff = 0x%08lx \n",
         name, pc, ref, dut, ref ^ dut);
     return false;
   }
