@@ -22,7 +22,7 @@
 `define ysyx22040228_JALR           5'b11001
 `define ysyx22040228_BRANCH             5'b11000
 `define ysyx22040228_LOAD               5'b00000
-`define ysyx22040228_STORE              5'b00100
+`define ysyx22040228_STORE              5'b01000
 `define FENCH              5'b00011
 `define ysyx22040228_FLUSHDISABLE 1'b0
 `define ysyx22040228_FLUSHABLE    1'b1
