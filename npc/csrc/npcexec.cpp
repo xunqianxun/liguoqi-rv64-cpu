@@ -24,10 +24,10 @@ static void execute(uint64_t n) {
     npc_onceex();
 //    difftest_step(rv64.pc, 1);
   }
-  if(i == n){
+//  if(i == n){
 //    exe_once();
   close_npc();
-  }
+//  }
 }  
 
 void cpu_exec(uint64_t n) {
