@@ -114,15 +114,15 @@ if((main_time % 10) == 1){
   rvcpu->eval();
 
 }
-if(exit_exec_once == 1){
-    exit_exec_once = 0;
-    break;
-}
 if((main_time % 10) == 6){
   rvcpu->clk = 0;
 }
   rvcpu->eval();
   tfp->dump(main_time);
+if(exit_exec_once == 1){
+    exit_exec_once = 0;
+    break;
+}
   main_time++;
 }
 }
