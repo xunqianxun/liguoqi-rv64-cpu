@@ -108,6 +108,7 @@ if((main_time % 10) == 1){
   }
   if(rv64.pc != 0 ){
     difftest_step(rv64.pc,1);
+    printf("exe\n");
     exit_exec_once = 1;
   }
   
@@ -119,11 +120,11 @@ if((main_time % 10) == 6){
 }
   rvcpu->eval();
   tfp->dump(main_time);
+  main_time++;
 if(exit_exec_once == 1){
     exit_exec_once = 0;
     break;
 }
-  main_time++;
 }
 }
 
