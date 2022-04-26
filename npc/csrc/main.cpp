@@ -13,6 +13,7 @@ using namespace std;
 
 Vrvcpu* rvcpu ;
 VerilatedVcdC* tfp;
+VerilatedContext* contextp;
 
 #define right 0
 #define fals  1
@@ -79,7 +80,7 @@ double sc_time_stamp(){
 
 int main(int argc , char** argv , char** env) {
 
-VerilatedContext* contextp = new VerilatedContext ;
+contextp = new VerilatedContext ;
 contextp->commandArgs(argc, argv) ;
 rvcpu = new Vrvcpu(contextp);
 Verilated::traceEverOn(true) ; //out vcd need
@@ -90,16 +91,9 @@ rvcpu->rst = 1;
 rvcpu->bui_inst_valid = fals;
 init_monitor(argc, argv);
 
-// npc_mainworkint(argc, argv);
-//while(sc_time_stamp() < 100){
 sdb_mainloop();
 
-//}
-tfp->close() ;
-delete rvcpu ;
-delete contextp ;
-exit(0) ;
-return 0;
+close_npc();
 }
 
 extern void exec_once(){
@@ -121,6 +115,7 @@ if((main_time % 10) == 1){
 
 }
 if(exit_exec_once == 1){
+    exit_exec_once = 0;
     break;
 }
 if((main_time % 10) == 6){
@@ -132,5 +127,12 @@ if((main_time % 10) == 6){
 }
 }
 
+extern void close_npc(){
+tfp->close() ;
+delete rvcpu ;
+delete contextp ;
+exit(0) ;
+return 0;
+}
 
 
