@@ -23,9 +23,9 @@ module mem_wb (
 import "DPI-C" function void difftest_dut_pc(input longint pc_data ,input bit exe);
 
 reg  [`ysyx22040228_PCBUS]  wb_pc_o;
-initial begin
-    wb_pc_o = wb_pc_i;
-end
+// initial begin
+//     wb_pc_o = wb_pc_i;
+// end
 
 always@(*)begin
     // if(wb_rd_ena == 1'b1) begin
