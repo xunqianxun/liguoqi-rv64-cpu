@@ -106,10 +106,10 @@ if((main_time % 10) == 1){
   if(rvcpu->inst_addr >= 0x80000000){
   rvcpu->inst = ifetch(rvcpu->inst_addr, 4);
   }
-  if(rv64.pc != 0 ){
+  if(rv64.pc != 0x80000000 ){
     difftest_step(rv64.pc,1);
-    printf("exe\n");
-    printf("rv64pc%lx",rv64.pc);
+    // printf("exe\n");
+    // printf("rv64pc%lx",rv64.pc);
     exit_exec_once = 1;
   }
   
