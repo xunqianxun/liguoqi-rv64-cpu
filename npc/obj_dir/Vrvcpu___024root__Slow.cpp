@@ -29,6 +29,7 @@ Vrvcpu___024root::~Vrvcpu___024root() {
 
 void Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__ex5__DOT__Ebreak_teap_TOP(CData/*0:0*/ rvsign);
 void Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__regfile10__DOT__difftest_dut_regs_TOP(QData/*63:0*/ Z0, QData/*63:0*/ ra, QData/*63:0*/ sp, QData/*63:0*/ gp, QData/*63:0*/ tp, QData/*63:0*/ t0, QData/*63:0*/ t1, QData/*63:0*/ t2, QData/*63:0*/ fp, QData/*63:0*/ s1, QData/*63:0*/ a0, QData/*63:0*/ a1, QData/*63:0*/ a2, QData/*63:0*/ a3, QData/*63:0*/ a4, QData/*63:0*/ a5, QData/*63:0*/ a6, QData/*63:0*/ a7, QData/*63:0*/ s2, QData/*63:0*/ s3, QData/*63:0*/ s4, QData/*63:0*/ s5, QData/*63:0*/ s6, QData/*63:0*/ s7, QData/*63:0*/ s8, QData/*63:0*/ s9, QData/*63:0*/ s10, QData/*63:0*/ a11, QData/*63:0*/ t3, QData/*63:0*/ t4, QData/*63:0*/ t5, QData/*63:0*/ t6);
+void Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__mem_wb8__DOT__difftest_dut_pc_TOP(QData/*63:0*/ pc_data, CData/*0:0*/ exe);
 
 void Vrvcpu___024root___settle__TOP__2(Vrvcpu___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
@@ -137,9 +138,15 @@ void Vrvcpu___024root___settle__TOP__2(Vrvcpu___024root* vlSelf) {
                                                                                 [0x1eU], 
                                                                                 vlSelf->rvcpu__DOT__regfile10__DOT__regs
                                                                                 [0x1fU]);
+    Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__mem_wb8__DOT__difftest_dut_pc_TOP(vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_pc_o, (IData)(vlSelf->rvcpu__DOT__wb_id_ena));
     vlSelf->inst_addr = vlSelf->rvcpu__DOT__pc;
-    vlSelf->data_addr = ((IData)(vlSelf->rst) ? 0ULL
-                          : vlSelf->rvcpu__DOT__exmem_mem_lsaddr);
+    if (vlSelf->rst) {
+        vlSelf->rvcpu__DOT__mem_mem_wb_pc = 0ULL;
+        vlSelf->data_addr = 0ULL;
+    } else {
+        vlSelf->rvcpu__DOT__mem_mem_wb_pc = vlSelf->rvcpu__DOT__ex_mem_mem_pc;
+        vlSelf->data_addr = vlSelf->rvcpu__DOT__exmem_mem_lsaddr;
+    }
     vlSelf->rvcpu__DOT__ex_mem_addr = ((IData)((0U 
                                                 != 
                                                 (3U 
@@ -153,11 +160,9 @@ void Vrvcpu___024root___settle__TOP__2(Vrvcpu___024root* vlSelf) {
                                               | (QData)((IData)(vlSelf->rvcpu__DOT__idex_ex_offset))))
                                         : 0ULL);
     if (vlSelf->rst) {
-        vlSelf->rvcpu__DOT__mem_mem_wb_pc = 0ULL;
         vlSelf->rvcpu__DOT__mem7__DOT__store_mask = 0U;
         vlSelf->rvcpu__DOT__mem7__DOT__store_data = 0ULL;
     } else {
-        vlSelf->rvcpu__DOT__mem_mem_wb_pc = vlSelf->rvcpu__DOT__ex_mem_mem_pc;
         vlSelf->rvcpu__DOT__mem7__DOT__store_mask = 
             ((4U & (IData)(vlSelf->rvcpu__DOT__exmem_mem_sel))
               ? 0U : ((2U & (IData)(vlSelf->rvcpu__DOT__exmem_mem_sel))
@@ -2092,34 +2097,12 @@ void Vrvcpu___024root___settle__TOP__2(Vrvcpu___024root* vlSelf) {
                                    >> 1U)));
 }
 
-void Vrvcpu___024root___initial__TOP__4(Vrvcpu___024root* vlSelf) {
-    if (false && vlSelf) {}  // Prevent unused
-    Vrvcpu__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vrvcpu___024root___initial__TOP__4\n"); );
-    // Body
-    vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_pc_o = vlSelf->rvcpu__DOT__mem_mem_wb_pc;
-}
-
-void Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__mem_wb8__DOT__difftest_dut_pc_TOP(QData/*63:0*/ pc_data, CData/*0:0*/ exe);
-
-void Vrvcpu___024root___settle__TOP__6(Vrvcpu___024root* vlSelf) {
-    if (false && vlSelf) {}  // Prevent unused
-    Vrvcpu__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vrvcpu___024root___settle__TOP__6\n"); );
-    // Body
-    Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__mem_wb8__DOT__difftest_dut_pc_TOP(vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_pc_o, (IData)(vlSelf->rvcpu__DOT__wb_id_ena));
-}
-
 void Vrvcpu___024root___eval_initial(Vrvcpu___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     Vrvcpu__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vrvcpu___024root___eval_initial\n"); );
     // Body
     vlSelf->__Vclklast__TOP__clk = vlSelf->clk;
-    Vrvcpu___024root___initial__TOP__4(vlSelf);
-    vlSelf->__Vm_traceActivity[2U] = 1U;
-    vlSelf->__Vm_traceActivity[1U] = 1U;
-    vlSelf->__Vm_traceActivity[0U] = 1U;
 }
 
 void Vrvcpu___024root___eval_settle(Vrvcpu___024root* vlSelf) {
@@ -2131,7 +2114,6 @@ void Vrvcpu___024root___eval_settle(Vrvcpu___024root* vlSelf) {
     vlSelf->__Vm_traceActivity[2U] = 1U;
     vlSelf->__Vm_traceActivity[1U] = 1U;
     vlSelf->__Vm_traceActivity[0U] = 1U;
-    Vrvcpu___024root___settle__TOP__6(vlSelf);
 }
 
 void Vrvcpu___024root___final(Vrvcpu___024root* vlSelf) {

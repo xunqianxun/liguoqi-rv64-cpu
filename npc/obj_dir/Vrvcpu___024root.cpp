@@ -1122,10 +1122,10 @@ VL_INLINE_OPT void Vrvcpu___024root___sequent__TOP__3(Vrvcpu___024root* vlSelf) 
                                     >> 3U)) : (IData)(vlSelf->rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mstatus_mie)))));
 }
 
-VL_INLINE_OPT void Vrvcpu___024root___combo__TOP__5(Vrvcpu___024root* vlSelf) {
+VL_INLINE_OPT void Vrvcpu___024root___combo__TOP__4(Vrvcpu___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     Vrvcpu__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vrvcpu___024root___combo__TOP__5\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vrvcpu___024root___combo__TOP__4\n"); );
     // Body
     vlSelf->rvcpu__DOT__pip_fore0__DOT__inst_jalr = (IData)(
                                                             (0x67U 
@@ -2684,7 +2684,7 @@ void Vrvcpu___024root___eval(Vrvcpu___024root* vlSelf) {
         Vrvcpu___024root___sequent__TOP__3(vlSelf);
         vlSelf->__Vm_traceActivity[2U] = 1U;
     }
-    Vrvcpu___024root___combo__TOP__5(vlSelf);
+    Vrvcpu___024root___combo__TOP__4(vlSelf);
     // Final
     vlSelf->__Vclklast__TOP__clk = vlSelf->clk;
 }
