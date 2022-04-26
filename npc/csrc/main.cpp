@@ -127,7 +127,7 @@ if((main_time % 10) == 6){
 }
 }
 
-extern void close_npc(){
+extern int close_npc(){
 tfp->close() ;
 delete rvcpu ;
 delete contextp ;

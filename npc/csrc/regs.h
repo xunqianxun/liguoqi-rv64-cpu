@@ -2,7 +2,7 @@
 #define _REGS_H_
 
 extern void exec_once();
-extern void close_npc();
+extern int close_npc();
 
 typedef struct 
 {
