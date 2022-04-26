@@ -2107,11 +2107,7 @@ void Vrvcpu___024root___settle__TOP__6(Vrvcpu___024root* vlSelf) {
     Vrvcpu__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vrvcpu___024root___settle__TOP__6\n"); );
     // Body
-    if ((0ULL == vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_pc_o)) {
-        Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__mem_wb8__DOT__difftest_dut_pc_TOP(vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_pc_o, 0U);
-    } else {
-        Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__mem_wb8__DOT__difftest_dut_pc_TOP(vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_pc_o, 1U);
-    }
+    Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__mem_wb8__DOT__difftest_dut_pc_TOP(vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_pc_o, (IData)(vlSelf->rvcpu__DOT__wb_id_ena));
 }
 
 void Vrvcpu___024root___eval_initial(Vrvcpu___024root* vlSelf) {
