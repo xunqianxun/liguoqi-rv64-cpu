@@ -1456,7 +1456,7 @@ VL_INLINE_OPT void Vrvcpu___024root___combo__TOP__5(Vrvcpu___024root* vlSelf) {
                                                                 | ((IData)(vlSelf->rst)
                                                                     ? 0U
                                                                     : (IData)(
-                                                                              (4U 
+                                                                              (8U 
                                                                                == 
                                                                                (0x1fU 
                                                                                 & (vlSelf->rvcpu__DOT__if_id_inst 
