@@ -26,7 +26,7 @@ static void execute(uint64_t n) {
   }
 //  if(i == n){
 //    exe_once();
-  close_npc();
+//  close_npc();
 //  }
 }  
 
