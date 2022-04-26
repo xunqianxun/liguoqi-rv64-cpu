@@ -182,6 +182,7 @@ static inline bool difftest_check_reg(const char *name, uint64_t pc, uint64_t re
     return false;
   }
   return true;
+  printf("ref pc =%lx dut pc = %lx", ref,dut);
 }
 
 

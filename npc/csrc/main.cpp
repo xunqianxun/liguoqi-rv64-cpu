@@ -109,6 +109,7 @@ if((main_time % 10) == 1){
   if(rv64.pc != 0 ){
     difftest_step(rv64.pc,1);
     printf("exe\n");
+    printf("rv64pc%lx",rv64.pc);
     exit_exec_once = 1;
   }
   
