@@ -19,7 +19,6 @@ VerilatedContext* contextp;
 #define fals  1
 uint32_t ifetch(uint64_t addr, int len);
 
-bool exe_success;
 int ebreaksign;
 CPU_state rv64;
 
@@ -34,7 +33,7 @@ extern "C" void difftest_dut_pc(long long pc_data, svBit exe){
   rv64 = wirte_cpu(pc_data);
 //  printf("%d",pc_data );
 }
-  exe_success = exe;
+  difftest_ena = exe;
 }
 
 extern "C" void difftest_dut_regs(long long Z0, long long ra, long long sp, long long gp, long long tp, long long t0, long long t1, long long t2, long long fp, long long s1, long long a0, long long a1, long long a2, long long a3, long long a4, long long a5, long long a6, long long a7, long long s2, long long s3, long long s4, long long s5, long long s6, long long s7, long long s8, long long s9, long long s10, long long a11, long long t3, long long t4, long long t5, long long t6){
@@ -105,13 +104,14 @@ if((main_time % 10) == 1){
   rvcpu->clk = 1;
   if(rvcpu->inst_addr >= 0x80000000){
   rvcpu->inst = ifetch(rvcpu->inst_addr, 4);
+  exit_exec_once = 1;
   }
-  if(rv64.pc != 0x80000000 ){
-    difftest_step(rv64.pc,1);
-    // printf("exe\n");
-    // printf("rv64pc%lx",rv64.pc);
-    exit_exec_once = 1;
-  }
+  // if(rv64.pc != 0x80000000 ){
+  //   difftest_step(rv64.pc,1);
+  //   // printf("exe\n");
+  //   // printf("rv64pc%lx",rv64.pc);
+  //   exit_exec_once = 1;
+  // }
   
   rvcpu->eval();
 

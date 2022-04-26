@@ -10,14 +10,23 @@ int exit_exec_once;
 
 void statistic();
 
+void npc_onceex(){
+exec_once();
+if(difftest_ena){
+difftest_step(cpu.pc, 1);
+}
+}
+
 static void execute(uint64_t n) {
   int i;
   for (i=0; i<n; i++){
-    exec_once();
+    // exec_once();
+    npc_onceex();
 //    difftest_step(rv64.pc, 1);
   }
   if(i == n){
 //    exe_once();
+  close_npc();
   }
 }  
 

@@ -28,12 +28,13 @@ initial begin
 end
 
 always@(*)begin
-    if(wb_pc_o == `ysyx22040228_ZEROWORD) begin
-        difftest_dut_pc(wb_pc_o,0);
-    end
-    else begin
-        difftest_dut_pc(wb_pc_o,1);
-    end
+    // if(wb_rd_ena == 1'b1) begin
+    //     difftest_dut_pc(wb_pc_o,0);
+    // end
+    // else begin
+    //     difftest_dut_pc(wb_pc_o,1);
+    // end
+difftest_dut_pc(wb_pc_o,wb_rd_ena);    
 end  
     
 always @(posedge clk) begin

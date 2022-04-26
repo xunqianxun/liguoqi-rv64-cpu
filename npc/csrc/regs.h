@@ -3,6 +3,7 @@
 
 extern void exec_once();
 extern int close_npc();
+bool difftest_ena;
 
 typedef struct 
 {
