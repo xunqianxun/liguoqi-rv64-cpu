@@ -149,7 +149,7 @@ end
 reg                ex_flush_branch                  ;
 
 always @(*) begin
-    if(inst_type_i[2])  begin ex_flush_branch = `ysyx22040228_FLUSHDISABLE  ;    end
+    if(~inst_type_i[2])  begin ex_flush_branch = `ysyx22040228_FLUSHDISABLE  ;    end
     else begin
         case (inst_opcode_i) 
              `INST_BEQ     : begin  ex_flush_branch = (op1_i == op2_i) ? `ysyx22040228_FLUSHABLE : `ysyx22040228_FLUSHDISABLE ;  end
