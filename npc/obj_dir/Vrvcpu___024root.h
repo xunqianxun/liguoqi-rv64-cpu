@@ -121,6 +121,8 @@ VL_MODULE(Vrvcpu___024root) {
         CData/*0:0*/ rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mip_mtip;
         CData/*7:0*/ rvcpu__DOT__mem7__DOT__data_byte;
         CData/*7:0*/ rvcpu__DOT__mem7__DOT__store_mask;
+        CData/*0:0*/ rvcpu__DOT__mem_wb8__DOT__data_ena1;
+        CData/*0:0*/ rvcpu__DOT__mem_wb8__DOT__data_ena2;
         SData/*11:0*/ rvcpu__DOT__id_ex_s_offset;
         SData/*11:0*/ rvcpu__DOT__idex_ex_offset;
         SData/*11:0*/ rvcpu__DOT__pip_fore0__DOT__b_imm;
@@ -166,15 +168,17 @@ VL_MODULE(Vrvcpu___024root) {
         QData/*63:0*/ rvcpu__DOT__ex5__DOT__trap_mcause_value;
         QData/*63:0*/ rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mcycle;
         QData/*63:0*/ rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mstatus;
-        QData/*61:0*/ rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mtvec_base;
-        QData/*63:0*/ rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mepc;
     };
     struct {
+        QData/*61:0*/ rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mtvec_base;
+        QData/*63:0*/ rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mepc;
         QData/*63:0*/ rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mcause_nxt;
         QData/*63:0*/ rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mcause;
         QData/*63:0*/ rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mscrstch;
         QData/*63:0*/ rvcpu__DOT__mem7__DOT__store_data;
         QData/*63:0*/ rvcpu__DOT__mem_wb8__DOT__wb_pc_o;
+        QData/*63:0*/ rvcpu__DOT__mem_wb8__DOT__pc_data1;
+        QData/*63:0*/ rvcpu__DOT__mem_wb8__DOT__pc_data2;
         VlUnpacked<QData/*63:0*/, 32> rvcpu__DOT__regfile10__DOT__regs;
     };
 
