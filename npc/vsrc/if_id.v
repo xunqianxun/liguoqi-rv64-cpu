@@ -27,10 +27,14 @@ module if_id (
 );
 
 always@(posedge clk) begin
-        if(rst == `ysyx22040228_RSTENA | if_id_flush) begin
-            id_pc   <= `ysyx22040228_ZEROWORD   ;
+        if(rst == `ysyx22040228_RSTENA) begin
+            id_pc   <= `ysyx22040228_START   ;
             id_inst <= 32'h0000_0000;
         end
+        else if(if_id_flush) begin
+            id_pc   <= `ysyx22040228_ZEROWORD;
+            id_inst <= 32'h0000_0000;
+        end 
         else if((stall_ctrl[1] == `ysyx22040228_STOP) && (stall_ctrl[2] == `ysyx22040228_NOSTOP) && (stall_ctrl[4:3]==2'b00)) begin
             id_pc   <= `ysyx22040228_ZEROWORD;
             id_inst <= 32'h0000_0000;
