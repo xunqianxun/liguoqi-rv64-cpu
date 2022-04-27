@@ -30,8 +30,9 @@ extern "C" void Ebreak_teap(svLogic rvsign){
 
 extern "C" void difftest_dut_pc(long long pc_data, svBit exe){
   if(pc_data != 0){
-  rv64 = wirte_cpu(pc_data);
+//  rv64 = wirte_cpu(pc_data);
 //  printf("%d",pc_data );
+    cpu.pc = pc_data;
 }
   difftest_ena = exe;
 }

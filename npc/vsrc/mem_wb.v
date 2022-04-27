@@ -34,7 +34,7 @@ always@(*)begin
     // else begin
     //     difftest_dut_pc(wb_pc_o,1);
     // end
-difftest_dut_pc(pc_data2,data_ena2);    
+difftest_dut_pc(pc_data1,data_ena1);    
 end  
     
 always @(posedge clk) begin
