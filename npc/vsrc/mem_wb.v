@@ -34,7 +34,7 @@ always@(*)begin
     // else begin
     //     difftest_dut_pc(wb_pc_o,1);
     // end
-difftest_dut_pc(wb_pc_o,wb_rd_ena);    
+difftest_dut_pc(pc_data2,data_ena2);    
 end  
     
 always @(posedge clk) begin
@@ -64,6 +64,17 @@ always @(posedge clk) begin
         wb_pc_o    <= wb_pc_i    ;
         end
     end
+end
+
+//delay two time to writ difftest exe
+reg   [`ysyx22040228_PCBUS]    pc_data1, pc_data2;
+reg                            data_ena1, data_ena2;
+
+always @(posedge clk) begin
+    pc_data1   <= wb_pc_o;
+    pc_data2   <= pc_data1;
+    data_ena1  <= wb_rd_ena;
+    data_ena2  <= data_ena1;
 end
 
 endmodule//mem_wb
