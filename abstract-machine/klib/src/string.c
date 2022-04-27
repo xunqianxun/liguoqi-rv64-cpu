@@ -14,7 +14,7 @@ return cont;
 char *strcpy(char *dst, const char *src){
 //  panic("Not implemented");
 size_t i;
-for(i=0; src[1] != '\0'; i++)
+for(i=0; src[i] != '\0'; i++)
   dst[i]=src[i];
 dst[i]='\0';
 return dst;
@@ -38,7 +38,7 @@ char *strcat(char *dst, const char *src) {
 //  panic("Not implemented");
 char *p = dst;
 while(*dst != '\0'){
-  p++;
+  dst++;
 }
 while((*dst++ = *src++) != '\0');
 return p;
