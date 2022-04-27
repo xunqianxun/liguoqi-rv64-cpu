@@ -143,7 +143,7 @@ static int decode_exec(Decode *s) {
   INSTPAT("0100000 ????? ????? 101 ????? 00110 11", sraiw   , I, if((src1 & 0x80000000) == 0x80000000) R(dest) = (((0xffffffff00000000 >> (src2 & 0x000000000000001f)) | 0xffffffff00000000) | ((src1 & 0x00000000ffffffff) >> (src2 & 0x000000000000001f))); else R(dest) = ((src1 & 0x00000000ffffffff) >> (src2 & 0x000000000000001f)); );
   INSTPAT("0100000 ????? ????? 101 ????? 01110 11", sraw    , R, if((src1 & 0x80000000) == 0x80000000) R(dest) = (((0xffffffff00000000 >> (src2 & 0x000000000000001f)) | 0xffffffff00000000) | ((src1 & 0x00000000ffffffff) >> (src2 & 0x000000000000001f))); else R(dest) = ((src1 & 0x00000000ffffffff) >> (src2 & 0x000000000000001f)); );
   INSTPAT("0000000 ????? ????? 101 ????? 01100 11", srl     , R, R(dest) = (src1 >> (src2 & 0x000000000000001f)));
-  INSTPAT("0000000 ????? ????? 101 ????? 00100 11", srli    , I, R(dest) = (src1 >> src2));
+  INSTPAT("000000? ????? ????? 101 ????? 00100 11", srli    , I, R(dest) = (src1 >> src2));
   INSTPAT("0000000 ????? ????? 101 ????? 00110 11", srliw   , I, src1 = ((src1 & 0x00000000ffffffff) >> src2); if((src1 & 0x0000000080000000) == 0x0000000080000000) R(dest) = 0xffffffff00000000 | src1 ; else R(dest) = src1; );
   INSTPAT("0000000 ????? ????? 101 ????? 01110 11", srlw    , R, src1 = ((src1 & 0x00000000ffffffff) >> (src2 & 0x000000000000001f)); if((src1 & 0x0000000080000000) == 0x0000000080000000) R(dest) = 0xffffffff00000000 | src1; else R(dest) = src1;);
   INSTPAT("0100000 ????? ????? 000 ????? 01100 11", sub     , R, R(dest) = src1 - src2);
