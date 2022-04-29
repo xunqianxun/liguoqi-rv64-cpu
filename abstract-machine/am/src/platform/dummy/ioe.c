@@ -4,7 +4,7 @@
 static void fail(void *buf) { panic("access nonexist register"); }
 
 bool ioe_init() {
-  return 1;//false;
+  return false;
 }
 
 void ioe_read (int reg, void *buf) { fail(buf); }
