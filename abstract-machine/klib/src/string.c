@@ -6,18 +6,28 @@
 
 size_t strlen(const char *s) {
 //  panic("Not implemented");
+assert(s);
 int cont = 0;
-while(*s++){cont++;}
+while(*s != '\0'){
+  s++;
+  cont++;
+  }
 return cont;
 }
 
 char *strcpy(char *dst, const char *src){
 //  panic("Not implemented");
-size_t i;
-for(i=0; src[i] != '\0'; i++)
-  dst[i]=src[i];
-dst[i]='\0';
-return dst;
+// size_t i;
+// for(i=0; src[i] != '\0'; i++)
+//   dst[i]=src[i];
+// dst[i]='\0';
+// return dst;
+char *ret = dst;
+assert(dst && src);
+while((*dst++ = *src++)){
+  ;
+}
+return ret;
 }
 
 char *strncpy(char *dst, const char *src, size_t n) {
@@ -36,12 +46,35 @@ return tmp;
 
 char *strcat(char *dst, const char *src) {
 //  panic("Not implemented");
-char *p = dst;
+char *str = dst;
+assert(dst != NULL && src != NULL);
 while(*dst != '\0'){
   dst++;
 }
 while((*dst++ = *src++) != '\0');
-return p;
+return str;
+// while(*dst){
+//   dst++;
+// }
+// while(*src){
+//   *dst++ = *src++;
+// }
+// *dst = '\0';
+// return str;
+// char *p = (char *)src;
+// while(*dst++ != '\0');
+// --dst;
+// while(*dst++ = *p++);
+// return p-1;
+char *ret = dst;
+assert(dst && src);
+while(*dst != '\0'){
+  dst++;
+}
+while((*dst++ = *src++)){
+  ;
+}
+return ret;
 }
 
 int strcmp(const char *s1, const char *s2) {
