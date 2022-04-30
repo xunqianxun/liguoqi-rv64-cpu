@@ -83,8 +83,7 @@ static int cmd_p(char *args){
 }
 
 static int cmd_q(char *args) {
-  nemu_state.state = NEMU_END;
-  return -1;
+  return 1;
 }
 
 static int cmd_help(char *args);
@@ -165,7 +164,7 @@ void sdb_mainloop() {
     int i;
     for (i = 0; i < NR_CMD; i ++) {
       if (strcmp(cmd, cmd_table[i].name) == 0) {
-        if (cmd_table[i].handler(args) < 0) { return ; }
+        if (cmd_table[i].handler(args) > 0) { return ; }
         break;
       }
     }
