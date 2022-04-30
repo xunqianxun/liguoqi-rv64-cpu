@@ -147,7 +147,7 @@ static int decode_exec(Decode *s) {
   INSTPAT("0000000 ????? ????? 101 ????? 00110 11", srliw   , I, src1 = ((src1 & 0x00000000ffffffff) >> src2); if((src1 & 0x0000000080000000) == 0x0000000080000000) R(dest) = 0xffffffff00000000 | src1 ; else R(dest) = src1; );
   INSTPAT("0000000 ????? ????? 101 ????? 01110 11", srlw    , R, src1 = ((src1 & 0x00000000ffffffff) >> (src2 & 0x000000000000001f)); if((src1 & 0x0000000080000000) == 0x0000000080000000) R(dest) = 0xffffffff00000000 | src1; else R(dest) = src1;);
   INSTPAT("0100000 ????? ????? 000 ????? 01100 11", sub     , R, R(dest) = src1 - src2);
-  INSTPAT("0100000 ????? ????? 000 ????? 01110 11", subw    , R, src1 = (src1 & 0x00000000ffffffff) - (src2 & 0x00000000ffffffff); if((src1 & 0x000000080000000) == 0x000000080000000) R(dest) = 0xffffffff00000000 | src1; else R(dest) = src1; );
+  INSTPAT("0100000 ????? ????? 000 ????? 01110 11", subw    , R, src1 = (src1 & 0x00000000ffffffff) - (src2 & 0x00000000ffffffff); if((src1 & 0x8000000) == 0x8000000) R(dest) = 0xffffffff00000000 | src1; else R(dest) = src1; );
   INSTPAT("0000000 ????? ????? 100 ????? 01100 11", xor     , R, R(dest) = src1 ^ src2);
   INSTPAT("??????? ????? ????? 100 ????? 00100 11", xori    , I, R(dest) = src1 ^ src2);
   INSTPAT("0000001 ????? ????? 110 ????? 01110 11", remw    , R, R(dest) = (src1 & 0x00000000ffffffff)%(src2 & 0x00000000ffffffff));
