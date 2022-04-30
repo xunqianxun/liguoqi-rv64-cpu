@@ -83,7 +83,8 @@ static int cmd_p(char *args){
 }
 
 static int cmd_q(char *args) {
-  return 1;
+  nemu_state.state = NEMU_QUIT;
+  return -1;
 }
 
 static int cmd_help(char *args);
@@ -91,7 +92,7 @@ static int cmd_help(char *args);
 static struct {
   const char *name;
   const char *description;
-  int (*handler) (char *);
+  int (*handler) (char *);  
 } cmd_table [] = {
   { "help", "Display informations about all supported commands", cmd_help },
   { "c", "Continue the execution of the program", cmd_c },
