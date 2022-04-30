@@ -131,18 +131,18 @@ static int decode_exec(Decode *s) {
   INSTPAT("??????? ????? ????? 010 ????? 01000 11", sw      , S, Mw(src1 + dest, 4, src2)); //switch ((dest + src1) & 0b100){
   // case 0b000: Mw(src1 + dest, 8, ((Mr(src1 + dest, 8) & 0xffffffff00000000) | (src2 & 0x00000000ffffffff)));  break;
   // default:    Mw(src1 + dest, 8, ((Mr(src1 + dest, 8) & 0x00000000ffffffff) | ((src2 & 0x00000000ffffffff) << 32)));  break; });
-  INSTPAT("0000000 ????? ????? 001 ????? 01100 11", sll     , R, R(dest) = (src1 << (src2 & 0x000000000000001f)));
+  INSTPAT("0000000 ????? ????? 001 ????? 01100 11", sll     , R, R(dest) = (src1 << (src2 & 0x000000000000003f)));
   INSTPAT("0000000 ????? ????? 001 ????? 00110 11", slliw   , I, src1 = (src1 << src2) & 0x00000000ffffffff; if((src1 & 0x0000000080000000) == 0x0000000080000000) R(dest) = 0xffffffff00000000 | src1; else R(dest) = src1;);
   INSTPAT("0000000 ????? ????? 001 ????? 01110 11", sllw    , R, R(dest) = (src1 & 0x00000000ffffffff) << (src2 & 0x000000000000001f));
   INSTPAT("0000000 ????? ????? 010 ????? 01100 11", slt     , R, op1data = src1; op2data = src2; R(dest) = (op1data < op2data) ? 1 : 0);
   INSTPAT("??????? ????? ????? 010 ????? 00100 11", slti    , I, R(dest) = (src1 < src2) ? 1 : 0);
   INSTPAT("??????? ????? ????? 011 ????? 00100 11", sltiu   , I, R(dest) = (src1 < src2) ? 1 : 0);
   INSTPAT("0000000 ????? ????? 011 ????? 01100 11", sltu    , R, R(dest) = (src1 < src2) ? 1 : 0);
-  INSTPAT("0100000 ????? ????? 101 ????? 01100 11", sra     , R, if((src1 & 0x8000000000000000) == 0x8000000000000000) R(dest) = (0xffffffffffffffff << (64 - (src2 & 0x000000000000001f)) | (src1 >> (src2 & 0x000000000000001f))); else R(dest) = (src1 >> (src2 & 0x000000000000001f)); );
+  INSTPAT("0100000 ????? ????? 101 ????? 01100 11", sra     , R, if((src1 & 0x8000000000000000) == 0x8000000000000000) R(dest) = (0xffffffffffffffff << (64 - (src2 & 0x000000000000003f)) | (src1 >> (src2 & 0x000000000000003f))); else R(dest) = (src1 >> (src2 & 0x000000000000003f)); );
   INSTPAT("0100000 ????? ????? 101 ????? 00100 11", srai    , I, if((src1 & 0x8000000000000000) == 0x8000000000000000) R(dest) = ((0xffffffffffffffff << (64 - src2)) | (src1 >> src2)); else R(dest) = src1 >> src2; );
-  INSTPAT("0100000 ????? ????? 101 ????? 00110 11", sraiw   , I, if((src1 & 0x80000000) == 0x80000000) R(dest) = (((0xffffffff00000000 >> (src2 & 0x000000000000001f)) | 0xffffffff00000000) | ((src1 & 0x00000000ffffffff) >> (src2 & 0x000000000000001f))); else R(dest) = ((src1 & 0x00000000ffffffff) >> (src2 & 0x000000000000001f)); );
+  INSTPAT("0100000 ????? ????? 101 ????? 00110 11", sraiw   , I, if((src1 & 0x80000000) == 0x80000000) R(dest) = (((0xffffffff00000000 >> src2) | 0xffffffff00000000) | ((src1 & 0x00000000ffffffff) >> src2)); else R(dest) = ((src1 & 0x00000000ffffffff) >> src2); );
   INSTPAT("0100000 ????? ????? 101 ????? 01110 11", sraw    , R, if((src1 & 0x80000000) == 0x80000000) R(dest) = (((0xffffffff00000000 >> (src2 & 0x000000000000001f)) | 0xffffffff00000000) | ((src1 & 0x00000000ffffffff) >> (src2 & 0x000000000000001f))); else R(dest) = ((src1 & 0x00000000ffffffff) >> (src2 & 0x000000000000001f)); );
-  INSTPAT("0000000 ????? ????? 101 ????? 01100 11", srl     , R, R(dest) = (src1 >> (src2 & 0x000000000000001f)));
+  INSTPAT("0000000 ????? ????? 101 ????? 01100 11", srl     , R, R(dest) = (src1 >> (src2 & 0x000000000000003f)));
   INSTPAT("000000? ????? ????? 101 ????? 00100 11", srli    , I, R(dest) = (src1 >> src2));
   INSTPAT("0000000 ????? ????? 101 ????? 00110 11", srliw   , I, src1 = ((src1 & 0x00000000ffffffff) >> src2); if((src1 & 0x0000000080000000) == 0x0000000080000000) R(dest) = 0xffffffff00000000 | src1 ; else R(dest) = src1; );
   INSTPAT("0000000 ????? ????? 101 ????? 01110 11", srlw    , R, src1 = ((src1 & 0x00000000ffffffff) >> (src2 & 0x000000000000001f)); if((src1 & 0x0000000080000000) == 0x0000000080000000) R(dest) = 0xffffffff00000000 | src1; else R(dest) = src1;);
