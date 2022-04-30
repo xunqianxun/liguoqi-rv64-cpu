@@ -83,8 +83,8 @@ static int cmd_p(char *args){
 }
 
 static int cmd_q(char *args) {
-  return -1;
   nemu_state.state = NEMU_STOP;
+  return -1;
 }
 
 static int cmd_help(char *args);
