@@ -105,7 +105,6 @@ return (*s1 - *s2);
 
 void *memset(void *s, int c, size_t n) {
 // panic("Not implemented");
-s =NULL;
 const unsigned char uc = c;
 unsigned char *vu;
 for (vu = s; 0<n; ++vu, --n)
