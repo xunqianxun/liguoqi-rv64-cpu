@@ -104,19 +104,19 @@ return (*s1 - *s2);
 }
 
 void *memset(void *s, int c, size_t n) {
-//  panic("Not implemented");
-// const unsigned char uc = c;
-// unsigned char *vu;
-// for (vu = s; 0<n; ++vu, --n)
-//   *vu = uc;
+ panic("Not implemented");
+const unsigned char uc = c;
+unsigned char *vu;
+for (vu = s; 0<n; ++vu, --n)
+  *vu = uc;
 
-// return s;
-if(s == NULL || n <0) return NULL;
-char *temp = (char *)s;
-while (n-- > 0){
-  *temp++ = c;
-}
-return temp;
+return s;
+// if(s == NULL || n <0) return NULL;
+// char *temp = (char *)s;
+// while (n-- > 0){
+//   *temp++ = c;
+//}
+//return temp;
 }
 
 void *memmove(void *dst, const void *src, size_t n) {
