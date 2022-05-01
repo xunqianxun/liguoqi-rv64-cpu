@@ -127,16 +127,20 @@ return ret;
 
 void *memcpy(void *out, const void *in, size_t n) {
 //  panic("Not implemented");
-char* psrc = (char*)in;
-char* pdst = (char*)out;
-if((psrc < pdst) && (psrc + n > pdst)){
-  psrc = psrc + n - 1;
-  pdst = pdst + n - 1;
-  while(n--) *pdst-- = *psrc--;
-}
-else{
-  while(n--) *pdst++ = *psrc++;
-}
+// char* psrc = (char*)in;
+// char* pdst = (char*)out;
+// if((psrc < pdst) && (psrc + n > pdst)){
+//   psrc = psrc + n - 1;
+//   pdst = pdst + n - 1;
+//   while(n--) *pdst-- = *psrc--;
+// }
+// else{
+//   while(n--) *pdst++ = *psrc++;
+// }
+// return out;
+const char *src = in;
+char *dst = out;
+while(n--) *dst++ = *src++;
 return out;
 }
 
