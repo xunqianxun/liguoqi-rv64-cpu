@@ -113,7 +113,7 @@ static int decode_exec(Decode *s) {
   // case 0b000: R(dest) = (Mr(src1 + src2, 8) & 0x00000000ffffffff); break;
   // default:    R(dest) = ((Mr(src1 + src2, 8) & 0xffffffff00000000) >> 32); break; });
   INSTPAT("0000000 ????? ????? 110 ????? 01100 11", or     , R, R(dest) = src1 | src2);
-  INSTPAT("??????? ????? ????? 110 ????? 00100 11", ori    , R, op2data =src2; R(dest) = src1 | op2data);
+  INSTPAT("??????? ????? ????? 110 ????? 00100 11", ori    , I, op2data =src2; R(dest) = src1 | op2data);
   INSTPAT("??????? ????? ????? 000 ????? 01000 11", sb     , S, Mw(src1 + dest, 1, src2));//switch ((dest + src1) & 0b111){
   // case 0b000: Mw(src1 + dest, 8, ((Mr(src1 + dest, 8) & 0xffffffffffffff00) | (src2 & 0x00000000000000ff)));  break;
   // case 0b001: Mw(src1 + dest, 8, ((Mr(src1 + dest, 8) & 0xffffffffffff00ff) | ((src2 & 0x00000000000000ff) << 8)));  break;
