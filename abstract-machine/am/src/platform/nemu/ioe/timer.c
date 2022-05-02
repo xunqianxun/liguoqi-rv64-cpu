@@ -15,7 +15,7 @@ uint32_t time_hie;
 time_hie = inl(RTC_ADDR) - boot_time;
 time = time_hie;
 uptime->us = time;
-printf("%ld", time);
+printf("%d", time);
 }
 
 void __am_timer_rtc(AM_TIMER_RTC_T *rtc) {
