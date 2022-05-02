@@ -12,7 +12,7 @@ boot_time = inl(RTC_ADDR);
 void __am_timer_uptime(AM_TIMER_UPTIME_T *uptime) {
 uint64_t time;
 uint32_t time_hie;
-time_hie = inl(RTC_ADDR) - boot_time;
+time_hie = inlm(RTC_ADDR) - boot_time;
 time = time_hie;
 uptime->us = time;
 //printf("%d", time);
