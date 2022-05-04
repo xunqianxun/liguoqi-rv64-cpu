@@ -33,8 +33,9 @@ void __am_gpu_fbdraw(AM_GPU_FBDRAW_T *ctl) {
       for(c = x; c < x+w; c++){
         int dataone = c+(r*ww);
         fb[dataone] = pixels[dataone];
+        outl(SYNC_ADDR, 1);
       }
-    outl(SYNC_ADDR, 1);
+    // outl(SYNC_ADDR, 1);
   }
 }
 
