@@ -35,15 +35,6 @@ module pc (
         else begin
             if (ex_pc_ena) begin
                   pc <= ex_pc_i               ;
-            //      jump_cont <= jump_cont - 2'b1;
-            //       if(jump_cont == 2'b00) begin
-            //           jump_cont <= jump_cont;
-            //       end
-            // else if (pip_btype) begin
-            //       jump_cont <= jump_cont + 1'b1;
-            //       if(jump_cont == 2'b11)begin
-            //           jump_cont <= jump_cont;
-            //       end
             end 
             else if (id_pc_ena)
                   pc <= id_pc_i            ;

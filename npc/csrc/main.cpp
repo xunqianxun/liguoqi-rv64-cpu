@@ -98,11 +98,8 @@ close_npc();
 
 extern void exec_once(){
 while(1){
-if(main_time <= 10){
-  rvcpu->rst = 1 ; 
-  if(main_time == 10){
-    rvcpu->rst = 0 ;
-  }
+if(main_time >= 10){
+  rvcpu->rst = 0 ; 
 }
 
 if((main_time % 10) == 1){

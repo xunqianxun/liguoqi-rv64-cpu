@@ -139,7 +139,6 @@ void Vrvcpu___024root___settle__TOP__2(Vrvcpu___024root* vlSelf) {
                                                                                 vlSelf->rvcpu__DOT__regfile10__DOT__regs
                                                                                 [0x1fU]);
     Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__mem_wb8__DOT__difftest_dut_pc_TOP(vlSelf->rvcpu__DOT__mem_wb8__DOT__pc_data1, (IData)(vlSelf->rvcpu__DOT__mem_wb8__DOT__data_ena1));
-    vlSelf->inst_addr = vlSelf->rvcpu__DOT__pc;
     vlSelf->data_addr = ((IData)(vlSelf->rst) ? 0ULL
                           : vlSelf->rvcpu__DOT__exmem_mem_lsaddr);
     vlSelf->rvcpu__DOT__ex_mem_addr = ((IData)((0U 
@@ -1879,7 +1878,7 @@ void Vrvcpu___024root___settle__TOP__2(Vrvcpu___024root* vlSelf) {
                                                    vlSelf->rvcpu__DOT__regfile10__DOT__regs
                                                    [vlSelf->rvcpu__DOT__id_reg_addr1])
                                                    : 0ULL)
-                                                  : vlSelf->rvcpu__DOT__pc) 
+                                                  : vlSelf->inst_addr) 
                                                 + ((IData)(
                                                            (0x6fU 
                                                             == 
@@ -2139,7 +2138,6 @@ void Vrvcpu___024root___ctor_var_reset(Vrvcpu___024root* vlSelf) {
     vlSelf->re = VL_RAND_RESET_I(1);
     vlSelf->mem_finish = VL_RAND_RESET_I(1);
     vlSelf->timer_intr = VL_RAND_RESET_I(1);
-    vlSelf->rvcpu__DOT__pc = VL_RAND_RESET_Q(64);
     vlSelf->rvcpu__DOT__if_stall_req = VL_RAND_RESET_I(1);
     vlSelf->rvcpu__DOT__if_id_pc = VL_RAND_RESET_Q(64);
     vlSelf->rvcpu__DOT__if_id_inst = VL_RAND_RESET_I(32);
