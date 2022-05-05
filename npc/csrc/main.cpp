@@ -98,7 +98,7 @@ close_npc();
 
 extern void exec_once(){
 while(1){
-if(main_time >= 10){
+if(main_time > 11){
   rvcpu->rst = 0 ; 
 }
 
