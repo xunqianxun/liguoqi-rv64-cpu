@@ -8,17 +8,23 @@ OBJ_PATH=./obj_dir/
 VERILOG= ./vsrc/
 CC=g++
 SIM_DIR= ./csrc/build
-IMG_NPC?=
-IMGE_FLAGS= /home/mulin/ysyx-workbench/am-kernels/tests/cpu-tests/build/dummy-riscv64-nemu.bin
-
+IMG_NPC?= /home/mulin/ysyx-workbench/am-kernels/tests/cpu-tests/build/dummy-riscv64-nemu.bin
+IMGE_FLAGS?=
+LINK= -LDFLAGS "-ldl"
+LINEREAD=-LDFLAGS "-lreadline"
+VERILAGS= -Wall
+VERILAGS+= --trace
+VERILAGS+= --cc
+VERILAGS+= --exe
+VERILAGS+= -build
 
 sim:
 	@$(shell if[!-e$(SIM_DIR)];then mkdir -p$(SIM_DIR);fi)
 
 run:git
-	@verilator -Wall --trace --cc --exe -build -LDFLAGS "-ldl" -LDFLAGS "-lreadline" ./csrc/main.cpp $(VERILOG)rvcpu.v
+	@verilator $(VERILAGS) $(LINK) $(LINEREAD) ./csrc/main.cpp $(VERILOG)rvcpu.v
 	@make -C $(OBJ_PATH) -f Vrvcpu.mk Vrvcpu
-	./obj_dir/Vrvcpu $(IMGE_FLAGS)
+	./obj_dir/Vrvcpu $(IMGE_FLAGS) $(IMGE_FLAGS)
 
 gtk:
 	@gtkwave ./obj_dir/rvcpu.vcd

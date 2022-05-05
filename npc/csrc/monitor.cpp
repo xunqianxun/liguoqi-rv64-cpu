@@ -8,7 +8,7 @@
 
 static char *log_file = NULL;
 static char *diff_so_file = (char *)"/home/mulin/ysyx-workbench/nemu/build/riscv64-nemu-interpreter-so";
-static char *img_file = NULL;//(char *)"/home/mulin/ysyx-workbench/am-kernels/tests/cpu-tests/build/dummy-riscv64-nemu.bin";
+static char *img_file = NULL;
 static int difftest_port = 1234;
 
 static long load_img() {
@@ -26,7 +26,7 @@ static long load_img() {
   fseek(fp, 0, SEEK_END);
   long size = ftell(fp);
 
-  printf("The image is %s, size = %ld", img_file, size);
+  printf("The image is %s, size = %ld\n", img_file, size);
 
   fseek(fp, 0, SEEK_SET);
   int ret = fread(gi_to_hi(0x80000000), size, 1, fp);
