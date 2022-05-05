@@ -190,7 +190,7 @@ VL_INLINE_OPT void Vrvcpu___024root___sequent__TOP__3(Vrvcpu___024root* vlSelf) 
     vlSelf->rvcpu__DOT__mem_wb8__DOT__data_ena1 = vlSelf->rvcpu__DOT__wb_id_ena;
     if (vlSelf->rst) {
         __Vdly__rvcpu__DOT__wb_regfile_data = 0ULL;
-        vlSelf->rvcpu__DOT__if_id_pc = 0x80000000ULL;
+        vlSelf->rvcpu__DOT__if_id_pc = 0ULL;
         vlSelf->rvcpu__DOT__exmem_mem_data = 0ULL;
         vlSelf->rvcpu__DOT__exmem_mem_sel = 0U;
         vlSelf->rvcpu__DOT__exmem_mem_type = 0U;

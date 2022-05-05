@@ -109,6 +109,7 @@ if((main_time % 10) == 1){
   rvcpu->clk = 1;
   if(rvcpu->inst_addr != 0){
   rvcpu->inst = ifetch(rvcpu->inst_addr, 4);
+  printf("pc=%lx inst=%lx", rvcpu->inst_addr, rvcpu->inst);
   exit_exec_once = 1;
   }
   // if(rv64.pc != 0x80000000 ){
