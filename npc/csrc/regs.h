@@ -22,5 +22,6 @@ typedef struct dut
 #define DIFFTEST_TO_DUT 0
 #define DIFFTEST_REG_SIZE (sizeof(uint64_t) * 32)
 // #define ARRLEN(arr) (int)(sizeof(arr) / sizeof(arr[0]))
+char *diff_so = (char *)"/home/mulin/ysyx-workbench/nemu/build/riscv64-nemu-interpreter-so";
 
 #endif
