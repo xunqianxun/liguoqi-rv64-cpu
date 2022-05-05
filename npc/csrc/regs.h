@@ -24,7 +24,8 @@ typedef struct dut
 // #define ARRLEN(arr) (int)(sizeof(arr) / sizeof(arr[0]))
 char *diff_so = (char *)"/home/mulin/ysyx-workbench/nemu/build/riscv64-nemu-interpreter-so";
 
-#define GREENCLOR \042[0m
-#define REDCLOR   /041[0m
+#define GREENCLOR   \033[34m
+#define GREENCLOSE  \033[0m
+#define REDCLOR   \041[0m
 
 #endif
