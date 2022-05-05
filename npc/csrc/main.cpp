@@ -98,16 +98,15 @@ close_npc();
 
 extern void exec_once(){
 while(1){
-if(main_time >= 10){
-  rvcpu->rst = 0 ; 
-}
+// if(main_time > 5){
+//   rvcpu->rst = 0 ; 
+// }
 
 if((main_time % 10) == 1){
-  if(rvcpu->inst_addr != 0){
-  rvcpu->inst = ifetch(rvcpu->inst_addr, 4);
- // printf("pc=%lx inst=%x\n", rvcpu->inst_addr, rvcpu->inst);
-  exit_exec_once = 1;
-  }
+  // if(rvcpu->inst_addr != 0){
+  // rvcpu->inst = ifetch(rvcpu->inst_addr, 4);
+  // exit_exec_once = 1;
+  // }
   rvcpu->clk = 1;
   // if(rv64.pc != 0x80000000 ){
   //   difftest_step(rv64.pc,1);
@@ -121,6 +120,10 @@ if((main_time % 10) == 1){
 }
 if((main_time % 10) == 6){
   rvcpu->clk = 0;
+  if(rvcpu->inst_addr != 0){
+  rvcpu->inst = ifetch(rvcpu->inst_addr, 4);
+  exit_exec_once = 1;
+  }
 }
   rvcpu->eval();
   tfp->dump(main_time);
