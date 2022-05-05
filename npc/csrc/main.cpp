@@ -107,7 +107,7 @@ if(main_time <= 10){
 
 if((main_time % 10) == 1){
   rvcpu->clk = 1;
-  if(rvcpu->inst_addr >= 0x80000000){
+  if(rvcpu->inst_addr != 0){
   rvcpu->inst = ifetch(rvcpu->inst_addr, 4);
   exit_exec_once = 1;
   }

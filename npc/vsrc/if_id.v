@@ -28,7 +28,7 @@ module if_id (
 
 always@(posedge clk) begin
         if(rst == `ysyx22040228_RSTENA) begin
-            id_pc   <= `ysyx22040228_START   ;
+            id_pc   <= `ysyx22040228_ZEROWORD;
             id_inst <= 32'h0000_0000;
         end
         else if(if_id_flush) begin
