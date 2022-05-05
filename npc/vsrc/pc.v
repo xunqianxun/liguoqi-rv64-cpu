@@ -35,7 +35,7 @@ module pc (
         else begin
             if (ex_pc_ena) 
                   pc <= ex_pc_i               ;
-                  jump_cont <= jump_cont - 2'b2;
+                  jump_cont <= jump_cont - 2'b1;
                   if(jump_cont == 2'b00) begin
                       jump_cont <= jump_cont;
                   end
