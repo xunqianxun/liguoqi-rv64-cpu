@@ -63,6 +63,8 @@ wire    [`ysyx22040228_REGBUS]           pip_regfile_x1     ;
 wire                                     pip_refflie_x1_ena ;
 wire    [`ysyx22040228_REGADDRBUS]       pip_regfile_x1_addr;
 wire    [`ysyx22040228_PCBUS]            pip_pc             ;
+wire    [ 1:0]                           cont_data          ;
+wire                                     cont_ena           ;
 
 //about pc
 //wire    [`ysyx22040228_PCBUS]           id_pc_pc           ;
@@ -146,12 +148,15 @@ wire    [`ysyx22040228_PCBUS]          ex_ex_mem_pc       ;
 wire    [`ysyx22040228_PCBUS]          ex_mem_mem_pc      ;
 wire    [`ysyx22040228_PCBUS]          mem_mem_wb_pc      ;
 
+
 pip_fore pip_fore0 (
  //   .clk                 (clk                  ),
     .rst                 (rst                  ),
     .pc_i                (pc                   ),
     .inst                (inst                 ),
     .x1_data             (pip_regfile_x1       ),
+    .pip_cont            (cont_data            ),
+    .pip_ena             (cont_ena             ),
     .x1_ena              (pip_refflie_x1_ena   ),
     .x1_addr             (pip_regfile_x1_addr  ),
     .pc_o                (pip_pc               )
@@ -166,6 +171,8 @@ pc pc1 (
     .ex_pc_ena           (ex_pc_branchena      ),
     .ex_pc_i             (ex_pc_branchpc       ),
     .pc_stall            (stall_ctrl[0]        ),
+    .pip_b_cont          (cont_data            ),
+    .pip_btype           (cont_ena             ),
     .pc                  (pc                   ), 
     .ce                  (inst_ena             )            
 );

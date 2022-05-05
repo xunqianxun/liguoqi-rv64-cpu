@@ -16,12 +16,17 @@ module pc (
 
     input    wire    [`ysyx22040228_PCBUS]                  ex_pc_i      ,   //执行阶段送来的指令
     input    wire                                           ex_pc_ena    ,   // 执行阶段指令送来的使能信号
+    input    wire                                           pip_btype    ,
     //from ctrl 
     input    wire                                           pc_stall     ,   //pc暂停信号
     //to if
     output   reg     [`ysyx22040228_PCBUS]                  pc           ,
+    output   wire    [ 1:0]                                 pip_b_cont   ,
     output   wire                                           ce
 );
+
+    reg   [ 1:0]   jump_cont = 2'b11;
+    assign pip_b_cont = jump_cont;
   
     always @(posedge clk) begin
         if(rst == `ysyx22040228_RSTENA) begin
@@ -29,7 +34,17 @@ module pc (
         end
         else begin
             if (ex_pc_ena) 
-                  pc <= ex_pc_i           ;
+                  pc <= ex_pc_i               ;
+                  jump_cont = jump_cont - 2'b2;
+                  if(jump_cont == 2'b00){
+                      jump_cont = jump_cont;
+                  }
+            else if (pip_btype) begin
+                  jump_cont = jump_cont + 1'b1;
+                  if(jump_cont == 2'b11){
+                      jump_cont = jump_cont;
+                  }
+            end 
             else if (id_pc_ena)
                   pc <= id_pc_i            ;
             else if (pc_stall == `ysyx22040228_STOP) begin 

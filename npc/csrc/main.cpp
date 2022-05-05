@@ -98,9 +98,13 @@ close_npc();
 
 extern void exec_once(){
 while(1){
-if(main_time > 10){
-  rvcpu->rst = 0 ; 
+if(main_time >= 10){
+  rvcpu->rst = 1 ; 
+  if(main_time == 10){
+    rvcpu->rst = 0 ;
+  }
 }
+
 if((main_time % 10) == 1){
   rvcpu->clk = 1;
   if(rvcpu->inst_addr >= 0x80000000){
