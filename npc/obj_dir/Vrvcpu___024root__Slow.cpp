@@ -2190,7 +2190,6 @@ void Vrvcpu___024root___ctor_var_reset(Vrvcpu___024root* vlSelf) {
     vlSelf->rvcpu__DOT__pip_fore0__DOT__b_imm = VL_RAND_RESET_I(12);
     vlSelf->rvcpu__DOT__pip_fore0__DOT__inst_jalr = VL_RAND_RESET_I(1);
     vlSelf->rvcpu__DOT__pip_fore0__DOT__j_pc = VL_RAND_RESET_Q(64);
-    vlSelf->rvcpu__DOT__pip_fore0__DOT__pc_next_data = VL_RAND_RESET_Q(64);
     vlSelf->rvcpu__DOT__id3__DOT__inst_lui = VL_RAND_RESET_I(1);
     vlSelf->rvcpu__DOT__id3__DOT__inst_auipc = VL_RAND_RESET_I(1);
     vlSelf->rvcpu__DOT__id3__DOT__inst_jal = VL_RAND_RESET_I(1);

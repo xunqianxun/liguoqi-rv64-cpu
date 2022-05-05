@@ -132,7 +132,6 @@ void Vrvcpu___024root__traceInitSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
         tracep->declQuad(c+356,"rvcpu pip_fore0 operand1", false,-1, 63,0);
         tracep->declQuad(c+358,"rvcpu pip_fore0 operand2", false,-1, 63,0);
         tracep->declQuad(c+32,"rvcpu pip_fore0 j_pc", false,-1, 63,0);
-        tracep->declQuad(c+373,"rvcpu pip_fore0 pc_next_data", false,-1, 63,0);
         tracep->declBit(c+321,"rvcpu pc1 clk", false,-1);
         tracep->declBit(c+322,"rvcpu pc1 rst", false,-1);
         tracep->declQuad(c+344,"rvcpu pc1 static_pc_i", false,-1, 63,0);
@@ -360,7 +359,7 @@ void Vrvcpu___024root__traceInitSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
         tracep->declBit(c+201,"rvcpu ex5 csr0 mstatus_mpp_ena", false,-1);
         tracep->declBus(c+206,"rvcpu ex5 csr0 mstatus_mpp_nxt", false,-1, 1,0);
         tracep->declBus(c+207,"rvcpu ex5 csr0 csr_mstatus_mpp", false,-1, 1,0);
-        tracep->declBus(c+375,"rvcpu ex5 csr0 csr_mstatus_xs", false,-1, 1,0);
+        tracep->declBus(c+373,"rvcpu ex5 csr0 csr_mstatus_xs", false,-1, 1,0);
         tracep->declBus(c+208,"rvcpu ex5 csr0 csr_mstatus_fs", false,-1, 1,0);
         tracep->declBit(c+209,"rvcpu ex5 csr0 csr_mstatus_sd", false,-1);
         tracep->declQuad(c+210,"rvcpu ex5 csr0 csr_mstatus", false,-1, 63,0);
@@ -368,7 +367,7 @@ void Vrvcpu___024root__traceInitSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
         tracep->declBit(c+213,"rvcpu ex5 csr0 rd_mtvec", false,-1);
         tracep->declBit(c+214,"rvcpu ex5 csr0 wr_mtvec", false,-1);
         tracep->declQuad(c+215,"rvcpu ex5 csr0 csr_mtvec_base", false,-1, 63,2);
-        tracep->declBus(c+375,"rvcpu ex5 csr0 csr_mtvec_mode", false,-1, 1,0);
+        tracep->declBus(c+373,"rvcpu ex5 csr0 csr_mtvec_mode", false,-1, 1,0);
         tracep->declQuad(c+217,"rvcpu ex5 csr0 csr_mtvec", false,-1, 63,0);
         tracep->declBit(c+219,"rvcpu ex5 csr0 sel_mepc", false,-1);
         tracep->declBit(c+220,"rvcpu ex5 csr0 rd_mepc", false,-1);
@@ -1329,7 +1328,6 @@ void Vrvcpu___024root__traceFullSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
                                       ? 0U : ((1U & (IData)(vlSelf->rvcpu__DOT__exmem_mem_lsaddr))
                                                ? 0xf0U
                                                : 0xfU))),8);
-        tracep->fullQData(oldp+373,(vlSelf->rvcpu__DOT__pip_fore0__DOT__pc_next_data),64);
-        tracep->fullCData(oldp+375,(0U),2);
+        tracep->fullCData(oldp+373,(0U),2);
     }
 }
