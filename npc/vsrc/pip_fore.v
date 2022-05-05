@@ -11,7 +11,7 @@ module pip_fore (
     input            wire    [`ysyx22040228_INSTBUS]        inst     ,
     input            wire    [`ysyx22040228_REGBUS]         x1_data  ,
     
-    output           wire    [`ysyx22040228_PCBUS]          pc_o     ,
+    output           reg     [`ysyx22040228_PCBUS]          pc_o     ,
     output           wire    [`ysyx22040228_REGADDRBUS]     x1_addr  ,
     output           wire                                   x1_ena   
 );
