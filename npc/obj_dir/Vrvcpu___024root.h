@@ -66,6 +66,8 @@ VL_MODULE(Vrvcpu___024root) {
         CData/*4:0*/ rvcpu__DOT__exmem_mem_addr;
         CData/*2:0*/ rvcpu__DOT__exmem_mem_sel;
         CData/*0:0*/ rvcpu__DOT__pip_fore0__DOT__inst_jalr;
+        CData/*0:0*/ rvcpu__DOT__pip_fore0__DOT__inst_bxx;
+        CData/*1:0*/ rvcpu__DOT__pc1__DOT__jump_cont;
         CData/*0:0*/ rvcpu__DOT__id3__DOT__inst_lui;
         CData/*0:0*/ rvcpu__DOT__id3__DOT__inst_auipc;
         CData/*0:0*/ rvcpu__DOT__id3__DOT__inst_jal;
@@ -100,10 +102,10 @@ VL_MODULE(Vrvcpu___024root) {
         CData/*0:0*/ rvcpu__DOT__ex5__DOT__op1_ls_op2;
         CData/*0:0*/ rvcpu__DOT__ex5__DOT__ex_flush_branch;
         CData/*0:0*/ rvcpu__DOT__ex5__DOT__tmr_trap_ena;
-        CData/*0:0*/ rvcpu__DOT__ex5__DOT__trap_ena;
-        CData/*0:0*/ rvcpu__DOT__ex5__DOT__ecall_trap_ena;
     };
     struct {
+        CData/*0:0*/ rvcpu__DOT__ex5__DOT__trap_ena;
+        CData/*0:0*/ rvcpu__DOT__ex5__DOT__ecall_trap_ena;
         CData/*0:0*/ rvcpu__DOT__ex5__DOT__cmt_mret_ena;
         CData/*0:0*/ rvcpu__DOT__ex5__DOT__csr_wr_en;
         CData/*0:0*/ rvcpu__DOT__ex5__DOT__csr_rd_en;
@@ -153,6 +155,7 @@ VL_MODULE(Vrvcpu___024root) {
         QData/*63:0*/ rvcpu__DOT__ex_mem_mem_pc;
         QData/*63:0*/ rvcpu__DOT__mem_mem_wb_pc;
         QData/*63:0*/ rvcpu__DOT__pip_fore0__DOT__j_pc;
+        QData/*63:0*/ rvcpu__DOT__pip_fore0__DOT__pc_next_data;
         QData/*63:0*/ rvcpu__DOT__ex5__DOT__exe_res;
         QData/*63:0*/ rvcpu__DOT__ex5__DOT__op1_sub_op2;
         QData/*63:0*/ rvcpu__DOT__ex5__DOT__op1_add_op2;
@@ -165,11 +168,11 @@ VL_MODULE(Vrvcpu___024root) {
         QData/*63:0*/ rvcpu__DOT__ex5__DOT__read_csr_data;
         QData/*63:0*/ rvcpu__DOT__ex5__DOT__wbck_csr_data;
         QData/*63:0*/ rvcpu__DOT__ex5__DOT__trap_mcause_value;
+    };
+    struct {
         QData/*63:0*/ rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mcycle;
         QData/*63:0*/ rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mstatus;
         QData/*61:0*/ rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mtvec_base;
-    };
-    struct {
         QData/*63:0*/ rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mepc;
         QData/*63:0*/ rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mcause_nxt;
         QData/*63:0*/ rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mcause;

@@ -10,11 +10,11 @@ module pip_fore (
     input            wire    [`ysyx22040228_PCBUS]          pc_i     ,
     input            wire    [`ysyx22040228_INSTBUS]        inst     ,
     input            wire    [`ysyx22040228_REGBUS]         x1_data  ,
-    input            wire    [ 1:0]                         pip_cont ,
+//    input            wire    [ 1:0]                         pip_cont ,
     
     output           wire    [`ysyx22040228_PCBUS]          pc_o     ,
     output           wire    [`ysyx22040228_REGADDRBUS]     x1_addr  ,
-    output           wire                                   pip_ena  ,
+//    output           wire                                   pip_ena  ,
     output           wire                                   x1_ena   
 );
 
@@ -34,14 +34,14 @@ wire inst_bxx  ;
 assign inst_jal  = (opcode[6:2] == `ysyx22040228_JAL) && (opcode[1:0] == 2'b11)  ;
 assign inst_jalr = (opcode[6:2] == `ysyx22040228_JALR) && (opcode[1:0] == 2'b11) ;
 assign inst_bxx  = (opcode[6:2] == `ysyx22040228_BRANCH) && (opcode[1:0] == 2'b11)   ; 
-assign pip_ena   = inst_bxx;
+//assign pip_ena   = inst_bxx;
 assign x1_ena = (rst == `ysyx22040228_RSTENA) ? 0:inst_jalr;
 
 wire [63:0] operand1;
 wire [63:0] operand2;
 assign operand1 = inst_jalr ? x1_data:pc_i;
 assign operand2 = inst_jal  ? {{44{j_imm[20]}} , j_imm[20:1] << 1} :
-                  (inst_bxx && (pip_cont >= 2'b10))  ? {{52{b_imm[12]}} , b_imm[12:1] << 1} :
+                  inst_bxx  ? {{52{b_imm[12]}} , b_imm[12:1] << 1} :
                   inst_jalr ? {{52{i_imm[11]}} , i_imm[11:0]}      : `ysyx22040228_NEXTPC; 
 
 wire [63:0] j_pc;
