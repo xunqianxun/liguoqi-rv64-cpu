@@ -35,7 +35,6 @@ VM_PREFIX = Vrvcpu
 VM_MODPREFIX = Vrvcpu
 # User CFLAGS (from -CFLAGS on Verilator command line)
 VM_USER_CFLAGS = \
-	-b \
 
 # User LDLIBS (from -LDFLAGS on Verilator command line)
 VM_USER_LDLIBS = \
