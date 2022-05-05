@@ -1,13 +1,12 @@
-#include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
 #include "Vrvcpu.h"
 #include <verilated.h>          
 #include <verilated_vcd_c.h>  
 #include <Vrvcpu__Dpi.h>
-#include "monitor.cpp"
+#include "./src/monitor.cpp"
 #include <svdpi.h>
-//#include "regs.h"
+
 
 using namespace std;
 
@@ -98,26 +97,13 @@ close_npc();
 
 extern void exec_once(){
 while(1){
-if(main_time > 5){
+if(main_time > 1){
   rvcpu->rst = 0 ; 
 }
 
 if((main_time % 10) == 1){
-//   if(rvcpu->inst_addr != 0){
-//   rvcpu->inst = ifetch(rvcpu->inst_addr, 4);
-//  // printf("pc=%lx inst=%x\n", rvcpu->inst_addr, rvcpu->inst);
-//   exit_exec_once = 1;
-//   }
   rvcpu->clk = 1;
-  // if(rv64.pc != 0x80000000 ){
-  //   difftest_step(rv64.pc,1);
-  //   // printf("exe\n");
-  //   // printf("rv64pc%lx",rv64.pc);
-  //   exit_exec_once = 1;
-  // }
-  
   rvcpu->eval();
-
 }
 if((main_time % 10) == 6){
   rvcpu->clk = 0;
