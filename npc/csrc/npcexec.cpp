@@ -1,4 +1,4 @@
-#include "./difftest/dut.cpp"
+#include "dut.cpp"
 
 
 using namespace std;

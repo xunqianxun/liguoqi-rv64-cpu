@@ -2,7 +2,7 @@
 #include <readline/readline.h>
 #include <readline/history.h>
 #include "watchpoint.cpp"
-#include "./src/npcexec.cpp"
+#include "npcexec.cpp"
 //#include "paddr.cpp"
 using namespace std;
 

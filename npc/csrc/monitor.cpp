@@ -1,7 +1,7 @@
 #include<iostream>
 #include<fstream>
 #include<getopt.h>
-#include"./monitor/sdb.cpp"
+#include"sdb.cpp"
 
 
  using namespace std;
