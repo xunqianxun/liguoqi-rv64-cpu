@@ -16,7 +16,7 @@ static long load_img() {
    char *img_file = (char *)PACH_IMG;
    #endif
   if (img_file == NULL) {
-    printf("No image is given. Use the default build-in image.");
+    printf("No image is given. Use the default build-in image.\n");
     return 4096; // built-in image size
   }
 
@@ -26,7 +26,7 @@ static long load_img() {
   fseek(fp, 0, SEEK_END);
   long size = ftell(fp);
 
-  printf("The image is %s, size = %ld\n", img_file, size);
+  printf("The image is %s, size = %ld GREENCLOR \n", img_file, size);
 
   fseek(fp, 0, SEEK_SET);
   int ret = fread(gi_to_hi(0x80000000), size, 1, fp);
