@@ -8,7 +8,7 @@
 
 static char *log_file = NULL;
 static char *diff_so_file = (char *)"/home/mulin/ysyx-workbench/nemu/build/riscv64-nemu-interpreter-so";
-static char *img_file = (char *)"/home/mulin/ysyx-workbench/am-kernels/tests/cpu-tests/build/dummy-riscv64-nemu.bin";
+static char *img_file = NULL;//(char *)"/home/mulin/ysyx-workbench/am-kernels/tests/cpu-tests/build/dummy-riscv64-nemu.bin";
 static int difftest_port = 1234;
 
 static long load_img() {

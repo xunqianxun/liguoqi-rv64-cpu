@@ -9,7 +9,7 @@ VERILOG= ./vsrc/
 CC=g++
 SIM_DIR= ./csrc/build
 IMG_NPC?=
-IMGE_FLAGS=
+IMGE_FLAGS= /home/mulin/ysyx-workbench/am-kernels/tests/cpu-tests/build/dummy-riscv64-nemu.bin
 
 
 sim:
@@ -18,7 +18,7 @@ sim:
 run:git
 	@verilator -Wall --trace --cc --exe -build -LDFLAGS "-ldl" -LDFLAGS "-lreadline" ./csrc/main.cpp $(VERILOG)rvcpu.v
 	@make -C $(OBJ_PATH) -f Vrvcpu.mk Vrvcpu
-	./obj_dir/Vrvcpu
+	./obj_dir/Vrvcpu $(IMGE_FLAGS)
 
 gtk:
 	@gtkwave ./obj_dir/rvcpu.vcd
