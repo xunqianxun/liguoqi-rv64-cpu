@@ -136,6 +136,7 @@ VL_MODULE(Vrvcpu___024root) {
         IData/*31:0*/ rvcpu__DOT__mem7__DOT__data_word;
         IData/*31:0*/ rvcpu__DOT__regfile10__DOT__i;
         QData/*63:0*/ rvcpu__DOT__pc;
+        QData/*63:0*/ rvcpu__DOT__pip_pc;
         QData/*63:0*/ rvcpu__DOT__if_id_pc;
         QData/*63:0*/ rvcpu__DOT__ex_id_rd_data;
         QData/*63:0*/ rvcpu__DOT__ex_mem_addr;
@@ -167,9 +168,9 @@ VL_MODULE(Vrvcpu___024root) {
         QData/*63:0*/ rvcpu__DOT__ex5__DOT__trap_mcause_value;
         QData/*63:0*/ rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mcycle;
         QData/*63:0*/ rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mstatus;
-        QData/*61:0*/ rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mtvec_base;
     };
     struct {
+        QData/*61:0*/ rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mtvec_base;
         QData/*63:0*/ rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mepc;
         QData/*63:0*/ rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mcause_nxt;
         QData/*63:0*/ rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mcause;

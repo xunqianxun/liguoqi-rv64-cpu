@@ -147,7 +147,7 @@ wire    [`ysyx22040228_PCBUS]          ex_mem_mem_pc      ;
 wire    [`ysyx22040228_PCBUS]          mem_mem_wb_pc      ;
 
 pip_fore pip_fore0 (
-    .clk                 (clk                  ),
+ //   .clk                 (clk                  ),
     .rst                 (rst                  ),
     .pc_i                (pc                   ),
     .inst                (inst                 ),

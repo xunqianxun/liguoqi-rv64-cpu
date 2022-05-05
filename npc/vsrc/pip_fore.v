@@ -5,13 +5,13 @@ Function:this module use to pipeline prediction
 **********************************************************************/
 `include "./vsrc/defines.v"
 module pip_fore (
-    input            wire                                   clk      ,
+//    input            wire                                   clk      ,
     input            wire                                   rst      ,
     input            wire    [`ysyx22040228_PCBUS]          pc_i     ,
     input            wire    [`ysyx22040228_INSTBUS]        inst     ,
     input            wire    [`ysyx22040228_REGBUS]         x1_data  ,
     
-    output           reg     [`ysyx22040228_PCBUS]          pc_o     ,
+    output           wire     [`ysyx22040228_PCBUS]          pc_o     ,
     output           wire    [`ysyx22040228_REGADDRBUS]     x1_addr  ,
     output           wire                                   x1_ena   
 );
@@ -42,15 +42,15 @@ assign operand2 = inst_jal  ? {{44{j_imm[20]}} , j_imm[20:1] << 1} :
                   inst_jalr ? {{52{i_imm[11]}} , i_imm[11:0]}      : `ysyx22040228_NEXTPC; 
 
 wire [63:0] j_pc;
-wire [63:0] pc_next_data;
+//wire [63:0] pc_next_data;
 assign j_pc         = operand1 + operand2;
-assign pc_next_data = (rst == `ysyx22040228_RSTENA) ? `ysyx22040228_ZEROWORD:
+assign pc_o = (rst == `ysyx22040228_RSTENA) ? `ysyx22040228_ZEROWORD:
                       inst_jalr                     ? {j_pc[63:1] , 1'b0}   :
                                                                 j_pc;
 
-always @(posedge clk) begin
-    pc_o <= pc_next_data;
-end
+// always @(posedge clk) begin
+//     pc_o <= pc_next_data;
+// end
 
 endmodule//pip_fore
 

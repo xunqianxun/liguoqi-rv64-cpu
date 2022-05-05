@@ -63,11 +63,6 @@ void Vrvcpu___024root___settle__TOP__2(Vrvcpu___024root* vlSelf) {
                                                              >> 8U)))));
     vlSelf->rvcpu__DOT__if_stall_req = (1U & ((~ (IData)(vlSelf->rst)) 
                                               & (~ (IData)(vlSelf->bui_inst_valid))));
-    vlSelf->rvcpu__DOT__pip_fore0__DOT__inst_jalr = (IData)(
-                                                            (0x67U 
-                                                             == 
-                                                             (0x7fU 
-                                                              & vlSelf->inst)));
     if ((0x10U == (IData)(vlSelf->rvcpu__DOT__idex_ex_opcode))) {
         Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__ex5__DOT__Ebreak_teap_TOP(1U);
     } else {
@@ -570,14 +565,19 @@ void Vrvcpu___024root___settle__TOP__2(Vrvcpu___024root* vlSelf) {
         vlSelf->rvcpu__DOT__id_ex_pc = 0ULL;
         vlSelf->rvcpu__DOT__id_ex_memsel = 0U;
         vlSelf->rvcpu__DOT__mem_mem_wb_pc = 0ULL;
-        vlSelf->rvcpu__DOT__ex_ex_mem_pc = 0ULL;
     } else {
         vlSelf->rvcpu__DOT__id_ex_pc = vlSelf->rvcpu__DOT__if_id_pc;
         vlSelf->rvcpu__DOT__id_ex_memsel = (7U & (vlSelf->rvcpu__DOT__if_id_inst 
                                                   >> 0xcU));
         vlSelf->rvcpu__DOT__mem_mem_wb_pc = vlSelf->rvcpu__DOT__ex_mem_mem_pc;
-        vlSelf->rvcpu__DOT__ex_ex_mem_pc = vlSelf->rvcpu__DOT__idex_ex_pc;
     }
+    vlSelf->rvcpu__DOT__pip_fore0__DOT__inst_jalr = (IData)(
+                                                            (0x67U 
+                                                             == 
+                                                             (0x7fU 
+                                                              & vlSelf->inst)));
+    vlSelf->rvcpu__DOT__ex_ex_mem_pc = ((IData)(vlSelf->rst)
+                                         ? 0ULL : vlSelf->rvcpu__DOT__idex_ex_pc);
     vlSelf->rvcpu__DOT__ex5__DOT__tmr_trap_ena = ((
                                                    ((IData)(vlSelf->rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mip_mtip) 
                                                     & (IData)(vlSelf->rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mstatus_mie)) 
@@ -2140,6 +2140,7 @@ void Vrvcpu___024root___ctor_var_reset(Vrvcpu___024root* vlSelf) {
     vlSelf->mem_finish = VL_RAND_RESET_I(1);
     vlSelf->timer_intr = VL_RAND_RESET_I(1);
     vlSelf->rvcpu__DOT__pc = VL_RAND_RESET_Q(64);
+    vlSelf->rvcpu__DOT__pip_pc = VL_RAND_RESET_Q(64);
     vlSelf->rvcpu__DOT__if_stall_req = VL_RAND_RESET_I(1);
     vlSelf->rvcpu__DOT__if_id_pc = VL_RAND_RESET_Q(64);
     vlSelf->rvcpu__DOT__if_id_inst = VL_RAND_RESET_I(32);
