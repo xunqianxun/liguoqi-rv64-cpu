@@ -55,8 +55,8 @@ module rvcpu (
 //    $display("%b", inst);
 //endtask
 
-wire    [`ysyx22040228_PCBUS]     pc                 ;
-assign inst_addr = pc                                ;
+// wire    [`ysyx22040228_PCBUS]     pc                 ;
+// assign inst_addr = pc                                ;
 
 //about Pip_prediction
 wire    [`ysyx22040228_REGBUS]           pip_regfile_x1     ;
@@ -152,7 +152,7 @@ wire    [`ysyx22040228_PCBUS]          mem_mem_wb_pc      ;
 pip_fore pip_fore0 (
  //   .clk                 (clk                  ),
     .rst                 (rst                  ),
-    .pc_i                (pc                   ),
+    .pc_i                (inst_addr            ),
     .inst                (inst                 ),
     .x1_data             (pip_regfile_x1       ),
     // .pip_cont            (cont_data            ),
@@ -173,14 +173,14 @@ pc pc1 (
     .pc_stall            (stall_ctrl[0]        ),
     // .pip_b_cont          (cont_data            ),
     // .pip_btype           (cont_ena             ),
-    .pc                  (pc                   ), 
+    .pc                  (inst_addr            ), 
     .ce                  (inst_ena             )            
 );
 
 if_id if_id2 (
     .clk                 (clk                  ),
     .rst                 (rst                  ),
-    .if_pc               (pc                   ),
+    .if_pc               (inst_addr            ),
     .if_inst             (inst                 ),
     .if_id_flush         (ex_flush             ),
     .if_id_bubble        (id_if_flush          ),
