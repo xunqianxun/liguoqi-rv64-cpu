@@ -4,7 +4,7 @@
 #include <verilated.h>          
 #include <verilated_vcd_c.h>  
 #include <Vrvcpu__Dpi.h>
-#include "./src/monitor.cpp"
+#include "./csrc/src/monitor.cpp"
 #include <svdpi.h>
 
 
