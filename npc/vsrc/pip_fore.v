@@ -17,36 +17,57 @@ module pip_fore (
 );
 
 wire   [20:1] j_imm;
-assign {j_imm[20] , j_imm[10:1] , j_imm[11] , j_imm[19:12]} = inst[31:12];
+//assign {j_imm[20] , j_imm[10:1] , j_imm[11] , j_imm[19:12]} = inst[31:12];
 wire   [11:0] i_imm;
-assign i_imm = inst[31:20];
+//assign i_imm = inst[31:20];
 wire   [12:1] b_imm;
-assign {b_imm[12] , b_imm[10:5] , b_imm[4:1] , b_imm[11]} = {inst[31:25] , inst[11:7]} ; 
+//assign {b_imm[12] , b_imm[10:5] , b_imm[4:1] , b_imm[11]} = {inst[31:25] , inst[11:7]} ; 
 
 wire [6:0] opcode;
-assign x1_addr = inst[19:15];
-assign opcode = inst[6:0];
+//assign x1_addr = inst[19:15];
+//assign opcode = inst[6:0];
 wire inst_jal  ;
 wire inst_jalr ;
 wire inst_bxx  ;
-assign inst_jal  = (opcode[6:2] == `ysyx22040228_JAL) && (opcode[1:0] == 2'b11)  ;
-assign inst_jalr = (opcode[6:2] == `ysyx22040228_JALR) && (opcode[1:0] == 2'b11) ;
-assign inst_bxx  = (opcode[6:2] == `ysyx22040228_BRANCH) && (opcode[1:0] == 2'b11)   ; 
-assign x1_ena = (rst == `ysyx22040228_RSTENA) ? 0:inst_jalr;
+//assign inst_jal  = (opcode[6:2] == `ysyx22040228_JAL) && (opcode[1:0] == 2'b11)  ;
+//assign inst_jalr = (opcode[6:2] == `ysyx22040228_JALR) && (opcode[1:0] == 2'b11) ;
+//assign inst_bxx  = (opcode[6:2] == `ysyx22040228_BRANCH) && (opcode[1:0] == 2'b11)   ; 
+//assign x1_ena = (rst == `ysyx22040228_RSTENA) ? 0:inst_jalr;
 
 wire [63:0] operand1;
 wire [63:0] operand2;
-assign operand1 = inst_jalr ? x1_data:pc_i;
-assign operand2 = inst_jal  ? {{44{j_imm[20]}} , j_imm[20:1] << 1} :
-                  inst_bxx  ? {{52{b_imm[12]}} , b_imm[12:1] << 1} :
-                  inst_jalr ? {{52{i_imm[11]}} , i_imm[11:0]}      : `ysyx22040228_NEXTPC; 
+//assign operand1 = inst_jalr ? x1_data:pc_i;
+//assign operand2 = inst_jal  ? {{44{j_imm[20]}} , j_imm[20:1] << 1} :
+                //   inst_bxx  ? {{52{b_imm[12]}} , b_imm[12:1] << 1} :
+                //   inst_jalr ? {{52{i_imm[11]}} , i_imm[11:0]}      : `ysyx22040228_NEXTPC; 
 
 wire [63:0] j_pc;
 //wire [63:0] pc_next_data;
-assign j_pc         = operand1 + operand2;
-assign pc_o = (rst == `ysyx22040228_RSTENA) ? `ysyx22040228_ZEROWORD:
+//assign j_pc         = operand1 + operand2;
+//assign pc_o = (rst == `ysyx22040228_RSTENA) ? `ysyx22040228_ZEROWORD:
+                    //   inst_jalr                     ? {j_pc[63:1] , 1'b0}   :
+                    //                                             j_pc;
+always @(inst) begin
+    {j_imm[20] , j_imm[10:1] , j_imm[11] , j_imm[19:12]} = inst[31:12];
+    i_imm = inst[31:20];
+    {b_imm[12] , b_imm[10:5] , b_imm[4:1] , b_imm[11]} = {inst[31:25] , inst[11:7]} ; 
+    x1_addr = inst[19:15];
+    opcode = inst[6:0];
+    inst_jal  = (opcode[6:2] == `ysyx22040228_JAL) && (opcode[1:0] == 2'b11)  ;
+    inst_jalr = (opcode[6:2] == `ysyx22040228_JALR) && (opcode[1:0] == 2'b11) ;
+    inst_bxx  = (opcode[6:2] == `ysyx22040228_BRANCH) && (opcode[1:0] == 2'b11)   ; 
+    x1_ena = (rst == `ysyx22040228_RSTENA) ? 0:inst_jalr;
+
+    operand1 = inst_jalr ? x1_data:pc_i;
+    operand2 = inst_jal  ? {{44{j_imm[20]}} , j_imm[20:1] << 1} :
+                  inst_bxx  ? {{52{b_imm[12]}} , b_imm[12:1] << 1} :
+                  inst_jalr ? {{52{i_imm[11]}} , i_imm[11:0]}      : `ysyx22040228_NEXTPC; 
+
+    j_pc         = operand1 + operand2;
+    pc_o = (rst == `ysyx22040228_RSTENA) ? `ysyx22040228_ZEROWORD:
                       inst_jalr                     ? {j_pc[63:1] , 1'b0}   :
                                                                 j_pc;
+end
 
 // always @(posedge clk) begin
 //     pc_o <= pc_next_data;
