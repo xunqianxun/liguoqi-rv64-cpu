@@ -2,8 +2,7 @@
 #include<fstream>
 #include<getopt.h>
 #include"sdb.cpp"
-//#include"paddr.cpp"
-//#include"dut.cpp"
+
 
  using namespace std;
 
@@ -16,19 +15,18 @@ static long load_img() {
    #ifdef PACH_IMG
    char *img_file = (char *)PACH_IMG;
    #endif
-//  char *img_file = (char *)"/home/mulin/ysyx-workbench/am-kernels/tests/cpu-tests/build/dummy-riscv64-nemu.bin";
   if (img_file == NULL) {
-//    Log("No image is given. Use the default build-in image.");
+    Log("No image is given. Use the default build-in image.");
     return 4096; // built-in image size
   }
 
   FILE *fp = fopen(img_file, "rb");
-//  Assert(fp, "Can not open '%s'", img_file);
+  Assert(fp, "Can not open '%s'", img_file);
 
   fseek(fp, 0, SEEK_END);
   long size = ftell(fp);
 
- // Log("The image is %s, size = %ld", img_file, size);
+  Log("The image is %s, size = %ld", img_file, size);
 
   fseek(fp, 0, SEEK_SET);
   int ret = fread(gi_to_hi(0x80000000), size, 1, fp);
@@ -44,7 +42,6 @@ static int parse_args(int argc, char *argv[]) {
     {"diff"     , 1      , NULL, 'd'},
     {"port"     , 1      , NULL, 'p'},
     {"help"     , 0      , NULL, 'h'},
-//    {"imgfile"  , 1      , NULL, 'i'},
     {0          , 0      , NULL,  0 },
   };
   int o;
@@ -54,7 +51,6 @@ static int parse_args(int argc, char *argv[]) {
       case 'p': sscanf(optarg, "%d", &difftest_port); break;
       case 'l': log_file = optarg; break;
       case 'd': diff_so_file = optarg; break;
-//      case "i": img_file = optarg; break ;
       case 1: img_file = optarg; return 0;
       default:
         printf("Usage: %s [OPTION...] IMAGE [args]\n\n", argv[0]);
@@ -86,11 +82,4 @@ void init_monitor(int argc, char *argv[]) {
 
   init_sdb(); 
 
-
-//   IFDEF(CONFIG_ITRACE, init_disasm(
-//     MUXDEF(CONFIG_ISA_x86,     "i686",
-//     MUXDEF(CONFIG_ISA_mips32,  "mipsel",
-//     MUXDEF(CONFIG_ISA_riscv32, "riscv32",
-//     MUXDEF(CONFIG_ISA_riscv64, "riscv64", "bad")))) "-pc-linux-gnu"
-//  ));
 }

@@ -95,6 +95,11 @@ sdb_mainloop();
 close_npc();
 }
 
+
+
+
+// about npc exe function
+
 extern void exec_once(){
 while(1){
 if(main_time > 1){
@@ -122,6 +127,8 @@ if(exit_exec_once == 1){
 }
 }
 }
+
+//close npc function
 
 extern int close_npc(){
 tfp->close() ;
