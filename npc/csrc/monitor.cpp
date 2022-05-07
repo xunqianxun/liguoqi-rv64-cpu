@@ -26,7 +26,7 @@ static long load_img() {
   fseek(fp, 0, SEEK_END);
   long size = ftell(fp);
 
-  printf("GREENCLOSE The image is %s, size = %ld GREENCLOR\n", img_file, size);
+  printf("The image is %s, size = %ld\n", img_file, size);
 
   fseek(fp, 0, SEEK_SET);
   int ret = fread(gi_to_hi(0x80000000), size, 1, fp);
