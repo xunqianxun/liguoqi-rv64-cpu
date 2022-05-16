@@ -81,3 +81,6 @@ Function:AXI4 use define
 `define ysyx22040228_TIME_RESP     2'b10
 `define ysyx22040228_TIME_WIBK     2'b10
 `define ysyx22040228_AXI_ZERO_WORD 64'b0
+`define ysyx22040228_AXI_REGBUS    63:0
+
+`define ysyx22040228_CACHE_DATA_W  511:0
