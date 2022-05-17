@@ -98,6 +98,7 @@ static void exec_once(Decode *s, uint64_t pc) {
   s->pc = pc;
   s->snpc = pc;
   isa_exec_once();
+  printf("keyiyunxing\n");
 //  cpu.pc = s->dnpc;
 #ifdef CONFIG_ITRACE
   char *p = s->logbuf;
@@ -159,7 +160,7 @@ void cpu_exec(uint64_t n) {
    uint64_t timer_start = get_time();
 
   execute(n);
-  printf("keyiyunxing\n");
+
 
   uint64_t timer_end = get_time();
   g_timer += timer_end - timer_start;
