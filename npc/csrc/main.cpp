@@ -108,8 +108,12 @@ if(main_time > 1){
 if((main_time % 10) == 1){
   rvcpu->clk = 1;
   rvcpu->eval();
-  break;
 }
+if((main_time % 10) == 3){
+  break;
+  printf("keyiyunxing\n");
+}
+
 if((main_time % 10) == 6){
   rvcpu->clk = 0;
   if(rvcpu->inst_addr != 0){
