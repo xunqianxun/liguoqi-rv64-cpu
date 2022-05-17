@@ -113,7 +113,7 @@ if((main_time % 10) == 1){
 }
 if((main_time % 10) == 3){
   ddy = 0;
-  printf("keyiyunxing\n");
+//  printf("keyiyunxing\n");
 }
 
 if((main_time % 10) == 6){
@@ -125,6 +125,7 @@ if((main_time % 10) == 6){
     rvcpu->mem_finish = 1;
   }
   if(rvcpu->we){
+    printf("fangcun=%lx\n", rvcpu->data_addr);
     switch (rvcpu->wmask)
     {
     case 1: case 2: case 4: case 8: case 16: case 32: case 64: case 128: 
@@ -156,7 +157,7 @@ if((main_time % 10) == 6){
   rvcpu->eval();
   tfp->dump(main_time);
   main_time++;
-  printf("maintime=%ld\n",main_time);
+//  printf("maintime=%ld\n",main_time);
 }
 }
 
