@@ -6,7 +6,7 @@
 //#include "/home/mulin/ysyx-workbench/nemu/include/utils.h"
 
 enum { NEMU_RUNNING, NEMU_STOP, NEMU_END, NEMU_ABORT, NEMU_QUIT };
-extern void isa_exec_once(Decode *s);
+extern void isa_exec_once();
 extern int close_npc();
 bool difftest_ena;
 

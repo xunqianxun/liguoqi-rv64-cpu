@@ -99,7 +99,7 @@ close_npc();
 
 // about npc exe function
 
-extern void isa_exec_once(Decode *s){
+extern void isa_exec_once(){
 while(1){
 if(main_time > 1){
   rvcpu->rst = 0 ; 
