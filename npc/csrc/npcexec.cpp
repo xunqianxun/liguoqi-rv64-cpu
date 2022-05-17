@@ -82,7 +82,7 @@ static bool g_print_step = false;
 
 void device_update();
 
-static void trace_and_difftest(Decode *_this, vaddr_t dnpc) {
+static void trace_and_difftest(Decode *_this, uint64_t dnpc) {
 #ifdef CONFIG_ITRACE_COND
   if (ITRACE_COND) { 
     log_write("%s\n", _this->logbuf);
@@ -94,7 +94,7 @@ static void trace_and_difftest(Decode *_this, vaddr_t dnpc) {
   if(difftest_ena){IFDEF(CONFIG_DIFFTEST, difftest_step(_this->pc, dnpc));}
 }
 
-static void exec_once(Decode *s, vaddr_t pc) {
+static void exec_once(Decode *s, uint64_t pc) {
   s->pc = pc;
   s->snpc = pc;
   isa_exec_once(s);
@@ -167,7 +167,7 @@ void cpu_exec(uint64_t n) {
     case NEMU_RUNNING: npc_state.state = NEMU_STOP; break;
 
     case NEMU_END: case NEMU_ABORT:
-      _Log("npc: %s at pc = " FMT_WORD,
+      _Log("npc: %s at pc = " "0x%016lx",
           (npc_state.state == NEMU_ABORT ? ASNI_FMT("ABORT", ASNI_FG_RED) :
            (npc_state.halt_ret == 0 ? ASNI_FMT("HIT GOOD TRAP", ASNI_FG_GREEN) :
             ASNI_FMT("HIT BAD TRAP", ASNI_FG_RED))),

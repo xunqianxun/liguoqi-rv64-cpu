@@ -103,7 +103,6 @@ const char *regs[] = {
 
 extern void isa_reg_display() ;
 
-#define FMT_WORD MUXDEF(CONFIG_ISA64, "0x%016lx", "0x%08x")
 
 #define FMT_PADDR MUXDEF(PMEM64, "0x%016lx", "0x%08x")
 
