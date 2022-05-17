@@ -19,7 +19,6 @@ VerilatedContext* contextp;
 uint32_t ifetch(uint64_t addr, int len);
 
 int ebreaksign;
-CPU_state rv64;
 
 
 extern "C" void Ebreak_teap(svLogic rvsign){
@@ -114,7 +113,37 @@ if((main_time % 10) == 6){
   rvcpu->clk = 0;
   if(rvcpu->inst_addr != 0){
   rvcpu->inst = ifetch(rvcpu->inst_addr, 4);
- // printf("pc=%lx inst=%x\n", rvcpu->inst_addr, rvcpu->inst);
+  if(re){
+    rvcpu->data_o = vaddr_read(rvcpu->data_addr);
+    rvcpu->mem_finish = 1;
+  }
+  if(we){
+    switch (rvcpu->wmask)
+    {
+    case 1: case 2: case 4: case 8: case 16: case 32: case 64: case 128: 
+    vaddr_write(rvcpu->data_addr, 1, rvcpu->data_i);
+    rvcpu->mem_finish = 1;
+    break;
+
+    case 3: case 12: case 48: case 192:
+    vaddr_write(rvcpu->data_addr, 2, rvcpu->data_i);
+    rvcpu->mem_finish = 1;
+    break;
+
+    case 15: case 240:
+    vaddr_write(rvcpu->data_addr, 4, rvcpu->data_i);
+    rvcpu->mem_finish = 1;
+    break;
+
+    case 255:
+    vaddr_write(rvcpu->data_addr, 8, rvcpu->data_i);
+    rvcpu->mem_finish = 1;
+    break;
+
+    default:
+      break;
+    }
+  }
   exit_exec_once = 1;
   }
 }

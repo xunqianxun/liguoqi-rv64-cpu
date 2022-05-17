@@ -6,7 +6,7 @@
 //#include "debug.h"
 #include "paddr.cpp"
 
-enum { NEMU_RUNNING, NEMU_STOP, NEMU_END, NEMU_ABORT, NEMU_QUIT };
+
 
 const char *regs[] = {
   "$0", "ra", "sp", "gp", "tp", "t0", "t1", "t2",
@@ -31,8 +31,6 @@ static int skip_dut_nr_inst = 0;
 //   uint32_t halt_ret;
 // } NPC_state;
 
-CPU_state cpu = { .pc =0x80000000};
-NPC_state npc_state = { .state = NEMU_STOP };
 
 bool isa_difftest_checkregs(CPU_state *ref_r, uint64_t pc); 
 static inline bool difftest_check_reg(const char *name, uint64_t pc, uint64_t ref, uint64_t dut);
@@ -59,13 +57,13 @@ static inline const char* reg_name(int idx, int width) {
   return regs[idx];
 }
 
-// static bool is_skip_ref = false;
-// static int skip_dut_nr_inst = 0;
+static bool is_skip_ref = false;
+static int skip_dut_nr_inst = 0;
 
 // this is used to let ref skip instructions which
 // can not produce consistent behavior with NEMU
-// void difftest_skip_ref() {
-//   is_skip_ref = true;
+void difftest_skip_ref() {
+  is_skip_ref = true;
   // If such an instruction is one of the instruction packing in QEMU
   // (see below), we end the process of catching up with QEMU's pc to
   // keep the consistent behavior in our best.
@@ -73,8 +71,8 @@ static inline const char* reg_name(int idx, int width) {
   // already write some memory, and the incoming instruction in NEMU
   // will load that memory, we will encounter false negative. But such
   // situation is infrequent.
-//   skip_dut_nr_inst = 0;
-// }
+  skip_dut_nr_inst = 0;
+}
 
 // this is used to deal with instruction packing in QEMU.
 // Sometimes letting QEMU step once will execute multiple instructions.
@@ -82,13 +80,13 @@ static inline const char* reg_name(int idx, int width) {
 // The semantic is
 //   Let REF run `nr_ref` instructions first.
 //   We expect that DUT will catch up with REF within `nr_dut` instructions.
-// void difftest_skip_dut(int nr_ref, int nr_dut) {
-//   skip_dut_nr_inst += nr_dut;
+void difftest_skip_dut(int nr_ref, int nr_dut) {
+  skip_dut_nr_inst += nr_dut;
 
-//   while (nr_ref -- > 0) {
-//     ref_difftest_exec(1);
-//   }
-// }
+  while (nr_ref -- > 0) {
+    ref_difftest_exec(1);
+  }
+}
 
 void init_difftest(char *ref_so_file, long img_size, int port) {
 //  assert(ref_so_file != NULL);
@@ -120,7 +118,6 @@ void init_difftest(char *ref_so_file, long img_size, int port) {
 //   ref_difftest_init(port);
   ref_difftest_memcpy(0x80000000, gi_to_hi(0x80000000), img_size, DIFFTEST_TO_REF);
   ref_difftest_regcpy(&cpu, DIFFTEST_TO_REF);
- // printf("initial pc = %lx\n", &cpu.pc);
 }
 
 static void checkregs(CPU_state *ref, uint64_t pc) {
@@ -128,32 +125,32 @@ static void checkregs(CPU_state *ref, uint64_t pc) {
     npc_state.state = NEMU_ABORT;
     npc_state.halt_pc = pc;
     
-//    isa_reg_display();
+    isa_reg_display();
   }
 }
 
 void difftest_step(uint64_t pc, uint64_t npc) {
   CPU_state ref_r;
 
-  // if (skip_dut_nr_inst > 0) {
-  //   ref_difftest_regcpy(&ref_r, DIFFTEST_TO_DUT);
-  //   if (ref_r.pc == npc) {
-  //     skip_dut_nr_inst = 0;
-  //     checkregs(&ref_r, npc);
-  //     return;
-  //   }
-  //   skip_dut_nr_inst --;
-  //   if (skip_dut_nr_inst == 0)
-  // //    panic("can not catch up with ref.pc = " FMT_WORD " at pc = " FMT_WORD, ref_r.pc, pc);
-  //   return;
-  // }
+  if (skip_dut_nr_inst > 0) {
+    ref_difftest_regcpy(&ref_r, DIFFTEST_TO_DUT);
+    if (ref_r.pc == npc) {
+      skip_dut_nr_inst = 0;
+      checkregs(&ref_r, npc);
+      return;
+    }
+    skip_dut_nr_inst --;
+    if (skip_dut_nr_inst == 0)
+  //    panic("can not catch up with ref.pc = " FMT_WORD " at pc = " FMT_WORD, ref_r.pc, pc);
+    return;
+  }
 
-  // if (is_skip_ref) {
-  //   // to skip the checking of an instruction, just copy the reg state to reference design
-  //   ref_difftest_regcpy(&cpu, DIFFTEST_TO_REF);
-  //   is_skip_ref = false;
-  //   return;
-  // }
+  if (is_skip_ref) {
+    // to skip the checking of an instruction, just copy the reg state to reference design
+    ref_difftest_regcpy(&cpu, DIFFTEST_TO_REF);
+    is_skip_ref = false;
+    return;
+  }
   ref_difftest_exec(1);
   ref_difftest_regcpy(&ref_r, DIFFTEST_TO_DUT);
    printf("pc %lx", ref_r.pc);

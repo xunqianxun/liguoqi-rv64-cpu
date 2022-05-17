@@ -3,30 +3,9 @@
 
 
 using namespace std;
- static uint8_t pmem[0x8000000] __attribute((aligned(4096)))  = {};
-// u_int32_t memery(u_int64_t addr){
-//      switch (addr)
-//      {
-//      case 0x80000000: return 0x01c50513; break;
-//      case 0x80000004: return 0xff010113; break;
-//      case 0x80000008: return 0x00000517; break;
-//      case 0x8000000c: return 0x01c50513; break;
-//      case 0x80000010: return 0x00000517; break;
-    
-//      default: return 0; break;
-//      }
-// }
 
-// int getBinSize(std::string path){
-//     int size = 0;
-//     std::ifstream infile(path, std::ifstream::binary);
-//     infile.seekg(0, infile.end);
-//     int size = infile.tellg();
-//     infile.seekg(0, infile.beg);
+static uint8_t pmem[0x8000000] __attribute((aligned(4096)))  = {};
 
-//     infile.close();
-//     return siez;
-// }
 uint8_t * gi_to_hi(uint32_t addr);
 uint32_t hi_to_gi(uint8_t *addr);
 static uint64_t pmem_read(uint32_t addr, int len);
@@ -34,7 +13,16 @@ static void pmem_write(uint32_t addr, int len, uint64_t data);
 static inline uint64_t host_read(void *addr, int len);
 static inline void host_write(void *addr, int len, uint64_t data);
 uint64_t paddr_read(uint32_t addr, int len) ;
+uint64_t vaddr_read(uint64_t addr, int len);
+void vaddr_write(uint64_t addr, int len, uint64_t data);
 
+uint64_t vaddr_read(uint64_t addr, int len) {
+  return paddr_read(addr, len);
+}
+
+void vaddr_write(uint64_t addr, int len, uint64_t data) {
+  paddr_write(addr, len, data);
+}
 
 uint32_t ifetch(uint64_t addr, int len){
     return paddr_read(addr, len);

@@ -1,6 +1,11 @@
 #ifndef _REGS_H_
 #define _REGS_H_
 
+#include <time.h>
+#include "/home/mulin/ysyx-workbench/nemu/include/macro.h"
+#include "/home/mulin/ysyx-workbench/nemu/include/utils.h"
+
+enum { NEMU_RUNNING, NEMU_STOP, NEMU_END, NEMU_ABORT, NEMU_QUIT };
 extern void exec_once();
 extern int close_npc();
 bool difftest_ena;
@@ -27,5 +32,23 @@ char *diff_so = (char *)"/home/mulin/ysyx-workbench/nemu/build/riscv64-nemu-inte
 #define GREENCLOR   \033[0;32;40m
 #define GREENCLOSE  \033[0m
 #define REDCLOR   \041[0m
+
+typedef struct Decode {
+  uint64_t pc;
+  uint64_t snpc; // static next pc
+  uint64_t dnpc; // dynamic next pc
+//  ISADecodeInfo isa;
+  IFDEF(CONFIG_ITRACE, char logbuf[128]);
+} Decode;
+
+//-------------- CONFIG SET ----------------------------//
+#define CONFIG_DIFFTEST
+//#define CONFIG_DEVICE
+
+//---------------CONFIG SET-----------------------------//
+
+CPU_state cpu = { .pc =0x80000000};
+NPC_state npc_state = { .state = NEMU_STOP };
+
 
 #endif

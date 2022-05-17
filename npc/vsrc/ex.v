@@ -108,6 +108,7 @@ wire     [`ysyx22040228_REGBUS]  sraw_res      = {{32{op1_sraw_op2[31]}},op1_sra
 wire     [31:0]      op1_subw_op2  = op2_i[31:0] - op2_i[31:0]             ;
 wire     [`ysyx22040228_REGBUS]  subw_res      = {{32{op1_subw_op2[31]}},op1_subw_op2} ;
 
+
 assign rd_data_o    = inst_type_i[0] ? op2_i : (inst_type_i[7] ? read_csr_data : exe_res) ;
 
 assign inst_type_o  = inst_type_i & {8{~tmr_trap_ena}} ;
@@ -140,6 +141,7 @@ always @(*) begin
           `INST_SRLIW, `INST_SRLW:  begin exe_res = srlw_res                 ;end
           `INST_SRAIW, `INST_SRAW:  begin exe_res = sraw_res                 ;end
           `INST_SUBW             :  begin exe_res = subw_res                 ;end
+          `
         default    :                begin exe_res = `ysyx22040228_ZEROWORD   ;end
         endcase
     end
