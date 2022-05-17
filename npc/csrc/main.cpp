@@ -99,8 +99,10 @@ close_npc();
 
 // about npc exe function
 
-extern void isa_exec_once(){
-while(1){
+extern void isa_exec_once(int y){
+int ddy ;
+ddy = y;
+while(ddy){
 if(main_time > 1){
   rvcpu->rst = 0 ; 
 }
@@ -110,7 +112,7 @@ if((main_time % 10) == 1){
   rvcpu->eval();
 }
 if((main_time % 10) == 3){
-  break;
+  ddy = 0;
   printf("keyiyunxing\n");
 }
 
@@ -154,7 +156,7 @@ if((main_time % 10) == 6){
   rvcpu->eval();
   tfp->dump(main_time);
   main_time++;
-  printf("maintime=%d",main_time);
+  printf("maintime=%ld\n",main_time);
 }
 }
 
