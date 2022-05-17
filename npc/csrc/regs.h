@@ -6,7 +6,7 @@
 //#include "/home/mulin/ysyx-workbench/nemu/include/utils.h"
 
 enum { NEMU_RUNNING, NEMU_STOP, NEMU_END, NEMU_ABORT, NEMU_QUIT };
-extern void exec_once();
+extern void isa_exec_once(Decode *s);
 extern int close_npc();
 bool difftest_ena;
 
@@ -44,6 +44,7 @@ typedef struct Decode {
 //-------------- CONFIG SET ----------------------------//
 #define CONFIG_DIFFTEST
 //#define CONFIG_DEVICE
+//#define CONFIG_ITRACE
 
 //---------------CONFIG SET-----------------------------//
 
