@@ -15,7 +15,7 @@ int set_watchpoint(char *e);
 
 /* We use the `readline' library to provide more flexibility to read from stdin. */
 
-void isa_reg_display() {
+extern void isa_reg_display() {
   int i ;
   for (i=0;i<32;i++) {
     printf("%s is %lx\n", regs[i] , cpu.gpr[i]);
