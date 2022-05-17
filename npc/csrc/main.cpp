@@ -154,7 +154,7 @@ if((main_time % 10) == 6){
   rvcpu->eval();
   tfp->dump(main_time);
   main_time++;
-
+  printf("maintime=%d",main_time);
 }
 }
 
