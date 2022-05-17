@@ -115,7 +115,7 @@ if((main_time % 10) == 6){
   if(rvcpu->inst_addr != 0){
   rvcpu->inst = ifetch(rvcpu->inst_addr, 4);
   if(rvcpu->re){
-    rvcpu->data_o = vaddr_read(rvcpu->data_addr);
+    rvcpu->data_o = vaddr_read(rvcpu->data_addr, 8);
     rvcpu->mem_finish = 1;
   }
   if(rvcpu->we){

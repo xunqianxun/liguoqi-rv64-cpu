@@ -6,7 +6,8 @@
 //#include "debug.h"
 #include "paddr.cpp"
 
-
+#define false 0
+#define true 1
 
 const char *regs[] = {
   "$0", "ra", "sp", "gp", "tp", "t0", "t1", "t2",
@@ -14,23 +15,6 @@ const char *regs[] = {
   "a6", "a7", "s2", "s3", "s4", "s5", "s6", "s7",
   "s8", "s9", "s10", "s11", "t3", "t4", "t5", "t6"
 };
-
-static bool is_skip_ref = false;
-static int skip_dut_nr_inst = 0;
-
-// typedef struct 
-// {
-//   uint64_t gpr[31];
-//   uint64_t pc;
-// } CPU_state;
-
-// typedef struct dut
-// {
-//   int state;
-//   uint64_t halt_pc;
-//   uint32_t halt_ret;
-// } NPC_state;
-
 
 bool isa_difftest_checkregs(CPU_state *ref_r, uint64_t pc); 
 static inline bool difftest_check_reg(const char *name, uint64_t pc, uint64_t ref, uint64_t dut);
@@ -42,11 +26,6 @@ void difftest_skip_dut(int nr_ref, int nr_dut);
 void ( *ref_difftest_memcpy)(uint32_t, void *buf, unsigned long n, bool direction) = NULL;
 void ( *ref_difftest_regcpy)(void *dut, bool direction) = NULL;
 void ( *ref_difftest_exec)(uint64_t n) = NULL;
-//void (*ref_difftest_raise_intr)(uint64_t NO) = NULL;
-// #define DIFFTEST_TO_REF 1
-// #define DIFFTEST_TO_DUT 0
-// #define DIFFTEST_REG_SIZE (sizeof(uint64_t) * 32)
-// #define ARRLEN(arr) (int)(sizeof(arr) / sizeof(arr[0]))
 
 CPU_state  wirte_cpu(uint64_t data){
   cpu.pc = data;
@@ -57,13 +36,13 @@ static inline const char* reg_name(int idx, int width) {
   return regs[idx];
 }
 
-static bool is_skip_ref = false;
+static bool is_skip_ref = 0;
 static int skip_dut_nr_inst = 0;
 
 // this is used to let ref skip instructions which
 // can not produce consistent behavior with NEMU
 void difftest_skip_ref() {
-  is_skip_ref = true;
+  is_skip_ref = 1;
   // If such an instruction is one of the instruction packing in QEMU
   // (see below), we end the process of catching up with QEMU's pc to
   // keep the consistent behavior in our best.
@@ -148,12 +127,11 @@ void difftest_step(uint64_t pc, uint64_t npc) {
   if (is_skip_ref) {
     // to skip the checking of an instruction, just copy the reg state to reference design
     ref_difftest_regcpy(&cpu, DIFFTEST_TO_REF);
-    is_skip_ref = false;
+    is_skip_ref = 0;
     return;
   }
   ref_difftest_exec(1);
   ref_difftest_regcpy(&ref_r, DIFFTEST_TO_DUT);
-   printf("pc %lx", ref_r.pc);
 
 
   checkregs(&ref_r, pc);
