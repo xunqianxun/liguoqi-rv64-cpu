@@ -108,16 +108,17 @@ if(main_time > 1){
 if((main_time % 10) == 1){
   rvcpu->clk = 1;
   rvcpu->eval();
+  break;
 }
 if((main_time % 10) == 6){
   rvcpu->clk = 0;
   if(rvcpu->inst_addr != 0){
   rvcpu->inst = ifetch(rvcpu->inst_addr, 4);
-  if(re){
+  if(rvcpu->re){
     rvcpu->data_o = vaddr_read(rvcpu->data_addr);
     rvcpu->mem_finish = 1;
   }
-  if(we){
+  if(rvcpu->we){
     switch (rvcpu->wmask)
     {
     case 1: case 2: case 4: case 8: case 16: case 32: case 64: case 128: 
@@ -144,16 +145,12 @@ if((main_time % 10) == 6){
       break;
     }
   }
-  exit_exec_once = 1;
   }
 }
   rvcpu->eval();
   tfp->dump(main_time);
   main_time++;
-if(exit_exec_once == 1){
-    exit_exec_once = 0;
-    break;
-}
+
 }
 }
 

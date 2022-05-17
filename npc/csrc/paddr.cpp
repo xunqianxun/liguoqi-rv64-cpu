@@ -28,9 +28,9 @@ uint32_t ifetch(uint64_t addr, int len){
     return paddr_read(addr, len);
 }
 
-uint64_t paddr_read(uint32_t addr, int len) {
-  return pmem_read(addr, len);
-}
+// uint64_t paddr_read(uint32_t addr, int len) {
+//   return pmem_read(addr, len);
+// }
 
 uint64_t vaddr_read(uint64_t addr, int len){
   return paddr_read(addr,len);
@@ -70,4 +70,17 @@ static inline void host_write(void *addr, int len, uint64_t data) {
     case 8: *(uint64_t *)addr = data; return;
     default: return;
   }
+}
+
+uint64_t paddr_read(uint64_t addr, int len) {
+  if (likely(in_pmem(addr))) return pmem_read(addr, len);
+  IFDEF(CONFIG_DEVICE, return mmio_read(addr, len));
+//  out_of_bound(addr);
+  return 0;
+}
+
+void paddr_write(paddr_t addr, int len, word_t data) {
+  pmem_write(addr, len, data); return; 
+  IFDEF(CONFIG_DEVICE, mmio_write(addr, len, data); return);
+//  out_of_bound(addr);
 }
