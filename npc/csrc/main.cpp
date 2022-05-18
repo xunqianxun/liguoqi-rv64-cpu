@@ -126,31 +126,32 @@ if((main_time % 10) == 6){
   }
   if(rvcpu->we){
     printf("fangcun=%lx\n", rvcpu->data_addr);
-    switch (rvcpu->wmask)
-    {
-    case 1: case 2: case 4: case 8: case 16: case 32: case 64: case 128: 
-    vaddr_write(rvcpu->data_addr, 1, rvcpu->data_i);
     rvcpu->mem_finish = 1;
-    break;
+    // switch (rvcpu->wmask)
+    // {
+    // case 1: case 2: case 4: case 8: case 16: case 32: case 64: case 128: 
+    // vaddr_write(rvcpu->data_addr, 1, rvcpu->data_i);
+    // rvcpu->mem_finish = 1;
+    // break;
 
-    case 3: case 12: case 48: case 192:
-    vaddr_write(rvcpu->data_addr, 2, rvcpu->data_i);
-    rvcpu->mem_finish = 1;
-    break;
+    // case 3: case 12: case 48: case 192:
+    // vaddr_write(rvcpu->data_addr, 2, rvcpu->data_i);
+    // rvcpu->mem_finish = 1;
+    // break;
 
-    case 15: case 240:
-    vaddr_write(rvcpu->data_addr, 4, rvcpu->data_i);
-    rvcpu->mem_finish = 1;
-    break;
+    // case 15: case 240:
+    // vaddr_write(rvcpu->data_addr, 4, rvcpu->data_i);
+    // rvcpu->mem_finish = 1;
+    // break;
 
-    case 255:
-    vaddr_write(rvcpu->data_addr, 8, rvcpu->data_i);
-    rvcpu->mem_finish = 1;
-    break;
+    // case 255:
+    // vaddr_write(rvcpu->data_addr, 8, rvcpu->data_i);
+    // rvcpu->mem_finish = 1;
+    // break;
 
-    default:
-      break;
-    }
+    // default:
+    //   break;
+    // }
   }
   }
 }
