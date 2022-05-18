@@ -118,10 +118,10 @@ always @(posedge clk) begin
 	end
 end
 
-assign rdata1 = ((rst == `ysyx22040228_RSTENA) && (re1 == `ysyx22040228_RENABLE)) ? (((waddr == raddr1) && (we == `ysyx22040228_WENABLE) ? wdata : regs[raddr1])) : `ysyx22040228_ZEROWORD ;
-assign rdata2 = ((rst == `ysyx22040228_RSTENA) && (re2 == `ysyx22040228_RENABLE)) ? (((waddr == raddr2) && (we == `ysyx22040228_WENABLE) ? wdata : regs[raddr2])) : `ysyx22040228_ZEROWORD ;
+assign rdata1 = ((rst != `ysyx22040228_RSTENA) && (re1 == `ysyx22040228_RENABLE)) ? (((waddr == raddr1) && (we == `ysyx22040228_WENABLE) ? wdata : regs[raddr1])) : `ysyx22040228_ZEROWORD ;
+assign rdata2 = ((rst != `ysyx22040228_RSTENA) && (re2 == `ysyx22040228_RENABLE)) ? (((waddr == raddr2) && (we == `ysyx22040228_WENABLE) ? wdata : regs[raddr2])) : `ysyx22040228_ZEROWORD ;
 
-assign x1_data  = ((rst == `ysyx22040228_RSTENA) && (x1_read_ena == `ysyx22040228_RENABLE)) ? (((waddr == x1_addr) && (we == `ysyx22040228_WENABLE) ? wdata : regs[raddr1])) : `ysyx22040228_ZEROWORD ;
+assign x1_data  = ((rst != `ysyx22040228_RSTENA) && (x1_read_ena == `ysyx22040228_RENABLE)) ? (((waddr == x1_addr) && (we == `ysyx22040228_WENABLE) ? wdata : regs[raddr1])) : `ysyx22040228_ZEROWORD ;
 
 endmodule//regfile
 
