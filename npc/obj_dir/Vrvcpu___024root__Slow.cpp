@@ -1862,10 +1862,11 @@ void Vrvcpu___024root___settle__TOP__2(Vrvcpu___024root* vlSelf) {
                                               : vlSelf->rvcpu__DOT__ex5__DOT__exe_res));
     vlSelf->rvcpu__DOT__pip_fore0__DOT__j_pc = (((IData)(vlSelf->rvcpu__DOT__pip_fore0__DOT__inst_jalr)
                                                   ? 
-                                                 (((IData)(vlSelf->rst) 
-                                                   & ((IData)(vlSelf->rst)
-                                                       ? 0U
-                                                       : (IData)(vlSelf->rvcpu__DOT__pip_fore0__DOT__inst_jalr)))
+                                                 ((1U 
+                                                   & ((~ (IData)(vlSelf->rst)) 
+                                                      & ((IData)(vlSelf->rst)
+                                                          ? 0U
+                                                          : (IData)(vlSelf->rvcpu__DOT__pip_fore0__DOT__inst_jalr))))
                                                    ? 
                                                   ((((IData)(vlSelf->rvcpu__DOT__wb_id_addr) 
                                                      == 
@@ -1974,7 +1975,7 @@ void Vrvcpu___024root___settle__TOP__2(Vrvcpu___024root* vlSelf) {
                                                   & (IData)(vlSelf->rvcpu__DOT__exmem_mem_ena))
                                                   ? vlSelf->rvcpu__DOT__mem_id_data
                                                   : 
-                                                 (((IData)(vlSelf->rst) 
+                                                 (((~ (IData)(vlSelf->rst)) 
                                                    & (IData)(vlSelf->rvcpu__DOT__id_reg_ena2))
                                                    ? 
                                                   ((((IData)(vlSelf->rvcpu__DOT__wb_id_addr) 
@@ -2026,7 +2027,7 @@ void Vrvcpu___024root___settle__TOP__2(Vrvcpu___024root* vlSelf) {
                                              : ((IData)(vlSelf->rvcpu__DOT__id3__DOT__mem_op1)
                                                  ? vlSelf->rvcpu__DOT__mem_id_data
                                                  : 
-                                                (((IData)(vlSelf->rst) 
+                                                (((~ (IData)(vlSelf->rst)) 
                                                   & (IData)(vlSelf->rvcpu__DOT__id_reg_ena1))
                                                   ? 
                                                  ((((IData)(vlSelf->rvcpu__DOT__wb_id_addr) 

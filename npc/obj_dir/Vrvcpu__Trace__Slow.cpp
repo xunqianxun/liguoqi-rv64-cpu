@@ -998,9 +998,10 @@ void Vrvcpu___024root__traceFullSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
         tracep->fullBit(oldp+335,(vlSelf->re));
         tracep->fullBit(oldp+336,(vlSelf->mem_finish));
         tracep->fullBit(oldp+337,(vlSelf->timer_intr));
-        tracep->fullQData(oldp+338,((((IData)(vlSelf->rst) 
-                                      & ((IData)(vlSelf->rst)
-                                          ? 0U : (IData)(vlSelf->rvcpu__DOT__pip_fore0__DOT__inst_jalr)))
+        tracep->fullQData(oldp+338,(((1U & ((~ (IData)(vlSelf->rst)) 
+                                            & ((IData)(vlSelf->rst)
+                                                ? 0U
+                                                : (IData)(vlSelf->rvcpu__DOT__pip_fore0__DOT__inst_jalr))))
                                       ? ((((IData)(vlSelf->rvcpu__DOT__wb_id_addr) 
                                            == (0x1fU 
                                                & (vlSelf->inst 
@@ -1042,7 +1043,7 @@ void Vrvcpu___024root__traceFullSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
                                                              == (IData)(vlSelf->rvcpu__DOT__idex_ex_rdaddr)))))) 
                                                   | ((IData)(vlSelf->rvcpu__DOT__id_if_flush) 
                                                      & (IData)(vlSelf->rvcpu__DOT__if_stall_req)))))));
-        tracep->fullQData(oldp+345,((((IData)(vlSelf->rst) 
+        tracep->fullQData(oldp+345,((((~ (IData)(vlSelf->rst)) 
                                       & (IData)(vlSelf->rvcpu__DOT__id_reg_ena1))
                                       ? ((((IData)(vlSelf->rvcpu__DOT__wb_id_addr) 
                                            == (IData)(vlSelf->rvcpu__DOT__id_reg_addr1)) 
@@ -1051,7 +1052,7 @@ void Vrvcpu___024root__traceFullSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
                                           : vlSelf->rvcpu__DOT__regfile10__DOT__regs
                                          [vlSelf->rvcpu__DOT__id_reg_addr1])
                                       : 0ULL)),64);
-        tracep->fullQData(oldp+347,((((IData)(vlSelf->rst) 
+        tracep->fullQData(oldp+347,((((~ (IData)(vlSelf->rst)) 
                                       & (IData)(vlSelf->rvcpu__DOT__id_reg_ena2))
                                       ? ((((IData)(vlSelf->rvcpu__DOT__wb_id_addr) 
                                            == (IData)(vlSelf->rvcpu__DOT__id_reg_addr2)) 
@@ -1071,9 +1072,10 @@ void Vrvcpu___024root__traceFullSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
         tracep->fullBit(oldp+353,((IData)((0x63U == 
                                            (0x7fU & vlSelf->inst)))));
         tracep->fullQData(oldp+354,(((IData)(vlSelf->rvcpu__DOT__pip_fore0__DOT__inst_jalr)
-                                      ? (((IData)(vlSelf->rst) 
-                                          & ((IData)(vlSelf->rst)
-                                              ? 0U : (IData)(vlSelf->rvcpu__DOT__pip_fore0__DOT__inst_jalr)))
+                                      ? ((1U & ((~ (IData)(vlSelf->rst)) 
+                                                & ((IData)(vlSelf->rst)
+                                                    ? 0U
+                                                    : (IData)(vlSelf->rvcpu__DOT__pip_fore0__DOT__inst_jalr))))
                                           ? ((((IData)(vlSelf->rvcpu__DOT__wb_id_addr) 
                                                == (0x1fU 
                                                    & (vlSelf->inst 

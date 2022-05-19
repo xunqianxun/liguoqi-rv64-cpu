@@ -16,24 +16,16 @@ module mem_wb (
 
     output                  reg           [`ysyx22040228_REGBUS]             wb_rd_data     ,
     output                  reg           [`ysyx22040228_REGADDRBUS]         wb_rd_addr     ,
-    output                  reg                                              wb_rd_ena      
-//    output                  reg           [`ysyx22040228_PCBUS]              wb_pc_o        
+    output                  reg                                              wb_rd_ena         
 );
 
 import "DPI-C" function void difftest_dut_pc(input longint pc_data ,input bit exe);
 
 reg  [`ysyx22040228_PCBUS]  wb_pc_o;
-// initial begin
-//     wb_pc_o = wb_pc_i;
-// end
+
 
 always@(*)begin
-    // if(wb_rd_ena == 1'b1) begin
-    //     difftest_dut_pc(wb_pc_o,0);
-    // end
-    // else begin
-    //     difftest_dut_pc(wb_pc_o,1);
-    // end
+
 difftest_dut_pc(pc_data1,data_ena1);    
 end  
     
@@ -67,14 +59,12 @@ always @(posedge clk) begin
 end
 
 //delay two time to writ difftest exe
-reg   [`ysyx22040228_PCBUS]    pc_data1;//, pc_data2;
-reg                            data_ena1;//, data_ena2;
+reg   [`ysyx22040228_PCBUS]    pc_data1;
+reg                            data_ena1;
 
 always @(posedge clk) begin
     pc_data1   <= wb_pc_o;
-//    pc_data2   <= pc_data1;
     data_ena1  <= wb_rd_ena;
-//    data_ena2  <= data_ena1;
 end
 
 endmodule//mem_wb

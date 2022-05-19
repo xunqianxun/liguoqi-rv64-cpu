@@ -47,16 +47,7 @@ module ex (
 );
 
 import "DPI-C" function void Ebreak_teap(input rvsign);
-//input [7:0] inst_opcode_i;
-// task Ebreak_teap;
-// output bit Ebreak_teaps;
-// if(inst_opcode_i == `INST_ECALL) begin
-//     Ebreak_teaps = 1'b1;
-// end
-// else begin
-//     Ebreak_teaps = 1'b0;
-// end
-// endtask
+
 always@(*)begin
  if(inst_opcode_i == `INST_ECALL) begin
      Ebreak_teap(1);
@@ -65,15 +56,8 @@ always@(*)begin
      Ebreak_teap(0);
  end
 end
-// function bit Ebreak_teap();
-//    if(inst_opcode_i == `INST_ECALL) begin
-//        return 1;
-//    end
-//    else begin
-//        return 0;
-//    end
-    
-//endfunction
+
+
 assign ex_pc_o = (rst == `ysyx22040228_RSTENA) ? `ysyx22040228_ZEROWORD : pc_i ;
 
 reg      [`ysyx22040228_REGBUS]       exe_res   ;
