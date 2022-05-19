@@ -46,6 +46,7 @@ module id (
     output      wire                                                           rd_w_ena            ,
     output      wire         [`ysyx22040228_REGADDRBUS]                        rd_w_addr           ,
     output      wire         [`ysyx22040228_PCBUS]                             pc_o                ,
+    output      wire         [`ysyx22040228_INSTBUS]                           inst_o              ,
     
     output      wire         [11:0]                                            store_addr_offset   ,
     output      wire         [2 :0]                                            mem_op_sel          , //?
@@ -150,17 +151,18 @@ wire inst_csr_rs1  = inst_csrrw | inst_csrrs | inst_csrrc    ;
 wire inst_csr_imm  = inst_csrrwi | inst_csrrwi | inst_csrrwi ;
 
 wire inst_ecall    = inst_type[7] & ~funct3[2] & ~funct3[1] & ~funct3[0] && (imm == 12'd0)         ;
+wire inst_ebreak   = inst_type[7] & ~funct3[2] & ~funct3[1] & ~funct3[0] && (imm == 12'd1)         ;
 wire inst_mret     = inst_type[7] & ~funct3[2] & ~funct3[1] & ~funct3[0] && (funct7 == 7'b0011000) ;
 
 
-assign inst_opcode[0] = (rst == `ysyx22040228_RSTENA) ? 0 :  inst_csrrc  | inst_beq  | inst_addi | inst_srai | inst_slt  | inst_sra  | inst_auipc | inst_slliw | inst_subw ;
-assign inst_opcode[1] = (rst == `ysyx22040228_RSTENA) ? 0 :  inst_csrrwi | inst_ben  | inst_slti | inst_srai | inst_sltu | inst_or   | inst_jal   | inst_sraiw | inst_sllw ;
-assign inst_opcode[2] = (rst == `ysyx22040228_RSTENA) ? 0 :  inst_csrrsi | inst_blt  | inst_sltiu| inst_add  | inst_slt  | inst_and  | inst_jalr  | inst_sraiw | inst_srlw ;
-assign inst_opcode[3] = (rst == `ysyx22040228_RSTENA) ? 0 :  inst_csrrci | inst_bge  | inst_xori | inst_add  | inst_sltu | inst_lui  | inst_addiw | inst_slliw | inst_sraw ;
-assign inst_opcode[4] = (rst == `ysyx22040228_RSTENA) ? 0 :  inst_ecall  | inst_bltu | inst_ori  | inst_sub  | inst_xor  | inst_sra  | inst_addiw | inst_srliw | inst_sllw ;
-assign inst_opcode[5] = (rst == `ysyx22040228_RSTENA) ? 0 :  inst_mret   | inst_bgeu | inst_andi | inst_sub  | inst_srl  | inst_or   | inst_jalr  | inst_addw  | inst_subw ;
-assign inst_opcode[6] = (rst == `ysyx22040228_RSTENA) ? 0 :              | inst_csrrw| inst_slli | inst_sll  | inst_xor  | inst_and  | inst_jal   | inst_addw  | inst_sraw ;
-assign inst_opcode[7] = (rst == `ysyx22040228_RSTENA) ? 0 :              | inst_csrrs| inst_srli | inst_sll  | inst_srl  | inst_lui  | inst_auipc | inst_srliw | inst_srlw ;
+assign inst_opcode[0] = (rst == `ysyx22040228_RSTENA) ? 0 :  inst_csrrc  | inst_beq  | inst_addi | inst_srai | inst_slt  | inst_sra  | inst_auipc | inst_slliw | inst_subw | inst_ebreak;
+assign inst_opcode[1] = (rst == `ysyx22040228_RSTENA) ? 0 :  inst_csrrwi | inst_ben  | inst_slti | inst_srai | inst_sltu | inst_or   | inst_jal   | inst_sraiw | inst_sllw | inst_ebreak;
+assign inst_opcode[2] = (rst == `ysyx22040228_RSTENA) ? 0 :  inst_csrrsi | inst_blt  | inst_sltiu| inst_add  | inst_slt  | inst_and  | inst_jalr  | inst_sraiw | inst_srlw | inst_ebreak;
+assign inst_opcode[3] = (rst == `ysyx22040228_RSTENA) ? 0 :  inst_csrrci | inst_bge  | inst_xori | inst_add  | inst_sltu | inst_lui  | inst_addiw | inst_slliw | inst_sraw |;
+assign inst_opcode[4] = (rst == `ysyx22040228_RSTENA) ? 0 :  inst_ecall  | inst_bltu | inst_ori  | inst_sub  | inst_xor  | inst_sra  | inst_addiw | inst_srliw | inst_sllw |;
+assign inst_opcode[5] = (rst == `ysyx22040228_RSTENA) ? 0 :  inst_mret   | inst_bgeu | inst_andi | inst_sub  | inst_srl  | inst_or   | inst_jalr  | inst_addw  | inst_subw |;
+assign inst_opcode[6] = (rst == `ysyx22040228_RSTENA) ? 0 :              | inst_csrrw| inst_slli | inst_sll  | inst_xor  | inst_and  | inst_jal   | inst_addw  | inst_sraw |;
+assign inst_opcode[7] = (rst == `ysyx22040228_RSTENA) ? 0 :              | inst_csrrs| inst_srli | inst_sll  | inst_srl  | inst_lui  | inst_auipc | inst_srliw | inst_srlw |;
 
 //output sign 
 wire op1_loda_relate ;
@@ -169,7 +171,8 @@ assign op1_loda_relate = (rst == `ysyx22040228_RSTENA) ? 0 : op1_read_o && (ex_i
 assign op2_loda_relate = (rst == `ysyx22040228_RSTENA) ? 0 : op2_read_o && (ex_inst_type == 8'b00000010) && (op2_addr_o == ex_rd_addr) ;
 assign id_stall_req = (rst == `ysyx22040228_RSTENA) ? 0 : op1_loda_relate | op2_loda_relate | (id_flush && if_stall_req) ;
 
-assign pc_o = (rst == `ysyx22040228_RSTENA) ? `ysyx22040228_ZEROWORD : pc_i ;
+assign pc_o   = (rst == `ysyx22040228_RSTENA) ? `ysyx22040228_ZEROWORD : pc_i ;
+assign inst_o = (rst == `ysyx22040228_RSTENA) ? `ysyx22040228_ZEROWORD : inst_i ;
 
 assign op1_read_o = 1'b0 | inst_type[6] | inst_type[5] | inst_type[4] | inst_type[3] | inst_type[2] | inst_type[1] | inst_type[0] | inst_csr_rs1 ;
 assign op1_addr_o = op1_read_o ? rs1 : 5'd0  ;
@@ -178,7 +181,7 @@ assign op2_read_o = 1'b0 | inst_type[6] | inst_type[3] | inst_type[2] | inst_typ
 assign op2_addr_o = op2_read_o ? rs2 : 5'd0  ;
 
 assign rd_w_ena   = (rd != 5'b0) && (inst_type[7] |inst_type[6] | inst_type[5] | inst_type[4] | inst_type[3] | inst_type[1] | inst_lui | inst_auipc | inst_jump) ;    ;
-assign rd_w_addr  = rd_w_ena ? rd : 5'd0     ;
+assign rd_w_addr  = rd_w_ena ? ((inst_ebreak)? 5'b01011 : rd) : 5'd0     ; //difftest
 
 assign store_addr_offset = inst_type[1] ?   imm :
                            inst_type[0] ? s_imm :

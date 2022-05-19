@@ -9,6 +9,7 @@ module ex (
     input         wire                                         clk               ,
     input         wire                                         rst               ,
     input         wire          [`ysyx22040228_PCBUS]          pc_i              ,
+    input         wire          [`ysyx22040228_INSTBUS]        id_ex_inst        ,
 
     input         wire          [ 7:0]                        inst_type_i       ,
     input         wire          [ 7:0]                        inst_opcode_i     ,
@@ -26,6 +27,7 @@ module ex (
     output        wire          [`ysyx22040228_REGADDRBUS]    rd_addr_o         ,
     output        wire          [`ysyx22040228_REGBUS]        rd_data_o         ,
     output        wire          [`ysyx22040228_PCBUS]         ex_pc_o           ,
+    output        wire          [`ysyx22040228_INSTBUS]       ex_inst_o         ,
 
     output        wire          [ 2:0]                        ls_sel_o          ,
     output        wire          [`ysyx22040228_REGBUS]        ls_addr_o         ,
@@ -40,25 +42,24 @@ module ex (
     
     //to interrupt
     input         wire                                       timer_intr        ,
-    input         wire                                       ex_stall          //,
+    input         wire                                       ex_stall          
     
-    //to difftest
- //   output        wire                                       tmr_trap_ena_o
 );
 
-import "DPI-C" function void Ebreak_teap(input rvsign);
+// import "DPI-C" function void Ebreak_teap(input rvsign);
 
-always@(*)begin
- if(inst_opcode_i == `INST_ECALL) begin
-     Ebreak_teap(1);
- end
- else begin
-     Ebreak_teap(0);
- end
-end
+// always@(*)begin
+//  if(inst_opcode_i == `INST_ECALL) begin
+//      Ebreak_teap(1);
+//  end
+//  else begin
+//      Ebreak_teap(0);
+//  end
+// end
 
 
 assign ex_pc_o = (rst == `ysyx22040228_RSTENA) ? `ysyx22040228_ZEROWORD : pc_i ;
+assign ex_inst_o = (rst == `ysyx22040228_RSTENA) ? `ysyx22040228_ZEROWORD : id_ex_inst ;
 
 reg      [`ysyx22040228_REGBUS]       exe_res   ;
 
@@ -93,7 +94,7 @@ wire     [31:0]      op1_subw_op2  = op2_i[31:0] - op2_i[31:0]             ;
 wire     [`ysyx22040228_REGBUS]  subw_res      = {{32{op1_subw_op2[31]}},op1_subw_op2} ;
 
 
-assign rd_data_o    = inst_type_i[0] ? op2_i : (inst_type_i[7] ? read_csr_data : exe_res) ;
+assign rd_data_o    = inst_type_i[0] ? op2_i : ((inst_type_i[7] && (inst_opcode_i != `INST_EBREAK)) ? read_csr_data : exe_res) ;
 
 assign inst_type_o  = inst_type_i & {8{~tmr_trap_ena}} ;
 assign rd_ena_o     = rd_ena_i    & (~tmr_trap_ena)    ;
@@ -125,7 +126,7 @@ always @(*) begin
           `INST_SRLIW, `INST_SRLW:  begin exe_res = srlw_res                 ;end
           `INST_SRAIW, `INST_SRAW:  begin exe_res = sraw_res                 ;end
           `INST_SUBW             :  begin exe_res = subw_res                 ;end
-          
+          `INST_EBREAK           :  begin exe_res = `ysyx22040228_ZEROWORD   ;end 
         default    :                begin exe_res = `ysyx22040228_ZEROWORD   ;end
         endcase
     end

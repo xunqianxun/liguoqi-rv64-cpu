@@ -38,6 +38,7 @@
 `define ysyx22040228_DATABUS       63:0
 
 //inst
+`define EBREAK_TRAP        64'b00000000000100000000000001110011
 `define INST_ADDI          8'b00000001
 `define INST_SLTI          8'b00000010
 `define INST_SLTIU         8'b00000100
@@ -86,6 +87,7 @@
 `define INST_CSRRSI        8'b00000100
 `define INST_CSRRCI        8'b00001000
 
+`define INST_EBREAK        8'b00000111
 `define INST_ECALL         8'b00010000
 `define INST_MRET          8'b00100000
 

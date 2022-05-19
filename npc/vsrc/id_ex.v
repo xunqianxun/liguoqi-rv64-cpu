@@ -11,6 +11,7 @@ module id_ex (
 
     input       wire       [ 4:0]                        stall_ctrl         ,
 
+    input       wire       [`ysyx22040228_INSTBUS]       id_inst            ,
     input       wire       [`ysyx22040228_PCBUS]         id_pc              ,
     input       wire       [ 7:0]                        id_inst_type       ,
     input       wire       [ 7:0]                        id_inst_opcode     ,
@@ -23,6 +24,7 @@ module id_ex (
     input       wire       [ 2:0]                        id_ls_sel          ,
 
     //output
+    output      reg        [`ysyx22040228_INSTBUS]       ex_inst            ,
     output      reg        [`ysyx22040228_PCBUS]         ex_pc              ,
     output      reg        [ 7:0]                        ex_inst_type       ,
     output      reg        [ 7:0]                        ex_inst_opcode     ,
@@ -38,6 +40,7 @@ module id_ex (
  always @(posedge clk) begin
      if(rst == `ysyx22040228_RSTENA) begin
          ex_pc              <= `ysyx22040228_ZEROWORD  ;
+         ex_inst            <= `ysyx22040228_ZEROWORD  ;
          ex_inst_type       <= 8'b0        ;
          ex_inst_opcode     <= 8'B0        ;
          ex_op1             <= 64'b0       ; 
@@ -50,6 +53,7 @@ module id_ex (
      else if((stall_ctrl[2] == `ysyx22040228_NOSTOP) && (stall_ctrl[4:3] == 2'b00)) begin
          if(id_ex_bubble) begin
              ex_pc              <= `ysyx22040228_ZEROWORD  ;
+             ex_inst            <= `ysyx22040228_ZEROWORD  ;             
              ex_inst_type       <= 8'b0        ;
              ex_inst_opcode     <= 8'B0        ;
              ex_op1             <= 64'b0       ; 
@@ -61,6 +65,7 @@ module id_ex (
          end
          else begin
              ex_pc              <= id_pc              ;
+             ex_inst            <= id_inst            ;
              ex_inst_type       <= id_inst_type       ;
              ex_inst_opcode     <= id_inst_opcode     ;
              ex_op1             <= id_op1             ; 
@@ -73,6 +78,7 @@ module id_ex (
      end
      else if((stall_ctrl[1:0] == 2'b11) && (stall_ctrl[2] == `ysyx22040228_STOP) && (stall_ctrl[3] == `ysyx22040228_NOSTOP)) begin
          ex_pc              <= `ysyx22040228_ZEROWORD  ;
+         ex_inst            <= `ysyx22040228_ZEROWORD  ;
          ex_inst_type       <= 8'b0        ;
          ex_inst_opcode     <= 8'B0        ;
          ex_op1             <= 64'b0       ; 
@@ -84,6 +90,7 @@ module id_ex (
      end
      else begin
          ex_pc              <= id_pc              ;
+         ex_inst            <= id_inst            ;
          ex_inst_type       <= id_inst_type       ;
          ex_inst_opcode     <= id_inst_opcode     ;
          ex_op1             <= id_op1             ; 

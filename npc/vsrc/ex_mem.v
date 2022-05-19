@@ -8,6 +8,7 @@ module ex_mem (
     input              wire                                              clk             ,
     input              wire                                              rst             ,
     input              wire          [`ysyx22040228_PCBUS]               ex_mem_pc_i     ,
+    input              wire          [`ysyx22040228_INSTBUS]             ex_mem_inst_i   ,
     input              wire          [ 4:0]                              stall_ctrl      ,
 
     input              wire          [ 7:0]                              ex_inst_type    ,
@@ -23,6 +24,7 @@ module ex_mem (
     output             reg           [`ysyx22040228_REGBUS]              mem_rd_data     ,
     output             reg           [`ysyx22040228_REGADDRBUS]          mem_rd_addr     ,
     output             reg           [`ysyx22040228_PCBUS]               ex_mem_pc_o     ,
+    output             reg           [`ysyx22040228_INSTBUS]             ex_mem_inst_o   ,
 
     output             reg           [ 2:0]                              mem_ls_sel      ,
     output             reg           [`ysyx22040228_DATAADDRBUS]         mem_ls_addr       
@@ -37,6 +39,7 @@ always @(posedge clk) begin
         mem_ls_sel    <= 3'd0 ;
         mem_ls_addr   <= `ysyx22040228_ZEROWORD ;
         ex_mem_pc_o   <= `ysyx22040228_ZEROWORD ;
+        ex_mem_inst_o <= `ysyx22040228_ZEROWORD ;
     end
     else begin
         if(stall_ctrl[3] == `ysyx22040228_NOSTOP && stall_ctrl[4] == `ysyx22040228_NOSTOP) begin
@@ -47,6 +50,7 @@ always @(posedge clk) begin
             mem_ls_sel    <= ex_ls_sel ;
             mem_ls_addr   <= ex_ls_addr ;
             ex_mem_pc_o   <= ex_mem_pc_i;
+            ex_mem_inst_o <= ex_mem_inst_i
         end
         else if((stall_ctrl[2:0] == 3'b111) && (stall_ctrl[3] == `ysyx22040228_STOP) && (stall_ctrl[4] == `ysyx22040228_NOSTOP)) begin
             mem_inst_type <= 8'd0 ;
@@ -56,6 +60,7 @@ always @(posedge clk) begin
             mem_ls_sel    <= 3'd0 ;
             mem_ls_addr   <= `ysyx22040228_ZEROWORD ;
             ex_mem_pc_o   <= `ysyx22040228_ZEROWORD ;
+            ex_mem_inst_o <= `ysyx22040228_ZEROWORD ;
         end
         else begin
             mem_inst_type <= ex_inst_type ;
@@ -65,6 +70,7 @@ always @(posedge clk) begin
             mem_ls_sel    <= ex_ls_sel ;
             mem_ls_addr   <= ex_ls_addr ;
             ex_mem_pc_o   <= ex_mem_pc_i;
+            ex_mem_inst_o <= ex_mem_inst_i
         end
     end
 end
