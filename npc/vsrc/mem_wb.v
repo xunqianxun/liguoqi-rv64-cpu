@@ -37,7 +37,6 @@ always @(posedge clk) begin
         wb_rd_data <= `ysyx22040228_ZEROWORD ;
         wb_pc_o    <= `ysyx22040228_ZEROWORD ;
         wb_inst_o  <= 32'b0 ;
-        wb_inst_o    <= wb_inst_o; // wring
     end
     else begin
         if(stall_ctrl[4] == `ysyx22040228_NOSTOP) begin
@@ -80,9 +79,9 @@ always @(posedge clk) begin
 end
 
 always @(posedge clk) begin
-    if(wb_inst_i != 32'b0) begin
+    if(wb_inst_o != 32'b0) begin
         difftest_exyn <= 1'b1;
-        if(wb_inst_i == `EBREAK_TRAP) begin
+        if(wb_inst_o == `EBREAK_TRAP) begin
             teap_yn <= 1'b1;
             trap_code <= wb_rd_data ;
         end
@@ -91,7 +90,7 @@ always @(posedge clk) begin
             trap_code <= `ysyx22040228_ZEROWORD ;
         end  
     end 
-    else if(wb_inst_i == 32'b0) begin
+    else if(wb_inst_o == 32'b0) begin
         difftest_exyn <= 1'b0;
         teap_yn <= 1'b0;
         trap_code <= `ysyx22040228_ZEROWORD ;

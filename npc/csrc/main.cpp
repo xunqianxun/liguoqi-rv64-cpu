@@ -33,6 +33,7 @@ extern "C" void difftest_dut_pc(long long pc_data, long long exit_code, svBit en
   if(endyn) {
     npc_state.halt_ret = exit_code;
     npc_state.state = NEMU_END;
+    npc_state.halt_pc = pc_data;
   }
 }
 
