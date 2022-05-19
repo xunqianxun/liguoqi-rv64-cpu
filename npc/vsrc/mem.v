@@ -34,7 +34,7 @@ module mem (
 );
 
 assign mem_pc_o = (rst == `ysyx22040228_RSTENA) ? `ysyx22040228_ZEROWORD : mem_pc_i ;
-assign mem_inst_o = (rst == `ysyx22040228_RSTENA) ? `ysyx22040228_ZEROWORD : mem_inst_o ;
+assign mem_inst_o = (rst == `ysyx22040228_RSTENA) ? `ysyx22040228_ZEROWORD : mem_inst_i ;
     
 assign mem_stall_req = (rst == `ysyx22040228_RSTENA) ? 1'b0 : ((re|we) && (mem_finish == 1'b0)) ;
 

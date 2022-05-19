@@ -72,6 +72,7 @@ reg   [`ysyx22040228_REGBUS]   trap_code;
 always @(posedge clk) begin
     if(rst == `ysyx22040228_RENABLE) begin
        pc_data1   <= `ysyx22040228_ZEROWORD;
+    end 
     else begin
        pc_data1   <= wb_pc_o;
     end 

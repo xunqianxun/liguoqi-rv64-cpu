@@ -50,7 +50,7 @@ always @(posedge clk) begin
             mem_ls_sel    <= ex_ls_sel ;
             mem_ls_addr   <= ex_ls_addr ;
             ex_mem_pc_o   <= ex_mem_pc_i;
-            ex_mem_inst_o <= ex_mem_inst_i
+            ex_mem_inst_o <= ex_mem_inst_i;
         end
         else if((stall_ctrl[2:0] == 3'b111) && (stall_ctrl[3] == `ysyx22040228_STOP) && (stall_ctrl[4] == `ysyx22040228_NOSTOP)) begin
             mem_inst_type <= 8'd0 ;
@@ -70,7 +70,7 @@ always @(posedge clk) begin
             mem_ls_sel    <= ex_ls_sel ;
             mem_ls_addr   <= ex_ls_addr ;
             ex_mem_pc_o   <= ex_mem_pc_i;
-            ex_mem_inst_o <= ex_mem_inst_i
+            ex_mem_inst_o <= ex_mem_inst_i;
         end
     end
 end

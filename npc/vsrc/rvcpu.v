@@ -148,6 +148,11 @@ wire    [`ysyx22040228_PCBUS]          ex_ex_mem_pc       ;
 wire    [`ysyx22040228_PCBUS]          ex_mem_mem_pc      ;
 wire    [`ysyx22040228_PCBUS]          mem_mem_wb_pc      ;
 
+wire    [`ysyx22040228_INSTBUS]        id_id_ex_inst      ;
+wire    [`ysyx22040228_INSTBUS]        id_ex_ex_inst      ;
+wire    [`ysyx22040228_INSTBUS]        ex_ex_mem_inst     ;
+wire    [`ysyx22040228_INSTBUS]        ex_mem_mem_inst    ;
+wire    [`ysyx22040228_INSTBUS]        mem_mem_wb_inst    ;
 
 pip_fore pip_fore0 (
  //   .clk                 (clk                  ),
@@ -232,6 +237,7 @@ id id3 (
     .rd_w_ena            (id_ex_rd_ena         ),
     .rd_w_addr           (id_ex_rd_addr        ),
     .pc_o                (id_ex_pc             ),
+    .inst_o              (id_id_ex_inst        ),
     
     .store_addr_offset   (id_ex_s_offset       ),
     .mem_op_sel          (id_ex_memsel         ), //?
@@ -249,7 +255,8 @@ id_ex id_ex4 (
     .id_ex_bubble        (ex_flush             ),
 
     .stall_ctrl          (stall_ctrl           ),
-
+    
+    .id_inst             (id_id_ex_inst        ),
     .id_pc               (id_ex_pc             ),
     .id_inst_type        (id_ex_type           ),
     .id_inst_opcode      (id_ex_opcode         ),
@@ -262,6 +269,7 @@ id_ex id_ex4 (
     .id_ls_sel           (id_ex_memsel         ),
 
     //output
+    .ex_inst             (id_ex_ex_inst        ),
     .ex_pc               (idex_ex_pc           ),
     .ex_inst_type        (idex_ex_type         ),
     .ex_inst_opcode      (idex_ex_opcode       ),
@@ -278,6 +286,7 @@ ex ex5 (
     .clk                 (clk                  ),
     .rst                 (rst                  ),
     .pc_i                (idex_ex_pc           ),
+    .id_ex_inst          (id_ex_ex_inst        ),
 
     .inst_type_i         (idex_ex_type         ),
     .inst_opcode_i       (idex_ex_opcode       ),
@@ -295,6 +304,7 @@ ex ex5 (
     .rd_addr_o           (ex_id_rd_addr        ),
     .rd_data_o           (ex_id_rd_data        ),
     .ex_pc_o             (ex_ex_mem_pc         ),
+    .ex_inst_o           (ex_ex_mem_inst       ),
 
     .ls_sel_o            (ex_mem_sel           ),
     .ls_addr_o           (ex_mem_addr          ),
@@ -319,6 +329,7 @@ ex_mem ex_mem6 (
     .clk                 (clk                  ),
     .rst                 (rst                  ),
     .ex_mem_pc_i         (ex_ex_mem_pc         ),
+    .ex_mem_inst_i       (ex_ex_mem_inst       ),
     .stall_ctrl          (stall_ctrl           ),
 
     .ex_inst_type        (ex_id_rd_type        ),
@@ -334,6 +345,7 @@ ex_mem ex_mem6 (
     .mem_rd_data         (exmem_mem_data       ),
     .mem_rd_addr         (exmem_mem_addr       ),
     .ex_mem_pc_o         (ex_mem_mem_pc        ),
+    .ex_mem_inst_o       (ex_mem_mem_inst      ),
 
     .mem_ls_sel          (exmem_mem_sel        ),
     .mem_ls_addr         (exmem_mem_lsaddr     )
@@ -346,6 +358,7 @@ mem mem7 (
    .rd_data_i            (exmem_mem_data       ),
    .rd_addr_i            (exmem_mem_addr       ),
    .mem_pc_i             (ex_mem_mem_pc        ),
+   .mem_inst_i           (ex_mem_mem_inst      ),
 
    .ls_addr_i            (exmem_mem_lsaddr     ),
    .ls_sel_i             (exmem_mem_sel        ),
@@ -362,6 +375,7 @@ mem mem7 (
    .rd_data_o            (mem_id_data          ),
    .rd_addr_o            (mem_id_addr          ),
    .mem_pc_o             (mem_mem_wb_pc        ),
+   .mem_inst_o           (mem_mem_wb_inst      ),
 
    .mem_stall_req        (mem_ctrl_req         )
 );
@@ -370,6 +384,7 @@ mem_wb mem_wb8 (
    .clk                  (clk                  ),
    .rst                  (rst                  ),
    .wb_pc_i              (mem_mem_wb_pc        ),
+   .wb_inst_i            (mem_mem_wb_inst      ),
 
    .stall_ctrl           (stall_ctrl           ),
 
@@ -380,7 +395,6 @@ mem_wb mem_wb8 (
    .wb_rd_data           (wb_regfile_data      ),
    .wb_rd_addr           (wb_id_addr           ),
    .wb_rd_ena            (wb_id_ena            )
-//   .wb_pc_o              (nouse                )
 );
 
 ctrl ctrl9 (
