@@ -172,7 +172,7 @@ return 0;
 }
 
 int is_exit_status_bad() {
-  int good = (npc_state.state == NEMU_END && npc__state.halt_ret == 0) ||
+  int good = (npc_state.state == NEMU_END && npc_state.halt_ret == 0) ||
     (npc_state.state == NEMU_QUIT);
   return !good;
 }
