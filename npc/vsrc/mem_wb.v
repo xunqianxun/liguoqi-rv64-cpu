@@ -37,7 +37,7 @@ always @(posedge clk) begin
         wb_rd_data <= `ysyx22040228_ZEROWORD ;
         wb_pc_o    <= `ysyx22040228_ZEROWORD ;
         wb_inst_o  <= 32'b0 ;
-        wb_pc_o    <= wb_pc_o; // wring
+        wb_inst_o    <= wb_inst_o; // wring
     end
     else begin
         if(stall_ctrl[4] == `ysyx22040228_NOSTOP) begin
