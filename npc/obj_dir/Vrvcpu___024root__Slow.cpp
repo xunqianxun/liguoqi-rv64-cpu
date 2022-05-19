@@ -133,17 +133,17 @@ void Vrvcpu___024root___settle__TOP__2(Vrvcpu___024root* vlSelf) {
                                                                                 vlSelf->rvcpu__DOT__regfile10__DOT__regs
                                                                                 [0x1fU]);
     Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__mem_wb8__DOT__difftest_dut_pc_TOP(vlSelf->rvcpu__DOT__mem_wb8__DOT__pc_data1, vlSelf->rvcpu__DOT__mem_wb8__DOT__trap_code, (IData)(vlSelf->rvcpu__DOT__mem_wb8__DOT__teap_yn), vlSelf->rvcpu__DOT__mem_wb8__DOT__difftest_exyn);
-    vlSelf->rvcpu__DOT__id_id_ex_inst = (IData)(((IData)(vlSelf->rst)
-                                                  ? 0ULL
-                                                  : (QData)((IData)(vlSelf->rvcpu__DOT__if_id_inst))));
-    vlSelf->rvcpu__DOT__ex_ex_mem_inst = (IData)(((IData)(vlSelf->rst)
-                                                   ? 0ULL
-                                                   : (QData)((IData)(vlSelf->rvcpu__DOT__id_ex_ex_inst))));
-    vlSelf->rvcpu__DOT__mem_mem_wb_inst = (IData)(((IData)(vlSelf->rst)
-                                                    ? 0ULL
-                                                    : (QData)((IData)(vlSelf->rvcpu__DOT__ex_mem_mem_inst))));
-    vlSelf->data_addr = ((IData)(vlSelf->rst) ? 0ULL
-                          : vlSelf->rvcpu__DOT__exmem_mem_lsaddr);
+    if (vlSelf->rst) {
+        vlSelf->rvcpu__DOT__id_id_ex_inst = 0U;
+        vlSelf->rvcpu__DOT__ex_ex_mem_inst = 0U;
+        vlSelf->rvcpu__DOT__mem_mem_wb_inst = 0U;
+        vlSelf->data_addr = 0ULL;
+    } else {
+        vlSelf->rvcpu__DOT__id_id_ex_inst = vlSelf->rvcpu__DOT__if_id_inst;
+        vlSelf->rvcpu__DOT__ex_ex_mem_inst = vlSelf->rvcpu__DOT__id_ex_ex_inst;
+        vlSelf->rvcpu__DOT__mem_mem_wb_inst = vlSelf->rvcpu__DOT__ex_mem_mem_inst;
+        vlSelf->data_addr = vlSelf->rvcpu__DOT__exmem_mem_lsaddr;
+    }
     vlSelf->rvcpu__DOT__ex_mem_addr = ((IData)((0U 
                                                 != 
                                                 (3U 

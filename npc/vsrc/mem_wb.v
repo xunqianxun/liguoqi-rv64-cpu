@@ -90,7 +90,7 @@ always @(posedge clk) begin
             trap_code <= `ysyx22040228_ZEROWORD ;
         end  
     end 
-    else if(wb_inst_i == `ysyx22040228_ZEROWORD) begin
+    else if(wb_inst_i == 32'b0) begin
         difftest_exyn <= 1'b0;
         teap_yn <= 1'b0;
         trap_code <= `ysyx22040228_ZEROWORD ;
