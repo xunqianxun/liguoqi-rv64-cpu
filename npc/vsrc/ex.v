@@ -59,7 +59,7 @@ module ex (
 
 
 assign ex_pc_o = (rst == `ysyx22040228_RSTENA) ? `ysyx22040228_ZEROWORD : pc_i ;
-assign ex_inst_o = (rst == `ysyx22040228_RSTENA) ? `ysyx22040228_ZEROWORD : id_ex_inst ;
+assign ex_inst_o = (rst == `ysyx22040228_RSTENA) ? 32'b0 : id_ex_inst ;
 
 reg      [`ysyx22040228_REGBUS]       exe_res   ;
 

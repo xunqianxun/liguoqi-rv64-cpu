@@ -172,7 +172,7 @@ assign op2_loda_relate = (rst == `ysyx22040228_RSTENA) ? 0 : op2_read_o && (ex_i
 assign id_stall_req = (rst == `ysyx22040228_RSTENA) ? 0 : op1_loda_relate | op2_loda_relate | (id_flush && if_stall_req) ;
 
 assign pc_o   = (rst == `ysyx22040228_RSTENA) ? `ysyx22040228_ZEROWORD : pc_i ;
-assign inst_o = (rst == `ysyx22040228_RSTENA) ? `ysyx22040228_ZEROWORD : inst_i ;
+assign inst_o = (rst == `ysyx22040228_RSTENA) ? 32'b0 : inst_i ;
 
 assign op1_read_o = 1'b0 | inst_type[6] | inst_type[5] | inst_type[4] | inst_type[3] | inst_type[2] | inst_type[1] | inst_type[0] | inst_csr_rs1 ;
 assign op1_addr_o = op1_read_o ? rs1 : 5'd0  ;

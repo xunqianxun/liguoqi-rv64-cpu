@@ -40,7 +40,7 @@ module id_ex (
  always @(posedge clk) begin
      if(rst == `ysyx22040228_RSTENA) begin
          ex_pc              <= `ysyx22040228_ZEROWORD  ;
-         ex_inst            <= `ysyx22040228_ZEROWORD  ;
+         ex_inst            <= 32'b0       ;
          ex_inst_type       <= 8'b0        ;
          ex_inst_opcode     <= 8'B0        ;
          ex_op1             <= 64'b0       ; 
@@ -53,7 +53,7 @@ module id_ex (
      else if((stall_ctrl[2] == `ysyx22040228_NOSTOP) && (stall_ctrl[4:3] == 2'b00)) begin
          if(id_ex_bubble) begin
              ex_pc              <= `ysyx22040228_ZEROWORD  ;
-             ex_inst            <= `ysyx22040228_ZEROWORD  ;             
+             ex_inst            <= 32'b0       ;             
              ex_inst_type       <= 8'b0        ;
              ex_inst_opcode     <= 8'B0        ;
              ex_op1             <= 64'b0       ; 
@@ -78,7 +78,7 @@ module id_ex (
      end
      else if((stall_ctrl[1:0] == 2'b11) && (stall_ctrl[2] == `ysyx22040228_STOP) && (stall_ctrl[3] == `ysyx22040228_NOSTOP)) begin
          ex_pc              <= `ysyx22040228_ZEROWORD  ;
-         ex_inst            <= `ysyx22040228_ZEROWORD  ;
+         ex_inst            <= 32'b0       ;
          ex_inst_type       <= 8'b0        ;
          ex_inst_opcode     <= 8'B0        ;
          ex_op1             <= 64'b0       ; 

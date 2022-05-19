@@ -9,26 +9,20 @@
 
 //==========
 
-extern "C" void Ebreak_teap(svLogic rvsign);
+extern "C" void difftest_dut_pc(long long pc_data, long long exit_code, svBit endyn, svBit exe);
 
-VL_INLINE_OPT void Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__ex5__DOT__Ebreak_teap_TOP(CData/*0:0*/ rvsign) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__ex5__DOT__Ebreak_teap_TOP\n"); );
-    // Body
-    svLogic rvsign__Vcvt;
-    for (size_t rvsign__Vidx = 0; rvsign__Vidx < 1; ++rvsign__Vidx) rvsign__Vcvt = rvsign;
-    Ebreak_teap(rvsign__Vcvt);
-}
-
-extern "C" void difftest_dut_pc(long long pc_data, svBit exe);
-
-VL_INLINE_OPT void Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__mem_wb8__DOT__difftest_dut_pc_TOP(QData/*63:0*/ pc_data, CData/*0:0*/ exe) {
+VL_INLINE_OPT void Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__mem_wb8__DOT__difftest_dut_pc_TOP(QData/*63:0*/ pc_data, QData/*63:0*/ exit_code, CData/*0:0*/ endyn, CData/*0:0*/ exe) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__mem_wb8__DOT__difftest_dut_pc_TOP\n"); );
     // Body
     long long pc_data__Vcvt;
     for (size_t pc_data__Vidx = 0; pc_data__Vidx < 1; ++pc_data__Vidx) pc_data__Vcvt = pc_data;
+    long long exit_code__Vcvt;
+    for (size_t exit_code__Vidx = 0; exit_code__Vidx < 1; ++exit_code__Vidx) exit_code__Vcvt = exit_code;
+    svBit endyn__Vcvt;
+    for (size_t endyn__Vidx = 0; endyn__Vidx < 1; ++endyn__Vidx) endyn__Vcvt = endyn;
     svBit exe__Vcvt;
     for (size_t exe__Vidx = 0; exe__Vidx < 1; ++exe__Vidx) exe__Vcvt = exe;
-    difftest_dut_pc(pc_data__Vcvt, exe__Vcvt);
+    difftest_dut_pc(pc_data__Vcvt, exit_code__Vcvt, endyn__Vcvt, exe__Vcvt);
 }
 
 extern "C" void difftest_dut_regs(long long Z0, long long ra, long long sp, long long gp, long long tp, long long t0, long long t1, long long t2, long long fp, long long s1, long long a0, long long a1, long long a2, long long a3, long long a4, long long a5, long long a6, long long a7, long long s2, long long s3, long long s4, long long s5, long long s6, long long s7, long long s8, long long s9, long long s10, long long a11, long long t3, long long t4, long long t5, long long t6);
@@ -154,47 +148,101 @@ VL_INLINE_OPT void Vrvcpu___024root___sequent__TOP__3(Vrvcpu___024root* vlSelf) 
     if (vlSelf->rst) {
         vlSelf->rvcpu__DOT__regfile10__DOT__i = 0x20U;
     }
-    vlSelf->rvcpu__DOT__ex_mem_mem_pc = ((IData)(vlSelf->rst)
-                                          ? 0ULL : 
-                                         ((IData)((0U 
-                                                   == 
-                                                   (0x18U 
-                                                    & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))))
-                                           ? vlSelf->rvcpu__DOT__ex_ex_mem_pc
-                                           : ((IData)(
-                                                      (0xfU 
-                                                       == 
-                                                       (0x1fU 
-                                                        & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))))
-                                               ? 0ULL
-                                               : vlSelf->rvcpu__DOT__ex_ex_mem_pc)));
-    vlSelf->rvcpu__DOT__mem_wb8__DOT__pc_data1 = vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_pc_o;
-    vlSelf->rvcpu__DOT__idex_ex_offset = ((IData)(vlSelf->rst)
-                                           ? 0U : ((IData)(
-                                                           (0U 
-                                                            == 
-                                                            (0x1cU 
-                                                             & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))))
-                                                    ? 
-                                                   ((IData)(vlSelf->rvcpu__DOT__ex_pc_branchena)
-                                                     ? 0U
-                                                     : (IData)(vlSelf->rvcpu__DOT__id_ex_s_offset))
-                                                    : 
-                                                   ((IData)(
-                                                            (7U 
-                                                             == 
-                                                             (0xfU 
-                                                              & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))))
-                                                     ? 0U
-                                                     : (IData)(vlSelf->rvcpu__DOT__id_ex_s_offset))));
-    vlSelf->rvcpu__DOT__mem_wb8__DOT__data_ena1 = vlSelf->rvcpu__DOT__wb_id_ena;
+    if ((0U != vlSelf->rvcpu__DOT__mem_mem_wb_inst)) {
+        vlSelf->rvcpu__DOT__mem_wb8__DOT__difftest_exyn = 1U;
+    } else if ((0U == vlSelf->rvcpu__DOT__mem_mem_wb_inst)) {
+        vlSelf->rvcpu__DOT__mem_wb8__DOT__difftest_exyn = 0U;
+    }
+    if ((0U != vlSelf->rvcpu__DOT__mem_mem_wb_inst)) {
+        vlSelf->rvcpu__DOT__mem_wb8__DOT__teap_yn = 
+            (0x100073U == vlSelf->rvcpu__DOT__mem_mem_wb_inst);
+    } else if ((0U == vlSelf->rvcpu__DOT__mem_mem_wb_inst)) {
+        vlSelf->rvcpu__DOT__mem_wb8__DOT__teap_yn = 0U;
+    }
+    if ((0U != vlSelf->rvcpu__DOT__mem_mem_wb_inst)) {
+        vlSelf->rvcpu__DOT__mem_wb8__DOT__trap_code 
+            = ((0x100073U == vlSelf->rvcpu__DOT__mem_mem_wb_inst)
+                ? vlSelf->rvcpu__DOT__wb_regfile_data
+                : 0ULL);
+    } else if ((0U == vlSelf->rvcpu__DOT__mem_mem_wb_inst)) {
+        vlSelf->rvcpu__DOT__mem_wb8__DOT__trap_code = 0ULL;
+    }
     if (vlSelf->rst) {
+        vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_inst_o = 0U;
+        vlSelf->rvcpu__DOT__ex_mem_mem_inst = 0U;
+        vlSelf->rvcpu__DOT__ex_mem_mem_pc = 0ULL;
+        vlSelf->rvcpu__DOT__mem_wb8__DOT__pc_data1 = 0ULL;
+        vlSelf->rvcpu__DOT__id_ex_ex_inst = 0U;
+        vlSelf->rvcpu__DOT__idex_ex_offset = 0U;
         __Vdly__rvcpu__DOT__wb_regfile_data = 0ULL;
         vlSelf->rvcpu__DOT__if_id_pc = 0ULL;
         vlSelf->rvcpu__DOT__exmem_mem_data = 0ULL;
         vlSelf->rvcpu__DOT__exmem_mem_sel = 0U;
         vlSelf->rvcpu__DOT__exmem_mem_type = 0U;
     } else {
+        vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_inst_o 
+            = ((0x10U & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))
+                ? ((IData)((0x1fU == (0x1fU & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))))
+                    ? 0U : vlSelf->rvcpu__DOT__mem_mem_wb_inst)
+                : vlSelf->rvcpu__DOT__mem_mem_wb_inst);
+        vlSelf->rvcpu__DOT__ex_mem_mem_inst = ((IData)(
+                                                       (0U 
+                                                        == 
+                                                        (0x18U 
+                                                         & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))))
+                                                ? vlSelf->rvcpu__DOT__ex_ex_mem_inst
+                                                : ((IData)(
+                                                           (0xfU 
+                                                            == 
+                                                            (0x1fU 
+                                                             & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))))
+                                                    ? 0U
+                                                    : vlSelf->rvcpu__DOT__ex_ex_mem_inst));
+        vlSelf->rvcpu__DOT__ex_mem_mem_pc = ((IData)(
+                                                     (0U 
+                                                      == 
+                                                      (0x18U 
+                                                       & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))))
+                                              ? vlSelf->rvcpu__DOT__ex_ex_mem_pc
+                                              : ((IData)(
+                                                         (0xfU 
+                                                          == 
+                                                          (0x1fU 
+                                                           & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))))
+                                                  ? 0ULL
+                                                  : vlSelf->rvcpu__DOT__ex_ex_mem_pc));
+        vlSelf->rvcpu__DOT__mem_wb8__DOT__pc_data1 
+            = vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_pc_o;
+        vlSelf->rvcpu__DOT__id_ex_ex_inst = ((IData)(
+                                                     (0U 
+                                                      == 
+                                                      (0x1cU 
+                                                       & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))))
+                                              ? ((IData)(vlSelf->rvcpu__DOT__ex_pc_branchena)
+                                                  ? 0U
+                                                  : vlSelf->rvcpu__DOT__id_id_ex_inst)
+                                              : ((IData)(
+                                                         (7U 
+                                                          == 
+                                                          (0xfU 
+                                                           & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))))
+                                                  ? 0U
+                                                  : vlSelf->rvcpu__DOT__id_id_ex_inst));
+        vlSelf->rvcpu__DOT__idex_ex_offset = ((IData)(
+                                                      (0U 
+                                                       == 
+                                                       (0x1cU 
+                                                        & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))))
+                                               ? ((IData)(vlSelf->rvcpu__DOT__ex_pc_branchena)
+                                                   ? 0U
+                                                   : (IData)(vlSelf->rvcpu__DOT__id_ex_s_offset))
+                                               : ((IData)(
+                                                          (7U 
+                                                           == 
+                                                           (0xfU 
+                                                            & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))))
+                                                   ? 0U
+                                                   : (IData)(vlSelf->rvcpu__DOT__id_ex_s_offset)));
         __Vdly__rvcpu__DOT__wb_regfile_data = ((0x10U 
                                                 & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))
                                                 ? ((IData)(
@@ -552,39 +600,32 @@ VL_INLINE_OPT void Vrvcpu___024root___sequent__TOP__3(Vrvcpu___024root* vlSelf) 
         vlSelf->rvcpu__DOT__regfile10__DOT__regs[__Vdlyvdim0__rvcpu__DOT__regfile10__DOT__regs__v32] 
             = __Vdlyvval__rvcpu__DOT__regfile10__DOT__regs__v32;
     }
-    vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_pc_o = ((IData)(vlSelf->rst)
-                                                  ? 0ULL
-                                                  : 
-                                                 ((0x10U 
-                                                   & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))
-                                                   ? 
-                                                  ((IData)(
-                                                           (0x1fU 
-                                                            == 
-                                                            (0x1fU 
-                                                             & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))))
-                                                    ? 0ULL
-                                                    : vlSelf->rvcpu__DOT__mem_mem_wb_pc)
-                                                   : vlSelf->rvcpu__DOT__mem_mem_wb_pc));
-    Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__mem_wb8__DOT__difftest_dut_pc_TOP(vlSelf->rvcpu__DOT__mem_wb8__DOT__pc_data1, (IData)(vlSelf->rvcpu__DOT__mem_wb8__DOT__data_ena1));
-    vlSelf->rvcpu__DOT__idex_ex_sel = ((IData)(vlSelf->rst)
-                                        ? 0U : ((IData)(
-                                                        (0U 
-                                                         == 
-                                                         (0x1cU 
-                                                          & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))))
-                                                 ? 
-                                                ((IData)(vlSelf->rvcpu__DOT__ex_pc_branchena)
-                                                  ? 0U
-                                                  : (IData)(vlSelf->rvcpu__DOT__id_ex_memsel))
-                                                 : 
-                                                ((IData)(
-                                                         (7U 
-                                                          == 
-                                                          (0xfU 
-                                                           & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))))
-                                                  ? 0U
-                                                  : (IData)(vlSelf->rvcpu__DOT__id_ex_memsel))));
+    Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__mem_wb8__DOT__difftest_dut_pc_TOP(vlSelf->rvcpu__DOT__mem_wb8__DOT__pc_data1, vlSelf->rvcpu__DOT__mem_wb8__DOT__trap_code, (IData)(vlSelf->rvcpu__DOT__mem_wb8__DOT__teap_yn), vlSelf->rvcpu__DOT__mem_wb8__DOT__difftest_exyn);
+    if (vlSelf->rst) {
+        vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_pc_o = 0ULL;
+        vlSelf->rvcpu__DOT__idex_ex_sel = 0U;
+    } else {
+        vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_pc_o = 
+            ((0x10U & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))
+              ? ((IData)((0x1fU == (0x1fU & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))))
+                  ? 0ULL : vlSelf->rvcpu__DOT__mem_mem_wb_pc)
+              : vlSelf->rvcpu__DOT__mem_mem_wb_pc);
+        vlSelf->rvcpu__DOT__idex_ex_sel = ((IData)(
+                                                   (0U 
+                                                    == 
+                                                    (0x1cU 
+                                                     & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))))
+                                            ? ((IData)(vlSelf->rvcpu__DOT__ex_pc_branchena)
+                                                ? 0U
+                                                : (IData)(vlSelf->rvcpu__DOT__id_ex_memsel))
+                                            : ((IData)(
+                                                       (7U 
+                                                        == 
+                                                        (0xfU 
+                                                         & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))))
+                                                ? 0U
+                                                : (IData)(vlSelf->rvcpu__DOT__id_ex_memsel)));
+    }
     Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__regfile10__DOT__difftest_dut_regs_TOP(
                                                                                 vlSelf->rvcpu__DOT__regfile10__DOT__regs
                                                                                 [0U], 
@@ -678,11 +719,6 @@ VL_INLINE_OPT void Vrvcpu___024root___sequent__TOP__3(Vrvcpu___024root* vlSelf) 
                                                               & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))))
                                                      ? 0U
                                                      : (IData)(vlSelf->rvcpu__DOT__idex_ex_rdaddr))));
-    if ((0x10U == (IData)(vlSelf->rvcpu__DOT__idex_ex_opcode))) {
-        Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__ex5__DOT__Ebreak_teap_TOP(1U);
-    } else {
-        Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__ex5__DOT__Ebreak_teap_TOP(0U);
-    }
     vlSelf->rvcpu__DOT__ex5__DOT__op1_subw_op2 = ((IData)(vlSelf->rvcpu__DOT__idex_ex_op2) 
                                                   - (IData)(vlSelf->rvcpu__DOT__idex_ex_op2));
     vlSelf->rvcpu__DOT__ex5__DOT__upper_imm = (((QData)((IData)(
@@ -1147,6 +1183,12 @@ VL_INLINE_OPT void Vrvcpu___024root___combo__TOP__4(Vrvcpu___024root* vlSelf) {
                                                              == 
                                                              (0x7fU 
                                                               & vlSelf->inst)));
+    vlSelf->rvcpu__DOT__mem_mem_wb_inst = (IData)(((IData)(vlSelf->rst)
+                                                    ? 0ULL
+                                                    : (QData)((IData)(vlSelf->rvcpu__DOT__ex_mem_mem_inst))));
+    vlSelf->rvcpu__DOT__ex_ex_mem_inst = (IData)(((IData)(vlSelf->rst)
+                                                   ? 0ULL
+                                                   : (QData)((IData)(vlSelf->rvcpu__DOT__id_ex_ex_inst))));
     vlSelf->we = (1U & ((~ (IData)(vlSelf->rst)) & (IData)(vlSelf->rvcpu__DOT__exmem_mem_type)));
     vlSelf->re = (1U & ((~ (IData)(vlSelf->rst)) & 
                         ((IData)(vlSelf->rvcpu__DOT__exmem_mem_type) 
@@ -1371,6 +1413,9 @@ VL_INLINE_OPT void Vrvcpu___024root___combo__TOP__4(Vrvcpu___024root* vlSelf) {
                                                            (vlSelf->data_i 
                                                             >> 0x20U))
                                                  : (IData)(vlSelf->data_i));
+    vlSelf->rvcpu__DOT__id_id_ex_inst = (IData)(((IData)(vlSelf->rst)
+                                                  ? 0ULL
+                                                  : (QData)((IData)(vlSelf->rvcpu__DOT__if_id_inst))));
     if (vlSelf->rst) {
         vlSelf->rvcpu__DOT__id3__DOT__inst_lui = 0U;
         vlSelf->rvcpu__DOT__id3__DOT__inst_auipc = 0U;
@@ -1962,15 +2007,6 @@ VL_INLINE_OPT void Vrvcpu___024root___combo__TOP__4(Vrvcpu___024root* vlSelf) {
                                                               == 
                                                               (0x7000U 
                                                                & vlSelf->rvcpu__DOT__if_id_inst)))));
-    vlSelf->rvcpu__DOT__id3__DOT__inst_add = (1U & (IData)(
-                                                           ((8U 
-                                                             == 
-                                                             (8U 
-                                                              & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
-                                                            & (0U 
-                                                               == 
-                                                               (0x40007000U 
-                                                                & vlSelf->rvcpu__DOT__if_id_inst)))));
     vlSelf->rvcpu__DOT__id3__DOT__inst_sub = (1U & (IData)(
                                                            ((8U 
                                                              == 
@@ -1980,16 +2016,6 @@ VL_INLINE_OPT void Vrvcpu___024root___combo__TOP__4(Vrvcpu___024root* vlSelf) {
                                                                == 
                                                                (0x40007000U 
                                                                 & vlSelf->rvcpu__DOT__if_id_inst)))));
-    vlSelf->rvcpu__DOT__id3__DOT__inst_slliw = (1U 
-                                                & (IData)(
-                                                          ((0x20U 
-                                                            == 
-                                                            (0x20U 
-                                                             & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
-                                                           & (0x1000U 
-                                                              == 
-                                                              (0x7000U 
-                                                               & vlSelf->rvcpu__DOT__if_id_inst)))));
     vlSelf->rvcpu__DOT__id3__DOT__inst_srliw = (1U 
                                                 & (IData)(
                                                           ((0x20U 
@@ -2000,34 +2026,15 @@ VL_INLINE_OPT void Vrvcpu___024root___combo__TOP__4(Vrvcpu___024root* vlSelf) {
                                                               == 
                                                               (0x40007000U 
                                                                & vlSelf->rvcpu__DOT__if_id_inst)))));
-    vlSelf->rvcpu__DOT__id3__DOT__inst_sraiw = (1U 
-                                                & (IData)(
-                                                          ((0x20U 
-                                                            == 
-                                                            (0x20U 
-                                                             & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
-                                                           & (0x40005000U 
-                                                              == 
-                                                              (0x40007000U 
-                                                               & vlSelf->rvcpu__DOT__if_id_inst)))));
-    vlSelf->rvcpu__DOT__id3__DOT__inst_slt = (1U & (IData)(
+    vlSelf->rvcpu__DOT__id3__DOT__inst_add = (1U & (IData)(
                                                            ((8U 
                                                              == 
                                                              (8U 
                                                               & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
-                                                            & (0x2000U 
+                                                            & (0U 
                                                                == 
-                                                               (0x7000U 
+                                                               (0x40007000U 
                                                                 & vlSelf->rvcpu__DOT__if_id_inst)))));
-    vlSelf->rvcpu__DOT__id3__DOT__inst_sltu = (1U & (IData)(
-                                                            ((8U 
-                                                              == 
-                                                              (8U 
-                                                               & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
-                                                             & (0x3000U 
-                                                                == 
-                                                                (0x7000U 
-                                                                 & vlSelf->rvcpu__DOT__if_id_inst)))));
     vlSelf->rvcpu__DOT__id3__DOT__inst_xor = (1U & (IData)(
                                                            ((8U 
                                                              == 
@@ -2046,6 +2053,52 @@ VL_INLINE_OPT void Vrvcpu___024root___combo__TOP__4(Vrvcpu___024root* vlSelf) {
                                                                == 
                                                                (0x40007000U 
                                                                 & vlSelf->rvcpu__DOT__if_id_inst)))));
+    vlSelf->rvcpu__DOT__id3__DOT__inst_addw = (1U & (IData)(
+                                                            ((0x40U 
+                                                              == 
+                                                              (0x40U 
+                                                               & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
+                                                             & (0U 
+                                                                == 
+                                                                (0x40007000U 
+                                                                 & vlSelf->rvcpu__DOT__if_id_inst)))));
+    vlSelf->rvcpu__DOT__id3__DOT__inst_sraw = (1U & (IData)(
+                                                            ((0x40U 
+                                                              == 
+                                                              (0x40U 
+                                                               & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
+                                                             & (0x40005000U 
+                                                                == 
+                                                                (0x40007000U 
+                                                                 & vlSelf->rvcpu__DOT__if_id_inst)))));
+    vlSelf->rvcpu__DOT__id3__DOT__inst_slliw = (1U 
+                                                & (IData)(
+                                                          ((0x20U 
+                                                            == 
+                                                            (0x20U 
+                                                             & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
+                                                           & (0x1000U 
+                                                              == 
+                                                              (0x7000U 
+                                                               & vlSelf->rvcpu__DOT__if_id_inst)))));
+    vlSelf->rvcpu__DOT__id3__DOT__inst_sll = (1U & (IData)(
+                                                           ((8U 
+                                                             == 
+                                                             (8U 
+                                                              & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
+                                                            & (0x1000U 
+                                                               == 
+                                                               (0x7000U 
+                                                                & vlSelf->rvcpu__DOT__if_id_inst)))));
+    vlSelf->rvcpu__DOT__id3__DOT__inst_sltu = (1U & (IData)(
+                                                            ((8U 
+                                                              == 
+                                                              (8U 
+                                                               & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
+                                                             & (0x3000U 
+                                                                == 
+                                                                (0x7000U 
+                                                                 & vlSelf->rvcpu__DOT__if_id_inst)))));
     vlSelf->rvcpu__DOT__id3__DOT__inst_sra = (1U & (IData)(
                                                            ((8U 
                                                              == 
@@ -2073,15 +2126,6 @@ VL_INLINE_OPT void Vrvcpu___024root___combo__TOP__4(Vrvcpu___024root* vlSelf) {
                                                                == 
                                                                (0x7000U 
                                                                 & vlSelf->rvcpu__DOT__if_id_inst)))));
-    vlSelf->rvcpu__DOT__id3__DOT__inst_addw = (1U & (IData)(
-                                                            ((0x40U 
-                                                              == 
-                                                              (0x40U 
-                                                               & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
-                                                             & (0U 
-                                                                == 
-                                                                (0x40007000U 
-                                                                 & vlSelf->rvcpu__DOT__if_id_inst)))));
     vlSelf->rvcpu__DOT__id3__DOT__inst_subw = (1U & (IData)(
                                                             ((0x40U 
                                                               == 
@@ -2109,15 +2153,25 @@ VL_INLINE_OPT void Vrvcpu___024root___combo__TOP__4(Vrvcpu___024root* vlSelf) {
                                                                 == 
                                                                 (0x40007000U 
                                                                  & vlSelf->rvcpu__DOT__if_id_inst)))));
-    vlSelf->rvcpu__DOT__id3__DOT__inst_sraw = (1U & (IData)(
-                                                            ((0x40U 
+    vlSelf->rvcpu__DOT__id3__DOT__inst_sraiw = (1U 
+                                                & (IData)(
+                                                          ((0x20U 
+                                                            == 
+                                                            (0x20U 
+                                                             & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
+                                                           & (0x40005000U 
                                                               == 
-                                                              (0x40U 
-                                                               & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
-                                                             & (0x40005000U 
-                                                                == 
-                                                                (0x40007000U 
-                                                                 & vlSelf->rvcpu__DOT__if_id_inst)))));
+                                                              (0x40007000U 
+                                                               & vlSelf->rvcpu__DOT__if_id_inst)))));
+    vlSelf->rvcpu__DOT__id3__DOT__inst_slt = (1U & (IData)(
+                                                           ((8U 
+                                                             == 
+                                                             (8U 
+                                                              & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
+                                                            & (0x2000U 
+                                                               == 
+                                                               (0x7000U 
+                                                                & vlSelf->rvcpu__DOT__if_id_inst)))));
     vlSelf->rvcpu__DOT__id3__DOT__inst_srai = (1U & (IData)(
                                                             ((0x10U 
                                                               == 
@@ -2127,15 +2181,19 @@ VL_INLINE_OPT void Vrvcpu___024root___combo__TOP__4(Vrvcpu___024root* vlSelf) {
                                                                 == 
                                                                 (0x40007000U 
                                                                  & vlSelf->rvcpu__DOT__if_id_inst)))));
-    vlSelf->rvcpu__DOT__id3__DOT__inst_sll = (1U & (IData)(
-                                                           ((8U 
+    vlSelf->rvcpu__DOT__id3__DOT__inst_ebreak = ((IData)(
+                                                         ((0x80U 
+                                                           == 
+                                                           (0x80U 
+                                                            & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
+                                                          & (0U 
                                                              == 
-                                                             (8U 
-                                                              & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
-                                                            & (0x1000U 
-                                                               == 
-                                                               (0x7000U 
-                                                                & vlSelf->rvcpu__DOT__if_id_inst)))));
+                                                             (0x7000U 
+                                                              & vlSelf->rvcpu__DOT__if_id_inst)))) 
+                                                 & (1U 
+                                                    == 
+                                                    (vlSelf->rvcpu__DOT__if_id_inst 
+                                                     >> 0x14U)));
     vlSelf->rvcpu__DOT__id_reg_ena2 = (IData)((0U != 
                                                (0x4dU 
                                                 & (IData)(vlSelf->rvcpu__DOT__id_ex_type))));
@@ -2171,8 +2229,10 @@ VL_INLINE_OPT void Vrvcpu___024root___combo__TOP__4(Vrvcpu___024root* vlSelf) {
                                                                & vlSelf->rvcpu__DOT__if_id_inst)))));
     vlSelf->rvcpu__DOT__ex_id_rd_data = ((1U & (IData)(vlSelf->rvcpu__DOT__idex_ex_type))
                                           ? vlSelf->rvcpu__DOT__idex_ex_op2
-                                          : ((0x80U 
-                                              & (IData)(vlSelf->rvcpu__DOT__idex_ex_type))
+                                          : ((((IData)(vlSelf->rvcpu__DOT__idex_ex_type) 
+                                               >> 7U) 
+                                              & (7U 
+                                                 != (IData)(vlSelf->rvcpu__DOT__idex_ex_opcode)))
                                               ? vlSelf->rvcpu__DOT__ex5__DOT__read_csr_data
                                               : vlSelf->rvcpu__DOT__ex5__DOT__exe_res));
     vlSelf->rvcpu__DOT__id_ex_rd_ena = ((0U != (0x1fU 
@@ -2186,6 +2246,45 @@ VL_INLINE_OPT void Vrvcpu___024root___combo__TOP__4(Vrvcpu___024root* vlSelf) {
                                              | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_lui)) 
                                             | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_auipc)) 
                                            | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_jump)));
+    vlSelf->rvcpu__DOT__id_ex_opcode = ((0xf7U & (IData)(vlSelf->rvcpu__DOT__id_ex_opcode)) 
+                                        | (((IData)(vlSelf->rst)
+                                             ? 0U : 
+                                            (1U & (
+                                                   ((((((1U 
+                                                         & (((IData)(
+                                                                     ((0x80U 
+                                                                       == 
+                                                                       (0x80U 
+                                                                        & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
+                                                                      & (0x7000U 
+                                                                         == 
+                                                                         (0x7000U 
+                                                                          & vlSelf->rvcpu__DOT__if_id_inst)))) 
+                                                             | (IData)(
+                                                                       ((4U 
+                                                                         == 
+                                                                         (4U 
+                                                                          & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
+                                                                        & (0x5000U 
+                                                                           == 
+                                                                           (0x7000U 
+                                                                            & vlSelf->rvcpu__DOT__if_id_inst))))) 
+                                                            | (IData)(
+                                                                      ((0x10U 
+                                                                        == 
+                                                                        (0x10U 
+                                                                         & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
+                                                                       & (0x4000U 
+                                                                          == 
+                                                                          (0x7000U 
+                                                                           & vlSelf->rvcpu__DOT__if_id_inst)))))) 
+                                                        | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_add)) 
+                                                       | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_sltu)) 
+                                                      | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_lui)) 
+                                                     | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_addiw)) 
+                                                    | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_slliw)) 
+                                                   | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_sraw)))) 
+                                           << 3U));
     vlSelf->rvcpu__DOT__id_ex_opcode = ((0xdfU & (IData)(vlSelf->rvcpu__DOT__id_ex_opcode)) 
                                         | (((IData)(vlSelf->rst)
                                              ? 0U : 
@@ -2278,111 +2377,74 @@ VL_INLINE_OPT void Vrvcpu___024root___combo__TOP__4(Vrvcpu___024root* vlSelf) {
                                         | (((IData)(vlSelf->rst)
                                              ? 0U : 
                                             (1U & (
-                                                   ((((((1U 
-                                                         & (((IData)(
-                                                                     ((0x80U 
-                                                                       == 
-                                                                       (0x80U 
-                                                                        & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
-                                                                      & (0x6000U 
-                                                                         == 
-                                                                         (0x7000U 
-                                                                          & vlSelf->rvcpu__DOT__if_id_inst)))) 
-                                                             | (IData)(
-                                                                       ((4U 
-                                                                         == 
-                                                                         (4U 
-                                                                          & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
-                                                                        & (0x4000U 
-                                                                           == 
-                                                                           (0x7000U 
-                                                                            & vlSelf->rvcpu__DOT__if_id_inst))))) 
-                                                            | (IData)(
-                                                                      ((0x10U 
+                                                   (((((((1U 
+                                                          & (((IData)(
+                                                                      ((0x80U 
                                                                         == 
-                                                                        (0x10U 
+                                                                        (0x80U 
                                                                          & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
-                                                                       & (0x3000U 
+                                                                       & (0x6000U 
                                                                           == 
                                                                           (0x7000U 
-                                                                           & vlSelf->rvcpu__DOT__if_id_inst)))))) 
-                                                        | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_add)) 
-                                                       | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_slt)) 
-                                                      | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_and)) 
-                                                     | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_jalr)) 
-                                                    | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_sraiw)) 
-                                                   | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_srlw)))) 
+                                                                           & vlSelf->rvcpu__DOT__if_id_inst)))) 
+                                                              | (IData)(
+                                                                        ((4U 
+                                                                          == 
+                                                                          (4U 
+                                                                           & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
+                                                                         & (0x4000U 
+                                                                            == 
+                                                                            (0x7000U 
+                                                                             & vlSelf->rvcpu__DOT__if_id_inst))))) 
+                                                             | (IData)(
+                                                                       ((0x10U 
+                                                                         == 
+                                                                         (0x10U 
+                                                                          & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
+                                                                        & (0x3000U 
+                                                                           == 
+                                                                           (0x7000U 
+                                                                            & vlSelf->rvcpu__DOT__if_id_inst)))))) 
+                                                         | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_add)) 
+                                                        | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_slt)) 
+                                                       | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_and)) 
+                                                      | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_jalr)) 
+                                                     | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_sraiw)) 
+                                                    | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_srlw)) 
+                                                   | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_ebreak)))) 
                                            << 2U));
-    vlSelf->rvcpu__DOT__id_ex_opcode = ((0xf7U & (IData)(vlSelf->rvcpu__DOT__id_ex_opcode)) 
-                                        | (((IData)(vlSelf->rst)
-                                             ? 0U : 
-                                            (1U & (
-                                                   ((((((1U 
-                                                         & (((IData)(
-                                                                     ((0x80U 
-                                                                       == 
-                                                                       (0x80U 
-                                                                        & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
-                                                                      & (0x7000U 
-                                                                         == 
-                                                                         (0x7000U 
-                                                                          & vlSelf->rvcpu__DOT__if_id_inst)))) 
-                                                             | (IData)(
-                                                                       ((4U 
-                                                                         == 
-                                                                         (4U 
-                                                                          & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
-                                                                        & (0x5000U 
-                                                                           == 
-                                                                           (0x7000U 
-                                                                            & vlSelf->rvcpu__DOT__if_id_inst))))) 
-                                                            | (IData)(
-                                                                      ((0x10U 
-                                                                        == 
-                                                                        (0x10U 
-                                                                         & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
-                                                                       & (0x4000U 
-                                                                          == 
-                                                                          (0x7000U 
-                                                                           & vlSelf->rvcpu__DOT__if_id_inst)))))) 
-                                                        | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_add)) 
-                                                       | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_sltu)) 
-                                                      | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_lui)) 
-                                                     | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_addiw)) 
-                                                    | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_slliw)) 
-                                                   | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_sraw)))) 
-                                           << 3U));
     vlSelf->rvcpu__DOT__id_ex_opcode = ((0xfdU & (IData)(vlSelf->rvcpu__DOT__id_ex_opcode)) 
                                         | (((IData)(vlSelf->rst)
                                              ? 0U : 
                                             (1U & (
-                                                   ((((((((IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_csrrwi) 
+                                                   (((((((((IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_csrrwi) 
+                                                           | (1U 
+                                                              & (IData)(
+                                                                        ((4U 
+                                                                          == 
+                                                                          (4U 
+                                                                           & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
+                                                                         & (0x1000U 
+                                                                            == 
+                                                                            (0x7000U 
+                                                                             & vlSelf->rvcpu__DOT__if_id_inst)))))) 
                                                           | (1U 
                                                              & (IData)(
-                                                                       ((4U 
+                                                                       ((0x10U 
                                                                          == 
-                                                                         (4U 
+                                                                         (0x10U 
                                                                           & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
-                                                                        & (0x1000U 
+                                                                        & (0x2000U 
                                                                            == 
                                                                            (0x7000U 
                                                                             & vlSelf->rvcpu__DOT__if_id_inst)))))) 
-                                                         | (1U 
-                                                            & (IData)(
-                                                                      ((0x10U 
-                                                                        == 
-                                                                        (0x10U 
-                                                                         & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
-                                                                       & (0x2000U 
-                                                                          == 
-                                                                          (0x7000U 
-                                                                           & vlSelf->rvcpu__DOT__if_id_inst)))))) 
-                                                        | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_srai)) 
-                                                       | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_sltu)) 
-                                                      | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_or)) 
-                                                     | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_jal)) 
-                                                    | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_sraiw)) 
-                                                   | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_sllw)))) 
+                                                         | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_srai)) 
+                                                        | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_sltu)) 
+                                                       | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_or)) 
+                                                      | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_jal)) 
+                                                     | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_sraiw)) 
+                                                    | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_sllw)) 
+                                                   | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_ebreak)))) 
                                            << 1U));
     vlSelf->rvcpu__DOT__id_reg_addr2 = ((IData)(vlSelf->rvcpu__DOT__id_reg_ena2)
                                          ? (0x1fU & 
@@ -2437,33 +2499,34 @@ VL_INLINE_OPT void Vrvcpu___024root___combo__TOP__4(Vrvcpu___024root* vlSelf) {
                                         | ((IData)(vlSelf->rst)
                                             ? 0U : 
                                            (1U & ((
-                                                   (((((((IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_csrrc) 
+                                                   ((((((((IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_csrrc) 
+                                                          | (1U 
+                                                             & (IData)(
+                                                                       ((4U 
+                                                                         == 
+                                                                         (4U 
+                                                                          & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
+                                                                        & (0U 
+                                                                           == 
+                                                                           (0x7000U 
+                                                                            & vlSelf->rvcpu__DOT__if_id_inst)))))) 
                                                          | (1U 
                                                             & (IData)(
-                                                                      ((4U 
+                                                                      ((0x10U 
                                                                         == 
-                                                                        (4U 
+                                                                        (0x10U 
                                                                          & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
                                                                        & (0U 
                                                                           == 
                                                                           (0x7000U 
                                                                            & vlSelf->rvcpu__DOT__if_id_inst)))))) 
-                                                        | (1U 
-                                                           & (IData)(
-                                                                     ((0x10U 
-                                                                       == 
-                                                                       (0x10U 
-                                                                        & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
-                                                                      & (0U 
-                                                                         == 
-                                                                         (0x7000U 
-                                                                          & vlSelf->rvcpu__DOT__if_id_inst)))))) 
-                                                       | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_srai)) 
-                                                      | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_slt)) 
-                                                     | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_sra)) 
-                                                    | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_auipc)) 
-                                                   | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_slliw)) 
-                                                  | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_subw)))));
+                                                        | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_srai)) 
+                                                       | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_slt)) 
+                                                      | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_sra)) 
+                                                     | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_auipc)) 
+                                                    | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_slliw)) 
+                                                   | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_subw)) 
+                                                  | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_ebreak)))));
     vlSelf->rvcpu__DOT__id_reg_ena1 = (1U & ((IData)(
                                                      (0U 
                                                       != 
@@ -2473,9 +2536,11 @@ VL_INLINE_OPT void Vrvcpu___024root___combo__TOP__4(Vrvcpu___024root* vlSelf) {
                                                  | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_csrrs)) 
                                                 | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_csrrc))));
     vlSelf->rvcpu__DOT__id_ex_rd_addr = ((IData)(vlSelf->rvcpu__DOT__id_ex_rd_ena)
-                                          ? (0x1fU 
-                                             & (vlSelf->rvcpu__DOT__if_id_inst 
-                                                >> 7U))
+                                          ? ((IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_ebreak)
+                                              ? 0xbU
+                                              : (0x1fU 
+                                                 & (vlSelf->rvcpu__DOT__if_id_inst 
+                                                    >> 7U)))
                                           : 0U);
     vlSelf->rvcpu__DOT__id_ex_op2 = ((IData)(vlSelf->rst)
                                       ? 0ULL : ((IData)(vlSelf->rvcpu__DOT__id_reg_ena2)
