@@ -136,12 +136,10 @@ void Vrvcpu___024root___settle__TOP__2(Vrvcpu___024root* vlSelf) {
     if (vlSelf->rst) {
         vlSelf->rvcpu__DOT__id_id_ex_inst = 0U;
         vlSelf->rvcpu__DOT__ex_ex_mem_inst = 0U;
-        vlSelf->rvcpu__DOT__mem_mem_wb_inst = 0U;
         vlSelf->data_addr = 0ULL;
     } else {
         vlSelf->rvcpu__DOT__id_id_ex_inst = vlSelf->rvcpu__DOT__if_id_inst;
         vlSelf->rvcpu__DOT__ex_ex_mem_inst = vlSelf->rvcpu__DOT__id_ex_ex_inst;
-        vlSelf->rvcpu__DOT__mem_mem_wb_inst = vlSelf->rvcpu__DOT__ex_mem_mem_inst;
         vlSelf->data_addr = vlSelf->rvcpu__DOT__exmem_mem_lsaddr;
     }
     vlSelf->rvcpu__DOT__ex_mem_addr = ((IData)((0U 
@@ -572,12 +570,14 @@ void Vrvcpu___024root___settle__TOP__2(Vrvcpu___024root* vlSelf) {
         vlSelf->rvcpu__DOT__id_ex_pc = 0ULL;
         vlSelf->rvcpu__DOT__id_ex_memsel = 0U;
         vlSelf->rvcpu__DOT__mem_mem_wb_pc = 0ULL;
+        vlSelf->rvcpu__DOT__mem_mem_wb_inst = 0U;
         vlSelf->rvcpu__DOT__ex_ex_mem_pc = 0ULL;
     } else {
         vlSelf->rvcpu__DOT__id_ex_pc = vlSelf->rvcpu__DOT__if_id_pc;
         vlSelf->rvcpu__DOT__id_ex_memsel = (7U & (vlSelf->rvcpu__DOT__if_id_inst 
                                                   >> 0xcU));
         vlSelf->rvcpu__DOT__mem_mem_wb_pc = vlSelf->rvcpu__DOT__ex_mem_mem_pc;
+        vlSelf->rvcpu__DOT__mem_mem_wb_inst = vlSelf->rvcpu__DOT__ex_mem_mem_inst;
         vlSelf->rvcpu__DOT__ex_ex_mem_pc = vlSelf->rvcpu__DOT__idex_ex_pc;
     }
     vlSelf->rvcpu__DOT__ex5__DOT__tmr_trap_ena = ((
