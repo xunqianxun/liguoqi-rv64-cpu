@@ -103,7 +103,7 @@ static void checkregs(CPU_state *ref, uint64_t pc) {
 
 void difftest_step(uint64_t pc, uint64_t npc) {
   CPU_state ref_r;
-
+  printf("sssssssssssssssssssssssssss\n");
   if (skip_dut_nr_inst > 0) {
     ref_difftest_regcpy(&ref_r, DIFFTEST_TO_DUT);
     if (ref_r.pc == npc) {
