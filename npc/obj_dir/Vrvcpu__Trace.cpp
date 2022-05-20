@@ -493,60 +493,59 @@ void Vrvcpu___024root__traceChgSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* trac
             tracep->chgBit(oldp+253,((1U & (IData)(vlSelf->rvcpu__DOT__exmem_mem_lsaddr))));
             tracep->chgQData(oldp+254,(vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_pc_o),64);
             tracep->chgIData(oldp+256,(vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_inst_o),32);
-            tracep->chgQData(oldp+257,(vlSelf->rvcpu__DOT__mem_wb8__DOT__pc_data1),64);
-            tracep->chgBit(oldp+259,(vlSelf->rvcpu__DOT__mem_wb8__DOT__difftest_exyn));
-            tracep->chgBit(oldp+260,(vlSelf->rvcpu__DOT__mem_wb8__DOT__teap_yn));
-            tracep->chgQData(oldp+261,(vlSelf->rvcpu__DOT__mem_wb8__DOT__trap_code),64);
-            tracep->chgQData(oldp+263,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[0]),64);
-            tracep->chgQData(oldp+265,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[1]),64);
-            tracep->chgQData(oldp+267,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[2]),64);
-            tracep->chgQData(oldp+269,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[3]),64);
-            tracep->chgQData(oldp+271,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[4]),64);
-            tracep->chgQData(oldp+273,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[5]),64);
-            tracep->chgQData(oldp+275,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[6]),64);
-            tracep->chgQData(oldp+277,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[7]),64);
-            tracep->chgQData(oldp+279,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[8]),64);
-            tracep->chgQData(oldp+281,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[9]),64);
-            tracep->chgQData(oldp+283,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[10]),64);
-            tracep->chgQData(oldp+285,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[11]),64);
-            tracep->chgQData(oldp+287,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[12]),64);
-            tracep->chgQData(oldp+289,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[13]),64);
-            tracep->chgQData(oldp+291,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[14]),64);
-            tracep->chgQData(oldp+293,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[15]),64);
-            tracep->chgQData(oldp+295,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[16]),64);
-            tracep->chgQData(oldp+297,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[17]),64);
-            tracep->chgQData(oldp+299,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[18]),64);
-            tracep->chgQData(oldp+301,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[19]),64);
-            tracep->chgQData(oldp+303,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[20]),64);
-            tracep->chgQData(oldp+305,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[21]),64);
-            tracep->chgQData(oldp+307,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[22]),64);
-            tracep->chgQData(oldp+309,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[23]),64);
-            tracep->chgQData(oldp+311,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[24]),64);
-            tracep->chgQData(oldp+313,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[25]),64);
-            tracep->chgQData(oldp+315,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[26]),64);
-            tracep->chgQData(oldp+317,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[27]),64);
-            tracep->chgQData(oldp+319,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[28]),64);
-            tracep->chgQData(oldp+321,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[29]),64);
-            tracep->chgQData(oldp+323,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[30]),64);
-            tracep->chgQData(oldp+325,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[31]),64);
-            tracep->chgIData(oldp+327,(vlSelf->rvcpu__DOT__regfile10__DOT__i),32);
+            tracep->chgBit(oldp+257,(vlSelf->rvcpu__DOT__mem_wb8__DOT__difftest_exyn));
+            tracep->chgBit(oldp+258,(vlSelf->rvcpu__DOT__mem_wb8__DOT__teap_yn));
+            tracep->chgQData(oldp+259,(vlSelf->rvcpu__DOT__mem_wb8__DOT__trap_code),64);
+            tracep->chgQData(oldp+261,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[0]),64);
+            tracep->chgQData(oldp+263,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[1]),64);
+            tracep->chgQData(oldp+265,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[2]),64);
+            tracep->chgQData(oldp+267,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[3]),64);
+            tracep->chgQData(oldp+269,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[4]),64);
+            tracep->chgQData(oldp+271,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[5]),64);
+            tracep->chgQData(oldp+273,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[6]),64);
+            tracep->chgQData(oldp+275,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[7]),64);
+            tracep->chgQData(oldp+277,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[8]),64);
+            tracep->chgQData(oldp+279,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[9]),64);
+            tracep->chgQData(oldp+281,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[10]),64);
+            tracep->chgQData(oldp+283,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[11]),64);
+            tracep->chgQData(oldp+285,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[12]),64);
+            tracep->chgQData(oldp+287,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[13]),64);
+            tracep->chgQData(oldp+289,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[14]),64);
+            tracep->chgQData(oldp+291,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[15]),64);
+            tracep->chgQData(oldp+293,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[16]),64);
+            tracep->chgQData(oldp+295,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[17]),64);
+            tracep->chgQData(oldp+297,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[18]),64);
+            tracep->chgQData(oldp+299,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[19]),64);
+            tracep->chgQData(oldp+301,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[20]),64);
+            tracep->chgQData(oldp+303,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[21]),64);
+            tracep->chgQData(oldp+305,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[22]),64);
+            tracep->chgQData(oldp+307,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[23]),64);
+            tracep->chgQData(oldp+309,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[24]),64);
+            tracep->chgQData(oldp+311,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[25]),64);
+            tracep->chgQData(oldp+313,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[26]),64);
+            tracep->chgQData(oldp+315,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[27]),64);
+            tracep->chgQData(oldp+317,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[28]),64);
+            tracep->chgQData(oldp+319,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[29]),64);
+            tracep->chgQData(oldp+321,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[30]),64);
+            tracep->chgQData(oldp+323,(vlSelf->rvcpu__DOT__regfile10__DOT__regs[31]),64);
+            tracep->chgIData(oldp+325,(vlSelf->rvcpu__DOT__regfile10__DOT__i),32);
         }
-        tracep->chgBit(oldp+328,(vlSelf->clk));
-        tracep->chgBit(oldp+329,(vlSelf->rst));
-        tracep->chgQData(oldp+330,(vlSelf->inst_addr),64);
-        tracep->chgBit(oldp+332,(vlSelf->inst_ena));
-        tracep->chgBit(oldp+333,(vlSelf->inst_ready));
-        tracep->chgIData(oldp+334,(vlSelf->inst),32);
-        tracep->chgBit(oldp+335,(vlSelf->bui_inst_valid));
-        tracep->chgQData(oldp+336,(vlSelf->data_addr),64);
-        tracep->chgCData(oldp+338,(vlSelf->wmask),8);
-        tracep->chgQData(oldp+339,(vlSelf->data_o),64);
-        tracep->chgQData(oldp+341,(vlSelf->data_i),64);
-        tracep->chgBit(oldp+343,(vlSelf->we));
-        tracep->chgBit(oldp+344,(vlSelf->re));
-        tracep->chgBit(oldp+345,(vlSelf->mem_finish));
-        tracep->chgBit(oldp+346,(vlSelf->timer_intr));
-        tracep->chgQData(oldp+347,(((1U & ((~ (IData)(vlSelf->rst)) 
+        tracep->chgBit(oldp+326,(vlSelf->clk));
+        tracep->chgBit(oldp+327,(vlSelf->rst));
+        tracep->chgQData(oldp+328,(vlSelf->inst_addr),64);
+        tracep->chgBit(oldp+330,(vlSelf->inst_ena));
+        tracep->chgBit(oldp+331,(vlSelf->inst_ready));
+        tracep->chgIData(oldp+332,(vlSelf->inst),32);
+        tracep->chgBit(oldp+333,(vlSelf->bui_inst_valid));
+        tracep->chgQData(oldp+334,(vlSelf->data_addr),64);
+        tracep->chgCData(oldp+336,(vlSelf->wmask),8);
+        tracep->chgQData(oldp+337,(vlSelf->data_o),64);
+        tracep->chgQData(oldp+339,(vlSelf->data_i),64);
+        tracep->chgBit(oldp+341,(vlSelf->we));
+        tracep->chgBit(oldp+342,(vlSelf->re));
+        tracep->chgBit(oldp+343,(vlSelf->mem_finish));
+        tracep->chgBit(oldp+344,(vlSelf->timer_intr));
+        tracep->chgQData(oldp+345,(((1U & ((~ (IData)(vlSelf->rst)) 
                                            & ((IData)(vlSelf->rst)
                                                ? 0U
                                                : (IData)(vlSelf->rvcpu__DOT__pip_fore0__DOT__inst_jalr))))
@@ -561,16 +560,16 @@ void Vrvcpu___024root__traceChgSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* trac
                                         [(0x1fU & (vlSelf->inst 
                                                    >> 0xfU))])
                                      : 0ULL)),64);
-        tracep->chgBit(oldp+349,(((IData)(vlSelf->rst)
+        tracep->chgBit(oldp+347,(((IData)(vlSelf->rst)
                                    ? 0U : (1U & (IData)(vlSelf->rvcpu__DOT__pip_fore0__DOT__inst_jalr)))));
-        tracep->chgCData(oldp+350,((0x1fU & (vlSelf->inst 
+        tracep->chgCData(oldp+348,((0x1fU & (vlSelf->inst 
                                              >> 0xfU))),5);
-        tracep->chgQData(oldp+351,(((IData)(vlSelf->rst)
+        tracep->chgQData(oldp+349,(((IData)(vlSelf->rst)
                                      ? 0ULL : ((IData)(vlSelf->rvcpu__DOT__pip_fore0__DOT__inst_jalr)
                                                 ? (0xfffffffffffffffeULL 
                                                    & vlSelf->rvcpu__DOT__pip_fore0__DOT__j_pc)
                                                 : vlSelf->rvcpu__DOT__pip_fore0__DOT__j_pc))),64);
-        tracep->chgBit(oldp+353,(((IData)(vlSelf->rst)
+        tracep->chgBit(oldp+351,(((IData)(vlSelf->rst)
                                    ? 0U : (1U & ((((IData)(vlSelf->rst)
                                                     ? 0U
                                                     : 
@@ -591,7 +590,7 @@ void Vrvcpu___024root__traceChgSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* trac
                                                             == (IData)(vlSelf->rvcpu__DOT__idex_ex_rdaddr)))))) 
                                                  | ((IData)(vlSelf->rvcpu__DOT__id_if_flush) 
                                                     & (IData)(vlSelf->rvcpu__DOT__if_stall_req)))))));
-        tracep->chgQData(oldp+354,((((~ (IData)(vlSelf->rst)) 
+        tracep->chgQData(oldp+352,((((~ (IData)(vlSelf->rst)) 
                                      & (IData)(vlSelf->rvcpu__DOT__id_reg_ena1))
                                      ? ((((IData)(vlSelf->rvcpu__DOT__wb_id_addr) 
                                           == (IData)(vlSelf->rvcpu__DOT__id_reg_addr1)) 
@@ -600,7 +599,7 @@ void Vrvcpu___024root__traceChgSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* trac
                                          : vlSelf->rvcpu__DOT__regfile10__DOT__regs
                                         [vlSelf->rvcpu__DOT__id_reg_addr1])
                                      : 0ULL)),64);
-        tracep->chgQData(oldp+356,((((~ (IData)(vlSelf->rst)) 
+        tracep->chgQData(oldp+354,((((~ (IData)(vlSelf->rst)) 
                                      & (IData)(vlSelf->rvcpu__DOT__id_reg_ena2))
                                      ? ((((IData)(vlSelf->rvcpu__DOT__wb_id_addr) 
                                           == (IData)(vlSelf->rvcpu__DOT__id_reg_addr2)) 
@@ -609,17 +608,17 @@ void Vrvcpu___024root__traceChgSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* trac
                                          : vlSelf->rvcpu__DOT__regfile10__DOT__regs
                                         [vlSelf->rvcpu__DOT__id_reg_addr2])
                                      : 0ULL)),64);
-        tracep->chgBit(oldp+358,(((~ (IData)(vlSelf->rst)) 
+        tracep->chgBit(oldp+356,(((~ (IData)(vlSelf->rst)) 
                                   & (((IData)(vlSelf->re) 
                                       | (IData)(vlSelf->we)) 
                                      & (~ (IData)(vlSelf->mem_finish))))));
-        tracep->chgSData(oldp+359,((vlSelf->inst >> 0x14U)),12);
-        tracep->chgCData(oldp+360,((0x7fU & vlSelf->inst)),7);
-        tracep->chgBit(oldp+361,((IData)((0x6fU == 
+        tracep->chgSData(oldp+357,((vlSelf->inst >> 0x14U)),12);
+        tracep->chgCData(oldp+358,((0x7fU & vlSelf->inst)),7);
+        tracep->chgBit(oldp+359,((IData)((0x6fU == 
                                           (0x7fU & vlSelf->inst)))));
-        tracep->chgBit(oldp+362,((IData)((0x63U == 
+        tracep->chgBit(oldp+360,((IData)((0x63U == 
                                           (0x7fU & vlSelf->inst)))));
-        tracep->chgQData(oldp+363,(((IData)(vlSelf->rvcpu__DOT__pip_fore0__DOT__inst_jalr)
+        tracep->chgQData(oldp+361,(((IData)(vlSelf->rvcpu__DOT__pip_fore0__DOT__inst_jalr)
                                      ? ((1U & ((~ (IData)(vlSelf->rst)) 
                                                & ((IData)(vlSelf->rst)
                                                    ? 0U
@@ -636,7 +635,7 @@ void Vrvcpu___024root__traceChgSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* trac
                                               & (vlSelf->inst 
                                                  >> 0xfU))])
                                          : 0ULL) : vlSelf->inst_addr)),64);
-        tracep->chgQData(oldp+365,(((IData)((0x6fU 
+        tracep->chgQData(oldp+363,(((IData)((0x6fU 
                                              == (0x7fU 
                                                  & vlSelf->inst)))
                                      ? (((- (QData)((IData)(
@@ -670,19 +669,19 @@ void Vrvcpu___024root__traceChgSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* trac
                                                                   (vlSelf->inst 
                                                                    >> 0x14U))))
                                              : 4ULL)))),64);
-        tracep->chgBit(oldp+367,(((IData)(vlSelf->rst)
+        tracep->chgBit(oldp+365,(((IData)(vlSelf->rst)
                                    ? 0U : (1U & (((IData)(vlSelf->rvcpu__DOT__id_reg_ena1) 
                                                   & (2U 
                                                      == (IData)(vlSelf->rvcpu__DOT__ex_id_rd_type))) 
                                                  & ((IData)(vlSelf->rvcpu__DOT__id_reg_addr1) 
                                                     == (IData)(vlSelf->rvcpu__DOT__idex_ex_rdaddr)))))));
-        tracep->chgBit(oldp+368,(((IData)(vlSelf->rst)
+        tracep->chgBit(oldp+366,(((IData)(vlSelf->rst)
                                    ? 0U : (1U & (((IData)(vlSelf->rvcpu__DOT__id_reg_ena2) 
                                                   & (2U 
                                                      == (IData)(vlSelf->rvcpu__DOT__ex_id_rd_type))) 
                                                  & ((IData)(vlSelf->rvcpu__DOT__id_reg_addr2) 
                                                     == (IData)(vlSelf->rvcpu__DOT__idex_ex_rdaddr)))))));
-        tracep->chgQData(oldp+369,(((2U == (IData)(vlSelf->rvcpu__DOT__exmem_mem_type))
+        tracep->chgQData(oldp+367,(((2U == (IData)(vlSelf->rvcpu__DOT__exmem_mem_type))
                                      ? ((4U & (IData)(vlSelf->rvcpu__DOT__exmem_mem_sel))
                                          ? ((2U & (IData)(vlSelf->rvcpu__DOT__exmem_mem_sel))
                                              ? ((1U 
@@ -721,7 +720,7 @@ void Vrvcpu___024root__traceChgSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* trac
                                                   << 8U) 
                                                  | (QData)((IData)(vlSelf->rvcpu__DOT__mem7__DOT__data_byte))))))
                                      : 0ULL)),64);
-        tracep->chgQData(oldp+371,(((IData)(vlSelf->rst)
+        tracep->chgQData(oldp+369,(((IData)(vlSelf->rst)
                                      ? 0ULL : ((1U 
                                                 & (IData)(
                                                           (vlSelf->rvcpu__DOT__exmem_mem_lsaddr 
@@ -786,7 +785,7 @@ void Vrvcpu___024root__traceChgSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* trac
                                                      : (QData)((IData)(
                                                                        (0xffU 
                                                                         & (IData)(vlSelf->rvcpu__DOT__exmem_mem_data))))))))),64);
-        tracep->chgQData(oldp+373,(((IData)(vlSelf->rst)
+        tracep->chgQData(oldp+371,(((IData)(vlSelf->rst)
                                      ? 0ULL : ((0U 
                                                 == 
                                                 (3U 
@@ -819,13 +818,13 @@ void Vrvcpu___024root__traceChgSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* trac
                                                                      (0xffffU 
                                                                       & (IData)(vlSelf->rvcpu__DOT__exmem_mem_data)))) 
                                                      << 0x30U)))))),64);
-        tracep->chgQData(oldp+375,(((IData)(vlSelf->rst)
+        tracep->chgQData(oldp+373,(((IData)(vlSelf->rst)
                                      ? 0ULL : ((1U 
                                                 & (IData)(vlSelf->rvcpu__DOT__exmem_mem_lsaddr))
                                                 ? ((QData)((IData)(vlSelf->rvcpu__DOT__exmem_mem_data)) 
                                                    << 0x20U)
                                                 : (QData)((IData)(vlSelf->rvcpu__DOT__exmem_mem_data))))),64);
-        tracep->chgCData(oldp+377,(((IData)(vlSelf->rst)
+        tracep->chgCData(oldp+375,(((IData)(vlSelf->rst)
                                      ? 0U : ((1U & (IData)(
                                                            (vlSelf->rvcpu__DOT__exmem_mem_lsaddr 
                                                             >> 2U)))
@@ -857,7 +856,7 @@ void Vrvcpu___024root__traceChgSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* trac
                                                    & (IData)(vlSelf->rvcpu__DOT__exmem_mem_lsaddr))
                                                    ? 2U
                                                    : 1U))))),8);
-        tracep->chgCData(oldp+378,(((IData)(vlSelf->rst)
+        tracep->chgCData(oldp+376,(((IData)(vlSelf->rst)
                                      ? 0U : ((0U == 
                                               (3U & (IData)(vlSelf->rvcpu__DOT__exmem_mem_lsaddr)))
                                               ? 3U : 
@@ -871,10 +870,12 @@ void Vrvcpu___024root__traceChgSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* trac
                                                     & (IData)(vlSelf->rvcpu__DOT__exmem_mem_lsaddr)))
                                                    ? 0x30U
                                                    : 0xc0U))))),8);
-        tracep->chgCData(oldp+379,(((IData)(vlSelf->rst)
+        tracep->chgCData(oldp+377,(((IData)(vlSelf->rst)
                                      ? 0U : ((1U & (IData)(vlSelf->rvcpu__DOT__exmem_mem_lsaddr))
                                               ? 0xf0U
                                               : 0xfU))),8);
+        tracep->chgQData(oldp+378,(((IData)(vlSelf->rst)
+                                     ? 0ULL : vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_pc_o)),64);
     }
 }
 

@@ -78,22 +78,22 @@ always @(*) begin
     end 
 end
 
-always @(*) begin
-    if(wb_inst_o != 32'b0) begin
-        difftest_exyn = 1'b1;
+always @(posedge clk) begin
+    if(wb_inst_i != 32'b0) begin
+        difftest_exyn <= 1'b1;
         if(wb_inst_o == `EBREAK_TRAP) begin
-            teap_yn = 1'b1;
-            trap_code = wb_rd_data ;
+            teap_yn <= 1'b1;
+            trap_code <= wb_rd_data ;
         end
         else begin
-            teap_yn = 1'b0;
-            trap_code = `ysyx22040228_ZEROWORD ;
+            teap_yn <= 1'b0;
+            trap_code <= `ysyx22040228_ZEROWORD ;
         end  
     end 
     else if(wb_inst_o == 32'b0) begin
-        difftest_exyn = 1'b0;
-        teap_yn = 1'b0;
-        trap_code = `ysyx22040228_ZEROWORD ;
+        difftest_exyn <= 1'b0;
+        teap_yn <= 1'b0;
+        trap_code <= `ysyx22040228_ZEROWORD ;
     end 
 end
 

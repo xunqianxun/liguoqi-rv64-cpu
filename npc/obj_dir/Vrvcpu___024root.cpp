@@ -9,6 +9,16 @@
 
 //==========
 
+extern "C" void difftest_dut_thepc(long long thepc_data);
+
+VL_INLINE_OPT void Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__mem7__DOT__difftest_dut_thepc_TOP(QData/*63:0*/ thepc_data) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__mem7__DOT__difftest_dut_thepc_TOP\n"); );
+    // Body
+    long long thepc_data__Vcvt;
+    for (size_t thepc_data__Vidx = 0; thepc_data__Vidx < 1; ++thepc_data__Vidx) thepc_data__Vcvt = thepc_data;
+    difftest_dut_thepc(thepc_data__Vcvt);
+}
+
 extern "C" void difftest_dut_pc(long long pc_data, long long exit_code, svBit endyn, svBit exe);
 
 VL_INLINE_OPT void Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__mem_wb8__DOT__difftest_dut_pc_TOP(QData/*63:0*/ pc_data, QData/*63:0*/ exit_code, CData/*0:0*/ endyn, CData/*0:0*/ exe) {
@@ -150,7 +160,16 @@ VL_INLINE_OPT void Vrvcpu___024root___sequent__TOP__3(Vrvcpu___024root* vlSelf) 
     }
     if (vlSelf->rst) {
         vlSelf->rvcpu__DOT__ex_mem_mem_inst = 0U;
+        vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_pc_o = 0ULL;
         vlSelf->rvcpu__DOT__ex_mem_mem_pc = 0ULL;
+        vlSelf->rvcpu__DOT__id_ex_ex_inst = 0U;
+        vlSelf->rvcpu__DOT__idex_ex_offset = 0U;
+        vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_inst_o = 0U;
+        vlSelf->rvcpu__DOT__if_id_pc = 0ULL;
+        __Vdly__rvcpu__DOT__wb_regfile_data = 0ULL;
+        vlSelf->rvcpu__DOT__exmem_mem_data = 0ULL;
+        vlSelf->rvcpu__DOT__exmem_mem_sel = 0U;
+        vlSelf->rvcpu__DOT__exmem_mem_type = 0U;
     } else {
         vlSelf->rvcpu__DOT__ex_mem_mem_inst = ((IData)(
                                                        (0U 
@@ -165,6 +184,11 @@ VL_INLINE_OPT void Vrvcpu___024root___sequent__TOP__3(Vrvcpu___024root* vlSelf) 
                                                              & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))))
                                                     ? 0U
                                                     : vlSelf->rvcpu__DOT__ex_ex_mem_inst));
+        vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_pc_o = 
+            ((0x10U & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))
+              ? ((IData)((0x1fU == (0x1fU & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))))
+                  ? 0ULL : vlSelf->rvcpu__DOT__mem_mem_wb_pc)
+              : vlSelf->rvcpu__DOT__mem_mem_wb_pc);
         vlSelf->rvcpu__DOT__ex_mem_mem_pc = ((IData)(
                                                      (0U 
                                                       == 
@@ -178,25 +202,6 @@ VL_INLINE_OPT void Vrvcpu___024root___sequent__TOP__3(Vrvcpu___024root* vlSelf) 
                                                            & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))))
                                                   ? 0ULL
                                                   : vlSelf->rvcpu__DOT__ex_ex_mem_pc));
-    }
-    if ((0U != vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_inst_o)) {
-        vlSelf->rvcpu__DOT__mem_wb8__DOT__difftest_exyn = 1U;
-    } else if ((0U == vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_inst_o)) {
-        vlSelf->rvcpu__DOT__mem_wb8__DOT__difftest_exyn = 0U;
-    }
-    if ((0U != vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_inst_o)) {
-        vlSelf->rvcpu__DOT__mem_wb8__DOT__teap_yn = 
-            (0x100073U == vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_inst_o);
-    } else if ((0U == vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_inst_o)) {
-        vlSelf->rvcpu__DOT__mem_wb8__DOT__teap_yn = 0U;
-    }
-    if (vlSelf->rst) {
-        vlSelf->rvcpu__DOT__mem_wb8__DOT__pc_data1 = 0ULL;
-        vlSelf->rvcpu__DOT__id_ex_ex_inst = 0U;
-        vlSelf->rvcpu__DOT__idex_ex_offset = 0U;
-    } else {
-        vlSelf->rvcpu__DOT__mem_wb8__DOT__pc_data1 
-            = vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_pc_o;
         vlSelf->rvcpu__DOT__id_ex_ex_inst = ((IData)(
                                                      (0U 
                                                       == 
@@ -227,32 +232,11 @@ VL_INLINE_OPT void Vrvcpu___024root___sequent__TOP__3(Vrvcpu___024root* vlSelf) 
                                                             & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))))
                                                    ? 0U
                                                    : (IData)(vlSelf->rvcpu__DOT__id_ex_s_offset)));
-    }
-    if ((0U != vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_inst_o)) {
-        vlSelf->rvcpu__DOT__mem_wb8__DOT__trap_code 
-            = ((0x100073U == vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_inst_o)
-                ? vlSelf->rvcpu__DOT__wb_regfile_data
-                : 0ULL);
-    } else if ((0U == vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_inst_o)) {
-        vlSelf->rvcpu__DOT__mem_wb8__DOT__trap_code = 0ULL;
-    }
-    if (vlSelf->rst) {
-        __Vdly__rvcpu__DOT__wb_regfile_data = 0ULL;
-        vlSelf->rvcpu__DOT__if_id_pc = 0ULL;
-        vlSelf->rvcpu__DOT__exmem_mem_data = 0ULL;
-        vlSelf->rvcpu__DOT__exmem_mem_sel = 0U;
-        vlSelf->rvcpu__DOT__exmem_mem_type = 0U;
-    } else {
-        __Vdly__rvcpu__DOT__wb_regfile_data = ((0x10U 
-                                                & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))
-                                                ? ((IData)(
-                                                           (0x1fU 
-                                                            == 
-                                                            (0x1fU 
-                                                             & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))))
-                                                    ? 0ULL
-                                                    : vlSelf->rvcpu__DOT__wb_regfile_data)
-                                                : vlSelf->rvcpu__DOT__mem_id_data);
+        vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_inst_o 
+            = ((0x10U & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))
+                ? ((IData)((0x1fU == (0x1fU & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))))
+                    ? 0U : vlSelf->rvcpu__DOT__mem_mem_wb_inst)
+                : vlSelf->rvcpu__DOT__mem_mem_wb_inst);
         vlSelf->rvcpu__DOT__if_id_pc = ((IData)(vlSelf->rvcpu__DOT__ex_pc_branchena)
                                          ? 0ULL : ((IData)(
                                                            (2U 
@@ -271,6 +255,16 @@ VL_INLINE_OPT void Vrvcpu___024root___sequent__TOP__3(Vrvcpu___024root* vlSelf) 
                                                     ((IData)(vlSelf->rvcpu__DOT__id_if_flush)
                                                       ? 0ULL
                                                       : vlSelf->inst_addr))));
+        __Vdly__rvcpu__DOT__wb_regfile_data = ((0x10U 
+                                                & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))
+                                                ? ((IData)(
+                                                           (0x1fU 
+                                                            == 
+                                                            (0x1fU 
+                                                             & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))))
+                                                    ? 0ULL
+                                                    : vlSelf->rvcpu__DOT__wb_regfile_data)
+                                                : vlSelf->rvcpu__DOT__mem_id_data);
         vlSelf->rvcpu__DOT__exmem_mem_data = ((IData)(
                                                       (0U 
                                                        == 
@@ -561,7 +555,6 @@ VL_INLINE_OPT void Vrvcpu___024root___sequent__TOP__3(Vrvcpu___024root* vlSelf) 
                                                       ? 0U
                                                       : vlSelf->inst))));
     }
-    vlSelf->rvcpu__DOT__wb_regfile_data = __Vdly__rvcpu__DOT__wb_regfile_data;
     if (__Vdlyvset__rvcpu__DOT__regfile10__DOT__regs__v0) {
         vlSelf->rvcpu__DOT__regfile10__DOT__regs[0U] = 0ULL;
         vlSelf->rvcpu__DOT__regfile10__DOT__regs[1U] = 0ULL;
@@ -600,46 +593,36 @@ VL_INLINE_OPT void Vrvcpu___024root___sequent__TOP__3(Vrvcpu___024root* vlSelf) 
         vlSelf->rvcpu__DOT__regfile10__DOT__regs[__Vdlyvdim0__rvcpu__DOT__regfile10__DOT__regs__v32] 
             = __Vdlyvval__rvcpu__DOT__regfile10__DOT__regs__v32;
     }
-    vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_pc_o = ((IData)(vlSelf->rst)
-                                                  ? 0ULL
-                                                  : 
-                                                 ((0x10U 
-                                                   & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))
-                                                   ? 
-                                                  ((IData)(
-                                                           (0x1fU 
-                                                            == 
-                                                            (0x1fU 
-                                                             & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))))
-                                                    ? 0ULL
-                                                    : vlSelf->rvcpu__DOT__mem_mem_wb_pc)
-                                                   : vlSelf->rvcpu__DOT__mem_mem_wb_pc));
-    Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__mem_wb8__DOT__difftest_dut_pc_TOP(vlSelf->rvcpu__DOT__mem_wb8__DOT__pc_data1, vlSelf->rvcpu__DOT__mem_wb8__DOT__trap_code, (IData)(vlSelf->rvcpu__DOT__mem_wb8__DOT__teap_yn), vlSelf->rvcpu__DOT__mem_wb8__DOT__difftest_exyn);
-    if (vlSelf->rst) {
-        vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_inst_o = 0U;
-        vlSelf->rvcpu__DOT__idex_ex_sel = 0U;
-    } else {
-        vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_inst_o 
-            = ((0x10U & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))
-                ? ((IData)((0x1fU == (0x1fU & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))))
-                    ? 0U : vlSelf->rvcpu__DOT__mem_mem_wb_inst)
-                : vlSelf->rvcpu__DOT__mem_mem_wb_inst);
-        vlSelf->rvcpu__DOT__idex_ex_sel = ((IData)(
-                                                   (0U 
-                                                    == 
-                                                    (0x1cU 
-                                                     & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))))
-                                            ? ((IData)(vlSelf->rvcpu__DOT__ex_pc_branchena)
-                                                ? 0U
-                                                : (IData)(vlSelf->rvcpu__DOT__id_ex_memsel))
-                                            : ((IData)(
-                                                       (7U 
-                                                        == 
-                                                        (0xfU 
-                                                         & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))))
-                                                ? 0U
-                                                : (IData)(vlSelf->rvcpu__DOT__id_ex_memsel)));
+    vlSelf->rvcpu__DOT__wb_regfile_data = __Vdly__rvcpu__DOT__wb_regfile_data;
+    if ((0U != vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_inst_o)) {
+        vlSelf->rvcpu__DOT__mem_wb8__DOT__teap_yn = 
+            (0x100073U == vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_inst_o);
+    } else if ((0U == vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_inst_o)) {
+        vlSelf->rvcpu__DOT__mem_wb8__DOT__teap_yn = 0U;
     }
+    if ((0U != vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_inst_o)) {
+        vlSelf->rvcpu__DOT__mem_wb8__DOT__difftest_exyn = 1U;
+    } else if ((0U == vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_inst_o)) {
+        vlSelf->rvcpu__DOT__mem_wb8__DOT__difftest_exyn = 0U;
+    }
+    vlSelf->rvcpu__DOT__idex_ex_sel = ((IData)(vlSelf->rst)
+                                        ? 0U : ((IData)(
+                                                        (0U 
+                                                         == 
+                                                         (0x1cU 
+                                                          & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))))
+                                                 ? 
+                                                ((IData)(vlSelf->rvcpu__DOT__ex_pc_branchena)
+                                                  ? 0U
+                                                  : (IData)(vlSelf->rvcpu__DOT__id_ex_memsel))
+                                                 : 
+                                                ((IData)(
+                                                         (7U 
+                                                          == 
+                                                          (0xfU 
+                                                           & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))))
+                                                  ? 0U
+                                                  : (IData)(vlSelf->rvcpu__DOT__id_ex_memsel))));
     Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__regfile10__DOT__difftest_dut_regs_TOP(
                                                                                 vlSelf->rvcpu__DOT__regfile10__DOT__regs
                                                                                 [0U], 
@@ -705,6 +688,14 @@ VL_INLINE_OPT void Vrvcpu___024root___sequent__TOP__3(Vrvcpu___024root* vlSelf) 
                                                                                 [0x1eU], 
                                                                                 vlSelf->rvcpu__DOT__regfile10__DOT__regs
                                                                                 [0x1fU]);
+    if ((0U != vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_inst_o)) {
+        vlSelf->rvcpu__DOT__mem_wb8__DOT__trap_code 
+            = ((0x100073U == vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_inst_o)
+                ? vlSelf->rvcpu__DOT__wb_regfile_data
+                : 0ULL);
+    } else if ((0U == vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_inst_o)) {
+        vlSelf->rvcpu__DOT__mem_wb8__DOT__trap_code = 0ULL;
+    }
     vlSelf->rvcpu__DOT__exmem_mem_ena = ((~ (IData)(vlSelf->rst)) 
                                          & ((IData)(
                                                     (0U 
@@ -1197,8 +1188,15 @@ VL_INLINE_OPT void Vrvcpu___024root___combo__TOP__4(Vrvcpu___024root* vlSelf) {
                                                              == 
                                                              (0x7fU 
                                                               & vlSelf->inst)));
-    vlSelf->rvcpu__DOT__ex_ex_mem_inst = ((IData)(vlSelf->rst)
-                                           ? 0U : vlSelf->rvcpu__DOT__id_ex_ex_inst);
+    if (vlSelf->rst) {
+        vlSelf->rvcpu__DOT__mem_mem_wb_inst = 0U;
+        vlSelf->rvcpu__DOT__mem_mem_wb_pc = 0ULL;
+        vlSelf->rvcpu__DOT__ex_ex_mem_inst = 0U;
+    } else {
+        vlSelf->rvcpu__DOT__mem_mem_wb_inst = vlSelf->rvcpu__DOT__ex_mem_mem_inst;
+        vlSelf->rvcpu__DOT__mem_mem_wb_pc = vlSelf->rvcpu__DOT__ex_mem_mem_pc;
+        vlSelf->rvcpu__DOT__ex_ex_mem_inst = vlSelf->rvcpu__DOT__id_ex_ex_inst;
+    }
     vlSelf->we = (1U & ((~ (IData)(vlSelf->rst)) & (IData)(vlSelf->rvcpu__DOT__exmem_mem_type)));
     vlSelf->re = (1U & ((~ (IData)(vlSelf->rst)) & 
                         ((IData)(vlSelf->rvcpu__DOT__exmem_mem_type) 
@@ -1524,18 +1522,19 @@ VL_INLINE_OPT void Vrvcpu___024root___combo__TOP__4(Vrvcpu___024root* vlSelf) {
                                                                                (0x1fU 
                                                                                 & (vlSelf->rvcpu__DOT__if_id_inst 
                                                                                 >> 2U))))))))))));
+    vlSelf->rvcpu__DOT__id_ex_memsel = ((IData)(vlSelf->rst)
+                                         ? 0U : (7U 
+                                                 & (vlSelf->rvcpu__DOT__if_id_inst 
+                                                    >> 0xcU)));
+    Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__mem_wb8__DOT__difftest_dut_pc_TOP(
+                                                                                ((IData)(vlSelf->rst)
+                                                                                 ? 0ULL
+                                                                                 : vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_pc_o), vlSelf->rvcpu__DOT__mem_wb8__DOT__trap_code, (IData)(vlSelf->rvcpu__DOT__mem_wb8__DOT__teap_yn), vlSelf->rvcpu__DOT__mem_wb8__DOT__difftest_exyn);
     if (vlSelf->rst) {
-        vlSelf->rvcpu__DOT__mem_mem_wb_pc = 0ULL;
-        vlSelf->rvcpu__DOT__mem_mem_wb_inst = 0U;
-        vlSelf->rvcpu__DOT__id_ex_memsel = 0U;
         vlSelf->rvcpu__DOT__id_ex_pc = 0ULL;
         vlSelf->rvcpu__DOT__ex5__DOT__exe_res = 0ULL;
         vlSelf->rvcpu__DOT__ex_ex_mem_pc = 0ULL;
     } else {
-        vlSelf->rvcpu__DOT__mem_mem_wb_pc = vlSelf->rvcpu__DOT__ex_mem_mem_pc;
-        vlSelf->rvcpu__DOT__mem_mem_wb_inst = vlSelf->rvcpu__DOT__ex_mem_mem_inst;
-        vlSelf->rvcpu__DOT__id_ex_memsel = (7U & (vlSelf->rvcpu__DOT__if_id_inst 
-                                                  >> 0xcU));
         vlSelf->rvcpu__DOT__id_ex_pc = vlSelf->rvcpu__DOT__if_id_pc;
         vlSelf->rvcpu__DOT__ex5__DOT__exe_res = ((0x80U 
                                                   & (IData)(vlSelf->rvcpu__DOT__idex_ex_opcode))
@@ -1925,6 +1924,7 @@ VL_INLINE_OPT void Vrvcpu___024root___combo__TOP__4(Vrvcpu___024root* vlSelf) {
                                                          : 0ULL))))))));
         vlSelf->rvcpu__DOT__ex_ex_mem_pc = vlSelf->rvcpu__DOT__idex_ex_pc;
     }
+    Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__mem7__DOT__difftest_dut_thepc_TOP(vlSelf->rvcpu__DOT__mem_mem_wb_pc);
     if ((1U & ((IData)(vlSelf->rst) | (~ (IData)(vlSelf->rvcpu__DOT__exmem_mem_type))))) {
         vlSelf->wmask = 0U;
         vlSelf->data_o = 0ULL;
