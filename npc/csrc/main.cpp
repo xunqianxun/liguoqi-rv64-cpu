@@ -21,7 +21,7 @@ int is_exit_status_bad();
 
 
 
-extern "C" void void difftest_dut_thepc(long long thepc_data){
+extern "C" void difftest_dut_thepc(long long thepc_data){
     cpu.pc = thepc_data  ;
 }
 
