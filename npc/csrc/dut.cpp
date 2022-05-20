@@ -124,6 +124,7 @@ void difftest_step(uint64_t pc, uint64_t npc) {
     return;
   }
   ref_difftest_exec(1);
+  printf("pc\n");
   ref_difftest_regcpy(&ref_r, DIFFTEST_TO_DUT);
 
 
