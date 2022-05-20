@@ -46,18 +46,6 @@ module ex (
     
 );
 
-// import "DPI-C" function void Ebreak_teap(input rvsign);
-
-// always@(*)begin
-//  if(inst_opcode_i == `INST_ECALL) begin
-//      Ebreak_teap(1);
-//  end
-//  else begin
-//      Ebreak_teap(0);
-//  end
-// end
-
-
 assign ex_pc_o = (rst == `ysyx22040228_RSTENA) ? `ysyx22040228_ZEROWORD : pc_i ;
 assign ex_inst_o = (rst == `ysyx22040228_RSTENA) ? 32'b0 : id_ex_inst ;
 

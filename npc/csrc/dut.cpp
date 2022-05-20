@@ -138,6 +138,7 @@ bool isa_difftest_checkregs(CPU_state *ref_r, uint64_t pc) {
       difftest_check_reg(reg_name(i, 4), pc, ref_r->gpr[i], cpu.gpr[i]);
     }
     difftest_check_reg("pc", pc, ref_r->pc, cpu.pc);
+    printf("nemu_pc=%lx npc_pc=%lx cpupc=%lx\n", pc, ref_r->pc, cpu.pc);
     return false;
   }
   return true;
