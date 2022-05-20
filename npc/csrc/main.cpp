@@ -111,6 +111,7 @@ if(main_time > 1){
 
 if((main_time % 10) == 1){
   rvcpu->clk = 1;
+  rvcpu->mem_finish = 0;
   rvcpu->eval();
 }
 if((main_time % 10) == 3){
