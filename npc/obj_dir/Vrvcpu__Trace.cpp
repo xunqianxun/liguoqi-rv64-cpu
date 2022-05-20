@@ -550,14 +550,16 @@ void Vrvcpu___024root__traceChgSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* trac
                                            & ((IData)(vlSelf->rst)
                                                ? 0U
                                                : (IData)(vlSelf->rvcpu__DOT__pip_fore0__DOT__inst_jalr))))
-                                     ? ((((IData)(vlSelf->rvcpu__DOT__wb_id_addr) 
-                                          == (0x1fU 
-                                              & (vlSelf->inst 
-                                                 >> 0xfU))) 
+                                     ? ((((0x1fU & 
+                                           (vlSelf->inst 
+                                            >> 0xfU)) 
+                                          == ((IData)(vlSelf->rvcpu__DOT__id_reg_addr1) 
+                                              | (IData)(vlSelf->rvcpu__DOT__id_reg_addr2))) 
                                          & (IData)(vlSelf->rvcpu__DOT__wb_id_ena))
                                          ? vlSelf->rvcpu__DOT__wb_regfile_data
                                          : vlSelf->rvcpu__DOT__regfile10__DOT__regs
-                                        [vlSelf->rvcpu__DOT__id_reg_addr1])
+                                        [(0x1fU & (vlSelf->inst 
+                                                   >> 0xfU))])
                                      : 0ULL)),64);
         tracep->chgBit(oldp+349,(((IData)(vlSelf->rst)
                                    ? 0U : (1U & (IData)(vlSelf->rvcpu__DOT__pip_fore0__DOT__inst_jalr)))));
@@ -622,14 +624,17 @@ void Vrvcpu___024root__traceChgSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* trac
                                                & ((IData)(vlSelf->rst)
                                                    ? 0U
                                                    : (IData)(vlSelf->rvcpu__DOT__pip_fore0__DOT__inst_jalr))))
-                                         ? ((((IData)(vlSelf->rvcpu__DOT__wb_id_addr) 
-                                              == (0x1fU 
-                                                  & (vlSelf->inst 
-                                                     >> 0xfU))) 
+                                         ? ((((0x1fU 
+                                               & (vlSelf->inst 
+                                                  >> 0xfU)) 
+                                              == ((IData)(vlSelf->rvcpu__DOT__id_reg_addr1) 
+                                                  | (IData)(vlSelf->rvcpu__DOT__id_reg_addr2))) 
                                              & (IData)(vlSelf->rvcpu__DOT__wb_id_ena))
                                              ? vlSelf->rvcpu__DOT__wb_regfile_data
                                              : vlSelf->rvcpu__DOT__regfile10__DOT__regs
-                                            [vlSelf->rvcpu__DOT__id_reg_addr1])
+                                            [(0x1fU 
+                                              & (vlSelf->inst 
+                                                 >> 0xfU))])
                                          : 0ULL) : vlSelf->inst_addr)),64);
         tracep->chgQData(oldp+365,(((IData)((0x6fU 
                                              == (0x7fU 

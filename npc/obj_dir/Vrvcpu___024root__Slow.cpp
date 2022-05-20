@@ -1891,16 +1891,20 @@ void Vrvcpu___024root___settle__TOP__2(Vrvcpu___024root* vlSelf) {
                                                           ? 0U
                                                           : (IData)(vlSelf->rvcpu__DOT__pip_fore0__DOT__inst_jalr))))
                                                    ? 
-                                                  ((((IData)(vlSelf->rvcpu__DOT__wb_id_addr) 
-                                                     == 
-                                                     (0x1fU 
+                                                  ((((0x1fU 
                                                       & (vlSelf->inst 
-                                                         >> 0xfU))) 
+                                                         >> 0xfU)) 
+                                                     == 
+                                                     ((IData)(vlSelf->rvcpu__DOT__id_reg_addr1) 
+                                                      | (IData)(vlSelf->rvcpu__DOT__id_reg_addr2))) 
                                                     & (IData)(vlSelf->rvcpu__DOT__wb_id_ena))
                                                     ? vlSelf->rvcpu__DOT__wb_regfile_data
                                                     : 
                                                    vlSelf->rvcpu__DOT__regfile10__DOT__regs
-                                                   [vlSelf->rvcpu__DOT__id_reg_addr1])
+                                                   [
+                                                   (0x1fU 
+                                                    & (vlSelf->inst 
+                                                       >> 0xfU))])
                                                    : 0ULL)
                                                   : vlSelf->inst_addr) 
                                                 + ((IData)(
