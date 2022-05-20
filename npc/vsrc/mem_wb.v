@@ -69,31 +69,31 @@ reg                            difftest_exyn;
 reg                            teap_yn ;
 reg   [`ysyx22040228_REGBUS]   trap_code;
 
-always @(posedge clk) begin
+always @(*) begin
     if(rst == `ysyx22040228_RENABLE) begin
-       pc_data1   <= `ysyx22040228_ZEROWORD;
+       pc_data1   = `ysyx22040228_ZEROWORD;
     end 
     else begin
-       pc_data1   <= wb_pc_o;
+       pc_data1   = wb_pc_o;
     end 
 end
 
-always @(posedge clk) begin
+always @(*) begin
     if(wb_inst_o != 32'b0) begin
-        difftest_exyn <= 1'b1;
+        difftest_exyn = 1'b1;
         if(wb_inst_o == `EBREAK_TRAP) begin
-            teap_yn <= 1'b1;
-            trap_code <= wb_rd_data ;
+            teap_yn = 1'b1;
+            trap_code = wb_rd_data ;
         end
         else begin
-            teap_yn <= 1'b0;
-            trap_code <= `ysyx22040228_ZEROWORD ;
+            teap_yn = 1'b0;
+            trap_code = `ysyx22040228_ZEROWORD ;
         end  
     end 
     else if(wb_inst_o == 32'b0) begin
-        difftest_exyn <= 1'b0;
-        teap_yn <= 1'b0;
-        trap_code <= `ysyx22040228_ZEROWORD ;
+        difftest_exyn = 1'b0;
+        teap_yn = 1'b0;
+        trap_code = `ysyx22040228_ZEROWORD ;
     end 
 end
 

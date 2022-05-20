@@ -19,16 +19,13 @@ VerilatedContext* contextp;
 uint32_t ifetch(uint64_t addr, int len);
 int is_exit_status_bad();
 
-// int ebreaksign;
 
 
-// extern "C" void Ebreak_teap(svLogic rvsign){
-//   if(rvsign == 1) ebreaksign = 1;
-//   else            ebreaksign = 0;
-// }
+extern "C" void void difftest_dut_thepc(long long thepc_data){
+    cpu.pc = thepc_data  ;
+}
 
 extern "C" void difftest_dut_pc(long long pc_data, long long exit_code, svBit endyn, svBit exe){
-  cpu.pc = pc_data  ;
   difftest_ena = exe;
   if(endyn) {
     npc_state.halt_ret = exit_code;
