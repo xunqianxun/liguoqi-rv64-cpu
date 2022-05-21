@@ -127,12 +127,12 @@ always @(*) begin
     if(~inst_type_i[2])  begin ex_flush_branch = `ysyx22040228_FLUSHDISABLE  ;    end
     else begin
         case (inst_opcode_i) 
-             `INST_BEQ     : begin  ex_flush_branch = (op1_i == op2_i) ? `ysyx22040228_FLUSHABLE : `ysyx22040228_FLUSHDISABLE ;  end
-             `INST_BNE     : begin  ex_flush_branch = (op1_i != op2_i) ? `ysyx22040228_FLUSHABLE : `ysyx22040228_FLUSHDISABLE ;  end
-             `INST_BLTU    : begin  ex_flush_branch = (op1_i <  op2_i) ? `ysyx22040228_FLUSHABLE : `ysyx22040228_FLUSHDISABLE ;  end
-             `INST_BGEU    : begin  ex_flush_branch = (op1_i >= op2_i) ? `ysyx22040228_FLUSHABLE : `ysyx22040228_FLUSHDISABLE ;  end
-             `INST_BLT     : begin  ex_flush_branch = ( op1_ls_op2   ) ? `ysyx22040228_FLUSHABLE : `ysyx22040228_FLUSHDISABLE ;  end
-             `INST_BGE     : begin  ex_flush_branch = (~op1_ls_op2   ) ? `ysyx22040228_FLUSHABLE : `ysyx22040228_FLUSHDISABLE ;  end
+             `INST_BEQ     : begin  ex_flush_branch = (op1_i == op2_i) ? `ysyx22040228_FLUSHDISABLE : `ysyx22040228_FLUSHABLE ;  end
+             `INST_BNE     : begin  ex_flush_branch = (op1_i != op2_i) ? `ysyx22040228_FLUSHDISABLE : `ysyx22040228_FLUSHABLE ;  end
+             `INST_BLTU    : begin  ex_flush_branch = (op1_i <  op2_i) ? `ysyx22040228_FLUSHDISABLE : `ysyx22040228_FLUSHABLE ;  end
+             `INST_BGEU    : begin  ex_flush_branch = (op1_i >= op2_i) ? `ysyx22040228_FLUSHDISABLE : `ysyx22040228_FLUSHABLE ;  end
+             `INST_BLT     : begin  ex_flush_branch = ( op1_ls_op2   ) ? `ysyx22040228_FLUSHDISABLE : `ysyx22040228_FLUSHABLE ;  end
+             `INST_BGE     : begin  ex_flush_branch = (~op1_ls_op2   ) ? `ysyx22040228_FLUSHDISABLE : `ysyx22040228_FLUSHABLE ;  end
              default:        begin  ex_flush_branch = `ysyx22040228_FLUSHDISABLE  ;    end 
         endcase
     end
