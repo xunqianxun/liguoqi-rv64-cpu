@@ -50,6 +50,7 @@ static void trace_and_difftest(Decode *_this, uint64_t dnpc) {
 #endif
 //  if (g_print_step) { IFDEF(CONFIG_ITRACE, puts(_this->logbuf)); }
   if(difftest_ena){difftest_step(name_pc, dnpc);}// printf("thispc=%lx dnpc=%lx\n",_this->pc, dnpc);
+  else {difftest_ena = difftest_ena;}
 }
 
 static void exec_once(Decode *s, uint64_t pc) {
