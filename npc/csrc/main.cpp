@@ -112,7 +112,7 @@ if((main_time % 10) == 1){
   rvcpu->mem_finish = 0;
   rvcpu->eval();
 }
-if((main_time % 10) == 3){
+if(((main_time % 10) == 3) && difftest_ena){
   ddy = 0;
 //  printf("keyiyunxing\n");
 }
