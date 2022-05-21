@@ -588,6 +588,70 @@ void Vrvcpu___024root___settle__TOP__2(Vrvcpu___024root* vlSelf) {
                                                    & (IData)(vlSelf->rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mie_mtie)) 
                                                   & (0ULL 
                                                      != vlSelf->rvcpu__DOT__idex_ex_pc));
+    vlSelf->rvcpu__DOT__pip_fore0__DOT__j_pc = (((IData)(vlSelf->rvcpu__DOT__pip_fore0__DOT__inst_jalr)
+                                                  ? 
+                                                 ((1U 
+                                                   & ((~ (IData)(vlSelf->rst)) 
+                                                      & ((IData)(vlSelf->rst)
+                                                          ? 0U
+                                                          : (IData)(vlSelf->rvcpu__DOT__pip_fore0__DOT__inst_jalr))))
+                                                   ? 
+                                                  ((((0x1fU 
+                                                      & (vlSelf->inst 
+                                                         >> 0xfU)) 
+                                                     == (IData)(vlSelf->rvcpu__DOT__wb_id_addr)) 
+                                                    & (IData)(vlSelf->rvcpu__DOT__wb_id_ena))
+                                                    ? vlSelf->rvcpu__DOT__wb_regfile_data
+                                                    : 
+                                                   vlSelf->rvcpu__DOT__regfile10__DOT__regs
+                                                   [
+                                                   (0x1fU 
+                                                    & (vlSelf->inst 
+                                                       >> 0xfU))])
+                                                   : 0ULL)
+                                                  : vlSelf->inst_addr) 
+                                                + ((IData)(
+                                                           (0x6fU 
+                                                            == 
+                                                            (0x7fU 
+                                                             & vlSelf->inst)))
+                                                    ? 
+                                                   (((- (QData)((IData)(
+                                                                        (1U 
+                                                                         & (vlSelf->rvcpu__DOT__pip_fore0__DOT__j_imm 
+                                                                            >> 0x13U))))) 
+                                                     << 0x14U) 
+                                                    | (QData)((IData)(
+                                                                      (0xfffffU 
+                                                                       & (vlSelf->rvcpu__DOT__pip_fore0__DOT__j_imm 
+                                                                          << 1U)))))
+                                                    : 
+                                                   ((IData)(
+                                                            (0x63U 
+                                                             == 
+                                                             (0x7fU 
+                                                              & vlSelf->inst)))
+                                                     ? 
+                                                    (((- (QData)((IData)(
+                                                                         (1U 
+                                                                          & ((IData)(vlSelf->rvcpu__DOT__pip_fore0__DOT__b_imm) 
+                                                                             >> 0xbU))))) 
+                                                      << 0xcU) 
+                                                     | (QData)((IData)(
+                                                                       (0xfffU 
+                                                                        & ((IData)(vlSelf->rvcpu__DOT__pip_fore0__DOT__b_imm) 
+                                                                           << 1U)))))
+                                                     : 
+                                                    ((IData)(vlSelf->rvcpu__DOT__pip_fore0__DOT__inst_jalr)
+                                                      ? 
+                                                     (((- (QData)((IData)(
+                                                                          (vlSelf->inst 
+                                                                           >> 0x1fU)))) 
+                                                       << 0xcU) 
+                                                      | (QData)((IData)(
+                                                                        (vlSelf->inst 
+                                                                         >> 0x14U))))
+                                                      : 4ULL))));
     if ((1U & ((IData)(vlSelf->rst) | (~ (IData)(vlSelf->rvcpu__DOT__exmem_mem_type))))) {
         vlSelf->wmask = 0U;
         vlSelf->data_o = 0ULL;
@@ -1885,72 +1949,6 @@ void Vrvcpu___024root___settle__TOP__2(Vrvcpu___024root* vlSelf) {
                                                  != (IData)(vlSelf->rvcpu__DOT__idex_ex_opcode)))
                                               ? vlSelf->rvcpu__DOT__ex5__DOT__read_csr_data
                                               : vlSelf->rvcpu__DOT__ex5__DOT__exe_res));
-    vlSelf->rvcpu__DOT__pip_fore0__DOT__j_pc = (((IData)(vlSelf->rvcpu__DOT__pip_fore0__DOT__inst_jalr)
-                                                  ? 
-                                                 ((1U 
-                                                   & ((~ (IData)(vlSelf->rst)) 
-                                                      & ((IData)(vlSelf->rst)
-                                                          ? 0U
-                                                          : (IData)(vlSelf->rvcpu__DOT__pip_fore0__DOT__inst_jalr))))
-                                                   ? 
-                                                  ((((0x1fU 
-                                                      & (vlSelf->inst 
-                                                         >> 0xfU)) 
-                                                     == 
-                                                     ((IData)(vlSelf->rvcpu__DOT__id_reg_addr1) 
-                                                      | (IData)(vlSelf->rvcpu__DOT__id_reg_addr2))) 
-                                                    & (IData)(vlSelf->rvcpu__DOT__wb_id_ena))
-                                                    ? vlSelf->rvcpu__DOT__wb_regfile_data
-                                                    : 
-                                                   vlSelf->rvcpu__DOT__regfile10__DOT__regs
-                                                   [
-                                                   (0x1fU 
-                                                    & (vlSelf->inst 
-                                                       >> 0xfU))])
-                                                   : 0ULL)
-                                                  : vlSelf->inst_addr) 
-                                                + ((IData)(
-                                                           (0x6fU 
-                                                            == 
-                                                            (0x7fU 
-                                                             & vlSelf->inst)))
-                                                    ? 
-                                                   (((- (QData)((IData)(
-                                                                        (1U 
-                                                                         & (vlSelf->rvcpu__DOT__pip_fore0__DOT__j_imm 
-                                                                            >> 0x13U))))) 
-                                                     << 0x14U) 
-                                                    | (QData)((IData)(
-                                                                      (0xfffffU 
-                                                                       & (vlSelf->rvcpu__DOT__pip_fore0__DOT__j_imm 
-                                                                          << 1U)))))
-                                                    : 
-                                                   ((IData)(
-                                                            (0x63U 
-                                                             == 
-                                                             (0x7fU 
-                                                              & vlSelf->inst)))
-                                                     ? 
-                                                    (((- (QData)((IData)(
-                                                                         (1U 
-                                                                          & ((IData)(vlSelf->rvcpu__DOT__pip_fore0__DOT__b_imm) 
-                                                                             >> 0xbU))))) 
-                                                      << 0xcU) 
-                                                     | (QData)((IData)(
-                                                                       (0xfffU 
-                                                                        & ((IData)(vlSelf->rvcpu__DOT__pip_fore0__DOT__b_imm) 
-                                                                           << 1U)))))
-                                                     : 
-                                                    ((IData)(vlSelf->rvcpu__DOT__pip_fore0__DOT__inst_jalr)
-                                                      ? 
-                                                     (((- (QData)((IData)(
-                                                                          (vlSelf->inst 
-                                                                           >> 0x1fU)))) 
-                                                       << 0xcU) 
-                                                      | (QData)((IData)(
-                                                                        (vlSelf->inst 
-                                                                         >> 0x14U))))
-                                                      : 4ULL))));
     vlSelf->rvcpu__DOT__id3__DOT__ex_op1 = (((IData)(vlSelf->rvcpu__DOT__idex_ex_rdaddr) 
                                              == (IData)(vlSelf->rvcpu__DOT__id_reg_addr1)) 
                                             & (IData)(vlSelf->rvcpu__DOT__ex_id_rd_ena));

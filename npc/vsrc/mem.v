@@ -49,8 +49,8 @@ assign data_addr_o    = (rst == `ysyx22040228_RSTENA) ? `ysyx22040228_ZEROWORD :
 reg [`ysyx22040228_DATABUS] load_data ;
 
 wire [ 2:0] byte_sel      = ls_addr_i[2:0] ;
-wire [ 1:0] half_byte_sel = ls_addr_i[1:0] ;
-wire        word_sel      = ls_addr_i[0]   ;
+wire [ 1:0] half_byte_sel = ls_addr_i[2:1] ;
+wire        word_sel      = ls_addr_i[1]   ;
 
 reg  [ 7:0] data_byte      ;
 reg  [15:0] data_half_byte ;

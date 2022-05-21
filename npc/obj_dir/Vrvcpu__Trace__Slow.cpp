@@ -1033,8 +1033,7 @@ void Vrvcpu___024root__traceFullSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
                                       ? ((((0x1fU & 
                                             (vlSelf->inst 
                                              >> 0xfU)) 
-                                           == ((IData)(vlSelf->rvcpu__DOT__id_reg_addr1) 
-                                               | (IData)(vlSelf->rvcpu__DOT__id_reg_addr2))) 
+                                           == (IData)(vlSelf->rvcpu__DOT__wb_id_addr)) 
                                           & (IData)(vlSelf->rvcpu__DOT__wb_id_ena))
                                           ? vlSelf->rvcpu__DOT__wb_regfile_data
                                           : vlSelf->rvcpu__DOT__regfile10__DOT__regs
@@ -1110,8 +1109,7 @@ void Vrvcpu___024root__traceFullSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
                                           ? ((((0x1fU 
                                                 & (vlSelf->inst 
                                                    >> 0xfU)) 
-                                               == ((IData)(vlSelf->rvcpu__DOT__id_reg_addr1) 
-                                                   | (IData)(vlSelf->rvcpu__DOT__id_reg_addr2))) 
+                                               == (IData)(vlSelf->rvcpu__DOT__wb_id_addr)) 
                                               & (IData)(vlSelf->rvcpu__DOT__wb_id_ena))
                                               ? vlSelf->rvcpu__DOT__wb_regfile_data
                                               : vlSelf->rvcpu__DOT__regfile10__DOT__regs
