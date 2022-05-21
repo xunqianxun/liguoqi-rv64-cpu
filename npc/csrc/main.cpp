@@ -187,6 +187,7 @@ if(main_time > 10){
 }
 
 if((main_time % 10) == 1){
+  printf("pcdata=%lx\n",rvcpu->inst_addr);
   rvcpu->clk = 1;
   // get pc
   rvcpu->inst = ifetch(rvcpu->inst_addr, 4);
