@@ -185,7 +185,7 @@ while(ddy){
 if(main_time > 10){
   rvcpu->rst = 0 ; 
 }
-
+if(rvcpu->rst == 0){
 if((main_time % 10) == 1){
   printf("pcdata=%lx\n",rvcpu->inst_addr);
   rvcpu->clk = 1;
@@ -223,6 +223,8 @@ if((main_time % 10) == 1){
       break;
     }
   }
+}
+}
 
 if((main_time % 10) == 6){
   rvcpu->clk = 0;
@@ -234,10 +236,10 @@ if((main_time % 10) == 9){
   rvcpu->mem_finish = 0;
   ddy = 0;
 }
+//  printf("maintime=%ld\n",main_time);
+}
   rvcpu->eval();
   tfp->dump(main_time);
   main_time++;
-//  printf("maintime=%ld\n",main_time);
 }
-}
-}
+
