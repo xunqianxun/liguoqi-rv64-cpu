@@ -9,6 +9,7 @@ enum { NEMU_RUNNING, NEMU_STOP, NEMU_END, NEMU_ABORT, NEMU_QUIT };
 extern void isa_exec_once(int y);
 extern int close_npc();
 bool difftest_ena;
+uint64_t name_pc;
 
 typedef struct 
 {

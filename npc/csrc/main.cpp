@@ -26,6 +26,7 @@ extern "C" void difftest_dut_thepc(long long thepc_data){
 }
 
 extern "C" void difftest_dut_pc(long long pc_data, long long exit_code, svBit endyn, svBit exe){
+  name_pc = pc_data;
   difftest_ena = exe;
   if(endyn) {
     npc_state.halt_ret = exit_code;

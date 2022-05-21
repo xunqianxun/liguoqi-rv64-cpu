@@ -29,7 +29,7 @@ Vrvcpu___024root::~Vrvcpu___024root() {
 
 void Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__regfile10__DOT__difftest_dut_regs_TOP(QData/*63:0*/ Z0, QData/*63:0*/ ra, QData/*63:0*/ sp, QData/*63:0*/ gp, QData/*63:0*/ tp, QData/*63:0*/ t0, QData/*63:0*/ t1, QData/*63:0*/ t2, QData/*63:0*/ fp, QData/*63:0*/ s1, QData/*63:0*/ a0, QData/*63:0*/ a1, QData/*63:0*/ a2, QData/*63:0*/ a3, QData/*63:0*/ a4, QData/*63:0*/ a5, QData/*63:0*/ a6, QData/*63:0*/ a7, QData/*63:0*/ s2, QData/*63:0*/ s3, QData/*63:0*/ s4, QData/*63:0*/ s5, QData/*63:0*/ s6, QData/*63:0*/ s7, QData/*63:0*/ s8, QData/*63:0*/ s9, QData/*63:0*/ s10, QData/*63:0*/ a11, QData/*63:0*/ t3, QData/*63:0*/ t4, QData/*63:0*/ t5, QData/*63:0*/ t6);
 void Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__mem_wb8__DOT__difftest_dut_pc_TOP(QData/*63:0*/ pc_data, QData/*63:0*/ exit_code, CData/*0:0*/ endyn, CData/*0:0*/ exe);
-void Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__mem7__DOT__difftest_dut_thepc_TOP(QData/*63:0*/ thepc_data);
+void Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__mem_wb8__DOT__difftest_dut_thepc_TOP(QData/*63:0*/ thepc_data);
 
 void Vrvcpu___024root___settle__TOP__2(Vrvcpu___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
@@ -133,6 +133,7 @@ void Vrvcpu___024root___settle__TOP__2(Vrvcpu___024root* vlSelf) {
                                                                                 [0x1eU], 
                                                                                 vlSelf->rvcpu__DOT__regfile10__DOT__regs
                                                                                 [0x1fU]);
+    Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__mem_wb8__DOT__difftest_dut_pc_TOP(vlSelf->rvcpu__DOT__mem_wb8__DOT__pc_data1, vlSelf->rvcpu__DOT__mem_wb8__DOT__trap_code, (IData)(vlSelf->rvcpu__DOT__mem_wb8__DOT__teap_yn), vlSelf->rvcpu__DOT__mem_wb8__DOT__difftest_exyn);
     if (vlSelf->rst) {
         vlSelf->rvcpu__DOT__id_id_ex_inst = 0U;
         vlSelf->rvcpu__DOT__ex_ex_mem_inst = 0U;
@@ -142,10 +143,6 @@ void Vrvcpu___024root___settle__TOP__2(Vrvcpu___024root* vlSelf) {
         vlSelf->rvcpu__DOT__ex_ex_mem_inst = vlSelf->rvcpu__DOT__id_ex_ex_inst;
         vlSelf->data_addr = vlSelf->rvcpu__DOT__exmem_mem_lsaddr;
     }
-    Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__mem_wb8__DOT__difftest_dut_pc_TOP(
-                                                                                ((IData)(vlSelf->rst)
-                                                                                 ? 0ULL
-                                                                                 : vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_pc_o), vlSelf->rvcpu__DOT__mem_wb8__DOT__trap_code, (IData)(vlSelf->rvcpu__DOT__mem_wb8__DOT__teap_yn), vlSelf->rvcpu__DOT__mem_wb8__DOT__difftest_exyn);
     vlSelf->rvcpu__DOT__ex_mem_addr = ((IData)((0U 
                                                 != 
                                                 (3U 
@@ -159,11 +156,9 @@ void Vrvcpu___024root___settle__TOP__2(Vrvcpu___024root* vlSelf) {
                                               | (QData)((IData)(vlSelf->rvcpu__DOT__idex_ex_offset))))
                                         : 0ULL);
     if (vlSelf->rst) {
-        vlSelf->rvcpu__DOT__mem_mem_wb_pc = 0ULL;
         vlSelf->rvcpu__DOT__mem7__DOT__store_mask = 0U;
         vlSelf->rvcpu__DOT__mem7__DOT__store_data = 0ULL;
     } else {
-        vlSelf->rvcpu__DOT__mem_mem_wb_pc = vlSelf->rvcpu__DOT__ex_mem_mem_pc;
         vlSelf->rvcpu__DOT__mem7__DOT__store_mask = 
             ((4U & (IData)(vlSelf->rvcpu__DOT__exmem_mem_sel))
               ? 0U : ((2U & (IData)(vlSelf->rvcpu__DOT__exmem_mem_sel))
@@ -575,22 +570,24 @@ void Vrvcpu___024root___settle__TOP__2(Vrvcpu___024root* vlSelf) {
     if (vlSelf->rst) {
         vlSelf->rvcpu__DOT__id_ex_pc = 0ULL;
         vlSelf->rvcpu__DOT__id_ex_memsel = 0U;
+        vlSelf->rvcpu__DOT__mem_mem_wb_pc = 0ULL;
         vlSelf->rvcpu__DOT__mem_mem_wb_inst = 0U;
-        vlSelf->rvcpu__DOT__ex_ex_mem_pc = 0ULL;
     } else {
         vlSelf->rvcpu__DOT__id_ex_pc = vlSelf->rvcpu__DOT__if_id_pc;
         vlSelf->rvcpu__DOT__id_ex_memsel = (7U & (vlSelf->rvcpu__DOT__if_id_inst 
                                                   >> 0xcU));
+        vlSelf->rvcpu__DOT__mem_mem_wb_pc = vlSelf->rvcpu__DOT__ex_mem_mem_pc;
         vlSelf->rvcpu__DOT__mem_mem_wb_inst = vlSelf->rvcpu__DOT__ex_mem_mem_inst;
-        vlSelf->rvcpu__DOT__ex_ex_mem_pc = vlSelf->rvcpu__DOT__idex_ex_pc;
     }
+    Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__mem_wb8__DOT__difftest_dut_thepc_TOP(vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_pc_o);
+    vlSelf->rvcpu__DOT__ex_ex_mem_pc = ((IData)(vlSelf->rst)
+                                         ? 0ULL : vlSelf->rvcpu__DOT__idex_ex_pc);
     vlSelf->rvcpu__DOT__ex5__DOT__tmr_trap_ena = ((
                                                    ((IData)(vlSelf->rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mip_mtip) 
                                                     & (IData)(vlSelf->rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mstatus_mie)) 
                                                    & (IData)(vlSelf->rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mie_mtie)) 
                                                   & (0ULL 
                                                      != vlSelf->rvcpu__DOT__idex_ex_pc));
-    Vrvcpu___024root____Vdpiimwrap_rvcpu__DOT__mem7__DOT__difftest_dut_thepc_TOP(vlSelf->rvcpu__DOT__mem_mem_wb_pc);
     if ((1U & ((IData)(vlSelf->rst) | (~ (IData)(vlSelf->rvcpu__DOT__exmem_mem_type))))) {
         vlSelf->wmask = 0U;
         vlSelf->data_o = 0ULL;
@@ -2309,6 +2306,7 @@ void Vrvcpu___024root___ctor_var_reset(Vrvcpu___024root* vlSelf) {
     vlSelf->rvcpu__DOT__mem7__DOT__store_mask = VL_RAND_RESET_I(8);
     vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_pc_o = VL_RAND_RESET_Q(64);
     vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_inst_o = VL_RAND_RESET_I(32);
+    vlSelf->rvcpu__DOT__mem_wb8__DOT__pc_data1 = VL_RAND_RESET_Q(64);
     vlSelf->rvcpu__DOT__mem_wb8__DOT__difftest_exyn = VL_RAND_RESET_I(1);
     vlSelf->rvcpu__DOT__mem_wb8__DOT__teap_yn = VL_RAND_RESET_I(1);
     vlSelf->rvcpu__DOT__mem_wb8__DOT__trap_code = VL_RAND_RESET_Q(64);

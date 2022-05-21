@@ -183,6 +183,7 @@ VL_MODULE(Vrvcpu___024root) {
         QData/*63:0*/ rvcpu__DOT__ex5__DOT__csr0__DOT__csr_mscrstch;
         QData/*63:0*/ rvcpu__DOT__mem7__DOT__store_data;
         QData/*63:0*/ rvcpu__DOT__mem_wb8__DOT__wb_pc_o;
+        QData/*63:0*/ rvcpu__DOT__mem_wb8__DOT__pc_data1;
         QData/*63:0*/ rvcpu__DOT__mem_wb8__DOT__trap_code;
         VlUnpacked<QData/*63:0*/, 32> rvcpu__DOT__regfile10__DOT__regs;
     };
