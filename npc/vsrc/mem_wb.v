@@ -21,6 +21,11 @@ module mem_wb (
 );
 
 import "DPI-C" function void difftest_dut_pc(input longint pc_data, input longint exit_code, input bit endyn, input bit exe);
+import "DPI-C" function void difftest_dut_thepc(input longint thepc_data);
+
+always @(*) begin
+    difftest_dut_thepc(wb_pc_o);
+end
 
 reg  [`ysyx22040228_PCBUS]    wb_pc_o;
 reg  [`ysyx22040228_INSTBUS]  wb_inst_o;
@@ -69,17 +74,17 @@ reg                            difftest_exyn;
 reg                            teap_yn ;
 reg   [`ysyx22040228_REGBUS]   trap_code;
 
-always @(*) begin
+always @(posedge clk) begin
     if(rst == `ysyx22040228_RENABLE) begin
-       pc_data1   = `ysyx22040228_ZEROWORD;
+       pc_data1   <= `ysyx22040228_ZEROWORD;
     end 
     else begin
-       pc_data1   = wb_pc_o;
+       pc_data1   <= wb_pc_o;
     end 
 end
 
 always @(posedge clk) begin
-    if(wb_inst_i != 32'b0) begin
+    if(wb_inst_o != 32'b0) begin
         difftest_exyn <= 1'b1;
         if(wb_inst_o == `EBREAK_TRAP) begin
             teap_yn <= 1'b1;

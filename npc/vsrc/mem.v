@@ -33,12 +33,6 @@ module mem (
     output               wire                                                mem_stall_req        
 );
 
-import "DPI-C" function void difftest_dut_thepc(input longint thepc_data);
-
-always @(*) begin
-    difftest_dut_thepc(mem_pc_o);
-end
-
 assign mem_pc_o = (rst == `ysyx22040228_RSTENA) ? `ysyx22040228_ZEROWORD : mem_pc_i ;
 assign mem_inst_o = (rst == `ysyx22040228_RSTENA) ? 32'b0 : mem_inst_i ;
     

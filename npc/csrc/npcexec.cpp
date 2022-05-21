@@ -93,9 +93,9 @@ static void execute(uint64_t n) {
 static void statistic() {
   IFNDEF(CONFIG_TARGET_AM, setlocale(LC_NUMERIC, ""));
 #define NUMBERIC_FMT MUXDEF(CONFIG_TARGET_AM, "%ld", "%'ld")
-  _Log("host time spent = " NUMBERIC_FMT " us", g_timer);
+  _Log("host time spent = " NUMBERIC_FMT " us\n", g_timer);
   _Log("total guest instructions = " NUMBERIC_FMT, g_nr_guest_inst);
-  if (g_timer > 0) _Log("simulation frequency = " NUMBERIC_FMT " inst/s", g_nr_guest_inst * 1000000 / g_timer);
+  if (g_timer > 0) _Log("simulation frequency = " NUMBERIC_FMT " inst/s\n", g_nr_guest_inst * 1000000 / g_timer);
   else _Log("Finish running in less than 1 us and can not calculate the simulation frequency");
 }
 
@@ -126,10 +126,10 @@ void cpu_exec(uint64_t n) {
     case NEMU_RUNNING: npc_state.state = NEMU_STOP; break;
 
     case NEMU_END: case NEMU_ABORT:
-      _Log("npc: %s at pc = " "0x%016lx",
-          (npc_state.state == NEMU_ABORT ? ASNI_FMT("ABORT", ASNI_FG_RED) :
-           (npc_state.halt_ret == 0 ? ASNI_FMT("HIT GOOD TRAP", ASNI_FG_GREEN) :
-            ASNI_FMT("HIT BAD TRAP", ASNI_FG_RED))),
+      _Log("npc: %s at pc = " "0x%016lx\n",
+          (npc_state.state == NEMU_ABORT ? ASNI_FMT("ABORT\n", ASNI_FG_RED) :
+           (npc_state.halt_ret == 0 ? ASNI_FMT("HIT GOOD TRAP\n", ASNI_FG_GREEN) :
+            ASNI_FMT("HIT BAD TRAP\n", ASNI_FG_RED))),
           npc_state.halt_pc);
       // fall through
     case NEMU_QUIT: statistic();
