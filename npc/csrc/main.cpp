@@ -187,8 +187,8 @@ if(main_time > 10){
 }
 if(rvcpu->rst == 0){
 if((main_time % 10) == 1){
-  printf("pcdata=%lx\n",rvcpu->inst_addr);
   rvcpu->clk = 1;
+  printf("pcdata=%lx\n",rvcpu->inst_addr);
   // get pc
   rvcpu->inst = ifetch(rvcpu->inst_addr, 4);
   //make mem sign
