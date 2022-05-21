@@ -146,6 +146,7 @@ if((main_time % 10) == 6){
     case 255:
     vaddr_write(rvcpu->data_addr, 8, rvcpu->data_i);
     rvcpu->mem_finish = 1;
+    printf("LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL\n");
     break;
 
     default:
