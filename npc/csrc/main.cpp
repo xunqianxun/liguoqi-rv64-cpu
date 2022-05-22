@@ -200,6 +200,7 @@ if((main_time % 10) == 1){
     rvcpu->mem_finish = 0;
     della = 0;
   }
+  rvcpu->eval();
   rvcpu->inst = ifetch(rvcpu->inst_addr, 4);
   //make mem sign
   if(rvcpu->re){
