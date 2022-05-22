@@ -180,6 +180,7 @@ int is_exit_status_bad() {
 
 extern void isa_exec_once(int y){
 uint64_t startpc = 0x80000000;
+int della;
 int ddy ;
 ddy = y;
 while(ddy){
@@ -195,13 +196,19 @@ if((main_time % 10) == 1){
     }
   rvcpu->eval();
   // get pc
+    if(della == 1){
+    rvcpu->mem_finish = 0;
+    della = 0;
+  }
   rvcpu->inst = ifetch(rvcpu->inst_addr, 4);
   //make mem sign
   if(rvcpu->re){
+    della = 1;
     rvcpu->data_i = vaddr_read(rvcpu->data_addr, 8);
     rvcpu->mem_finish = 1;
   }
   if(rvcpu->we){
+    ella = 1;
     switch (rvcpu->wmask)
     {
     case 1: case 2: case 4: case 8: case 16: case 32: case 64: case 128: 
