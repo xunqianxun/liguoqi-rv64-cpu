@@ -973,7 +973,7 @@ void Vrvcpu___024root__traceFullSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
         tracep->fullCData(oldp+253,((3U & (IData)((vlSelf->rvcpu__DOT__exmem_mem_lsaddr 
                                                    >> 1U)))),2);
         tracep->fullBit(oldp+254,((1U & (IData)((vlSelf->rvcpu__DOT__exmem_mem_lsaddr 
-                                                 >> 1U)))));
+                                                 >> 2U)))));
         tracep->fullQData(oldp+255,(vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_pc_o),64);
         tracep->fullIData(oldp+257,(vlSelf->rvcpu__DOT__mem_wb8__DOT__wb_inst_o),32);
         tracep->fullQData(oldp+258,(vlSelf->rvcpu__DOT__mem_wb8__DOT__pc_data1),64);
@@ -1312,7 +1312,7 @@ void Vrvcpu___024root__traceFullSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
                                       ? 0ULL : ((1U 
                                                  & (IData)(
                                                            (vlSelf->rvcpu__DOT__exmem_mem_lsaddr 
-                                                            >> 1U)))
+                                                            >> 2U)))
                                                  ? 
                                                 ((QData)((IData)(vlSelf->rvcpu__DOT__exmem_mem_data)) 
                                                  << 0x20U)
@@ -1375,7 +1375,7 @@ void Vrvcpu___024root__traceFullSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
         tracep->fullCData(oldp+380,(((IData)(vlSelf->rst)
                                       ? 0U : ((1U & (IData)(
                                                             (vlSelf->rvcpu__DOT__exmem_mem_lsaddr 
-                                                             >> 1U)))
+                                                             >> 2U)))
                                                ? 0xf0U
                                                : 0xfU))),8);
         tracep->fullCData(oldp+381,(0U),2);

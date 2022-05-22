@@ -1228,7 +1228,7 @@ VL_INLINE_OPT void Vrvcpu___024root___combo__TOP__4(Vrvcpu___024root* vlSelf) {
                                        ? 0U : ((1U 
                                                 & (IData)(
                                                           (vlSelf->rvcpu__DOT__exmem_mem_lsaddr 
-                                                           >> 1U)))
+                                                           >> 2U)))
                                                 ? 0xf0U
                                                 : 0xfU)))
                        : ((1U & (IData)(vlSelf->rvcpu__DOT__exmem_mem_sel))
@@ -1272,7 +1272,7 @@ VL_INLINE_OPT void Vrvcpu___024root___combo__TOP__4(Vrvcpu___024root* vlSelf) {
                              : ((IData)(vlSelf->rst)
                                  ? 0ULL : ((1U & (IData)(
                                                          (vlSelf->rvcpu__DOT__exmem_mem_lsaddr 
-                                                          >> 1U)))
+                                                          >> 2U)))
                                             ? ((QData)((IData)(vlSelf->rvcpu__DOT__exmem_mem_data)) 
                                                << 0x20U)
                                             : (QData)((IData)(vlSelf->rvcpu__DOT__exmem_mem_data)))))
@@ -1452,7 +1452,7 @@ VL_INLINE_OPT void Vrvcpu___024root___combo__TOP__4(Vrvcpu___024root* vlSelf) {
     vlSelf->rvcpu__DOT__mem7__DOT__data_word = ((1U 
                                                  & (IData)(
                                                            (vlSelf->rvcpu__DOT__exmem_mem_lsaddr 
-                                                            >> 1U)))
+                                                            >> 2U)))
                                                  ? (IData)(
                                                            (vlSelf->data_i 
                                                             >> 0x20U))
