@@ -95,72 +95,6 @@ is_exit_status_bad();
 }
 
 
-
-
-// about npc exe function
-
-// extern void isa_exec_once(int y){
-// int ddy ;
-// ddy = y;
-// while(ddy){
-// if(main_time > 1){
-//   rvcpu->rst = 0 ; 
-// }
-
-// if((main_time % 10) == 1){
-//   rvcpu->clk = 1;
-//   rvcpu->mem_finish = 0;
-//   rvcpu->eval();
-// }
-// if(((main_time % 10) == 3)){
-//   ddy = 0;
-// //  printf("keyiyunxing\n");
-// }
-
-// if((main_time % 10) == 6){
-//   rvcpu->clk = 0;
-//   if(rvcpu->inst_addr != 0){
-//   rvcpu->inst = ifetch(rvcpu->inst_addr, 4);
-//   if(rvcpu->re){
-//     rvcpu->data_i = vaddr_read(rvcpu->data_addr, 8);
-//     rvcpu->mem_finish = 1;
-//   }
-//   if(rvcpu->we){
-//     switch (rvcpu->wmask)
-//     {
-//     case 1: case 2: case 4: case 8: case 16: case 32: case 64: case 128: 
-//     vaddr_write(rvcpu->data_addr, 1, rvcpu->data_o);
-//     rvcpu->mem_finish = 1;
-//     break;
-
-//     case 3: case 12: case 48: case 192:
-//     vaddr_write(rvcpu->data_addr, 2, rvcpu->data_o);
-//     rvcpu->mem_finish = 1;
-//     break;
-
-//     case 15: case 240:
-//     vaddr_write(rvcpu->data_addr, 4, rvcpu->data_o);
-//     rvcpu->mem_finish = 1;
-//     break;
-
-//     case 255:
-//     vaddr_write(rvcpu->data_addr, 8, rvcpu->data_o);
-//     rvcpu->mem_finish = 1;
-//     break;
-
-//     default:
-//       break;
-//     }
-//   }
-//   }
-// }
-//   rvcpu->eval();
-//   tfp->dump(main_time);
-//   main_time++;
-// //  printf("maintime=%ld\n",main_time);
-// }
-// }
-
 //close npc function
 
 extern int close_npc(){
@@ -244,7 +178,6 @@ if((main_time % 10) == 6){
 
 if((main_time % 10) == 9){
   rvcpu->clk = 0;
-  // sign huanyuan
   ddy = 0;
 }
 //  printf("maintime=%ld\n",main_time);
