@@ -179,16 +179,20 @@ int is_exit_status_bad() {
 
 
 extern void isa_exec_once(int y){
+uint64_t startpc = 0x80000000;
 int ddy ;
 ddy = y;
 while(ddy){
 if(main_time > 10){
-  rvcpu->rst = 0 ; 
+  rvcpu->rst = 0 ;
 }
 
 if((main_time % 10) == 1){
   rvcpu->clk = 1;
   if(rvcpu->rst == 0){
+    if(main_time == 11){
+      rvcpu->inst = ifetch(startpc, 4);
+    }
   rvcpu->eval();
   // get pc
   rvcpu->inst = ifetch(rvcpu->inst_addr, 4);
