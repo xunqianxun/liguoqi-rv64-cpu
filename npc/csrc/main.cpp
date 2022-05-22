@@ -200,7 +200,6 @@ if((main_time % 10) == 1){
     rvcpu->mem_finish = 0;
     della = 0;
   }
-  rvcpu->eval();
   rvcpu->inst = ifetch(rvcpu->inst_addr, 4);
   //make mem sign
   if(rvcpu->re){
@@ -246,7 +245,6 @@ if((main_time % 10) == 6){
 if((main_time % 10) == 9){
   rvcpu->clk = 0;
   // sign huanyuan
-  rvcpu->mem_finish = 0;
   ddy = 0;
 }
 //  printf("maintime=%ld\n",main_time);
