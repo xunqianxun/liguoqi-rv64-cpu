@@ -185,9 +185,11 @@ while(ddy){
 if(main_time > 10){
   rvcpu->rst = 0 ; 
 }
-if(rvcpu->rst == 0){
+
 if((main_time % 10) == 1){
   rvcpu->clk = 1;
+  if(rvcpu->rst == 0){
+  rvcpu->eval();
   printf("pcdata=%lx\n",rvcpu->inst_addr);
   // get pc
   rvcpu->inst = ifetch(rvcpu->inst_addr, 4);
