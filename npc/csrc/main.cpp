@@ -208,7 +208,7 @@ if((main_time % 10) == 1){
     rvcpu->mem_finish = 1;
   }
   if(rvcpu->we){
-    ella = 1;
+    della = 1;
     switch (rvcpu->wmask)
     {
     case 1: case 2: case 4: case 8: case 16: case 32: case 64: case 128: 
