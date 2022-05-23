@@ -66,6 +66,7 @@ VL_MODULE(Vrvcpu___024root) {
         CData/*4:0*/ rvcpu__DOT__exmem_mem_addr;
         CData/*2:0*/ rvcpu__DOT__exmem_mem_sel;
         CData/*0:0*/ rvcpu__DOT__pip_fore0__DOT__inst_jalr;
+        CData/*4:0*/ rvcpu__DOT__id3__DOT__rs1;
         CData/*0:0*/ rvcpu__DOT__id3__DOT__inst_lui;
         CData/*0:0*/ rvcpu__DOT__id3__DOT__inst_auipc;
         CData/*0:0*/ rvcpu__DOT__id3__DOT__inst_jal;
@@ -101,9 +102,9 @@ VL_MODULE(Vrvcpu___024root) {
         CData/*0:0*/ rvcpu__DOT__ex5__DOT__op1_ls_op2;
         CData/*0:0*/ rvcpu__DOT__ex5__DOT__ex_flush_branch;
         CData/*0:0*/ rvcpu__DOT__ex5__DOT__tmr_trap_ena;
-        CData/*0:0*/ rvcpu__DOT__ex5__DOT__trap_ena;
     };
     struct {
+        CData/*0:0*/ rvcpu__DOT__ex5__DOT__trap_ena;
         CData/*0:0*/ rvcpu__DOT__ex5__DOT__ecall_trap_ena;
         CData/*0:0*/ rvcpu__DOT__ex5__DOT__cmt_mret_ena;
         CData/*0:0*/ rvcpu__DOT__ex5__DOT__csr_wr_en;
@@ -167,9 +168,9 @@ VL_MODULE(Vrvcpu___024root) {
         QData/*63:0*/ rvcpu__DOT__ex5__DOT__shift_res;
         QData/*63:0*/ rvcpu__DOT__ex5__DOT__sllw_res;
         QData/*63:0*/ rvcpu__DOT__ex5__DOT__srlw_res;
-        QData/*63:0*/ rvcpu__DOT__ex5__DOT__sraw_res;
     };
     struct {
+        QData/*63:0*/ rvcpu__DOT__ex5__DOT__sraw_res;
         QData/*63:0*/ rvcpu__DOT__ex5__DOT__upper_imm;
         QData/*63:0*/ rvcpu__DOT__ex5__DOT__read_csr_data;
         QData/*63:0*/ rvcpu__DOT__ex5__DOT__wbck_csr_data;

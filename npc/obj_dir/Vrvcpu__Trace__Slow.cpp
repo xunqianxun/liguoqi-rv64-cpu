@@ -57,18 +57,18 @@ void Vrvcpu___024root__traceInitSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
         tracep->declBus(c+351,"rvcpu pip_regfile_x1_addr", false,-1, 4,0);
         tracep->declQuad(c+352,"rvcpu pip_pc", false,-1, 63,0);
         tracep->declBit(c+1,"rvcpu if_stall_req", false,-1);
-        tracep->declQuad(c+107,"rvcpu if_id_pc", false,-1, 63,0);
-        tracep->declBus(c+109,"rvcpu if_id_inst", false,-1, 31,0);
-        tracep->declBit(c+110,"rvcpu ex_flush", false,-1);
+        tracep->declQuad(c+108,"rvcpu if_id_pc", false,-1, 63,0);
+        tracep->declBus(c+110,"rvcpu if_id_inst", false,-1, 31,0);
+        tracep->declBit(c+111,"rvcpu ex_flush", false,-1);
         tracep->declQuad(c+2,"rvcpu ex_id_rd_data", false,-1, 63,0);
-        tracep->declBus(c+111,"rvcpu ex_id_rd_addr", false,-1, 4,0);
-        tracep->declBit(c+112,"rvcpu ex_id_rd_ena", false,-1);
-        tracep->declBus(c+113,"rvcpu ex_id_rd_type", false,-1, 7,0);
-        tracep->declBus(c+114,"rvcpu ex_mem_sel", false,-1, 2,0);
-        tracep->declQuad(c+115,"rvcpu ex_mem_addr", false,-1, 63,0);
-        tracep->declBit(c+110,"rvcpu ex_pc_branchena", false,-1);
-        tracep->declQuad(c+117,"rvcpu ex_pc_branchpc", false,-1, 63,0);
-        tracep->declBit(c+80,"rvcpu ex_ctrl_req", false,-1);
+        tracep->declBus(c+112,"rvcpu ex_id_rd_addr", false,-1, 4,0);
+        tracep->declBit(c+113,"rvcpu ex_id_rd_ena", false,-1);
+        tracep->declBus(c+114,"rvcpu ex_id_rd_type", false,-1, 7,0);
+        tracep->declBus(c+115,"rvcpu ex_mem_sel", false,-1, 2,0);
+        tracep->declQuad(c+116,"rvcpu ex_mem_addr", false,-1, 63,0);
+        tracep->declBit(c+111,"rvcpu ex_pc_branchena", false,-1);
+        tracep->declQuad(c+118,"rvcpu ex_pc_branchpc", false,-1, 63,0);
+        tracep->declBit(c+81,"rvcpu ex_ctrl_req", false,-1);
         tracep->declBus(c+4,"rvcpu id_reg_addr1", false,-1, 4,0);
         tracep->declBit(c+5,"rvcpu id_reg_ena1", false,-1);
         tracep->declBus(c+6,"rvcpu id_reg_addr2", false,-1, 4,0);
@@ -83,41 +83,41 @@ void Vrvcpu___024root__traceInitSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
         tracep->declQuad(c+16,"rvcpu id_ex_pc", false,-1, 63,0);
         tracep->declBus(c+18,"rvcpu id_ex_s_offset", false,-1, 11,0);
         tracep->declBus(c+19,"rvcpu id_ex_memsel", false,-1, 2,0);
-        tracep->declQuad(c+81,"rvcpu id_pip_jalrpc", false,-1, 63,0);
+        tracep->declQuad(c+82,"rvcpu id_pip_jalrpc", false,-1, 63,0);
         tracep->declBit(c+20,"rvcpu id_pip_jalrena", false,-1);
         tracep->declBit(c+21,"rvcpu id_if_flush", false,-1);
         tracep->declBus(c+22,"rvcpu stall_ctrl", false,-1, 4,0);
         tracep->declQuad(c+355,"rvcpu regs_id_data1", false,-1, 63,0);
         tracep->declQuad(c+357,"rvcpu regs_id_data2", false,-1, 63,0);
         tracep->declQuad(c+23,"rvcpu mem_id_data", false,-1, 63,0);
-        tracep->declBus(c+119,"rvcpu mem_id_addr", false,-1, 4,0);
-        tracep->declBit(c+120,"rvcpu mem_id_ena", false,-1);
+        tracep->declBus(c+120,"rvcpu mem_id_addr", false,-1, 4,0);
+        tracep->declBit(c+121,"rvcpu mem_id_ena", false,-1);
         tracep->declBit(c+359,"rvcpu mem_ctrl_req", false,-1);
-        tracep->declBus(c+121,"rvcpu wb_id_addr", false,-1, 4,0);
-        tracep->declBit(c+122,"rvcpu wb_id_ena", false,-1);
-        tracep->declQuad(c+123,"rvcpu wb_regfile_data", false,-1, 63,0);
-        tracep->declQuad(c+125,"rvcpu idex_ex_pc", false,-1, 63,0);
-        tracep->declBus(c+127,"rvcpu idex_ex_type", false,-1, 7,0);
-        tracep->declBus(c+128,"rvcpu idex_ex_opcode", false,-1, 7,0);
-        tracep->declQuad(c+129,"rvcpu idex_ex_op1", false,-1, 63,0);
-        tracep->declQuad(c+131,"rvcpu idex_ex_op2", false,-1, 63,0);
-        tracep->declBit(c+133,"rvcpu idex_ex_rdena", false,-1);
-        tracep->declBus(c+111,"rvcpu idex_ex_rdaddr", false,-1, 4,0);
-        tracep->declBus(c+134,"rvcpu idex_ex_offset", false,-1, 11,0);
-        tracep->declBus(c+114,"rvcpu idex_ex_sel", false,-1, 2,0);
-        tracep->declBus(c+135,"rvcpu exmem_mem_type", false,-1, 7,0);
-        tracep->declBit(c+120,"rvcpu exmem_mem_ena", false,-1);
-        tracep->declQuad(c+136,"rvcpu exmem_mem_data", false,-1, 63,0);
-        tracep->declBus(c+119,"rvcpu exmem_mem_addr", false,-1, 4,0);
-        tracep->declBus(c+138,"rvcpu exmem_mem_sel", false,-1, 2,0);
-        tracep->declQuad(c+139,"rvcpu exmem_mem_lsaddr", false,-1, 63,0);
+        tracep->declBus(c+122,"rvcpu wb_id_addr", false,-1, 4,0);
+        tracep->declBit(c+123,"rvcpu wb_id_ena", false,-1);
+        tracep->declQuad(c+124,"rvcpu wb_regfile_data", false,-1, 63,0);
+        tracep->declQuad(c+126,"rvcpu idex_ex_pc", false,-1, 63,0);
+        tracep->declBus(c+128,"rvcpu idex_ex_type", false,-1, 7,0);
+        tracep->declBus(c+129,"rvcpu idex_ex_opcode", false,-1, 7,0);
+        tracep->declQuad(c+130,"rvcpu idex_ex_op1", false,-1, 63,0);
+        tracep->declQuad(c+132,"rvcpu idex_ex_op2", false,-1, 63,0);
+        tracep->declBit(c+134,"rvcpu idex_ex_rdena", false,-1);
+        tracep->declBus(c+112,"rvcpu idex_ex_rdaddr", false,-1, 4,0);
+        tracep->declBus(c+135,"rvcpu idex_ex_offset", false,-1, 11,0);
+        tracep->declBus(c+115,"rvcpu idex_ex_sel", false,-1, 2,0);
+        tracep->declBus(c+136,"rvcpu exmem_mem_type", false,-1, 7,0);
+        tracep->declBit(c+121,"rvcpu exmem_mem_ena", false,-1);
+        tracep->declQuad(c+137,"rvcpu exmem_mem_data", false,-1, 63,0);
+        tracep->declBus(c+120,"rvcpu exmem_mem_addr", false,-1, 4,0);
+        tracep->declBus(c+139,"rvcpu exmem_mem_sel", false,-1, 2,0);
+        tracep->declQuad(c+140,"rvcpu exmem_mem_lsaddr", false,-1, 63,0);
         tracep->declQuad(c+25,"rvcpu ex_ex_mem_pc", false,-1, 63,0);
-        tracep->declQuad(c+141,"rvcpu ex_mem_mem_pc", false,-1, 63,0);
+        tracep->declQuad(c+142,"rvcpu ex_mem_mem_pc", false,-1, 63,0);
         tracep->declQuad(c+27,"rvcpu mem_mem_wb_pc", false,-1, 63,0);
         tracep->declBus(c+29,"rvcpu id_id_ex_inst", false,-1, 31,0);
-        tracep->declBus(c+143,"rvcpu id_ex_ex_inst", false,-1, 31,0);
+        tracep->declBus(c+144,"rvcpu id_ex_ex_inst", false,-1, 31,0);
         tracep->declBus(c+30,"rvcpu ex_ex_mem_inst", false,-1, 31,0);
-        tracep->declBus(c+144,"rvcpu ex_mem_mem_inst", false,-1, 31,0);
+        tracep->declBus(c+145,"rvcpu ex_mem_mem_inst", false,-1, 31,0);
         tracep->declBus(c+31,"rvcpu mem_mem_wb_inst", false,-1, 31,0);
         tracep->declBit(c+330,"rvcpu pip_fore0 rst", false,-1);
         tracep->declQuad(c+331,"rvcpu pip_fore0 pc_i", false,-1, 63,0);
@@ -139,10 +139,10 @@ void Vrvcpu___024root__traceInitSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
         tracep->declBit(c+329,"rvcpu pc1 clk", false,-1);
         tracep->declBit(c+330,"rvcpu pc1 rst", false,-1);
         tracep->declQuad(c+352,"rvcpu pc1 static_pc_i", false,-1, 63,0);
-        tracep->declQuad(c+81,"rvcpu pc1 id_pc_i", false,-1, 63,0);
+        tracep->declQuad(c+82,"rvcpu pc1 id_pc_i", false,-1, 63,0);
         tracep->declBit(c+20,"rvcpu pc1 id_pc_ena", false,-1);
-        tracep->declQuad(c+117,"rvcpu pc1 ex_pc_i", false,-1, 63,0);
-        tracep->declBit(c+110,"rvcpu pc1 ex_pc_ena", false,-1);
+        tracep->declQuad(c+118,"rvcpu pc1 ex_pc_i", false,-1, 63,0);
+        tracep->declBit(c+111,"rvcpu pc1 ex_pc_ena", false,-1);
         tracep->declBit(c+37,"rvcpu pc1 pc_stall", false,-1);
         tracep->declQuad(c+331,"rvcpu pc1 pc", false,-1, 63,0);
         tracep->declBit(c+333,"rvcpu pc1 ce", false,-1);
@@ -150,17 +150,17 @@ void Vrvcpu___024root__traceInitSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
         tracep->declBit(c+330,"rvcpu if_id2 rst", false,-1);
         tracep->declQuad(c+331,"rvcpu if_id2 if_pc", false,-1, 63,0);
         tracep->declBus(c+335,"rvcpu if_id2 if_inst", false,-1, 31,0);
-        tracep->declBit(c+110,"rvcpu if_id2 if_id_flush", false,-1);
+        tracep->declBit(c+111,"rvcpu if_id2 if_id_flush", false,-1);
         tracep->declBit(c+21,"rvcpu if_id2 if_id_bubble", false,-1);
         tracep->declBit(c+336,"rvcpu if_id2 if_inst_valid", false,-1);
         tracep->declBit(c+334,"rvcpu if_id2 if_inst_ready", false,-1);
         tracep->declBus(c+22,"rvcpu if_id2 stall_ctrl", false,-1, 4,0);
         tracep->declBit(c+1,"rvcpu if_id2 if_stall_req", false,-1);
-        tracep->declQuad(c+107,"rvcpu if_id2 id_pc", false,-1, 63,0);
-        tracep->declBus(c+109,"rvcpu if_id2 id_inst", false,-1, 31,0);
+        tracep->declQuad(c+108,"rvcpu if_id2 id_pc", false,-1, 63,0);
+        tracep->declBus(c+110,"rvcpu if_id2 id_inst", false,-1, 31,0);
         tracep->declBit(c+330,"rvcpu id3 rst", false,-1);
-        tracep->declBus(c+109,"rvcpu id3 inst_i", false,-1, 31,0);
-        tracep->declQuad(c+107,"rvcpu id3 pc_i", false,-1, 63,0);
+        tracep->declBus(c+110,"rvcpu id3 inst_i", false,-1, 31,0);
+        tracep->declQuad(c+108,"rvcpu id3 pc_i", false,-1, 63,0);
         tracep->declQuad(c+355,"rvcpu id3 op1_data_i", false,-1, 63,0);
         tracep->declQuad(c+357,"rvcpu id3 op2_data_i", false,-1, 63,0);
         tracep->declBus(c+4,"rvcpu id3 op1_addr_o", false,-1, 4,0);
@@ -168,14 +168,14 @@ void Vrvcpu___024root__traceInitSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
         tracep->declBit(c+5,"rvcpu id3 op1_read_o", false,-1);
         tracep->declBit(c+7,"rvcpu id3 op2_read_o", false,-1);
         tracep->declQuad(c+2,"rvcpu id3 ex_rd_data", false,-1, 63,0);
-        tracep->declBus(c+111,"rvcpu id3 ex_rd_addr", false,-1, 4,0);
-        tracep->declBit(c+112,"rvcpu id3 ex_rd_ena", false,-1);
-        tracep->declBus(c+113,"rvcpu id3 ex_inst_type", false,-1, 7,0);
+        tracep->declBus(c+112,"rvcpu id3 ex_rd_addr", false,-1, 4,0);
+        tracep->declBit(c+113,"rvcpu id3 ex_rd_ena", false,-1);
+        tracep->declBus(c+114,"rvcpu id3 ex_inst_type", false,-1, 7,0);
         tracep->declQuad(c+23,"rvcpu id3 mem_rd_data", false,-1, 63,0);
-        tracep->declBus(c+119,"rvcpu id3 mem_rd_addr", false,-1, 4,0);
-        tracep->declBit(c+120,"rvcpu id3 mem_rd_ena", false,-1);
-        tracep->declBit(c+122,"rvcpu id3 wb_rd_ena", false,-1);
-        tracep->declBus(c+121,"rvcpu id3 wb_rd_addr", false,-1, 4,0);
+        tracep->declBus(c+120,"rvcpu id3 mem_rd_addr", false,-1, 4,0);
+        tracep->declBit(c+121,"rvcpu id3 mem_rd_ena", false,-1);
+        tracep->declBit(c+123,"rvcpu id3 wb_rd_ena", false,-1);
+        tracep->declBus(c+122,"rvcpu id3 wb_rd_addr", false,-1, 4,0);
         tracep->declBit(c+354,"rvcpu id3 id_stall_req", false,-1);
         tracep->declBit(c+1,"rvcpu id3 if_stall_req", false,-1);
         tracep->declBus(c+8,"rvcpu id3 inst_type", false,-1, 7,0);
@@ -189,79 +189,79 @@ void Vrvcpu___024root__traceInitSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
         tracep->declBus(c+18,"rvcpu id3 store_addr_offset", false,-1, 11,0);
         tracep->declBus(c+19,"rvcpu id3 mem_op_sel", false,-1, 2,0);
         tracep->declBit(c+20,"rvcpu id3 jalr_pc_ena", false,-1);
-        tracep->declQuad(c+81,"rvcpu id3 jalr_pc", false,-1, 63,0);
+        tracep->declQuad(c+82,"rvcpu id3 jalr_pc", false,-1, 63,0);
         tracep->declBit(c+21,"rvcpu id3 id_flush", false,-1);
-        tracep->declBus(c+145,"rvcpu id3 opcode", false,-1, 6,0);
-        tracep->declBus(c+146,"rvcpu id3 rd", false,-1, 4,0);
-        tracep->declBus(c+147,"rvcpu id3 funct3", false,-1, 2,0);
-        tracep->declBus(c+148,"rvcpu id3 rs1", false,-1, 4,0);
+        tracep->declBus(c+146,"rvcpu id3 opcode", false,-1, 6,0);
+        tracep->declBus(c+147,"rvcpu id3 rd", false,-1, 4,0);
+        tracep->declBus(c+148,"rvcpu id3 funct3", false,-1, 2,0);
+        tracep->declBus(c+38,"rvcpu id3 rs1", false,-1, 4,0);
         tracep->declBus(c+149,"rvcpu id3 imm", false,-1, 11,0);
         tracep->declBus(c+150,"rvcpu id3 funct7", false,-1, 6,0);
         tracep->declBus(c+151,"rvcpu id3 rs2", false,-1, 4,0);
         tracep->declBus(c+152,"rvcpu id3 u_imm", false,-1, 19,0);
         tracep->declBus(c+153,"rvcpu id3 s_imm", false,-1, 11,0);
-        tracep->declBit(c+38,"rvcpu id3 inst_lui", false,-1);
-        tracep->declBit(c+39,"rvcpu id3 inst_auipc", false,-1);
-        tracep->declBit(c+40,"rvcpu id3 inst_jal", false,-1);
-        tracep->declBit(c+41,"rvcpu id3 inst_jalr", false,-1);
-        tracep->declBit(c+42,"rvcpu id3 inst_jump", false,-1);
-        tracep->declBit(c+83,"rvcpu id3 inst_addi", false,-1);
-        tracep->declBit(c+84,"rvcpu id3 inst_slti", false,-1);
-        tracep->declBit(c+85,"rvcpu id3 inst_sltiu", false,-1);
-        tracep->declBit(c+86,"rvcpu id3 inst_xori", false,-1);
-        tracep->declBit(c+87,"rvcpu id3 inst_ori", false,-1);
-        tracep->declBit(c+88,"rvcpu id3 inst_andi", false,-1);
-        tracep->declBit(c+89,"rvcpu id3 inst_slli", false,-1);
-        tracep->declBit(c+90,"rvcpu id3 inst_srli", false,-1);
-        tracep->declBit(c+43,"rvcpu id3 inst_srai", false,-1);
-        tracep->declBit(c+44,"rvcpu id3 inst_addiw", false,-1);
-        tracep->declBit(c+45,"rvcpu id3 inst_slliw", false,-1);
-        tracep->declBit(c+46,"rvcpu id3 inst_srliw", false,-1);
-        tracep->declBit(c+47,"rvcpu id3 inst_sraiw", false,-1);
-        tracep->declBit(c+48,"rvcpu id3 inst_add", false,-1);
-        tracep->declBit(c+49,"rvcpu id3 inst_sub", false,-1);
-        tracep->declBit(c+50,"rvcpu id3 inst_sll", false,-1);
-        tracep->declBit(c+51,"rvcpu id3 inst_slt", false,-1);
-        tracep->declBit(c+52,"rvcpu id3 inst_sltu", false,-1);
-        tracep->declBit(c+53,"rvcpu id3 inst_xor", false,-1);
-        tracep->declBit(c+54,"rvcpu id3 inst_srl", false,-1);
-        tracep->declBit(c+55,"rvcpu id3 inst_sra", false,-1);
-        tracep->declBit(c+56,"rvcpu id3 inst_or", false,-1);
-        tracep->declBit(c+57,"rvcpu id3 inst_and", false,-1);
-        tracep->declBit(c+58,"rvcpu id3 inst_addw", false,-1);
-        tracep->declBit(c+59,"rvcpu id3 inst_subw", false,-1);
-        tracep->declBit(c+60,"rvcpu id3 inst_sllw", false,-1);
-        tracep->declBit(c+61,"rvcpu id3 inst_srlw", false,-1);
-        tracep->declBit(c+62,"rvcpu id3 inst_sraw", false,-1);
-        tracep->declBit(c+91,"rvcpu id3 inst_beq", false,-1);
-        tracep->declBit(c+92,"rvcpu id3 inst_ben", false,-1);
-        tracep->declBit(c+93,"rvcpu id3 inst_blt", false,-1);
-        tracep->declBit(c+94,"rvcpu id3 inst_bge", false,-1);
-        tracep->declBit(c+95,"rvcpu id3 inst_bltu", false,-1);
-        tracep->declBit(c+96,"rvcpu id3 inst_bgeu", false,-1);
-        tracep->declBit(c+63,"rvcpu id3 inst_csrrw", false,-1);
-        tracep->declBit(c+64,"rvcpu id3 inst_csrrs", false,-1);
-        tracep->declBit(c+65,"rvcpu id3 inst_csrrc", false,-1);
-        tracep->declBit(c+66,"rvcpu id3 inst_csrrwi", false,-1);
-        tracep->declBit(c+97,"rvcpu id3 inst_csrrsi", false,-1);
-        tracep->declBit(c+98,"rvcpu id3 inst_csrrci", false,-1);
-        tracep->declBit(c+67,"rvcpu id3 inst_csr_rs1", false,-1);
-        tracep->declBit(c+66,"rvcpu id3 inst_csr_imm", false,-1);
-        tracep->declBit(c+99,"rvcpu id3 inst_ecall", false,-1);
-        tracep->declBit(c+68,"rvcpu id3 inst_ebreak", false,-1);
-        tracep->declBit(c+100,"rvcpu id3 inst_mret", false,-1);
+        tracep->declBit(c+39,"rvcpu id3 inst_lui", false,-1);
+        tracep->declBit(c+40,"rvcpu id3 inst_auipc", false,-1);
+        tracep->declBit(c+41,"rvcpu id3 inst_jal", false,-1);
+        tracep->declBit(c+42,"rvcpu id3 inst_jalr", false,-1);
+        tracep->declBit(c+43,"rvcpu id3 inst_jump", false,-1);
+        tracep->declBit(c+84,"rvcpu id3 inst_addi", false,-1);
+        tracep->declBit(c+85,"rvcpu id3 inst_slti", false,-1);
+        tracep->declBit(c+86,"rvcpu id3 inst_sltiu", false,-1);
+        tracep->declBit(c+87,"rvcpu id3 inst_xori", false,-1);
+        tracep->declBit(c+88,"rvcpu id3 inst_ori", false,-1);
+        tracep->declBit(c+89,"rvcpu id3 inst_andi", false,-1);
+        tracep->declBit(c+90,"rvcpu id3 inst_slli", false,-1);
+        tracep->declBit(c+91,"rvcpu id3 inst_srli", false,-1);
+        tracep->declBit(c+44,"rvcpu id3 inst_srai", false,-1);
+        tracep->declBit(c+45,"rvcpu id3 inst_addiw", false,-1);
+        tracep->declBit(c+46,"rvcpu id3 inst_slliw", false,-1);
+        tracep->declBit(c+47,"rvcpu id3 inst_srliw", false,-1);
+        tracep->declBit(c+48,"rvcpu id3 inst_sraiw", false,-1);
+        tracep->declBit(c+49,"rvcpu id3 inst_add", false,-1);
+        tracep->declBit(c+50,"rvcpu id3 inst_sub", false,-1);
+        tracep->declBit(c+51,"rvcpu id3 inst_sll", false,-1);
+        tracep->declBit(c+52,"rvcpu id3 inst_slt", false,-1);
+        tracep->declBit(c+53,"rvcpu id3 inst_sltu", false,-1);
+        tracep->declBit(c+54,"rvcpu id3 inst_xor", false,-1);
+        tracep->declBit(c+55,"rvcpu id3 inst_srl", false,-1);
+        tracep->declBit(c+56,"rvcpu id3 inst_sra", false,-1);
+        tracep->declBit(c+57,"rvcpu id3 inst_or", false,-1);
+        tracep->declBit(c+58,"rvcpu id3 inst_and", false,-1);
+        tracep->declBit(c+59,"rvcpu id3 inst_addw", false,-1);
+        tracep->declBit(c+60,"rvcpu id3 inst_subw", false,-1);
+        tracep->declBit(c+61,"rvcpu id3 inst_sllw", false,-1);
+        tracep->declBit(c+62,"rvcpu id3 inst_srlw", false,-1);
+        tracep->declBit(c+63,"rvcpu id3 inst_sraw", false,-1);
+        tracep->declBit(c+92,"rvcpu id3 inst_beq", false,-1);
+        tracep->declBit(c+93,"rvcpu id3 inst_ben", false,-1);
+        tracep->declBit(c+94,"rvcpu id3 inst_blt", false,-1);
+        tracep->declBit(c+95,"rvcpu id3 inst_bge", false,-1);
+        tracep->declBit(c+96,"rvcpu id3 inst_bltu", false,-1);
+        tracep->declBit(c+97,"rvcpu id3 inst_bgeu", false,-1);
+        tracep->declBit(c+64,"rvcpu id3 inst_csrrw", false,-1);
+        tracep->declBit(c+65,"rvcpu id3 inst_csrrs", false,-1);
+        tracep->declBit(c+66,"rvcpu id3 inst_csrrc", false,-1);
+        tracep->declBit(c+67,"rvcpu id3 inst_csrrwi", false,-1);
+        tracep->declBit(c+98,"rvcpu id3 inst_csrrsi", false,-1);
+        tracep->declBit(c+99,"rvcpu id3 inst_csrrci", false,-1);
+        tracep->declBit(c+68,"rvcpu id3 inst_csr_rs1", false,-1);
+        tracep->declBit(c+67,"rvcpu id3 inst_csr_imm", false,-1);
+        tracep->declBit(c+100,"rvcpu id3 inst_ecall", false,-1);
+        tracep->declBit(c+69,"rvcpu id3 inst_ebreak", false,-1);
+        tracep->declBit(c+101,"rvcpu id3 inst_mret", false,-1);
         tracep->declBit(c+368,"rvcpu id3 op1_loda_relate", false,-1);
         tracep->declBit(c+369,"rvcpu id3 op2_loda_relate", false,-1);
-        tracep->declBit(c+69,"rvcpu id3 ex_op1", false,-1);
-        tracep->declBit(c+70,"rvcpu id3 mem_op1", false,-1);
-        tracep->declBit(c+101,"rvcpu id3 ex_op2", false,-1);
-        tracep->declBit(c+102,"rvcpu id3 mem_op2", false,-1);
-        tracep->declBit(c+103,"rvcpu id3 wb_op1", false,-1);
-        tracep->declQuad(c+104,"rvcpu id3 jalr_pc_temp", false,-1, 63,0);
-        tracep->declBit(c+106,"rvcpu id3 predict_success", false,-1);
+        tracep->declBit(c+70,"rvcpu id3 ex_op1", false,-1);
+        tracep->declBit(c+71,"rvcpu id3 mem_op1", false,-1);
+        tracep->declBit(c+102,"rvcpu id3 ex_op2", false,-1);
+        tracep->declBit(c+103,"rvcpu id3 mem_op2", false,-1);
+        tracep->declBit(c+104,"rvcpu id3 wb_op1", false,-1);
+        tracep->declQuad(c+105,"rvcpu id3 jalr_pc_temp", false,-1, 63,0);
+        tracep->declBit(c+107,"rvcpu id3 predict_success", false,-1);
         tracep->declBit(c+329,"rvcpu id_ex4 clk", false,-1);
         tracep->declBit(c+330,"rvcpu id_ex4 rst", false,-1);
-        tracep->declBit(c+110,"rvcpu id_ex4 id_ex_bubble", false,-1);
+        tracep->declBit(c+111,"rvcpu id_ex4 id_ex_bubble", false,-1);
         tracep->declBus(c+22,"rvcpu id_ex4 stall_ctrl", false,-1, 4,0);
         tracep->declBus(c+29,"rvcpu id_ex4 id_inst", false,-1, 31,0);
         tracep->declQuad(c+16,"rvcpu id_ex4 id_pc", false,-1, 63,0);
@@ -273,44 +273,44 @@ void Vrvcpu___024root__traceInitSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
         tracep->declBus(c+15,"rvcpu id_ex4 id_rd_addr", false,-1, 4,0);
         tracep->declBus(c+18,"rvcpu id_ex4 id_addr_offset", false,-1, 11,0);
         tracep->declBus(c+19,"rvcpu id_ex4 id_ls_sel", false,-1, 2,0);
-        tracep->declBus(c+143,"rvcpu id_ex4 ex_inst", false,-1, 31,0);
-        tracep->declQuad(c+125,"rvcpu id_ex4 ex_pc", false,-1, 63,0);
-        tracep->declBus(c+127,"rvcpu id_ex4 ex_inst_type", false,-1, 7,0);
-        tracep->declBus(c+128,"rvcpu id_ex4 ex_inst_opcode", false,-1, 7,0);
-        tracep->declQuad(c+129,"rvcpu id_ex4 ex_op1", false,-1, 63,0);
-        tracep->declQuad(c+131,"rvcpu id_ex4 ex_op2", false,-1, 63,0);
-        tracep->declBit(c+133,"rvcpu id_ex4 ex_rd_ena", false,-1);
-        tracep->declBus(c+111,"rvcpu id_ex4 ex_rd_addr", false,-1, 4,0);
-        tracep->declBus(c+134,"rvcpu id_ex4 ex_addr_offset", false,-1, 11,0);
-        tracep->declBus(c+114,"rvcpu id_ex4 ex_ls_sel", false,-1, 2,0);
+        tracep->declBus(c+144,"rvcpu id_ex4 ex_inst", false,-1, 31,0);
+        tracep->declQuad(c+126,"rvcpu id_ex4 ex_pc", false,-1, 63,0);
+        tracep->declBus(c+128,"rvcpu id_ex4 ex_inst_type", false,-1, 7,0);
+        tracep->declBus(c+129,"rvcpu id_ex4 ex_inst_opcode", false,-1, 7,0);
+        tracep->declQuad(c+130,"rvcpu id_ex4 ex_op1", false,-1, 63,0);
+        tracep->declQuad(c+132,"rvcpu id_ex4 ex_op2", false,-1, 63,0);
+        tracep->declBit(c+134,"rvcpu id_ex4 ex_rd_ena", false,-1);
+        tracep->declBus(c+112,"rvcpu id_ex4 ex_rd_addr", false,-1, 4,0);
+        tracep->declBus(c+135,"rvcpu id_ex4 ex_addr_offset", false,-1, 11,0);
+        tracep->declBus(c+115,"rvcpu id_ex4 ex_ls_sel", false,-1, 2,0);
         tracep->declBit(c+329,"rvcpu ex5 clk", false,-1);
         tracep->declBit(c+330,"rvcpu ex5 rst", false,-1);
-        tracep->declQuad(c+125,"rvcpu ex5 pc_i", false,-1, 63,0);
-        tracep->declBus(c+143,"rvcpu ex5 id_ex_inst", false,-1, 31,0);
-        tracep->declBus(c+127,"rvcpu ex5 inst_type_i", false,-1, 7,0);
-        tracep->declBus(c+128,"rvcpu ex5 inst_opcode_i", false,-1, 7,0);
-        tracep->declQuad(c+129,"rvcpu ex5 op1_i", false,-1, 63,0);
-        tracep->declQuad(c+131,"rvcpu ex5 op2_i", false,-1, 63,0);
-        tracep->declBit(c+133,"rvcpu ex5 rd_ena_i", false,-1);
-        tracep->declBus(c+111,"rvcpu ex5 rd_addr_i", false,-1, 4,0);
-        tracep->declBus(c+114,"rvcpu ex5 ls_sel_i", false,-1, 2,0);
-        tracep->declBus(c+134,"rvcpu ex5 addr_offsel_i", false,-1, 11,0);
-        tracep->declBus(c+113,"rvcpu ex5 inst_type_o", false,-1, 7,0);
-        tracep->declBit(c+112,"rvcpu ex5 rd_ena_o", false,-1);
-        tracep->declBus(c+111,"rvcpu ex5 rd_addr_o", false,-1, 4,0);
+        tracep->declQuad(c+126,"rvcpu ex5 pc_i", false,-1, 63,0);
+        tracep->declBus(c+144,"rvcpu ex5 id_ex_inst", false,-1, 31,0);
+        tracep->declBus(c+128,"rvcpu ex5 inst_type_i", false,-1, 7,0);
+        tracep->declBus(c+129,"rvcpu ex5 inst_opcode_i", false,-1, 7,0);
+        tracep->declQuad(c+130,"rvcpu ex5 op1_i", false,-1, 63,0);
+        tracep->declQuad(c+132,"rvcpu ex5 op2_i", false,-1, 63,0);
+        tracep->declBit(c+134,"rvcpu ex5 rd_ena_i", false,-1);
+        tracep->declBus(c+112,"rvcpu ex5 rd_addr_i", false,-1, 4,0);
+        tracep->declBus(c+115,"rvcpu ex5 ls_sel_i", false,-1, 2,0);
+        tracep->declBus(c+135,"rvcpu ex5 addr_offsel_i", false,-1, 11,0);
+        tracep->declBus(c+114,"rvcpu ex5 inst_type_o", false,-1, 7,0);
+        tracep->declBit(c+113,"rvcpu ex5 rd_ena_o", false,-1);
+        tracep->declBus(c+112,"rvcpu ex5 rd_addr_o", false,-1, 4,0);
         tracep->declQuad(c+2,"rvcpu ex5 rd_data_o", false,-1, 63,0);
         tracep->declQuad(c+25,"rvcpu ex5 ex_pc_o", false,-1, 63,0);
         tracep->declBus(c+30,"rvcpu ex5 ex_inst_o", false,-1, 31,0);
-        tracep->declBus(c+114,"rvcpu ex5 ls_sel_o", false,-1, 2,0);
-        tracep->declQuad(c+115,"rvcpu ex5 ls_addr_o", false,-1, 63,0);
-        tracep->declBit(c+110,"rvcpu ex5 ex_flush", false,-1);
-        tracep->declBit(c+110,"rvcpu ex5 branch_pc_ena", false,-1);
-        tracep->declQuad(c+117,"rvcpu ex5 branch_pc", false,-1, 63,0);
+        tracep->declBus(c+115,"rvcpu ex5 ls_sel_o", false,-1, 2,0);
+        tracep->declQuad(c+116,"rvcpu ex5 ls_addr_o", false,-1, 63,0);
+        tracep->declBit(c+111,"rvcpu ex5 ex_flush", false,-1);
+        tracep->declBit(c+111,"rvcpu ex5 branch_pc_ena", false,-1);
+        tracep->declQuad(c+118,"rvcpu ex5 branch_pc", false,-1, 63,0);
         tracep->declBit(c+1,"rvcpu ex5 if_stell_req", false,-1);
-        tracep->declBit(c+80,"rvcpu ex5 ex_stall_req", false,-1);
+        tracep->declBit(c+81,"rvcpu ex5 ex_stall_req", false,-1);
         tracep->declBit(c+347,"rvcpu ex5 timer_intr", false,-1);
-        tracep->declBit(c+71,"rvcpu ex5 ex_stall", false,-1);
-        tracep->declQuad(c+72,"rvcpu ex5 exe_res", false,-1, 63,0);
+        tracep->declBit(c+72,"rvcpu ex5 ex_stall", false,-1);
+        tracep->declQuad(c+73,"rvcpu ex5 exe_res", false,-1, 63,0);
         tracep->declQuad(c+154,"rvcpu ex5 op2_i_mux", false,-1, 63,0);
         tracep->declQuad(c+156,"rvcpu ex5 op1_sub_op2", false,-1, 63,0);
         tracep->declQuad(c+158,"rvcpu ex5 op1_add_op2", false,-1, 63,0);
@@ -341,7 +341,7 @@ void Vrvcpu___024root__traceInitSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
         tracep->declQuad(c+195,"rvcpu ex5 mask_clear_res", false,-1, 63,0);
         tracep->declBit(c+329,"rvcpu ex5 csr0 clk", false,-1);
         tracep->declBit(c+330,"rvcpu ex5 csr0 rst", false,-1);
-        tracep->declQuad(c+125,"rvcpu ex5 csr0 pc_i", false,-1, 63,0);
+        tracep->declQuad(c+126,"rvcpu ex5 csr0 pc_i", false,-1, 63,0);
         tracep->declBit(c+187,"rvcpu ex5 csr0 csr_wr_en", false,-1);
         tracep->declBit(c+188,"rvcpu ex5 csr0 csr_rd_en", false,-1);
         tracep->declBus(c+181,"rvcpu ex5 csr0 csr_idx", false,-1, 11,0);
@@ -352,7 +352,7 @@ void Vrvcpu___024root__traceInitSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
         tracep->declBit(c+180,"rvcpu ex5 csr0 tmr_trap_ena", false,-1);
         tracep->declQuad(c+182,"rvcpu ex5 csr0 read_csr_data", false,-1, 63,0);
         tracep->declQuad(c+189,"rvcpu ex5 csr0 wbck_csr_data", false,-1, 63,0);
-        tracep->declBit(c+71,"rvcpu ex5 csr0 ex_stall", false,-1);
+        tracep->declBit(c+72,"rvcpu ex5 csr0 ex_stall", false,-1);
         tracep->declBit(c+197,"rvcpu ex5 csr0 sel_mcycle", false,-1);
         tracep->declBit(c+198,"rvcpu ex5 csr0 rd_mcycle", false,-1);
         tracep->declBit(c+199,"rvcpu ex5 csr0 wr_mcycle", false,-1);
@@ -407,29 +407,29 @@ void Vrvcpu___024root__traceInitSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
         tracep->declQuad(c+25,"rvcpu ex_mem6 ex_mem_pc_i", false,-1, 63,0);
         tracep->declBus(c+30,"rvcpu ex_mem6 ex_mem_inst_i", false,-1, 31,0);
         tracep->declBus(c+22,"rvcpu ex_mem6 stall_ctrl", false,-1, 4,0);
-        tracep->declBus(c+113,"rvcpu ex_mem6 ex_inst_type", false,-1, 7,0);
-        tracep->declBit(c+112,"rvcpu ex_mem6 ex_rd_ena", false,-1);
+        tracep->declBus(c+114,"rvcpu ex_mem6 ex_inst_type", false,-1, 7,0);
+        tracep->declBit(c+113,"rvcpu ex_mem6 ex_rd_ena", false,-1);
         tracep->declQuad(c+2,"rvcpu ex_mem6 ex_rd_data", false,-1, 63,0);
-        tracep->declBus(c+111,"rvcpu ex_mem6 ex_rd_addr", false,-1, 4,0);
-        tracep->declBus(c+114,"rvcpu ex_mem6 ex_ls_sel", false,-1, 2,0);
-        tracep->declQuad(c+115,"rvcpu ex_mem6 ex_ls_addr", false,-1, 63,0);
-        tracep->declBus(c+135,"rvcpu ex_mem6 mem_inst_type", false,-1, 7,0);
-        tracep->declBit(c+120,"rvcpu ex_mem6 mem_rd_ena", false,-1);
-        tracep->declQuad(c+136,"rvcpu ex_mem6 mem_rd_data", false,-1, 63,0);
-        tracep->declBus(c+119,"rvcpu ex_mem6 mem_rd_addr", false,-1, 4,0);
-        tracep->declQuad(c+141,"rvcpu ex_mem6 ex_mem_pc_o", false,-1, 63,0);
-        tracep->declBus(c+144,"rvcpu ex_mem6 ex_mem_inst_o", false,-1, 31,0);
-        tracep->declBus(c+138,"rvcpu ex_mem6 mem_ls_sel", false,-1, 2,0);
-        tracep->declQuad(c+139,"rvcpu ex_mem6 mem_ls_addr", false,-1, 63,0);
+        tracep->declBus(c+112,"rvcpu ex_mem6 ex_rd_addr", false,-1, 4,0);
+        tracep->declBus(c+115,"rvcpu ex_mem6 ex_ls_sel", false,-1, 2,0);
+        tracep->declQuad(c+116,"rvcpu ex_mem6 ex_ls_addr", false,-1, 63,0);
+        tracep->declBus(c+136,"rvcpu ex_mem6 mem_inst_type", false,-1, 7,0);
+        tracep->declBit(c+121,"rvcpu ex_mem6 mem_rd_ena", false,-1);
+        tracep->declQuad(c+137,"rvcpu ex_mem6 mem_rd_data", false,-1, 63,0);
+        tracep->declBus(c+120,"rvcpu ex_mem6 mem_rd_addr", false,-1, 4,0);
+        tracep->declQuad(c+142,"rvcpu ex_mem6 ex_mem_pc_o", false,-1, 63,0);
+        tracep->declBus(c+145,"rvcpu ex_mem6 ex_mem_inst_o", false,-1, 31,0);
+        tracep->declBus(c+139,"rvcpu ex_mem6 mem_ls_sel", false,-1, 2,0);
+        tracep->declQuad(c+140,"rvcpu ex_mem6 mem_ls_addr", false,-1, 63,0);
         tracep->declBit(c+330,"rvcpu mem7 rst", false,-1);
-        tracep->declBus(c+135,"rvcpu mem7 inst_type_i", false,-1, 7,0);
-        tracep->declBit(c+120,"rvcpu mem7 rd_ena_i", false,-1);
-        tracep->declQuad(c+136,"rvcpu mem7 rd_data_i", false,-1, 63,0);
-        tracep->declBus(c+119,"rvcpu mem7 rd_addr_i", false,-1, 4,0);
-        tracep->declQuad(c+141,"rvcpu mem7 mem_pc_i", false,-1, 63,0);
-        tracep->declBus(c+144,"rvcpu mem7 mem_inst_i", false,-1, 31,0);
-        tracep->declQuad(c+139,"rvcpu mem7 ls_addr_i", false,-1, 63,0);
-        tracep->declBus(c+138,"rvcpu mem7 ls_sel_i", false,-1, 2,0);
+        tracep->declBus(c+136,"rvcpu mem7 inst_type_i", false,-1, 7,0);
+        tracep->declBit(c+121,"rvcpu mem7 rd_ena_i", false,-1);
+        tracep->declQuad(c+137,"rvcpu mem7 rd_data_i", false,-1, 63,0);
+        tracep->declBus(c+120,"rvcpu mem7 rd_addr_i", false,-1, 4,0);
+        tracep->declQuad(c+142,"rvcpu mem7 mem_pc_i", false,-1, 63,0);
+        tracep->declBus(c+145,"rvcpu mem7 mem_inst_i", false,-1, 31,0);
+        tracep->declQuad(c+140,"rvcpu mem7 ls_addr_i", false,-1, 63,0);
+        tracep->declBus(c+139,"rvcpu mem7 ls_sel_i", false,-1, 2,0);
         tracep->declQuad(c+337,"rvcpu mem7 data_addr_o", false,-1, 63,0);
         tracep->declBus(c+339,"rvcpu mem7 wmask_o", false,-1, 7,0);
         tracep->declQuad(c+342,"rvcpu mem7 data_i", false,-1, 63,0);
@@ -437,9 +437,9 @@ void Vrvcpu___024root__traceInitSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
         tracep->declBit(c+344,"rvcpu mem7 we", false,-1);
         tracep->declBit(c+345,"rvcpu mem7 re", false,-1);
         tracep->declBit(c+346,"rvcpu mem7 mem_finish", false,-1);
-        tracep->declBit(c+120,"rvcpu mem7 rd_ena_o", false,-1);
+        tracep->declBit(c+121,"rvcpu mem7 rd_ena_o", false,-1);
         tracep->declQuad(c+23,"rvcpu mem7 rd_data_o", false,-1, 63,0);
-        tracep->declBus(c+119,"rvcpu mem7 rd_addr_o", false,-1, 4,0);
+        tracep->declBus(c+120,"rvcpu mem7 rd_addr_o", false,-1, 4,0);
         tracep->declQuad(c+27,"rvcpu mem7 mem_pc_o", false,-1, 63,0);
         tracep->declBus(c+31,"rvcpu mem7 mem_inst_o", false,-1, 31,0);
         tracep->declBit(c+359,"rvcpu mem7 mem_stall_req", false,-1);
@@ -447,11 +447,11 @@ void Vrvcpu___024root__traceInitSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
         tracep->declBus(c+252,"rvcpu mem7 byte_sel", false,-1, 2,0);
         tracep->declBus(c+253,"rvcpu mem7 half_byte_sel", false,-1, 1,0);
         tracep->declBit(c+254,"rvcpu mem7 word_sel", false,-1);
-        tracep->declBus(c+74,"rvcpu mem7 data_byte", false,-1, 7,0);
-        tracep->declBus(c+75,"rvcpu mem7 data_half_byte", false,-1, 15,0);
-        tracep->declBus(c+76,"rvcpu mem7 data_word", false,-1, 31,0);
-        tracep->declQuad(c+77,"rvcpu mem7 store_data", false,-1, 63,0);
-        tracep->declBus(c+79,"rvcpu mem7 store_mask", false,-1, 7,0);
+        tracep->declBus(c+75,"rvcpu mem7 data_byte", false,-1, 7,0);
+        tracep->declBus(c+76,"rvcpu mem7 data_half_byte", false,-1, 15,0);
+        tracep->declBus(c+77,"rvcpu mem7 data_word", false,-1, 31,0);
+        tracep->declQuad(c+78,"rvcpu mem7 store_data", false,-1, 63,0);
+        tracep->declBus(c+80,"rvcpu mem7 store_mask", false,-1, 7,0);
         tracep->declQuad(c+372,"rvcpu mem7 sb_data", false,-1, 63,0);
         tracep->declQuad(c+374,"rvcpu mem7 sh_data", false,-1, 63,0);
         tracep->declQuad(c+376,"rvcpu mem7 sw_data", false,-1, 63,0);
@@ -464,11 +464,11 @@ void Vrvcpu___024root__traceInitSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
         tracep->declBus(c+31,"rvcpu mem_wb8 wb_inst_i", false,-1, 31,0);
         tracep->declBus(c+22,"rvcpu mem_wb8 stall_ctrl", false,-1, 4,0);
         tracep->declQuad(c+23,"rvcpu mem_wb8 mem_rd_data", false,-1, 63,0);
-        tracep->declBus(c+119,"rvcpu mem_wb8 mem_rd_addr", false,-1, 4,0);
-        tracep->declBit(c+120,"rvcpu mem_wb8 mem_rd_ena", false,-1);
-        tracep->declQuad(c+123,"rvcpu mem_wb8 wb_rd_data", false,-1, 63,0);
-        tracep->declBus(c+121,"rvcpu mem_wb8 wb_rd_addr", false,-1, 4,0);
-        tracep->declBit(c+122,"rvcpu mem_wb8 wb_rd_ena", false,-1);
+        tracep->declBus(c+120,"rvcpu mem_wb8 mem_rd_addr", false,-1, 4,0);
+        tracep->declBit(c+121,"rvcpu mem_wb8 mem_rd_ena", false,-1);
+        tracep->declQuad(c+124,"rvcpu mem_wb8 wb_rd_data", false,-1, 63,0);
+        tracep->declBus(c+122,"rvcpu mem_wb8 wb_rd_addr", false,-1, 4,0);
+        tracep->declBit(c+123,"rvcpu mem_wb8 wb_rd_ena", false,-1);
         tracep->declQuad(c+255,"rvcpu mem_wb8 wb_pc_o", false,-1, 63,0);
         tracep->declBus(c+257,"rvcpu mem_wb8 wb_inst_o", false,-1, 31,0);
         tracep->declQuad(c+258,"rvcpu mem_wb8 pc_data1", false,-1, 63,0);
@@ -478,14 +478,14 @@ void Vrvcpu___024root__traceInitSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
         tracep->declBit(c+330,"rvcpu ctrl9 rst", false,-1);
         tracep->declBit(c+1,"rvcpu ctrl9 if_stall_req", false,-1);
         tracep->declBit(c+354,"rvcpu ctrl9 id_stall_req", false,-1);
-        tracep->declBit(c+80,"rvcpu ctrl9 ex_stall_req", false,-1);
+        tracep->declBit(c+81,"rvcpu ctrl9 ex_stall_req", false,-1);
         tracep->declBit(c+359,"rvcpu ctrl9 mem_stall_req", false,-1);
         tracep->declBus(c+22,"rvcpu ctrl9 stall_ctrl", false,-1, 4,0);
         tracep->declBit(c+329,"rvcpu regfile10 clk", false,-1);
         tracep->declBit(c+330,"rvcpu regfile10 rst", false,-1);
-        tracep->declBus(c+121,"rvcpu regfile10 waddr", false,-1, 4,0);
-        tracep->declQuad(c+123,"rvcpu regfile10 wdata", false,-1, 63,0);
-        tracep->declBit(c+122,"rvcpu regfile10 we", false,-1);
+        tracep->declBus(c+122,"rvcpu regfile10 waddr", false,-1, 4,0);
+        tracep->declQuad(c+124,"rvcpu regfile10 wdata", false,-1, 63,0);
+        tracep->declBit(c+123,"rvcpu regfile10 we", false,-1);
         tracep->declBus(c+4,"rvcpu regfile10 raddr1", false,-1, 4,0);
         tracep->declQuad(c+355,"rvcpu regfile10 rdata1", false,-1, 63,0);
         tracep->declBit(c+5,"rvcpu regfile10 re1", false,-1);
@@ -563,52 +563,53 @@ void Vrvcpu___024root__traceFullSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
         tracep->fullBit(oldp+34,(vlSelf->rvcpu__DOT__pip_fore0__DOT__inst_jalr));
         tracep->fullQData(oldp+35,(vlSelf->rvcpu__DOT__pip_fore0__DOT__j_pc),64);
         tracep->fullBit(oldp+37,((1U & (IData)(vlSelf->rvcpu__DOT__stall_ctrl))));
-        tracep->fullBit(oldp+38,(vlSelf->rvcpu__DOT__id3__DOT__inst_lui));
-        tracep->fullBit(oldp+39,(vlSelf->rvcpu__DOT__id3__DOT__inst_auipc));
-        tracep->fullBit(oldp+40,(vlSelf->rvcpu__DOT__id3__DOT__inst_jal));
-        tracep->fullBit(oldp+41,(vlSelf->rvcpu__DOT__id3__DOT__inst_jalr));
-        tracep->fullBit(oldp+42,(vlSelf->rvcpu__DOT__id3__DOT__inst_jump));
-        tracep->fullBit(oldp+43,(vlSelf->rvcpu__DOT__id3__DOT__inst_srai));
-        tracep->fullBit(oldp+44,(vlSelf->rvcpu__DOT__id3__DOT__inst_addiw));
-        tracep->fullBit(oldp+45,(vlSelf->rvcpu__DOT__id3__DOT__inst_slliw));
-        tracep->fullBit(oldp+46,(vlSelf->rvcpu__DOT__id3__DOT__inst_srliw));
-        tracep->fullBit(oldp+47,(vlSelf->rvcpu__DOT__id3__DOT__inst_sraiw));
-        tracep->fullBit(oldp+48,(vlSelf->rvcpu__DOT__id3__DOT__inst_add));
-        tracep->fullBit(oldp+49,(vlSelf->rvcpu__DOT__id3__DOT__inst_sub));
-        tracep->fullBit(oldp+50,(vlSelf->rvcpu__DOT__id3__DOT__inst_sll));
-        tracep->fullBit(oldp+51,(vlSelf->rvcpu__DOT__id3__DOT__inst_slt));
-        tracep->fullBit(oldp+52,(vlSelf->rvcpu__DOT__id3__DOT__inst_sltu));
-        tracep->fullBit(oldp+53,(vlSelf->rvcpu__DOT__id3__DOT__inst_xor));
-        tracep->fullBit(oldp+54,(vlSelf->rvcpu__DOT__id3__DOT__inst_srl));
-        tracep->fullBit(oldp+55,(vlSelf->rvcpu__DOT__id3__DOT__inst_sra));
-        tracep->fullBit(oldp+56,(vlSelf->rvcpu__DOT__id3__DOT__inst_or));
-        tracep->fullBit(oldp+57,(vlSelf->rvcpu__DOT__id3__DOT__inst_and));
-        tracep->fullBit(oldp+58,(vlSelf->rvcpu__DOT__id3__DOT__inst_addw));
-        tracep->fullBit(oldp+59,(vlSelf->rvcpu__DOT__id3__DOT__inst_subw));
-        tracep->fullBit(oldp+60,(vlSelf->rvcpu__DOT__id3__DOT__inst_sllw));
-        tracep->fullBit(oldp+61,(vlSelf->rvcpu__DOT__id3__DOT__inst_srlw));
-        tracep->fullBit(oldp+62,(vlSelf->rvcpu__DOT__id3__DOT__inst_sraw));
-        tracep->fullBit(oldp+63,(vlSelf->rvcpu__DOT__id3__DOT__inst_csrrw));
-        tracep->fullBit(oldp+64,(vlSelf->rvcpu__DOT__id3__DOT__inst_csrrs));
-        tracep->fullBit(oldp+65,(vlSelf->rvcpu__DOT__id3__DOT__inst_csrrc));
-        tracep->fullBit(oldp+66,(vlSelf->rvcpu__DOT__id3__DOT__inst_csrrwi));
-        tracep->fullBit(oldp+67,((((IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_csrrw) 
+        tracep->fullCData(oldp+38,(vlSelf->rvcpu__DOT__id3__DOT__rs1),5);
+        tracep->fullBit(oldp+39,(vlSelf->rvcpu__DOT__id3__DOT__inst_lui));
+        tracep->fullBit(oldp+40,(vlSelf->rvcpu__DOT__id3__DOT__inst_auipc));
+        tracep->fullBit(oldp+41,(vlSelf->rvcpu__DOT__id3__DOT__inst_jal));
+        tracep->fullBit(oldp+42,(vlSelf->rvcpu__DOT__id3__DOT__inst_jalr));
+        tracep->fullBit(oldp+43,(vlSelf->rvcpu__DOT__id3__DOT__inst_jump));
+        tracep->fullBit(oldp+44,(vlSelf->rvcpu__DOT__id3__DOT__inst_srai));
+        tracep->fullBit(oldp+45,(vlSelf->rvcpu__DOT__id3__DOT__inst_addiw));
+        tracep->fullBit(oldp+46,(vlSelf->rvcpu__DOT__id3__DOT__inst_slliw));
+        tracep->fullBit(oldp+47,(vlSelf->rvcpu__DOT__id3__DOT__inst_srliw));
+        tracep->fullBit(oldp+48,(vlSelf->rvcpu__DOT__id3__DOT__inst_sraiw));
+        tracep->fullBit(oldp+49,(vlSelf->rvcpu__DOT__id3__DOT__inst_add));
+        tracep->fullBit(oldp+50,(vlSelf->rvcpu__DOT__id3__DOT__inst_sub));
+        tracep->fullBit(oldp+51,(vlSelf->rvcpu__DOT__id3__DOT__inst_sll));
+        tracep->fullBit(oldp+52,(vlSelf->rvcpu__DOT__id3__DOT__inst_slt));
+        tracep->fullBit(oldp+53,(vlSelf->rvcpu__DOT__id3__DOT__inst_sltu));
+        tracep->fullBit(oldp+54,(vlSelf->rvcpu__DOT__id3__DOT__inst_xor));
+        tracep->fullBit(oldp+55,(vlSelf->rvcpu__DOT__id3__DOT__inst_srl));
+        tracep->fullBit(oldp+56,(vlSelf->rvcpu__DOT__id3__DOT__inst_sra));
+        tracep->fullBit(oldp+57,(vlSelf->rvcpu__DOT__id3__DOT__inst_or));
+        tracep->fullBit(oldp+58,(vlSelf->rvcpu__DOT__id3__DOT__inst_and));
+        tracep->fullBit(oldp+59,(vlSelf->rvcpu__DOT__id3__DOT__inst_addw));
+        tracep->fullBit(oldp+60,(vlSelf->rvcpu__DOT__id3__DOT__inst_subw));
+        tracep->fullBit(oldp+61,(vlSelf->rvcpu__DOT__id3__DOT__inst_sllw));
+        tracep->fullBit(oldp+62,(vlSelf->rvcpu__DOT__id3__DOT__inst_srlw));
+        tracep->fullBit(oldp+63,(vlSelf->rvcpu__DOT__id3__DOT__inst_sraw));
+        tracep->fullBit(oldp+64,(vlSelf->rvcpu__DOT__id3__DOT__inst_csrrw));
+        tracep->fullBit(oldp+65,(vlSelf->rvcpu__DOT__id3__DOT__inst_csrrs));
+        tracep->fullBit(oldp+66,(vlSelf->rvcpu__DOT__id3__DOT__inst_csrrc));
+        tracep->fullBit(oldp+67,(vlSelf->rvcpu__DOT__id3__DOT__inst_csrrwi));
+        tracep->fullBit(oldp+68,((((IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_csrrw) 
                                    | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_csrrs)) 
                                   | (IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_csrrc))));
-        tracep->fullBit(oldp+68,(vlSelf->rvcpu__DOT__id3__DOT__inst_ebreak));
-        tracep->fullBit(oldp+69,(vlSelf->rvcpu__DOT__id3__DOT__ex_op1));
-        tracep->fullBit(oldp+70,(vlSelf->rvcpu__DOT__id3__DOT__mem_op1));
-        tracep->fullBit(oldp+71,((1U & ((IData)(vlSelf->rvcpu__DOT__stall_ctrl) 
+        tracep->fullBit(oldp+69,(vlSelf->rvcpu__DOT__id3__DOT__inst_ebreak));
+        tracep->fullBit(oldp+70,(vlSelf->rvcpu__DOT__id3__DOT__ex_op1));
+        tracep->fullBit(oldp+71,(vlSelf->rvcpu__DOT__id3__DOT__mem_op1));
+        tracep->fullBit(oldp+72,((1U & ((IData)(vlSelf->rvcpu__DOT__stall_ctrl) 
                                         >> 3U))));
-        tracep->fullQData(oldp+72,(vlSelf->rvcpu__DOT__ex5__DOT__exe_res),64);
-        tracep->fullCData(oldp+74,(vlSelf->rvcpu__DOT__mem7__DOT__data_byte),8);
-        tracep->fullSData(oldp+75,(vlSelf->rvcpu__DOT__mem7__DOT__data_half_byte),16);
-        tracep->fullIData(oldp+76,(vlSelf->rvcpu__DOT__mem7__DOT__data_word),32);
-        tracep->fullQData(oldp+77,(vlSelf->rvcpu__DOT__mem7__DOT__store_data),64);
-        tracep->fullCData(oldp+79,(vlSelf->rvcpu__DOT__mem7__DOT__store_mask),8);
-        tracep->fullBit(oldp+80,(((IData)(vlSelf->rvcpu__DOT__ex_pc_branchena) 
+        tracep->fullQData(oldp+73,(vlSelf->rvcpu__DOT__ex5__DOT__exe_res),64);
+        tracep->fullCData(oldp+75,(vlSelf->rvcpu__DOT__mem7__DOT__data_byte),8);
+        tracep->fullSData(oldp+76,(vlSelf->rvcpu__DOT__mem7__DOT__data_half_byte),16);
+        tracep->fullIData(oldp+77,(vlSelf->rvcpu__DOT__mem7__DOT__data_word),32);
+        tracep->fullQData(oldp+78,(vlSelf->rvcpu__DOT__mem7__DOT__store_data),64);
+        tracep->fullCData(oldp+80,(vlSelf->rvcpu__DOT__mem7__DOT__store_mask),8);
+        tracep->fullBit(oldp+81,(((IData)(vlSelf->rvcpu__DOT__ex_pc_branchena) 
                                   & (IData)(vlSelf->rvcpu__DOT__if_stall_req))));
-        tracep->fullQData(oldp+81,(((IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_jalr)
+        tracep->fullQData(oldp+82,(((IData)(vlSelf->rvcpu__DOT__id3__DOT__inst_jalr)
                                      ? (0xfffffffffffffffeULL 
                                         & ((((- (QData)((IData)(
                                                                 (vlSelf->rvcpu__DOT__if_id_inst 
@@ -619,19 +620,11 @@ void Vrvcpu___024root__traceFullSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
                                                                >> 0x14U)))) 
                                            + vlSelf->rvcpu__DOT__id_ex_op))
                                      : 0ULL)),64);
-        tracep->fullBit(oldp+83,((1U & (IData)(((0x10U 
-                                                 == 
-                                                 (0x10U 
-                                                  & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
-                                                & (0U 
-                                                   == 
-                                                   (0x7000U 
-                                                    & vlSelf->rvcpu__DOT__if_id_inst)))))));
         tracep->fullBit(oldp+84,((1U & (IData)(((0x10U 
                                                  == 
                                                  (0x10U 
                                                   & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
-                                                & (0x2000U 
+                                                & (0U 
                                                    == 
                                                    (0x7000U 
                                                     & vlSelf->rvcpu__DOT__if_id_inst)))))));
@@ -639,7 +632,7 @@ void Vrvcpu___024root__traceFullSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
                                                  == 
                                                  (0x10U 
                                                   & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
-                                                & (0x3000U 
+                                                & (0x2000U 
                                                    == 
                                                    (0x7000U 
                                                     & vlSelf->rvcpu__DOT__if_id_inst)))))));
@@ -647,7 +640,7 @@ void Vrvcpu___024root__traceFullSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
                                                  == 
                                                  (0x10U 
                                                   & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
-                                                & (0x4000U 
+                                                & (0x3000U 
                                                    == 
                                                    (0x7000U 
                                                     & vlSelf->rvcpu__DOT__if_id_inst)))))));
@@ -655,7 +648,7 @@ void Vrvcpu___024root__traceFullSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
                                                  == 
                                                  (0x10U 
                                                   & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
-                                                & (0x6000U 
+                                                & (0x4000U 
                                                    == 
                                                    (0x7000U 
                                                     & vlSelf->rvcpu__DOT__if_id_inst)))))));
@@ -663,7 +656,7 @@ void Vrvcpu___024root__traceFullSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
                                                  == 
                                                  (0x10U 
                                                   & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
-                                                & (0x7000U 
+                                                & (0x6000U 
                                                    == 
                                                    (0x7000U 
                                                     & vlSelf->rvcpu__DOT__if_id_inst)))))));
@@ -671,7 +664,7 @@ void Vrvcpu___024root__traceFullSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
                                                  == 
                                                  (0x10U 
                                                   & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
-                                                & (0x1000U 
+                                                & (0x7000U 
                                                    == 
                                                    (0x7000U 
                                                     & vlSelf->rvcpu__DOT__if_id_inst)))))));
@@ -679,11 +672,19 @@ void Vrvcpu___024root__traceFullSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
                                                  == 
                                                  (0x10U 
                                                   & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
+                                                & (0x1000U 
+                                                   == 
+                                                   (0x7000U 
+                                                    & vlSelf->rvcpu__DOT__if_id_inst)))))));
+        tracep->fullBit(oldp+91,((1U & (IData)(((0x10U 
+                                                 == 
+                                                 (0x10U 
+                                                  & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
                                                 & (0x5000U 
                                                    == 
                                                    (0x40007000U 
                                                     & vlSelf->rvcpu__DOT__if_id_inst)))))));
-        tracep->fullBit(oldp+91,((1U & (IData)(((4U 
+        tracep->fullBit(oldp+92,((1U & (IData)(((4U 
                                                  == 
                                                  (4U 
                                                   & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
@@ -691,7 +692,7 @@ void Vrvcpu___024root__traceFullSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
                                                    == 
                                                    (0x7000U 
                                                     & vlSelf->rvcpu__DOT__if_id_inst)))))));
-        tracep->fullBit(oldp+92,((1U & (IData)(((4U 
+        tracep->fullBit(oldp+93,((1U & (IData)(((4U 
                                                  == 
                                                  (4U 
                                                   & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
@@ -699,7 +700,7 @@ void Vrvcpu___024root__traceFullSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
                                                    == 
                                                    (0x7000U 
                                                     & vlSelf->rvcpu__DOT__if_id_inst)))))));
-        tracep->fullBit(oldp+93,((1U & (IData)(((4U 
+        tracep->fullBit(oldp+94,((1U & (IData)(((4U 
                                                  == 
                                                  (4U 
                                                   & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
@@ -707,7 +708,7 @@ void Vrvcpu___024root__traceFullSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
                                                    == 
                                                    (0x7000U 
                                                     & vlSelf->rvcpu__DOT__if_id_inst)))))));
-        tracep->fullBit(oldp+94,((1U & (IData)(((4U 
+        tracep->fullBit(oldp+95,((1U & (IData)(((4U 
                                                  == 
                                                  (4U 
                                                   & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
@@ -715,27 +716,19 @@ void Vrvcpu___024root__traceFullSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
                                                    == 
                                                    (0x7000U 
                                                     & vlSelf->rvcpu__DOT__if_id_inst)))))));
-        tracep->fullBit(oldp+95,((1U & (IData)(((4U 
-                                                 == 
-                                                 (4U 
-                                                  & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
-                                                & (0x6000U 
-                                                   == 
-                                                   (0x7000U 
-                                                    & vlSelf->rvcpu__DOT__if_id_inst)))))));
         tracep->fullBit(oldp+96,((1U & (IData)(((4U 
                                                  == 
                                                  (4U 
                                                   & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
-                                                & (0x7000U 
+                                                & (0x6000U 
                                                    == 
                                                    (0x7000U 
                                                     & vlSelf->rvcpu__DOT__if_id_inst)))))));
-        tracep->fullBit(oldp+97,((1U & (IData)(((0x80U 
+        tracep->fullBit(oldp+97,((1U & (IData)(((4U 
                                                  == 
-                                                 (0x80U 
+                                                 (4U 
                                                   & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
-                                                & (0x6000U 
+                                                & (0x7000U 
                                                    == 
                                                    (0x7000U 
                                                     & vlSelf->rvcpu__DOT__if_id_inst)))))));
@@ -743,19 +736,27 @@ void Vrvcpu___024root__traceFullSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
                                                  == 
                                                  (0x80U 
                                                   & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
+                                                & (0x6000U 
+                                                   == 
+                                                   (0x7000U 
+                                                    & vlSelf->rvcpu__DOT__if_id_inst)))))));
+        tracep->fullBit(oldp+99,((1U & (IData)(((0x80U 
+                                                 == 
+                                                 (0x80U 
+                                                  & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
                                                 & (0x7000U 
                                                    == 
                                                    (0x7000U 
                                                     & vlSelf->rvcpu__DOT__if_id_inst)))))));
-        tracep->fullBit(oldp+99,(((IData)(((0x80U == 
-                                            (0x80U 
-                                             & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
-                                           & (0U == 
-                                              (0x7000U 
-                                               & vlSelf->rvcpu__DOT__if_id_inst)))) 
-                                  & (0U == (vlSelf->rvcpu__DOT__if_id_inst 
-                                            >> 0x14U)))));
         tracep->fullBit(oldp+100,(((IData)(((0x80U 
+                                             == (0x80U 
+                                                 & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
+                                            & (0U == 
+                                               (0x7000U 
+                                                & vlSelf->rvcpu__DOT__if_id_inst)))) 
+                                   & (0U == (vlSelf->rvcpu__DOT__if_id_inst 
+                                             >> 0x14U)))));
+        tracep->fullBit(oldp+101,(((IData)(((0x80U 
                                              == (0x80U 
                                                  & (IData)(vlSelf->rvcpu__DOT__id_ex_type))) 
                                             & (0U == 
@@ -763,67 +764,65 @@ void Vrvcpu___024root__traceFullSub0(Vrvcpu___024root* vlSelf, VerilatedVcd* tra
                                                 & vlSelf->rvcpu__DOT__if_id_inst)))) 
                                    & (0x18U == (vlSelf->rvcpu__DOT__if_id_inst 
                                                 >> 0x19U)))));
-        tracep->fullBit(oldp+101,((((IData)(vlSelf->rvcpu__DOT__idex_ex_rdaddr) 
+        tracep->fullBit(oldp+102,((((IData)(vlSelf->rvcpu__DOT__idex_ex_rdaddr) 
                                     == (IData)(vlSelf->rvcpu__DOT__id_reg_addr2)) 
                                    & (IData)(vlSelf->rvcpu__DOT__ex_id_rd_ena))));
-        tracep->fullBit(oldp+102,((((IData)(vlSelf->rvcpu__DOT__exmem_mem_addr) 
+        tracep->fullBit(oldp+103,((((IData)(vlSelf->rvcpu__DOT__exmem_mem_addr) 
                                     == (IData)(vlSelf->rvcpu__DOT__id_reg_addr2)) 
                                    & (IData)(vlSelf->rvcpu__DOT__exmem_mem_ena))));
-        tracep->fullBit(oldp+103,((((IData)(vlSelf->rvcpu__DOT__wb_id_addr) 
+        tracep->fullBit(oldp+104,((((IData)(vlSelf->rvcpu__DOT__wb_id_addr) 
                                     == (IData)(vlSelf->rvcpu__DOT__id_reg_addr1)) 
                                    & (IData)(vlSelf->rvcpu__DOT__wb_id_ena))));
-        tracep->fullQData(oldp+104,(((((- (QData)((IData)(
+        tracep->fullQData(oldp+105,(((((- (QData)((IData)(
                                                           (vlSelf->rvcpu__DOT__if_id_inst 
                                                            >> 0x1fU)))) 
                                        << 0xcU) | (QData)((IData)(
                                                                   (vlSelf->rvcpu__DOT__if_id_inst 
                                                                    >> 0x14U)))) 
                                      + vlSelf->rvcpu__DOT__id_ex_op)),64);
-        tracep->fullBit(oldp+106,((1U & (((~ (IData)(vlSelf->rvcpu__DOT__id3__DOT__ex_op1)) 
+        tracep->fullBit(oldp+107,((1U & (((~ (IData)(vlSelf->rvcpu__DOT__id3__DOT__ex_op1)) 
                                           & (~ (IData)(vlSelf->rvcpu__DOT__id3__DOT__mem_op1))) 
                                          & (~ (((IData)(vlSelf->rvcpu__DOT__wb_id_addr) 
                                                 == (IData)(vlSelf->rvcpu__DOT__id_reg_addr1)) 
                                                & (IData)(vlSelf->rvcpu__DOT__wb_id_ena)))))));
-        tracep->fullQData(oldp+107,(vlSelf->rvcpu__DOT__if_id_pc),64);
-        tracep->fullIData(oldp+109,(vlSelf->rvcpu__DOT__if_id_inst),32);
-        tracep->fullBit(oldp+110,(vlSelf->rvcpu__DOT__ex_pc_branchena));
-        tracep->fullCData(oldp+111,(vlSelf->rvcpu__DOT__idex_ex_rdaddr),5);
-        tracep->fullBit(oldp+112,(vlSelf->rvcpu__DOT__ex_id_rd_ena));
-        tracep->fullCData(oldp+113,(vlSelf->rvcpu__DOT__ex_id_rd_type),8);
-        tracep->fullCData(oldp+114,(vlSelf->rvcpu__DOT__idex_ex_sel),3);
-        tracep->fullQData(oldp+115,(vlSelf->rvcpu__DOT__ex_mem_addr),64);
-        tracep->fullQData(oldp+117,((((IData)(vlSelf->rvcpu__DOT__ex5__DOT__trap_ena) 
+        tracep->fullQData(oldp+108,(vlSelf->rvcpu__DOT__if_id_pc),64);
+        tracep->fullIData(oldp+110,(vlSelf->rvcpu__DOT__if_id_inst),32);
+        tracep->fullBit(oldp+111,(vlSelf->rvcpu__DOT__ex_pc_branchena));
+        tracep->fullCData(oldp+112,(vlSelf->rvcpu__DOT__idex_ex_rdaddr),5);
+        tracep->fullBit(oldp+113,(vlSelf->rvcpu__DOT__ex_id_rd_ena));
+        tracep->fullCData(oldp+114,(vlSelf->rvcpu__DOT__ex_id_rd_type),8);
+        tracep->fullCData(oldp+115,(vlSelf->rvcpu__DOT__idex_ex_sel),3);
+        tracep->fullQData(oldp+116,(vlSelf->rvcpu__DOT__ex_mem_addr),64);
+        tracep->fullQData(oldp+118,((((IData)(vlSelf->rvcpu__DOT__ex5__DOT__trap_ena) 
                                       | (IData)(vlSelf->rvcpu__DOT__ex5__DOT__cmt_mret_ena))
                                       ? vlSelf->rvcpu__DOT__ex5__DOT__read_csr_data
                                       : ((IData)(vlSelf->rvcpu__DOT__ex5__DOT__ex_flush_branch)
                                           ? (4ULL + vlSelf->rvcpu__DOT__idex_ex_pc)
                                           : 0ULL))),64);
-        tracep->fullCData(oldp+119,(vlSelf->rvcpu__DOT__exmem_mem_addr),5);
-        tracep->fullBit(oldp+120,(vlSelf->rvcpu__DOT__exmem_mem_ena));
-        tracep->fullCData(oldp+121,(vlSelf->rvcpu__DOT__wb_id_addr),5);
-        tracep->fullBit(oldp+122,(vlSelf->rvcpu__DOT__wb_id_ena));
-        tracep->fullQData(oldp+123,(vlSelf->rvcpu__DOT__wb_regfile_data),64);
-        tracep->fullQData(oldp+125,(vlSelf->rvcpu__DOT__idex_ex_pc),64);
-        tracep->fullCData(oldp+127,(vlSelf->rvcpu__DOT__idex_ex_type),8);
-        tracep->fullCData(oldp+128,(vlSelf->rvcpu__DOT__idex_ex_opcode),8);
-        tracep->fullQData(oldp+129,(vlSelf->rvcpu__DOT__idex_ex_op1),64);
-        tracep->fullQData(oldp+131,(vlSelf->rvcpu__DOT__idex_ex_op2),64);
-        tracep->fullBit(oldp+133,(vlSelf->rvcpu__DOT__idex_ex_rdena));
-        tracep->fullSData(oldp+134,(vlSelf->rvcpu__DOT__idex_ex_offset),12);
-        tracep->fullCData(oldp+135,(vlSelf->rvcpu__DOT__exmem_mem_type),8);
-        tracep->fullQData(oldp+136,(vlSelf->rvcpu__DOT__exmem_mem_data),64);
-        tracep->fullCData(oldp+138,(vlSelf->rvcpu__DOT__exmem_mem_sel),3);
-        tracep->fullQData(oldp+139,(vlSelf->rvcpu__DOT__exmem_mem_lsaddr),64);
-        tracep->fullQData(oldp+141,(vlSelf->rvcpu__DOT__ex_mem_mem_pc),64);
-        tracep->fullIData(oldp+143,(vlSelf->rvcpu__DOT__id_ex_ex_inst),32);
-        tracep->fullIData(oldp+144,(vlSelf->rvcpu__DOT__ex_mem_mem_inst),32);
-        tracep->fullCData(oldp+145,((0x7fU & vlSelf->rvcpu__DOT__if_id_inst)),7);
-        tracep->fullCData(oldp+146,((0x1fU & (vlSelf->rvcpu__DOT__if_id_inst 
+        tracep->fullCData(oldp+120,(vlSelf->rvcpu__DOT__exmem_mem_addr),5);
+        tracep->fullBit(oldp+121,(vlSelf->rvcpu__DOT__exmem_mem_ena));
+        tracep->fullCData(oldp+122,(vlSelf->rvcpu__DOT__wb_id_addr),5);
+        tracep->fullBit(oldp+123,(vlSelf->rvcpu__DOT__wb_id_ena));
+        tracep->fullQData(oldp+124,(vlSelf->rvcpu__DOT__wb_regfile_data),64);
+        tracep->fullQData(oldp+126,(vlSelf->rvcpu__DOT__idex_ex_pc),64);
+        tracep->fullCData(oldp+128,(vlSelf->rvcpu__DOT__idex_ex_type),8);
+        tracep->fullCData(oldp+129,(vlSelf->rvcpu__DOT__idex_ex_opcode),8);
+        tracep->fullQData(oldp+130,(vlSelf->rvcpu__DOT__idex_ex_op1),64);
+        tracep->fullQData(oldp+132,(vlSelf->rvcpu__DOT__idex_ex_op2),64);
+        tracep->fullBit(oldp+134,(vlSelf->rvcpu__DOT__idex_ex_rdena));
+        tracep->fullSData(oldp+135,(vlSelf->rvcpu__DOT__idex_ex_offset),12);
+        tracep->fullCData(oldp+136,(vlSelf->rvcpu__DOT__exmem_mem_type),8);
+        tracep->fullQData(oldp+137,(vlSelf->rvcpu__DOT__exmem_mem_data),64);
+        tracep->fullCData(oldp+139,(vlSelf->rvcpu__DOT__exmem_mem_sel),3);
+        tracep->fullQData(oldp+140,(vlSelf->rvcpu__DOT__exmem_mem_lsaddr),64);
+        tracep->fullQData(oldp+142,(vlSelf->rvcpu__DOT__ex_mem_mem_pc),64);
+        tracep->fullIData(oldp+144,(vlSelf->rvcpu__DOT__id_ex_ex_inst),32);
+        tracep->fullIData(oldp+145,(vlSelf->rvcpu__DOT__ex_mem_mem_inst),32);
+        tracep->fullCData(oldp+146,((0x7fU & vlSelf->rvcpu__DOT__if_id_inst)),7);
+        tracep->fullCData(oldp+147,((0x1fU & (vlSelf->rvcpu__DOT__if_id_inst 
                                               >> 7U))),5);
-        tracep->fullCData(oldp+147,((7U & (vlSelf->rvcpu__DOT__if_id_inst 
+        tracep->fullCData(oldp+148,((7U & (vlSelf->rvcpu__DOT__if_id_inst 
                                            >> 0xcU))),3);
-        tracep->fullCData(oldp+148,((0x1fU & (vlSelf->rvcpu__DOT__if_id_inst 
-                                              >> 0xfU))),5);
         tracep->fullSData(oldp+149,((vlSelf->rvcpu__DOT__if_id_inst 
                                      >> 0x14U)),12);
         tracep->fullCData(oldp+150,((vlSelf->rvcpu__DOT__if_id_inst 
