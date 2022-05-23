@@ -67,7 +67,7 @@ wire   [11:0]   imm    ;
 assign  opcode   =  inst_i [6:0]    ;
 assign  rd       =  inst_i [11:7]   ;
 assign  funct3   =  inst_i [14:12]  ;
-assign  rs1      =  inst_i [19:15]  ;
+assign  rs1      = inst_ebreak ? 5'b01011 : inst_i [19:15]  ;
 assign  imm      =  inst_i [31:20]  ;
 
 //R-Type
@@ -180,7 +180,7 @@ assign op1_addr_o = op1_read_o ? rs1 : 5'd0  ;
 assign op2_read_o = 1'b0 | inst_type[6] | inst_type[3] | inst_type[2] | inst_type[0] ;
 assign op2_addr_o = op2_read_o ? rs2 : 5'd0  ;
 
-assign rd_w_ena   = (rd != 5'b0) && (inst_type[7] |inst_type[6] | inst_type[5] | inst_type[4] | inst_type[3] | inst_type[1] | inst_lui | inst_auipc | inst_jump) ;    ;
+assign rd_w_ena   = (rd != 5'b0) && (inst_type[7] |inst_type[6] | inst_type[5] | inst_type[4] | inst_type[3] | inst_type[1] | inst_lui | inst_auipc | inst_jump) ; 
 assign rd_w_addr  = rd_w_ena ? ((inst_ebreak)? 5'b01011 : rd) : 5'd0     ; //difftest
 
 assign store_addr_offset = inst_type[1] ?   imm :

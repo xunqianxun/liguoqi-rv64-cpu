@@ -114,7 +114,7 @@ always @(*) begin
           `INST_SRLIW, `INST_SRLW:  begin exe_res = srlw_res                 ;end
           `INST_SRAIW, `INST_SRAW:  begin exe_res = sraw_res                 ;end
           `INST_SUBW             :  begin exe_res = subw_res                 ;end
-          `INST_EBREAK           :  begin exe_res = `ysyx22040228_ZEROWORD   ;end 
+          `INST_EBREAK           :  begin exe_res = op1_i                    ;end 
         default    :                begin exe_res = `ysyx22040228_ZEROWORD   ;end
         endcase
     end
