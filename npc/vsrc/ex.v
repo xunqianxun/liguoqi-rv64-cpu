@@ -102,7 +102,7 @@ always @(*) begin
           `INST_SLTIU , `INST_SLTU: begin exe_res = {63'd0 , (op1_i < op2_i)};end
           `INST_XORI ,  `INST_XOR:  begin exe_res = op1_i ^ op2_i            ;end
           `INST_ORI  ,  `INST_OR :  begin exe_res = op1_i | op2_i            ;end
-          `INST_ANDI ,  `INST_AND:  begin exe_res = op2_i & op2_i            ;end
+          `INST_ANDI ,  `INST_AND:  begin exe_res = op1_i & op2_i            ;end
           `INST_SLLI ,  `INST_SLL:  begin exe_res = op1_i << op2_i[5:0]      ;end
           `INST_SRLI ,  `INST_SRL:  begin exe_res = op1_i >> op2_i[5:0]      ;end
           `INST_SRAI ,  `INST_SRA:  begin exe_res = shift_res                ;end
