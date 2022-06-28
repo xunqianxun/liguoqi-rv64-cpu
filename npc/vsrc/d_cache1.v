@@ -295,7 +295,7 @@ module d_cache1 (
                 dirty_make     = `ysyx22040228_ABLE;
                 finish_the_mem = `ysyx22040228_ABLE;
         end
-        else if(write_ok && (state_store_nxt == `ysyx22040228_IDLE)) begin
+        else if(write_ok && (state_store == `ysyx22040228_IDLE)) begin
                 finish_the_mem = `ysyx22040228_ENABLE;
                 write_ok       = `ysyx22040228_ENABLE;
                 w_incache_ena1 = `ysyx22040228_ENABLE;
