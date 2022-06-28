@@ -16,7 +16,7 @@ Function:AXI4 use define
 // `define ysyx22040228_USER
 
 `define ysyx22040228_DATA_BUS     63:0
-`define ysyx22040228_STRB_BUS         
+`define ysyx22040228_STRB_BUS     7:0       
 //`define ysyx22040228_LAST 
 `define ysyx22040228_USER   
 `define ysyx22040228_RESP_BUS     1:0
