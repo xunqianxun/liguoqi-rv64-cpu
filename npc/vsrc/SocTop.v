@@ -51,7 +51,7 @@ module SocTop (
     input       wire       [`ysyx22040228_DATA_BUS]          out_axi_r_data       ,
     input       wire       [`ysyx22040228_RESP_BUS]          out_axi_r_resp       ,
     input       wire                                         out_axi_r_last       ,
-    input       wire                                         out_aix_r_valid      ,
+    input       wire                                         out_axi_r_valid      ,
     output      wire                                         out_axi_r_ready           
 );
   
@@ -155,7 +155,7 @@ module SocTop (
     assign out_axi_ar_size  = t_axi_ar_size   ;
     assign out_axi_ar_burst = t_axi_ar_burst  ;
     assign out_axi_ar_cache = t_axi_ar_cache  ;
-    assign out_axi_ar_port  = t_axi_ar_port   ;
+    assign out_axi_ar_prot  = t_axi_ar_prot   ;
     assign out_axi_ar_qos   = t_axi_ar_qos    ;
     assign out_axi_ar_valid = t_axi_ar_valid  ;
     assign t_axi_ar_ready   = out_axi_ar_ready;
