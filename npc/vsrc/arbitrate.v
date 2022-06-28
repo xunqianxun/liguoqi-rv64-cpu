@@ -130,35 +130,67 @@ module arbitrate (
     `define ysyx22040228_ABE_RESP 2'b11
 
     reg [1:0] transfor_state    ;
-    //reg [1:0] transfor_state_nex;
-    always @(clk) begin
-        if(rst == `ysyx22040228_RSTENA) 
-            transfor_state = `ysyx22040228_ABE_IDLE;
-        else begin
+    reg [1:0] transfor_state_nex;
+    // always @(clk) begin
+    //     if(rst == `ysyx22040228_RSTENA) 
+    //         transfor_state = `ysyx22040228_ABE_IDLE;
+    //     else begin
+    //     case (transfor_state)
+    //        `ysyx22040228_ABE_IDLE : begin
+    //            if(aw_shankhand && w_shankhand)
+    //                 transfor_state = `ysyx22040228_ABE_RESP    ;
+    //            else if(axi_aw_valid | axi_w_valid)
+    //                 transfor_state = `ysyx22040228_ABE_INFO    ;
+    //            else 
+    //                 transfor_state = `ysyx22040228_ABE_IDLE    ;
+    //        end 
+    //        `ysyx22040228_ABE_INFO : begin
+    //            if(aw_shankhand && w_shankhand)
+    //                 transfor_state = `ysyx22040228_ABE_RESP    ;
+    //            else 
+    //                 transfor_state = `ysyx22040228_ABE_INFO    ;
+    //        end
+    //        `ysyx22040228_ABE_RESP : begin
+    //            if(b_shankhand)
+    //                 transfor_state = `ysyx22040228_ABE_IDLE    ;
+    //            else 
+    //                 transfor_state = `ysyx22040228_ABE_RESP    ;
+    //        end 
+    //         default: ;
+    //     endcase
+    //     end 
+    // end
+    always @(posedge clk) begin
+        if(rst == `ysyx22040228_RSTENA)
+            transfor_state <= `ysyx22040228_ABE_IDLE;
+        else 
+            transfor_state <= transfor_state_nex    ;
+    end
+
+    always @(*) begin
         case (transfor_state)
            `ysyx22040228_ABE_IDLE : begin
-               if(aw_shankhand && w_shankhand)
-                    transfor_state = `ysyx22040228_ABE_RESP    ;
-               else if(axi_aw_valid | axi_w_valid)
-                    transfor_state = `ysyx22040228_ABE_INFO    ;
-               else 
-                    transfor_state = `ysyx22040228_ABE_IDLE    ;
-           end 
+                if(aw_shankhand && w_shankhand) 
+                    transfor_state_nex = `ysyx22040228_ABE_RESP ;
+                else if(axi_aw_valid | axi_w_valid)
+                    transfor_state_nex = `ysyx22040228_ABE_INFO ;
+                else 
+                    transfor_state_nex = `ysyx22040228_ABE_IDLE ;
+           end  
            `ysyx22040228_ABE_INFO : begin
-               if(aw_shankhand && w_shankhand)
-                    transfor_state = `ysyx22040228_ABE_RESP    ;
-               else 
-                    transfor_state = `ysyx22040228_ABE_INFO    ;
-           end
-           `ysyx22040228_ABE_RESP : begin
-               if(b_shankhand)
-                    transfor_state = `ysyx22040228_ABE_IDLE    ;
-               else 
-                    transfor_state = `ysyx22040228_ABE_RESP    ;
+                if(aw_shankhand && w_shankhand) 
+                    transfor_state_nex = `ysyx22040228_ABE_RESP ;
+                else 
+                    transfor_state_nex = `ysyx22040228_ABE_INFO ;
            end 
-            default: ;
+            `ysyx22040228_ABE_RESP : begin
+                if(b_shankhand)
+                    transfor_state_nex = `ysyx22040228_ABE_IDLE ;
+                else 
+                    transfor_state_nex = `ysyx22040228_ABE_RESP ;
+           end 
+            default: 
         endcase
-        end 
     end
 
     //------------------------------output sign make------------------------------//
@@ -169,16 +201,14 @@ module arbitrate (
     assign axi_aw_cache  =  `AXI_AWCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE;
     assign axi_aw_port   =  `AXI_PROT_UNPRIVILEGED_ACCESS;
     assign axi_aw_qos    =  4'h0                         ;
-    assign axi_aw_valid  =  (d_cache_write_ena && (transfor_state == `ysyx22040228_ABE_IDLE)) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE ;
-    assign axi_aw_addr   =  (aw_shankhand && w_shankhand) ? d_cache_addr  : `ysyx22040228_ZEROWORD;
+    assign axi_aw_valid  =  ((transfor_state == `ysyx22040228_ABE_IDLE) || (transfor_state == `ysyx22040228_ABE_INFO)) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE  ;
+    assign axi_aw_addr   =  ((transfor_state == `ysyx22040228_ABE_IDLE) || (transfor_state == `ysyx22040228_ABE_INFO)) ? d_cache_addr       : `ysyx22040228_ZEROWORD;
 
-    assign axi_w_data    =  (aw_shankhand && w_shankhand) ? d_cache_data : `ysyx22040228_ZEROWORD;
-    assign axi_w_strb    =  (aw_shankhand && w_shankhand) ? d_cache_mask : 8'b0                  ;             
+    assign axi_w_data    =  ((transfor_state == `ysyx22040228_ABE_IDLE) || (transfor_state == `ysyx22040228_ABE_INFO)) ? d_cache_data       : `ysyx22040228_ZEROWORD;
+    assign axi_w_strb    =  ((transfor_state == `ysyx22040228_ABE_IDLE) || (transfor_state == `ysyx22040228_ABE_INFO)) ? d_cache_mask       : 8'b0                  ;             
     assign axi_w_last    =  1'b1                         ;
-    assign axi_w_valid   =  (d_cache_write_ena && (transfor_state == `ysyx22040228_ABE_IDLE)) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE ;
-    assign axi_b_ready   =  (transfor_state == `ysyx22040228_ABE_RESP) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE                       ;
-   // wire   write_to_mem  ;
-   // assign write_to_mem  =  (axi_b_id == 4'b0000) && (axi_b_resp == 2'b00) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE                    ;
+    assign axi_w_valid   =  ((transfor_state == `ysyx22040228_ABE_IDLE) || (transfor_state == `ysyx22040228_ABE_INFO)) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE  ;
+    assign axi_b_ready   =  `ysyx22040228_ABLE           ;
     assign d_cache_ok    =  (b_success) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE                                                       ;
     //-------------------------wirte channel sign make----------------------------// 
     wire ar_shankhand ;
