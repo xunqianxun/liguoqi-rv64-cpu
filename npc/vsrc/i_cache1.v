@@ -24,7 +24,7 @@ module i_cache1 (
     assign cache_read_ena  = ord_data_ena      ;
     assign inst_data       = (state_inst == `ysyx22040228_HIT) ? inst_data_o :
                              inst_write_cache                  ? data_inst   :
-                                                       `ysyx22040228_ZEROWORD;
+                                                                        32'b0;
     assign inst_valid      = (state_inst == `ysyx22040228_HIT) ? inst_valid_o:
                              inst_write_cache                  ? inst_valid  :
                                                          `ysyx22040228_ENABLE;                        
@@ -205,7 +205,7 @@ module i_cache1 (
         else begin  
               inst_hit_ok               = `ysyx22040228_ENABLE  ;  
               if(state_inst ==`ysyx22040228_IDLE) begin
-              inst_data_o               = `ysyx22040228_ZEROWORD;
+              inst_data_o               = 32'b0                 ;
               inst_valid_o              = `ysyx22040228_ENABLE  ;
               end 
         end 
@@ -235,7 +235,7 @@ module i_cache1 (
     //end
     
     reg                          finish_the_mem_l ;
-    reg  [`ysyx22040228_REGBUS]  data_inst        ;
+    reg  [31:0]                  data_inst        ;
     reg                          ord_data_ena     ;
 
     //reg  [2:0]                   inst_write_count ;
@@ -243,7 +243,6 @@ module i_cache1 (
 
     reg                          inst_in_cache1   ;
     reg                          inst_in_cache2   ;
-    reg  [63:0]                  ram_inst_data    ;
     reg                          inst_write_cache ;
     always @(posedge clk or negedge rst) begin
         if((state_inst == `ysyx22040228_WRITE) && (~cache_in_ok)) begin
@@ -273,8 +272,8 @@ module i_cache1 (
                 if(state_inst ==`ysyx22040228_IDLE) begin
                     inst_in_cache1   = `ysyx22040228_ENABLE;
                     inst_in_cache2   = `ysyx22040228_ENABLE;
-                    data_inst        = `ysyx22040228_ZEROWORD;
-                    inst_valid       = `ysyx22040228_ENABLE  ;
+                    data_inst        = 32'b0               ;
+                    inst_valid       = `ysyx22040228_ENABLE;
                 end 
         end 
     end
