@@ -67,7 +67,7 @@ module arbitrate (
     //----------------------------i_cache----------------------------------------//
     input       wire       [63:0]                            i_cache_addr         ,
     input       wire                                         i_cache_ena          ,
-    output      wire       [63:0]                            i_cache_data_o       ,
+    output      wire       [31:0]                            i_cache_data_o       ,
     output      wire                                         i_cache_ok           ,
     //---------------------------axi sign----------------------------------------//
 
@@ -177,7 +177,7 @@ module arbitrate (
     assign axi_aw_cache  =  `AXI_AWCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE;
     assign axi_aw_port   =  `AXI_PROT_UNPRIVILEGED_ACCESS;
     assign axi_aw_qos    =  4'h0                         ;
-    assign axi_aw_valid  =  ((transfor_state == `ysyx22040228_ABE_IDLE) || (transfor_state == `ysyx22040228_ABE_INFO)) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE  ;
+    assign axi_aw_valid  =  ((transfor_state == `ysyx22040228_ABE_IDLE) || (transfor_state == `ysyx22040228_ABE_INFO)) ? d_cache_write_ena  : `ysyx22040228_ENABLE  ;
     assign axi_aw_addr   =  ((transfor_state == `ysyx22040228_ABE_IDLE) || (transfor_state == `ysyx22040228_ABE_INFO)) ? d_cache_addr       : `ysyx22040228_ZEROWORD;
 
     assign axi_w_data    =  ((transfor_state == `ysyx22040228_ABE_IDLE) || (transfor_state == `ysyx22040228_ABE_INFO)) ? d_cache_data       : `ysyx22040228_ZEROWORD;
@@ -185,23 +185,22 @@ module arbitrate (
     assign axi_w_last    =  1'b1                         ;
     assign axi_w_valid   =  ((transfor_state == `ysyx22040228_ABE_IDLE) || (transfor_state == `ysyx22040228_ABE_INFO)) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE  ;
     assign axi_b_ready   =  `ysyx22040228_ABLE           ;
-    assign d_cache_ok    =  (b_success) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE    
-                                                       ;
+    assign d_cache_ok    =  (b_success) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE ;
     //-------------------------wirte channel sign make----------------------------// 
     wire r_shankhand          ;
     wire d_cache_ar_shankhand ;
     wire i_cache_ar_shankhand ;
     wire d_cache_r_shankhand  ;
     wire i_cache_r_shankhand  ;
-    wire d_cache_rsuccess     ;
-    wire i_cache_rsuccess     ;
+    // wire d_cache_rsuccess     ;
+    // wire i_cache_rsuccess     ;
     assign d_cache_ar_shankhand = d_cache_valid && axi_ar_ready ;
     assign i_cache_ar_shankhand = i_cache_valid && axi_ar_ready ;
     assign r_shankhand          = axi_r_valid   && axi_r_ready  ;
     assign d_cache_r_shankhand  = r_shankhand && (axi_r_id == 4'b0000)         ;
-    assign d_cache_rsuccess     = d_cache_r_shankhand && (axi_r_resp == 2'b00) ;
+    //assign d_cache_rsuccess     = d_cache_r_shankhand && (axi_r_resp == 2'b00) ;
     assign i_cache_r_shankhand  = r_shankhand && (axi_r_id == 4'b0001)         ;
-    assign i_cache_rsuccess     = i_cache_r_shankhand && (axi_r_resp == 2'b00) ;
+    //assign i_cache_rsuccess     = i_cache_r_shankhand && (axi_r_resp == 2'b00) ;
 
     wire i_cache_valid ;
     wire d_cache_valid ;
@@ -295,13 +294,18 @@ module arbitrate (
     // assign i_cache_data_o = (i_cache_ok) ? axi_r_data : `ysyx22040228_ZEROWORD;
     // assign d_cache_ok   = ((axi_r_id == 4'b0010) && (axi_r_last == `ysyx22040228_ABLE) && (axi_r_resp == 2'b00)) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE;
     // assign d_cache_data_o = (d_cache_ok) ? axi_r_data : `ysyx22040228_ZEROWORD;
+    reg  i_cache_okreg ;
+    reg  d_cache_okreg ;
+    assign i_cache_ok = i_cache_okreg ;
+    assign d_cache_ok = d_cache_okreg ;
+
     assign i_cache_data_o = i_cache_data_oupt  ;
     assign d_cache_data_o = d_cache_data_outp  ;
     reg [31:0] i_cache_data_oupt ;
     reg [63:0] d_cache_data_outp ;
     always @(posedge clk) begin
         if(i_cache_r_shankhand && axi_r_last) begin
-            i_cache_ok = `ysyx22040228_ABLE           ;
+            i_cache_okreg = `ysyx22040228_ABLE           ;
             if(i_cache_addr[2] == `ysyx22040228_ABLE)
                 i_cache_data_oupt = axi_r_data[63:32] ;
             else 
@@ -309,13 +313,13 @@ module arbitrate (
         end
         else if(d_cache_r_shankhand && axi_r_last) begin
             d_cache_data_outp = axi_r_data ;
-            d_cache_ok        = `ysyx22040228_ABLE    ;
+            d_cache_okreg     = `ysyx22040228_ABLE    ;
         end 
         else begin
             i_cache_data_oupt = 32'h0 ;
             d_cache_data_outp = 64'h0 ;
-            i_cache_ok = 1'b0         ;
-            d_cache_ok = 1'b0         ;
+            i_cache_okreg = 1'b0      ;
+            d_cache_okreg = 1'b0      ;
         end  
     end 
 endmodule /*   */

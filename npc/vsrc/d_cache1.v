@@ -85,7 +85,7 @@ module d_cache1 (
         .tag_valid   (tag_user1   )
     );
 
-    assign tag_ena1 = (((state_store == `ysyx22040228_WRITE) && (in_dcache_ok)) && (w_incache_ena2))         ? `ysyx22040228_ABLE     :
+    assign tag_ena2 = (((state_store == `ysyx22040228_WRITE) && (in_dcache_ok)) && (w_incache_ena2))         ? `ysyx22040228_ABLE     :
                       (((state_load == `ysyx22040228_WRITE) && (in_dcache_ok)) && (load_in_cache2))          ? `ysyx22040228_ABLE     :
                                                                                                                `ysyx22040228_ENABLE   ;
     wire    [5:0]    addrtag2;
@@ -114,10 +114,12 @@ module d_cache1 (
     assign  data_ena1 = (state_store == `ysyx22040228_HIT)                                                             ? data_ram1_mask :
                         (((state_store == `ysyx22040228_WRITE) && (in_dcache_ok)) && w_incache_ena1)                   ? 8'b11111111    :
                         (write_incache && w_incache_ena1)                                                              ? w_incache_mask :
+                        (((state_load == `ysyx22040228_WRITE) && (in_dcache_ok)) && load_in_cache1)                    ? 8'b11111111    :
                                                                                                                                     8'b0;  
     assign in_data1   = (state_store == `ysyx22040228_HIT)                                                             ? data_ram1_data :
                         (((state_store == `ysyx22040228_WRITE) && (in_dcache_ok)) && w_incache_ena1)                   ? ram_iw_data    :
                         (write_incache && w_incache_ena1)                                                              ? ram_iw_data    :
+                        (((state_load == `ysyx22040228_WRITE) && (in_dcache_ok)) && load_in_cache1)                    ? ram_iw_data_l  :
                                                                                                                   `ysyx22040228_ZEROWORD;
     
     wire    [5:0]    addrdata1;
@@ -137,10 +139,12 @@ module d_cache1 (
     assign  data_ena2 = (state_store == `ysyx22040228_HIT)                                                             ? data_ram2_mask :
                         (((state_store == `ysyx22040228_WRITE) && (in_dcache_ok)) && w_incache_ena2)                   ? 8'b11111111    :
                         (write_incache && w_incache_ena2)                                                              ? w_incache_mask :
+                        (((state_load == `ysyx22040228_WRITE) && (in_dcache_ok)) && load_in_cache2)                    ? 8'b11111111    :
                                                                                                                                     8'b0;
     assign in_data2   = (state_store == `ysyx22040228_HIT)                                                             ? data_ram2_data :
                         (((state_store == `ysyx22040228_WRITE) && (in_dcache_ok)) && w_incache_ena2)                   ? ram_iw_data    :
                         (write_incache && w_incache_ena2)                                                              ? ram_iw_data    :
+                        (((state_load == `ysyx22040228_WRITE) && (in_dcache_ok)) && load_in_cache2)                    ? ram_iw_data_l  :
                                                                                                                   `ysyx22040228_ZEROWORD;
     wire    [5:0]    addrdata2;
     wire    [63:0]   in_data2 ;
@@ -308,25 +312,25 @@ module d_cache1 (
 
     reg [63:0] out_data_wb;
     reg        outr_data_ena;
-    reg [63:0] out_addr_wb; 
+    //reg [63:0] out_addr_wb; 
     assign wbck_ok = in_dcache_ok;
     always @(posedge clk or negedge rst) begin
         if(state_store == `ysyx22040228_WBCK)begin
             if((dirty1[count_addr] == `ysyx22040228_ABLE) && (counter1[count_addr] >= counter2[count_addr])) begin
                 out_data_wb = out_data1;
                 outr_data_ena = `ysyx22040228_ABLE;
-                out_addr_wb = mem_addr_i;
+                //out_addr_wb = mem_addr_i;
             end 
             if((dirty2[count_addr] == `ysyx22040228_ABLE) && (counter1[count_addr] < counter2[count_addr])) begin
                 out_data_wb = out_data2;
                 outr_data_ena = `ysyx22040228_ABLE;
-                out_addr_wb = mem_addr_i;
+                //out_addr_wb = mem_addr_i;
             end 
         end 
         else if(wbck_ok) begin
             out_data_wb = `ysyx22040228_ZEROWORD;
             outr_data_ena = `ysyx22040228_ENABLE;
-            out_addr_wb = `ysyx22040228_ZEROWORD;
+            //out_addr_wb = `ysyx22040228_ZEROWORD;
         end 
     end
     //---------------------store hit doing----------------------------//
@@ -375,6 +379,7 @@ module d_cache1 (
     reg       load_bc_ok    ;
     reg       write_l_ok    ;
     reg [5:0] count_addr2   ;
+    assign load_bc_ok  = in_dcache_ok   ;
     assign count_addr2 = mem_addr_i[8:3];
     always @(*) begin
         if(rst == `ysyx22040228_RSTENA) begin

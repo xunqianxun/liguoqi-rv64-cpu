@@ -53,7 +53,7 @@ module i_cache1 (
     wire             i_tag_ena2   ;
     wire    [54:0]   i_tag_data2  ;
     wire             i_tag_user2  ;
-    assign i_tag_ena1      = (((state_inst == `ysyx22040228_WRITE) && (cache_in_ok)) && (inst_in_cache2  ==  `ysyx22040228_ABLE)) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE; 
+    assign i_tag_ena2      = (((state_inst == `ysyx22040228_WRITE) && (cache_in_ok)) && (inst_in_cache2  ==  `ysyx22040228_ABLE)) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE; 
     assign i_cache_addr2   = inst_addr[8:3];
     assign i_cache_tag2    = {1'b1,inst_addr[63:9]};
 
@@ -90,8 +90,8 @@ module i_cache1 (
     wire             i_data_ena2 ;
     wire    [31:0]   i_out_data2 ;
     assign  i_addrdata2 = inst_addr[8:3];
-    assign  i_in_data1  = (((state_inst == `ysyx22040228_WRITE) && (cache_in_ok)) && (inst_in_cache2  ==  `ysyx22040228_ABLE)) ? cache_or_data        : 32'b0                 ; 
-    assign  i_data_ena1 = (((state_inst == `ysyx22040228_WRITE) && (cache_in_ok)) && (inst_in_cache2  ==  `ysyx22040228_ABLE)) ? `ysyx22040228_ENABLE : `ysyx22040228_ENABLE  ;
+    assign  i_in_data2  = (((state_inst == `ysyx22040228_WRITE) && (cache_in_ok)) && (inst_in_cache2  ==  `ysyx22040228_ABLE)) ? cache_or_data        : 32'b0                 ; 
+    assign  i_data_ena2 = (((state_inst == `ysyx22040228_WRITE) && (cache_in_ok)) && (inst_in_cache2  ==  `ysyx22040228_ABLE)) ? `ysyx22040228_ENABLE : `ysyx22040228_ENABLE  ;
     i_cache_data_ram u_data02(
         .clk         (clk           ),
         //.rst         (rst           ),
