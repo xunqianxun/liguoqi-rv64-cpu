@@ -379,7 +379,7 @@ module d_cache1 (
             state_load = `ysyx22040228_IDLE;
         end 
         else begin
-            case (state_lade)
+            case (state_load)
                `ysyx22040228_IDLE : begin
                    if(mem_data_read_ena)
                         state_load_nxt = `ysyx22040228_CHOSE;
