@@ -7,7 +7,7 @@ module d_cache_data_ram (
     output           wire       [63:0]                          data_o    
 );
 
-    reg [63:0] ram [63:0];
+    reg [63:0] ram [0:63];
     reg [63:0] out_data  ;
 
     always @(posedge clk) begin

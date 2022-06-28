@@ -211,7 +211,7 @@ module arbitrate (
                         cache_state_nxt = `ysyx22040228_READ_IDLE  ;
                     cache_state_nxt = `ysyx22040228_READ_WRBC      ;
                 end 
-                default: 
+                default: ;
             endcase
         end 
     end
@@ -234,5 +234,5 @@ module arbitrate (
     assign d_cache_data_o = (d_cache_ok) ? axi_r_data : `ysyx22040228_ZEROWORD;
 
 
-endmodule
+endmodule /*   */
 

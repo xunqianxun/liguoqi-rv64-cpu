@@ -8,7 +8,7 @@ module d_cache_tag_ram (
     output       wire                               tag_valid
 );
     
-    reg [55:0] ram [63:0];
+    reg [55:0] ram [0:63];
     reg [55:0] out_data  ;
     reg        out_vaild ;
 
