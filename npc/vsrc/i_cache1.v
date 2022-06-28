@@ -245,7 +245,7 @@ module i_cache1 (
     reg                          inst_in_cache2   ;
     reg  [63:0]                  ram_inst_data    ;
     //reg                          inst_write_cache ;
-    always @(posedge clk or negedge ) begin
+    always @(posedge clk or negedge rst) begin
         if((state_inst == `ysyx22040228_WRITE) && (~cache_in_ok)) begin
                 ord_data_ena = `ysyx22040228_ABLE  ;
         end 
