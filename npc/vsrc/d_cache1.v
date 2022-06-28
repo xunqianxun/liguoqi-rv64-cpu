@@ -35,7 +35,7 @@ module d_cache1 (
 
     //----------------------------- merge sign in-------------------------------//    
     input         wire                                        in_dcache_ok       ,
-    output        wire        [`ysyx22040228_DCACHE_ADDR_W]   out_dcache_addr    ,
+    output        wire        [63:0]                          out_dcache_addr    ,
     output        wire        [`ysyx22040228_DCACHE_DATA_W]   out_dcache_data    ,
     output        wire                                        outr_dcache_ena    ,
     output        wire                                        outw_dcache_ena 
@@ -69,7 +69,7 @@ module d_cache1 (
     wire    [5:0]    addrtag1;
     wire    [55:0]   datatag1;
     wire             tag_ena1;
-    wire    [55:0]   tag_data1;
+    wire    [54:0]   tag_data1;
     wire             tag_user1;
 
     assign addrtag1 = mem_addr_i[8:3];
@@ -91,7 +91,7 @@ module d_cache1 (
     wire    [5:0]    addrtag2;
     wire    [55:0]   datatag2;
     wire             tag_ena2;
-    wire    [55:0]   tag_data2;
+    wire    [54:0]   tag_data2;
     wire             tag_user2;
 
     assign addrtag2 = mem_addr_i[8:3];
@@ -114,7 +114,7 @@ module d_cache1 (
     assign  data_ena1 = (state_store == `ysyx22040228_HIT)                                                             ? data_ram1_mask :
                         (((state_store == `ysyx22040228_WRITE) && (in_dcache_ok)) && w_incache_ena1)                   ? 8'b11111111    :
                         (write_incache && w_incache_ena1)                                                              ? w_incache_mask :
-                                                                                                                    `ysyx22040228_ENABLE;  
+                                                                                                                                    8'b0;  
     assign in_data1   = (state_store == `ysyx22040228_HIT)                                                             ? data_ram1_data :
                         (((state_store == `ysyx22040228_WRITE) && (in_dcache_ok)) && w_incache_ena1)                   ? ram_iw_data    :
                         (write_incache && w_incache_ena1)                                                              ? ram_iw_data    :
@@ -137,7 +137,7 @@ module d_cache1 (
     assign  data_ena2 = (state_store == `ysyx22040228_HIT)                                                             ? data_ram2_mask :
                         (((state_store == `ysyx22040228_WRITE) && (in_dcache_ok)) && w_incache_ena2)                   ? 8'b11111111    :
                         (write_incache && w_incache_ena2)                                                              ? w_incache_mask :
-                                                                                                                    `ysyx22040228_ENABLE;
+                                                                                                                                    8'b0;
     assign in_data2   = (state_store == `ysyx22040228_HIT)                                                             ? data_ram2_data :
                         (((state_store == `ysyx22040228_WRITE) && (in_dcache_ok)) && w_incache_ena2)                   ? ram_iw_data    :
                         (write_incache && w_incache_ena2)                                                              ? ram_iw_data    :
@@ -158,7 +158,7 @@ module d_cache1 (
     //--------------------------------------bit code---------------------------//
     reg  [2:0]  counter1 [`ysyx22040228_CACHE_DATA_W];
     reg  [2:0]  counter2 [`ysyx22040228_CACHE_DATA_W];
-    wire   count_a;
+    wire [5:0]  count_a;
     assign count_a = mem_addr_i[8:3];
     integer i ;
 
@@ -187,7 +187,7 @@ module d_cache1 (
         end 
 	end
     //-----------------------------dirty state sign-----------------------------//
-    wire   dirty_addr ;
+    wire  [5:0]  dirty_addr ;
     assign dirty_addr = mem_addr_i[8:3];
     assign dirty1[dirty_addr] = (w_incache_ena1 && dirty_make)                                ? `ysyx22040228_ABLE :
                                 ((state_store == `ysyx22040228_HIT) && (tag_data1 == in_teg)) ? dirty_hit          :
@@ -261,7 +261,7 @@ module d_cache1 (
     //reg  [55:0]                  tag_iw_data    ;
     reg                          w_incache_ena1 ;
     reg                          w_incache_ena2 ;
-    reg  [8:0 ]                  w_incache_mask ;
+    reg  [7:0 ]                  w_incache_mask ;
     reg                          dirty_make     ;
     reg  [2:0]                   count_write1   ;
     reg  [2:0]                   count_write2   ;
