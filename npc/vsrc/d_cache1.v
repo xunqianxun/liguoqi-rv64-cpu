@@ -215,6 +215,7 @@ module d_cache1 (
             state_store = `ysyx22040228_IDLE;
         end 
         else begin
+            state_store = state_store_nxt;
             case (state_store)
                `ysyx22040228_IDLE : begin
                    if(mem_data_writ_ena)
@@ -250,7 +251,6 @@ module d_cache1 (
             endcase
         end 
     end
-    assign state_store = state_store_nxt;
 
 
     //-------------write cache from AXI and make state as hit-------------------------//
