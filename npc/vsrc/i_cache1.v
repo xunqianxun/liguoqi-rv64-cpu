@@ -251,14 +251,12 @@ module i_cache1 (
         end 
 
         else if((state_inst == `ysyx22040228_WRITE) && (cache_in_ok))begin
-                ord_data_ena     =  `ysyx22040228_ENABLE;
-                //ram_inst_data    =  cache_or_data       ;
-                //inst_write_count <= 3'b0                ;
-                inst_write_cache =  `ysyx22040228_ABLE  ;
                 if((i_tag_user1 == `ysyx22040228_ENABLE) || (counter1[i_count_addr] >= counter2[i_count_addr])
                     inst_in_cache1   =  `ysyx22040228_ABLE;
                 else if((i_tag_user2 == `ysyx22040228_ENABLE) || (counter1[i_count_addr] < counter2[i_count_addr])
                     inst_in_cache2   =  `ysyx22040228_ABLE;
+                ord_data_ena     =  `ysyx22040228_ENABLE;
+                inst_write_cache =  `ysyx22040228_ABLE  ;
         end 
         else if(inst_write_cache) begin
             inst_valid       = `ysyx22040228_ABLE  ;
