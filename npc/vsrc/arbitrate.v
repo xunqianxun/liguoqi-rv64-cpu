@@ -222,7 +222,7 @@ module arbitrate (
     assign axi_ar_size  = i_cache_ena ? `AXI_SIZE_BYTES_4 : (d_cache_read_ena ? `AXI_SIZE_BYTES_8 : `AXI_SIZE_BYTES_8);
     assign axi_ar_burst = `AXI_BURST_TYPE_INCR;
     assign axi_ar_cache = `AXI_AWCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE;
-    assign axi_ar_port  = `AXI_PROT_UNPRIVILEGED_ACCESS                   ;
+    assign axi_ar_prot  = `AXI_PROT_UNPRIVILEGED_ACCESS                   ;
     assign axi_ar_qos   =  4'h0               ;
     assign axi_ar_valid = (cache_state == `ysyx22040228_READ_IDLE) && (d_cache_read_ena || i_cache_ena) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE         ;
     

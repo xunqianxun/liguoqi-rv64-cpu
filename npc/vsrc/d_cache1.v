@@ -310,6 +310,7 @@ module d_cache1 (
     reg [63:0] out_data_wb;
     reg        outr_data_ena;
     reg [63:0] out_addr_wb; 
+    assign wbck_ok = in_dcache_ok;
     always @(posedge clk or negedge rst) begin
         if(state_store == `ysyx22040228_WBCK)begin
             if((dirty1[count_addr] == `ysyx22040228_ABLE) && (counter1[count_addr] >= counter2[count_addr])) begin
