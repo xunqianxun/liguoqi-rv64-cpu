@@ -189,7 +189,7 @@ module arbitrate (
                 else 
                     transfor_state_nex = `ysyx22040228_ABE_RESP ;
            end 
-            default: 
+            default: ;
         endcase
     end
 
