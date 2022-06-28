@@ -199,7 +199,7 @@ module d_cache1 (
     reg    dirty2 [`ysyx22040228_CACHE_DATA_W];
 
 
-    wire  [55:0]  in_teg                     ;
+    wire  [54:0]  in_teg                     ;
     assign in_teg = mem_addr_i[63:9]         ;
     wire  [5:0] dirty_count_addr             ;
     assign dirty_count_addr = mem_addr_i[8:3];
