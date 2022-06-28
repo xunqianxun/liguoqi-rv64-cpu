@@ -175,7 +175,7 @@ module i_cache1 (
             //             state_inst_nxt = `ysyx22040228_WRITE;
             //        state_inst_nxt = `ysyx22040228_WBCK;
             //    end
-                default: 
+                default:   ;
             endcase
         end 
     end
