@@ -227,7 +227,7 @@ module arbitrate (
     assign axi_ar_qos   =  4'h0               ;
     assign axi_ar_valid = (cache_state == `ysyx22040228_READ_IDLE) && (d_cache_read_ena || i_cache_ena) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE         ;
     
-    assign axi_r_ready  = (cache_state == `ysyx22040228_READ_TRAF) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE ;
+    assign axi_r_ready  = (cache_state_nxt == `ysyx22040228_READ_TRAF) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE ;
     assign i_cache_ok   = ((axi_r_id == 4'b0001) && (axi_r_last == `ysyx22040228_ABLE) && (axi_r_resp == 2'b00)) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE;
     assign i_cache_data_o = (i_cache_ok) ? axi_r_data : `ysyx22040228_ZEROWORD;
     assign d_cache_ok   = ((axi_r_id == 4'b0010) && (axi_r_last == `ysyx22040228_ABLE) && (axi_r_resp == 2'b00)) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE;
