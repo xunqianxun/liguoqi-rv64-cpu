@@ -179,7 +179,6 @@ VL_MODULE(VSocTop___024root) {
         CData/*7:0*/ SocTop__DOT__d_cache13__DOT__data_ena1;
         CData/*7:0*/ SocTop__DOT__d_cache13__DOT__data_ena2;
         CData/*5:0*/ SocTop__DOT__d_cache13__DOT__state_store;
-        CData/*5:0*/ SocTop__DOT__d_cache13__DOT__state_store_nxt;
         CData/*0:0*/ SocTop__DOT__d_cache13__DOT__store_ok;
         CData/*0:0*/ SocTop__DOT__d_cache13__DOT__write_ok;
         CData/*0:0*/ SocTop__DOT__d_cache13__DOT__finish_the_mem;
@@ -190,9 +189,9 @@ VL_MODULE(VSocTop___024root) {
         CData/*7:0*/ SocTop__DOT__d_cache13__DOT__w_incache_mask;
         CData/*0:0*/ SocTop__DOT__d_cache13__DOT__dirty_make;
         CData/*2:0*/ SocTop__DOT__d_cache13__DOT__count_write1;
+        CData/*2:0*/ SocTop__DOT__d_cache13__DOT__count_write2;
     };
     struct {
-        CData/*2:0*/ SocTop__DOT__d_cache13__DOT__count_write2;
         CData/*0:0*/ SocTop__DOT__d_cache13__DOT__outr_data_ena;
         CData/*7:0*/ SocTop__DOT__d_cache13__DOT__data_ram1_mask;
         CData/*7:0*/ SocTop__DOT__d_cache13__DOT__data_ram2_mask;
@@ -256,9 +255,9 @@ VL_MODULE(VSocTop___024root) {
         IData/*31:0*/ SocTop__DOT__d_cache13__DOT__i;
         QData/*63:0*/ SocTop__DOT__rvcpu_inst_addr;
         QData/*63:0*/ SocTop__DOT__rvcpu_data_addr;
+        QData/*63:0*/ SocTop__DOT__rvcpu_data_o;
     };
     struct {
-        QData/*63:0*/ SocTop__DOT__rvcpu_data_o;
         QData/*63:0*/ SocTop__DOT__d_cache_data_out;
         QData/*63:0*/ SocTop__DOT__arbitrate_d_data;
         QData/*63:0*/ SocTop__DOT__t_axi_aw_addr;
@@ -322,9 +321,9 @@ VL_MODULE(VSocTop___024root) {
         QData/*63:0*/ SocTop__DOT__d_cache13__DOT__u_data1__DOT__out_data;
         VlUnpacked<QData/*63:0*/, 32> SocTop__DOT__rvcpu1__DOT__regfile10__DOT__regs;
         VlUnpacked<CData/*2:0*/, 64> SocTop__DOT__i_cache12__DOT__i_counter1;
+        VlUnpacked<CData/*2:0*/, 64> SocTop__DOT__i_cache12__DOT__i_counter2;
     };
     struct {
-        VlUnpacked<CData/*2:0*/, 64> SocTop__DOT__i_cache12__DOT__i_counter2;
         VlUnpacked<QData/*55:0*/, 64> SocTop__DOT__i_cache12__DOT__u_tag01__DOT__ram;
         VlUnpacked<QData/*55:0*/, 64> SocTop__DOT__i_cache12__DOT__u_tag02__DOT__ram;
         VlUnpacked<IData/*31:0*/, 64> SocTop__DOT__i_cache12__DOT__u_data01__DOT__ram;
@@ -343,7 +342,6 @@ VL_MODULE(VSocTop___024root) {
     CData/*0:0*/ __Vclklast__TOP__clk;
     CData/*0:0*/ __Vclklast__TOP__rst;
     CData/*5:0*/ __Vchglast__TOP__SocTop__DOT__d_cache13__DOT__state_store;
-    CData/*5:0*/ __Vchglast__TOP__SocTop__DOT__d_cache13__DOT__state_store_nxt;
     CData/*1:0*/ __Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__transfor_state;
     CData/*1:0*/ __Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__transfor_state_nex;
     CData/*1:0*/ __Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__cache_state;

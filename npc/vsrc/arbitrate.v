@@ -170,7 +170,7 @@ module arbitrate (
     assign axi_aw_port   =  `AXI_PROT_UNPRIVILEGED_ACCESS;
     assign axi_aw_qos    =  4'h0                         ;
     assign axi_aw_valid  =  (d_cache_write_ena && (transfor_state == `ysyx22040228_ABE_IDLE)) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE ;
-    assign axi_aw_addr   =  (aw_shankhand && w_shankhand) ? axi_aw_addr  : `ysyx22040228_ZEROWORD;
+    assign axi_aw_addr   =  (aw_shankhand && w_shankhand) ? d_cache_addr  : `ysyx22040228_ZEROWORD;
 
     assign axi_w_data    =  (aw_shankhand && w_shankhand) ? d_cache_data : `ysyx22040228_ZEROWORD;
     assign axi_w_strb    =  (aw_shankhand && w_shankhand) ? d_cache_mask : 8'b0                  ;             
