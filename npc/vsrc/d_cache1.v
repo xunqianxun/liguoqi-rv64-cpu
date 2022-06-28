@@ -124,7 +124,7 @@ module d_cache1 (
     wire    [63:0]   in_data1 ;
     wire    [7:0]    data_ena1 ;
     wire    [63:0]   out_data1 ;
-    assign  addrdata1 = mem_data_i[8:5];
+    assign  addrdata1 = mem_data_i[8:3];
     d_cache_data_ram u_data0(
         .clk         (clk         ),
         .rst         (rst         ),
@@ -146,7 +146,7 @@ module d_cache1 (
     wire    [63:0]   in_data2 ;
     wire    [7:0]    data_ena2 ;
     wire    [63:0]   out_data2 ;
-    assign  addrdata2 = mem_data_i[8:5];
+    assign  addrdata2 = mem_data_i[8:3];
     d_cache_data_ram u_data1(
         .clk         (clk         ),
         .rst         (rst         ),
@@ -366,13 +366,14 @@ module d_cache1 (
     end
 
     //--------------------------------load make----------------------------------//
-    reg [5:0] state_load;
+    reg [5:0] state_load    ;
     reg [5:0] state_load_nxt;
-    reg       load_ok ;
+    reg       load_ok       ;
 
-    reg       load_bc_ok;
-    reg       write_l_ok;
-
+    reg       load_bc_ok    ;
+    reg       write_l_ok    ;
+    reg [5:0] count_addr2   ;
+    assign count_addr2 = mem_addr_i[8:3]
     always @(*) begin
         if(rst == `ysyx22040228_RSTENA) begin
             state_load = `ysyx22040228_IDLE;

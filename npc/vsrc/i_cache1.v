@@ -110,9 +110,9 @@ module i_cache1 (
     integer i ;
 
     always @(posedge clk) begin
-        if(inst_in_cache1 && read_cache)
+        if(inst_in_cache1 && write_i_ok)
             i_counter1[i_count_addr] = 3'b0;
-        if(inst_in_cache2 && read_cache)
+        if(inst_in_cache2 && write_i_ok)
             i_counter2[i_count_addr] = 3'b0;
         if(inst_ena) begin
 		    for(i = 0;i<64;i=i+1) begin
@@ -244,16 +244,16 @@ module i_cache1 (
     reg                          inst_in_cache1   ;
     reg                          inst_in_cache2   ;
     reg  [63:0]                  ram_inst_data    ;
-    //reg                          inst_write_cache ;
+    reg                          inst_write_cache ;
     always @(posedge clk or negedge rst) begin
         if((state_inst == `ysyx22040228_WRITE) && (~cache_in_ok)) begin
                 ord_data_ena = `ysyx22040228_ABLE  ;
         end 
 
         else if((state_inst == `ysyx22040228_WRITE) && (cache_in_ok))begin
-                if((i_tag_user1 == `ysyx22040228_ENABLE) || (counter1[i_count_addr] >= counter2[i_count_addr]))
+                if((i_tag_user1 == `ysyx22040228_ENABLE) || (i_counter1[i_count_addr] >= i_counter2[i_count_addr]))
                     inst_in_cache1   =  `ysyx22040228_ABLE;
-                else if((i_tag_user2 == `ysyx22040228_ENABLE) || (counter1[i_count_addr] < counter2[i_count_addr]))
+                else if((i_tag_user2 == `ysyx22040228_ENABLE) || (i_counter1[i_count_addr] < i_counter2[i_count_addr]))
                     inst_in_cache2   =  `ysyx22040228_ABLE;
                 ord_data_ena     =  `ysyx22040228_ENABLE;
                 inst_write_cache =  `ysyx22040228_ABLE  ;

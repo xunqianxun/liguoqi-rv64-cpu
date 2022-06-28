@@ -224,9 +224,9 @@ module SocTop (
         // .in_dcache_addr      () ,
         // .in_dcache_ena       () ,
 
-        .in_dcache_data      (arbitrate_data     ) ,
+        .in_dcache_data      (arbitrate_d_data   ) ,
  
-        .in_dcache_ok        (arbitrate_ok       ) ,
+        .in_dcache_ok        (arbitrate_d_ok     ) ,
         .out_dcache_addr     (d_cache_out_addr   ) ,
         .out_dcache_data     (d_cache_out_data   ) ,
         .outr_dcache_ena     (d_cache_read_ena   ) ,
@@ -255,7 +255,7 @@ module SocTop (
         .axi_aw_id           (t_axi_aw_id        ) ,
         .axi_aw_addr         (t_axi_aw_addr      ) ,
         .axi_aw_len          (t_axi_aw_len       ) ,
-        .axi_aw_size         (t_axi_Aw_size      ) ,
+        .axi_aw_size         (t_axi_aw_size      ) ,
         .axi_aw_burst        (t_axi_aw_burst     ) ,
         .axi_aw_cache        (t_axi_aw_cache     ) ,
         .axi_aw_port         (t_axi_aw_port      ) ,
@@ -266,7 +266,7 @@ module SocTop (
         .axi_w_data          (t_axi_w_data       ) ,
         .axi_w_strb          (t_axi_w_strb       ) ,
         .axi_w_last          (t_axi_w_last       ) ,
-        .axi_w_valid         (t_axi_valid        ) ,
+        .axi_w_valid         (t_axi_w_valid      ) ,
         .axi_w_ready         (t_axi_w_ready      ) ,
 
         .axi_b_id            (t_axi_b_id         ) ,

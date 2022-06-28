@@ -113,7 +113,7 @@ module arbitrate (
     input       wire       [`ysyx22040228_DATA_BUS]          axi_r_data           ,
     input       wire       [`ysyx22040228_RESP_BUS]          axi_r_resp           ,
     input       wire                                         axi_r_last           ,
-    input       wire                                         aix_r_valid          ,
+    input       wire                                         axi_r_valid          ,
     output      wire                                         axi_r_ready           
 );
 
@@ -175,7 +175,7 @@ module arbitrate (
     assign axi_w_strb    =  (aw_shankhand && w_shankhand) ? d_cache_mask : `ysyx22040228_ZEROWORD;             
     assign axi_w_last    =  1'b1                         ;
     assign axi_w_valid   =  (d_cache_write_ena && (transfor_state == `ysyx22040228_ABE_IDLE)) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE ;
-    assign axi_b_ready   =  (transfor_state == ``ysyx22040228_ABE_RESP) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE                       ;
+    assign axi_b_ready   =  (transfor_state == `ysyx22040228_ABE_RESP) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE                       ;
    // wire   write_to_mem  ;
    // assign write_to_mem  =  (axi_b_id == 4'b0000) && (axi_b_resp == 2'b00) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE                    ;
     assign d_cache_ok    =  (b_success) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE                                                       ;
@@ -183,7 +183,7 @@ module arbitrate (
     wire ar_shankhand ;
     wire r_shankhand  ;
     assign ar_shankhand = axi_ar_valid && axi_ar_ready ;
-    assign r_shankhand  = axi_r_valid  && axi_ar_ready ; 
+    assign r_shankhand  = axi_r_valid  && axi_r_ready  ; 
     reg [1:0] cache_state     ;
     reg [1:0] cache_state_nxt ;
 
