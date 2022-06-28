@@ -3,6 +3,8 @@ Author:LiGuoqi
 Name:SocTOp.v
 Function:top module of this soc
 ************************************************************/
+`include "./vsrc/defines_axi4.v"
+`include "./vsrc/defines.v"
 module SocTop (
     input            wire                                    clk                  ,
     input            wire                                    rst                  ,
