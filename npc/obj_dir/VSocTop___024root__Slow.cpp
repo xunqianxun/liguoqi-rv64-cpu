@@ -49,7 +49,6 @@ void VSocTop___024root___settle__TOP__1(VSocTop___024root* vlSelf) {
     vlSelf->out_axi_ar_cache = 2U;
     vlSelf->out_axi_ar_prot = 0U;
     vlSelf->out_axi_ar_qos = 0U;
-    vlSelf->out_axi_aw_addr = vlSelf->SocTop__DOT__t_axi_aw_addr;
     vlSelf->out_axi_b_ready = (3U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state));
     vlSelf->out_axi_r_ready = (1U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state));
     vlSelf->SocTop__DOT__arbitrate4__DOT__r_shankhand 
@@ -2202,11 +2201,11 @@ void VSocTop___024root___settle__TOP__1(VSocTop___024root* vlSelf) {
                                                      : 0U)))));
     if (((IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__aw_shankhand) 
          & (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__w_shankhand))) {
-        vlSelf->SocTop__DOT__t_axi_aw_addr = vlSelf->SocTop__DOT__t_axi_aw_addr;
         vlSelf->out_axi_w_strb = 0xffU;
+        vlSelf->out_axi_aw_addr = vlSelf->SocTop__DOT__rvcpu_data_addr;
     } else {
-        vlSelf->SocTop__DOT__t_axi_aw_addr = 0ULL;
         vlSelf->out_axi_w_strb = 0U;
+        vlSelf->out_axi_aw_addr = 0ULL;
     }
     if (vlSelf->rst) {
         vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state = 0U;
@@ -2390,7 +2389,6 @@ void VSocTop___024root___ctor_var_reset(VSocTop___024root* vlSelf) {
     vlSelf->SocTop__DOT__arbitrate_d_data = VL_RAND_RESET_Q(64);
     vlSelf->SocTop__DOT__arbitrate_d_ok = VL_RAND_RESET_I(1);
     vlSelf->SocTop__DOT__arbitrate_i_ok = VL_RAND_RESET_I(1);
-    vlSelf->SocTop__DOT__t_axi_aw_addr = VL_RAND_RESET_Q(64);
     vlSelf->SocTop__DOT__t_axi_w_valid = VL_RAND_RESET_I(1);
     vlSelf->SocTop__DOT__t_axi_ar_valid = VL_RAND_RESET_I(1);
     vlSelf->SocTop__DOT____Vcellout__arbitrate4__i_cache_data_o = VL_RAND_RESET_Q(64);
@@ -2677,7 +2675,6 @@ void VSocTop___024root___ctor_var_reset(VSocTop___024root* vlSelf) {
     vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state = VL_RAND_RESET_I(2);
     vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state_nxt = VL_RAND_RESET_I(2);
     vlSelf->__Vdly__SocTop__DOT__rvcpu_inst_addr = VL_RAND_RESET_Q(64);
-    vlSelf->__Vchglast__TOP__SocTop__DOT__t_axi_aw_addr = VL_RAND_RESET_Q(64);
     vlSelf->__Vchglast__TOP__SocTop__DOT__d_cache13__DOT__state_store = VL_RAND_RESET_I(6);
     vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__transfor_state = VL_RAND_RESET_I(2);
     vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__transfor_state_nex = VL_RAND_RESET_I(2);

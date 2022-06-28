@@ -112,7 +112,6 @@ VL_INLINE_OPT void VSocTop___024root___combo__TOP__2(VSocTop___024root* vlSelf) 
     VSocTop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    VSocTop___024root___combo__TOP__2\n"); );
     // Body
-    vlSelf->out_axi_aw_addr = vlSelf->SocTop__DOT__t_axi_aw_addr;
     vlSelf->out_axi_b_ready = (3U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state));
     vlSelf->out_axi_r_ready = (1U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state));
     vlSelf->SocTop__DOT__arbitrate4__DOT__r_shankhand 
@@ -4694,11 +4693,11 @@ VL_INLINE_OPT void VSocTop___024root___combo__TOP__5(VSocTop___024root* vlSelf) 
               : 0ULL) : vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_data);
     if (((IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__aw_shankhand) 
          & (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__w_shankhand))) {
-        vlSelf->SocTop__DOT__t_axi_aw_addr = vlSelf->SocTop__DOT__t_axi_aw_addr;
         vlSelf->out_axi_w_strb = 0xffU;
+        vlSelf->out_axi_aw_addr = vlSelf->SocTop__DOT__rvcpu_data_addr;
     } else {
-        vlSelf->SocTop__DOT__t_axi_aw_addr = 0ULL;
         vlSelf->out_axi_w_strb = 0U;
+        vlSelf->out_axi_aw_addr = 0ULL;
     }
     if (vlSelf->rst) {
         vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state = 0U;
@@ -5049,21 +5048,17 @@ VL_INLINE_OPT QData VSocTop___024root___change_request_1(VSocTop___024root* vlSe
     // Body
     // Change detection
     QData __req = false;  // Logically a bool
-    __req |= ((vlSelf->SocTop__DOT__t_axi_aw_addr ^ vlSelf->__Vchglast__TOP__SocTop__DOT__t_axi_aw_addr)
-         | (vlSelf->SocTop__DOT__d_cache13__DOT__state_store ^ vlSelf->__Vchglast__TOP__SocTop__DOT__d_cache13__DOT__state_store)
+    __req |= ((vlSelf->SocTop__DOT__d_cache13__DOT__state_store ^ vlSelf->__Vchglast__TOP__SocTop__DOT__d_cache13__DOT__state_store)
          | (vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state ^ vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__transfor_state)
          | (vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state_nex ^ vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__transfor_state_nex)
          | (vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state ^ vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__cache_state)
          | (vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state_nxt ^ vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__cache_state_nxt));
-    VL_DEBUG_IF( if(__req && ((vlSelf->SocTop__DOT__t_axi_aw_addr ^ vlSelf->__Vchglast__TOP__SocTop__DOT__t_axi_aw_addr))) VL_DBG_MSGF("        CHANGE: vsrc/SocTop.v:93: SocTop.t_axi_aw_addr\n"); );
     VL_DEBUG_IF( if(__req && ((vlSelf->SocTop__DOT__d_cache13__DOT__state_store ^ vlSelf->__Vchglast__TOP__SocTop__DOT__d_cache13__DOT__state_store))) VL_DBG_MSGF("        CHANGE: vsrc/d_cache1.v:208: SocTop.d_cache13.state_store\n"); );
     VL_DEBUG_IF( if(__req && ((vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state ^ vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__transfor_state))) VL_DBG_MSGF("        CHANGE: vsrc/arbitrate.v:131: SocTop.arbitrate4.transfor_state\n"); );
     VL_DEBUG_IF( if(__req && ((vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state_nex ^ vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__transfor_state_nex))) VL_DBG_MSGF("        CHANGE: vsrc/arbitrate.v:132: SocTop.arbitrate4.transfor_state_nex\n"); );
     VL_DEBUG_IF( if(__req && ((vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state ^ vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__cache_state))) VL_DBG_MSGF("        CHANGE: vsrc/arbitrate.v:188: SocTop.arbitrate4.cache_state\n"); );
     VL_DEBUG_IF( if(__req && ((vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state_nxt ^ vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__cache_state_nxt))) VL_DBG_MSGF("        CHANGE: vsrc/arbitrate.v:189: SocTop.arbitrate4.cache_state_nxt\n"); );
     // Final
-    vlSelf->__Vchglast__TOP__SocTop__DOT__t_axi_aw_addr 
-        = vlSelf->SocTop__DOT__t_axi_aw_addr;
     vlSelf->__Vchglast__TOP__SocTop__DOT__d_cache13__DOT__state_store 
         = vlSelf->SocTop__DOT__d_cache13__DOT__state_store;
     vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__transfor_state 

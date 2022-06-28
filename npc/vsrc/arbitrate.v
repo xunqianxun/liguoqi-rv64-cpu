@@ -129,32 +129,31 @@ module arbitrate (
     `define ysyx22040228_ABE_RESP 2'b11
 
     reg [1:0] transfor_state    ;
-    reg [1:0] transfor_state_nex;
+    //reg [1:0] transfor_state_nex;
     always @(*) begin
         if(rst == `ysyx22040228_RSTENA) 
             transfor_state = `ysyx22040228_ABE_IDLE;
         else begin
-        transfor_state = transfor_state_nex ;
         case (transfor_state)
            `ysyx22040228_ABE_IDLE : begin
                if(aw_shankhand && w_shankhand)
-                    transfor_state_nex = `ysyx22040228_ABE_RESP    ;
+                    transfor_state = `ysyx22040228_ABE_RESP    ;
                else if(axi_aw_valid | axi_w_valid)
-                    transfor_state_nex = `ysyx22040228_ABE_INFO    ;
+                    transfor_state = `ysyx22040228_ABE_INFO    ;
                else 
-                    transfor_state_nex = `ysyx22040228_ABE_IDLE    ;
+                    transfor_state = `ysyx22040228_ABE_IDLE    ;
            end 
            `ysyx22040228_ABE_INFO : begin
                if(aw_shankhand && w_shankhand)
-                    transfor_state_nex = `ysyx22040228_ABE_RESP    ;
+                    transfor_state = `ysyx22040228_ABE_RESP    ;
                else 
-                    transfor_state_nex = `ysyx22040228_ABE_INFO    ;
+                    transfor_state = `ysyx22040228_ABE_INFO    ;
            end
            `ysyx22040228_ABE_RESP : begin
                if(b_shankhand)
-                    transfor_state_nex = `ysyx22040228_ABE_IDLE    ;
+                    transfor_state = `ysyx22040228_ABE_IDLE    ;
                else 
-                    transfor_state_nex = `ysyx22040228_ABE_RESP    ;
+                    transfor_state = `ysyx22040228_ABE_RESP    ;
            end 
             default: ;
         endcase

@@ -917,7 +917,10 @@ void VSocTop___024root__traceFullSub0(VSocTop___024root* vlSelf, VerilatedVcd* t
         tracep->fullBit(oldp+15,(vlSelf->SocTop__DOT__arbitrate_d_ok));
         tracep->fullIData(oldp+16,((IData)(vlSelf->SocTop__DOT____Vcellout__arbitrate4__i_cache_data_o)),32);
         tracep->fullBit(oldp+17,(vlSelf->SocTop__DOT__arbitrate_i_ok));
-        tracep->fullQData(oldp+18,(vlSelf->SocTop__DOT__t_axi_aw_addr),64);
+        tracep->fullQData(oldp+18,((((IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__aw_shankhand) 
+                                     & (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__w_shankhand))
+                                     ? vlSelf->SocTop__DOT__rvcpu_data_addr
+                                     : 0ULL)),64);
         tracep->fullBit(oldp+20,(vlSelf->SocTop__DOT__t_axi_w_valid));
         tracep->fullCData(oldp+21,((((IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__aw_shankhand) 
                                      & (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__w_shankhand))
