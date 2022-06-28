@@ -184,20 +184,20 @@ module i_cache1 (
 
     reg  [31:0]                  inst_data_o    ;
     reg                          inst_valid_o   ;  
-    reg  [2:0]                   inst_hit_count1;
-    reg  [2:0]                   inst_hit_count2;
+    // reg  [2:0]                   inst_hit_count1;
+    // reg  [2:0]                   inst_hit_count2;
 
     always @(posedge clk or negedge rst) begin
         if(state_inst == `ysyx22040228_HIT)begin
               if(i_tag_data1 == i_in_teg) begin
                   inst_data_o           = i_out_data1       ;
-                  inst_hit_count1       = 3'b0              ;
+                  //inst_hit_count1       = 3'b0              ;
                   inst_valid_o          = `ysyx22040228_ABLE;
                   inst_hit_ok           = `ysyx22040228_ABLE;
               end 
               if(i_tag_data2 == i_in_teg) begin
                   inst_data_o           = i_out_data2       ;
-                  inst_hit_count2       = 3'b0              ;  
+                  //inst_hit_count2       = 3'b0              ;  
                   inst_valid_o          = `ysyx22040228_ABLE;
                   inst_hit_ok           = `ysyx22040228_ABLE;
               end

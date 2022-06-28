@@ -304,14 +304,14 @@ module arbitrate (
     reg [31:0] i_cache_data_oupt ;
     reg [63:0] d_cache_data_outp ;
     always @(posedge clk) begin
-        if(i_cache_r_shankhand && axi_r_last) begin
+        if(i_cache_r_shankhand && axi_r_last && (axi_r_id == 4'b0001) && (axi_r_resp == 2'b00)) begin
             i_cache_okreg = `ysyx22040228_ABLE           ;
             if(i_cache_addr[2] == `ysyx22040228_ABLE)
                 i_cache_data_oupt = axi_r_data[63:32] ;
             else 
                 i_cache_data_oupt = axi_r_data[31:0 ] ;
         end
-        else if(d_cache_r_shankhand && axi_r_last) begin
+        else if(d_cache_r_shankhand && axi_r_last && (axi_r_id == 4'b0000) && (axi_r_resp == 2'b00)) begin
             d_cache_data_outp = axi_r_data ;
             d_cache_okreg     = `ysyx22040228_ABLE    ;
         end 
