@@ -1,4 +1,4 @@
-module d_cache_tag_ram (
+module i_cache_tag_ram (
     input        wire                               clk,
     input        wire                               rst,
     input        wire            [5:0]              addr_i,
@@ -27,4 +27,3 @@ module d_cache_tag_ram (
     assign tag_valid = out_vaild;
 
 endmodule 
-

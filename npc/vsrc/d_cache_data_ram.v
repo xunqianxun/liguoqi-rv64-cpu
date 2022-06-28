@@ -14,7 +14,7 @@ module d_cache_data_ram (
         if(write_ena[0])
             ram [addr_i] [ 7:0 ] = data_i [ 7:0 ];
         if(write_ena[1])
-            ram [addr_i] [15:0 ] = data_i [15:8 ];
+            ram [addr_i] [15:8 ] = data_i [15:8 ];
         if(write_ena[2])
             ram [addr_i] [23:16] = data_i [23:16];
         if(write_ena[3])
