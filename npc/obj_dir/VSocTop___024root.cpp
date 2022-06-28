@@ -113,9 +113,7 @@ VL_INLINE_OPT void VSocTop___024root___combo__TOP__2(VSocTop___024root* vlSelf) 
     VL_DEBUG_IF(VL_DBG_MSGF("+    VSocTop___024root___combo__TOP__2\n"); );
     // Body
     vlSelf->out_axi_b_ready = (3U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state));
-    vlSelf->out_axi_r_ready = (1U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state_nxt));
-    vlSelf->SocTop__DOT__arbitrate4__DOT__r_shankhand 
-        = ((IData)(vlSelf->out_axi_r_valid) & (1U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state_nxt)));
+    vlSelf->out_axi_r_ready = vlSelf->out_axi_r_valid;
     vlSelf->SocTop__DOT__arbitrate4__DOT__b_shankhand 
         = (((IData)(vlSelf->out_axi_b_valid) & (3U 
                                                 == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state))) 
@@ -4643,7 +4641,7 @@ VL_INLINE_OPT void VSocTop___024root___combo__TOP__5(VSocTop___024root* vlSelf) 
             }
             vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state_nxt = 0U;
         } else if ((1U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state))) {
-            if (vlSelf->SocTop__DOT__arbitrate4__DOT__r_shankhand) {
+            if (vlSelf->out_axi_r_valid) {
                 vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state_nxt = 2U;
             }
             vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state_nxt = 1U;

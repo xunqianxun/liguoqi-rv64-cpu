@@ -54,6 +54,7 @@ Function:arbitrate i_cache and d_cache
 `include "./vsrc/defines_axi4.v"
 module arbitrate (
     //-----------------------------system----------------------------------------//
+    input       wire                                         clk                  ,
     input       wire                                         rst                  ,
     //-----------------------------d_cache---------------------------------------//
     input       wire       [63:0]                            d_cache_addr         ,
@@ -130,7 +131,7 @@ module arbitrate (
 
     reg [1:0] transfor_state    ;
     //reg [1:0] transfor_state_nex;
-    always @(*) begin
+    always @(clk) begin
         if(rst == `ysyx22040228_RSTENA) 
             transfor_state = `ysyx22040228_ABE_IDLE;
         else begin
@@ -185,32 +186,30 @@ module arbitrate (
     assign ar_shankhand = axi_ar_valid && axi_ar_ready ;
     assign r_shankhand  = axi_r_valid  && axi_r_ready  ; 
     reg [1:0] cache_state     ;
-    reg [1:0] cache_state_nxt ;
 
     `define ysyx22040228_READ_IDLE      2'b00 
     //`define ysyx22040228_READ_CHECK     4'b0010
     `define ysyx22040228_READ_TRAF      2'b01
     `define ysyx22040228_READ_WRBC      2'b10
-    always @(*) begin
+    always @(clk) begin
         if(rst == `ysyx22040228_ENABLE) 
             cache_state = `ysyx22040228_READ_IDLE;
         else begin
-            cache_state = cache_state_nxt;
             case (cache_state)
                `ysyx22040228_READ_IDLE   : begin
                     if(ar_shankhand) 
-                        cache_state_nxt = `ysyx22040228_READ_TRAF  ;
-                    cache_state_nxt = `ysyx22040228_READ_IDLE      ;
+                        cache_state = `ysyx22040228_READ_TRAF  ;
+                    cache_state = `ysyx22040228_READ_IDLE      ;
                end
                 `ysyx22040228_READ_TRAF  : begin
                     if(r_shankhand)
-                        cache_state_nxt = `ysyx22040228_READ_WRBC  ;
-                    cache_state_nxt = `ysyx22040228_READ_TRAF      ;
+                        cache_state = `ysyx22040228_READ_WRBC  ;
+                    cache_state = `ysyx22040228_READ_TRAF      ;
                 end 
                 `ysyx22040228_READ_WRBC  : begin
                     if(axi_r_last)
-                        cache_state_nxt = `ysyx22040228_READ_IDLE  ;
-                    cache_state_nxt = `ysyx22040228_READ_WRBC      ;
+                        cache_state = `ysyx22040228_READ_IDLE  ;
+                    cache_state = `ysyx22040228_READ_WRBC      ;
                 end 
                 default: ;
             endcase
