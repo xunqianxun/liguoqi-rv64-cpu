@@ -3,7 +3,10 @@ Author:LiGuoqi
 Name:d_cache1.v
 Function:write data cache
 ************************************************************/
-`include "defines.v"
+`include "./vsrc/defines.v"
+`include "./vsrc/defines_axi4.v"
+`include "./vsrc/d_cache_data_ram.v"
+`include "./vsrc/d_cache_tag_ram.v"
 module i_cache1 (
     input       wire                                         clk             ,
     input       wire                                         rst             ,

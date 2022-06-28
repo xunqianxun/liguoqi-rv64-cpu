@@ -3,6 +3,10 @@ Author:LiGuoqi
 Name:SocTOp.v
 Function:top module of this soc
 ************************************************************/
+`include "./vsrc/arbitrate.v"
+`include "./vsrc/d_cache1.v"
+`include "./vsrc/i_cache1.v"
+`include "./vsrc/rvcpu.v"
 `include "./vsrc/defines_axi4.v"
 `include "./vsrc/defines.v"
 module SocTop (
