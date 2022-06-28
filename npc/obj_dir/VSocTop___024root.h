@@ -329,10 +329,14 @@ VL_MODULE(VSocTop___024root) {
     };
 
     // LOCAL VARIABLES
+    CData/*5:0*/ __Vdlyvdim0__SocTop__DOT__i_cache12__DOT__i_counter2__v0;
+    CData/*0:0*/ __Vdlyvset__SocTop__DOT__i_cache12__DOT__i_counter2__v0;
+    CData/*5:0*/ __Vdlyvdim0__SocTop__DOT__i_cache12__DOT__i_counter1__v0;
+    CData/*0:0*/ __Vdlyvset__SocTop__DOT__i_cache12__DOT__i_counter1__v0;
     CData/*0:0*/ __Vclklast__TOP__clk;
     CData/*0:0*/ __Vclklast__TOP__rst;
     QData/*63:0*/ __Vdly__SocTop__DOT__rvcpu_inst_addr;
-    VlUnpacked<CData/*0:0*/, 5> __Vm_traceActivity;
+    VlUnpacked<CData/*0:0*/, 6> __Vm_traceActivity;
 
     // INTERNAL VARIABLES
     VSocTop__Syms* vlSymsp;  // Symbol table

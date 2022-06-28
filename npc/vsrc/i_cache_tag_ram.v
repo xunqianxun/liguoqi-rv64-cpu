@@ -14,12 +14,12 @@ module i_cache_tag_ram (
 
     always @(posedge clk) begin
         if(write_ena) begin
-            ram[addr_i] [54:0] = data_i[54:0];
-            ram[addr_i] [55] = data_i[55];
+            ram[addr_i] [54:0] <= data_i[54:0];
+            ram[addr_i] [55] <= data_i[55];
         end 
         else begin
-            out_data = ram[addr_i] [54:0];
-            out_vaild = ram[addr_i] [55];
+            out_data <= ram[addr_i] [54:0];
+            out_vaild <= ram[addr_i] [55];
         end 
     end
 

@@ -12,8 +12,8 @@ module i_cache_data_ram (
 
     always @(posedge clk) begin
         if(write_ena)
-            ram[addr_i] = data_i;
-        out_data = ram[addr_i]  ;
+            ram[addr_i] <= data_i;
+        out_data <= ram[addr_i]  ;
     end
 
     assign data_o = out_data;
