@@ -158,7 +158,6 @@ VL_MODULE(VSocTop___024root) {
         CData/*0:0*/ SocTop__DOT__i_cache12__DOT__inst_hit_ok;
         CData/*0:0*/ SocTop__DOT__i_cache12__DOT__write_i_ok;
         CData/*0:0*/ SocTop__DOT__i_cache12__DOT__inst_valid_o;
-        CData/*0:0*/ SocTop__DOT__i_cache12__DOT__finish_the_mem_l;
         CData/*0:0*/ SocTop__DOT__i_cache12__DOT__ord_data_ena;
         CData/*0:0*/ SocTop__DOT__i_cache12__DOT__inst_in_cache1;
         CData/*0:0*/ SocTop__DOT__i_cache12__DOT__inst_in_cache2;
@@ -190,9 +189,9 @@ VL_MODULE(VSocTop___024root) {
         CData/*5:0*/ SocTop__DOT__d_cache13__DOT__state_load;
         CData/*5:0*/ SocTop__DOT__d_cache13__DOT__state_load_nxt;
         CData/*0:0*/ SocTop__DOT__d_cache13__DOT__load_ok;
+        CData/*0:0*/ SocTop__DOT__d_cache13__DOT__write_l_ok;
     };
     struct {
-        CData/*0:0*/ SocTop__DOT__d_cache13__DOT__write_l_ok;
         CData/*0:0*/ SocTop__DOT__d_cache13__DOT__load_finish_h;
         CData/*2:0*/ SocTop__DOT__d_cache13__DOT__load_hit_count1;
         CData/*2:0*/ SocTop__DOT__d_cache13__DOT__load_hit_count2;
@@ -256,9 +255,9 @@ VL_MODULE(VSocTop___024root) {
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__id_ex_op;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__id_ex_op2;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__id_ex_pc;
+        QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__mem_id_data;
     };
     struct {
-        QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__mem_id_data;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__wb_regfile_data;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__idex_ex_pc;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__idex_ex_op1;
@@ -322,9 +321,9 @@ VL_MODULE(VSocTop___024root) {
         VlUnpacked<CData/*0:0*/, 64> SocTop__DOT__d_cache13__DOT__dirty1;
         VlUnpacked<CData/*0:0*/, 64> SocTop__DOT__d_cache13__DOT__dirty2;
         VlUnpacked<QData/*55:0*/, 64> SocTop__DOT__d_cache13__DOT__u_tag0__DOT__ram;
+        VlUnpacked<QData/*55:0*/, 64> SocTop__DOT__d_cache13__DOT__u_tag1__DOT__ram;
     };
     struct {
-        VlUnpacked<QData/*55:0*/, 64> SocTop__DOT__d_cache13__DOT__u_tag1__DOT__ram;
         VlUnpacked<QData/*63:0*/, 64> SocTop__DOT__d_cache13__DOT__u_data0__DOT__ram;
         VlUnpacked<QData/*63:0*/, 64> SocTop__DOT__d_cache13__DOT__u_data1__DOT__ram;
     };

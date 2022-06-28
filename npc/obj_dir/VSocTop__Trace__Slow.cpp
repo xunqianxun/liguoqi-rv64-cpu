@@ -653,7 +653,6 @@ void VSocTop___024root__traceInitSub0(VSocTop___024root* vlSelf, VerilatedVcd* t
         tracep->declBit(c+412,"SocTop i_cache12 write_i_ok", false,-1);
         tracep->declBus(c+413,"SocTop i_cache12 inst_data_o", false,-1, 31,0);
         tracep->declBit(c+414,"SocTop i_cache12 inst_valid_o", false,-1);
-        tracep->declBit(c+571,"SocTop i_cache12 finish_the_mem_l", false,-1);
         tracep->declBus(c+415,"SocTop i_cache12 data_inst", false,-1, 31,0);
         tracep->declBit(c+410,"SocTop i_cache12 ord_data_ena", false,-1);
         tracep->declBit(c+416,"SocTop i_cache12 inst_in_cache1", false,-1);
@@ -2011,6 +2010,5 @@ void VSocTop___024root__traceFullSub0(VSocTop___024root* vlSelf, VerilatedVcd* t
         tracep->fullBit(oldp+568,(1U));
         tracep->fullCData(oldp+569,(0xffU),8);
         tracep->fullCData(oldp+570,(0U),2);
-        tracep->fullBit(oldp+571,(vlSelf->SocTop__DOT__i_cache12__DOT__finish_the_mem_l));
     }
 }
