@@ -30,6 +30,7 @@ VM_CLASSES_FAST += \
 
 # Generated module classes, non-fast-path, compile with low/medium optimization
 VM_CLASSES_SLOW += \
+	VSocTop__ConstPool_0 \
 	VSocTop___024root__Slow \
 
 # Generated support classes, fast-path, compile with highest optimization

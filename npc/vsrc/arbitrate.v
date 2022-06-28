@@ -125,41 +125,17 @@ module arbitrate (
     wire  b_shankhand  = axi_b_valid  && axi_b_ready && (axi_b_id == 4'b0000);
     wire  b_success    = b_shankhand  && (axi_b_resp == 2'b00)               ;
 
-    `define ysyx22040228_ABE_IDLE 2'b00  
-    `define ysyx22040228_ABE_INFO 2'b01
-    `define ysyx22040228_ABE_RESP 2'b11
+    `define ysyx22040228_ABE_IDLE       2'b00  
+    `define ysyx22040228_ABE_INFO       2'b01
+    `define ysyx22040228_ABE_RESP       2'b11
+
+    `define ysyx22040228_READ_IDLE      2'b00 
+    `define ysyx22040228_READ_ADDR      2'b01
+    `define ysyx22040228_READ_DATA      2'b10
 
     reg [1:0] transfor_state    ;
     reg [1:0] transfor_state_nex;
-    // always @(clk) begin
-    //     if(rst == `ysyx22040228_RSTENA) 
-    //         transfor_state = `ysyx22040228_ABE_IDLE;
-    //     else begin
-    //     case (transfor_state)
-    //        `ysyx22040228_ABE_IDLE : begin
-    //            if(aw_shankhand && w_shankhand)
-    //                 transfor_state = `ysyx22040228_ABE_RESP    ;
-    //            else if(axi_aw_valid | axi_w_valid)
-    //                 transfor_state = `ysyx22040228_ABE_INFO    ;
-    //            else 
-    //                 transfor_state = `ysyx22040228_ABE_IDLE    ;
-    //        end 
-    //        `ysyx22040228_ABE_INFO : begin
-    //            if(aw_shankhand && w_shankhand)
-    //                 transfor_state = `ysyx22040228_ABE_RESP    ;
-    //            else 
-    //                 transfor_state = `ysyx22040228_ABE_INFO    ;
-    //        end
-    //        `ysyx22040228_ABE_RESP : begin
-    //            if(b_shankhand)
-    //                 transfor_state = `ysyx22040228_ABE_IDLE    ;
-    //            else 
-    //                 transfor_state = `ysyx22040228_ABE_RESP    ;
-    //        end 
-    //         default: ;
-    //     endcase
-    //     end 
-    // end
+
     always @(posedge clk) begin
         if(rst == `ysyx22040228_RSTENA)
             transfor_state <= `ysyx22040228_ABE_IDLE;
@@ -209,59 +185,137 @@ module arbitrate (
     assign axi_w_last    =  1'b1                         ;
     assign axi_w_valid   =  ((transfor_state == `ysyx22040228_ABE_IDLE) || (transfor_state == `ysyx22040228_ABE_INFO)) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE  ;
     assign axi_b_ready   =  `ysyx22040228_ABLE           ;
-    assign d_cache_ok    =  (b_success) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE                                                       ;
+    assign d_cache_ok    =  (b_success) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE    
+                                                       ;
     //-------------------------wirte channel sign make----------------------------// 
-    wire ar_shankhand ;
-    wire r_shankhand  ;
-    assign ar_shankhand = axi_ar_valid && axi_ar_ready ;
-    assign r_shankhand  = axi_r_valid  && axi_r_ready  ; 
-    reg [1:0] cache_state     ;
+    wire r_shankhand          ;
+    wire d_cache_ar_shankhand ;
+    wire i_cache_ar_shankhand ;
+    wire d_cache_r_shankhand  ;
+    wire i_cache_r_shankhand  ;
+    wire d_cache_rsuccess     ;
+    wire i_cache_rsuccess     ;
+    assign d_cache_ar_shankhand = d_cache_valid && axi_ar_ready ;
+    assign i_cache_ar_shankhand = i_cache_valid && axi_ar_ready ;
+    assign r_shankhand          = axi_r_valid   && axi_r_ready  ;
+    assign d_cache_r_shankhand  = r_shankhand && (axi_r_id == 4'b0000)
+    assign d_cache_rsuccess     = d_cache_r_shankhand && (axi_r_resp == 2'b00) ;
+    assign i_cache_r_shankhand  = r_shankhand && (axi_r_id == 4'b0001);
+    assign i_cache_rsuccess     = i_cache_r_shankhand && (axi_r_resp == 2'b00) ;
 
-    `define ysyx22040228_READ_IDLE      2'b00 
-    //`define ysyx22040228_READ_CHECK     4'b0010
-    `define ysyx22040228_READ_TRAF      2'b01
-    `define ysyx22040228_READ_WRBC      2'b10
-    always @(clk) begin
-        if(rst == `ysyx22040228_ENABLE) 
-            cache_state = `ysyx22040228_READ_IDLE;
-        else begin
-            case (cache_state)
-               `ysyx22040228_READ_IDLE   : begin
-                    if(ar_shankhand) 
-                        cache_state = `ysyx22040228_READ_TRAF  ;
-                    cache_state = `ysyx22040228_READ_IDLE      ;
-               end
-                `ysyx22040228_READ_TRAF  : begin
-                    if(r_shankhand)
-                        cache_state = `ysyx22040228_READ_WRBC  ;
-                    cache_state = `ysyx22040228_READ_TRAF      ;
-                end 
-                `ysyx22040228_READ_WRBC  : begin
-                    if(axi_r_last)
-                        cache_state = `ysyx22040228_READ_IDLE  ;
-                    cache_state = `ysyx22040228_READ_WRBC      ;
-                end 
-                default: ;
-            endcase
-        end 
+    wire i_cache_valid ;
+    wire d_cache_valid ;
+    assign i_cache_valid = (i_cache_state != `ysyx22040228_READ_ADDR) && (i_cache_state != `ysyx22040228_READ_DATA) && d_cache_read_ena;
+    assign d_cache_valid = (i_cache_state != `ysyx22040228_READ_ADDR) && (i_cache_state != `ysyx22040228_READ_DATA) && i_cache_ena     ;
+
+    reg [1:0] i_cache_state     ;
+    reg [1:0] i_cache_state_nxt ;
+    always @(posedge clk) begin
+        if(rst == `ysyx22040228_RSTENA) 
+            i_cache_state <= `ysyx22040228_READ_IDLE ;
+        else 
+            i_cache_state <= i_cache_state_nxt       ;
     end
 
-    assign axi_ar_id    = i_cache_ena ? 4'b0001 : (d_cache_read_ena ? 4'b0010 : 4'b0000)                              ;
-    assign axi_ar_addr  = i_cache_ena ? d_cache_addr : (d_cache_read_ena ? i_cache_addr : `ysyx22040228_ZEROWORD)     ;
-    assign axi_ar_len   = 8'd0                ;
-    assign axi_ar_size  = i_cache_ena ? `AXI_SIZE_BYTES_4 : (d_cache_read_ena ? `AXI_SIZE_BYTES_8 : `AXI_SIZE_BYTES_8);
-    assign axi_ar_burst = `AXI_BURST_TYPE_INCR;
+    always @(*) begin
+        case (i_cache_state)
+            `ysyx22040228_READ_IDLE : begin
+                if(i_cache_ar_shankhand)
+                    i_cache_state_nxt = `ysyx22040228_READ_DATA ;
+                else if(i_cache_valid)
+                    i_cache_state_nxt = `ysyx22040228_READ_ADDR ;
+                else 
+                    i_cache_state_nxt = `ysyx22040228_READ_IDLE ;
+            end  
+            `ysyx22040228_READ_ADDR : begin
+                if(i_cache_ar_shankhand) 
+                    i_cache_state_nxt = `ysyx22040228_READ_DATA ;
+                else 
+                    i_cache_state_nxt = `ysyx22040228_READ_ADDR ;
+            end 
+            `ysyx22040228_READ_DATA : begin
+                if(i_cache_r_shankhand && axi_r_last) 
+                    i_cache_state_nxt = `ysyx22040228_READ_IDLE ;
+                else 
+                    i_cache_state_nxt = `ysyx22040228_READ_DATA ;
+            end 
+            default:  ;
+        endcase
+    end
+
+    reg [1:0] d_cache_state     ;
+    reg [1:0] d_cache_state_nxt ;
+    always @(posedge clk) begin
+        if(rst == `ysyx22040228_RSTENA) 
+            d_cache_state <= `ysyx22040228_READ_IDLE ;
+        else 
+            d_cache_state <= d_cache_state_nxt       ;
+    end
+
+    always @(*) begin
+        case (d_cache_state)
+            `ysyx22040228_READ_IDLE : begin
+                if(d_cache_ar_shankhand)
+                    d_cache_state_nxt = `ysyx22040228_READ_DATA ;
+                else if(d_cache_valid)
+                    d_cache_state_nxt = `ysyx22040228_READ_ADDR ;
+                else 
+                    d_cache_state_nxt = `ysyx22040228_READ_IDLE ;
+            end  
+            `ysyx22040228_READ_ADDR : begin
+                if(d_cache_ar_shankhand) 
+                    d_cache_state_nxt = `ysyx22040228_READ_DATA ;
+                else 
+                    d_cache_state_nxt = `ysyx22040228_READ_ADDR ;
+            end 
+            `ysyx22040228_READ_DATA : begin
+                if(d_cache_r_shankhand && axi_r_last) 
+                    d_cache_state_nxt = `ysyx22040228_READ_IDLE ;
+                else 
+                    d_cache_state_nxt = `ysyx22040228_READ_DATA ;
+            end 
+            default:  ;
+        endcase
+    end
+
+    assign axi_ar_id    = i_cache_valid ? 4'b0001 : (d_cache_valid ? 4'b0000 : 4'b0000)                               ;
+    assign axi_ar_addr  = i_cache_valid ? i_cache_addr : (d_cache_valid ? d_cache_addr : `ysyx22040228_ZEROWORD)      ;
+    assign axi_ar_len   = 8'd0                                            ;
+    assign axi_ar_size  = i_cache_valid ? `AXI_SIZE_BYTES_4 : (d_cache_valid ? `AXI_SIZE_BYTES_8 : `AXI_SIZE_BYTES_8) ;
+    assign axi_ar_burst = `AXI_BURST_TYPE_INCR                            ;
     assign axi_ar_cache = `AXI_AWCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE;
     assign axi_ar_prot  = `AXI_PROT_UNPRIVILEGED_ACCESS                   ;
-    assign axi_ar_qos   =  4'h0               ;
-    assign axi_ar_valid = (cache_state == `ysyx22040228_READ_IDLE) && (d_cache_read_ena || i_cache_ena) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE         ;
+    assign axi_ar_qos   =  4'h0                                           ;
+    assign axi_ar_valid = i_cache_valid | d_cache_valid                   ;
+
+    assign axi_r_ready  = `ysyx22040228_ABLE                              ;
     
-    assign axi_r_ready  = axi_r_valid ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE ;
-    assign i_cache_ok   = ((axi_r_id == 4'b0001) && (axi_r_last == `ysyx22040228_ABLE) && (axi_r_resp == 2'b00)) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE;
-    assign i_cache_data_o = (i_cache_ok) ? axi_r_data : `ysyx22040228_ZEROWORD;
-    assign d_cache_ok   = ((axi_r_id == 4'b0010) && (axi_r_last == `ysyx22040228_ABLE) && (axi_r_resp == 2'b00)) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE;
-    assign d_cache_data_o = (d_cache_ok) ? axi_r_data : `ysyx22040228_ZEROWORD;
 
-
+    // assign i_cache_ok   = ((axi_r_id == 4'b0001) && (axi_r_last == `ysyx22040228_ABLE) && (axi_r_resp == 2'b00)) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE;
+    // assign i_cache_data_o = (i_cache_ok) ? axi_r_data : `ysyx22040228_ZEROWORD;
+    // assign d_cache_ok   = ((axi_r_id == 4'b0010) && (axi_r_last == `ysyx22040228_ABLE) && (axi_r_resp == 2'b00)) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE;
+    // assign d_cache_data_o = (d_cache_ok) ? axi_r_data : `ysyx22040228_ZEROWORD;
+    assign i_cache_data_o = (i_cache_r_shankhand && axi_r_last) ? : ((i_cache_addr[2] == `ysyx22040228_ABLE) ? axi_r_data[63:32] : axi_r_data[31:0]) : 32'h0;
+    assign d_cache_data_o = (d_cache_r_shankhand && axi_r_last) ? : axi_r_data : `ysyx22040228_ZEROWORD ;
+    reg [31:0] i_cache_data_oupt ;
+    reg [63:0] d_cache_data_outp ;
+    always @(posedge clk) begin
+        if(i_cache_r_shankhand && axi_r_last) begin
+            i_cache_ok = `ysyx22040228_ABLE           ;
+            if(i_cache_addr[2] == `ysyx22040228_ABLE)
+                i_cache_data_oupt = axi_r_data[63:32] ;
+            else 
+                i_cache_data_oupt = axi_r_data[31:0 ] ;
+        end
+        else if(d_cache_r_shankhand && axi_r_last)
+            d_cache_data_outp = axi_r_data ;
+            d_cache_ok        = `ysyx22040228_ABLE    ;
+        else begin
+            i_cache_data_oupt = 32'h0 ;
+            d_cache_data_outp = 64'h0 ;
+            i_cache_ok = 1'b0         ;
+            d_cache_ok = 1'b0         ;
+        end  
+    end 
 endmodule /*   */
 
