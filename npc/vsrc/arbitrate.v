@@ -50,8 +50,8 @@ Function:arbitrate i_cache and d_cache
 `define AXI_SIZE_BYTES_64                                   3'b110
 `define AXI_SIZE_BYTES_128                                  3'b111
 
-`include defines.v
-`include define_axi4.v
+`include "./vsrc/defines.v"
+`include "./vsrc/define_axi4.v"
 module arbitrate (
     //-----------------------------system----------------------------------------//
     input       wire                                         clk                  ,
@@ -232,5 +232,7 @@ module arbitrate (
     assign i_cache_data_o = (i_cache_ok) ? axi_r_data : `ysyx22040228_ZEROWORD;
     assign d_cache_ok   = ((axi_r_id == 4'b0010) && (axi_r_last == `ysyx22040228_ABLE) && (axi_r_resp == 2'b00)) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE;
     assign d_cache_data_o = (d_cache_ok) ? axi_r_data : `ysyx22040228_ZEROWORD;
+
+    
 endmodule
 
