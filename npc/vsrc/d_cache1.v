@@ -190,10 +190,10 @@ module d_cache1 (
     wire  [5:0]  dirty_addr ;
     assign dirty_addr = mem_addr_i[8:3];
     assign dirty1[dirty_addr] = (w_incache_ena1 && dirty_make)                                ? `ysyx22040228_ABLE :
-                                ((state_store == `ysyx22040228_HIT) && (tag_data1 == in_teg)) ? dirty_hit          :
+                                (dirty_hit && (tag_data1 == in_teg))                          ? `ysyx22040228_ABLE :
                                                                                                `ysyx22040228_ENABLE;
     assign dirty2[dirty_addr] = (w_incache_ena2 && dirty_make)                                ? `ysyx22040228_ABLE :
-                                ((state_store == `ysyx22040228_HIT) && (tag_data2 == in_teg)) ? dirty_hit          :
+                                (dirty_hit && (tag_data2 == in_teg))                          ? `ysyx22040228_ABLE :
                                                                                                `ysyx22040228_ENABLE;
     reg    dirty1 [`ysyx22040228_CACHE_DATA_W];
     reg    dirty2 [`ysyx22040228_CACHE_DATA_W];

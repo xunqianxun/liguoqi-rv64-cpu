@@ -4701,25 +4701,21 @@ VL_INLINE_OPT void VSocTop___024root___combo__TOP__5(VSocTop___024root* vlSelf) 
     }
     if (vlSelf->rst) {
         vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state = 0U;
-    } else {
+    } else if ((0U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state))) {
         vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state 
-            = vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state_nex;
-        if ((0U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state))) {
-            vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state_nex 
-                = (((IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__aw_shankhand) 
-                    & (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__w_shankhand))
-                    ? 3U : ((IData)(vlSelf->SocTop__DOT__t_axi_w_valid)
-                             ? 1U : 0U));
-        } else if ((1U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state))) {
-            vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state_nex 
-                = (((IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__aw_shankhand) 
-                    & (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__w_shankhand))
-                    ? 3U : 1U);
-        } else if ((3U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state))) {
-            vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state_nex 
-                = ((IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__b_shankhand)
-                    ? 0U : 3U);
-        }
+            = (((IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__aw_shankhand) 
+                & (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__w_shankhand))
+                ? 3U : ((IData)(vlSelf->SocTop__DOT__t_axi_w_valid)
+                         ? 1U : 0U));
+    } else if ((1U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state))) {
+        vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state 
+            = (((IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__aw_shankhand) 
+                & (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__w_shankhand))
+                ? 3U : 1U);
+    } else if ((3U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state))) {
+        vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state 
+            = ((IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__b_shankhand)
+                ? 0U : 3U);
     }
     vlSelf->out_axi_w_data = (((IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__aw_shankhand) 
                                & (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__w_shankhand))
@@ -5050,21 +5046,17 @@ VL_INLINE_OPT QData VSocTop___024root___change_request_1(VSocTop___024root* vlSe
     QData __req = false;  // Logically a bool
     __req |= ((vlSelf->SocTop__DOT__d_cache13__DOT__state_store ^ vlSelf->__Vchglast__TOP__SocTop__DOT__d_cache13__DOT__state_store)
          | (vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state ^ vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__transfor_state)
-         | (vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state_nex ^ vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__transfor_state_nex)
          | (vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state ^ vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__cache_state)
          | (vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state_nxt ^ vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__cache_state_nxt));
     VL_DEBUG_IF( if(__req && ((vlSelf->SocTop__DOT__d_cache13__DOT__state_store ^ vlSelf->__Vchglast__TOP__SocTop__DOT__d_cache13__DOT__state_store))) VL_DBG_MSGF("        CHANGE: vsrc/d_cache1.v:208: SocTop.d_cache13.state_store\n"); );
     VL_DEBUG_IF( if(__req && ((vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state ^ vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__transfor_state))) VL_DBG_MSGF("        CHANGE: vsrc/arbitrate.v:131: SocTop.arbitrate4.transfor_state\n"); );
-    VL_DEBUG_IF( if(__req && ((vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state_nex ^ vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__transfor_state_nex))) VL_DBG_MSGF("        CHANGE: vsrc/arbitrate.v:132: SocTop.arbitrate4.transfor_state_nex\n"); );
-    VL_DEBUG_IF( if(__req && ((vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state ^ vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__cache_state))) VL_DBG_MSGF("        CHANGE: vsrc/arbitrate.v:188: SocTop.arbitrate4.cache_state\n"); );
-    VL_DEBUG_IF( if(__req && ((vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state_nxt ^ vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__cache_state_nxt))) VL_DBG_MSGF("        CHANGE: vsrc/arbitrate.v:189: SocTop.arbitrate4.cache_state_nxt\n"); );
+    VL_DEBUG_IF( if(__req && ((vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state ^ vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__cache_state))) VL_DBG_MSGF("        CHANGE: vsrc/arbitrate.v:187: SocTop.arbitrate4.cache_state\n"); );
+    VL_DEBUG_IF( if(__req && ((vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state_nxt ^ vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__cache_state_nxt))) VL_DBG_MSGF("        CHANGE: vsrc/arbitrate.v:188: SocTop.arbitrate4.cache_state_nxt\n"); );
     // Final
     vlSelf->__Vchglast__TOP__SocTop__DOT__d_cache13__DOT__state_store 
         = vlSelf->SocTop__DOT__d_cache13__DOT__state_store;
     vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__transfor_state 
         = vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state;
-    vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__transfor_state_nex 
-        = vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state_nex;
     vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__cache_state 
         = vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state;
     vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__cache_state_nxt 

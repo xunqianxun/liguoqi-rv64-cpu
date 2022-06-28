@@ -221,7 +221,6 @@ VL_MODULE(VSocTop___024root) {
         CData/*0:0*/ SocTop__DOT__arbitrate4__DOT__w_shankhand;
         CData/*0:0*/ SocTop__DOT__arbitrate4__DOT__b_shankhand;
         CData/*1:0*/ SocTop__DOT__arbitrate4__DOT__transfor_state;
-        CData/*1:0*/ SocTop__DOT__arbitrate4__DOT__transfor_state_nex;
         CData/*0:0*/ SocTop__DOT__arbitrate4__DOT__r_shankhand;
         CData/*1:0*/ SocTop__DOT__arbitrate4__DOT__cache_state;
         CData/*1:0*/ SocTop__DOT__arbitrate4__DOT__cache_state_nxt;
@@ -256,9 +255,9 @@ VL_MODULE(VSocTop___024root) {
         QData/*63:0*/ SocTop__DOT__rvcpu_inst_addr;
         QData/*63:0*/ SocTop__DOT__rvcpu_data_addr;
         QData/*63:0*/ SocTop__DOT__rvcpu_data_o;
+        QData/*63:0*/ SocTop__DOT__d_cache_data_out;
     };
     struct {
-        QData/*63:0*/ SocTop__DOT__d_cache_data_out;
         QData/*63:0*/ SocTop__DOT__arbitrate_d_data;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__if_id_pc;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex_id_rd_data;
@@ -322,9 +321,9 @@ VL_MODULE(VSocTop___024root) {
         VlUnpacked<CData/*2:0*/, 64> SocTop__DOT__i_cache12__DOT__i_counter1;
         VlUnpacked<CData/*2:0*/, 64> SocTop__DOT__i_cache12__DOT__i_counter2;
         VlUnpacked<QData/*55:0*/, 64> SocTop__DOT__i_cache12__DOT__u_tag01__DOT__ram;
+        VlUnpacked<QData/*55:0*/, 64> SocTop__DOT__i_cache12__DOT__u_tag02__DOT__ram;
     };
     struct {
-        VlUnpacked<QData/*55:0*/, 64> SocTop__DOT__i_cache12__DOT__u_tag02__DOT__ram;
         VlUnpacked<IData/*31:0*/, 64> SocTop__DOT__i_cache12__DOT__u_data01__DOT__ram;
         VlUnpacked<IData/*31:0*/, 64> SocTop__DOT__i_cache12__DOT__u_data02__DOT__ram;
         VlUnpacked<CData/*2:0*/, 64> SocTop__DOT__d_cache13__DOT__counter1;
@@ -342,7 +341,6 @@ VL_MODULE(VSocTop___024root) {
     CData/*0:0*/ __Vclklast__TOP__rst;
     CData/*5:0*/ __Vchglast__TOP__SocTop__DOT__d_cache13__DOT__state_store;
     CData/*1:0*/ __Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__transfor_state;
-    CData/*1:0*/ __Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__transfor_state_nex;
     CData/*1:0*/ __Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__cache_state;
     CData/*1:0*/ __Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__cache_state_nxt;
     QData/*63:0*/ SocTop__DOT____Vcellout__arbitrate4__i_cache_data_o;
