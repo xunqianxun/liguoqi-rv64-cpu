@@ -63,14 +63,13 @@ module SocTop (
     
     wire  [63:0]    rvcpu_inst_addr  ;
     wire            rvcpu_inst_ena   ;
-    wire            rvcpu_inst_ready ;
     wire  [63:0]    rvcpu_data_addr  ;
     wire  [7:0 ]    rvcpu_wmask      ;
     wire  [63:0]    rvcpu_data_o     ;
     wire            rvcpu_we         ;
     wire            rvcpu_re         ;
 
-    wire  [63:0]    i_cache_inst_data;
+    wire  [31:0]    i_cache_inst_data;
     wire            i_cache_inst_valid;
     wire            i_cache_read_ena ;
     wire  [63:0]    i_cache_addr     ;  
@@ -84,7 +83,7 @@ module SocTop (
 
     wire  [63:0]    arbitrate_d_data ;
     wire            arbitrate_d_ok   ;
-    wire  [63:0]    arbitrate_i_data ;
+    wire  [31:0]    arbitrate_i_data ;
     wire            arbitrate_i_ok   ;
 
     wire   time_init_sign       ;
@@ -101,7 +100,6 @@ module SocTop (
     wire                             t_axi_aw_ready ;
     wire                             t_axi_aw_valid ;
 
-    wire   [`ysyx22040228_ID_BUS]    t_axi_w_id     ;
     wire   [`ysyx22040228_DATA_BUS]  t_axi_w_data   ;
     wire   [`ysyx22040228_STRB_BUS]  t_axi_w_strb   ;
     wire                             t_axi_w_last   ;
@@ -233,7 +231,7 @@ module SocTop (
         .outw_dcache_ena     (d_cache_write_ena  )
     );
 
-    wire d_cache_mask_gd = 8'b11111111 ;
+    wire [7:0] d_cache_mask_gd = 8'b11111111 ;
 
     arbitrate arbitrate4(
         .clk                 (clk                ) ,

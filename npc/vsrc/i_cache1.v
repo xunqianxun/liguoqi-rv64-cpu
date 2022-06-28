@@ -25,9 +25,9 @@ module i_cache1 (
     assign inst_data       = (state_inst == `ysyx22040228_HIT) ? inst_data_o :
                              inst_write_cache                  ? data_inst   :
                                                                         32'b0;
-    assign inst_valid      = (state_inst == `ysyx22040228_HIT) ? inst_valid_o:
-                             inst_write_cache                  ? inst_valid  :
-                                                         `ysyx22040228_ENABLE;                        
+    assign inst_valid      = (state_inst == `ysyx22040228_HIT) ? inst_valid_o      :
+                             inst_write_cache                  ? inst_valid_write  :
+                                                               `ysyx22040228_ENABLE;                        
 
     wire    [5:0]    i_cache_addr1;
     wire    [55:0]   i_cache_tag1 ;
@@ -244,6 +244,7 @@ module i_cache1 (
     reg                          inst_in_cache1   ;
     reg                          inst_in_cache2   ;
     reg                          inst_write_cache ;
+    reg                          inst_valid_write ;
     always @(posedge clk or negedge rst) begin
         if((state_inst == `ysyx22040228_WRITE) && (~cache_in_ok)) begin
                 ord_data_ena = `ysyx22040228_ABLE  ;
@@ -258,7 +259,7 @@ module i_cache1 (
                 inst_write_cache =  `ysyx22040228_ABLE  ;
         end 
         else if(inst_write_cache) begin
-            inst_valid       = `ysyx22040228_ABLE  ;
+            inst_valid_write = `ysyx22040228_ABLE  ;
             write_i_ok       = `ysyx22040228_ABLE  ;
             inst_write_cache = `ysyx22040228_ENABLE;
             if(inst_in_cache1)
@@ -273,7 +274,7 @@ module i_cache1 (
                     inst_in_cache1   = `ysyx22040228_ENABLE;
                     inst_in_cache2   = `ysyx22040228_ENABLE;
                     data_inst        = 32'b0               ;
-                    inst_valid       = `ysyx22040228_ENABLE;
+                    inst_valid_write = `ysyx22040228_ENABLE;
                 end 
         end 
     end

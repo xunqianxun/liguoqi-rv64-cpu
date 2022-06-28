@@ -54,7 +54,6 @@ Function:arbitrate i_cache and d_cache
 `include "./vsrc/defines_axi4.v"
 module arbitrate (
     //-----------------------------system----------------------------------------//
-    input       wire                                         clk                  ,
     input       wire                                         rst                  ,
     //-----------------------------d_cache---------------------------------------//
     input       wire       [63:0]                            d_cache_addr         ,
@@ -162,7 +161,7 @@ module arbitrate (
 
     //------------------------------output sign make------------------------------//
     assign axi_aw_id     =  4'b0000                      ;
-    assign axi_aw_len    =  7'd0                         ;
+    assign axi_aw_len    =  8'd0                         ;
     assign axi_aw_size   =  `AXI_SIZE_BYTES_8            ; 
     assign axi_aw_burst  =  `AXI_BURST_TYPE_INCR         ; //all use INCR type
     assign axi_aw_cache  =  `AXI_AWCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE;
@@ -172,7 +171,7 @@ module arbitrate (
     assign axi_aw_addr   =  (aw_shankhand && w_shankhand) ? axi_aw_addr  : `ysyx22040228_ZEROWORD;
 
     assign axi_w_data    =  (aw_shankhand && w_shankhand) ? d_cache_data : `ysyx22040228_ZEROWORD;
-    assign axi_w_strb    =  (aw_shankhand && w_shankhand) ? d_cache_mask : `ysyx22040228_ZEROWORD;             
+    assign axi_w_strb    =  (aw_shankhand && w_shankhand) ? d_cache_mask : 8'b0                  ;             
     assign axi_w_last    =  1'b1                         ;
     assign axi_w_valid   =  (d_cache_write_ena && (transfor_state == `ysyx22040228_ABE_IDLE)) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE ;
     assign axi_b_ready   =  (transfor_state == `ysyx22040228_ABE_RESP) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE                       ;
@@ -219,13 +218,13 @@ module arbitrate (
 
     assign axi_ar_id    = i_cache_ena ? 4'b0001 : (d_cache_read_ena ? 4'b0010 : 4'b0000)                              ;
     assign axi_ar_addr  = i_cache_ena ? d_cache_addr : (d_cache_read_ena ? i_cache_addr : `ysyx22040228_ZEROWORD)     ;
-    assign axi_ar_len   = 7'd0                ;
+    assign axi_ar_len   = 8'd0                ;
     assign axi_ar_size  = i_cache_ena ? `AXI_SIZE_BYTES_4 : (d_cache_read_ena ? `AXI_SIZE_BYTES_8 : `AXI_SIZE_BYTES_8);
-    assign axi_aw_burst = `AXI_BURST_TYPE_INCR;
-    assign axi_aw_cache = `AXI_AWCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE;
-    assign axi_aw_port  = `AXI_PROT_UNPRIVILEGED_ACCESS                   ;
-    assign axi_aw_qos   =  4'h0               ;
-    assign axi_aw_valid = (cache_state == `ysyx22040228_READ_IDLE) && (d_cache_read_ena || i_cache_ena) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE         ;
+    assign axi_ar_burst = `AXI_BURST_TYPE_INCR;
+    assign axi_ar_cache = `AXI_AWCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE;
+    assign axi_ar_port  = `AXI_PROT_UNPRIVILEGED_ACCESS                   ;
+    assign axi_ar_qos   =  4'h0               ;
+    assign axi_ar_valid = (cache_state == `ysyx22040228_READ_IDLE) && (d_cache_read_ena || i_cache_ena) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE         ;
     
     assign axi_r_ready  = (cache_state == `ysyx22040228_READ_TRAF) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE ;
     assign i_cache_ok   = ((axi_r_id == 4'b0001) && (axi_r_last == `ysyx22040228_ABLE) && (axi_r_resp == 2'b00)) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE;
