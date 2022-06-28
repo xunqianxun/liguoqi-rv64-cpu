@@ -1,6 +1,6 @@
 module i_cache_data_ram (
     input            wire                                       clk        ,
-    input            wire                                       rst        ,
+    //input            wire                                       rst        ,
     input            wire       [5:0]                           addr_i     ,
     input            wire       [31:0]                          data_i     ,
     input            wire                                       write_ena  ,

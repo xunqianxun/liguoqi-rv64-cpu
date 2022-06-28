@@ -1,6 +1,6 @@
 module d_cache_tag_ram (
     input        wire                               clk,
-    input        wire                               rst,
+    //input        wire                               rst,
     input        wire            [5:0]              addr_i,
     input        wire            [55:0]             data_i,
     input        wire                               write_ena,

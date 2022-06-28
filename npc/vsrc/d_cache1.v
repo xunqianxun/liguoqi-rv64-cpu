@@ -77,7 +77,7 @@ module d_cache1 (
 
     d_cache_tag_ram u_tag0(
         .clk         (clk         ),
-        .rst         (rst         ),
+        //.rst         (rst         ),
         .addr_i      (addrtag1    ),
         .data_i      (datatag1    ),
         .write_ena   (tag_ena1    ),
@@ -99,7 +99,7 @@ module d_cache1 (
 
     d_cache_tag_ram u_tag1(
         .clk         (clk         ),
-        .rst         (rst         ),
+        //.rst         (rst         ),
         .addr_i      (addrtag2    ),
         .data_i      (datatag2    ),
         .write_ena   (tag_ena2    ),
@@ -127,7 +127,7 @@ module d_cache1 (
     assign  addrdata1 = mem_data_i[8:3];
     d_cache_data_ram u_data0(
         .clk         (clk         ),
-        .rst         (rst         ),
+        //.rst         (rst         ),
         .addr_i      (addrdata1   ),
         .data_i      (in_data1    ),
         .write_ena   (data_ena1   ),
@@ -149,7 +149,7 @@ module d_cache1 (
     assign  addrdata2 = mem_data_i[8:3];
     d_cache_data_ram u_data1(
         .clk         (clk         ),
-        .rst         (rst         ),
+        //.rst         (rst         ),
         .addr_i      (addrdata2   ),
         .data_i      (in_data2    ),
         .write_ena   (data_ena2   ),

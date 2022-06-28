@@ -40,7 +40,7 @@ module i_cache1 (
 
     i_cache_tag_ram u_tag01(
         .clk         (clk          ),
-        .rst         (rst          ),
+        //.rst         (rst          ),
         .addr_i      (i_cache_addr1),
         .data_i      (i_cache_tag1 ),
         .write_ena   (i_tag_ena1   ),
@@ -59,7 +59,7 @@ module i_cache1 (
 
     i_cache_tag_ram u_tag02(
         .clk         (clk          ),
-        .rst         (rst          ),
+        //.rst         (rst          ),
         .addr_i      (i_cache_addr2),
         .data_i      (i_cache_tag2 ),
         .write_ena   (i_tag_ena2   ),
@@ -78,7 +78,7 @@ module i_cache1 (
     assign  i_data_ena1 = (((state_inst == `ysyx22040228_WRITE) && (cache_in_ok)) && (inst_in_cache1  ==  `ysyx22040228_ABLE)) ? `ysyx22040228_ENABLE : `ysyx22040228_ENABLE  ;
     i_cache_data_ram u_data01(
         .clk         (clk           ),
-        .rst         (rst           ),
+        //.rst         (rst           ),
         .addr_i      (i_addrdata1   ),
         .data_i      (i_in_data1    ),
         .write_ena   (i_data_ena1   ),
@@ -94,7 +94,7 @@ module i_cache1 (
     assign  i_data_ena1 = (((state_inst == `ysyx22040228_WRITE) && (cache_in_ok)) && (inst_in_cache2  ==  `ysyx22040228_ABLE)) ? `ysyx22040228_ENABLE : `ysyx22040228_ENABLE  ;
     i_cache_data_ram u_data02(
         .clk         (clk           ),
-        .rst         (rst           ),
+        //.rst         (rst           ),
         .addr_i      (i_addrdata2   ),
         .data_i      (i_in_data2    ),
         .write_ena   (i_data_ena2   ),
