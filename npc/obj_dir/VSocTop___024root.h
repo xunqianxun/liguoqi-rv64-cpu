@@ -67,7 +67,7 @@ VL_MODULE(VSocTop___024root) {
         CData/*0:0*/ SocTop__DOT__d_cache_write_ena;
         CData/*0:0*/ SocTop__DOT__arbitrate_d_ok;
         CData/*0:0*/ SocTop__DOT__arbitrate_i_ok;
-        CData/*0:0*/ SocTop__DOT__t_axi_aw_valid;
+        CData/*0:0*/ SocTop__DOT__t_axi_w_valid;
         CData/*0:0*/ SocTop__DOT__t_axi_ar_valid;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__if_stall_req;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__ex_id_rd_ena;

@@ -206,7 +206,7 @@ module d_cache1 (
 
     //-------------------------------state_store _chose---------------------------------//
     reg [5:0] state_store    ;
-    reg [5:0] state_store_nxt;
+    //reg [5:0] state_store_nxt;
     reg       store_ok       ;
     reg       write_ok       ;
     reg       wbck_ok        ;
@@ -215,37 +215,36 @@ module d_cache1 (
             state_store = `ysyx22040228_IDLE;
         end 
         else begin
-            state_store = state_store_nxt;
             case (state_store)
                `ysyx22040228_IDLE : begin
                    if(mem_data_writ_ena)
-                        state_store_nxt = `ysyx22040228_CHOSE;
-                   state_store_nxt = `ysyx22040228_IDLE;  
+                        state_store = `ysyx22040228_CHOSE;
+                   state_store = `ysyx22040228_IDLE;  
                end 
                `ysyx22040228_CHOSE : begin
                    if(((tag_data1 == in_teg) && (tag_user1 == `ysyx22040228_ABLE)) || ((tag_data2 == in_teg) && (tag_user2 == `ysyx22040228_ABLE))) 
-                       state_store_nxt = `ysyx22040228_HIT;
-                   state_store_nxt = `ysyx22040228_MISS;  
+                       state_store = `ysyx22040228_HIT;
+                   state_store = `ysyx22040228_MISS;  
                end 
                `ysyx22040228_HIT : begin
                    if(store_ok)
-                        state_store_nxt = `ysyx22040228_IDLE;
-                   state_store_nxt = `ysyx22040228_HIT;
+                        state_store = `ysyx22040228_IDLE;
+                   state_store = `ysyx22040228_HIT;
                end 
                `ysyx22040228_MISS : begin
                    if(((dirty1[dirty_count_addr] == `ysyx22040228_ABLE) && (counter1[dirty_count_addr] >= counter2[dirty_count_addr])) || ((dirty2[dirty_count_addr] == `ysyx22040228_ABLE) && (counter1[dirty_count_addr] < counter2[dirty_count_addr])) && ((tag_user1 == `ysyx22040228_ABLE) && (tag_user2 == `ysyx22040228_ABLE)))
-                        state_store_nxt = `ysyx22040228_WBCK;
-                    state_store_nxt = `ysyx22040228_WRITE;
+                        state_store = `ysyx22040228_WBCK;
+                    state_store = `ysyx22040228_WRITE;
                end 
                `ysyx22040228_WRITE : begin
                    if(write_ok)
-                        state_store_nxt = `ysyx22040228_IDLE;
-                  state_store_nxt = `ysyx22040228_WRITE;  
+                        state_store = `ysyx22040228_IDLE;
+                  state_store = `ysyx22040228_WRITE;  
                end 
                `ysyx22040228_WBCK : begin
                    if(wbck_ok) 
-                        state_store_nxt = `ysyx22040228_WRITE;
-                   state_store_nxt = `ysyx22040228_WBCK;
+                        state_store = `ysyx22040228_WRITE;
+                   state_store = `ysyx22040228_WBCK;
                end
                 default: ;
             endcase

@@ -113,14 +113,10 @@ VL_INLINE_OPT void VSocTop___024root___combo__TOP__2(VSocTop___024root* vlSelf) 
     VL_DEBUG_IF(VL_DBG_MSGF("+    VSocTop___024root___combo__TOP__2\n"); );
     // Body
     vlSelf->out_axi_aw_addr = vlSelf->SocTop__DOT__t_axi_aw_addr;
-    vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state 
-        = vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state_nxt;
-    vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state 
-        = vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state_nex;
+    vlSelf->out_axi_b_ready = (3U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state));
     vlSelf->out_axi_r_ready = (1U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state));
     vlSelf->SocTop__DOT__arbitrate4__DOT__r_shankhand 
         = ((IData)(vlSelf->out_axi_r_valid) & (1U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state)));
-    vlSelf->out_axi_b_ready = (3U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state));
     vlSelf->SocTop__DOT__arbitrate4__DOT__b_shankhand 
         = (((IData)(vlSelf->out_axi_b_valid) & (3U 
                                                 == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state))) 
@@ -4586,8 +4582,8 @@ VL_INLINE_OPT void VSocTop___024root___combo__TOP__5(VSocTop___024root* vlSelf) 
     vlSelf->SocTop__DOT__t_axi_ar_valid = ((0U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state)) 
                                            & ((IData)(vlSelf->SocTop__DOT__d_cache_read_ena) 
                                               | (IData)(vlSelf->SocTop__DOT__i_cache12__DOT__ord_data_ena)));
-    vlSelf->SocTop__DOT__t_axi_aw_valid = ((IData)(vlSelf->SocTop__DOT__d_cache_write_ena) 
-                                           & (0U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state)));
+    vlSelf->SocTop__DOT__t_axi_w_valid = ((IData)(vlSelf->SocTop__DOT__d_cache_write_ena) 
+                                          & (0U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state)));
     vlSelf->SocTop__DOT__rvcpu1__DOT__mem7__DOT__data_byte 
         = (0xffU & ((1U & (IData)((vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_lsaddr 
                                    >> 2U))) ? ((1U 
@@ -4648,6 +4644,8 @@ VL_INLINE_OPT void VSocTop___024root___combo__TOP__5(VSocTop___024root* vlSelf) 
         ((~ (IData)(vlSelf->rst)) & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__id_pip_jalrena));
     vlSelf->out_axi_ar_valid = vlSelf->SocTop__DOT__t_axi_ar_valid;
     if (vlSelf->rst) {
+        vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state 
+            = vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state_nxt;
         if ((0U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state))) {
             if (((IData)(vlSelf->SocTop__DOT__t_axi_ar_valid) 
                  & (IData)(vlSelf->out_axi_ar_ready))) {
@@ -4668,13 +4666,13 @@ VL_INLINE_OPT void VSocTop___024root___combo__TOP__5(VSocTop___024root* vlSelf) 
     } else {
         vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state = 0U;
     }
-    vlSelf->out_axi_aw_valid = vlSelf->SocTop__DOT__t_axi_aw_valid;
-    vlSelf->out_axi_w_valid = vlSelf->SocTop__DOT__t_axi_aw_valid;
+    vlSelf->out_axi_aw_valid = vlSelf->SocTop__DOT__t_axi_w_valid;
+    vlSelf->out_axi_w_valid = vlSelf->SocTop__DOT__t_axi_w_valid;
     vlSelf->SocTop__DOT__arbitrate4__DOT__aw_shankhand 
-        = ((IData)(vlSelf->SocTop__DOT__t_axi_aw_valid) 
+        = ((IData)(vlSelf->SocTop__DOT__t_axi_w_valid) 
            & (IData)(vlSelf->out_axi_aw_ready));
     vlSelf->SocTop__DOT__arbitrate4__DOT__w_shankhand 
-        = ((IData)(vlSelf->SocTop__DOT__t_axi_aw_valid) 
+        = ((IData)(vlSelf->SocTop__DOT__t_axi_w_valid) 
            & (IData)(vlSelf->out_axi_w_ready));
     vlSelf->SocTop__DOT__rvcpu1__DOT__mem_id_data = 
         ((2U & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_type))
@@ -4713,22 +4711,25 @@ VL_INLINE_OPT void VSocTop___024root___combo__TOP__5(VSocTop___024root* vlSelf) 
     }
     if (vlSelf->rst) {
         vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state = 0U;
-    }
-    if ((0U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state))) {
-        vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state_nex 
-            = (((IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__aw_shankhand) 
-                & (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__w_shankhand))
-                ? 3U : ((IData)(vlSelf->SocTop__DOT__t_axi_aw_valid)
-                         ? 1U : 0U));
-    } else if ((1U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state))) {
-        vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state_nex 
-            = (((IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__aw_shankhand) 
-                & (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__w_shankhand))
-                ? 3U : 1U);
-    } else if ((3U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state))) {
-        vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state_nex 
-            = ((IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__b_shankhand)
-                ? 0U : 3U);
+    } else {
+        vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state 
+            = vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state_nex;
+        if ((0U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state))) {
+            vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state_nex 
+                = (((IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__aw_shankhand) 
+                    & (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__w_shankhand))
+                    ? 3U : ((IData)(vlSelf->SocTop__DOT__t_axi_w_valid)
+                             ? 1U : 0U));
+        } else if ((1U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state))) {
+            vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state_nex 
+                = (((IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__aw_shankhand) 
+                    & (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__w_shankhand))
+                    ? 3U : 1U);
+        } else if ((3U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state))) {
+            vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state_nex 
+                = ((IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__b_shankhand)
+                    ? 0U : 3U);
+        }
     }
     vlSelf->out_axi_w_data = (((IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__aw_shankhand) 
                                & (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__w_shankhand))
@@ -5069,8 +5070,8 @@ VL_INLINE_OPT QData VSocTop___024root___change_request_1(VSocTop___024root* vlSe
     VL_DEBUG_IF( if(__req && ((vlSelf->SocTop__DOT__d_cache13__DOT__state_store_nxt ^ vlSelf->__Vchglast__TOP__SocTop__DOT__d_cache13__DOT__state_store_nxt))) VL_DBG_MSGF("        CHANGE: vsrc/d_cache1.v:209: SocTop.d_cache13.state_store_nxt\n"); );
     VL_DEBUG_IF( if(__req && ((vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state ^ vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__transfor_state))) VL_DBG_MSGF("        CHANGE: vsrc/arbitrate.v:131: SocTop.arbitrate4.transfor_state\n"); );
     VL_DEBUG_IF( if(__req && ((vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state_nex ^ vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__transfor_state_nex))) VL_DBG_MSGF("        CHANGE: vsrc/arbitrate.v:132: SocTop.arbitrate4.transfor_state_nex\n"); );
-    VL_DEBUG_IF( if(__req && ((vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state ^ vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__cache_state))) VL_DBG_MSGF("        CHANGE: vsrc/arbitrate.v:186: SocTop.arbitrate4.cache_state\n"); );
-    VL_DEBUG_IF( if(__req && ((vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state_nxt ^ vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__cache_state_nxt))) VL_DBG_MSGF("        CHANGE: vsrc/arbitrate.v:187: SocTop.arbitrate4.cache_state_nxt\n"); );
+    VL_DEBUG_IF( if(__req && ((vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state ^ vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__cache_state))) VL_DBG_MSGF("        CHANGE: vsrc/arbitrate.v:188: SocTop.arbitrate4.cache_state\n"); );
+    VL_DEBUG_IF( if(__req && ((vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state_nxt ^ vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__cache_state_nxt))) VL_DBG_MSGF("        CHANGE: vsrc/arbitrate.v:189: SocTop.arbitrate4.cache_state_nxt\n"); );
     // Final
     vlSelf->__Vchglast__TOP__SocTop__DOT__t_axi_aw_addr 
         = vlSelf->SocTop__DOT__t_axi_aw_addr;
