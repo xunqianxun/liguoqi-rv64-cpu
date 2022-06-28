@@ -373,7 +373,7 @@ module d_cache1 (
     reg       load_bc_ok    ;
     reg       write_l_ok    ;
     reg [5:0] count_addr2   ;
-    assign count_addr2 = mem_addr_i[8:3]
+    assign count_addr2 = mem_addr_i[8:3];
     always @(*) begin
         if(rst == `ysyx22040228_RSTENA) begin
             state_load = `ysyx22040228_IDLE;
