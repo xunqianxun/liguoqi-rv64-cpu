@@ -290,7 +290,7 @@ module SocTop (
         .axi_r_data          (t_axi_r_data       ) ,
         .axi_r_resp          (t_axi_r_resp       ) ,
         .axi_r_last          (t_axi_r_last       ) ,
-        .aix_r_valid         (t_axi_r_valid      ) ,
+        .axi_r_valid         (t_axi_r_valid      ) ,
         .axi_r_ready         (t_axi_r_ready      )  
     );    
 
