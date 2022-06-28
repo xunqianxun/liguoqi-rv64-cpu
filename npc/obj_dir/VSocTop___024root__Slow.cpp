@@ -502,8 +502,6 @@ void VSocTop___024root___settle__TOP__1(VSocTop___024root* vlSelf) {
                                                                 (0x1fU 
                                                                  & (vlSelf->SocTop__DOT__rvcpu1__DOT__if_id_inst 
                                                                     >> 2U))))))))))));
-    vlSelf->SocTop__DOT__d_cache13__DOT__state_store 
-        = vlSelf->SocTop__DOT__d_cache13__DOT__state_store_nxt;
     if (vlSelf->rst) {
         vlSelf->SocTop__DOT__rvcpu_data_addr = 0ULL;
         vlSelf->SocTop__DOT__rvcpu1__DOT__id_ex_pc = 0ULL;
@@ -1733,9 +1731,29 @@ void VSocTop___024root___settle__TOP__1(VSocTop___024root* vlSelf) {
     }
     if (vlSelf->rst) {
         vlSelf->SocTop__DOT__d_cache13__DOT__state_store = 1U;
-    } else if ((0x20U & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_store))) {
-        if ((1U & (~ ((IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_store) 
-                      >> 4U)))) {
+    } else {
+        vlSelf->SocTop__DOT__d_cache13__DOT__state_store 
+            = vlSelf->SocTop__DOT__d_cache13__DOT__state_store_nxt;
+        if ((0x20U & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_store))) {
+            if ((1U & (~ ((IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_store) 
+                          >> 4U)))) {
+                if ((1U & (~ ((IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_store) 
+                              >> 3U)))) {
+                    if ((1U & (~ ((IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_store) 
+                                  >> 2U)))) {
+                        if ((1U & (~ ((IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_store) 
+                                      >> 1U)))) {
+                            if ((1U & (~ (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_store)))) {
+                                if (vlSelf->SocTop__DOT__arbitrate_d_ok) {
+                                    vlSelf->SocTop__DOT__d_cache13__DOT__state_store_nxt = 0x10U;
+                                }
+                                vlSelf->SocTop__DOT__d_cache13__DOT__state_store_nxt = 0x20U;
+                            }
+                        }
+                    }
+                }
+            }
+        } else if ((0x10U & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_store))) {
             if ((1U & (~ ((IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_store) 
                           >> 3U)))) {
                 if ((1U & (~ ((IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_store) 
@@ -1743,90 +1761,79 @@ void VSocTop___024root___settle__TOP__1(VSocTop___024root* vlSelf) {
                     if ((1U & (~ ((IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_store) 
                                   >> 1U)))) {
                         if ((1U & (~ (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_store)))) {
-                            if (vlSelf->SocTop__DOT__arbitrate_d_ok) {
-                                vlSelf->SocTop__DOT__d_cache13__DOT__state_store_nxt = 0x10U;
+                            if (vlSelf->SocTop__DOT__d_cache13__DOT__write_ok) {
+                                vlSelf->SocTop__DOT__d_cache13__DOT__state_store_nxt = 1U;
                             }
-                            vlSelf->SocTop__DOT__d_cache13__DOT__state_store_nxt = 0x20U;
+                            vlSelf->SocTop__DOT__d_cache13__DOT__state_store_nxt = 0x10U;
                         }
                     }
                 }
             }
-        }
-    } else if ((0x10U & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_store))) {
-        if ((1U & (~ ((IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_store) 
-                      >> 3U)))) {
+        } else if ((8U & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_store))) {
             if ((1U & (~ ((IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_store) 
                           >> 2U)))) {
                 if ((1U & (~ ((IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_store) 
                               >> 1U)))) {
                     if ((1U & (~ (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_store)))) {
-                        if (vlSelf->SocTop__DOT__d_cache13__DOT__write_ok) {
-                            vlSelf->SocTop__DOT__d_cache13__DOT__state_store_nxt = 1U;
+                        if (((vlSelf->SocTop__DOT__d_cache13__DOT__dirty1
+                              [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                                 >> 3U)))] 
+                              & (vlSelf->SocTop__DOT__d_cache13__DOT__counter1
+                                 [(0x3fU & (IData)(
+                                                   (vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                                    >> 3U)))] 
+                                 >= vlSelf->SocTop__DOT__d_cache13__DOT__counter2
+                                 [(0x3fU & (IData)(
+                                                   (vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                                    >> 3U)))])) 
+                             | ((vlSelf->SocTop__DOT__d_cache13__DOT__dirty2
+                                 [(0x3fU & (IData)(
+                                                   (vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                                    >> 3U)))] 
+                                 & (vlSelf->SocTop__DOT__d_cache13__DOT__counter1
+                                    [(0x3fU & (IData)(
+                                                      (vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                                       >> 3U)))] 
+                                    < vlSelf->SocTop__DOT__d_cache13__DOT__counter2
+                                    [(0x3fU & (IData)(
+                                                      (vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                                       >> 3U)))])) 
+                                & ((IData)(vlSelf->SocTop__DOT__d_cache13__DOT__u_tag0__DOT__out_vaild) 
+                                   & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__u_tag1__DOT__out_vaild))))) {
+                            vlSelf->SocTop__DOT__d_cache13__DOT__state_store_nxt = 0x20U;
                         }
                         vlSelf->SocTop__DOT__d_cache13__DOT__state_store_nxt = 0x10U;
                     }
                 }
             }
-        }
-    } else if ((8U & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_store))) {
-        if ((1U & (~ ((IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_store) 
-                      >> 2U)))) {
+        } else if ((4U & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_store))) {
             if ((1U & (~ ((IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_store) 
                           >> 1U)))) {
                 if ((1U & (~ (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_store)))) {
-                    if (((vlSelf->SocTop__DOT__d_cache13__DOT__dirty1
-                          [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                             >> 3U)))] 
-                          & (vlSelf->SocTop__DOT__d_cache13__DOT__counter1
-                             [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                                >> 3U)))] 
-                             >= vlSelf->SocTop__DOT__d_cache13__DOT__counter2
-                             [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                                >> 3U)))])) 
-                         | ((vlSelf->SocTop__DOT__d_cache13__DOT__dirty2
-                             [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                                >> 3U)))] 
-                             & (vlSelf->SocTop__DOT__d_cache13__DOT__counter1
-                                [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                                   >> 3U)))] 
-                                < vlSelf->SocTop__DOT__d_cache13__DOT__counter2
-                                [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                                   >> 3U)))])) 
-                            & ((IData)(vlSelf->SocTop__DOT__d_cache13__DOT__u_tag0__DOT__out_vaild) 
-                               & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__u_tag1__DOT__out_vaild))))) {
-                        vlSelf->SocTop__DOT__d_cache13__DOT__state_store_nxt = 0x20U;
+                    if (vlSelf->SocTop__DOT__d_cache13__DOT__store_ok) {
+                        vlSelf->SocTop__DOT__d_cache13__DOT__state_store_nxt = 1U;
                     }
-                    vlSelf->SocTop__DOT__d_cache13__DOT__state_store_nxt = 0x10U;
+                    vlSelf->SocTop__DOT__d_cache13__DOT__state_store_nxt = 4U;
                 }
             }
-        }
-    } else if ((4U & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_store))) {
-        if ((1U & (~ ((IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_store) 
-                      >> 1U)))) {
+        } else if ((2U & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_store))) {
             if ((1U & (~ (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_store)))) {
-                if (vlSelf->SocTop__DOT__d_cache13__DOT__store_ok) {
-                    vlSelf->SocTop__DOT__d_cache13__DOT__state_store_nxt = 1U;
+                if ((((vlSelf->SocTop__DOT__d_cache13__DOT__u_tag0__DOT__out_data 
+                       == (vlSelf->SocTop__DOT__rvcpu_data_addr 
+                           >> 9U)) & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__u_tag0__DOT__out_vaild)) 
+                     | ((vlSelf->SocTop__DOT__d_cache13__DOT__u_tag1__DOT__out_data 
+                         == (vlSelf->SocTop__DOT__rvcpu_data_addr 
+                             >> 9U)) & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__u_tag1__DOT__out_vaild)))) {
+                    vlSelf->SocTop__DOT__d_cache13__DOT__state_store_nxt = 4U;
                 }
-                vlSelf->SocTop__DOT__d_cache13__DOT__state_store_nxt = 4U;
+                vlSelf->SocTop__DOT__d_cache13__DOT__state_store_nxt = 8U;
             }
-        }
-    } else if ((2U & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_store))) {
-        if ((1U & (~ (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_store)))) {
-            if ((((vlSelf->SocTop__DOT__d_cache13__DOT__u_tag0__DOT__out_data 
-                   == (vlSelf->SocTop__DOT__rvcpu_data_addr 
-                       >> 9U)) & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__u_tag0__DOT__out_vaild)) 
-                 | ((vlSelf->SocTop__DOT__d_cache13__DOT__u_tag1__DOT__out_data 
-                     == (vlSelf->SocTop__DOT__rvcpu_data_addr 
-                         >> 9U)) & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__u_tag1__DOT__out_vaild)))) {
-                vlSelf->SocTop__DOT__d_cache13__DOT__state_store_nxt = 4U;
+        } else if ((1U & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_store))) {
+            if (vlSelf->SocTop__DOT__rvcpu_we) {
+                vlSelf->SocTop__DOT__d_cache13__DOT__state_store_nxt = 2U;
             }
-            vlSelf->SocTop__DOT__d_cache13__DOT__state_store_nxt = 8U;
+            vlSelf->SocTop__DOT__d_cache13__DOT__state_store_nxt = 1U;
         }
-    } else if ((1U & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_store))) {
-        if (vlSelf->SocTop__DOT__rvcpu_we) {
-            vlSelf->SocTop__DOT__d_cache13__DOT__state_store_nxt = 2U;
-        }
-        vlSelf->SocTop__DOT__d_cache13__DOT__state_store_nxt = 1U;
     }
     vlSelf->SocTop__DOT__rvcpu1__DOT__id_ex_rd_addr 
         = ((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__id_ex_rd_ena)

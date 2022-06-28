@@ -133,6 +133,8 @@ module arbitrate (
     always @(*) begin
         if(rst == `ysyx22040228_RSTENA) 
             transfor_state = `ysyx22040228_ABE_IDLE;
+        else begin
+        transfor_state = transfor_state_nex ;
         case (transfor_state)
            `ysyx22040228_ABE_IDLE : begin
                if(aw_shankhand && w_shankhand)
@@ -156,8 +158,8 @@ module arbitrate (
            end 
             default: ;
         endcase
+        end 
     end
-    assign transfor_state = transfor_state_nex ;
 
     //------------------------------output sign make------------------------------//
     assign axi_aw_id     =  4'b0000                      ;
@@ -194,6 +196,7 @@ module arbitrate (
         if(rst == `ysyx22040228_ENABLE) 
             cache_state = `ysyx22040228_READ_IDLE;
         else begin
+            cache_state = cache_state_nxt;
             case (cache_state)
                `ysyx22040228_READ_IDLE   : begin
                     if(ar_shankhand) 
@@ -214,7 +217,6 @@ module arbitrate (
             endcase
         end 
     end
-    assign cache_state = cache_state_nxt ;
 
     assign axi_ar_id    = i_cache_ena ? 4'b0001 : (d_cache_read_ena ? 4'b0010 : 4'b0000)                              ;
     assign axi_ar_addr  = i_cache_ena ? d_cache_addr : (d_cache_read_ena ? i_cache_addr : `ysyx22040228_ZEROWORD)     ;
