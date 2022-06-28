@@ -2533,8 +2533,6 @@ void VSocTop___024root___ctor_var_reset(VSocTop___024root* vlSelf) {
     vlSelf->SocTop__DOT__i_cache12__DOT__write_i_ok = VL_RAND_RESET_I(1);
     vlSelf->SocTop__DOT__i_cache12__DOT__inst_data_o = VL_RAND_RESET_I(32);
     vlSelf->SocTop__DOT__i_cache12__DOT__inst_valid_o = VL_RAND_RESET_I(1);
-    vlSelf->SocTop__DOT__i_cache12__DOT__inst_hit_count1 = VL_RAND_RESET_I(3);
-    vlSelf->SocTop__DOT__i_cache12__DOT__inst_hit_count2 = VL_RAND_RESET_I(3);
     vlSelf->SocTop__DOT__i_cache12__DOT__finish_the_mem_l = VL_RAND_RESET_I(1);
     vlSelf->SocTop__DOT__i_cache12__DOT__data_inst = VL_RAND_RESET_I(32);
     vlSelf->SocTop__DOT__i_cache12__DOT__ord_data_ena = VL_RAND_RESET_I(1);

@@ -234,7 +234,7 @@ module i_cache1 (
     //     end 
     //end
     
-    reg                          finish_the_mem_l ;
+    //reg                          finish_the_mem_l ;
     reg  [31:0]                  data_inst        ;
     reg                          ord_data_ena     ;
 
