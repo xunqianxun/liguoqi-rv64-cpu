@@ -114,9 +114,11 @@ module d_cache1 (
     assign  data_ena1 = (state_store == `ysyx22040228_HIT)                                                             ? data_ram1_mask :
                         (((state_store == `ysyx22040228_WRITE) && (in_dcache_ok)) && w_incache_ena1)                   ? 8'b11111111    :
                         (write_incache && w_incache_ena1)                                                              ? w_incache_mask :
+                                                                                                                    `ysyx22040228_ENABLE;  
     assign in_data1   = (state_store == `ysyx22040228_HIT)                                                             ? data_ram1_data :
                         (((state_store == `ysyx22040228_WRITE) && (in_dcache_ok)) && w_incache_ena1)                   ? ram_iw_data    :
                         (write_incache && w_incache_ena1)                                                              ? ram_iw_data    :
+                                                                                                                  `ysyx22040228_ZEROWORD;
     
     wire    [5:0]    addrdata1;
     wire    [63:0]   in_data1 ;
@@ -135,10 +137,11 @@ module d_cache1 (
     assign  data_ena2 = (state_store == `ysyx22040228_HIT)                                                             ? data_ram2_mask :
                         (((state_store == `ysyx22040228_WRITE) && (in_dcache_ok)) && w_incache_ena2)                   ? 8'b11111111    :
                         (write_incache && w_incache_ena2)                                                              ? w_incache_mask :
+                                                                                                                    `ysyx22040228_ENABLE;
     assign in_data2   = (state_store == `ysyx22040228_HIT)                                                             ? data_ram2_data :
                         (((state_store == `ysyx22040228_WRITE) && (in_dcache_ok)) && w_incache_ena2)                   ? ram_iw_data    :
                         (write_incache && w_incache_ena2)                                                              ? ram_iw_data    :
-
+                                                                                                                  `ysyx22040228_ZEROWORD;
     wire    [5:0]    addrdata2;
     wire    [63:0]   in_data2 ;
     wire    [7:0]    data_ena2 ;
@@ -369,7 +372,6 @@ module d_cache1 (
 
     reg       load_bc_ok;
     reg       write_l_ok;
-    wire  [5:0]   = addrtag1;
 
     always @(*) begin
         if(rst == `ysyx22040228_RSTENA) begin
@@ -407,7 +409,7 @@ module d_cache1 (
                         state_load_nxt = `ysyx22040228_WRITE;
                    state_load_nxt = `ysyx22040228_WBCK;
                end
-                default: 
+                default: ;
             endcase
         end 
     end
@@ -477,7 +479,7 @@ module d_cache1 (
     reg                          load_in_cache2   ;
     reg  [63:0]                  ram_iw_data_l    ;
     reg                          read_cache       ;
-    always @(posedge clk or negedge ) begin
+    always @(posedge clk or negedge rst) begin
         if((state_load == `ysyx22040228_WRITE) && (~in_dcache_ok)) begin
                 outr_data_ena_w_l = `ysyx22040228_ABLE  ;
         end 
