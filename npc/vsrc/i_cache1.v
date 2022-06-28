@@ -20,9 +20,6 @@ module i_cache1 (
     input       wire          [63:0]                         cache_or_data   ,
     input       wire                                         cache_in_ok                                     
 );
-    reg                          inst_in_cache1   ;
-    reg                          inst_in_cache2   ;
-
     assign cache_addr      = inst_addr         ;  
     assign cache_read_ena  = ord_data_ena      ;
     assign inst_data       = (state_inst == `ysyx22040228_HIT) ? inst_data_o :
@@ -244,8 +241,8 @@ module i_cache1 (
     //reg  [2:0]                   inst_write_count ;
 
 
-    // reg                          inst_in_cache1   ;
-    // reg                          inst_in_cache2   ;
+    reg                          inst_in_cache1   ;
+    reg                          inst_in_cache2   ;
     reg  [63:0]                  ram_inst_data    ;
     //reg                          inst_write_cache ;
     always @(posedge clk or negedge rst) begin
@@ -276,6 +273,8 @@ module i_cache1 (
         else if(write_i_ok) begin
                 write_i_ok    = `ysyx22040228_ENABLE;
                 if(state_inst ==`ysyx22040228_IDLE) begin
+                    inst_in_cache1   = `ysyx22040228_ENABLE;
+                    inst_in_cache2   = `ysyx22040228_ENABLE;
                     data_inst        = `ysyx22040228_ZEROWORD;
                     inst_valid       = `ysyx22040228_ENABLE  ;
                 end 
