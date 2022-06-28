@@ -3,6 +3,12 @@ Author:LiGuoqi
 Name:d_cache1.v
 Function:write data cache
 ************************************************************/
+`define ysyx22040228_IDLE    6'b000001
+`define ysyx22040228_CHOSE   6'b000010
+`define ysyx22040228_HIT     6'b000100
+`define ysyx22040228_MISS    6'b001000
+`define ysyx22040228_WRITE   6'b010000
+`define ysyx22040228_WBCK    6'b100000
 `include "./vsrc/defines.v"
 `include "./vsrc/defines_axi4.v"
 `include "./vsrc/d_cache_data_ram.v"
@@ -189,13 +195,6 @@ module d_cache1 (
     reg    dirty1 [`ysyx22040228_CACHE_DATA_W];
     reg    dirty2 [`ysyx22040228_CACHE_DATA_W];
 
-    //--------------------------------system define-----------------------------//
-    `define ysyx22040228_IDLE    6'b000001
-    `define ysyx22040228_CHOSE   6'b000010
-    `define ysyx22040228_HIT     6'b000100
-    `define ysyx22040228_MISS    6'b001000
-    `define ysyx22040228_WRITE   6'b010000
-    `define ysyx22040228_WBCK    6'b100000
 
     wire  [55:0]  in_teg                     ;
     assign in_teg = mem_addr_i[63:9]         ;

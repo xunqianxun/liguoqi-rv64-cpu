@@ -121,7 +121,7 @@ module arbitrate (
     //-----------------------------write about sign-------------------------------//
     //-------------------------wirte channel sign make----------------------------// 
     wire  aw_shankhand = axi_aw_valid && axi_aw_ready;
-    wire  w_shankhand  = axi_w_valid  && axi_w_ read ;
+    wire  w_shankhand  = axi_w_valid  && axi_w_ready ;
     wire  b_shankhand  = axi_b_valid  && axi_b_ready && (axi_b_id == 4'b0000);
     wire  b_success    = b_shankhand  && (axi_b_resp == 2'b00)               ;
 
@@ -155,7 +155,7 @@ module arbitrate (
                else 
                     transfor_state_nex = `ysyx22040228_ABE_RESP    ;
            end 
-            default: 
+            default: ;
         endcase
     end
     assign transfor_state = transfor_state_nex ;
