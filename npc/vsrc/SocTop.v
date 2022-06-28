@@ -194,7 +194,7 @@ module SocTop (
 
     );
 
-    icache1 i_cache12 (
+    i_cache1 i_cache12 (
         .clk                 (clk                 ) ,
         .rst                 (rst                 ) ,
         .inst_addr           (rvcpu_inst_addr     ) ,
