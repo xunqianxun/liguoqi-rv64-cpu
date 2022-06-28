@@ -20,8 +20,8 @@ module d_cache1 (
     output        reg                                         mem_data_finish    ,
 
     //----------------------------- merge sign out------------------------------//
-    input         wire        [`ysyx22040228_DCACHE_ADDR_W]   in_dcache_addr     ,
-    input         wire                                        in_dcache_ena      ,
+    // input         wire        [`ysyx22040228_DCACHE_ADDR_W]   in_dcache_addr     ,
+    // input         wire                                        in_dcache_ena      ,
 
     input         wire        [`ysyx22040228_DCACHE_DATA_W]   in_dcache_data     ,
 

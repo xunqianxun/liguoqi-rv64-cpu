@@ -3,22 +3,23 @@ Author:LiGuoqi
 Name:define_axi4.v
 Function:AXI4 use define
 ************************************************************/
-`define ysyx22040228_ID       3:0
-`define ysyx22040228_ADDR     63:0
-`define ysyx22040228_LEN      7:0
-`define ysyx22040228_SIZE     2:0
-`define ysyx22040228_BURST    1:0
-`define ysyx22040228_LOCK     1:0
-`define ysyx22040228_CACHE    3:0
-`define ysyx22040228_PROT     2:0
-`define ysyx22040228_QOS  
-`define ysyx22040228_REGION
-`define ysyx22040228_USER
-`define ysyx22040228_DATA     63:0
-`define ysyx22040228_STRB     
-`define ysyx22040228_LAST 
+`define ysyx22040228_ID_BUS       3:0
+`define ysyx22040228_ADDR_BUS     63:0
+`define ysyx22040228_LEN_BUS      7:0
+`define ysyx22040228_SIZE_BUS     2:0
+`define ysyx22040228_BURST_BUS    1:0
+//`define ysyx22040228_LOCK     1:0
+`define ysyx22040228_CACHE_BUS    3:0
+`define ysyx22040228_PROT_BUS     2:0
+`define ysyx22040228_QOS_BUS      3:0
+// `define ysyx22040228_REGION
+// `define ysyx22040228_USER
+
+`define ysyx22040228_DATA_BUS     63:0
+`define ysyx22040228_STRB_BUS         
+//`define ysyx22040228_LAST 
 `define ysyx22040228_USER   
-`define ysyx22040228_RESP
+`define ysyx22040228_RESP_BUS     1:0
 
 //multiply by six relative to the input bit width
 `define ysyx22040228_SLAVE_ID       23:0 //4*6-1

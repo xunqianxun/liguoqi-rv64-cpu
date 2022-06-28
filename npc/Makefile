@@ -22,12 +22,12 @@ sim:
 	@$(shell if[!-e$(SIM_DIR)];then mkdir -p$(SIM_DIR);fi)
 
 run:git
-	@verilator $(VERILAGS) $(LINK) $(LINEREAD) ./csrc/main.cpp $(VERILOG)rvcpu.v
+	@verilator $(VERILAGS) $(LINK) $(LINEREAD) ./csrc/main.cpp $(VERILOG)SocTop.v
 	@make -C $(OBJ_PATH) -f Vrvcpu.mk Vrvcpu
 	./obj_dir/Vrvcpu $(IMGE_FLAGS) $(IMG_NPC)
 
 gtk:
-	@gtkwave ./obj_dir/rvcpu.vcd
+	@gtkwave ./obj_dir/SocTop.vcd
 git:
 	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
 clean:

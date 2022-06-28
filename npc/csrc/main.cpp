@@ -14,8 +14,6 @@ Vrvcpu* rvcpu ;
 VerilatedVcdC* tfp;
 VerilatedContext* contextp;
 
-#define right 0
-#define fals  1
 uint32_t ifetch(uint64_t addr, int len);
 int is_exit_status_bad();
 
@@ -84,9 +82,9 @@ rvcpu = new Vrvcpu(contextp);
 Verilated::traceEverOn(true) ; //out vcd need
 tfp = new VerilatedVcdC ; // out vcd need
 rvcpu->trace(tfp,0) ;
-tfp->open("obj_dir/rvcpu.vcd") ; // open vcd
+tfp->open("obj_dir/SocTop.vcd") ; // open vcd
 rvcpu->rst = 1;
-rvcpu->bui_inst_valid = fals;
+rvcpu->bui_inst_valid = 1;
 init_monitor(argc, argv);
 
 sdb_mainloop();
@@ -110,8 +108,8 @@ int is_exit_status_bad() {
     (npc_state.state == NEMU_QUIT);
   return !good;
 }
-
-
+#define AXI_DIFFTEST
+#ifndef AXI_DIFFTEST
 extern void isa_exec_once(int y){
 uint64_t startpc = 0x80000000;
 int della;
@@ -187,3 +185,17 @@ if((main_time % 10) == 9){
   main_time++;
 }
 }
+#else 
+extern void isa_exec_once(int y){
+int ddy ;
+ddy = y;
+while(ddy){
+  if(main_time > 10) {
+    rvcpu->rst = 0 ;
+  }
+  if((main_time%10) == 1) {
+    
+  }
+}
+}
+#endif
