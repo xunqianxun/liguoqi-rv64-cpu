@@ -50,9 +50,9 @@ void VSocTop___024root___settle__TOP__1(VSocTop___024root* vlSelf) {
     vlSelf->out_axi_ar_prot = 0U;
     vlSelf->out_axi_ar_qos = 0U;
     vlSelf->out_axi_b_ready = (3U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state));
-    vlSelf->out_axi_r_ready = (1U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state));
+    vlSelf->out_axi_r_ready = (1U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state_nxt));
     vlSelf->SocTop__DOT__arbitrate4__DOT__r_shankhand 
-        = ((IData)(vlSelf->out_axi_r_valid) & (1U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state)));
+        = ((IData)(vlSelf->out_axi_r_valid) & (1U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state_nxt)));
     vlSelf->SocTop__DOT__arbitrate4__DOT__b_shankhand 
         = (((IData)(vlSelf->out_axi_b_valid) & (3U 
                                                 == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state))) 

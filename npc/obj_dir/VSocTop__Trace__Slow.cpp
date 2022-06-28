@@ -926,7 +926,7 @@ void VSocTop___024root__traceFullSub0(VSocTop___024root* vlSelf, VerilatedVcd* t
                                      ? 0xffU : 0U)),8);
         tracep->fullBit(oldp+22,((3U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state))));
         tracep->fullBit(oldp+23,(vlSelf->SocTop__DOT__t_axi_ar_valid));
-        tracep->fullBit(oldp+24,((1U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state))));
+        tracep->fullBit(oldp+24,((1U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state_nxt))));
         tracep->fullBit(oldp+25,((1U & (~ ((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__stall_ctrl) 
                                            >> 1U)))));
         tracep->fullCData(oldp+26,((0x1fU & (vlSelf->SocTop__DOT__i_cache_inst_data 
@@ -1959,7 +1959,7 @@ void VSocTop___024root__traceFullSub0(VSocTop___024root* vlSelf, VerilatedVcd* t
         tracep->fullBit(oldp+555,(((IData)(vlSelf->SocTop__DOT__t_axi_ar_valid) 
                                    & (IData)(vlSelf->out_axi_ar_ready))));
         tracep->fullBit(oldp+556,(((IData)(vlSelf->out_axi_r_valid) 
-                                   & (1U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state)))));
+                                   & (1U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state_nxt)))));
         tracep->fullBit(oldp+557,(0U));
         tracep->fullCData(oldp+558,(0U),4);
         tracep->fullCData(oldp+559,(0U),8);
