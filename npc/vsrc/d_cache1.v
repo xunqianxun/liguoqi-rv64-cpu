@@ -265,6 +265,8 @@ module d_cache1 (
     reg                          dirty_make     ;
     reg  [2:0]                   count_write1   ;
     reg  [2:0]                   count_write2   ;
+    reg  [6:0]                   count_addr     ;
+    assign count_addr = mem_addr_i[8:3]         ;
     always @(posedge clk or negedge rst) begin
         if((state_store == `ysyx22040228_WRITE) && (~in_dcache_ok))begin
                 outr_data_ena_w   = `ysyx22040228_ABLE;
