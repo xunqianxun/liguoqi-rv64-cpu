@@ -2082,24 +2082,22 @@ void VSocTop___024root___settle__TOP__1(VSocTop___024root* vlSelf) {
         ((~ (IData)(vlSelf->rst)) & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__id_pip_jalrena));
     vlSelf->out_axi_ar_valid = vlSelf->SocTop__DOT__t_axi_ar_valid;
     if (vlSelf->rst) {
-        vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state 
-            = vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state_nxt;
         if ((0U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state))) {
             if (((IData)(vlSelf->SocTop__DOT__t_axi_ar_valid) 
                  & (IData)(vlSelf->out_axi_ar_ready))) {
-                vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state_nxt = 1U;
+                vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state = 1U;
             }
-            vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state_nxt = 0U;
+            vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state = 0U;
         } else if ((1U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state))) {
             if (vlSelf->out_axi_r_valid) {
-                vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state_nxt = 2U;
+                vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state = 2U;
             }
-            vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state_nxt = 1U;
+            vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state = 1U;
         } else if ((2U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state))) {
             if (vlSelf->out_axi_r_last) {
-                vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state_nxt = 0U;
+                vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state = 0U;
             }
-            vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state_nxt = 2U;
+            vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state = 2U;
         }
     } else {
         vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state = 0U;
@@ -2665,11 +2663,9 @@ void VSocTop___024root___ctor_var_reset(VSocTop___024root* vlSelf) {
     vlSelf->SocTop__DOT__arbitrate4__DOT__b_shankhand = VL_RAND_RESET_I(1);
     vlSelf->SocTop__DOT__arbitrate4__DOT__transfor_state = VL_RAND_RESET_I(2);
     vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state = VL_RAND_RESET_I(2);
-    vlSelf->SocTop__DOT__arbitrate4__DOT__cache_state_nxt = VL_RAND_RESET_I(2);
     vlSelf->__Vdly__SocTop__DOT__rvcpu_inst_addr = VL_RAND_RESET_Q(64);
     vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__transfor_state = VL_RAND_RESET_I(2);
     vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__cache_state = VL_RAND_RESET_I(2);
-    vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__cache_state_nxt = VL_RAND_RESET_I(2);
     for (int __Vi0=0; __Vi0<5; ++__Vi0) {
         vlSelf->__Vm_traceActivity[__Vi0] = VL_RAND_RESET_I(1);
     }
