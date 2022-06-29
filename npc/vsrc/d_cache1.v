@@ -40,6 +40,8 @@ module d_cache1 (
     output        wire                                        outr_dcache_ena    ,
     output        wire                                        outw_dcache_ena 
 );
+    wire   write_chose1                         ;
+    wire   write_chose2                         ;
     //-----------------------------in out sign make ----------------------------//
     assign mem_data_out_cpu = (mem_data_read_ena && (state_load == `ysyx22040228_HIT))                       ? ((tag_data1 == in_teg) ? out_data1 : out_data2) :
                               read_cache                                                                     ? (load_in_cache1) ? out_data1 : out_data2 :
@@ -47,7 +49,7 @@ module d_cache1 (
     assign mem_data_finish  = (mem_data_read_ena && (state_load == `ysyx22040228_HIT))                       ? `ysyx22040228_ABLE :
                               read_cache                                                                     ? `ysyx22040228_ABLE :
                               (mem_data_writ_ena && (state_store == `ysyx22040228_HIT))                      ? `ysyx22040228_ABLE :
-                              write_incache                                                                  ? finish_the_mem     :
+                              write_incache                                                                  ? `ysyx22040228_ABLE :
                                                                                                               `ysyx22040228_ENABLE;
     assign out_dcache_data  = (mem_data_read_ena && (state_load == `ysyx22040228_WBCK))                      ? (wbck_load_chose1 ? out_data1 : out_data2) :
                             //   (mem_data_read_ena && (state_load == `ysyx22040228_WRITE))                     ? out_data_w_l :
@@ -160,8 +162,6 @@ module d_cache1 (
         .data_o      (out_data2   )
     );
 
-    wire   write_chose1                         ;
-    wire   write_chose2                         ;
     assign wirte_chose1 = (tag_user1 == `ysyx22040228_ENABLE) || (dirty1[count_addr] == `ysyx22040228_ABLE) && (counter1[count_addr] >= counter2[count_addr]);
     assign wirte_chose2 = (tag_user2 == `ysyx22040228_ENABLE) || (dirty2[count_addr] == `ysyx22040228_ABLE) && (counter1[count_addr] < counter2[count_addr]);
 
