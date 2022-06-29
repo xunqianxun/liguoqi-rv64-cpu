@@ -356,7 +356,7 @@ module d_cache1 (
     assign in_data1   = ((state_store == `ysyx22040228_HIT) && (tag_data1 == in_teg))                                  ? mem_data_i     :
                         (((state_store == `ysyx22040228_WRITE) && (in_dcache_ok) && (~wbck_ok)) && wirte_chose1)       ? in_dcache_data :
                         (write_incache && w_incache_ena1)                                                              ? mem_data_i     :
-                        (((state_load == `ysyx22040228_WRITE) && (in_dcache_ok)) && (~load_bc_ok) && (write_chose1))   ? in_dcache_data :
+                        (((state_load == `ysyx22040228_WRITE) && (in_dcache_ok)) && (~load_bc_ok) && (wirte_chose1))   ? in_dcache_data :
                                                                                                                   `ysyx22040228_ZEROWORD;
     
     wire    [5:0]    addrdata1;
