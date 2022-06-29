@@ -281,7 +281,7 @@ module d_cache1 (
             dirty2[dirty_addr] <= `ysyx22040228_ABLE ;
         else begin
             dirty1[dirty_addr] <= `ysyx22040228_ENABLE ;
-            dirty2[drity_addr] <= `ysyx22040228_ENABLE ; 
+            dirty2[dirty_addr] <= `ysyx22040228_ENABLE ; 
         end 
     end
 
