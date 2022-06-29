@@ -161,8 +161,8 @@ module d_cache1 (
     );
     wire   write_chose1                         ;
     wire   write_chose2                         ;
-    assign wirte_chose1 = (tag_user1 == `ysyx22040228_ENABLE) || (dirty1[count_addr] == `ysyx22040228_ABLE) && (counter1[count_addr] >= counter2[count_addr]);
-    assign wirte_chose2 = (tag_user2 == `ysyx22040228_ENABLE) || (dirty2[count_addr] == `ysyx22040228_ABLE) && (counter1[count_addr] < counter2[count_addr]);
+    assign wirte_chose1 = (tag_user1 == `ysyx22040228_ENABLE) || ((dirty1[count_addr] == `ysyx22040228_ABLE) && (counter1[count_addr] >= counter2[count_addr]));
+    assign wirte_chose2 = (tag_user2 == `ysyx22040228_ENABLE) || ((dirty2[count_addr] == `ysyx22040228_ABLE) && (counter1[count_addr] < counter2[count_addr]));
 
     //--------------------------------------bit code---------------------------//
     reg  [2:0]  counter1 [`ysyx22040228_CACHE_DATA_W];
