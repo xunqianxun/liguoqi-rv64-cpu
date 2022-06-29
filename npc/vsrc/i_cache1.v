@@ -190,8 +190,7 @@ module i_cache1 (
     wire  inst_chose2 = ((i_tag_user2 == `ysyx22040228_ENABLE) || (i_counter1[i_count_addr] < i_counter2[i_count_addr]))  ; 
 
     always @(posedge clk or negedge rst) begin
-
-        else if((state_inst == `ysyx22040228_WRITE) && (cache_in_ok))begin
+         if((state_inst == `ysyx22040228_WRITE) && (cache_in_ok))begin
                 inst_write_cache <=  `ysyx22040228_ABLE    ;
                 if((i_tag_user1 == `ysyx22040228_ENABLE) || (i_counter1[i_count_addr] >= i_counter2[i_count_addr]))
                     inst_in_cache1   <=  `ysyx22040228_ABLE;
