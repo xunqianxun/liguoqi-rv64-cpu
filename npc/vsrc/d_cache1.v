@@ -40,9 +40,10 @@ module d_cache1 (
     output        wire                                        outr_dcache_ena    ,
     output        wire                                        outw_dcache_ena 
 );
-
-    wire   write_chose1                         ;
-    wire   write_chose2                         ;
+    wire [5:0]  count_addr ;
+    assign count_addr = mem_addr_i[8:3];
+    wire   wirte_chose1                         ;
+    wire   wirte_chose2                         ;
     assign wirte_chose1 = (tag_user1 == `ysyx22040228_ENABLE) || ((dirty1[count_addr] == `ysyx22040228_ABLE) && (counter1[count_addr] >= counter2[count_addr]));
     assign wirte_chose2 = (tag_user2 == `ysyx22040228_ENABLE) || ((dirty2[count_addr] == `ysyx22040228_ABLE) && (counter1[count_addr] < counter2[count_addr]));
 
@@ -81,7 +82,7 @@ module d_cache1 (
                    state_store = `ysyx22040228_HIT;
                end 
                `ysyx22040228_MISS : begin
-                   if(((dirty1[dirty_count_addr] == `ysyx22040228_ABLE) && (counter1[dirty_count_addr] >= counter2[dirty_count_addr])) || ((dirty2[dirty_count_addr] == `ysyx22040228_ABLE) && (counter1[dirty_count_addr] < counter2[dirty_count_addr])) && ((tag_user1 == `ysyx22040228_ABLE) && (tag_user2 == `ysyx22040228_ABLE)))
+                   if(((dirty1[count_addr] == `ysyx22040228_ABLE) && (counter1[count_addr] >= counter2[count_addr])) || ((dirty2[count_addr] == `ysyx22040228_ABLE) && (counter1[count_addr] < counter2[count_addr])) && ((tag_user1 == `ysyx22040228_ABLE) && (tag_user2 == `ysyx22040228_ABLE)))
                         state_store = `ysyx22040228_WBCK;
                     state_store = `ysyx22040228_WRITE;
                end 
@@ -298,7 +299,7 @@ module d_cache1 (
 
     //-----------------------------about tag ram-------------------------------//
     assign tag_ena1 = (((state_store == `ysyx22040228_WRITE) && (in_dcache_ok) && (~wbck_ok)) && wirte_chose1) ? `ysyx22040228_ABLE         :
-                      (((state_load == `ysyx22040228_WRITE) && (in_dcache_ok)) && (~load_bc_ok) && (write_chose1)) ? `ysyx22040228_ABLE     :
+                      (((state_load == `ysyx22040228_WRITE) && (in_dcache_ok)) && (~load_bc_ok) && (wirte_chose1)) ? `ysyx22040228_ABLE     :
                                                                                                                   `ysyx22040228_ENABLE   ;
     wire    [5:0]    addrtag1;
     wire    [55:0]   datatag1;
@@ -320,7 +321,7 @@ module d_cache1 (
     );
 
     assign tag_ena2 = (((state_store == `ysyx22040228_WRITE) && (in_dcache_ok) && (~wbck_ok)) && wirte_chose2) ? `ysyx22040228_ABLE         :
-                      (((state_load == `ysyx22040228_WRITE) && (in_dcache_ok)) && (~load_bc_ok) && (write_chose2)) ? `ysyx22040228_ABLE     :
+                      (((state_load == `ysyx22040228_WRITE) && (in_dcache_ok)) && (~load_bc_ok) && (wirte_chose2)) ? `ysyx22040228_ABLE     :
                                                                                                                   `ysyx22040228_ENABLE   ;
     wire    [5:0]    addrtag2;
     wire    [55:0]   datatag2;
@@ -373,12 +374,12 @@ module d_cache1 (
     assign  data_ena2 = ((state_store == `ysyx22040228_HIT) && (tag_data2 == in_teg))                                  ? mem_mask_i     :
                         (((state_store == `ysyx22040228_WRITE) && (in_dcache_ok) && (~wbck_ok)) && wirte_chose2)       ? 8'b11111111    :
                         (write_incache && w_incache_ena2)                                                              ? mem_mask_i     :
-                        (((state_load == `ysyx22040228_WRITE) && (in_dcache_ok)) && (~load_bc_ok) && (write_chose2))   ? 8'b11111111    :
+                        (((state_load == `ysyx22040228_WRITE) && (in_dcache_ok)) && (~load_bc_ok) && (wirte_chose2))   ? 8'b11111111    :
                                                                                                                                     8'b0;
     assign in_data2   = ((state_store == `ysyx22040228_HIT) && (tag_data2 == in_teg))                                  ? mem_data_i     :
                         (((state_store == `ysyx22040228_WRITE) && (in_dcache_ok) && (~wbck_ok)) && wirte_chose1)       ? in_dcache_data :
                         (write_incache && w_incache_ena2)                                                              ? mem_data_i     :
-                        (((state_load == `ysyx22040228_WRITE) && (in_dcache_ok)) && (~load_bc_ok) && (write_chose2))   ? in_dcache_data :
+                        (((state_load == `ysyx22040228_WRITE) && (in_dcache_ok)) && (~load_bc_ok) && (wirte_chose2))   ? in_dcache_data :
                                                                                                                   `ysyx22040228_ZEROWORD;
     wire    [5:0]    addrdata2;
     wire    [63:0]   in_data2 ;
