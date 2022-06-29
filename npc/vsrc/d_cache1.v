@@ -53,6 +53,8 @@ module d_cache1 (
     reg       store_ok       ;
     reg       write_ok       ;
     reg       wbck_ok        ;
+    reg [54:0] in_teg        ;
+    assign in_teg = mem_addr_i[63:9];
     
     always @(posedge clk) begin
         if(state_store == `ysyx22040228_WBCK)
@@ -349,7 +351,7 @@ module d_cache1 (
     assign  data_ena1 = ((state_store == `ysyx22040228_HIT) && (tag_data1 == in_teg))                                  ? mem_mask_i     :
                         (((state_store == `ysyx22040228_WRITE) && (in_dcache_ok) && (~wbck_ok)) && wirte_chose1)       ? 8'b11111111    :
                         (write_incache && w_incache_ena1)                                                              ? mem_mask_i     :
-                        (((state_load == `ysyx22040228_WRITE) && (in_dcache_ok)) && (~load_bc_ok) && (write_chose1))   ? 8'b11111111    :
+                        (((state_load == `ysyx22040228_WRITE) && (in_dcache_ok)) && (~load_bc_ok) && (wirte_chose1))   ? 8'b11111111    :
                                                                                                                                     8'b0;  
     assign in_data1   = ((state_store == `ysyx22040228_HIT) && (tag_data1 == in_teg))                                  ? mem_data_i     :
                         (((state_store == `ysyx22040228_WRITE) && (in_dcache_ok) && (~wbck_ok)) && wirte_chose1)       ? in_dcache_data :
