@@ -174,7 +174,7 @@ module i_cache1 (
                   state_inst =  `ysyx22040228_IDLE ;
                 end 
             endcase
-    //     end 
+        end 
     end
     // always @(*) begin
     //     if(rst == `ysyx22040228_RSTENA)
