@@ -36,7 +36,7 @@ module i_cache1 (
     reg       inst_hit_ok   ;
     reg       write_i_ok    ;
 
-    always @(*) begin
+    always @(*) begin :/* verilator lint_off UNOPTFLAT */
         if(rst == `ysyx22040228_RSTENA) begin
             state_inst = `ysyx22040228_IDLE;
         end 
@@ -68,7 +68,7 @@ module i_cache1 (
                 end 
             endcase
         end 
-    end /* verilator lint_off UNOPTFLAT */
+    end 
 
     always @(posedge clk or negedge rst) begin
         if(state_inst == `ysyx22040228_HIT)
