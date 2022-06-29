@@ -115,19 +115,19 @@ module d_cache1 (
         if((state_store == `ysyx22040228_WRITE) && (in_dcache_ok) && (~wbck_ok))begin
             write_incache         <= `ysyx22040228_ABLE    ;
             if((tag_user1 == `ysyx22040228_ENABLE) || (dirty1[count_addr] == `ysyx22040228_ABLE) && (counter1[count_addr] >= counter2[count_addr]))
-                 w_incache_ena1       <= `ysyx22040228_ABLE;
+                 w_incache_ena1   <= `ysyx22040228_ABLE;
 
             else if((tag_user2 == `ysyx22040228_ENABLE) || (dirty2[count_addr] == `ysyx22040228_ABLE) && (counter1[count_addr] < counter2[count_addr]))
-                 w_incache_ena2       <= `ysyx22040228_ABLE;
+                 w_incache_ena2   <= `ysyx22040228_ABLE;
         end 
         else if(write_incache) begin
                 write_incache  <= `ysyx22040228_ENABLE;
                 write_ok       <= `ysyx22040228_ABLE  ;
         end
         else if(write_ok && (state_store == `ysyx22040228_IDLE)) begin
-                write_ok       = `ysyx22040228_ENABLE;
-                w_incache_ena1 = `ysyx22040228_ENABLE;
-                w_incache_ena2 = `ysyx22040228_ENABLE;
+                write_ok       <= `ysyx22040228_ENABLE;
+                w_incache_ena1 <= `ysyx22040228_ENABLE;
+                w_incache_ena2 <= `ysyx22040228_ENABLE;
         end 
     end
  
@@ -147,13 +147,14 @@ module d_cache1 (
     reg       load_bc_ok    ;
     reg       write_l_ok    ;
     reg [5:0] count_addr2   ;
-    assign load_bc_ok  = in_dcache_ok   ;
+    assign load_bc_ok       ;
     assign count_addr2 = mem_addr_i[8:3];
 
     always @(posedge clk) begin
         if(state_load == `ysyx22040228_WBCK)
             load_bc_ok <= in_dcache_ok  ;
-        load_bc_ok <= 1'b0              ;
+        else 
+            load_bc_ok <= 1'b0              ;
     end
 
     always @(*) begin
@@ -260,8 +261,8 @@ module d_cache1 (
             counter2[count_a] <= 3'b0       ;
         if(mem_data_read_ena && mem_data_writ_ena) begin
 		    for(i = 0;i<64;i=i+1) begin
-			   assign counter1[i][2:0] = (counter1[i] == 3'd7) ? 3'd7 : counter1[i][2:0] + 1'b1;
-               assign counter2[i][2:0] = (counter2[i] == 3'd7) ? 3'd7 : counter2[i][2:0] + 1'b1;
+			   counter1[i][2:0] <= (counter1[i] == 3'd7) ? 3'd7 : counter1[i][2:0] + 1'b1;
+               counter2[i][2:0] <= (counter2[i] == 3'd7) ? 3'd7 : counter2[i][2:0] + 1'b1;
 		    end
         end 
 	end
