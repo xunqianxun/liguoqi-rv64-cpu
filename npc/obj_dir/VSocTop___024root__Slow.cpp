@@ -2596,6 +2596,14 @@ void VSocTop___024root___ctor_var_reset(VSocTop___024root* vlSelf) {
         vlSelf->SocTop__DOT__rvcpu1__DOT__regfile10__DOT__regs[__Vi0] = VL_RAND_RESET_Q(64);
     }
     vlSelf->SocTop__DOT__rvcpu1__DOT__regfile10__DOT__i = VL_RAND_RESET_I(32);
+    vlSelf->SocTop__DOT__i_cache12__DOT__state_inst = VL_RAND_RESET_I(6);
+    vlSelf->SocTop__DOT__i_cache12__DOT__inst_hit_ok = VL_RAND_RESET_I(1);
+    vlSelf->SocTop__DOT__i_cache12__DOT__write_i_ok = VL_RAND_RESET_I(1);
+    vlSelf->SocTop__DOT__i_cache12__DOT__inst_in_cache1 = VL_RAND_RESET_I(1);
+    vlSelf->SocTop__DOT__i_cache12__DOT__inst_in_cache2 = VL_RAND_RESET_I(1);
+    vlSelf->SocTop__DOT__i_cache12__DOT__inst_write_cache = VL_RAND_RESET_I(1);
+    vlSelf->SocTop__DOT__i_cache12__DOT__inst_chose1 = VL_RAND_RESET_I(1);
+    vlSelf->SocTop__DOT__i_cache12__DOT__inst_chose2 = VL_RAND_RESET_I(1);
     vlSelf->SocTop__DOT__i_cache12__DOT__i_tag_ena1 = VL_RAND_RESET_I(1);
     vlSelf->SocTop__DOT__i_cache12__DOT__i_tag_ena2 = VL_RAND_RESET_I(1);
     for (int __Vi0=0; __Vi0<64; ++__Vi0) {
@@ -2605,14 +2613,6 @@ void VSocTop___024root___ctor_var_reset(VSocTop___024root* vlSelf) {
         vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[__Vi0] = VL_RAND_RESET_I(3);
     }
     vlSelf->SocTop__DOT__i_cache12__DOT__i = VL_RAND_RESET_I(32);
-    vlSelf->SocTop__DOT__i_cache12__DOT__state_inst = VL_RAND_RESET_I(6);
-    vlSelf->SocTop__DOT__i_cache12__DOT__inst_hit_ok = VL_RAND_RESET_I(1);
-    vlSelf->SocTop__DOT__i_cache12__DOT__write_i_ok = VL_RAND_RESET_I(1);
-    vlSelf->SocTop__DOT__i_cache12__DOT__inst_in_cache1 = VL_RAND_RESET_I(1);
-    vlSelf->SocTop__DOT__i_cache12__DOT__inst_in_cache2 = VL_RAND_RESET_I(1);
-    vlSelf->SocTop__DOT__i_cache12__DOT__inst_write_cache = VL_RAND_RESET_I(1);
-    vlSelf->SocTop__DOT__i_cache12__DOT__inst_chose1 = VL_RAND_RESET_I(1);
-    vlSelf->SocTop__DOT__i_cache12__DOT__inst_chose2 = VL_RAND_RESET_I(1);
     for (int __Vi0=0; __Vi0<64; ++__Vi0) {
         vlSelf->SocTop__DOT__i_cache12__DOT__u_tag01__DOT__ram[__Vi0] = VL_RAND_RESET_Q(56);
     }

@@ -153,8 +153,6 @@ VL_MODULE(VSocTop___024root) {
         CData/*7:0*/ SocTop__DOT__rvcpu1__DOT__mem7__DOT__store_mask;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__mem_wb8__DOT__difftest_exyn;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__mem_wb8__DOT__teap_yn;
-        CData/*0:0*/ SocTop__DOT__i_cache12__DOT__i_tag_ena1;
-        CData/*0:0*/ SocTop__DOT__i_cache12__DOT__i_tag_ena2;
         CData/*5:0*/ SocTop__DOT__i_cache12__DOT__state_inst;
         CData/*0:0*/ SocTop__DOT__i_cache12__DOT__inst_hit_ok;
         CData/*0:0*/ SocTop__DOT__i_cache12__DOT__write_i_ok;
@@ -163,6 +161,8 @@ VL_MODULE(VSocTop___024root) {
         CData/*0:0*/ SocTop__DOT__i_cache12__DOT__inst_write_cache;
         CData/*0:0*/ SocTop__DOT__i_cache12__DOT__inst_chose1;
         CData/*0:0*/ SocTop__DOT__i_cache12__DOT__inst_chose2;
+        CData/*0:0*/ SocTop__DOT__i_cache12__DOT__i_tag_ena1;
+        CData/*0:0*/ SocTop__DOT__i_cache12__DOT__i_tag_ena2;
         CData/*0:0*/ SocTop__DOT__i_cache12__DOT__u_tag01__DOT__out_vaild;
         CData/*0:0*/ SocTop__DOT__i_cache12__DOT__u_tag02__DOT__out_vaild;
         CData/*5:0*/ SocTop__DOT__d_cache13__DOT__count_addr;
