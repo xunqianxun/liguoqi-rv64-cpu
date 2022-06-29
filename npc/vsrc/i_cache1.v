@@ -33,10 +33,7 @@ module i_cache1 (
     assign i_in_teg = inst_addr[63:9]          ;
 
     reg [5:0] state_inst    ;
-    //reg [5:0] state_inst_nxt;
     reg       inst_hit_ok   ;
-
-    //reg       load_bc_ok;
     reg       write_i_ok    ;
 
     always @(*) begin
