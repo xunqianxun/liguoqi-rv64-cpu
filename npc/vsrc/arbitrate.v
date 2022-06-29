@@ -322,5 +322,5 @@ module arbitrate (
             d_cache_okreg <= 1'b0      ;
         end  
     end 
-endmodule /*   */
+endmodule 
 

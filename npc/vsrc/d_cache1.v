@@ -271,14 +271,19 @@ module d_cache1 (
     //-----------------------------dirty state sign-----------------------------//
     wire  [5:0]  dirty_addr ;
     assign dirty_addr = mem_addr_i[8:3];
-    assign dirty1[dirty_addr] = (w_incache_ena1 && write_incache)                             ? `ysyx22040228_ABLE :
-                                ((state_store == `ysyx22040228_HIT) && (tag_data1 == in_teg)) ? `ysyx22040228_ABLE :
-                                                                                               `ysyx22040228_ENABLE;
-    assign dirty2[dirty_addr] = (w_incache_ena2 && write_incache)                             ? `ysyx22040228_ABLE :
-                                ((state_store == `ysyx22040228_HIT) && (tag_data2 == in_teg)) ? `ysyx22040228_ABLE :
-                                                                                               `ysyx22040228_ENABLE;
     reg    dirty1 [`ysyx22040228_CACHE_DATA_W];
     reg    dirty2 [`ysyx22040228_CACHE_DATA_W];
+
+      always @(posedge clk) begin
+        if((w_incache_ena1 && write_incache) || ((state_store == `ysyx22040228_HIT) && (tag_data1 == in_teg)))
+            dirty1[dirty_addr] <= `ysyx22040228_ABLE ;
+        else if((w_incache_ena2 && write_incache) || ((state_store == `ysyx22040228_HIT) && (tag_data2 == in_teg)))
+            dirty2[dirty_addr] <= `ysyx22040228_ABLE ;
+        else begin
+            dirty1[dirty_addr] <= `ysyx22040228_ENABLE ;
+            dirty2[drity_addr] <= `ysyx22040228_ENABLE ; 
+        end 
+    end
 
 
     assign mem_data_out_cpu = (mem_data_read_ena && (state_load == `ysyx22040228_HIT))                       ? ((tag_data1 == in_teg) ? out_data1 : out_data2) :
