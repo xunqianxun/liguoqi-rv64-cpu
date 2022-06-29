@@ -148,6 +148,7 @@ module i_cache1 (
             state_inst = `ysyx22040228_IDLE;
         end 
         else begin
+            state_inst = state_inst_nxt;
             case (state_inst)
                `ysyx22040228_IDLE : begin
                    if(inst_ena)
@@ -170,11 +171,14 @@ module i_cache1 (
                   state_inst_nxt = `ysyx22040228_WRITE;  
                end 
 
-                default:   ;
+                default: begin
+                  state_inst     =  `ysyx22040228_IDLE ;
+                  state_inst_nxt =  `ysyx22040228_IDLE ;
+                end 
             endcase
         end 
     end
-    assign state_inst = state_inst_nxt;
+    //assign state_inst = state_inst_nxt;
 
     always @(posedge clk or negedge rst) begin
         if(state_inst == `ysyx22040228_HIT)

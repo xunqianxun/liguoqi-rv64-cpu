@@ -240,637 +240,15 @@ VL_INLINE_OPT void VSocTop___024root___sequent__TOP__3(VSocTop___024root* vlSelf
     vlSelf->__Vdly__SocTop__DOT__rvcpu_inst_addr = vlSelf->SocTop__DOT__rvcpu_inst_addr;
     vlSelf->__Vdlyvset__SocTop__DOT__i_cache12__DOT__i_counter2__v0 = 0U;
     vlSelf->__Vdlyvset__SocTop__DOT__i_cache12__DOT__i_counter2__v1 = 0U;
+    vlSelf->__Vdlyvset__SocTop__DOT__i_cache12__DOT__i_counter2__v2 = 0U;
     vlSelf->__Vdlyvset__SocTop__DOT__i_cache12__DOT__i_counter1__v0 = 0U;
     vlSelf->__Vdlyvset__SocTop__DOT__i_cache12__DOT__i_counter1__v1 = 0U;
+    vlSelf->__Vdlyvset__SocTop__DOT__i_cache12__DOT__i_counter1__v2 = 0U;
     if (vlSelf->rst) {
         vlSelf->SocTop__DOT__rvcpu1__DOT__regfile10__DOT__i = 0x20U;
     }
     if (vlSelf->rst) {
         vlSelf->SocTop__DOT__i_cache12__DOT__i = 0x40U;
-    }
-    if (vlSelf->rst) {
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                    [0U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[1U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [1U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                    [1U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[2U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [2U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                    [2U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[3U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [3U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                    [3U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[4U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [4U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                    [4U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[5U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [5U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                    [5U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[6U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [6U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                    [6U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[7U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [7U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                    [7U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[8U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [8U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                    [8U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[9U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [9U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                    [9U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0xaU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0xaU]) ? 7U : (7U & ((IData)(1U) + 
-                                      vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                      [0xaU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0xbU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0xbU]) ? 7U : (7U & ((IData)(1U) + 
-                                      vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                      [0xbU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0xcU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0xcU]) ? 7U : (7U & ((IData)(1U) + 
-                                      vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                      [0xcU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0xdU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0xdU]) ? 7U : (7U & ((IData)(1U) + 
-                                      vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                      [0xdU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0xeU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0xeU]) ? 7U : (7U & ((IData)(1U) + 
-                                      vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                      [0xeU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0xfU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0xfU]) ? 7U : (7U & ((IData)(1U) + 
-                                      vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                      [0xfU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x10U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x10U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x10U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x11U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x11U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x11U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x12U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x12U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x12U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x13U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x13U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x13U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x14U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x14U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x14U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x15U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x15U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x15U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x16U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x16U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x16U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x17U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x17U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x17U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x18U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x18U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x18U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x19U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x19U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x19U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x1aU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x1aU]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x1aU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x1bU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x1bU]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x1bU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x1cU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x1cU]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x1cU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x1dU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x1dU]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x1dU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x1eU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x1eU]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x1eU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x1fU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x1fU]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x1fU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x20U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x20U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x20U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x21U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x21U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x21U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x22U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x22U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x22U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x23U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x23U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x23U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x24U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x24U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x24U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x25U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x25U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x25U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x26U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x26U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x26U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x27U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x27U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x27U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x28U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x28U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x28U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x29U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x29U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x29U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x2aU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x2aU]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x2aU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x2bU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x2bU]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x2bU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x2cU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x2cU]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x2cU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x2dU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x2dU]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x2dU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x2eU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x2eU]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x2eU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x2fU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x2fU]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x2fU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x30U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x30U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x30U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x31U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x31U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x31U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x32U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x32U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x32U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x33U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x33U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x33U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x34U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x34U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x34U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x35U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x35U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x35U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x36U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x36U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x36U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x37U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x37U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x37U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x38U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x38U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x38U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x39U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x39U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x39U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x3aU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x3aU]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x3aU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x3bU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x3bU]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x3bU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x3cU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x3cU]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x3cU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x3dU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x3dU]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x3dU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x3eU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x3eU]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x3eU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x3fU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                [0x3fU]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
-                                       [0x3fU])));
-    }
-    if (vlSelf->rst) {
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                    [0U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[1U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [1U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                    [1U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[2U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [2U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                    [2U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[3U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [3U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                    [3U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[4U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [4U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                    [4U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[5U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [5U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                    [5U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[6U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [6U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                    [6U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[7U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [7U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                    [7U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[8U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [8U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                    [8U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[9U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [9U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                    [9U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0xaU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0xaU]) ? 7U : (7U & ((IData)(1U) + 
-                                      vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                      [0xaU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0xbU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0xbU]) ? 7U : (7U & ((IData)(1U) + 
-                                      vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                      [0xbU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0xcU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0xcU]) ? 7U : (7U & ((IData)(1U) + 
-                                      vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                      [0xcU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0xdU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0xdU]) ? 7U : (7U & ((IData)(1U) + 
-                                      vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                      [0xdU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0xeU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0xeU]) ? 7U : (7U & ((IData)(1U) + 
-                                      vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                      [0xeU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0xfU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0xfU]) ? 7U : (7U & ((IData)(1U) + 
-                                      vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                      [0xfU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x10U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x10U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x10U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x11U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x11U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x11U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x12U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x12U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x12U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x13U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x13U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x13U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x14U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x14U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x14U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x15U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x15U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x15U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x16U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x16U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x16U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x17U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x17U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x17U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x18U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x18U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x18U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x19U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x19U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x19U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x1aU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x1aU]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x1aU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x1bU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x1bU]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x1bU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x1cU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x1cU]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x1cU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x1dU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x1dU]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x1dU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x1eU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x1eU]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x1eU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x1fU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x1fU]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x1fU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x20U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x20U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x20U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x21U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x21U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x21U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x22U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x22U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x22U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x23U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x23U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x23U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x24U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x24U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x24U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x25U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x25U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x25U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x26U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x26U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x26U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x27U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x27U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x27U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x28U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x28U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x28U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x29U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x29U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x29U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x2aU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x2aU]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x2aU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x2bU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x2bU]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x2bU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x2cU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x2cU]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x2cU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x2dU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x2dU]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x2dU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x2eU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x2eU]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x2eU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x2fU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x2fU]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x2fU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x30U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x30U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x30U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x31U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x31U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x31U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x32U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x32U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x32U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x33U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x33U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x33U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x34U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x34U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x34U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x35U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x35U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x35U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x36U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x36U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x36U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x37U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x37U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x37U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x38U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x38U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x38U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x39U] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x39U]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x39U])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x3aU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x3aU]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x3aU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x3bU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x3bU]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x3bU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x3cU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x3cU]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x3cU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x3dU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x3dU]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x3dU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x3eU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x3eU]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x3eU])));
-        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x3fU] 
-            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                [0x3fU]) ? 7U : (7U & ((IData)(1U) 
-                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
-                                       [0x3fU])));
     }
     if (((IData)(vlSelf->SocTop__DOT__rvcpu_re) & (IData)(vlSelf->SocTop__DOT__rvcpu_we))) {
         vlSelf->SocTop__DOT__d_cache13__DOT__i = 0x40U;
@@ -1458,6 +836,319 @@ VL_INLINE_OPT void VSocTop___024root___sequent__TOP__3(VSocTop___024root* vlSelf
             = (0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_inst_addr 
                                 >> 3U)));
     }
+    if (vlSelf->rst) {
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v2 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                    [0U])));
+        vlSelf->__Vdlyvset__SocTop__DOT__i_cache12__DOT__i_counter2__v2 = 1U;
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v3 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [1U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                    [1U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v4 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [2U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                    [2U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v5 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [3U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                    [3U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v6 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [4U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                    [4U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v7 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [5U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                    [5U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v8 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [6U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                    [6U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v9 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [7U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                    [7U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v10 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [8U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                    [8U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v11 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [9U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                    [9U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v12 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0xaU]) ? 7U : (7U & ((IData)(1U) + 
+                                      vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                      [0xaU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v13 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0xbU]) ? 7U : (7U & ((IData)(1U) + 
+                                      vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                      [0xbU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v14 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0xcU]) ? 7U : (7U & ((IData)(1U) + 
+                                      vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                      [0xcU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v15 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0xdU]) ? 7U : (7U & ((IData)(1U) + 
+                                      vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                      [0xdU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v16 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0xeU]) ? 7U : (7U & ((IData)(1U) + 
+                                      vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                      [0xeU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v17 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0xfU]) ? 7U : (7U & ((IData)(1U) + 
+                                      vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                      [0xfU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v18 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x10U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x10U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v19 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x11U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x11U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v20 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x12U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x12U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v21 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x13U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x13U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v22 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x14U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x14U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v23 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x15U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x15U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v24 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x16U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x16U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v25 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x17U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x17U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v26 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x18U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x18U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v27 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x19U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x19U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v28 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x1aU]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x1aU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v29 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x1bU]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x1bU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v30 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x1cU]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x1cU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v31 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x1dU]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x1dU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v32 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x1eU]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x1eU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v33 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x1fU]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x1fU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v34 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x20U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x20U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v35 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x21U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x21U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v36 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x22U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x22U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v37 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x23U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x23U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v38 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x24U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x24U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v39 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x25U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x25U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v40 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x26U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x26U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v41 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x27U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x27U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v42 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x28U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x28U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v43 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x29U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x29U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v44 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x2aU]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x2aU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v45 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x2bU]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x2bU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v46 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x2cU]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x2cU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v47 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x2dU]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x2dU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v48 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x2eU]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x2eU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v49 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x2fU]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x2fU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v50 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x30U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x30U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v51 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x31U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x31U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v52 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x32U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x32U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v53 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x33U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x33U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v54 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x34U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x34U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v55 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x35U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x35U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v56 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x36U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x36U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v57 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x37U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x37U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v58 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x38U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x38U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v59 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x39U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x39U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v60 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x3aU]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x3aU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v61 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x3bU]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x3bU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v62 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x3cU]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x3cU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v63 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x3dU]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x3dU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v64 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x3eU]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x3eU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v65 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                [0x3fU]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
+                                       [0x3fU])));
+    }
     if (((IData)(vlSelf->SocTop__DOT__i_cache12__DOT__inst_hit_ok) 
          & (vlSelf->SocTop__DOT__i_cache12__DOT__u_tag01__DOT__out_data 
             == (vlSelf->SocTop__DOT__rvcpu_inst_addr 
@@ -1473,6 +1164,319 @@ VL_INLINE_OPT void VSocTop___024root___sequent__TOP__3(VSocTop___024root* vlSelf
         vlSelf->__Vdlyvdim0__SocTop__DOT__i_cache12__DOT__i_counter1__v1 
             = (0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_inst_addr 
                                 >> 3U)));
+    }
+    if (vlSelf->rst) {
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v2 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                    [0U])));
+        vlSelf->__Vdlyvset__SocTop__DOT__i_cache12__DOT__i_counter1__v2 = 1U;
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v3 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [1U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                    [1U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v4 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [2U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                    [2U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v5 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [3U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                    [3U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v6 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [4U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                    [4U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v7 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [5U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                    [5U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v8 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [6U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                    [6U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v9 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [7U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                    [7U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v10 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [8U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                    [8U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v11 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [9U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                    [9U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v12 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0xaU]) ? 7U : (7U & ((IData)(1U) + 
+                                      vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                      [0xaU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v13 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0xbU]) ? 7U : (7U & ((IData)(1U) + 
+                                      vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                      [0xbU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v14 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0xcU]) ? 7U : (7U & ((IData)(1U) + 
+                                      vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                      [0xcU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v15 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0xdU]) ? 7U : (7U & ((IData)(1U) + 
+                                      vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                      [0xdU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v16 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0xeU]) ? 7U : (7U & ((IData)(1U) + 
+                                      vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                      [0xeU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v17 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0xfU]) ? 7U : (7U & ((IData)(1U) + 
+                                      vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                      [0xfU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v18 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x10U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x10U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v19 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x11U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x11U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v20 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x12U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x12U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v21 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x13U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x13U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v22 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x14U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x14U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v23 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x15U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x15U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v24 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x16U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x16U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v25 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x17U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x17U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v26 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x18U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x18U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v27 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x19U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x19U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v28 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x1aU]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x1aU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v29 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x1bU]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x1bU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v30 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x1cU]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x1cU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v31 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x1dU]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x1dU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v32 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x1eU]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x1eU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v33 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x1fU]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x1fU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v34 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x20U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x20U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v35 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x21U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x21U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v36 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x22U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x22U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v37 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x23U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x23U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v38 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x24U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x24U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v39 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x25U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x25U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v40 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x26U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x26U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v41 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x27U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x27U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v42 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x28U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x28U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v43 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x29U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x29U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v44 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x2aU]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x2aU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v45 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x2bU]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x2bU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v46 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x2cU]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x2cU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v47 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x2dU]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x2dU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v48 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x2eU]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x2eU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v49 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x2fU]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x2fU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v50 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x30U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x30U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v51 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x31U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x31U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v52 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x32U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x32U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v53 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x33U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x33U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v54 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x34U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x34U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v55 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x35U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x35U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v56 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x36U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x36U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v57 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x37U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x37U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v58 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x38U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x38U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v59 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x39U]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x39U])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v60 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x3aU]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x3aU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v61 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x3bU]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x3bU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v62 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x3cU]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x3cU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v63 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x3dU]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x3dU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v64 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x3eU]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x3eU])));
+        vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v65 
+            = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                [0x3fU]) ? 7U : (7U & ((IData)(1U) 
+                                       + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
+                                       [0x3fU])));
     }
     if (vlSelf->rst) {
         vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_lsaddr = 0ULL;
@@ -3921,11 +3925,271 @@ VL_INLINE_OPT void VSocTop___024root___sequent__TOP__6(VSocTop___024root* vlSelf
     if (vlSelf->__Vdlyvset__SocTop__DOT__i_cache12__DOT__i_counter1__v1) {
         vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[vlSelf->__Vdlyvdim0__SocTop__DOT__i_cache12__DOT__i_counter1__v1] = 0U;
     }
+    if (vlSelf->__Vdlyvset__SocTop__DOT__i_cache12__DOT__i_counter1__v2) {
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v2;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[1U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v3;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[2U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v4;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[3U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v5;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[4U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v6;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[5U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v7;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[6U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v8;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[7U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v9;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[8U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v10;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[9U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v11;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0xaU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v12;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0xbU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v13;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0xcU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v14;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0xdU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v15;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0xeU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v16;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0xfU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v17;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x10U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v18;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x11U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v19;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x12U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v20;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x13U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v21;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x14U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v22;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x15U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v23;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x16U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v24;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x17U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v25;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x18U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v26;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x19U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v27;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x1aU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v28;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x1bU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v29;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x1cU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v30;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x1dU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v31;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x1eU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v32;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x1fU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v33;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x20U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v34;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x21U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v35;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x22U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v36;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x23U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v37;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x24U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v38;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x25U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v39;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x26U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v40;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x27U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v41;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x28U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v42;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x29U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v43;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x2aU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v44;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x2bU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v45;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x2cU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v46;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x2dU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v47;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x2eU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v48;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x2fU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v49;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x30U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v50;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x31U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v51;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x32U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v52;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x33U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v53;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x34U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v54;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x35U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v55;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x36U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v56;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x37U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v57;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x38U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v58;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x39U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v59;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x3aU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v60;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x3bU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v61;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x3cU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v62;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x3dU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v63;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x3eU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v64;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1[0x3fU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v65;
+    }
     if (vlSelf->__Vdlyvset__SocTop__DOT__i_cache12__DOT__i_counter2__v0) {
         vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[vlSelf->__Vdlyvdim0__SocTop__DOT__i_cache12__DOT__i_counter2__v0] = 0U;
     }
     if (vlSelf->__Vdlyvset__SocTop__DOT__i_cache12__DOT__i_counter2__v1) {
         vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[vlSelf->__Vdlyvdim0__SocTop__DOT__i_cache12__DOT__i_counter2__v1] = 0U;
+    }
+    if (vlSelf->__Vdlyvset__SocTop__DOT__i_cache12__DOT__i_counter2__v2) {
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v2;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[1U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v3;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[2U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v4;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[3U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v5;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[4U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v6;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[5U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v7;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[6U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v8;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[7U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v9;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[8U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v10;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[9U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v11;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0xaU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v12;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0xbU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v13;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0xcU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v14;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0xdU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v15;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0xeU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v16;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0xfU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v17;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x10U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v18;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x11U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v19;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x12U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v20;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x13U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v21;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x14U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v22;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x15U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v23;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x16U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v24;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x17U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v25;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x18U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v26;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x19U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v27;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x1aU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v28;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x1bU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v29;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x1cU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v30;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x1dU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v31;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x1eU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v32;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x1fU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v33;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x20U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v34;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x21U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v35;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x22U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v36;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x23U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v37;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x24U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v38;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x25U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v39;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x26U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v40;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x27U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v41;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x28U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v42;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x29U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v43;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x2aU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v44;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x2bU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v45;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x2cU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v46;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x2dU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v47;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x2eU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v48;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x2fU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v49;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x30U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v50;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x31U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v51;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x32U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v52;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x33U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v53;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x34U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v54;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x35U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v55;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x36U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v56;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x37U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v57;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x38U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v58;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x39U] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v59;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x3aU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v60;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x3bU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v61;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x3cU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v62;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x3dU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v63;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x3eU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v64;
+        vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2[0x3fU] 
+            = vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v65;
     }
     if (vlSelf->__Vdlyvset__SocTop__DOT__d_cache13__DOT__counter1__v0) {
         vlSelf->SocTop__DOT__d_cache13__DOT__counter1[vlSelf->__Vdlyvdim0__SocTop__DOT__d_cache13__DOT__counter1__v0] = 0U;
@@ -4559,85 +4823,107 @@ VL_INLINE_OPT void VSocTop___024root___combo__TOP__7(VSocTop___024root* vlSelf) 
                        [vlSelf->SocTop__DOT__d_cache13__DOT__count_addr]))));
     if (vlSelf->rst) {
         vlSelf->SocTop__DOT__d_cache13__DOT__state_load = 1U;
+        vlSelf->SocTop__DOT__d_cache13__DOT__state_load_nxt = 1U;
     } else if ((0x20U & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_load))) {
-        if ((1U & (~ ((IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_load) 
-                      >> 4U)))) {
-            if ((1U & (~ ((IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_load) 
-                          >> 3U)))) {
-                if ((1U & (~ ((IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_load) 
-                              >> 2U)))) {
-                    if ((1U & (~ ((IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_load) 
-                                  >> 1U)))) {
-                        if ((1U & (~ (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_load)))) {
-                            if (vlSelf->SocTop__DOT__d_cache13__DOT__load_bc_ok) {
-                                vlSelf->SocTop__DOT__d_cache13__DOT__state_load_nxt = 0x10U;
-                            }
-                            vlSelf->SocTop__DOT__d_cache13__DOT__state_load_nxt = 0x20U;
-                        }
-                    }
-                }
+        if ((0x10U & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_load))) {
+            vlSelf->SocTop__DOT__d_cache13__DOT__state_load = 1U;
+            vlSelf->SocTop__DOT__d_cache13__DOT__state_load_nxt = 1U;
+        } else if ((8U & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_load))) {
+            vlSelf->SocTop__DOT__d_cache13__DOT__state_load = 1U;
+            vlSelf->SocTop__DOT__d_cache13__DOT__state_load_nxt = 1U;
+        } else if ((4U & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_load))) {
+            vlSelf->SocTop__DOT__d_cache13__DOT__state_load = 1U;
+            vlSelf->SocTop__DOT__d_cache13__DOT__state_load_nxt = 1U;
+        } else if ((2U & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_load))) {
+            vlSelf->SocTop__DOT__d_cache13__DOT__state_load = 1U;
+            vlSelf->SocTop__DOT__d_cache13__DOT__state_load_nxt = 1U;
+        } else if ((1U & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_load))) {
+            vlSelf->SocTop__DOT__d_cache13__DOT__state_load = 1U;
+            vlSelf->SocTop__DOT__d_cache13__DOT__state_load_nxt = 1U;
+        } else {
+            if (vlSelf->SocTop__DOT__d_cache13__DOT__load_bc_ok) {
+                vlSelf->SocTop__DOT__d_cache13__DOT__state_load_nxt = 0x10U;
             }
+            vlSelf->SocTop__DOT__d_cache13__DOT__state_load_nxt = 0x20U;
         }
     } else if ((0x10U & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_load))) {
-        if ((1U & (~ ((IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_load) 
-                      >> 3U)))) {
-            if ((1U & (~ ((IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_load) 
-                          >> 2U)))) {
-                if ((1U & (~ ((IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_load) 
-                              >> 1U)))) {
-                    if ((1U & (~ (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_load)))) {
-                        if (vlSelf->SocTop__DOT__d_cache13__DOT__write_l_ok) {
-                            vlSelf->SocTop__DOT__d_cache13__DOT__state_load_nxt = 0x10U;
-                        }
-                        vlSelf->SocTop__DOT__d_cache13__DOT__state_load_nxt = 1U;
-                    }
-                }
+        if ((8U & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_load))) {
+            vlSelf->SocTop__DOT__d_cache13__DOT__state_load = 1U;
+            vlSelf->SocTop__DOT__d_cache13__DOT__state_load_nxt = 1U;
+        } else if ((4U & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_load))) {
+            vlSelf->SocTop__DOT__d_cache13__DOT__state_load = 1U;
+            vlSelf->SocTop__DOT__d_cache13__DOT__state_load_nxt = 1U;
+        } else if ((2U & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_load))) {
+            vlSelf->SocTop__DOT__d_cache13__DOT__state_load = 1U;
+            vlSelf->SocTop__DOT__d_cache13__DOT__state_load_nxt = 1U;
+        } else if ((1U & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_load))) {
+            vlSelf->SocTop__DOT__d_cache13__DOT__state_load = 1U;
+            vlSelf->SocTop__DOT__d_cache13__DOT__state_load_nxt = 1U;
+        } else {
+            if (vlSelf->SocTop__DOT__d_cache13__DOT__write_l_ok) {
+                vlSelf->SocTop__DOT__d_cache13__DOT__state_load_nxt = 0x10U;
             }
+            vlSelf->SocTop__DOT__d_cache13__DOT__state_load_nxt = 1U;
         }
     } else if ((8U & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_load))) {
-        if ((1U & (~ ((IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_load) 
-                      >> 2U)))) {
-            if ((1U & (~ ((IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_load) 
-                          >> 1U)))) {
-                if ((1U & (~ (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_load)))) {
-                    if (((vlSelf->SocTop__DOT__d_cache13__DOT__dirty1
-                          [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                             >> 3U)))] 
-                          & (vlSelf->SocTop__DOT__d_cache13__DOT__counter1
-                             [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                                >> 3U)))] 
-                             >= vlSelf->SocTop__DOT__d_cache13__DOT__counter2
-                             [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                                >> 3U)))])) 
-                         | ((vlSelf->SocTop__DOT__d_cache13__DOT__dirty2
-                             [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                                >> 3U)))] 
-                             & (vlSelf->SocTop__DOT__d_cache13__DOT__counter1
-                                [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                                   >> 3U)))] 
-                                < vlSelf->SocTop__DOT__d_cache13__DOT__counter2
-                                [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                                   >> 3U)))])) 
-                            & ((IData)(vlSelf->SocTop__DOT__d_cache13__DOT__u_tag0__DOT__out_vaild) 
-                               & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__u_tag1__DOT__out_vaild))))) {
-                        vlSelf->SocTop__DOT__d_cache13__DOT__state_load_nxt = 0x20U;
-                    }
-                    vlSelf->SocTop__DOT__d_cache13__DOT__state_load_nxt = 0x10U;
-                }
+        if ((4U & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_load))) {
+            vlSelf->SocTop__DOT__d_cache13__DOT__state_load = 1U;
+            vlSelf->SocTop__DOT__d_cache13__DOT__state_load_nxt = 1U;
+        } else if ((2U & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_load))) {
+            vlSelf->SocTop__DOT__d_cache13__DOT__state_load = 1U;
+            vlSelf->SocTop__DOT__d_cache13__DOT__state_load_nxt = 1U;
+        } else if ((1U & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_load))) {
+            vlSelf->SocTop__DOT__d_cache13__DOT__state_load = 1U;
+            vlSelf->SocTop__DOT__d_cache13__DOT__state_load_nxt = 1U;
+        } else {
+            if (((vlSelf->SocTop__DOT__d_cache13__DOT__dirty1
+                  [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                     >> 3U)))] & (vlSelf->SocTop__DOT__d_cache13__DOT__counter1
+                                                  [
+                                                  (0x3fU 
+                                                   & (IData)(
+                                                             (vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                                              >> 3U)))] 
+                                                  >= 
+                                                  vlSelf->SocTop__DOT__d_cache13__DOT__counter2
+                                                  [
+                                                  (0x3fU 
+                                                   & (IData)(
+                                                             (vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                                              >> 3U)))])) 
+                 | ((vlSelf->SocTop__DOT__d_cache13__DOT__dirty2
+                     [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                        >> 3U)))] & 
+                     (vlSelf->SocTop__DOT__d_cache13__DOT__counter1
+                      [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                         >> 3U)))] 
+                      < vlSelf->SocTop__DOT__d_cache13__DOT__counter2
+                      [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                         >> 3U)))])) 
+                    & ((IData)(vlSelf->SocTop__DOT__d_cache13__DOT__u_tag0__DOT__out_vaild) 
+                       & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__u_tag1__DOT__out_vaild))))) {
+                vlSelf->SocTop__DOT__d_cache13__DOT__state_load_nxt = 0x20U;
             }
+            vlSelf->SocTop__DOT__d_cache13__DOT__state_load_nxt = 0x10U;
         }
     } else if ((4U & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_load))) {
-        if ((1U & (~ ((IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_load) 
-                      >> 1U)))) {
-            if ((1U & (~ (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_load)))) {
-                if (vlSelf->SocTop__DOT__d_cache13__DOT__load_ok) {
-                    vlSelf->SocTop__DOT__d_cache13__DOT__state_load_nxt = 1U;
-                }
-                vlSelf->SocTop__DOT__d_cache13__DOT__state_load_nxt = 4U;
+        if ((2U & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_load))) {
+            vlSelf->SocTop__DOT__d_cache13__DOT__state_load = 1U;
+            vlSelf->SocTop__DOT__d_cache13__DOT__state_load_nxt = 1U;
+        } else if ((1U & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_load))) {
+            vlSelf->SocTop__DOT__d_cache13__DOT__state_load = 1U;
+            vlSelf->SocTop__DOT__d_cache13__DOT__state_load_nxt = 1U;
+        } else {
+            if (vlSelf->SocTop__DOT__d_cache13__DOT__load_ok) {
+                vlSelf->SocTop__DOT__d_cache13__DOT__state_load_nxt = 1U;
             }
+            vlSelf->SocTop__DOT__d_cache13__DOT__state_load_nxt = 4U;
         }
     } else if ((2U & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_load))) {
-        if ((1U & (~ (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_load)))) {
+        if ((1U & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__state_load))) {
+            vlSelf->SocTop__DOT__d_cache13__DOT__state_load = 1U;
+            vlSelf->SocTop__DOT__d_cache13__DOT__state_load_nxt = 1U;
+        } else {
             if ((((vlSelf->SocTop__DOT__d_cache13__DOT__u_tag0__DOT__out_data 
                    == (vlSelf->SocTop__DOT__rvcpu_data_addr 
                        >> 9U)) & (IData)(vlSelf->SocTop__DOT__d_cache13__DOT__u_tag0__DOT__out_vaild)) 
@@ -4652,6 +4938,9 @@ VL_INLINE_OPT void VSocTop___024root___combo__TOP__7(VSocTop___024root* vlSelf) 
         if (vlSelf->SocTop__DOT__rvcpu_re) {
             vlSelf->SocTop__DOT__d_cache13__DOT__state_load_nxt = 2U;
         }
+        vlSelf->SocTop__DOT__d_cache13__DOT__state_load_nxt = 1U;
+    } else {
+        vlSelf->SocTop__DOT__d_cache13__DOT__state_load = 1U;
         vlSelf->SocTop__DOT__d_cache13__DOT__state_load_nxt = 1U;
     }
     vlSelf->SocTop__DOT__i_cache12__DOT__i_tag_ena1 
