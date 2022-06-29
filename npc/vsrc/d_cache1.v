@@ -40,8 +40,6 @@ module d_cache1 (
     output        wire                                        outr_dcache_ena    ,
     output        wire                                        outw_dcache_ena 
 );
-    wire   write_chose1                         ;
-    wire   write_chose2                         ;
     //-----------------------------in out sign make ----------------------------//
     assign mem_data_out_cpu = (mem_data_read_ena && (state_load == `ysyx22040228_HIT))                       ? ((tag_data1 == in_teg) ? out_data1 : out_data2) :
                               read_cache                                                                     ? (load_in_cache1) ? out_data1 : out_data2 :
@@ -161,7 +159,8 @@ module d_cache1 (
         .write_ena   (data_ena2   ),
         .data_o      (out_data2   )
     );
-
+    wire   write_chose1                         ;
+    wire   write_chose2                         ;
     assign wirte_chose1 = (tag_user1 == `ysyx22040228_ENABLE) || (dirty1[count_addr] == `ysyx22040228_ABLE) && (counter1[count_addr] >= counter2[count_addr]);
     assign wirte_chose2 = (tag_user2 == `ysyx22040228_ENABLE) || (dirty2[count_addr] == `ysyx22040228_ABLE) && (counter1[count_addr] < counter2[count_addr]);
 
