@@ -137,51 +137,51 @@ module i_cache1 (
     assign i_in_teg = inst_addr[63:9]          ;
 
     reg [5:0] state_inst    ;
-    reg [5:0] state_inst_nxt;
+    //reg [5:0] state_inst_nxt;
     reg       inst_hit_ok   ;
 
     //reg       load_bc_ok;
     reg       write_i_ok    ;
 
     always @(*) begin
-        // if(rst == `ysyx22040228_RSTENA) begin
-        //     state_inst = `ysyx22040228_IDLE;
-        // end 
-        // else begin
+        if(rst == `ysyx22040228_RSTENA) begin
+            state_inst = `ysyx22040228_IDLE;
+        end 
+        else begin
             case (state_inst)
                `ysyx22040228_IDLE : begin
                    if(inst_ena)
-                        state_inst_nxt = `ysyx22040228_CHOSE;
-                   state_inst_nxt = `ysyx22040228_IDLE;  
+                        state_inst = `ysyx22040228_CHOSE;
+                   state_inst = `ysyx22040228_IDLE;  
                end 
                `ysyx22040228_CHOSE : begin
                    if(((i_tag_data1 == i_in_teg) && (i_tag_user1 == `ysyx22040228_ABLE)) || (i_tag_data2 == i_in_teg) && (i_tag_user2 == `ysyx22040228_ABLE)) 
-                       state_inst_nxt = `ysyx22040228_HIT;
-                   state_inst_nxt = `ysyx22040228_WRITE;  
+                       state_inst = `ysyx22040228_HIT;
+                   state_inst = `ysyx22040228_WRITE;  
                end 
                `ysyx22040228_HIT : begin
                    if(inst_hit_ok)
-                        state_inst_nxt = `ysyx22040228_IDLE;
-                    state_inst_nxt = `ysyx22040228_HIT;
+                        state_inst = `ysyx22040228_IDLE;
+                    state_inst = `ysyx22040228_HIT;
                end 
                `ysyx22040228_WRITE : begin
                    if(write_i_ok)
-                        state_inst_nxt = `ysyx22040228_IDLE;
-                  state_inst_nxt = `ysyx22040228_WRITE;  
+                        state_inst = `ysyx22040228_IDLE;
+                  state_inst = `ysyx22040228_WRITE;  
                end 
 
                 default: begin
-                  state_inst_nxt =  `ysyx22040228_IDLE ;
+                  state_inst =  `ysyx22040228_IDLE ;
                 end 
             endcase
     //     end 
     end
-    always @(*) begin
-        if(rst == `ysyx22040228_RSTENA)
-            state_inst = `ysyx22040228_IDLE ;
-        else 
-            state_inst = state_inst_nxt     ;
-    end
+    // always @(*) begin
+    //     if(rst == `ysyx22040228_RSTENA)
+    //         state_inst = `ysyx22040228_IDLE ;
+    //     else 
+    //         state_inst = state_inst_nxt     ;
+    // end
 
     always @(posedge clk or negedge rst) begin
         if(state_inst == `ysyx22040228_HIT)
