@@ -171,7 +171,6 @@ module i_cache1 (
                end 
 
                 default: begin
-                  state_inst     =  `ysyx22040228_IDLE ;
                   state_inst_nxt =  `ysyx22040228_IDLE ;
                 end 
             endcase
