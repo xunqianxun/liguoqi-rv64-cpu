@@ -98,7 +98,9 @@ module d_cache1 (
                         state_store = `ysyx22040228_WRITE;
                    state_store = `ysyx22040228_WBCK;
                end
-                default: ;
+                default: begin
+                   state_store = `ysyx22040228_IDLE;
+                end 
             endcase
         end 
     end
@@ -141,7 +143,7 @@ module d_cache1 (
 
     //--------------------------------load make----------------------------------//
     reg [5:0] state_load    ;
-    reg [5:0] state_load_nxt;
+    //reg [5:0] state_load_nxt;
     reg       load_ok       ;
 
     reg       load_bc_ok    ;
