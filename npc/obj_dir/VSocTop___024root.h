@@ -623,8 +623,17 @@ VL_MODULE(VSocTop___024root) {
         CData/*0:0*/ __Vdlyvset__SocTop__DOT__d_cache13__DOT__u_tag1__DOT__ram__v0;
         CData/*5:0*/ __Vdlyvdim0__SocTop__DOT__d_cache13__DOT__u_tag1__DOT__ram__v1;
         CData/*5:0*/ __Vdlyvlsb__SocTop__DOT__d_cache13__DOT__u_tag1__DOT__ram__v1;
+        CData/*0:0*/ __Vdly__SocTop__DOT__i_cache12__DOT__inst_write_cache;
+        CData/*0:0*/ __Vdly__SocTop__DOT__i_cache12__DOT__write_i_ok;
+        CData/*0:0*/ __Vdly__SocTop__DOT__d_cache13__DOT__write_incache;
+        CData/*0:0*/ __Vdly__SocTop__DOT__d_cache13__DOT__write_ok;
+        CData/*0:0*/ __Vdly__SocTop__DOT__d_cache13__DOT__read_cache;
+        CData/*0:0*/ __Vdly__SocTop__DOT__d_cache13__DOT__write_l_ok;
         CData/*0:0*/ __Vclklast__TOP__clk;
         CData/*0:0*/ __Vclklast__TOP__rst;
+        CData/*5:0*/ __Vchglast__TOP__SocTop__DOT__i_cache12__DOT__state_inst;
+    };
+    struct {
         QData/*63:0*/ __Vdly__SocTop__DOT__rvcpu_inst_addr;
         QData/*54:0*/ __Vdlyvval__SocTop__DOT__i_cache12__DOT__u_tag01__DOT__ram__v0;
         QData/*54:0*/ __Vdlyvval__SocTop__DOT__i_cache12__DOT__u_tag02__DOT__ram__v0;
