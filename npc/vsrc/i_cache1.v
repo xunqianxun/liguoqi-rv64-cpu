@@ -68,7 +68,7 @@ module i_cache1 (
                 end 
             endcase
         end 
-    end
+    end /* verilator lint_off UNOPTFLAT */
 
     always @(posedge clk or negedge rst) begin
         if(state_inst == `ysyx22040228_HIT)
