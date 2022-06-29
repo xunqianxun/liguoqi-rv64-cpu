@@ -73,6 +73,7 @@ module SocTop (
     wire            i_cache_inst_valid;
     wire            i_cache_read_ena ;
     wire  [63:0]    i_cache_addr     ;  
+    wire            i_cache_ready    ;
 
     wire  [63:0]    d_cache_data_out ; 
     wire            d_cache_mem_finish;   
@@ -176,7 +177,7 @@ module SocTop (
         .inst_addr           (rvcpu_inst_addr     ) ,
         .inst_ena            (rvcpu_inst_ena      ) ,
     
-        .inst_ready          (rvcpu_inst_ready    ) ,
+        .inst_ready          (i_cache_ready       ) ,
         .inst                (i_cache_inst_data   ) ,
         .bui_inst_valid      (i_cache_inst_valid  ) ,
 
@@ -197,6 +198,7 @@ module SocTop (
         .rst                 (rst                 ) ,
         .inst_addr           (rvcpu_inst_addr     ) ,
         .inst_ena            (rvcpu_inst_ena      ) ,
+        .inst_ready          (i_cache_ready       ) ,
         .inst_data           (i_cache_inst_data   ) ,
         .inst_valid          (i_cache_inst_valid  ) ,
 

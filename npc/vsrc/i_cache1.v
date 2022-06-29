@@ -12,6 +12,7 @@ module i_cache1 (
     input       wire                                         rst             ,
     input       wire          [63:0]                         inst_addr       ,
     input       wire                                         inst_ena        ,
+    input       wire                                         inst_ready      ,
     output      wire          [31:0]                         inst_data       ,
     output      wire                                         inst_valid      ,
 
@@ -118,7 +119,7 @@ module i_cache1 (
             i_counter1[i_count_addr] <= 3'b0;
         if(inst_write_cache && inst_in_cache2)
             i_counter2[i_count_addr] <= 3'b0;
-        if(inst_ena) begin
+        if((~inst_ena) && (~inst_ready)) begin
 		    for(i = 0;i<64;i=i+1) begin
 			   i_counter1[i][2:0] <= (i_counter1[i] == 3'd7) ? 3'd7 : i_counter1[i][2:0] + 1'b1;
                i_counter2[i][2:0] <= (i_counter2[i] == 3'd7) ? 3'd7 : i_counter2[i][2:0] + 1'b1;
@@ -150,7 +151,7 @@ module i_cache1 (
         else begin
             case (state_inst)
                `ysyx22040228_IDLE : begin
-                   if(inst_ena)
+                   if((~inst_ena) && (~inst_ready))
                         state_inst = `ysyx22040228_CHOSE;
                    state_inst = `ysyx22040228_IDLE;  
                end 
