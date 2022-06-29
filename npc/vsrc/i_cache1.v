@@ -144,10 +144,10 @@ module i_cache1 (
     reg       write_i_ok    ;
 
     always @(*) begin
-        if(rst == `ysyx22040228_RSTENA) begin
-            state_inst = `ysyx22040228_IDLE;
-        end 
-        else begin
+        // if(rst == `ysyx22040228_RSTENA) begin
+        //     state_inst = `ysyx22040228_IDLE;
+        // end 
+        // else begin
             case (state_inst)
                `ysyx22040228_IDLE : begin
                    if(inst_ena)
@@ -175,9 +175,14 @@ module i_cache1 (
                   state_inst_nxt =  `ysyx22040228_IDLE ;
                 end 
             endcase
-        end 
+    //     end 
     end
-    assign state_inst = state_inst_nxt;
+    always @(*) begin
+        if(rst == `ysyx22040228_RSTENA)
+            state_inst = `ysyx22040228_IDLE ;
+        else 
+            state_inst = state_inst_nxt     ;
+    end
 
     always @(posedge clk or negedge rst) begin
         if(state_inst == `ysyx22040228_HIT)
