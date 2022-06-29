@@ -147,7 +147,6 @@ module d_cache1 (
     reg       load_bc_ok    ;
     reg       write_l_ok    ;
     reg [5:0] count_addr2   ;
-    assign load_bc_ok       ;
     assign count_addr2 = mem_addr_i[8:3];
 
     always @(posedge clk) begin
