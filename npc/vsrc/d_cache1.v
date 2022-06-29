@@ -159,48 +159,45 @@ module d_cache1 (
     always @(*) begin
         if(rst == `ysyx22040228_RSTENA) begin
             state_load = `ysyx22040228_IDLE     ;
-            state_load_nxt = `ysyx22040228_IDLE ;
         end 
         else begin
             case (state_load)
                `ysyx22040228_IDLE : begin
                    if(mem_data_read_ena)
-                        state_load_nxt = `ysyx22040228_CHOSE;
-                   state_load_nxt = `ysyx22040228_IDLE;  
+                        state_load = `ysyx22040228_CHOSE;
+                   state_load = `ysyx22040228_IDLE;  
                end 
                `ysyx22040228_CHOSE : begin
                    if(((tag_data1 == in_teg) && (tag_user1 == `ysyx22040228_ABLE)) || (tag_data2 == in_teg) && (tag_user2 == `ysyx22040228_ABLE)) 
-                       state_load_nxt = `ysyx22040228_HIT;
-                   state_load_nxt = `ysyx22040228_MISS;  
+                       state_load = `ysyx22040228_HIT;
+                   state_load = `ysyx22040228_MISS;  
                end 
                `ysyx22040228_HIT : begin
                    if(load_ok)
-                        state_load_nxt = `ysyx22040228_IDLE;
-                    state_load_nxt = `ysyx22040228_HIT;
+                        state_load = `ysyx22040228_IDLE;
+                    state_load = `ysyx22040228_HIT;
                end 
                `ysyx22040228_MISS : begin
                    if(((dirty1[count_addr2] == `ysyx22040228_ABLE) && (counter1[count_addr2] >= counter2[count_addr2])) || ((dirty2[count_addr2] == `ysyx22040228_ABLE) && (counter1[count_addr2] < counter2[count_addr2])) && ((tag_user1 == `ysyx22040228_ABLE) && (tag_user2 == `ysyx22040228_ABLE)))
-                        state_load_nxt = `ysyx22040228_WBCK;
-                   state_load_nxt = `ysyx22040228_WRITE;
+                        state_load = `ysyx22040228_WBCK;
+                   state_load = `ysyx22040228_WRITE;
                end 
                `ysyx22040228_WRITE : begin
                    if(write_l_ok)
-                        state_load_nxt = `ysyx22040228_WRITE;
-                  state_load_nxt = `ysyx22040228_IDLE;  
+                        state_load = `ysyx22040228_WRITE;
+                  state_load = `ysyx22040228_IDLE;  
                end 
                `ysyx22040228_WBCK : begin
                    if(load_bc_ok) 
-                        state_load_nxt = `ysyx22040228_WRITE;
-                   state_load_nxt = `ysyx22040228_WBCK;
+                        state_load = `ysyx22040228_WRITE;
+                   state_load = `ysyx22040228_WBCK;
                end
                 default: begin
                    state_load = `ysyx22040228_IDLE     ;
-                   state_load_nxt = `ysyx22040228_IDLE ;
                 end 
             endcase
         end 
     end
-    assign state_load = state_load_nxt;
 
     always @(posedge clk or negedge rst) begin
         if(state_load == `ysyx22040228_HIT)

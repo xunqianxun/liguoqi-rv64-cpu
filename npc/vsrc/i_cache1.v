@@ -176,12 +176,6 @@ module i_cache1 (
             endcase
         end 
     end
-    // always @(*) begin
-    //     if(rst == `ysyx22040228_RSTENA)
-    //         state_inst = `ysyx22040228_IDLE ;
-    //     else 
-    //         state_inst = state_inst_nxt     ;
-    // end
 
     always @(posedge clk or negedge rst) begin
         if(state_inst == `ysyx22040228_HIT)
