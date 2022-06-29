@@ -158,7 +158,8 @@ module d_cache1 (
 
     always @(*) begin
         if(rst == `ysyx22040228_RSTENA) begin
-            state_load = `ysyx22040228_IDLE;
+            state_load = `ysyx22040228_IDLE     ;
+            state_load_nxt = `ysyx22040228_IDLE ;
         end 
         else begin
             case (state_load)
@@ -192,7 +193,10 @@ module d_cache1 (
                         state_load_nxt = `ysyx22040228_WRITE;
                    state_load_nxt = `ysyx22040228_WBCK;
                end
-                default: ;
+                default: begin
+                   state_load = `ysyx22040228_IDLE     ;
+                   state_load_nxt = `ysyx22040228_IDLE ;
+                end 
             endcase
         end 
     end
