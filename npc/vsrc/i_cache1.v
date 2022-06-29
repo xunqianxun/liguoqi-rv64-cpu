@@ -32,11 +32,11 @@ module i_cache1 (
     wire  [54:0]  i_in_teg                     ;
     assign i_in_teg = inst_addr[63:9]          ;
 
-    reg [5:0] state_inst    ;
+    reg [5:0] state_inst  /* verilator lint_off UNOPTFLAT */  ;
     reg       inst_hit_ok   ;
     reg       write_i_ok    ;
 
-    always @(*) begin /* verilator lint_off UNOPTFLAT */ ;
+    always @(*) begin 
         if(rst == `ysyx22040228_RSTENA) begin
             state_inst = `ysyx22040228_IDLE;
         end 
