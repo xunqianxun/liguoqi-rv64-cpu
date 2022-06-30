@@ -86,13 +86,13 @@ int main(int argc , char** argv , char** env) {
 
 contextp = new VerilatedContext ;
 contextp->commandArgs(argc, argv) ;
-rvcpu = new Vrvcpu(contextp);
+rvcpu = new VSocTop(contextp);
 Verilated::traceEverOn(true) ; //out vcd need
 tfp = new VerilatedVcdC ; // out vcd need
 rvcpu->trace(tfp,0) ;
 tfp->open("obj_dir/SocTop.vcd") ; // open vcd
 rvcpu->rst = 1;
-rvcpu->bui_inst_valid = 1;
+//rvcpu->bui_inst_valid = 1;
 init_monitor(argc, argv);
 
 sdb_mainloop();
