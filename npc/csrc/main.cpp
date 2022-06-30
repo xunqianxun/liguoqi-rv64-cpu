@@ -204,6 +204,7 @@ while(ddy){
   if((main_time % 10) == 1){
     rvcpu->clk = 1;
     rvcpu->eval();
+    printf("addr = %lx \n",rvcpu->out_addr_outp);
     if(rvcpu->out_read_inst_ena) {
       rvcpu->in_inst_data_in = ifetch(rvcpu->out_addr_outp, 4);
     }
