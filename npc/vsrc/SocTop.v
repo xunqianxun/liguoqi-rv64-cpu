@@ -379,5 +379,177 @@ module SocTop (
         .write_ram_data      (write_data_sign    ) ,
         .write_ram_addr      (write_addr_sign    )     
     );
+
+    soc_axi4 soc_axi45 (
+        .clk                 (clk               ) ,
+        .rst                 (rst               ) ,
+        .prot_chose          () ,
+
+        .master_axi_aw_id    (t_axi_aw_id       ) ,
+        .master_axi_aw_addr  (t_axi_aw_addr     ) ,
+        .master_axi_aw_len   (t_axi_aw_len      ) ,
+        .master_axi_aw_size  (t_axi_aw_size     ) ,   
+        .master_axi_aw_burst (t_axi_aw_burst    ) ,
+        .master_axi_aw_cache (t_axi_aw_cache    ) ,
+        .master_axi_aw_port  (t_axi_aw_port     ) ,
+        .master_axi_aw_qos   (t_axi_aw_qos      ) ,
+        .master_axi_aw_valid (t_axi_aw_valid    ) ,
+        .master_axi_aw_ready (t_axi_aw_ready    ) ,
+
+        .master_axi_w_id     (t_axi_w_id        ) ,
+        .master_axi_w_data   (t_axi_w_data      ) ,
+        .master_axi_w_strb   (t_axi_w_strb      ) ,
+        .master_axi_w_last   (t_axi_w_last      ) ,
+        .master_axi_w_valid  (t_axi_w_valid     ) ,
+        .master_axi_w_ready  (t_axi_w_ready     ) ,
+
+        .master_axi_b_id     (t_axi_b_id        ) ,
+        .master_axi_b_resp   (t_axi_b_resp      ) ,
+        .master_axi_b_ready  (t_axi_b_ready     ) ,
+        .master_axi_b_valid  (t_axi_b_ready     ) ,
+
+        .master_axi_ar_id    (t_axi_ar_id       ) ,
+        .master_axi_ar_addr  (t_axi_ar_addr     ) ,
+        .master_axi_ar_len   (t_axi_ar_len      ) ,
+        .master_axi_ar_burst (t_axi_ar_burst    ) ,
+        .master_axi_ar_cache (t_axi_ar_cache    ) ,
+        .master_axi_ar_prot  (t_axi_ar_prot     ) ,
+        .master_axi_ar_qos   (t_axi_ar_qos      ) ,
+        .master_axi_ar_valid (t_axi_ar_valid    ) ,
+        .master_axi_ar_ready (t_axi_ar_ready    ) ,
+
+        .master_axi_r_id     (t_axi_r_id        ) ,
+        .master_axi_r_data   (t_axi_r_data      ) ,
+        .master_axi_r_resp   (t_axi_r_resp      ) ,
+        .master_axi_r_last   (t_axi_r_last      ) ,
+        .master_axi_r_valid  (t_axi_r_valid     ) ,
+        .master_axi_r_ready  (t_axi_r_ready     ) ,
+
+        .slave_axi_aw_id     () ,
+        .slave_axi_aw_addr   () ,
+        .slave_axi_aw_len    () ,
+        .slave_axi_aw_size   () ,
+        .slave_axi_aw_burst  () ,
+        .slave_axi_aw_cache  () ,
+        .slave_axi_aw_prot   () ,
+        .slave_axi_aw_qos    () ,
+        .slave_axi_aw_valid  () ,
+        .slave_axi_aw_ready  () ,
+
+        .slave_axi_w_id      () ,
+        .slave_axi_w_data    () ,
+        .slave_axi_w_strb    () ,
+        .slave_axi_w_last    () ,
+        .slave_axi_w_valid   () ,
+        .slave_axi_w_ready   () ,
+
+        .slave_axi_b_id      () ,
+        .slave_axi_b_resp    () ,
+        .slave_axi_b_valid   () ,
+        .slave_axi_b_ready   () ,
+
+        .slave_axi_ar_id     () ,
+        .slave_axi_ar_addr   () ,
+        .slave_axi_ar_len    () ,
+        .slave_axi_ar_size   () ,
+        .slave_axi_ar_burst  () ,
+        .slave_axi_ar_cache  () ,
+        .slave_axi_ar_prot   () ,
+        .slave_axi_ar_qos    () ,
+        .slave_axi_ar_valid  () ,
+        .slave_axi_ar_ready  () ,
+
+        .slave_axi_r_id      () ,
+        .slave_axi_r_data    () ,
+        .slave_axi_r_resp    () ,
+        .slave_axi_r_last    () ,
+        .slave_axi_r_valid   () ,
+        .slave_axi_r_ready   () 
+    );
+
+    wire          [4*SLAVE_NUM-1      : 0]              add_axi_aw_id      ;
+    wire          [64*SLAVE_NUM-1     : 0]              add_axi_aw_addr    ;
+    wire          [8*SLAVE_NUM-1      : 0]              add_axi_aw_len     ;
+    wire          [3*SLAVE_NUM-1      : 0]              add_axi_aw_size    ;
+    wire          [2*slave_NUM-1      : 0]              add_axi_aw_burst   ;
+    wire          [4*SLAVE_NUM-1      : 0]              add_axi_aw_cache   ;
+    wire          [3*SLAVE_NUM-1      : 0]              add_axi_aw_prot    ;
+    wire          [4*SLAVE_NUM-1      : 0]              add_axi_aw_qos     ;
+    wire          [1*SLAVE_NUM-1      : 0]              add_axi_aw_valid   ;
+    wire          [1*SLAVE_NUM-1      : 0]              add_axi_aw_ready   ;
+
+    wire          [4*SLAVE_NUM-1      : 0]              add_axi_w_id       ;
+    wire          [64*SLAVE_NUM-1     : 0]              add_axi_w_data     ;
+    wire          [8*SLAVE_NUM-1      : 0]              add_axi_w_strb     ;
+    wire          [1*SLAVE_NUM-1      : 0]              add_axi_w_last     ;
+    wire          [1*SLAVE_NUM-1      : 0]              add_axi_w_valid    ;
+    wire          [1*SLAVE_NUM-1      : 0]              add_axi_w_ready    ;
+
+    wire          [4*SLAVE_NUM-1      : 0]              add_axi_b_id       ;
+    wire          [2*SLAVE_NUM-1      : 0]              add_axi_b_resp     ;
+    wire          [1*SLAVE_NUM-1      : 0]              add_axi_b_valid    ;
+    wire          [1*SLAVE_NUM-1      : 0]              add_axi_b_ready    ;
+
+    wire          [4*SLAVE_NUM-1      : 0]              add_axi_ar_id      ;
+    wire          [64*SLAVE_NUM-1     : 0]              add_axi_ar_addr    ;
+    wire          [8*SLAVE_NUM-1      : 0]              add_axi_ar_len     ;
+    wire          [3*SLAVE_NUM-1      : 0]              add_axi_ar_size    ;
+    wire          [2*SLAVE_NUM-1      : 0]              add_axi_ar_burst   ;
+    wire          [4*SLAVE_NUM-1      : 0]              add_axi_ar_cache   ;
+    wire          [3*SLAVE_NUM-1      : 0]              add_axi_ar_prot    ;
+    wire          [4*SLAVE_NUM-1      : 0]              add_axi_ar_qos     ;
+    wire          [1*SLAVE_NUM-1      : 0]              add_axi_ar_valid   ;
+    wire          [1*SLAVE_NUM-1      : 0]              add_axi_ar_ready   ;
+
+    wire          [4*SLAVE_NUM-1      : 0]              add_axi_r_id       ;
+    wire          [64*SLAVE_NUM-1     : 0]              add_axi_r_data     ;
+    wire          [2*SLAVE_NUM-1      : 0]              add_axi_r_resp     ;
+    wire          [1*SLAVE_NUM-1      : 0]              add_axi_r_last     ;
+    wire          [1*SLAVE_NUM-1      : 0]              add_axi_r_valid    ;
+    wire          [1*SLAVE_NUM-1      : 0]              add_axi_r_ready    ;
+
+
+    wire   [`ysyx22040228_ID_BUS]    soc_axi_aw_id    ;
+    wire   [`ysyx22040228_ADDR_BUS]  soc_axi_aw_addr  ;
+    wire   [`ysyx22040228_LEN_BUS]   soc_axi_aw_len   ;
+    wire   [`ysyx22040228_SIZE_BUS]  soc_axi_aw_size  ;
+    wire   [`ysyx22040228_BURST_BUS] soc_axi_aw_burst ;
+    wire   [`ysyx22040228_CACHE_BUS] soc_axi_aw_cache ;
+    wire   [`ysyx22040228_PROT_BUS]  soc_axi_aw_port  ;
+    wire   [`ysyx22040228_QOS_BUS]   soc_axi_aw_qos   ;
+    wire                             soc_axi_aw_ready ;
+    wire                             soc_axi_aw_valid ;
+
+    wire   [`ysyx22040228_DATA_BUS]  soc_axi_w_data   ;
+    wire   [`ysyx22040228_STRB_BUS]  soc_axi_w_strb   ;
+    wire                             soc_axi_w_last   ;
+    wire                             soc_axi_w_valid  ;
+    wire                             soc_axi_w_ready  ;
+
+    wire   [`ysyx22040228_ID_BUS]    soc_axi_b_id     ;
+    wire   [`ysyx22040228_RESP_BUS]  soc_axi_b_resp   ;
+    wire                             soc_axi_b_valid  ;
+    wire                             soc_axi_b_ready  ;
+
+    wire   [`ysyx22040228_ID_BUS]    soc_axi_ar_id    ;
+    wire   [`ysyx22040228_ADDR_BUS]  soc_axi_ar_addr  ;
+    wire   [`ysyx22040228_LEN_BUS]   soc_axi_ar_len   ;
+    wire   [`ysyx22040228_SIZE_BUS]  soc_axi_ar_size  ;
+    wire   [`ysyx22040228_BURST_BUS] soc_axi_ar_burst ;
+    wire   [`ysyx22040228_CACHE_BUS] soc_axi_ar_cache ;
+    wire   [`ysyx22040228_PROT_BUS]  soc_axi_ar_prot  ;
+    wire   [`ysyx22040228_QOS_BUS]   soc_axi_ar_qos   ;
+    wire                             soc_axi_ar_valid ;
+    wire                             soc_axi_ar_ready ;
+
+    wire   [`ysyx22040228_ID_BUS]    soc_axi_r_id     ;
+    wire   [`ysyx22040228_DATA_BUS]  soc_axi_r_data   ;
+    wire   [`ysyx22040228_RESP_BUS]  soc_axi_r_resp   ;
+    wire                             soc_axi_r_last   ;
+    wire                             soc_axi_r_valid  ;
+    wire                             soc_axi_r_ready  ;
+
+    
+
 endmodule
 

@@ -4,7 +4,8 @@ Name:axi4_lite.v
 Function:AXI4 bus
 ************************************************************/
 
-`include "defines_axi4.v"
+`include "./vsrc/defines_axi4.v"
+`include "./vsrc/defines.v"
 
 module axi4_lite #(
     parameter ADDR_WIDE = 64,

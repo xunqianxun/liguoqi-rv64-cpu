@@ -267,6 +267,9 @@ VL_MODULE(VSocTop___024root) {
         QData/*63:0*/ SocTop__DOT__d_cache13__DOT__u_data0__DOT__out_data;
         QData/*63:0*/ SocTop__DOT__d_cache13__DOT__u_data1__DOT__out_data;
         QData/*63:0*/ SocTop__DOT__arbitrate4__DOT__d_cache_data_outp;
+        QData/*63:0*/ SocTop__DOT__axi_mnq4__DOT__read_addr_reg;
+        QData/*63:0*/ SocTop__DOT__axi_mnq4__DOT__write_data_reg;
+        QData/*63:0*/ SocTop__DOT__axi_mnq4__DOT__write_addr_reg;
         VlUnpacked<QData/*63:0*/, 32> SocTop__DOT__rvcpu1__DOT__regfile10__DOT__regs;
         VlUnpacked<CData/*2:0*/, 64> SocTop__DOT__i_cache12__DOT__i_counter1;
         VlUnpacked<CData/*2:0*/, 64> SocTop__DOT__i_cache12__DOT__i_counter2;
