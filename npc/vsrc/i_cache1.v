@@ -36,6 +36,8 @@ module i_cache1 (
     /* verilator lint_on UNOPTFLAT */
     reg       inst_hit_ok   ;
     reg       write_i_ok    ;
+    wire      state_sign    ;
+    assign state_sign = (~inst_ena) && (inst_ready) ;
 
     always @(*) begin 
         if(rst == `ysyx22040228_RSTENA) begin
@@ -44,7 +46,7 @@ module i_cache1 (
         else begin
             case (state_inst)
                `ysyx22040228_IDLE : begin
-                   if((~inst_ena) && (inst_ready))
+                   if(state_sign)
                         state_inst = `ysyx22040228_CHOSE;
                    state_inst = `ysyx22040228_IDLE;  
                end 

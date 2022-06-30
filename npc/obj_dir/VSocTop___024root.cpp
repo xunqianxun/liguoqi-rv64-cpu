@@ -221,8 +221,8 @@ VL_INLINE_OPT void VSocTop___024root___sequent__TOP__2(VSocTop___024root* vlSelf
     if (vlSelf->rst) {
         vlSelf->SocTop__DOT__rvcpu1__DOT__regfile10__DOT__i = 0x20U;
     }
-    if ((1U & ((~ (IData)(vlSelf->rst)) & ((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__stall_ctrl) 
-                                           >> 1U)))) {
+    if ((1U & ((~ (IData)(vlSelf->rst)) & (~ ((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__stall_ctrl) 
+                                              >> 1U))))) {
         vlSelf->SocTop__DOT__i_cache12__DOT__i = 0x40U;
     }
     if (((IData)(vlSelf->SocTop__DOT__rvcpu_re) & (IData)(vlSelf->SocTop__DOT__rvcpu_we))) {
@@ -752,8 +752,8 @@ VL_INLINE_OPT void VSocTop___024root___sequent__TOP__2(VSocTop___024root* vlSelf
             = (0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_inst_addr 
                                 >> 3U)));
     }
-    if ((1U & ((~ (IData)(vlSelf->rst)) & ((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__stall_ctrl) 
-                                           >> 1U)))) {
+    if ((1U & ((~ (IData)(vlSelf->rst)) & (~ ((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__stall_ctrl) 
+                                              >> 1U))))) {
         vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter2__v2 
             = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
                 [0U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter2
@@ -1082,8 +1082,8 @@ VL_INLINE_OPT void VSocTop___024root___sequent__TOP__2(VSocTop___024root* vlSelf
             = (0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_inst_addr 
                                 >> 3U)));
     }
-    if ((1U & ((~ (IData)(vlSelf->rst)) & ((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__stall_ctrl) 
-                                           >> 1U)))) {
+    if ((1U & ((~ (IData)(vlSelf->rst)) & (~ ((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__stall_ctrl) 
+                                              >> 1U))))) {
         vlSelf->__Vdlyvval__SocTop__DOT__i_cache12__DOT__i_counter1__v2 
             = ((7U == vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
                 [0U]) ? 7U : (7U & ((IData)(1U) + vlSelf->SocTop__DOT__i_cache12__DOT__i_counter1
@@ -5264,8 +5264,8 @@ VL_INLINE_OPT void VSocTop___024root___combo__TOP__7(VSocTop___024root* vlSelf) 
             vlSelf->SocTop__DOT__i_cache12__DOT__state_inst = 0x10U;
         }
     } else if ((1U & (IData)(vlSelf->SocTop__DOT__i_cache12__DOT__state_inst))) {
-        if ((1U & ((~ (IData)(vlSelf->rst)) & ((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__stall_ctrl) 
-                                               >> 1U)))) {
+        if ((1U & ((~ (IData)(vlSelf->rst)) & (~ ((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__stall_ctrl) 
+                                                  >> 1U))))) {
             vlSelf->SocTop__DOT__i_cache12__DOT__state_inst = 2U;
         }
         vlSelf->SocTop__DOT__i_cache12__DOT__state_inst = 1U;

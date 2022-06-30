@@ -2190,8 +2190,8 @@ void VSocTop___024root___settle__TOP__4(VSocTop___024root* vlSelf) {
             vlSelf->SocTop__DOT__i_cache12__DOT__state_inst = 0x10U;
         }
     } else if ((1U & (IData)(vlSelf->SocTop__DOT__i_cache12__DOT__state_inst))) {
-        if ((1U & ((~ (IData)(vlSelf->rst)) & ((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__stall_ctrl) 
-                                               >> 1U)))) {
+        if ((1U & ((~ (IData)(vlSelf->rst)) & (~ ((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__stall_ctrl) 
+                                                  >> 1U))))) {
             vlSelf->SocTop__DOT__i_cache12__DOT__state_inst = 2U;
         }
         vlSelf->SocTop__DOT__i_cache12__DOT__state_inst = 1U;
