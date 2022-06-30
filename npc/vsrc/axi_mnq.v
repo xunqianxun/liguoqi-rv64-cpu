@@ -113,8 +113,8 @@ module axi_mnq (
     assign write_ram_addr = (s_write_state == `ysyx22040228_S_RESP) ? s_axi_aw_addr      : `ysyx22040228_ZEROWORD;
     assign write_ram_data = (s_write_state == `ysyx22040228_S_RESP) ? s_axi_w_data       : `ysyx22040228_ZEROWORD;
 
-    wire   ar_shankhand   = s_axi_ar_ready && s_axi_ar_valid && (axi_ar_Len == 8'd0) && (axi_ar_size == 3'b011) && (axi_ar_burst == 2'b0) ;
-    wire   r_shankhand    = axi_r_ready && axi_r_valid ;
+    wire   ar_shankhand   = s_axi_ar_ready && s_axi_ar_valid && (s_axi_ar_Len == 8'd0) && (s_axi_ar_size == 3'b011) && (s_axi_ar_burst == 2'b0) ;
+    wire   r_shankhand    = s_axi_r_ready && s_axi_r_valid ;
     reg  [1:0] s_read_state     ;
     reg  [1:0] s_read_state_nxt ;
     always @(posedge clk or negedge rst) begin
@@ -129,7 +129,7 @@ module axi_mnq (
             `ysyx22040228_S_IDLE : begin
                 if(ar_shankhand)
                     s_read_state_nxt <= `ysyx22040228_S_DATA ;
-                else if(axi_ar_valid)
+                else if(s_axi_ar_valid)
                     s_read_state_nxt <= `ysyx22040228_S_ADDR ;
                 else 
                     s_read_state_nxt <= `ysyx22040228_S_IDLE ;
@@ -154,8 +154,8 @@ module axi_mnq (
     assign s_axi_r_valid  = (s_read_state == `ysyx22040228_S_DATA) ;
     assign s_axi_r_id     = (s_read_state == `ysyx22040228_S_DATA) ? s_axi_ar_id : 4'b0 ;
     assign s_axi_r_resp   = 2'b00 ;
-    assign s_axi_r_last   = (s_read_stste == `ysyx22040228_S_DATA) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE; 
-    assign s_axi_r_data   = (s_read_stste == `ysyx22040228_S_DATA) ? ((s_axi_ar_id == 4'b0000) ? ram_data_in : {32'b0, inst_data_in}) : `ysyx22040228_ZEROWORD;
+    assign s_axi_r_last   = (s_read_state == `ysyx22040228_S_DATA) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE; 
+    assign s_axi_r_data   = (s_read_state == `ysyx22040228_S_DATA) ? ((s_axi_ar_id == 4'b0000) ? ram_data_in : {32'b0, inst_data_in}) : `ysyx22040228_ZEROWORD;
 
     assign read_ram_ena   = ((s_read_state == `ysyx22040228_S_DATA) & (s_axi_ar_id == 4'b0000)) ;
     assign read_inst_ena  = ((s_read_state == `ysyx22040228_S_DATA) & (s_axi_ar_id == 4'b0001)) ;
