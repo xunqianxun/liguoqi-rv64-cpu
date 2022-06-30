@@ -42,6 +42,7 @@ VL_MODULE(VSocTop___024root) {
         CData/*0:0*/ SocTop__DOT__t_axi_aw_ready;
         CData/*0:0*/ SocTop__DOT__t_axi_aw_valid;
         CData/*0:0*/ SocTop__DOT__t_axi_w_valid;
+        CData/*0:0*/ SocTop__DOT__t_axi_ar_valid;
         CData/*0:0*/ SocTop__DOT__t_axi_ar_ready;
         CData/*3:0*/ SocTop__DOT__t_axi_r_id;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__if_stall_req;
@@ -96,9 +97,9 @@ VL_MODULE(VSocTop___024root) {
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__id3__DOT__inst_addw;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__id3__DOT__inst_subw;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__id3__DOT__inst_sllw;
-        CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__id3__DOT__inst_srlw;
     };
     struct {
+        CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__id3__DOT__inst_srlw;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__id3__DOT__inst_sraw;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__id3__DOT__inst_csrrw;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__id3__DOT__inst_csrrs;
@@ -162,9 +163,9 @@ VL_MODULE(VSocTop___024root) {
         CData/*0:0*/ SocTop__DOT__d_cache13__DOT__read_cache;
         CData/*0:0*/ SocTop__DOT__d_cache13__DOT__tag_ena1;
         CData/*0:0*/ SocTop__DOT__d_cache13__DOT__tag_ena2;
-        CData/*7:0*/ SocTop__DOT__d_cache13__DOT__data_ena1;
     };
     struct {
+        CData/*7:0*/ SocTop__DOT__d_cache13__DOT__data_ena1;
         CData/*7:0*/ SocTop__DOT__d_cache13__DOT__data_ena2;
         CData/*0:0*/ SocTop__DOT__d_cache13__DOT__u_tag0__DOT__out_vaild;
         CData/*0:0*/ SocTop__DOT__d_cache13__DOT__u_tag1__DOT__out_vaild;
@@ -228,9 +229,9 @@ VL_MODULE(VSocTop___024root) {
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__exmem_mem_data;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__exmem_mem_lsaddr;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex_ex_mem_pc;
-        QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex_mem_mem_pc;
     };
     struct {
+        QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex_mem_mem_pc;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__mem_mem_wb_pc;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__pip_fore0__DOT__operand1;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__pip_fore0__DOT__j_pc;
