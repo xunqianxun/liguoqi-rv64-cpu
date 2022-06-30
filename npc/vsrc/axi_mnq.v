@@ -164,5 +164,6 @@ module axi_mnq (
 
     assign read_ram_ena   = ((s_read_state == `ysyx22040228_S_DATA) & (s_axi_ar_id == 4'b0000)) ;
     assign read_inst_ena  = ((s_read_state == `ysyx22040228_S_DATA) & (s_axi_ar_id == 4'b0001)) ;
-    assign addr_oup       = ((s_read_state == `ysyx22040228_S_DATA) ? s_axi_ar_addr : `ysyx22040228_ZEROWORD ;
+    assign addr_oup       = (s_read_state == `ysyx22040228_S_DATA) ? s_axi_ar_addr : `ysyx22040228_ZEROWORD ;
+
 endmodule
