@@ -115,7 +115,7 @@ module i_cache1 (
     // assign inst_valid      = (state_inst == `ysyx22040228_HIT) ? `ysyx22040228_ABLE   :
     //                          inst_write_cache                  ? `ysyx22040228_ABLE   :
     //                                                             `ysyx22040228_ENABLE  ;                        
-    assign inst_valid      = 1`b1;
+    assign inst_valid      = 1'b1;
 
     wire    [5:0]    i_cache_addr1;
     wire    [55:0]   i_cache_tag1 ;
