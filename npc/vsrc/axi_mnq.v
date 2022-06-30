@@ -107,7 +107,7 @@ module axi_mnq (
 
     assign s_axi_b_id     = 4'b0000;
     assign s_axi_b_resp   = 2'b00  ;
-    assign s_axi_b_valid  = (s_write_state == `ysyx22040228_S_RESP) : `ysyx22040228_ABLE : `ysyx22040228_ENABLE ;
+    assign s_axi_b_valid  = (s_write_state == `ysyx22040228_S_RESP) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE ;
 
     assign write_ram_ena  = (s_write_state == `ysyx22040228_S_RESP) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE ;
     assign write_ram_addr = (s_write_state == `ysyx22040228_S_RESP) ? s_axi_aw_addr      : `ysyx22040228_ZEROWORD;
