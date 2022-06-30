@@ -119,7 +119,7 @@ module i_cache1 (
     assign inst_data       = (state_inst == `ysyx22040228_HIT) && (inst_ena) ? ((i_tag_data1 == i_in_teg) ? i_out_data1 : i_out_data2) :
                              inst_write_cache                                ? (inst_in_cache1 ? i_out_data1 : i_out_data2)            :
                                                                               32'b0;                   
-    assign inst_valid      = axi_working_ti;
+    assign inst_valid      = ~axi_working_ti;
 
     wire    [5:0]    i_cache_addr1;
     wire    [55:0]   i_cache_tag1 ;
