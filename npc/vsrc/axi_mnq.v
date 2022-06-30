@@ -133,25 +133,25 @@ module axi_mnq (
         case (s_read_state)
             `ysyx22040228_S_IDLE : begin
                 if(ar_shankhand)
-                    s_read_state_nxt <= `ysyx22040228_S_DATA ;
+                    s_read_state_nxt = `ysyx22040228_S_DATA ;
                 else if(s_axi_ar_valid)
-                    s_read_state_nxt <= `ysyx22040228_S_ADDR ;
-                else 
-                    s_read_state_nxt <= `ysyx22040228_S_IDLE ;
+                    s_read_state_nxt = `ysyx22040228_S_ADDR ;
+                else
+                    s_read_state_nxt = `ysyx22040228_S_IDLE ;
             end 
             `ysyx22040228_S_ADDR : begin
                 if(ar_shankhand)
-                    s_read_state_nxt <= `ysyx22040228_S_DATA ;
+                    s_read_state_nxt = `ysyx22040228_S_DATA ;
                 else 
-                    s_read_state_nxt <= `ysyx22040228_S_ADDR ;
+                    s_read_state_nxt = `ysyx22040228_S_ADDR ;
             end        
             `ysyx22040228_S_DATA : begin
                 if(r_shankhand)
-                    s_read_state_nxt <= `ysyx22040228_S_IDLE ;
+                    s_read_state_nxt = `ysyx22040228_S_IDLE ;
                 else 
-                    s_read_state_nxt <= `ysyx22040228_S_DATA ; 
+                    s_read_state_nxt = `ysyx22040228_S_DATA ; 
             end 
-            default: s_read_state_nxt <= `ysyx22040228_S_IDLE;
+            default: s_read_state_nxt = `ysyx22040228_S_IDLE;
         endcase
     end
 

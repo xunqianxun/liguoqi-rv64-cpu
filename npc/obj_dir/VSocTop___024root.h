@@ -617,7 +617,6 @@ VL_MODULE(VSocTop___024root) {
         CData/*5:0*/ __Vchglast__TOP__SocTop__DOT__i_cache12__DOT__state_inst;
     };
     struct {
-        CData/*1:0*/ __Vchglast__TOP__SocTop__DOT__axi_mnq4__DOT__s_write_state_nxt;
         QData/*63:0*/ __Vdly__SocTop__DOT__rvcpu_inst_addr;
         QData/*54:0*/ __Vdlyvval__SocTop__DOT__i_cache12__DOT__u_tag01__DOT__ram__v0;
         QData/*54:0*/ __Vdlyvval__SocTop__DOT__i_cache12__DOT__u_tag02__DOT__ram__v0;
