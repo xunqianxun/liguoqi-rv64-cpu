@@ -74,7 +74,7 @@ module axi_mnq (
 
     reg  [1:0]  s_write_state     ;
     reg  [1:0]  s_write_state_nxt ;
-    always @(*) begin
+    always @(posedge clk) begin
         if(rst == `ysyx22040228_RSTENA)
             s_write_state <= `ysyx22040228_S_IDLE ;
         else 
