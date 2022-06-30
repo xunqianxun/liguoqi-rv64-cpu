@@ -113,7 +113,7 @@ module axi_mnq (
     assign write_ram_addr = (s_write_state == `ysyx22040228_S_RESP) ? s_axi_aw_addr      : `ysyx22040228_ZEROWORD;
     assign write_ram_data = (s_write_state == `ysyx22040228_S_RESP) ? s_axi_w_data       : `ysyx22040228_ZEROWORD;
 
-    wire   ar_shankhand   = s_axi_ar_ready && s_axi_ar_valid && (s_axi_ar_Len == 8'd0) && (s_axi_ar_size == 3'b011) && (s_axi_ar_burst == 2'b0) ;
+    wire   ar_shankhand   = s_axi_ar_ready && s_axi_ar_valid && (s_axi_ar_len == 8'd0) && (s_axi_ar_size == 3'b011) && (s_axi_ar_burst == 2'b0) ;
     wire   r_shankhand    = s_axi_r_ready && s_axi_r_valid ;
     reg  [1:0] s_read_state     ;
     reg  [1:0] s_read_state_nxt ;
