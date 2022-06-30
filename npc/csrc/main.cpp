@@ -197,20 +197,34 @@ if((main_time % 10) == 9){
 extern void isa_exec_once(int y){
 int ddy ;
 ddy = y;
-int mask ;
-mask = 0xffffffffffffffff ;
 while(ddy){
   if(main_time > 10) {
     rvcpu->rst = 0 ;
   }
-  if((main_time%10) == 1) {
-    if(rvcpu->out_axi_aw_valid && rvcpu->out_axi_w_valid){
-      rvcpu->out_axi_aw_ready  = true ;
+  if((main_time % 10) == 1){
+    if(rvcpu->out_read_inst_ena) {
+      rvcpu->in_inst_data_in = ifetch(rvcpu->out_addr_outp, 4);
     }
-    if((rvcpu->out_axi_aw_len == 0) && (rvcpu->out_axi_aw_size == 64) && (rvcpu->out_axi_aw_burst == 2'b01)){
-      
+    if(rvcpu->out_read_ram_ena){
+      rvcpu->in_ram_data_in = vaddr_read(rvcpu->out_addr_outp, 8);
+    }
+    if(rvcpu->out_write_ram_ena){
+      vaddr_write(rvcpu->out_write_ram_addr, 8, rvcpu->out_write_ram_data);
     }
   }
+  rvcpu->eval();
+  if((main_time % 10) == 6){
+  rvcpu->clk = 0;
+  }
+
+  if((main_time % 10) == 9){
+    rvcpu->clk = 0;
+    ddy = 0;
+  }
+
+  rvcpu->eval();
+  tfp->dump(main_time);
+  main_time++;
 }
 }
 #endif

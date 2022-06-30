@@ -2413,8 +2413,6 @@ void VSocTop___024root___eval_settle(VSocTop___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    VSocTop___024root___eval_settle\n"); );
     // Body
     VSocTop___024root___settle__TOP__4(vlSelf);
-    vlSelf->__Vm_traceActivity[6U] = 1U;
-    vlSelf->__Vm_traceActivity[5U] = 1U;
     vlSelf->__Vm_traceActivity[4U] = 1U;
     vlSelf->__Vm_traceActivity[3U] = 1U;
     vlSelf->__Vm_traceActivity[2U] = 1U;
@@ -3029,15 +3027,15 @@ void VSocTop___024root___ctor_var_reset(VSocTop___024root* vlSelf) {
     vlSelf->__Vdlyvset__SocTop__DOT__d_cache13__DOT__u_tag1__DOT__ram__v0 = 0;
     vlSelf->__Vdlyvdim0__SocTop__DOT__d_cache13__DOT__u_tag1__DOT__ram__v1 = 0;
     vlSelf->__Vdlyvlsb__SocTop__DOT__d_cache13__DOT__u_tag1__DOT__ram__v1 = 0;
+    vlSelf->__Vdly__SocTop__DOT__axi_mnq4__DOT__s_read_state = VL_RAND_RESET_I(2);
     vlSelf->__Vdly__SocTop__DOT__i_cache12__DOT__inst_write_cache = VL_RAND_RESET_I(1);
     vlSelf->__Vdly__SocTop__DOT__i_cache12__DOT__write_i_ok = VL_RAND_RESET_I(1);
     vlSelf->__Vdly__SocTop__DOT__d_cache13__DOT__write_incache = VL_RAND_RESET_I(1);
     vlSelf->__Vdly__SocTop__DOT__d_cache13__DOT__write_ok = VL_RAND_RESET_I(1);
     vlSelf->__Vdly__SocTop__DOT__d_cache13__DOT__read_cache = VL_RAND_RESET_I(1);
     vlSelf->__Vdly__SocTop__DOT__d_cache13__DOT__write_l_ok = VL_RAND_RESET_I(1);
-    vlSelf->__Vdly__SocTop__DOT__axi_mnq4__DOT__s_read_state = VL_RAND_RESET_I(2);
     vlSelf->__Vchglast__TOP__SocTop__DOT__i_cache12__DOT__state_inst = VL_RAND_RESET_I(6);
-    for (int __Vi0=0; __Vi0<7; ++__Vi0) {
+    for (int __Vi0=0; __Vi0<5; ++__Vi0) {
         vlSelf->__Vm_traceActivity[__Vi0] = VL_RAND_RESET_I(1);
     }
 }
