@@ -74,7 +74,7 @@ module axi_mnq (
 
     reg  [1:0]  s_write_state     ;
     reg  [1:0]  s_write_state_nxt ;
-    always @(posedge clk or negedge rst) begin
+    always @(posedge clk) begin
         if(rst == `ysyx22040228_RSTENA)
             s_write_state <= `ysyx22040228_S_IDLE ;
         else 
@@ -122,14 +122,14 @@ module axi_mnq (
     wire   r_shankhand    = s_axi_r_ready && s_axi_r_valid ;
     reg  [1:0] s_read_state     ;
     reg  [1:0] s_read_state_nxt ;
-    always @(posedge clk or negedge rst) begin
+    always @(posedge clk) begin
         if(rst == `ysyx22040228_RSTENA)
             s_read_state  <= `ysyx22040228_S_IDLE ;
         else 
             s_read_state  <= s_read_state_nxt     ;
     end
 
-    always @(posedge clk or negedge rst) begin
+    always @(posedge clk) begin
         case (s_read_state)
             `ysyx22040228_S_IDLE : begin
                 if(ar_shankhand)
