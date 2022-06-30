@@ -38,7 +38,8 @@ module d_cache1 (
     output        wire        [63:0]                          out_dcache_addr    ,
     output        wire        [`ysyx22040228_DCACHE_DATA_W]   out_dcache_data    ,
     output        wire                                        outr_dcache_ena    ,
-    output        wire                                        outw_dcache_ena 
+    output        wire                                        outw_dcache_ena    
+    //input         wire                                        axi_working_td     
 );
     wire [5:0]  count_addr ;
     assign count_addr = mem_addr_i[8:3];

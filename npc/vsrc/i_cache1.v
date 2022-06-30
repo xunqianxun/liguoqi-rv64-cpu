@@ -19,7 +19,8 @@ module i_cache1 (
     output      wire                                         cache_read_ena  ,
     output      wire          [63:0]                         cache_addr      ,
     input       wire          [31:0]                         cache_or_data   ,
-    input       wire                                         cache_in_ok                                     
+    input       wire                                         cache_in_ok     ,
+    input       wire                                         axi_working_ti                                  
 );
 
     `define ysyx22040228_IDLE    6'b000001
@@ -52,7 +53,7 @@ module i_cache1 (
                         state_inst = `ysyx22040228_IDLE;  
                end 
                `ysyx22040228_CHOSE : begin
-                   if(((i_tag_data1 == i_in_teg) && (i_tag_user1 == `ysyx22040228_ABLE)) || (i_tag_data2 == i_in_teg) && (i_tag_user2 == `ysyx22040228_ABLE)) 
+                   if(((i_tag_data1 == i_in_teg) && (i_tag_user1 == `ysyx22040228_ABLE)) || ((i_tag_data2 == i_in_teg) && (i_tag_user2 == `ysyx22040228_ABLE))) 
                        state_inst = `ysyx22040228_HIT;
                    else 
                     state_inst = `ysyx22040228_WRITE;  
@@ -117,11 +118,8 @@ module i_cache1 (
     assign cache_read_ena  = ((state_inst == `ysyx22040228_WRITE) && (~cache_in_ok)) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE  ;
     assign inst_data       = (state_inst == `ysyx22040228_HIT) && (inst_ena) ? ((i_tag_data1 == i_in_teg) ? i_out_data1 : i_out_data2) :
                              inst_write_cache                                ? (inst_in_cache1 ? i_out_data1 : i_out_data2)            :
-                                                                              32'b0;
-    // assign inst_valid      = (state_inst == `ysyx22040228_HIT) ? `ysyx22040228_ABLE   :
-    //                          inst_write_cache                  ? `ysyx22040228_ABLE   :
-    //                                                             `ysyx22040228_ENABLE  ;                        
-    assign inst_valid      = 1'b1;
+                                                                              32'b0;                   
+    assign inst_valid      = axi_working_ti;
 
     wire    [5:0]    i_cache_addr1;
     wire    [55:0]   i_cache_tag1 ;

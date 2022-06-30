@@ -64,11 +64,13 @@ module arbitrate (
     input       wire       [7:0 ]                            d_cache_mask         ,
     output      wire       [63:0]                            d_cache_data_o       ,
     output      wire                                         d_cache_ok           ,
+    //output      wire                                         axi_working_td       ,
     //----------------------------i_cache----------------------------------------//
     input       wire       [63:0]                            i_cache_addr         ,
     input       wire                                         i_cache_ena          ,
     output      wire       [31:0]                            i_cache_data_o       ,
     output      wire                                         i_cache_ok           ,
+    output      wire                                         axi_working_ti       ,
     //---------------------------axi sign----------------------------------------//
 
     //----------------------write address cahnnel--------------------------------//
@@ -116,8 +118,9 @@ module arbitrate (
     input       wire                                         axi_r_valid          ,
     output      wire                                         axi_r_ready           
 );
+    assign axi_working_ti = (i_cache_state != `ysyx22040228_READ_IDLE) || (d_cache_state != `ysyx22040228_READ_IDLE) || (i_cache_ena && d_cache_read_ena);
+    //assign axi_working_td = (transfor_state != `ysyx22040228_ABE_IDLE) || (d_cache_state != `ysyx22040228_READ_IDLE) ;
 
-    
     //-----------------------------write about sign-------------------------------//
     //-------------------------wirte channel sign make----------------------------// 
     wire  aw_shankhand = axi_aw_valid && axi_aw_ready;
@@ -202,10 +205,12 @@ module arbitrate (
     assign i_cache_r_shankhand  = r_shankhand && (axi_r_id == 4'b0001)         ;
     //assign i_cache_rsuccess     = i_cache_r_shankhand && (axi_r_resp == 2'b00) ;
 
+    wire arb_sign      ;
     wire i_cache_valid ;
     wire d_cache_valid ;
-    assign i_cache_valid = (i_cache_state != `ysyx22040228_READ_ADDR) && (i_cache_state != `ysyx22040228_READ_DATA) && d_cache_read_ena;
-    assign d_cache_valid = (i_cache_state != `ysyx22040228_READ_ADDR) && (i_cache_state != `ysyx22040228_READ_DATA) && i_cache_ena     ;
+    assign arb_sign      = (i_cache_ena && d_cache_read_ena);
+    assign i_cache_valid = (i_cache_state != `ysyx22040228_READ_ADDR) && (i_cache_state != `ysyx22040228_READ_DATA) && i_cache_ena && (~arb_sign) ;
+    assign d_cache_valid = (i_cache_state != `ysyx22040228_READ_ADDR) && (i_cache_state != `ysyx22040228_READ_DATA) && d_cache_read_ena           ;
 
     reg [1:0] i_cache_state     ;
     reg [1:0] i_cache_state_nxt ;

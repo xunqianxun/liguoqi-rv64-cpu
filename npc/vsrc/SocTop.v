@@ -95,6 +95,7 @@ module SocTop (
     wire            arbitrate_d_ok   ;
     wire  [31:0]    arbitrate_i_data ;
     wire            arbitrate_i_ok   ;
+    wire            arbitrate_ti_sign;
 
     wire   time_init_sign       ;
     assign time_init_sign = 1'b0;
@@ -214,7 +215,8 @@ module SocTop (
         .cache_read_ena      (i_cache_read_ena    ) ,
         .cache_addr          (i_cache_addr        ) ,
         .cache_or_data       (arbitrate_i_data    ) ,
-        .cache_in_ok         (arbitrate_i_ok      )                             
+        .cache_in_ok         (arbitrate_i_ok      ) ,
+        .axi_working_ti      (arbitrate_ti_sign   )                           
 );
     
     d_cache1 d_cache13 (
@@ -260,6 +262,7 @@ module SocTop (
         .i_cache_ena         (i_cache_read_ena   ) ,
         .i_cache_data_o      (arbitrate_i_data   ) ,
         .i_cache_ok          (arbitrate_i_ok     ) ,
+        .axi_working_ti      (arbitrate_ti_sign  ) ,
 
         .axi_aw_id           (t_axi_aw_id        ) ,
         .axi_aw_addr         (t_axi_aw_addr      ) ,
