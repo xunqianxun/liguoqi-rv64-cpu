@@ -14,49 +14,57 @@ module SocTop (
     input            wire                                    rst                  ,
    //-----------------------------AXI--------------------------------------------//
    //----------------------write address cahnnel---------------------------------//
-    output      wire       [`ysyx22040228_ID_BUS]            out_axi_aw_id        ,
-    output      wire       [`ysyx22040228_ADDR_BUS]          out_axi_aw_addr      ,
-    output      wire       [`ysyx22040228_LEN_BUS]           out_axi_aw_len       ,
-    output      wire       [`ysyx22040228_SIZE_BUS]          out_axi_aw_size      ,
-    output      wire       [`ysyx22040228_BURST_BUS]         out_axi_aw_burst     ,
-    output      wire       [`ysyx22040228_CACHE_BUS]         out_axi_aw_cache     ,
-    output      wire       [`ysyx22040228_PROT_BUS]          out_axi_aw_port      ,
-    output      wire       [`ysyx22040228_QOS_BUS]           out_axi_aw_qos       ,
-    output      wire                                         out_axi_aw_valid     ,
-    input       wire                                         out_axi_aw_ready     ,
+    // output      wire       [`ysyx22040228_ID_BUS]            out_axi_aw_id        ,
+    // output      wire       [`ysyx22040228_ADDR_BUS]          out_axi_aw_addr      ,
+    // output      wire       [`ysyx22040228_LEN_BUS]           out_axi_aw_len       ,
+    // output      wire       [`ysyx22040228_SIZE_BUS]          out_axi_aw_size      ,
+    // output      wire       [`ysyx22040228_BURST_BUS]         out_axi_aw_burst     ,
+    // output      wire       [`ysyx22040228_CACHE_BUS]         out_axi_aw_cache     ,
+    // output      wire       [`ysyx22040228_PROT_BUS]          out_axi_aw_port      ,
+    // output      wire       [`ysyx22040228_QOS_BUS]           out_axi_aw_qos       ,
+    // output      wire                                         out_axi_aw_valid     ,
+    // input       wire                                         out_axi_aw_ready     ,
 
-    //----------------------write data channel-----------------------------------//
-    output      wire       [`ysyx22040228_DATA_BUS]          out_axi_w_data       ,
-    output      wire       [`ysyx22040228_STRB_BUS]          out_axi_w_strb       ,
-    output      wire                                         out_axi_w_last       ,
-    output      wire                                         out_axi_w_valid      ,
-    input       wire                                         out_axi_w_ready      ,
+    // //----------------------write data channel-----------------------------------//
+    // output      wire       [`ysyx22040228_DATA_BUS]          out_axi_w_data       ,
+    // output      wire       [`ysyx22040228_STRB_BUS]          out_axi_w_strb       ,
+    // output      wire                                         out_axi_w_last       ,
+    // output      wire                                         out_axi_w_valid      ,
+    // input       wire                                         out_axi_w_ready      ,
 
-    //-----------------------write response channel------------------------------//
-    input       wire       [`ysyx22040228_ID_BUS]            out_axi_b_id         ,
-    input       wire       [`ysyx22040228_RESP_BUS]          out_axi_b_resp       ,
-    input       wire                                         out_axi_b_valid      ,
-    output      wire                                         out_axi_b_ready      ,
+    // //-----------------------write response channel------------------------------//
+    // input       wire       [`ysyx22040228_ID_BUS]            out_axi_b_id         ,
+    // input       wire       [`ysyx22040228_RESP_BUS]          out_axi_b_resp       ,
+    // input       wire                                         out_axi_b_valid      ,
+    // output      wire                                         out_axi_b_ready      ,
 
-    //------------------------read address channel-------------------------------//
-    output      wire       [`ysyx22040228_ID_BUS]            out_axi_ar_id        ,
-    output      wire       [`ysyx22040228_ADDR_BUS]          out_axi_ar_addr      ,
-    output      wire       [`ysyx22040228_LEN_BUS]           out_axi_ar_len       ,
-    output      wire       [`ysyx22040228_SIZE_BUS]          out_axi_ar_size      ,
-    output      wire       [`ysyx22040228_BURST_BUS]         out_axi_ar_burst     ,
-    output      wire       [`ysyx22040228_CACHE_BUS]         out_axi_ar_cache     ,
-    output      wire       [`ysyx22040228_PROT_BUS]          out_axi_ar_prot      ,
-    output      wire       [`ysyx22040228_QOS_BUS]           out_axi_ar_qos       ,
-    output      wire                                         out_axi_ar_valid     ,
-    input       wire                                         out_axi_ar_ready     ,
+    // //------------------------read address channel-------------------------------//
+    // output      wire       [`ysyx22040228_ID_BUS]            out_axi_ar_id        ,
+    // output      wire       [`ysyx22040228_ADDR_BUS]          out_axi_ar_addr      ,
+    // output      wire       [`ysyx22040228_LEN_BUS]           out_axi_ar_len       ,
+    // output      wire       [`ysyx22040228_SIZE_BUS]          out_axi_ar_size      ,
+    // output      wire       [`ysyx22040228_BURST_BUS]         out_axi_ar_burst     ,
+    // output      wire       [`ysyx22040228_CACHE_BUS]         out_axi_ar_cache     ,
+    // output      wire       [`ysyx22040228_PROT_BUS]          out_axi_ar_prot      ,
+    // output      wire       [`ysyx22040228_QOS_BUS]           out_axi_ar_qos       ,
+    // output      wire                                         out_axi_ar_valid     ,
+    // input       wire                                         out_axi_ar_ready     ,
 
-    //------------------------read data channel----------------------------------//
-    input       wire       [`ysyx22040228_ID_BUS]            out_axi_r_id         ,
-    input       wire       [`ysyx22040228_DATA_BUS]          out_axi_r_data       ,
-    input       wire       [`ysyx22040228_RESP_BUS]          out_axi_r_resp       ,
-    input       wire                                         out_axi_r_last       ,
-    input       wire                                         out_axi_r_valid      ,
-    output      wire                                         out_axi_r_ready           
+    // //------------------------read data channel----------------------------------//
+    // input       wire       [`ysyx22040228_ID_BUS]            out_axi_r_id         ,
+    // input       wire       [`ysyx22040228_DATA_BUS]          out_axi_r_data       ,
+    // input       wire       [`ysyx22040228_RESP_BUS]          out_axi_r_resp       ,
+    // input       wire                                         out_axi_r_last       ,
+    // input       wire                                         out_axi_r_valid      ,
+    // output      wire                                         out_axi_r_ready          
+    output        wire                                         out_read_ram_ena     ,
+    output        wire                                         out_read_inst_ena    ,
+    output        wire        [63:0]                           out_addr_outp        ,
+    inout         wire        [31:0]                           in_inst_data_in      ,
+    input         wire        [63:0]                           in_ram_data_in       ,
+    output        wire                                         out_write_ram_ena    ,
+    output        wire        [63:0]                           out_write_ram_data   ,
+    output        wire        [63:0]                           out_write_ram_addr     
 );
   
     //-----------------------------wire about rvcpu------------------------------//
@@ -130,45 +138,45 @@ module SocTop (
     wire                             t_axi_r_valid  ;
     wire                             t_axi_r_ready  ;
     
-    assign out_axi_aw_id    = t_axi_aw_id     ;
-    assign out_axi_aw_addr  = t_axi_aw_addr   ;
-    assign out_axi_aw_len   = t_axi_aw_len    ;
-    assign out_axi_aw_size  = t_axi_aw_size   ;
-    assign out_axi_aw_burst = t_axi_aw_burst  ;
-    assign out_axi_aw_cache = t_axi_aw_cache  ;
-    assign out_axi_aw_port  = t_axi_aw_port   ;
-    assign out_axi_aw_qos   = t_axi_aw_qos    ;
-    assign out_axi_aw_valid = t_axi_aw_valid  ;
-    assign t_axi_aw_ready   = out_axi_aw_ready;
+    // assign out_axi_aw_id    = t_axi_aw_id     ;
+    // assign out_axi_aw_addr  = t_axi_aw_addr   ;
+    // assign out_axi_aw_len   = t_axi_aw_len    ;
+    // assign out_axi_aw_size  = t_axi_aw_size   ;
+    // assign out_axi_aw_burst = t_axi_aw_burst  ;
+    // assign out_axi_aw_cache = t_axi_aw_cache  ;
+    // assign out_axi_aw_port  = t_axi_aw_port   ;
+    // assign out_axi_aw_qos   = t_axi_aw_qos    ;
+    // assign out_axi_aw_valid = t_axi_aw_valid  ;
+    // assign t_axi_aw_ready   = out_axi_aw_ready;
 
-    assign out_axi_w_data   = t_axi_w_data    ;
-    assign out_axi_w_strb   = t_axi_w_strb    ;
-    assign out_axi_w_last   = t_axi_w_last    ;
-    assign out_axi_w_valid  = t_axi_w_valid   ;
-    assign t_axi_w_ready    = out_axi_w_ready ;
+    // assign out_axi_w_data   = t_axi_w_data    ;
+    // assign out_axi_w_strb   = t_axi_w_strb    ;
+    // assign out_axi_w_last   = t_axi_w_last    ;
+    // assign out_axi_w_valid  = t_axi_w_valid   ;
+    // assign t_axi_w_ready    = out_axi_w_ready ;
 
-    assign t_axi_b_id       = out_axi_b_id    ;
-    assign t_axi_b_resp     = out_axi_b_resp  ;
-    assign t_axi_b_valid    = out_axi_b_valid ;
-    assign out_axi_b_ready  = t_axi_b_ready   ;
+    // assign t_axi_b_id       = out_axi_b_id    ;
+    // assign t_axi_b_resp     = out_axi_b_resp  ;
+    // assign t_axi_b_valid    = out_axi_b_valid ;
+    // assign out_axi_b_ready  = t_axi_b_ready   ;
 
-    assign out_axi_ar_id    = t_axi_ar_id     ;
-    assign out_axi_ar_addr  = t_axi_ar_addr   ;
-    assign out_axi_ar_len   = t_axi_ar_len    ;
-    assign out_axi_ar_size  = t_axi_ar_size   ;
-    assign out_axi_ar_burst = t_axi_ar_burst  ;
-    assign out_axi_ar_cache = t_axi_ar_cache  ;
-    assign out_axi_ar_prot  = t_axi_ar_prot   ;
-    assign out_axi_ar_qos   = t_axi_ar_qos    ;
-    assign out_axi_ar_valid = t_axi_ar_valid  ;
-    assign t_axi_ar_ready   = out_axi_ar_ready;
+    // assign out_axi_ar_id    = t_axi_ar_id     ;
+    // assign out_axi_ar_addr  = t_axi_ar_addr   ;
+    // assign out_axi_ar_len   = t_axi_ar_len    ;
+    // assign out_axi_ar_size  = t_axi_ar_size   ;
+    // assign out_axi_ar_burst = t_axi_ar_burst  ;
+    // assign out_axi_ar_cache = t_axi_ar_cache  ;
+    // assign out_axi_ar_prot  = t_axi_ar_prot   ;
+    // assign out_axi_ar_qos   = t_axi_ar_qos    ;
+    // assign out_axi_ar_valid = t_axi_ar_valid  ;
+    // assign t_axi_ar_ready   = out_axi_ar_ready;
 
-    assign t_axi_r_id       = out_axi_r_id    ;
-    assign t_axi_r_data     = out_axi_r_data  ;
-    assign t_axi_r_resp     = out_axi_r_resp  ;
-    assign t_axi_r_last     = out_axi_r_last  ;
-    assign t_axi_r_valid    = out_axi_r_valid ;
-    assign out_axi_r_ready  = t_axi_r_ready   ;
+    // assign t_axi_r_id       = out_axi_r_id    ;
+    // assign t_axi_r_data     = out_axi_r_data  ;
+    // assign t_axi_r_resp     = out_axi_r_resp  ;
+    // assign t_axi_r_last     = out_axi_r_last  ;
+    // assign t_axi_r_valid    = out_axi_r_valid ;
+    // assign out_axi_r_ready  = t_axi_r_ready   ;
 
     rvcpu rvcpu1 (
         .clk                 (clk                 ) ,
@@ -294,5 +302,78 @@ module SocTop (
         .axi_r_ready         (t_axi_r_ready      )  
     );    
 
+    wire         read_ram_sign   ; 
+    wire         read_inst_sign  ;
+    wire [63:0]  addr_oup_sign   ;
+    wire [31:0]  inst_data_sign  ;
+    wire [63:0]  ram_data_sign   ;
+    wire         write_ena_sign  ;
+    wire [63:0]  write_addr_sign ;
+    wire [63:0]  write_data_sign ;
+    assign  out_read_ram_ena  = read_ram_sign ;
+    assign  out_read_inst_ena = read_inst_sign;
+    assign  out_addr_outp     = addr_oup_sign ;
+    assign  inst_data_sign    = in_inst_data_in;
+    assign  ram_data_sign     = in_ram_data_in;
+    assign  out_write_ram_ena = write_ena_sign;
+    assign  out_write_ram_addr= write_addr_sign;
+    assign  out_write_ram_data= write_data_sign;
+    axi_mnq axi_mnq4(
+        .clk                 (clk                ) ,
+        .rst                 (rst                ) ,
+
+        .s_axi_aw_id         (t_axi_aw_id        ) ,
+        .s_axi_aw_addr       (t_axi_aw_addr      ) ,
+        .s_axi_aw_len        (t_axi_aw_len       ) ,
+        .s_axi_aw_size       (t_axi_aw_size      ) ,
+        .s_axi_aw_burst      (t_axi_aw_burst     ) ,
+        .s_axi_aw_cache      (t_axi_aw_cache     ) ,
+        .s_axi_aw_port       (t_axi_aw_port      ) ,
+        .s_axi_aw_qos        (t_axi_aw_qos       ) ,
+        .s_axi_aw_valid      (t_axi_aw_valid     ) ,
+        .s_axi_aw_ready      (t_axi_aw_ready     ) ,
+
+    //----------------------write data channel-----------------------------------//
+        .s_axi_w_data        (t_axi_w_data       ) ,
+        .s_axi_w_strb        (t_axi_w_strb       ) ,
+        .s_axi_w_last        (t_axi_w_last       ) ,
+        .s_axi_w_valid       (t_axi_w_valid      ) ,
+        .s_axi_w_ready       (t_axi_w_ready      ) ,
+
+    //-----------------------write response channel------------------------------//
+        .s_axi_b_id          (t_axi_b_id         ) ,
+        .s_axi_b_resp        (t_axi_b_resp       ) ,
+        .s_axi_b_valid       (t_axi_b_valid      ) ,
+        .s_axi_b_ready       (t_axi_b_ready      ) ,
+
+    //------------------------read address channel-------------------------------//
+        .s_axi_ar_id         (t_axi_ar_id        ) ,
+        .s_axi_ar_addr       (t_axi_ar_addr      ) ,
+        .s_axi_ar_len        (t_axi_ar_len       ) ,
+        .s_axi_ar_size       (t_axi_ar_size      ) ,
+        .s_axi_ar_burst      (t_axi_ar_burst     ) ,
+        .s_axi_ar_cache      (t_axi_ar_cache     ) ,
+        .s_axi_ar_prot       (t_axi_ar_prot      ) ,
+        .s_axi_ar_qos        (t_axi_ar_qos       ) ,
+        .s_axi_ar_valid      (t_axi_ar_valid     ) ,
+        .s_axi_ar_ready      (t_axi_ar_ready     ) ,
+
+    //------------------------read data channel----------------------------------//
+        .s_axi_r_id          (t_axi_r_id         ) ,
+        .s_axi_r_data        (t_axi_r_data       ) ,
+        .s_axi_r_resp        (t_axi_r_resp       ) ,
+        .s_axi_r_last        (t_axi_r_last       ) ,
+        .s_axi_r_valid       (t_axi_r_valid      ) ,    
+        .s_axi_r_ready       (t_axi_r_ready      ) ,
+
+        .read_ram_ena        (read_ram_sign      ) ,
+        .read_inst_ena       (read_inst_sign     ) ,
+        .addr_oup            (addr_oup_sign      ) ,
+        .inst_data_in        (inst_data_sign     ) ,
+        .ram_data_in         (ram_data_sign      ) , 
+        .write_ram_ena       (write_ena_sign     ) ,
+        .write_ram_data      (write_data_sign    ) ,
+        .write_ram_addr      (write_addr_sign    )     
+    );
 endmodule
 

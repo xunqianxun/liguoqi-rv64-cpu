@@ -23,8 +23,8 @@ sim:
 
 run:git
 	@verilator $(VERILAGS) $(LINK) $(LINEREAD) ./csrc/main.cpp $(VERILOG)SocTop.v
-	@make -C $(OBJ_PATH) -f Vrvcpu.mk Vrvcpu
-	./obj_dir/Vrvcpu $(IMGE_FLAGS) $(IMG_NPC)
+	@make -C $(OBJ_PATH) -f VSocTop.mk VSocTop
+	./obj_dir/VSocTop $(IMGE_FLAGS) $(IMG_NPC)
 
 gtk:
 	@gtkwave ./obj_dir/SocTop.vcd

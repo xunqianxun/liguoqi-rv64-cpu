@@ -1,16 +1,24 @@
+// #include <stdlib.h>
+// #include <assert.h>
+// #include "Vrvcpu.h"
+// #include <verilated.h>          
+// #include <verilated_vcd_c.h>  
+// #include <Vrvcpu__Dpi.h>
+// #include "monitor.cpp"
+// #include <svdpi.h>
+
 #include <stdlib.h>
 #include <assert.h>
-#include "Vrvcpu.h"
+#include "VSocTop.h"
 #include <verilated.h>          
 #include <verilated_vcd_c.h>  
-#include <Vrvcpu__Dpi.h>
+#include <VSocTop__Dpi.h>
 #include "monitor.cpp"
 #include <svdpi.h>
 
-
 using namespace std;
 
-Vrvcpu* rvcpu ;
+VSocTop* rvcpu ;
 VerilatedVcdC* tfp;
 VerilatedContext* contextp;
 
@@ -189,12 +197,19 @@ if((main_time % 10) == 9){
 extern void isa_exec_once(int y){
 int ddy ;
 ddy = y;
+int mask ;
+mask = 0xffffffffffffffff ;
 while(ddy){
   if(main_time > 10) {
     rvcpu->rst = 0 ;
   }
   if((main_time%10) == 1) {
-    
+    if(rvcpu->out_axi_aw_valid && rvcpu->out_axi_w_valid){
+      rvcpu->out_axi_aw_ready  = true ;
+    }
+    if((rvcpu->out_axi_aw_len == 0) && (rvcpu->out_axi_aw_size == 64) && (rvcpu->out_axi_aw_burst == 2'b01)){
+      
+    }
   }
 }
 }
