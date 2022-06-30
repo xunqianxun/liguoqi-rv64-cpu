@@ -50,6 +50,14 @@ Function:arbitrate i_cache and d_cache
 `define AXI_SIZE_BYTES_64                                   3'b110
 `define AXI_SIZE_BYTES_128                                  3'b111
 
+`define ysyx22040228_ABE_IDLE       2'b00  
+`define ysyx22040228_ABE_INFO       2'b01
+`define ysyx22040228_ABE_RESP       2'b11
+
+`define ysyx22040228_READ_IDLE      2'b00 
+`define ysyx22040228_READ_ADDR      2'b01
+`define ysyx22040228_READ_DATA      2'b10
+
 `include "./vsrc/defines.v"
 `include "./vsrc/defines_axi4.v"
 module arbitrate (
@@ -127,14 +135,6 @@ module arbitrate (
     wire  w_shankhand  = axi_w_valid  && axi_w_ready ;
     wire  b_shankhand  = axi_b_valid  && axi_b_ready && (axi_b_id == 4'b0000);
     wire  b_success    = b_shankhand  && (axi_b_resp == 2'b00)               ;
-
-    `define ysyx22040228_ABE_IDLE       2'b00  
-    `define ysyx22040228_ABE_INFO       2'b01
-    `define ysyx22040228_ABE_RESP       2'b11
-
-    `define ysyx22040228_READ_IDLE      2'b00 
-    `define ysyx22040228_READ_ADDR      2'b01
-    `define ysyx22040228_READ_DATA      2'b10
 
     reg [1:0] transfor_state    ;
     reg [1:0] transfor_state_nex;
