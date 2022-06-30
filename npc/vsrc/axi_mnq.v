@@ -115,8 +115,8 @@ module axi_mnq (
     assign s_axi_b_valid  = (s_write_state == `ysyx22040228_S_RESP) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE ;
 
     assign write_ram_ena  = (s_write_state == `ysyx22040228_S_RESP) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE ;
-    assign write_ram_addr = (s_write_state == `ysyx22040228_S_RESP) ? s_axi_aw_addr      : `ysyx22040228_ZEROWORD;
-    assign write_ram_data = (s_write_state == `ysyx22040228_S_RESP) ? s_axi_w_data       : `ysyx22040228_ZEROWORD;
+    assign write_ram_addr = (s_write_state == `ysyx22040228_S_RESP) ? write_addr_reg     : `ysyx22040228_ZEROWORD;
+    assign write_ram_data = (s_write_state == `ysyx22040228_S_RESP) ? write_data_reg     : `ysyx22040228_ZEROWORD;
 
     wire   ar_shankhand   = s_axi_ar_ready && s_axi_ar_valid && (s_axi_ar_len == 8'd0) && (s_axi_ar_size == 3'b011) && (s_axi_ar_burst == 2'b01) ;
     wire   r_shankhand    = s_axi_r_ready && s_axi_r_valid ;
@@ -154,6 +154,21 @@ module axi_mnq (
             default: s_read_state_nxt = `ysyx22040228_S_IDLE;
         endcase
     end
+    reg  [63:0]  read_addr_reg ;
+    reg  [63:0]  write_data_reg;
+    reg  [63:0]  write_addr_reg;
+    always @(posedge clk) begin
+        if(rst == `ysyx22040228_RSTENA)begin
+            read_addr_reg   <= `ysyx22040228_ZEROWORD;
+            write_data_reg  <= `ysyx22040228_ZEROWORD;
+            write_addr_reg  <= `ysyx22040228_ZEROWORD;
+        end
+        else begin
+            read_addr_reg   <= s_axi_ar_addr;
+            write_data_reg  <= s_axi_w_data ;
+            write_addr_reg  <= s_axi_aw_addr;
+        end 
+    end
 
     assign s_axi_ar_ready = ((s_read_state == `ysyx22040228_S_IDLE) | (s_read_state == `ysyx22040228_S_ADDR)) ;
     assign s_axi_r_valid  = (s_read_state == `ysyx22040228_S_DATA) ;
@@ -164,6 +179,6 @@ module axi_mnq (
 
     assign read_ram_ena   = ((s_read_state == `ysyx22040228_S_DATA) & (s_axi_ar_id == 4'b0000)) ;
     assign read_inst_ena  = ((s_read_state == `ysyx22040228_S_DATA) & (s_axi_ar_id == 4'b0001)) ;
-    assign addr_oup       = (s_read_state == `ysyx22040228_S_DATA) ? s_axi_ar_addr : `ysyx22040228_ZEROWORD ;
+    assign addr_oup       = (s_read_state == `ysyx22040228_S_DATA) ? read_addr_reg : `ysyx22040228_ZEROWORD ;
 
 endmodule
