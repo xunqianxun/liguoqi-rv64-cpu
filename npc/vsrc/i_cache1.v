@@ -31,9 +31,9 @@ module i_cache1 (
 
     wire  [54:0]  i_in_teg                     ;
     assign i_in_teg = inst_addr[63:9]          ;
-    /* verilator lint_off UNOPTFLAT */
+
     reg [5:0] state_inst    ;
-    /* verilator lint_on UNOPTFLAT */
+
     reg       inst_hit_ok   ;
     reg       write_i_ok    ;
     wire      state_sign    ;
