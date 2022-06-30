@@ -30,41 +30,14 @@ class VSocTop VL_NOT_FINAL {
     // propagate new values into/out from the Verilated model.
     VL_IN8(&clk,0,0);
     VL_IN8(&rst,0,0);
-    VL_OUT8(&out_axi_aw_id,3,0);
-    VL_OUT64(&out_axi_aw_addr,63,0);
-    VL_OUT8(&out_axi_aw_len,7,0);
-    VL_OUT8(&out_axi_aw_size,2,0);
-    VL_OUT8(&out_axi_aw_burst,1,0);
-    VL_OUT8(&out_axi_aw_cache,3,0);
-    VL_OUT8(&out_axi_aw_port,2,0);
-    VL_OUT8(&out_axi_aw_qos,3,0);
-    VL_OUT8(&out_axi_aw_valid,0,0);
-    VL_IN8(&out_axi_aw_ready,0,0);
-    VL_OUT64(&out_axi_w_data,63,0);
-    VL_OUT8(&out_axi_w_strb,7,0);
-    VL_OUT8(&out_axi_w_last,0,0);
-    VL_OUT8(&out_axi_w_valid,0,0);
-    VL_IN8(&out_axi_w_ready,0,0);
-    VL_IN8(&out_axi_b_id,3,0);
-    VL_IN8(&out_axi_b_resp,1,0);
-    VL_IN8(&out_axi_b_valid,0,0);
-    VL_OUT8(&out_axi_b_ready,0,0);
-    VL_OUT8(&out_axi_ar_id,3,0);
-    VL_OUT64(&out_axi_ar_addr,63,0);
-    VL_OUT8(&out_axi_ar_len,7,0);
-    VL_OUT8(&out_axi_ar_size,2,0);
-    VL_OUT8(&out_axi_ar_burst,1,0);
-    VL_OUT8(&out_axi_ar_cache,3,0);
-    VL_OUT8(&out_axi_ar_prot,2,0);
-    VL_OUT8(&out_axi_ar_qos,3,0);
-    VL_OUT8(&out_axi_ar_valid,0,0);
-    VL_IN8(&out_axi_ar_ready,0,0);
-    VL_IN8(&out_axi_r_id,3,0);
-    VL_IN64(&out_axi_r_data,63,0);
-    VL_IN8(&out_axi_r_resp,1,0);
-    VL_IN8(&out_axi_r_last,0,0);
-    VL_IN8(&out_axi_r_valid,0,0);
-    VL_OUT8(&out_axi_r_ready,0,0);
+    VL_OUT8(&out_read_ram_ena,0,0);
+    VL_OUT8(&out_read_inst_ena,0,0);
+    VL_OUT64(&out_addr_outp,63,0);
+    VL_INOUT(&in_inst_data_in,31,0);
+    VL_IN64(&in_ram_data_in,63,0);
+    VL_OUT8(&out_write_ram_ena,0,0);
+    VL_OUT64(&out_write_ram_data,63,0);
+    VL_OUT64(&out_write_ram_addr,63,0);
 
     // CELLS
     // Public to allow access to /* verilator public */ items.

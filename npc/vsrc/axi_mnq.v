@@ -1,3 +1,5 @@
+`include "./vsrc/defines.v"
+`include "./vsrc/defines_axi4.v"
 module axi_mnq (
     input       wire                                         clk                    ,
     input       wire                                         rst                    ,
@@ -15,7 +17,9 @@ module axi_mnq (
 
     //----------------------write data channel-----------------------------------//
     input       wire       [`ysyx22040228_DATA_BUS]          s_axi_w_data           ,
+    /* verilator lint_off UNUSED */
     input       wire       [`ysyx22040228_STRB_BUS]          s_axi_w_strb           ,
+    /* verilator lint_on UNUSED */
     input       wire                                         s_axi_w_last           ,
     input       wire                                         s_axi_w_valid          ,
     output      wire                                         s_axi_w_ready          ,
@@ -27,6 +31,7 @@ module axi_mnq (
     input       wire                                         s_axi_b_ready          ,
 
     //------------------------read address channel-------------------------------//
+    /* verilator lint_off UNUSED */
     input       wire       [`ysyx22040228_ID_BUS]            s_axi_ar_id            ,
     input       wire       [`ysyx22040228_ADDR_BUS]          s_axi_ar_addr          ,
     input       wire       [`ysyx22040228_LEN_BUS]           s_axi_ar_len           ,
@@ -37,7 +42,7 @@ module axi_mnq (
     input       wire       [`ysyx22040228_QOS_BUS]           s_axi_ar_qos           ,
     input       wire                                         s_axi_ar_valid         ,
     output      wire                                         s_axi_ar_ready         ,
-
+    /* verilator lint_on UNUSED */
     //------------------------read data channel----------------------------------//
     output      wire       [`ysyx22040228_ID_BUS]            s_axi_r_id             ,
     output      wire       [`ysyx22040228_DATA_BUS]          s_axi_r_data           ,
@@ -102,10 +107,10 @@ module axi_mnq (
         endcase
     end
 
-    assign s_axi_aw_ready = (s_axi_aw_valid && s_axi_w_valid && (s_axi_aw_len == 8'b0) && (s_axi_aw_size == 3'b011) && (s_axi_aw_burst == 2'b01));
+    assign s_axi_aw_ready = (s_axi_aw_valid && s_axi_w_valid && (s_axi_aw_len == 8'b0) && (s_axi_aw_size == 3'b011) && (s_axi_aw_burst == 2'b01) && (s_axi_aw_cache == 4'b0010) && (s_axi_aw_port == 3'b000) && s_axi_aw_qos == 4'h0);
     assign s_axi_w_ready  = s_axi_aw_valid && s_axi_w_valid  && (s_axi_w_last) ;
 
-    assign s_axi_b_id     = 4'b0000;
+    assign s_axi_b_id     = s_axi_aw_id;
     assign s_axi_b_resp   = 2'b00  ;
     assign s_axi_b_valid  = (s_write_state == `ysyx22040228_S_RESP) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE ;
 
@@ -159,5 +164,5 @@ module axi_mnq (
 
     assign read_ram_ena   = ((s_read_state == `ysyx22040228_S_DATA) & (s_axi_ar_id == 4'b0000)) ;
     assign read_inst_ena  = ((s_read_state == `ysyx22040228_S_DATA) & (s_axi_ar_id == 4'b0001)) ;
-
+    assign addr_oup       = ((s_read_state == `ysyx22040228_S_DATA) ? s_axi_ar_addr : `ysyx22040228_ZEROWORD ;
 endmodule

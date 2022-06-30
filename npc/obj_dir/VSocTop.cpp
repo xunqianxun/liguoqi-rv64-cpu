@@ -13,41 +13,14 @@ VSocTop::VSocTop(VerilatedContext* _vcontextp__, const char* _vcname__)
     : vlSymsp{new VSocTop__Syms(_vcontextp__, _vcname__, this)}
     , clk{vlSymsp->TOP.clk}
     , rst{vlSymsp->TOP.rst}
-    , out_axi_aw_id{vlSymsp->TOP.out_axi_aw_id}
-    , out_axi_aw_addr{vlSymsp->TOP.out_axi_aw_addr}
-    , out_axi_aw_len{vlSymsp->TOP.out_axi_aw_len}
-    , out_axi_aw_size{vlSymsp->TOP.out_axi_aw_size}
-    , out_axi_aw_burst{vlSymsp->TOP.out_axi_aw_burst}
-    , out_axi_aw_cache{vlSymsp->TOP.out_axi_aw_cache}
-    , out_axi_aw_port{vlSymsp->TOP.out_axi_aw_port}
-    , out_axi_aw_qos{vlSymsp->TOP.out_axi_aw_qos}
-    , out_axi_aw_valid{vlSymsp->TOP.out_axi_aw_valid}
-    , out_axi_aw_ready{vlSymsp->TOP.out_axi_aw_ready}
-    , out_axi_w_data{vlSymsp->TOP.out_axi_w_data}
-    , out_axi_w_strb{vlSymsp->TOP.out_axi_w_strb}
-    , out_axi_w_last{vlSymsp->TOP.out_axi_w_last}
-    , out_axi_w_valid{vlSymsp->TOP.out_axi_w_valid}
-    , out_axi_w_ready{vlSymsp->TOP.out_axi_w_ready}
-    , out_axi_b_id{vlSymsp->TOP.out_axi_b_id}
-    , out_axi_b_resp{vlSymsp->TOP.out_axi_b_resp}
-    , out_axi_b_valid{vlSymsp->TOP.out_axi_b_valid}
-    , out_axi_b_ready{vlSymsp->TOP.out_axi_b_ready}
-    , out_axi_ar_id{vlSymsp->TOP.out_axi_ar_id}
-    , out_axi_ar_addr{vlSymsp->TOP.out_axi_ar_addr}
-    , out_axi_ar_len{vlSymsp->TOP.out_axi_ar_len}
-    , out_axi_ar_size{vlSymsp->TOP.out_axi_ar_size}
-    , out_axi_ar_burst{vlSymsp->TOP.out_axi_ar_burst}
-    , out_axi_ar_cache{vlSymsp->TOP.out_axi_ar_cache}
-    , out_axi_ar_prot{vlSymsp->TOP.out_axi_ar_prot}
-    , out_axi_ar_qos{vlSymsp->TOP.out_axi_ar_qos}
-    , out_axi_ar_valid{vlSymsp->TOP.out_axi_ar_valid}
-    , out_axi_ar_ready{vlSymsp->TOP.out_axi_ar_ready}
-    , out_axi_r_id{vlSymsp->TOP.out_axi_r_id}
-    , out_axi_r_data{vlSymsp->TOP.out_axi_r_data}
-    , out_axi_r_resp{vlSymsp->TOP.out_axi_r_resp}
-    , out_axi_r_last{vlSymsp->TOP.out_axi_r_last}
-    , out_axi_r_valid{vlSymsp->TOP.out_axi_r_valid}
-    , out_axi_r_ready{vlSymsp->TOP.out_axi_r_ready}
+    , out_read_ram_ena{vlSymsp->TOP.out_read_ram_ena}
+    , out_read_inst_ena{vlSymsp->TOP.out_read_inst_ena}
+    , out_addr_outp{vlSymsp->TOP.out_addr_outp}
+    , in_inst_data_in{vlSymsp->TOP.in_inst_data_in}
+    , in_ram_data_in{vlSymsp->TOP.in_ram_data_in}
+    , out_write_ram_ena{vlSymsp->TOP.out_write_ram_ena}
+    , out_write_ram_data{vlSymsp->TOP.out_write_ram_data}
+    , out_write_ram_addr{vlSymsp->TOP.out_write_ram_addr}
     , rootp{&(vlSymsp->TOP)}
 {
 }
@@ -94,7 +67,7 @@ static void _eval_initial_loop(VSocTop__Syms* __restrict vlSymsp) {
             Verilated::debug(1);
             __Vchange = VSocTop___024root___change_request(&(vlSymsp->TOP));
             Verilated::debug(__Vsaved_debug);
-            VL_FATAL_MT("vsrc/SocTop.v", 12, "",
+            VL_FATAL_MT("vsrc/SocTop.v", 13, "",
                 "Verilated model didn't DC converge\n"
                 "- See https://verilator.org/warn/DIDNOTCONVERGE");
         } else {
@@ -125,7 +98,7 @@ void VSocTop::eval_step() {
             Verilated::debug(1);
             __Vchange = VSocTop___024root___change_request(&(vlSymsp->TOP));
             Verilated::debug(__Vsaved_debug);
-            VL_FATAL_MT("vsrc/SocTop.v", 12, "",
+            VL_FATAL_MT("vsrc/SocTop.v", 13, "",
                 "Verilated model didn't converge\n"
                 "- See https://verilator.org/warn/DIDNOTCONVERGE");
         } else {
