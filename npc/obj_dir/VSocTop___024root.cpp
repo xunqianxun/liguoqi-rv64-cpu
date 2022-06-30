@@ -5200,12 +5200,10 @@ VL_INLINE_OPT void VSocTop___024root___combo__TOP__8(VSocTop___024root* vlSelf) 
             & (2U != (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__i_cache_state))) 
            & (IData)(vlSelf->SocTop__DOT__d_cache_read_ena));
     vlSelf->SocTop__DOT__rvcpu1__DOT__if_stall_req 
-        = (1U & ((~ (IData)(vlSelf->rst)) & (~ (((0U 
-                                                  != (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__i_cache_state)) 
-                                                 | (0U 
-                                                    != (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__d_cache_state))) 
-                                                | ((IData)(vlSelf->SocTop__DOT__i_cache_read_ena) 
-                                                   & (IData)(vlSelf->SocTop__DOT__d_cache_read_ena))))));
+        = ((~ (IData)(vlSelf->rst)) & (((0U != (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__i_cache_state)) 
+                                        | (0U != (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__d_cache_state))) 
+                                       | ((IData)(vlSelf->SocTop__DOT__i_cache_read_ena) 
+                                          & (IData)(vlSelf->SocTop__DOT__d_cache_read_ena))));
     vlSelf->SocTop__DOT__arbitrate4__DOT__i_cache_valid 
         = ((((1U != (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__i_cache_state)) 
              & (2U != (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__i_cache_state))) 

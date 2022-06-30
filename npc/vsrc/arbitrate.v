@@ -285,7 +285,7 @@ module arbitrate (
     assign axi_ar_id    = i_cache_valid ? 4'b0001 : (d_cache_valid ? 4'b0000 : 4'b0000)                               ;
     assign axi_ar_addr  = i_cache_valid ? i_cache_addr : (d_cache_valid ? d_cache_addr : `ysyx22040228_ZEROWORD)      ;
     assign axi_ar_len   = 8'd0                                            ;
-    assign axi_ar_size  = i_cache_valid ? `AXI_SIZE_BYTES_4 : (d_cache_valid ? `AXI_SIZE_BYTES_8 : `AXI_SIZE_BYTES_8) ;
+    assign axi_ar_size  = i_cache_valid ? `AXI_SIZE_BYTES_8 : (d_cache_valid ? `AXI_SIZE_BYTES_8 : `AXI_SIZE_BYTES_8) ;
     assign axi_ar_burst = `AXI_BURST_TYPE_INCR                            ;
     assign axi_ar_cache = `AXI_AWCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE;
     assign axi_ar_prot  = `AXI_PROT_UNPRIVILEGED_ACCESS                   ;
@@ -311,10 +311,11 @@ module arbitrate (
     always @(posedge clk) begin
         if(i_cache_r_shankhand && axi_r_last && (axi_r_id == 4'b0001) && (axi_r_resp == 2'b00)) begin
             i_cache_okreg <= `ysyx22040228_ABLE           ;
-            if(i_cache_addr[2] == `ysyx22040228_ABLE)
-                i_cache_data_oupt <= axi_r_data[63:32] ;
-            else 
-                i_cache_data_oupt <= axi_r_data[31:0 ] ;
+            // if(i_cache_addr[2] == `ysyx22040228_ABLE)
+            //     i_cache_data_oupt <= axi_r_data[63:32] ;
+            // else 
+            //     i_cache_data_oupt <= axi_r_data[31:0 ] ;
+            i_cache_data_oupt <= axi_r_data[31:0]         ;
         end
         else if(d_cache_r_shankhand && axi_r_last && (axi_r_id == 4'b0000) && (axi_r_resp == 2'b00)) begin
             d_cache_data_outp <= axi_r_data ;
