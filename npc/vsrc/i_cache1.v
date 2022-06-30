@@ -109,12 +109,13 @@ module i_cache1 (
 
     assign cache_addr      = inst_addr         ;  
     assign cache_read_ena  = ((state_inst == `ysyx22040228_WRITE) && (~cache_in_ok)) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE  ;
-    assign inst_data       = (state_inst == `ysyx22040228_HIT)          ? ((i_tag_data1 == i_in_teg) ? i_out_data1 : i_out_data2) :
-                             inst_write_cache                           ? (inst_in_cache1 ? i_out_data1 : i_out_data2)            :
-                                                                        32'b0;
-    assign inst_valid      = (state_inst == `ysyx22040228_HIT) ? `ysyx22040228_ABLE   :
-                             inst_write_cache                  ? `ysyx22040228_ABLE   :
-                                                               `ysyx22040228_ENABLE;                        
+    assign inst_data       = (state_inst == `ysyx22040228_HIT) && (inst_ena) ? ((i_tag_data1 == i_in_teg) ? i_out_data1 : i_out_data2) :
+                             inst_write_cache                                ? (inst_in_cache1 ? i_out_data1 : i_out_data2)            :
+                                                                              32'b0;
+    // assign inst_valid      = (state_inst == `ysyx22040228_HIT) ? `ysyx22040228_ABLE   :
+    //                          inst_write_cache                  ? `ysyx22040228_ABLE   :
+    //                                                             `ysyx22040228_ENABLE  ;                        
+    assign inst_valid      = 1`b1;
 
     wire    [5:0]    i_cache_addr1;
     wire    [55:0]   i_cache_tag1 ;
