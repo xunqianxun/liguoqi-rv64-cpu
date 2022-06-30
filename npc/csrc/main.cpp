@@ -195,6 +195,7 @@ if((main_time % 10) == 9){
 }
 #else 
 extern void isa_exec_once(int y){
+  printf("%d",y);
 int ddy ;
 ddy = y;
 while(ddy){
