@@ -48,22 +48,26 @@ module i_cache1 (
                `ysyx22040228_IDLE : begin
                    if(state_sign)
                         state_inst = `ysyx22040228_CHOSE;
-                   state_inst = `ysyx22040228_IDLE;  
+                   else 
+                        state_inst = `ysyx22040228_IDLE;  
                end 
                `ysyx22040228_CHOSE : begin
                    if(((i_tag_data1 == i_in_teg) && (i_tag_user1 == `ysyx22040228_ABLE)) || (i_tag_data2 == i_in_teg) && (i_tag_user2 == `ysyx22040228_ABLE)) 
                        state_inst = `ysyx22040228_HIT;
-                   state_inst = `ysyx22040228_WRITE;  
+                   else 
+                    state_inst = `ysyx22040228_WRITE;  
                end 
                `ysyx22040228_HIT : begin
                    if(inst_hit_ok)
                         state_inst = `ysyx22040228_IDLE;
-                    state_inst = `ysyx22040228_HIT;
+                   else 
+                        state_inst = `ysyx22040228_HIT;
                end 
                `ysyx22040228_WRITE : begin
                    if(write_i_ok)
                         state_inst = `ysyx22040228_IDLE;
-                  state_inst = `ysyx22040228_WRITE;  
+                   else 
+                        state_inst = `ysyx22040228_WRITE;  
                end 
 
                 default: begin
