@@ -195,7 +195,6 @@ if((main_time % 10) == 9){
 }
 #else 
 extern void isa_exec_once(int y){
-  printf("%d",y);
 int ddy ;
 ddy = y;
 while(ddy){
@@ -203,6 +202,8 @@ while(ddy){
     rvcpu->rst = 0 ;
   }
   if((main_time % 10) == 1){
+    rvcpu->clk = 1;
+    rvcpu->eval();
     if(rvcpu->out_read_inst_ena) {
       rvcpu->in_inst_data_in = ifetch(rvcpu->out_addr_outp, 4);
     }
