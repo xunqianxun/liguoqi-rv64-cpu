@@ -68,7 +68,9 @@ module time_axi (
 
     //write data channel
     input    wire     [`ysyx22040228_DATA_BUS ]        time_axi_w_data    ,
+    /* verilator lint_off UNUSED */
     input    wire     [`ysyx22040228_STRB_BUS ]        time_axi_w_strb    ,
+    /* verilator lint_on UNUSED */
     input    wire                                      time_axi_w_last    ,
     input    wire                                      time_axi_w_valid   ,
     output   wire                                      time_axi_w_ready   ,
@@ -177,14 +179,16 @@ module time_axi (
     //-------------------------read state channel------------------------//
     wire mode_right_r;
     wire ar_shakehand ;
+    wire r_shankhand  ;
     wire [`ysyx22040228_REGBUS] time_csr_link;
     assign ar_shakehand = time_axi_ar_valid && time_axi_ar_ready  ;
+    assign r_shankhand  = time_axi_r_valid  && time_Axi_r_ready   ;
     assign mode_right_r      = (time_axi_ar_len == 8'd0) && (time_axi_ar_size == `AXI_SIZE_BYTES_64) && (time_axi_ar_burst == `AXI_BURST_TYPE_INCR) && (time_axi_ar_cache == `AXI_ARCACHE_DEVICE_NON_BUFFERABLE) && (time_axi_ar_prot == `AXI_PROT_UNPRIVILEGED_ACCESS) && (time_axi_ar_qos == 4'b0000);
-    assign csr_mtime_l_w_ena = mode_right && ar_shakehand && (time_axi_ar_addr == `ysyx22040228_MTIMECMP);
-    assign csr_mtime_h_w_ena = mode_right && ar_shakehand && (time_axi_ar_addr == `ysyx22040228_MTIME   );
+    assign csr_mtime_l_r_ena = mode_right && ar_shakehand && (time_axi_ar_addr == `ysyx22040228_MTIMECMP);
+    assign csr_mtime_h_r_ena = mode_right && ar_shakehand && (time_axi_ar_addr == `ysyx22040228_MTIME   );
     assign time_axi_ar_ready = time_axi_ar_valid && mode_right_r ;
-    assign time_csr_link     = csr_mtime_l_w_ena ? car_mtime_l :
-                               csr_mtime_h_w_ena ? csr_mtime_h :
+    assign time_csr_link     = csr_mtime_l_r_ena ? car_mtime_l :
+                               csr_mtime_h_r_ena ? csr_mtime_h :
                                     `ysyx22040228_AXI_ZERO_WORD;
 
     reg [1:0] state_time_r;
@@ -201,7 +205,8 @@ module time_axi (
     always @(*) begin
         case (state_time_r)
             `ysyx22040228_TIME_WAITE: begin
-                if(ar_shakehand)                begin  state_time_r_nxt = `ysyx22040228_TIME_READ ; end 
+                if(ar_shakehand)                begin  state_time_r_nxt = `ysyx22040228_TIME_WIBK ; end 
+                else if(time_axi_ar_valid)      begin  state_time_r_nxt = `ysyx22040228_TIME_READ ; end  
                 else                            begin  state_time_r_nxt = `ysyx22040228_TIME_WAITE; end 
             end 
             `ysyx22040228_TIME_READ : begin
@@ -209,7 +214,7 @@ module time_axi (
                 else                            begin  state_time_r_nxt = `ysyx22040228_TIME_READ ; end
             end 
             `ysyx22040228_TIME_WIBK : begin
-                if( |time_axi_r_ready)          begin  state_time_r_nxt = `ysyx22040228_TIME_WAITE; end 
+                if(r_shankhand)                begin  state_time_r_nxt = `ysyx22040228_TIME_WAITE; end 
                 else                            begin  state_time_r_nxt = `ysyx22040228_TIME_WIBK ; end
             end 
             default:                            begin  state_time_r_nxt = `ysyx22040228_TIME_WAITE; end 
@@ -230,5 +235,5 @@ module time_axi (
            time_axi_r_resp = 2'b00;
         end 
     end
-    
+    assign time_axi_r_valid = (state_time_r == `ysyx22040228_TIME_WIBK);
 endmodule
