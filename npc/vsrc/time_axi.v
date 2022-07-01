@@ -1,4 +1,4 @@
-`include "./vsrc/defines_axi.v"
+`include "./vsrc/defines_axi4.v"
 `include "./vsrc/defines.v"
 
 // Burst types
