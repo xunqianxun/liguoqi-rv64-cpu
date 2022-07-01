@@ -97,7 +97,7 @@ module time_axi (
     output   wire     [`ysyx22040228_RESP_BUS ]        time_axi_r_resp    ,
     output   wire                                      time_axi_r_last    ,
     output   wire                                      time_axi_r_valid   ,
-    input    wire                                      time_axi_r_ready   ,
+    input    wire                                      time_axi_r_ready   
 );
     reg   [`ysyx22040228_REGBUS]   car_mtime_l;
     reg   [`ysyx22040228_REGBUS]   csr_mtime_h;
@@ -115,8 +115,8 @@ module time_axi (
 
     //---------------------------signed check-----------------------------//
     assign mode_right        = (time_axi_aw_len == 8'd0) && (time_axi_aw_size == `AXI_SIZE_BYTES_64) && (time_axi_aw_burst == `AXI_BURST_TYPE_INCR) && (time_axi_aw_cache == `AXI_ARCACHE_DEVICE_NON_BUFFERABLE) && (time_axi_aw_prot == `AXI_PROT_UNPRIVILEGED_ACCESS) && (time_axi_aw_qos == 4'b0000);
-    assign csr_mtime_l_w_ena = mode_right && w_shakehand && aw_shakehand && (time_axi_aw_addr == `ysyx22040228_CSR_MTIME_L);
-    assign csr_mtime_h_w_ena = mode_right && w_shakehand && aw_shakehand && (time_axi_aw_addr == `ysyx22040228_CSR_MTIME_H);
+    assign csr_mtime_l_w_ena = mode_right && w_shakehand && aw_shakehand && (time_axi_aw_addr == `ysyx22040228_MTIMECMP);
+    assign csr_mtime_h_w_ena = mode_right && w_shakehand && aw_shakehand && (time_axi_aw_addr == `ysyx22040228_MTIME   );
     assign car_mtime_l       = csr_mtime_l_w_ena ? time_axi_w_data : (car_mtime_l + 1);
     assign csr_mtime_h       = csr_mtime_h_w_ena ? time_axi_w_data : csr_mtime_h      ;
     assign time_axi_aw_ready = time_axi_aw_valid && time_axi_w_valid && mode_right     ;
