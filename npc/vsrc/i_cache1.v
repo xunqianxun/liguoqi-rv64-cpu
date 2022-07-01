@@ -131,8 +131,9 @@ module i_cache1 (
             else begin
                 addr_lock_reg <= 64'h0         ;
                 //ena_lock_reg  <= `ysyx22040228_ENABLE;
-        end 
-    end
+            end 
+        end
+    end 
 
     assign cache_addr      = axi_working_ti ?  addr_lock_reg : inst_addr ; 
     assign cache_read_ena  = ((state_inst == `ysyx22040228_WRITE) && (~cache_in_ok)) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE  ;
