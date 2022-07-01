@@ -104,7 +104,7 @@ module time_axi (
     wire                           csr_mtime_l_r_ena ;
     wire                           csr_mtine_h_r_ena ;
     wire                           csr_mtime_l_w_ena ;
-    wire                           csr_mtine_h_w_ena ;                       
+    wire                           csr_mtime_h_w_ena ;                       
 
     //---------------------------shake hande------------------------------//
     wire aw_shakehand ;
@@ -121,7 +121,7 @@ module time_axi (
     assign csr_mtime_h       = csr_mtime_h_w_ena ? time_axi_w_data : csr_mtime_h      ;
     assign time_axi_aw_ready = time_axi_aw_valid && time_axi_w_valid && mode_right     ;
     assign time_axi_w_ready  = time_axi_aw_valid && time_axi_w_valid && time_axi_w_last;
-    assign time_interrupt    = (csr_mtime_l > csr_mtime_h) ? 1'b1 : 1'b0 ;
+    assign time_interrupt    = (car_mtime_l > csr_mtime_h) ? 1'b1 : 1'b0 ;
 
     //---------------------write state check------------------------------//
     reg [1:0] state_time_m;
@@ -156,7 +156,7 @@ module time_axi (
     //wire respon 
     always @(*) begin
         if(state_time_m_nxt == `ysyx22040228_TIME_RESP ) begin 
-            time_axi_b_id    = time_axi_w_id ;
+            time_axi_b_id    = time_axi_aw_id ;
             time_axi_b_resp  = `AXI_PROT_DATA_ACCESS ;
             time_axi_b_valid = 1'b1;
         end 
@@ -177,7 +177,7 @@ module time_axi (
     assign csr_mtime_h_w_ena = mode_right && ar_shakehand && (time_axi_ar_addr == `ysyx22040228_MTIME   );
     assign time_axi_ar_ready = time_axi_ar_valid && mode_right_r ;
     assign time_csr_link     = csr_mtime_l_w_ena ? car_mtime_l :
-                               csr_mtime_h_w_ena ? car_mtime_h :
+                               csr_mtime_h_w_ena ? csr_mtime_h :
                                     `ysyx22040228_AXI_ZERO_WORD;
 
     reg [1:0] state_time_r;

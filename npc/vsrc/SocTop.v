@@ -446,7 +446,7 @@ module SocTop (
 
         .time_axi_aw_id      (tim_axi_aw_id     ) , 
         .time_axi_aw_addr    (tim_axi_aw_addr   ) ,
-        .time_axi_aw_len     (tim_Axi_aw_len    ) ,
+        .time_axi_aw_len     (tim_axi_aw_len    ) ,
         .time_axi_aw_size    (tim_axi_aw_size   ) ,
         .time_axi_aw_burst   (tim_axi_aw_burst  ) ,
         .time_axi_aw_cache   (tim_axi_aw_cache  ) ,
@@ -459,11 +459,11 @@ module SocTop (
         .time_axi_w_strb     (tim_axi_w_strb    ) ,
         .time_axi_w_last     (tim_axi_w_last    ) ,
         .time_axi_w_ready    (tim_axi_w_ready   ) ,
+        .time_axi_w_valid    (tim_axi_w_valid   ) ,
 
     //write response channel
         .time_axi_b_id       (tim_axi_b_id      ) ,
         .time_axi_b_resp     (tim_axi_b_resp    ) ,
-        .time_axi_b_user     (tim_axi_b_user    ) ,
         .time_axi_b_valid    (tim_axi_b_valid   ) ,
         .time_axi_b_ready    (tim_axi_b_ready   ) ,
 
