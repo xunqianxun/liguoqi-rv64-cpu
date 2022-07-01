@@ -140,7 +140,8 @@ module time_axi (
     always @(*) begin
         case (state_time_m)
             `ysyx22040228_TIME_WAITE: begin
-                if(w_shakehand && aw_shakehand) begin  state_time_m_nxt = `ysyx22040228_TIME_WRITE; end 
+                if(w_shakehand && aw_shakehand) begin  state_time_m_nxt = `ysyx22040228_TIME_RESP; end 
+                else if(time_axi_w_valid | time_axi_aw_valid) begin state_time_m_nxt = `ysyx22040228_TIME_WRITE;end 
                 else                            begin  state_time_m_nxt = `ysyx22040228_TIME_WAITE; end 
             end 
             `ysyx22040228_TIME_WRITE: begin
@@ -148,10 +149,10 @@ module time_axi (
                 else                            begin  state_time_m_nxt = `ysyx22040228_TIME_WRITE; end
             end 
             `ysyx22040228_TIME_RESP : begin
-                if( |time_axi_b_valid)          begin  state_time_m_nxt = `ysyx22040228_TIME_RESP ; end 
-                else if( |time_axi_b_ready)     begin  state_time_m_nxt = `ysyx22040228_TIME_WAITE; end
+                if(b_shankhand)                 begin  state_time_m_nxt = `ysyx22040228_TIME_WAITE ; end 
+                else                            begin  state_time_m_nxt = `ysyx22040228_TIME_WRITE ; end
             end 
-            default:                            begin  state_time_m_nxt = `ysyx22040228_TIME_WAITE; end 
+            default:                            begin  state_time_m_nxt = `ysyx22040228_TIME_WRITE ; end 
         endcase
     end
 
