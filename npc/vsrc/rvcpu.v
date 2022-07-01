@@ -155,13 +155,10 @@ wire    [`ysyx22040228_INSTBUS]        ex_mem_mem_inst    ;
 wire    [`ysyx22040228_INSTBUS]        mem_mem_wb_inst    ;
 
 pip_fore pip_fore0 (
- //   .clk                 (clk                  ),
     .rst                 (rst                  ),
     .pc_i                (inst_addr            ),
     .inst                (inst                 ),
     .x1_data             (pip_regfile_x1       ),
-    // .pip_cont            (cont_data            ),
-    // .pip_ena             (cont_ena             ),
     .x1_ena              (pip_refflie_x1_ena   ),
     .x1_addr             (pip_regfile_x1_addr  ),
     .pc_o                (pip_pc               )
@@ -176,8 +173,6 @@ pc pc1 (
     .ex_pc_ena           (ex_pc_branchena      ),
     .ex_pc_i             (ex_pc_branchpc       ),
     .pc_stall            (stall_ctrl[0]        ),
-    // .pip_b_cont          (cont_data            ),
-    // .pip_btype           (cont_ena             ),
     .pc                  (inst_addr            ), 
     .ce                  (inst_ena             )            
 );

@@ -1,5 +1,8 @@
 //system 
 `define ysyx22040228_RSTENA    1'b1
+`define ysyx22040228_MTIMECMP  64'h0000000002004000
+`define ysyx22040228_MTIME     64'h000000000200bff8
+
 //pip define 
 `define ysyx22040228_PCBUS     63:0
 `define ysyx22040228_INSTBUS   31:0

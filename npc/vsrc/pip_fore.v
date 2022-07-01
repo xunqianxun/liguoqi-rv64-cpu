@@ -5,16 +5,13 @@ Function:this module use to pipeline prediction
 **********************************************************************/
 `include "./vsrc/defines.v"
 module pip_fore (
-//    input            wire                                   clk      ,
     input            wire                                   rst      ,
     input            wire    [`ysyx22040228_PCBUS]          pc_i     ,
     input            wire    [`ysyx22040228_INSTBUS]        inst     ,
     input            wire    [`ysyx22040228_REGBUS]         x1_data  ,
-//    input            wire    [ 1:0]                         pip_cont ,
     
     output           wire    [`ysyx22040228_PCBUS]          pc_o     ,
     output           wire    [`ysyx22040228_REGADDRBUS]     x1_addr  ,
-//    output           wire                                   pip_ena  ,
     output           wire                                   x1_ena   
 );
 

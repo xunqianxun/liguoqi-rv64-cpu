@@ -326,49 +326,49 @@ module SocTop (
         .clk                 (clk                ) ,
         .rst                 (rst                ) ,
 
-        .s_axi_aw_id         (t_axi_aw_id        ) ,
-        .s_axi_aw_addr       (t_axi_aw_addr      ) ,
-        .s_axi_aw_len        (t_axi_aw_len       ) ,
-        .s_axi_aw_size       (t_axi_aw_size      ) ,
-        .s_axi_aw_burst      (t_axi_aw_burst     ) ,
-        .s_axi_aw_cache      (t_axi_aw_cache     ) ,
-        .s_axi_aw_port       (t_axi_aw_port      ) ,
-        .s_axi_aw_qos        (t_axi_aw_qos       ) ,
-        .s_axi_aw_valid      (t_axi_aw_valid     ) ,
-        .s_axi_aw_ready      (t_axi_aw_ready     ) ,
+        .s_axi_aw_id         (soc_axi_aw_id      ) ,
+        .s_axi_aw_addr       (soc_axi_aw_addr    ) ,
+        .s_axi_aw_len        (soc_axi_aw_len     ) ,
+        .s_axi_aw_size       (soc_axi_aw_size    ) ,
+        .s_axi_aw_burst      (soc_axi_aw_burst   ) ,
+        .s_axi_aw_cache      (soc_axi_aw_cache   ) ,
+        .s_axi_aw_port       (soc_axi_aw_port    ) ,
+        .s_axi_aw_qos        (soc_axi_aw_qos     ) ,
+        .s_axi_aw_valid      (soc_axi_aw_valid   ) ,
+        .s_axi_aw_ready      (soc_axi_aw_ready   ) ,
 
     //----------------------write data channel-----------------------------------//
-        .s_axi_w_data        (t_axi_w_data       ) ,
-        .s_axi_w_strb        (t_axi_w_strb       ) ,
-        .s_axi_w_last        (t_axi_w_last       ) ,
-        .s_axi_w_valid       (t_axi_w_valid      ) ,
-        .s_axi_w_ready       (t_axi_w_ready      ) ,
+        .s_axi_w_data        (soc_axi_w_data     ) ,
+        .s_axi_w_strb        (soc_axi_w_strb     ) ,
+        .s_axi_w_last        (soc_axi_w_last     ) ,
+        .s_axi_w_valid       (soc_axi_w_valid    ) ,
+        .s_axi_w_ready       (soc_axi_w_ready    ) ,
 
     //-----------------------write response channel------------------------------//
-        .s_axi_b_id          (t_axi_b_id         ) ,
-        .s_axi_b_resp        (t_axi_b_resp       ) ,
-        .s_axi_b_valid       (t_axi_b_valid      ) ,
-        .s_axi_b_ready       (t_axi_b_ready      ) ,
+        .s_axi_b_id          (soc_axi_b_id       ) ,
+        .s_axi_b_resp        (soc_axi_b_resp     ) ,
+        .s_axi_b_valid       (soc_axi_b_valid    ) ,
+        .s_axi_b_ready       (soc_axi_b_ready    ) ,
 
     //------------------------read address channel-------------------------------//
-        .s_axi_ar_id         (t_axi_ar_id        ) ,
-        .s_axi_ar_addr       (t_axi_ar_addr      ) ,
-        .s_axi_ar_len        (t_axi_ar_len       ) ,
-        .s_axi_ar_size       (t_axi_ar_size      ) ,
-        .s_axi_ar_burst      (t_axi_ar_burst     ) ,
-        .s_axi_ar_cache      (t_axi_ar_cache     ) ,
-        .s_axi_ar_prot       (t_axi_ar_prot      ) ,
-        .s_axi_ar_qos        (t_axi_ar_qos       ) ,
-        .s_axi_ar_valid      (t_axi_ar_valid     ) ,
-        .s_axi_ar_ready      (t_axi_ar_ready     ) ,
+        .s_axi_ar_id         (soc_axi_ar_id      ) ,
+        .s_axi_ar_addr       (soc_axi_ar_addr    ) ,
+        .s_axi_ar_len        (soc_axi_ar_len     ) ,
+        .s_axi_ar_size       (soc_axi_ar_size    ) ,
+        .s_axi_ar_burst      (soc_axi_ar_burst   ) ,
+        .s_axi_ar_cache      (soc_axi_ar_cache   ) ,
+        .s_axi_ar_prot       (soc_axi_ar_prot    ) ,
+        .s_axi_ar_qos        (soc_axi_ar_qos     ) ,
+        .s_axi_ar_valid      (soc_axi_ar_valid   ) ,
+        .s_axi_ar_ready      (soc_axi_ar_ready   ) ,
 
     //------------------------read data channel----------------------------------//
-        .s_axi_r_id          (t_axi_r_id         ) ,
-        .s_axi_r_data        (t_axi_r_data       ) ,
-        .s_axi_r_resp        (t_axi_r_resp       ) ,
-        .s_axi_r_last        (t_axi_r_last       ) ,
-        .s_axi_r_valid       (t_axi_r_valid      ) ,    
-        .s_axi_r_ready       (t_axi_r_ready      ) ,
+        .s_axi_r_id          (soc_axi_r_id       ) ,
+        .s_axi_r_data        (soc_axi_r_data     ) ,
+        .s_axi_r_resp        (soc_axi_r_resp     ) ,
+        .s_axi_r_last        (soc_axi_r_last     ) ,
+        .s_axi_r_valid       (soc_axi_r_valid    ) ,    
+        .s_axi_r_ready       (soc_axi_r_ready    ) ,
 
         .read_ram_ena        (read_ram_sign      ) ,
         .read_inst_ena       (read_inst_sign     ) ,
@@ -379,11 +379,18 @@ module SocTop (
         .write_ram_data      (write_data_sign    ) ,
         .write_ram_addr      (write_addr_sign    )     
     );
+    wire   [2:0]   prot_chose_write  ;
+    assign prot_chose_write = ((t_axi_aw_addr == `ysyx22040228_MTIMECMP) || (t_axi_aw_addr == `ysyx22040228_MTIME)):3'b010 :
+                                                                                                                    3'b100 ;
+    wire   [2:0]   prot_chose_read   ;
+    assign prot_chose_read  = ((t_axi_ar_addr == `ysyx22040228_MTIMECMP) || (t_axi_ar_addr == `ysyx22040228_MTIME)):3'b010 :
+                                                                                                                    3'b100 ;
 
     soc_axi4 soc_axi45 (
         .clk                 (clk               ) ,
         .rst                 (rst               ) ,
-        .prot_chose          () ,
+        .prot_chose_write    (prot_chose_write  ) ,
+        .prot_chose_read     (prot_chose_read   ) ,
 
         .master_axi_aw_id    (t_axi_aw_id       ) ,
         .master_axi_aw_addr  (t_axi_aw_addr     ) ,
@@ -425,46 +432,46 @@ module SocTop (
         .master_axi_r_valid  (t_axi_r_valid     ) ,
         .master_axi_r_ready  (t_axi_r_ready     ) ,
 
-        .slave_axi_aw_id     () ,
-        .slave_axi_aw_addr   () ,
-        .slave_axi_aw_len    () ,
-        .slave_axi_aw_size   () ,
-        .slave_axi_aw_burst  () ,
-        .slave_axi_aw_cache  () ,
-        .slave_axi_aw_prot   () ,
-        .slave_axi_aw_qos    () ,
-        .slave_axi_aw_valid  () ,
-        .slave_axi_aw_ready  () ,
+        .slave_axi_aw_id     (add_axi_aw_id     ) ,
+        .slave_axi_aw_addr   (add_axi_aw_addr   ) ,
+        .slave_axi_aw_len    (add_axi_aw_len    ) ,
+        .slave_axi_aw_size   (add_axi_size      ) ,
+        .slave_axi_aw_burst  (add_axi_aw_burst  ) ,
+        .slave_axi_aw_cache  (add_axi_aw_cache  ) ,
+        .slave_axi_aw_prot   (add_axi_aw_prot   ) ,
+        .slave_axi_aw_qos    (add_axi_aw_qos    ) ,
+        .slave_axi_aw_valid  (add_axi_aw_valid  ) ,
+        .slave_axi_aw_ready  (add_axi_aw_ready  ) ,
 
-        .slave_axi_w_id      () ,
-        .slave_axi_w_data    () ,
-        .slave_axi_w_strb    () ,
-        .slave_axi_w_last    () ,
-        .slave_axi_w_valid   () ,
-        .slave_axi_w_ready   () ,
+        .slave_axi_w_id      (add_axi_w_id      ) ,
+        .slave_axi_w_data    (add_axi_w_data    ) ,
+        .slave_axi_w_strb    (add_axi_w_strb    ) ,
+        .slave_axi_w_last    (add_axi_w_last    ) ,
+        .slave_axi_w_valid   (add_axi_w_valid   ) ,
+        .slave_axi_w_ready   (add_axi_w_ready   ) ,
 
-        .slave_axi_b_id      () ,
-        .slave_axi_b_resp    () ,
-        .slave_axi_b_valid   () ,
-        .slave_axi_b_ready   () ,
+        .slave_axi_b_id      (add_axi_b_id      ) ,
+        .slave_axi_b_resp    (add_axi_b_resp    ) ,
+        .slave_axi_b_valid   (add_axi_b_valid   ) ,
+        .slave_axi_b_ready   (add_axi_b_ready   ) ,
 
-        .slave_axi_ar_id     () ,
-        .slave_axi_ar_addr   () ,
-        .slave_axi_ar_len    () ,
-        .slave_axi_ar_size   () ,
-        .slave_axi_ar_burst  () ,
-        .slave_axi_ar_cache  () ,
-        .slave_axi_ar_prot   () ,
-        .slave_axi_ar_qos    () ,
-        .slave_axi_ar_valid  () ,
-        .slave_axi_ar_ready  () ,
+        .slave_axi_ar_id     (add_axi_ar_id     ) ,
+        .slave_axi_ar_addr   (add_axi_ar_addr   ) ,
+        .slave_axi_ar_len    (add_axi_ar_len    ) ,
+        .slave_axi_ar_size   (add_axi_ar_size   ) ,
+        .slave_axi_ar_burst  (add_axi_ar_burst  ) ,
+        .slave_axi_ar_cache  (add_axi_ar_cache  ) ,
+        .slave_axi_ar_prot   (add_axi_ar_prot   ) ,
+        .slave_axi_ar_qos    (add_axi_ar_qos    ) ,
+        .slave_axi_ar_valid  (add_axi_ar_valid  ) ,
+        .slave_axi_ar_ready  (add_axi_ar_ready  ) ,
 
-        .slave_axi_r_id      () ,
-        .slave_axi_r_data    () ,
-        .slave_axi_r_resp    () ,
-        .slave_axi_r_last    () ,
-        .slave_axi_r_valid   () ,
-        .slave_axi_r_ready   () 
+        .slave_axi_r_id      (add_axi_r_id      ) ,
+        .slave_axi_r_data    (add_axi_r_data    ) ,
+        .slave_axi_r_resp    (add_axi_r_resp    ) ,
+        .slave_axi_r_last    (add_axi_r_last    ) ,
+        .slave_axi_r_valid   (add_axi_r_valid   ) ,
+        .slave_axi_r_ready   (add_axi_r_ready   ) 
     );
 
     wire          [4*SLAVE_NUM-1      : 0]              add_axi_aw_id      ;
@@ -549,7 +556,126 @@ module SocTop (
     wire                             soc_axi_r_valid  ;
     wire                             soc_axi_r_ready  ;
 
-    
+    wire   [`ysyx22040228_ID_BUS]    tim_axi_aw_id    ;
+    wire   [`ysyx22040228_ADDR_BUS]  tim_axi_aw_addr  ;
+    wire   [`ysyx22040228_LEN_BUS]   tim_axi_aw_len   ;
+    wire   [`ysyx22040228_SIZE_BUS]  tim_axi_aw_size  ;
+    wire   [`ysyx22040228_BURST_BUS] tim_axi_aw_burst ;
+    wire   [`ysyx22040228_CACHE_BUS] tim_axi_aw_cache ;
+    wire   [`ysyx22040228_PROT_BUS]  tim_axi_aw_port  ;
+    wire   [`ysyx22040228_QOS_BUS]   tim_axi_aw_qos   ;
+    wire                             tim_axi_aw_ready ;
+    wire                             tim_axi_aw_valid ;
+
+    wire   [`ysyx22040228_DATA_BUS]  tim_axi_w_data   ;
+    wire   [`ysyx22040228_STRB_BUS]  tim_axi_w_strb   ;
+    wire                             tim_axi_w_last   ;
+    wire                             tim_axi_w_valid  ;
+    wire                             tim_axi_w_ready  ;
+
+    wire   [`ysyx22040228_ID_BUS]    tim_axi_b_id     ;
+    wire   [`ysyx22040228_RESP_BUS]  tim_axi_b_resp   ;
+    wire                             tim_axi_b_valid  ;
+    wire                             tim_axi_b_ready  ;
+
+    wire   [`ysyx22040228_ID_BUS]    tim_axi_ar_id    ;
+    wire   [`ysyx22040228_ADDR_BUS]  tim_axi_ar_addr  ;
+    wire   [`ysyx22040228_LEN_BUS]   tim_axi_ar_len   ;
+    wire   [`ysyx22040228_SIZE_BUS]  tim_axi_ar_size  ;
+    wire   [`ysyx22040228_BURST_BUS] tim_axi_ar_burst ;
+    wire   [`ysyx22040228_CACHE_BUS] tim_axi_ar_cache ;
+    wire   [`ysyx22040228_PROT_BUS]  tim_axi_ar_prot  ;
+    wire   [`ysyx22040228_QOS_BUS]   tim_axi_ar_qos   ;
+    wire                             tim_axi_ar_valid ;
+    wire                             tim_axi_ar_ready ;
+
+    wire   [`ysyx22040228_ID_BUS]    tim_axi_r_id     ;
+    wire   [`ysyx22040228_DATA_BUS]  tim_axi_r_data   ;
+    wire   [`ysyx22040228_RESP_BUS]  tim_axi_r_resp   ;
+    wire                             tim_axi_r_last   ;
+    wire                             tim_axi_r_valid  ;
+    wire                             tim_axi_r_ready  ;
+
+    wire   [`ysyx22040228_ID_BUS]    io_axi_aw_id    ;
+    wire   [`ysyx22040228_ADDR_BUS]  io_axi_aw_addr  ;
+    wire   [`ysyx22040228_LEN_BUS]   io_axi_aw_len   ;
+    wire   [`ysyx22040228_SIZE_BUS]  io_axi_aw_size  ;
+    wire   [`ysyx22040228_BURST_BUS] io_axi_aw_burst ;
+    wire   [`ysyx22040228_CACHE_BUS] io_axi_aw_cache ;
+    wire   [`ysyx22040228_PROT_BUS]  io_axi_aw_port  ;
+    wire   [`ysyx22040228_QOS_BUS]   io_axi_aw_qos   ;
+    wire                             io_axi_aw_ready ;
+    wire                             io_axi_aw_valid ;
+
+    wire   [`ysyx22040228_DATA_BUS]  io_axi_w_data   ;
+    wire   [`ysyx22040228_STRB_BUS]  io_axi_w_strb   ;
+    wire                             io_axi_w_last   ;
+    wire                             io_axi_w_valid  ;
+    wire                             io_axi_w_ready  ;
+
+    wire   [`ysyx22040228_ID_BUS]    io_axi_b_id     ;
+    wire   [`ysyx22040228_RESP_BUS]  io_axi_b_resp   ;
+    wire                             io_axi_b_valid  ;
+    wire                             io_axi_b_ready  ;
+
+    wire   [`ysyx22040228_ID_BUS]    io_axi_ar_id    ;
+    wire   [`ysyx22040228_ADDR_BUS]  io_axi_ar_addr  ;
+    wire   [`ysyx22040228_LEN_BUS]   io_axi_ar_len   ;
+    wire   [`ysyx22040228_SIZE_BUS]  io_axi_ar_size  ;
+    wire   [`ysyx22040228_BURST_BUS] io_axi_ar_burst ;
+    wire   [`ysyx22040228_CACHE_BUS] io_axi_ar_cache ;
+    wire   [`ysyx22040228_PROT_BUS]  io_axi_ar_prot  ;
+    wire   [`ysyx22040228_QOS_BUS]   io_axi_ar_qos   ;
+    wire                             io_axi_ar_valid ;
+    wire                             io_axi_ar_ready ;
+
+    wire   [`ysyx22040228_ID_BUS]    io_axi_r_id     ;
+    wire   [`ysyx22040228_DATA_BUS]  io_axi_r_data   ;
+    wire   [`ysyx22040228_RESP_BUS]  io_axi_r_resp   ;
+    wire                             io_axi_r_last   ;
+    wire                             io_axi_r_valid  ;
+    wire                             io_axi_r_ready  ;
+
+    assign      add_axi_aw_id     =  {soc_axi_aw_id     , tim_axi_aw_id     , io_axi_aw_id     } ;
+    assign      add_axi_aw_addr   =  {soc_axi_aw_addr   , tim_axi_aw_addr   , io_axi_aw_addr   } ;
+    assign      add_axi_aw_len    =  {soc_axi_aw_len    , tim_axi_aw_len    , io_axi_aw_len    } ;
+    assign      add_axi_aw_size   =  {soc_axi_aw_size   , tim_axi_aw_size   , io_axi_aw_size   } ;
+    assign      add_axi_aw_burst  =  {soc_axi_aw_burst  , tim_axi_aw_burst  , io_axi_aw_burst  } ;
+    assign      add_axi_aw_cache  =  {soc_axi_aw_cache  , tim_axi_aw_cache  , io_axi_aw_cache  } ;
+    assign      add_axi_aw_prot   =  {soc_axi_aw_port   , tim_axi_aw_port   , io_axi_aw_port   } ;
+    assign      add_axi_aw_qos    =  {soc_axi_aw_qos    , tim_axi_aw_qos    , io_axi_aw_qos    } ;
+    assign      add_axi_aw_valid  =  {soc_axi_aw_valid  , tim_axi_aw_valid  , io_axi_aw_valid  } ;
+    assign      add_axi_aw_ready  =  {soc_axi_aw_ready  , tim_axi_aw_ready  , io_axi_aw_ready  } ;
+
+    assign      add_axi_w_id      =  {soc_axi_w_id      , tim_axi_w_id      , io_axi_w_id      } ;
+    assign      add_axi_w_data    =  {soc_axi_w_data    , tim_axi_w_data    , io_axi_w_data    } ;
+    assign      add_axi_w_strb    =  {soc_axi_w_strb    , tim_axi_w_strb    , io_axi_w_strb    } ;
+    assign      add_axi_w_last    =  {soc_axi_w_last    , tim_axi_w_last    , io_axi_w_last    } ;
+    assign      add_axi_w_valid   =  {soc_axi_w_valid   , tim_axi_w_valid   , io_axi_w_valid   } ;
+    assign      add_axi_w_ready   =  {soc_axi_w_ready   , tim_axi_w_ready   , io_axi_w_ready   } ;
+
+    assign      add_axi_b_id      =  {soc_axi_b_id      , tim_axi_b_id      , io_axi_b_id      } ;
+    assign      add_axi_b_resp    =  {soc_axi_b_resp    , tim_axi_b_resp    , io_axi_b_resp    } ;
+    assign      add_axi_b_valid   =  {soc_axi_b_valid   , tim_axi_b_valid   , io_axi_b_valid   } ;
+    assign      add_axi_b_ready   =  {soc_axi_b_ready   , tim_axi_b_ready   , io_axi_b_ready   } ;
+
+    assign      add_axi_ar_id     =  {soc_axi_ar_id     , tim_axi_ar_id     , io_axi_ar_id     } ;
+    assign      add_axi_ar_addr   =  {soc_axi_ar_addr   , tim_axi_ar_addr   , io_axi_ar_addr   } ;
+    assign      add_axi_ar_len    =  {soc_axi_ar_len    , tim_axi_ar_len    , io_axi_ar_len    } ;
+    assign      add_axi_ar_size   =  {soc_axi_ar_size   , tim_axi_ar_size   , io_axi_ar_size   } ;
+    assign      add_axi_ar_burst  =  {soc_axi_ar_burst  , tim_axi_ar_burst  , io_axi_ar_burst  } ;
+    assign      add_axi_ar_cache  =  {soc_axi_ar_cache  , tim_axi_ar_cache  , io_axi_ar_cache  } ;
+    assign      add_axi_ar_prot   =  {soc_axi_ar_prot   , tim_axi_ar_prot   , io_axi_ar_prot   } ;
+    assign      add_axi_ar_qos    =  {soc_axi_ar_qos    , tim_axi_ar_qos    , io_axi_ar_prot   } ;
+    assign      add_axi_ar_valid  =  {soc_axi_ar_valid  , tim_axi_ar_valid  , io_Axi_ar_valid  } ;
+    assign      add_axi_ar_ready  =  {soc_axi_ar_ready  , tim_axi_ar_ready  , io_axi_ar_ready  } ;
+
+    assign      add_axi_r_id      =  {soc_axi_r_id      , tim_axi_r_id      , io_axi_r_id      } ;
+    assign      add_axi_r_data    =  {soc_axi_r_data    , tim_axi_r_data    , io_axi_r_data    } ;
+    assign      add_axi_r_resp    =  {soc_axi_r_resp    , tim_axi_r_resp    , io_axi_r_resp    } ;
+    assign      add_axi_r_last    =  {soc_axi_r_last    , tim_axi_r_last    , io_axi_r_last    } ;
+    assign      add_axi_r_valid   =  {soc_axi_r_valid   , tim_axi_r_valid   , io_axi_r_valid   } ;
+    assign      add_axi_r_ready   =  {soc_axi_r_ready   , tim_axi_r_ready   , io_axi_r_ready   } ;
 
 endmodule
 

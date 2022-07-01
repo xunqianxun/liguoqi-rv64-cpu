@@ -88,16 +88,21 @@ module i_cache1 (
     reg                          inst_in_cache1   ;
     reg                          inst_in_cache2   ;
     reg                          inst_write_cache ;
+    reg      [63:0]              out_addr         ;
+    reg                          out_ena          ;
     wire  inst_chose1 = ((i_tag_user1 == `ysyx22040228_ENABLE) || (i_counter1[i_count_addr] >= i_counter2[i_count_addr])) ;
     wire  inst_chose2 = ((i_tag_user2 == `ysyx22040228_ENABLE) || (i_counter1[i_count_addr] < i_counter2[i_count_addr]))  ; 
 
     always @(posedge clk or negedge rst) begin
-         if((state_inst == `ysyx22040228_WRITE) && (cache_in_ok))begin
-                inst_write_cache <=  `ysyx22040228_ABLE    ;
-                if((i_tag_user1 == `ysyx22040228_ENABLE) || (i_counter1[i_count_addr] >= i_counter2[i_count_addr]))
-                    inst_in_cache1   <=  `ysyx22040228_ABLE;
-                else if((i_tag_user2 == `ysyx22040228_ENABLE) || (i_counter1[i_count_addr] < i_counter2[i_count_addr]))
-                    inst_in_cache2   <=  `ysyx22040228_ABLE;
+        if((state_inst == `ysyx22040228_WRITE) && (~cache_in_ok))begin
+            out_addr <= 
+        end 
+        else if((state_inst == `ysyx22040228_WRITE) && (cache_in_ok))begin
+            inst_write_cache <=  `ysyx22040228_ABLE    ;
+            if((i_tag_user1 == `ysyx22040228_ENABLE) || (i_counter1[i_count_addr] >= i_counter2[i_count_addr]))
+                inst_in_cache1   <=  `ysyx22040228_ABLE;
+            else if((i_tag_user2 == `ysyx22040228_ENABLE) || (i_counter1[i_count_addr] < i_counter2[i_count_addr]))
+                inst_in_cache2   <=  `ysyx22040228_ABLE;
         end 
         else if(inst_write_cache) begin
             write_i_ok       <= `ysyx22040228_ABLE  ;
@@ -112,9 +117,27 @@ module i_cache1 (
                 end 
         end 
     end
+    //-----------------------miss state data lock---------------------------------//
 
+    reg  [63:0]    addr_lock_reg ; 
+    //reg            ena_lock_reg  ;
+    always @(posedge clk) begin
+        if(state_inst == `ysyx22040228_WRITE) begin
+            addr_lock_reg <= inst_addr ;
+            //ena_lock_reg  <= `ysyx22040228_ABLE;
+        end 
+        else begin
+            if(axi_working_ti)begin
+                addr_lock_reg <= addr_lock_reg ;
+                //ena_lock_reg  <= ena_lock_reg  ;
+            end 
+            else begin
+                addr_lock_reg <= 64'h0         ;
+                //ena_lock_reg  <= `ysyx22040228_ENABLE;
+        end 
+    end
 
-    assign cache_addr      = inst_addr         ;  
+    assign cache_addr      = axi_working_ti ?  addr_lock_reg : inst_addr ; 
     assign cache_read_ena  = ((state_inst == `ysyx22040228_WRITE) && (~cache_in_ok)) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE  ;
     assign inst_data       = (state_inst == `ysyx22040228_HIT) && (inst_ena) ? ((i_tag_data1 == i_in_teg) ? i_out_data1 : i_out_data2) :
                              inst_write_cache                                ? (inst_in_cache1 ? i_out_data1 : i_out_data2)            :
