@@ -24,7 +24,7 @@ module soc_axi4(
     input             wire         [`ysyx22040228_SIZE_BUS]              master_axi_aw_size   ,   
     input             wire         [`ysyx22040228_BURST_BUS]             master_axi_aw_burst  ,
     input             wire         [`ysyx22040228_CACHE_BUS]             master_axi_aw_cache  ,
-    input             wire         [`ysyx22040228_PROT_BUS]              master_axi_aw_port   ,
+    input             wire         [`ysyx22040228_PROT_BUS]              master_axi_aw_prot   ,
     input             wire         [`ysyx22040228_QOS_BUS]               master_axi_aw_qos    ,
     input             wire                                               master_axi_aw_valid  ,
     output            reg                                                master_axi_aw_ready  ,
@@ -44,6 +44,7 @@ module soc_axi4(
     input             wire         [`ysyx22040228_ID_BUS]                master_axi_ar_id     ,
     input             wire         [`ysyx22040228_ADDR_BUS]              master_axi_ar_addr   ,
     input             wire         [`ysyx22040228_LEN_BUS]               master_axi_ar_len    ,
+    input             wire         [`ysyx22040228_SIZE_BUS]              master_axi_ar_size   ,
     input             wire         [`ysyx22040228_BURST_BUS]             master_axi_ar_burst  ,
     input             wire         [`ysyx22040228_CACHE_BUS]             master_axi_ar_cache  ,
     input             wire         [`ysyx22040228_PROT_BUS]              master_axi_ar_prot   ,
@@ -62,7 +63,7 @@ module soc_axi4(
     output            reg          [64*SLAVE_NUM-1     : 0]              slave_axi_aw_addr    ,
     output            reg          [8*SLAVE_NUM-1      : 0]              slave_axi_aw_len     ,
     output            reg          [3*SLAVE_NUM-1      : 0]              slave_axi_aw_size    ,
-    output            reg          [2*slave_NUM-1      : 0]              slave_axi_aw_burst   ,
+    output            reg          [2*SLAVE_NUM-1      : 0]              slave_axi_aw_burst   ,
     output            reg          [4*SLAVE_NUM-1      : 0]              slave_axi_aw_cache   ,
     output            reg          [3*SLAVE_NUM-1      : 0]              slave_axi_aw_prot    ,
     output            reg          [4*SLAVE_NUM-1      : 0]              slave_axi_aw_qos     ,
@@ -99,6 +100,7 @@ module soc_axi4(
     input             wire         [1*SLAVE_NUM-1      : 0]              slave_axi_r_valid    ,
     output            reg          [1*SLAVE_NUM-1      : 0]              slave_axi_r_ready    
 );
+    parameter SLAVE_NUM = 3 ;
 
     always @(posedge clk) begin
         if(rst == `ysyx22040228_RSTENA) begin
@@ -241,7 +243,7 @@ module soc_axi4(
             master_axi_r_id     <= slave_axi_r_id    [4*1-1    : 0]   ;
             master_axi_r_data   <= slave_axi_r_data  [64*1-1   : 0]   ;
             master_axi_r_resp   <= slave_axi_r_resp  [2*1-1    : 0]   ;
-            master_axi_r_last   <= slace_axi_r_last  [1*1-1    : 0]   ;
+            master_axi_r_last   <= slave_axi_r_last  [1*1-1    : 0]   ;
             master_axi_r_valid  <= slave_axi_r_valid [1*1-1    : 0]   ;
             slave_axi_r_ready [1*1-1    :     0     ]      <= master_axi_ar_ready   ;
         end 
@@ -259,7 +261,7 @@ module soc_axi4(
             master_axi_r_id     <= slave_axi_r_id    [4*2-1    : 4*1]  ;
             master_axi_r_data   <= slave_axi_r_data  [64*2-1   : 64*1] ;
             master_axi_r_resp   <= slave_axi_r_resp  [2*2-1    : 2*1]  ;
-            master_axi_r_last   <= slace_axi_r_last  [1*2-1    : 1*1]  ;
+            master_axi_r_last   <= slave_axi_r_last  [1*2-1    : 1*1]  ;
             master_axi_r_valid  <= slave_axi_r_valid [1*2-1    : 1*1]  ;
             slave_axi_r_ready [1*2-1    :     1*1   ]      <= master_axi_ar_ready   ;
         end 
@@ -277,7 +279,7 @@ module soc_axi4(
             master_axi_r_id     <= slave_axi_r_id    [4*3-1    : 4*2]  ;
             master_axi_r_data   <= slave_axi_r_data  [64*3-1   : 64*2] ;
             master_axi_r_resp   <= slave_axi_r_resp  [2*3-1    : 2*2]  ;
-            master_axi_r_last   <= slace_axi_r_last  [1*3-1    : 1*2]  ;
+            master_axi_r_last   <= slave_axi_r_last  [1*3-1    : 1*2]  ;
             master_axi_r_valid  <= slave_axi_r_valid [1*3-1    : 1*2]  ;
             slave_axi_r_ready [1*3-1    :     1*2   ]      <= master_axi_ar_ready   ;
         end 
@@ -302,3 +304,4 @@ module soc_axi4(
     end
     
 endmodule
+
