@@ -8,7 +8,7 @@ Function:top module of this soc
 `include "./vsrc/i_cache1.v"
 `include "./vsrc/axi_mnq.v"
 `include "./vsrc/soc_axi4.v"
-`include "./vsrc/time_axi4.v"
+`include "./vsrc/time_axi.v"
 `include "./vsrc/rvcpu.v"
 `include "./vsrc/defines_axi4.v"
 `include "./vsrc/defines.v"
