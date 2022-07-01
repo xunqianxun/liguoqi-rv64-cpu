@@ -111,9 +111,11 @@ module time_axi (
     //---------------------------shake hande------------------------------//
     wire aw_shakehand ;
     wire w_shakehand  ;
+    wire b_shankhand  ;
     wire mode_right   ;
     assign aw_shakehand = time_axi_aw_valid && time_axi_aw_ready  ;
     assign w_shakehand  = time_axi_w_valid  && time_axi_w_ready   ;
+    assign b_shankhand  = time_axi_b_valid  && time_axi_b_ready   ;
 
     //---------------------------signed check-----------------------------//
     assign mode_right        = (time_axi_aw_len == 8'd0) && (time_axi_aw_size == `AXI_SIZE_BYTES_64) && (time_axi_aw_burst == `AXI_BURST_TYPE_INCR) && (time_axi_aw_cache == `AXI_ARCACHE_DEVICE_NON_BUFFERABLE) && (time_axi_aw_prot == `AXI_PROT_UNPRIVILEGED_ACCESS) && (time_axi_aw_qos == 4'b0000);
