@@ -10,7 +10,6 @@ Function:top module of this soc
 `include "./vsrc/rvcpu.v"
 `include "./vsrc/defines_axi4.v"
 `include "./vsrc/defines.v"
-`define  SLAVE_NUM 3
 module SocTop (
     input            wire                                    clk                  ,
     input            wire                                    rst                  ,
@@ -68,7 +67,7 @@ module SocTop (
     output        wire        [63:0]                           out_write_ram_data   ,
     output        wire        [63:0]                           out_write_ram_addr     
 );
-  
+    parameter SLAVE_NUM =  3 ;
     //-----------------------------wire about rvcpu------------------------------//
     
     wire  [63:0]    rvcpu_inst_addr  ;
