@@ -7,6 +7,7 @@ Function:top module of this soc
 `include "./vsrc/d_cache1.v"
 `include "./vsrc/i_cache1.v"
 `include "./vsrc/axi_mnq.v"
+`include "./vsrc/soc_axi4.v"
 `include "./vsrc/rvcpu.v"
 `include "./vsrc/defines_axi4.v"
 `include "./vsrc/defines.v"
