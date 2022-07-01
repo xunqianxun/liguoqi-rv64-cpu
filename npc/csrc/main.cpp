@@ -198,7 +198,7 @@ extern void isa_exec_once(int y){
 int ddy ;
 ddy = y;
 while(ddy){
-  if(main_time >= 1) {
+  if(main_time > 10) {
     rvcpu->rst = 0 ;
   }
   if((main_time % 10) == 1){
