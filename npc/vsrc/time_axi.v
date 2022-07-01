@@ -74,9 +74,9 @@ module time_axi (
     output   wire                                      time_axi_w_ready   ,
 
     //write response channel
-    output   wire     [`ysyx22040228_ID_BUS   ]        time_axi_b_id      ,
-    output   wire     [`ysyx22040228_RESP_BUS ]        time_axi_b_resp    ,
-    output   wire                                      time_axi_b_valid   ,
+    output   reg      [`ysyx22040228_ID_BUS   ]        time_axi_b_id      ,
+    output   reg      [`ysyx22040228_RESP_BUS ]        time_axi_b_resp    ,
+    output   reg                                       time_axi_b_valid   ,
     input    wire                                      time_axi_b_ready   ,
 
     //read address channel
@@ -92,11 +92,11 @@ module time_axi (
     output   wire                                      time_axi_ar_ready  ,
 
     //read data channel
-    output   wire     [`ysyx22040228_ID_BUS   ]        time_axi_r_id      ,
-    output   wire     [`ysyx22040228_DATA_BUS ]        time_axi_r_data    ,
-    output   wire     [`ysyx22040228_RESP_BUS ]        time_axi_r_resp    ,
-    output   wire                                      time_axi_r_last    ,
-    output   wire                                      time_axi_r_valid   ,
+    output   reg      [`ysyx22040228_ID_BUS   ]        time_axi_r_id      ,
+    output   reg      [`ysyx22040228_DATA_BUS ]        time_axi_r_data    ,
+    output   reg      [`ysyx22040228_RESP_BUS ]        time_axi_r_resp    ,
+    output   reg                                       time_axi_r_last    ,
+    output   reg                                       time_axi_r_valid   ,
     input    wire                                      time_axi_r_ready   
 );
     reg   [`ysyx22040228_REGBUS]   car_mtime_l;
@@ -157,12 +157,12 @@ module time_axi (
     always @(*) begin
         if(state_time_m_nxt == `ysyx22040228_TIME_RESP ) begin 
             time_axi_b_id    = time_axi_aw_id ;
-            time_axi_b_resp  = `AXI_PROT_DATA_ACCESS ;
+            time_axi_b_resp  = 2'b0 ;
             time_axi_b_valid = 1'b1;
         end 
         else begin
             time_axi_b_id    = 4'b0000 ;
-            time_axi_b_resp  = `AXI_PROT_DATA_ACCESS ;
+            time_axi_b_resp  = 2'b0 ;
             time_axi_b_valid = 1'b0;
         end 
     end

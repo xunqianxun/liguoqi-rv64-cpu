@@ -270,7 +270,7 @@ module soc_axi4(
             slave_axi_ar_addr [64*3-1   :     64*2  ]      <= master_axi_ar_addr    ;
             slave_axi_ar_len  [8*3-1    :     8*2   ]      <= master_axi_ar_len     ;
             slave_axi_ar_size [3*3-1    :     3*2   ]      <= master_axi_ar_size    ;
-            slave_axi_ar_burst[2*3-1    :     3*2   ]      <= master_axi_ar_burst   ;
+            slave_axi_ar_burst[2*3-1    :     2*2   ]      <= master_axi_ar_burst   ;
             slave_axi_ar_cache[4*3-1    :     4*2   ]      <= master_axi_ar_cache   ;
             slave_axi_ar_prot [3*3-1    :     3*2   ]      <= master_axi_ar_prot    ;
             slave_axi_ar_qos  [4*3-1    :     4*2   ]      <= master_axi_ar_qos     ;

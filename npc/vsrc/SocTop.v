@@ -377,7 +377,7 @@ module SocTop (
         .master_axi_b_id     (t_axi_b_id        ) ,
         .master_axi_b_resp   (t_axi_b_resp      ) ,
         .master_axi_b_ready  (t_axi_b_ready     ) ,
-        .master_axi_b_valid  (t_axi_b_ready     ) ,
+        .master_axi_b_valid  (t_axi_b_valid     ) ,
 
         .master_axi_ar_id    (t_axi_ar_id       ) ,
         .master_axi_ar_addr  (t_axi_ar_addr     ) ,
@@ -650,46 +650,46 @@ module SocTop (
     wire                             io_axi_r_valid  ;
     wire                             io_axi_r_ready  ;
 
-    assign      add_axi_aw_id     =  {soc_axi_aw_id     , tim_axi_aw_id     , io_axi_aw_id     } ;
-    assign      add_axi_aw_addr   =  {soc_axi_aw_addr   , tim_axi_aw_addr   , io_axi_aw_addr   } ;
-    assign      add_axi_aw_len    =  {soc_axi_aw_len    , tim_axi_aw_len    , io_axi_aw_len    } ;
-    assign      add_axi_aw_size   =  {soc_axi_aw_size   , tim_axi_aw_size   , io_axi_aw_size   } ;
-    assign      add_axi_aw_burst  =  {soc_axi_aw_burst  , tim_axi_aw_burst  , io_axi_aw_burst  } ;
-    assign      add_axi_aw_cache  =  {soc_axi_aw_cache  , tim_axi_aw_cache  , io_axi_aw_cache  } ;
-    assign      add_axi_aw_prot   =  {soc_axi_aw_port   , tim_axi_aw_port   , io_axi_aw_port   } ;
-    assign      add_axi_aw_qos    =  {soc_axi_aw_qos    , tim_axi_aw_qos    , io_axi_aw_qos    } ;
-    assign      add_axi_aw_valid  =  {soc_axi_aw_valid  , tim_axi_aw_valid  , io_axi_aw_valid  } ;
-    assign      add_axi_aw_ready  =  {soc_axi_aw_ready  , tim_axi_aw_ready  , io_axi_aw_ready  } ;
+    assign  {soc_axi_aw_id     , tim_axi_aw_id     , io_axi_aw_id     }   =  add_axi_aw_id   ;
+    assign  {soc_axi_aw_addr   , tim_axi_aw_addr   , io_axi_aw_addr   }   =  add_axi_aw_addr ;
+    assign  {soc_axi_aw_len    , tim_axi_aw_len    , io_axi_aw_len    }   =  add_axi_aw_len  ;
+    assign  {soc_axi_aw_size   , tim_axi_aw_size   , io_axi_aw_size   }   =  add_axi_aw_size ;
+    assign  {soc_axi_aw_burst  , tim_axi_aw_burst  , io_axi_aw_burst  }   =  add_axi_aw_burst;
+    assign  {soc_axi_aw_cache  , tim_axi_aw_cache  , io_axi_aw_cache  }   =  add_axi_aw_cache;
+    assign  {soc_axi_aw_port   , tim_axi_aw_port   , io_axi_aw_port   }   =  add_axi_aw_prot ;
+    assign  {soc_axi_aw_qos    , tim_axi_aw_qos    , io_axi_aw_qos    }   =  add_axi_aw_qos  ;
+    assign  {soc_axi_aw_valid  , tim_axi_aw_valid  , io_axi_aw_valid  }   =  add_axi_aw_valid;
+    assign  {soc_axi_aw_ready  , tim_axi_aw_ready  , io_axi_aw_ready  }   =  add_axi_aw_ready;
 
     //assign      add_axi_w_id      =  {soc_axi_w_id      , tim_axi_w_id      , io_axi_w_id      } ;
-    assign      add_axi_w_data    =  {soc_axi_w_data    , tim_axi_w_data    , io_axi_w_data    } ;
-    assign      add_axi_w_strb    =  {soc_axi_w_strb    , tim_axi_w_strb    , io_axi_w_strb    } ;
-    assign      add_axi_w_last    =  {soc_axi_w_last    , tim_axi_w_last    , io_axi_w_last    } ;
-    assign      add_axi_w_valid   =  {soc_axi_w_valid   , tim_axi_w_valid   , io_axi_w_valid   } ;
-    assign      add_axi_w_ready   =  {soc_axi_w_ready   , tim_axi_w_ready   , io_axi_w_ready   } ;
+    assign  {soc_axi_w_data    , tim_axi_w_data    , io_axi_w_data    }   =  add_axi_w_data  ;
+    assign  {soc_axi_w_strb    , tim_axi_w_strb    , io_axi_w_strb    }   =  add_axi_w_strb  ;
+    assign  {soc_axi_w_last    , tim_axi_w_last    , io_axi_w_last    }   =  add_axi_w_last  ;
+    assign  {soc_axi_w_valid   , tim_axi_w_valid   , io_axi_w_valid   }   =  add_axi_w_valid ;
+    assign  {soc_axi_w_ready   , tim_axi_w_ready   , io_axi_w_ready   }   =  add_axi_w_ready ;
 
-    assign      add_axi_b_id      =  {soc_axi_b_id      , tim_axi_b_id      , io_axi_b_id      } ;
-    assign      add_axi_b_resp    =  {soc_axi_b_resp    , tim_axi_b_resp    , io_axi_b_resp    } ;
-    assign      add_axi_b_valid   =  {soc_axi_b_valid   , tim_axi_b_valid   , io_axi_b_valid   } ;
-    assign      add_axi_b_ready   =  {soc_axi_b_ready   , tim_axi_b_ready   , io_axi_b_ready   } ;
+    assign  {soc_axi_b_id      , tim_axi_b_id      , io_axi_b_id      }   =  add_axi_b_id    ;
+    assign  {soc_axi_b_resp    , tim_axi_b_resp    , io_axi_b_resp    }   =  add_axi_b_resp  ;
+    assign  {soc_axi_b_valid   , tim_axi_b_valid   , io_axi_b_valid   }   =  add_axi_b_valid ;
+    assign  {soc_axi_b_ready   , tim_axi_b_ready   , io_axi_b_ready   }   =  add_axi_b_ready ;
 
-    assign      add_axi_ar_id     =  {soc_axi_ar_id     , tim_axi_ar_id     , io_axi_ar_id     } ;
-    assign      add_axi_ar_addr   =  {soc_axi_ar_addr   , tim_axi_ar_addr   , io_axi_ar_addr   } ;
-    assign      add_axi_ar_len    =  {soc_axi_ar_len    , tim_axi_ar_len    , io_axi_ar_len    } ;
-    assign      add_axi_ar_size   =  {soc_axi_ar_size   , tim_axi_ar_size   , io_axi_ar_size   } ;
-    assign      add_axi_ar_burst  =  {soc_axi_ar_burst  , tim_axi_ar_burst  , io_axi_ar_burst  } ;
-    assign      add_axi_ar_cache  =  {soc_axi_ar_cache  , tim_axi_ar_cache  , io_axi_ar_cache  } ;
-    assign      add_axi_ar_prot   =  {soc_axi_ar_prot   , tim_axi_ar_prot   , io_axi_ar_prot   } ;
-    assign      add_axi_ar_qos    =  {soc_axi_ar_qos    , tim_axi_ar_qos    , io_axi_ar_qos    } ;
-    assign      add_axi_ar_valid  =  {soc_axi_ar_valid  , tim_axi_ar_valid  , io_axi_ar_valid  } ;
-    assign      add_axi_ar_ready  =  {soc_axi_ar_ready  , tim_axi_ar_ready  , io_axi_ar_ready  } ;
+    assign  {soc_axi_ar_id     , tim_axi_ar_id     , io_axi_ar_id     }   =  add_axi_ar_id   ;
+    assign  {soc_axi_ar_addr   , tim_axi_ar_addr   , io_axi_ar_addr   }   =  add_axi_ar_addr ;
+    assign  {soc_axi_ar_len    , tim_axi_ar_len    , io_axi_ar_len    }   =  add_axi_ar_len  ;
+    assign  {soc_axi_ar_size   , tim_axi_ar_size   , io_axi_ar_size   }   =  add_axi_ar_size ;
+    assign  {soc_axi_ar_burst  , tim_axi_ar_burst  , io_axi_ar_burst  }   =  add_axi_ar_burst;
+    assign  {soc_axi_ar_cache  , tim_axi_ar_cache  , io_axi_ar_cache  }   =  add_axi_ar_cache;
+    assign  {soc_axi_ar_prot   , tim_axi_ar_prot   , io_axi_ar_prot   }   =  add_axi_ar_prot ;
+    assign  {soc_axi_ar_qos    , tim_axi_ar_qos    , io_axi_ar_qos    }   =  add_axi_ar_qos  ;
+    assign  {soc_axi_ar_valid  , tim_axi_ar_valid  , io_axi_ar_valid  }   =  add_axi_ar_valid;
+    assign  {soc_axi_ar_ready  , tim_axi_ar_ready  , io_axi_ar_ready  }   =  add_axi_ar_ready;
 
-    assign      add_axi_r_id      =  {soc_axi_r_id      , tim_axi_r_id      , io_axi_r_id      } ;
-    assign      add_axi_r_data    =  {soc_axi_r_data    , tim_axi_r_data    , io_axi_r_data    } ;
-    assign      add_axi_r_resp    =  {soc_axi_r_resp    , tim_axi_r_resp    , io_axi_r_resp    } ;
-    assign      add_axi_r_last    =  {soc_axi_r_last    , tim_axi_r_last    , io_axi_r_last    } ;
-    assign      add_axi_r_valid   =  {soc_axi_r_valid   , tim_axi_r_valid   , io_axi_r_valid   } ;
-    assign      add_axi_r_ready   =  {soc_axi_r_ready   , tim_axi_r_ready   , io_axi_r_ready   } ;
+    assign  {soc_axi_r_id      , tim_axi_r_id      , io_axi_r_id      }   =  add_axi_r_id    ;
+    assign  {soc_axi_r_data    , tim_axi_r_data    , io_axi_r_data    }   =  add_axi_r_data  ;
+    assign  {soc_axi_r_resp    , tim_axi_r_resp    , io_axi_r_resp    }   =  add_axi_r_resp  ;
+    assign  {soc_axi_r_last    , tim_axi_r_last    , io_axi_r_last    }   =  add_axi_r_last  ;
+    assign  {soc_axi_r_valid   , tim_axi_r_valid   , io_axi_r_valid   }   =  add_axi_r_valid ;
+    assign  {soc_axi_r_ready   , tim_axi_r_ready   , io_axi_r_ready   }   =  add_axi_r_ready ;
 
 endmodule
 
