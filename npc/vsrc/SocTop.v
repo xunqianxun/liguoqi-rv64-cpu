@@ -140,45 +140,6 @@ module SocTop (
     wire                             t_axi_r_valid  ;
     wire                             t_axi_r_ready  ;
     
-    // assign out_axi_aw_id    = t_axi_aw_id     ;
-    // assign out_axi_aw_addr  = t_axi_aw_addr   ;
-    // assign out_axi_aw_len   = t_axi_aw_len    ;
-    // assign out_axi_aw_size  = t_axi_aw_size   ;
-    // assign out_axi_aw_burst = t_axi_aw_burst  ;
-    // assign out_axi_aw_cache = t_axi_aw_cache  ;
-    // assign out_axi_aw_port  = t_axi_aw_port   ;
-    // assign out_axi_aw_qos   = t_axi_aw_qos    ;
-    // assign out_axi_aw_valid = t_axi_aw_valid  ;
-    // assign t_axi_aw_ready   = out_axi_aw_ready;
-
-    // assign out_axi_w_data   = t_axi_w_data    ;
-    // assign out_axi_w_strb   = t_axi_w_strb    ;
-    // assign out_axi_w_last   = t_axi_w_last    ;
-    // assign out_axi_w_valid  = t_axi_w_valid   ;
-    // assign t_axi_w_ready    = out_axi_w_ready ;
-
-    // assign t_axi_b_id       = out_axi_b_id    ;
-    // assign t_axi_b_resp     = out_axi_b_resp  ;
-    // assign t_axi_b_valid    = out_axi_b_valid ;
-    // assign out_axi_b_ready  = t_axi_b_ready   ;
-
-    // assign out_axi_ar_id    = t_axi_ar_id     ;
-    // assign out_axi_ar_addr  = t_axi_ar_addr   ;
-    // assign out_axi_ar_len   = t_axi_ar_len    ;
-    // assign out_axi_ar_size  = t_axi_ar_size   ;
-    // assign out_axi_ar_burst = t_axi_ar_burst  ;
-    // assign out_axi_ar_cache = t_axi_ar_cache  ;
-    // assign out_axi_ar_prot  = t_axi_ar_prot   ;
-    // assign out_axi_ar_qos   = t_axi_ar_qos    ;
-    // assign out_axi_ar_valid = t_axi_ar_valid  ;
-    // assign t_axi_ar_ready   = out_axi_ar_ready;
-
-    // assign t_axi_r_id       = out_axi_r_id    ;
-    // assign t_axi_r_data     = out_axi_r_data  ;
-    // assign t_axi_r_resp     = out_axi_r_resp  ;
-    // assign t_axi_r_last     = out_axi_r_last  ;
-    // assign t_axi_r_valid    = out_axi_r_valid ;
-    // assign out_axi_r_ready  = t_axi_r_ready   ;
 
     rvcpu rvcpu1 (
         .clk                 (clk                 ) ,
