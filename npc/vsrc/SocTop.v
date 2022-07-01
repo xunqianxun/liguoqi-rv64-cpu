@@ -345,7 +345,6 @@ module SocTop (
     );
     wire   [2:0]   prot_chose_write  ;
     assign prot_chose_write = ((t_axi_aw_addr == `ysyx22040228_MTIMECMP) || (t_axi_aw_addr == `ysyx22040228_MTIME)) ? 3'b010 :
-                              ((t_axi_aw_addr >))
                                                                                                                       3'b100 ;
     wire   [2:0]   prot_chose_read   ;
     assign prot_chose_read  = ((t_axi_ar_addr == `ysyx22040228_MTIMECMP) || (t_axi_ar_addr == `ysyx22040228_MTIME)) ? 3'b010 :

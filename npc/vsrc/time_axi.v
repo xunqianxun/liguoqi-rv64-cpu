@@ -110,8 +110,8 @@ module time_axi (
     wire aw_shakehand ;
     wire w_shakehand  ;
     wire mode_right   ;
-    aw_shakehand = time_axi_aw_valid && time_axi_aw_ready  ;
-    w_shakehand  = time_axi_w_valid  && time_axi_w_ready   ;
+    assign aw_shakehand = time_axi_aw_valid && time_axi_aw_ready  ;
+    assign w_shakehand  = time_axi_w_valid  && time_axi_w_ready   ;
 
     //---------------------------signed check-----------------------------//
     assign mode_right        = (time_axi_aw_len == 8'd0) && (time_axi_aw_size == `AXI_SIZE_BYTES_64) && (time_axi_aw_burst == `AXI_BURST_TYPE_INCR) && (time_axi_aw_cache == `AXI_ARCACHE_DEVICE_NON_BUFFERABLE) && (time_axi_aw_prot == `AXI_PROT_UNPRIVILEGED_ACCESS) && (time_axi_aw_qos == 4'b0000);
@@ -121,7 +121,7 @@ module time_axi (
     assign csr_mtime_h       = csr_mtime_h_w_ena ? time_axi_w_data : csr_mtime_h      ;
     assign time_axi_aw_ready = time_axi_aw_valid && time_axi_w_valid && mode_right     ;
     assign time_axi_w_ready  = time_axi_aw_valid && time_axi_w_valid && time_axi_w_last;
-    assign time_interrupt    = (csr_mtime_l > csr_mtime_h) ? 1'b1 ; 1'b0 ;
+    assign time_interrupt    = (csr_mtime_l > csr_mtime_h) ? 1'b1 : 1'b0 ;
 
     //---------------------write state check------------------------------//
     reg [1:0] state_time_m;
@@ -155,7 +155,7 @@ module time_axi (
 
     //wire respon 
     always @(*) begin
-        if(state_time_m_nxt = `ysyx22040228_TIME_RESP ) begin 
+        if(state_time_m_nxt == `ysyx22040228_TIME_RESP ) begin 
             time_axi_b_id    = time_axi_w_id ;
             time_axi_b_resp  = `AXI_PROT_DATA_ACCESS ;
             time_axi_b_valid = 1'b1;
@@ -171,10 +171,10 @@ module time_axi (
     wire mode_right_r;
     wire ar_shakehand ;
     wire [`ysyx22040228_REGBUS] time_csr_link;
-    ar_shakehand = time_axi_ar_valid && time_axi_ar_ready  ;
+    assign ar_shakehand = time_axi_ar_valid && time_axi_ar_ready  ;
     assign mode_right_r      = (time_axi_ar_len == 8'd0) && (time_axi_ar_size == `AXI_SIZE_BYTES_64) && (time_axi_ar_burst == `AXI_BURST_TYPE_INCR) && (time_axi_ar_cache == `AXI_ARCACHE_DEVICE_NON_BUFFERABLE) && (time_axi_ar_prot == `AXI_PROT_UNPRIVILEGED_ACCESS) && (time_axi_ar_qos == 4'b0000);
-    assign csr_mtime_l_w_ena = mode_right && ar_shakehand && (time_axi_ar_addr == `ysyx22040228_CSR_MTIME_L);
-    assign csr_mtime_h_w_ena = mode_right && ar_shakehand && (time_axi_ar_addr == `ysyx22040228_CSR_MTIME_H);
+    assign csr_mtime_l_w_ena = mode_right && ar_shakehand && (time_axi_ar_addr == `ysyx22040228_MTIMECMP);
+    assign csr_mtime_h_w_ena = mode_right && ar_shakehand && (time_axi_ar_addr == `ysyx22040228_MTIME   );
     assign time_axi_ar_ready = time_axi_ar_valid && mode_right_r ;
     assign time_csr_link     = csr_mtime_l_w_ena ? car_mtime_l :
                                csr_mtime_h_w_ena ? car_mtime_h :
