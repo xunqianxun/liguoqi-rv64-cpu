@@ -54,8 +54,6 @@ VL_MODULE(VSocTop___024root) {
         CData/*1:0*/ SocTop__DOT__t_axi_r_resp;
         CData/*0:0*/ SocTop__DOT__t_axi_r_last;
         CData/*0:0*/ SocTop__DOT__t_axi_r_valid;
-        CData/*2:0*/ SocTop__DOT__prot_chose_write;
-        CData/*2:0*/ SocTop__DOT__prot_chose_read;
         CData/*5:0*/ SocTop__DOT__add_axi_aw_burst;
         CData/*2:0*/ SocTop__DOT__add_axi_aw_valid;
         CData/*2:0*/ SocTop__DOT__add_axi_aw_ready;
@@ -74,31 +72,35 @@ VL_MODULE(VSocTop___024root) {
         CData/*2:0*/ SocTop__DOT__add_axi_r_ready;
         CData/*0:0*/ SocTop__DOT__soc_axi_aw_ready;
         CData/*0:0*/ SocTop__DOT__soc_axi_w_ready;
-        CData/*3:0*/ SocTop__DOT__soc_axi_b_id;
-        CData/*1:0*/ SocTop__DOT__soc_axi_b_resp;
-        CData/*0:0*/ SocTop__DOT__soc_axi_b_valid;
         CData/*0:0*/ SocTop__DOT__soc_axi_ar_ready;
-        CData/*3:0*/ SocTop__DOT__soc_axi_r_id;
-        CData/*1:0*/ SocTop__DOT__soc_axi_r_resp;
-        CData/*0:0*/ SocTop__DOT__soc_axi_r_last;
-        CData/*0:0*/ SocTop__DOT__soc_axi_r_valid;
         CData/*0:0*/ SocTop__DOT__tim_axi_aw_ready;
         CData/*0:0*/ SocTop__DOT__tim_axi_w_ready;
-        CData/*3:0*/ SocTop__DOT__tim_axi_b_id;
         CData/*1:0*/ SocTop__DOT__tim_axi_b_resp;
         CData/*0:0*/ SocTop__DOT__tim_axi_b_valid;
         CData/*0:0*/ SocTop__DOT__tim_axi_ar_ready;
-        CData/*3:0*/ SocTop__DOT__tim_axi_r_id;
         CData/*1:0*/ SocTop__DOT__tim_axi_r_resp;
         CData/*0:0*/ SocTop__DOT__tim_axi_r_last;
+        CData/*0:0*/ SocTop__DOT__tim_axi_r_valid;
+        CData/*0:0*/ SocTop__DOT__io_axi_aw_ready;
+        CData/*0:0*/ SocTop__DOT__io_axi_w_ready;
+        CData/*3:0*/ SocTop__DOT__io_axi_b_id;
+        CData/*1:0*/ SocTop__DOT__io_axi_b_resp;
+        CData/*0:0*/ SocTop__DOT__io_axi_b_valid;
+        CData/*0:0*/ SocTop__DOT__io_axi_ar_ready;
+        CData/*3:0*/ SocTop__DOT__io_axi_r_id;
+        CData/*1:0*/ SocTop__DOT__io_axi_r_resp;
+        CData/*0:0*/ SocTop__DOT__io_axi_r_last;
+        CData/*0:0*/ SocTop__DOT__io_axi_r_valid;
+        CData/*2:0*/ SocTop__DOT__prot_chose_write;
+        CData/*2:0*/ SocTop__DOT__prot_chose_read;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__if_stall_req;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__ex_id_rd_ena;
         CData/*7:0*/ SocTop__DOT__rvcpu1__DOT__ex_id_rd_type;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__ex_pc_branchena;
-        CData/*4:0*/ SocTop__DOT__rvcpu1__DOT__id_reg_addr1;
-        CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__id_reg_ena1;
     };
     struct {
+        CData/*4:0*/ SocTop__DOT__rvcpu1__DOT__id_reg_addr1;
+        CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__id_reg_ena1;
         CData/*4:0*/ SocTop__DOT__rvcpu1__DOT__id_reg_addr2;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__id_reg_ena2;
         CData/*7:0*/ SocTop__DOT__rvcpu1__DOT__id_ex_type;
@@ -161,10 +163,10 @@ VL_MODULE(VSocTop___024root) {
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__ecall_trap_ena;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__cmt_mret_ena;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__csr_wr_en;
-        CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__csr_rd_en;
-        CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__csr0__DOT__wr_mstatus;
     };
     struct {
+        CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__csr_rd_en;
+        CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__csr0__DOT__wr_mstatus;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__csr0__DOT__mstatus_mpie_ena;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__csr0__DOT__mstatus_mpie_nxt;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__csr0__DOT__csr_mstatus_mpie;
@@ -227,10 +229,10 @@ VL_MODULE(VSocTop___024root) {
         CData/*1:0*/ SocTop__DOT__arbitrate4__DOT__i_cache_state_nxt;
         CData/*1:0*/ SocTop__DOT__arbitrate4__DOT__d_cache_state;
         CData/*1:0*/ SocTop__DOT__arbitrate4__DOT__d_cache_state_nxt;
-        CData/*0:0*/ SocTop__DOT__arbitrate4__DOT__i_cache_okreg;
-        CData/*0:0*/ SocTop__DOT__arbitrate4__DOT__d_cache_okreg;
     };
     struct {
+        CData/*0:0*/ SocTop__DOT__arbitrate4__DOT__i_cache_okreg;
+        CData/*0:0*/ SocTop__DOT__arbitrate4__DOT__d_cache_okreg;
         CData/*1:0*/ SocTop__DOT__axi_mnq4__DOT__s_write_state;
         CData/*1:0*/ SocTop__DOT__axi_mnq4__DOT__s_write_state_nxt;
         CData/*1:0*/ SocTop__DOT__axi_mnq4__DOT__s_read_state;
@@ -293,16 +295,16 @@ VL_MODULE(VSocTop___024root) {
         IData/*31:0*/ SocTop__DOT__arbitrate4__DOT__i_cache_data_oupt;
         QData/*63:0*/ SocTop__DOT__rvcpu_inst_addr;
         QData/*63:0*/ SocTop__DOT__rvcpu_data_addr;
-        QData/*63:0*/ SocTop__DOT__rvcpu_data_o;
-        QData/*63:0*/ SocTop__DOT__d_cache_data_out;
     };
     struct {
+        QData/*63:0*/ SocTop__DOT__rvcpu_data_o;
+        QData/*63:0*/ SocTop__DOT__d_cache_data_out;
         QData/*63:0*/ SocTop__DOT__t_axi_aw_addr;
         QData/*63:0*/ SocTop__DOT__t_axi_w_data;
         QData/*63:0*/ SocTop__DOT__t_axi_ar_addr;
         QData/*63:0*/ SocTop__DOT__t_axi_r_data;
-        QData/*63:0*/ SocTop__DOT__soc_axi_r_data;
         QData/*63:0*/ SocTop__DOT__tim_axi_r_data;
+        QData/*63:0*/ SocTop__DOT__io_axi_r_data;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__if_id_pc;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex_id_rd_data;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex_mem_addr;
@@ -359,10 +361,10 @@ VL_MODULE(VSocTop___024root) {
         QData/*63:0*/ SocTop__DOT__axi_mnq4__DOT__write_data_reg;
         QData/*63:0*/ SocTop__DOT__axi_mnq4__DOT__write_addr_reg;
         QData/*63:0*/ SocTop__DOT__time_axi6__DOT__car_mtime_l;
-        QData/*63:0*/ SocTop__DOT__time_axi6__DOT__csr_mtime_h;
-        VlUnpacked<QData/*63:0*/, 32> SocTop__DOT__rvcpu1__DOT__regfile10__DOT__regs;
     };
     struct {
+        QData/*63:0*/ SocTop__DOT__time_axi6__DOT__csr_mtime_h;
+        VlUnpacked<QData/*63:0*/, 32> SocTop__DOT__rvcpu1__DOT__regfile10__DOT__regs;
         VlUnpacked<CData/*2:0*/, 64> SocTop__DOT__i_cache12__DOT__i_counter1;
         VlUnpacked<CData/*2:0*/, 64> SocTop__DOT__i_cache12__DOT__i_counter2;
         VlUnpacked<QData/*55:0*/, 64> SocTop__DOT__i_cache12__DOT__u_tag01__DOT__ram;

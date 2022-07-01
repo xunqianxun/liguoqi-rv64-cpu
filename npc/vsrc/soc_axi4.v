@@ -123,6 +123,7 @@ module soc_axi4(
             master_axi_b_id        <= 4'b0000                ;
             master_axi_b_resp      <= 2'b00                  ;
             master_axi_b_valid     <= `ysyx22040228_ENABLE   ;
+            slave_axi_b_ready      <= 3'b0                   ;
         end 
         else if(prot_chose_write[0] == `ysyx22040228_ABLE) begin
             master_axi_aw_ready <= slave_axi_aw_ready[1*1-1    : 0]   ;
@@ -144,6 +145,7 @@ module soc_axi4(
             master_axi_b_id     <= slave_axi_b_id    [4*1-1    : 0]   ;
             master_axi_b_resp   <= slave_axi_b_resp  [2*1-1    : 0]   ;
             master_axi_b_valid  <= slave_axi_b_valid [1*1-1    : 0]   ;
+            slave_axi_b_ready [1*1-1    :     0     ]      <= master_axi_b_ready    ;
         end 
         else if(prot_chose_write[1] == `ysyx22040228_ABLE) begin
             master_axi_aw_ready <= slave_axi_aw_ready[1*2-1    : 1*1]  ;
@@ -165,6 +167,7 @@ module soc_axi4(
             master_axi_b_id     <= slave_axi_b_id    [4*2-1    : 4*1]  ;
             master_axi_b_resp   <= slave_axi_b_resp  [2*2-1    : 2*1]  ;
             master_axi_b_valid  <= slave_axi_b_valid [1*2-1    : 1*1]  ;
+            slave_axi_b_ready [1*2-1    :     1*1   ]      <= master_axi_b_ready    ;
         end 
         else if(prot_chose_write[2] == `ysyx22040228_ABLE) begin
             master_axi_aw_ready <= slave_axi_aw_ready[1*3-1    : 1*2]  ;
@@ -186,6 +189,7 @@ module soc_axi4(
             master_axi_b_id     <= slave_axi_b_id    [4*3-1    : 4*2]  ;
             master_axi_b_resp   <= slave_axi_b_resp  [2*3-1    : 2*2]  ;
             master_axi_b_valid  <= slave_axi_b_valid [1*3-1    : 1*2]  ;
+            slave_axi_b_ready [1*3-1    :     1*2   ]      <= master_axi_b_ready    ;
         end 
         else begin
             master_axi_aw_ready <= `ysyx22040228_ENABLE   ;
@@ -207,6 +211,7 @@ module soc_axi4(
             master_axi_b_id     <= 4'b0000                ;
             master_axi_b_resp   <= 2'b00                  ;
             master_axi_b_valid  <= `ysyx22040228_ENABLE   ;
+            slave_axi_b_ready   <= 3'b0                   ;
         end 
     end
 
@@ -245,7 +250,7 @@ module soc_axi4(
             master_axi_r_resp   <= slave_axi_r_resp  [2*1-1    : 0]   ;
             master_axi_r_last   <= slave_axi_r_last  [1*1-1    : 0]   ;
             master_axi_r_valid  <= slave_axi_r_valid [1*1-1    : 0]   ;
-            slave_axi_r_ready [1*1-1    :     0     ]      <= master_axi_ar_ready   ;
+            slave_axi_r_ready [1*1-1    :     0     ]      <= master_axi_r_ready   ;
         end 
         else if(prot_chose_read[1] == `ysyx22040228_ABLE) begin
             slave_axi_ar_id   [4*2-1    :     4*1   ]      <= master_axi_ar_id      ;
@@ -263,7 +268,7 @@ module soc_axi4(
             master_axi_r_resp   <= slave_axi_r_resp  [2*2-1    : 2*1]  ;
             master_axi_r_last   <= slave_axi_r_last  [1*2-1    : 1*1]  ;
             master_axi_r_valid  <= slave_axi_r_valid [1*2-1    : 1*1]  ;
-            slave_axi_r_ready [1*2-1    :     1*1   ]      <= master_axi_ar_ready   ;
+            slave_axi_r_ready [1*2-1    :     1*1   ]      <= master_axi_r_ready   ;
         end 
         else if(prot_chose_read[2] == `ysyx22040228_ABLE) begin
             slave_axi_ar_id   [4*3-1    :     4*2   ]      <= master_axi_ar_id      ;
@@ -281,7 +286,7 @@ module soc_axi4(
             master_axi_r_resp   <= slave_axi_r_resp  [2*3-1    : 2*2]  ;
             master_axi_r_last   <= slave_axi_r_last  [1*3-1    : 1*2]  ;
             master_axi_r_valid  <= slave_axi_r_valid [1*3-1    : 1*2]  ;
-            slave_axi_r_ready [1*3-1    :     1*2   ]      <= master_axi_ar_ready   ;
+            slave_axi_r_ready [1*3-1    :     1*2   ]      <= master_axi_r_ready   ;
         end 
         else begin
             slave_axi_ar_id        <= 12'b0      ;

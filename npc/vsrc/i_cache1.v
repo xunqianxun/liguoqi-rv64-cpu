@@ -88,8 +88,6 @@ module i_cache1 (
     reg                          inst_in_cache1   ;
     reg                          inst_in_cache2   ;
     reg                          inst_write_cache ;
-    reg      [63:0]              out_addr         ;
-    reg                          out_ena          ;
     wire  inst_chose1 = ((i_tag_user1 == `ysyx22040228_ENABLE) || (i_counter1[i_count_addr] >= i_counter2[i_count_addr])) ;
     wire  inst_chose2 = ((i_tag_user2 == `ysyx22040228_ENABLE) || (i_counter1[i_count_addr] < i_counter2[i_count_addr]))  ; 
 
