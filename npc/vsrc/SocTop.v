@@ -12,7 +12,7 @@ Function:top module of this soc
 `include "./vsrc/defines_axi4.v"
 `include "./vsrc/defines.v"
 module SocTop (
-    input            wire                                    clk                  ,
+    input            wire                                    aclk                 ,
     input            wire                                    rst                  ,
    //-----------------------------AXI--------------------------------------------//
    //----------------------write address cahnnel---------------------------------//
@@ -143,7 +143,7 @@ module SocTop (
     
 
     rvcpu rvcpu1 (
-        .clk                 (clk                 ) ,
+        .clk                 (aclk                 ) ,
         .rst                 (rst                 ) ,
         
         .inst_addr           (rvcpu_inst_addr     ) ,
@@ -166,7 +166,7 @@ module SocTop (
     );
 
     i_cache1 i_cache12 (
-        .clk                 (clk                 ) ,
+        .clk                 (aclk                 ) ,
         .rst                 (rst                 ) ,
         .inst_addr           (rvcpu_inst_addr     ) ,
         .inst_ena            (rvcpu_inst_ena      ) ,
@@ -182,7 +182,7 @@ module SocTop (
 );
     
     d_cache1 d_cache13 (
-        .clk                 (clk                ) ,
+        .clk                 (aclk                ) ,
         .rst                 (rst                ) ,
 
         .mem_addr_i          (rvcpu_data_addr    ) ,
@@ -209,7 +209,7 @@ module SocTop (
     wire [7:0] d_cache_mask_gd = 8'b11111111 ;
 
     arbitrate arbitrate4(
-        .clk                 (clk                ) ,
+        .clk                 (aclk                ) ,
         .rst                 (rst                ) ,
 
         .d_cache_addr        (d_cache_out_addr   ) ,
@@ -285,7 +285,7 @@ module SocTop (
     assign  out_write_ram_addr= write_addr_sign;
     assign  out_write_ram_data= write_data_sign;
     axi_mnq axi_mnq4(
-        .clk                 (clk                ) ,
+        .clk                 (aclk                ) ,
         .rst                 (rst                ) ,
 
         .s_axi_aw_id         (soc_axi_aw_id      ) ,
@@ -349,7 +349,7 @@ module SocTop (
                                                                                                                       3'b100 ;
 
     soc_axi4 soc_axi45 (
-        .clk                 (clk               ) ,
+        .clk                 (aclk               ) ,
         .rst                 (rst               ) ,
         .prot_chose_write    (prot_chose_write  ) ,
         .prot_chose_read     (prot_chose_read   ) ,
