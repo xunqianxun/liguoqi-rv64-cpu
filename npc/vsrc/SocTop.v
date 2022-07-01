@@ -10,6 +10,7 @@ Function:top module of this soc
 `include "./vsrc/rvcpu.v"
 `include "./vsrc/defines_axi4.v"
 `include "./vsrc/defines.v"
+`define  SLAVE_NUM 3
 module SocTop (
     input            wire                                    clk                  ,
     input            wire                                    rst                  ,
