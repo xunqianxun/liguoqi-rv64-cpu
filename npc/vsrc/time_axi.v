@@ -106,7 +106,7 @@ module time_axi (
     reg   [`ysyx22040228_REGBUS]   csr_mtime_h;
     /* verilator lint_on UNOPTFLAT */
     wire                           csr_mtime_l_r_ena ;
-    wire                           csr_mtine_h_r_ena ;
+    wire                           csr_mtime_h_r_ena ;
     wire                           csr_mtime_l_w_ena ;
     wire                           csr_mtime_h_w_ena ;                       
 
@@ -182,7 +182,7 @@ module time_axi (
     wire r_shankhand  ;
     wire [`ysyx22040228_REGBUS] time_csr_link;
     assign ar_shakehand = time_axi_ar_valid && time_axi_ar_ready  ;
-    assign r_shankhand  = time_axi_r_valid  && time_Axi_r_ready   ;
+    assign r_shankhand  = time_axi_r_valid  && time_axi_r_ready   ;
     assign mode_right_r      = (time_axi_ar_len == 8'd0) && (time_axi_ar_size == `AXI_SIZE_BYTES_64) && (time_axi_ar_burst == `AXI_BURST_TYPE_INCR) && (time_axi_ar_cache == `AXI_ARCACHE_DEVICE_NON_BUFFERABLE) && (time_axi_ar_prot == `AXI_PROT_UNPRIVILEGED_ACCESS) && (time_axi_ar_qos == 4'b0000);
     assign csr_mtime_l_r_ena = mode_right && ar_shakehand && (time_axi_ar_addr == `ysyx22040228_MTIMECMP);
     assign csr_mtime_h_r_ena = mode_right && ar_shakehand && (time_axi_ar_addr == `ysyx22040228_MTIME   );
