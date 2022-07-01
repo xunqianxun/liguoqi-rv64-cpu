@@ -108,8 +108,8 @@ module time_axi (
     wire                           csr_mtime_l_w_ena ;
     wire                           csr_mtime_h_w_ena ;  
     wire      [63:0]               wmask             ;
-    assign wmask = {{8{axi_w_strb[7]}}, {8{axi_w_strb[6]}}, {8{axi_w_strb[5]}}, {8{axi_w_strb[4]}}, {8{axi_w_strb[3]}},
-                    {8{axi_w_strb[2]}}, {8{axi_w_strb[1]}}, {8{axi_w_strb[0]}}};                      
+    assign wmask = {{8{time_axi_w_strb[7]}}, {8{time_axi_w_strb[6]}}, {8{time_axi_w_strb[5]}}, {8{time_axi_w_strb[4]}}, {8{time_axi_w_strb[3]}},
+                    {8{time_axi_w_strb[2]}}, {8{time_axi_w_strb[1]}}, {8{time_axi_w_strb[0]}}};                      
 
     always @(posedge clk) begin
         if(rst == `ysyx22040228_RSTENA)begin
