@@ -128,8 +128,10 @@ module time_axi (
     assign time_interrupt    = (car_mtime_l > csr_mtime_h) ? 1'b1 : 1'b0 ;
 
     //---------------------write state check------------------------------//
+    /* verilator lint_off UNOPTFLAT */
     reg [1:0] state_time_m;
     reg [1:0] state_time_m_nxt;
+    /* verilator lint_on UNOPTFLAT */
     always @(posedge clk) begin
         if(rst == `ysyx22040228_AXI_RSTENA) begin
             state_time_m <= `ysyx22040228_TIME_WAITE; 

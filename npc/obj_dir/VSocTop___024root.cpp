@@ -3816,15 +3816,14 @@ VL_INLINE_OPT void VSocTop___024root___sequent__TOP__7(VSocTop___024root* vlSelf
         = vlSelf->__Vdly__SocTop__DOT__d_cache13__DOT__write_l_ok;
 }
 
-extern const VlUnpacked<CData/*0:0*/, 64> VSocTop__ConstPool__TABLE_11b7ddfa_0;
-extern const VlUnpacked<CData/*1:0*/, 64> VSocTop__ConstPool__TABLE_eb26f566_0;
+extern const VlUnpacked<CData/*1:0*/, 128> VSocTop__ConstPool__TABLE_a19c1a61_0;
 
 VL_INLINE_OPT void VSocTop___024root___combo__TOP__8(VSocTop___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VSocTop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    VSocTop___024root___combo__TOP__8\n"); );
     // Variables
-    CData/*5:0*/ __Vtableidx6;
+    CData/*6:0*/ __Vtableidx6;
     // Body
     vlSelf->SocTop__DOT__add_axi_b_id = ((0xf00U & (IData)(vlSelf->SocTop__DOT__add_axi_aw_id)) 
                                          | ((((2U == (IData)(vlSelf->SocTop__DOT__time_axi6__DOT__state_time_m_nxt))
@@ -4341,18 +4340,20 @@ VL_INLINE_OPT void VSocTop___024root___combo__TOP__8(VSocTop___024root* vlSelf) 
         vlSelf->SocTop__DOT__rvcpu1__DOT__ex_ex_mem_pc 
             = vlSelf->SocTop__DOT__rvcpu1__DOT__idex_ex_pc;
     }
-    __Vtableidx6 = ((0x20U & ((IData)(vlSelf->SocTop__DOT__add_axi_b_ready) 
-                              << 4U)) | (((IData)(vlSelf->SocTop__DOT__tim_axi_b_valid) 
-                                          << 4U) | 
-                                         (((IData)(vlSelf->SocTop__DOT__time_axi6__DOT__aw_shakehand) 
-                                           << 3U) | 
-                                          (((IData)(vlSelf->SocTop__DOT__time_axi6__DOT__w_shakehand) 
-                                            << 2U) 
-                                           | (IData)(vlSelf->SocTop__DOT__time_axi6__DOT__state_time_m)))));
-    if (VSocTop__ConstPool__TABLE_11b7ddfa_0[__Vtableidx6]) {
-        vlSelf->SocTop__DOT__time_axi6__DOT__state_time_m_nxt 
-            = VSocTop__ConstPool__TABLE_eb26f566_0[__Vtableidx6];
-    }
+    __Vtableidx6 = ((0xffffffc0U & (((IData)(vlSelf->SocTop__DOT__tim_axi_b_valid) 
+                                     << 6U) & ((IData)(vlSelf->SocTop__DOT__add_axi_b_ready) 
+                                               << 5U))) 
+                    | ((0x20U & ((IData)(vlSelf->SocTop__DOT__add_axi_aw_valid) 
+                                 << 4U)) | ((0x10U 
+                                             & ((IData)(vlSelf->SocTop__DOT__add_axi_w_valid) 
+                                                << 3U)) 
+                                            | (((IData)(vlSelf->SocTop__DOT__time_axi6__DOT__aw_shakehand) 
+                                                << 3U) 
+                                               | (((IData)(vlSelf->SocTop__DOT__time_axi6__DOT__w_shakehand) 
+                                                   << 2U) 
+                                                  | (IData)(vlSelf->SocTop__DOT__time_axi6__DOT__state_time_m))))));
+    vlSelf->SocTop__DOT__time_axi6__DOT__state_time_m_nxt 
+        = VSocTop__ConstPool__TABLE_a19c1a61_0[__Vtableidx6];
     vlSelf->SocTop__DOT__time_axi6__DOT__car_mtime_l 
         = ((IData)(vlSelf->SocTop__DOT__time_axi6__DOT__csr_mtime_l_w_ena)
             ? (((QData)((IData)(vlSelf->SocTop__DOT__add_axi_w_data[3U])) 
@@ -6481,7 +6482,7 @@ VL_INLINE_OPT QData VSocTop___024root___change_request_1(VSocTop___024root* vlSe
     VL_DEBUG_IF( if(__req && ((vlSelf->SocTop__DOT__i_cache12__DOT__state_inst ^ vlSelf->__Vchglast__TOP__SocTop__DOT__i_cache12__DOT__state_inst))) VL_DBG_MSGF("        CHANGE: vsrc/i_cache1.v:36: SocTop.i_cache12.state_inst\n"); );
     VL_DEBUG_IF( if(__req && ((vlSelf->SocTop__DOT__time_axi6__DOT__car_mtime_l ^ vlSelf->__Vchglast__TOP__SocTop__DOT__time_axi6__DOT__car_mtime_l))) VL_DBG_MSGF("        CHANGE: vsrc/time_axi.v:103: SocTop.time_axi6.car_mtime_l\n"); );
     VL_DEBUG_IF( if(__req && ((vlSelf->SocTop__DOT__time_axi6__DOT__csr_mtime_h ^ vlSelf->__Vchglast__TOP__SocTop__DOT__time_axi6__DOT__csr_mtime_h))) VL_DBG_MSGF("        CHANGE: vsrc/time_axi.v:104: SocTop.time_axi6.csr_mtime_h\n"); );
-    VL_DEBUG_IF( if(__req && ((vlSelf->SocTop__DOT__time_axi6__DOT__state_time_m_nxt ^ vlSelf->__Vchglast__TOP__SocTop__DOT__time_axi6__DOT__state_time_m_nxt))) VL_DBG_MSGF("        CHANGE: vsrc/time_axi.v:130: SocTop.time_axi6.state_time_m_nxt\n"); );
+    VL_DEBUG_IF( if(__req && ((vlSelf->SocTop__DOT__time_axi6__DOT__state_time_m_nxt ^ vlSelf->__Vchglast__TOP__SocTop__DOT__time_axi6__DOT__state_time_m_nxt))) VL_DBG_MSGF("        CHANGE: vsrc/time_axi.v:132: SocTop.time_axi6.state_time_m_nxt\n"); );
     // Final
     vlSelf->__Vchglast__TOP__SocTop__DOT__i_cache12__DOT__state_inst 
         = vlSelf->SocTop__DOT__i_cache12__DOT__state_inst;

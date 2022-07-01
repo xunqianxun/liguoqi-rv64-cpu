@@ -33,8 +33,7 @@ void VSocTop___024root____Vdpiimwrap_SocTop__DOT__rvcpu1__DOT__mem_wb8__DOT__dif
 extern const VlUnpacked<CData/*1:0*/, 32> VSocTop__ConstPool__TABLE_287fc343_0;
 extern const VlUnpacked<CData/*1:0*/, 128> VSocTop__ConstPool__TABLE_0bdcfe05_0;
 extern const VlUnpacked<CData/*1:0*/, 16> VSocTop__ConstPool__TABLE_7257b756_0;
-extern const VlUnpacked<CData/*0:0*/, 64> VSocTop__ConstPool__TABLE_11b7ddfa_0;
-extern const VlUnpacked<CData/*1:0*/, 64> VSocTop__ConstPool__TABLE_eb26f566_0;
+extern const VlUnpacked<CData/*1:0*/, 128> VSocTop__ConstPool__TABLE_a19c1a61_0;
 extern const VlUnpacked<CData/*0:0*/, 128> VSocTop__ConstPool__TABLE_20009a11_0;
 extern const VlUnpacked<CData/*1:0*/, 128> VSocTop__ConstPool__TABLE_c01a1f93_0;
 extern const VlUnpacked<CData/*0:0*/, 64> VSocTop__ConstPool__TABLE_75b8f91e_0;
@@ -50,7 +49,7 @@ void VSocTop___024root___settle__TOP__1(VSocTop___024root* vlSelf) {
     CData/*5:0*/ __Vtableidx3;
     CData/*6:0*/ __Vtableidx4;
     CData/*4:0*/ __Vtableidx5;
-    CData/*5:0*/ __Vtableidx6;
+    CData/*6:0*/ __Vtableidx6;
     CData/*3:0*/ __Vtableidx7;
     CData/*31:0*/ __Vtemp3;
     // Body
@@ -2076,18 +2075,20 @@ void VSocTop___024root___settle__TOP__1(VSocTop___024root* vlSelf) {
             ? ((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__id3__DOT__inst_ebreak)
                 ? 0xbU : (0x1fU & (vlSelf->SocTop__DOT__rvcpu1__DOT__if_id_inst 
                                    >> 7U))) : 0U);
-    __Vtableidx6 = ((0x20U & ((IData)(vlSelf->SocTop__DOT__add_axi_b_ready) 
-                              << 4U)) | (((IData)(vlSelf->SocTop__DOT__tim_axi_b_valid) 
-                                          << 4U) | 
-                                         (((IData)(vlSelf->SocTop__DOT__time_axi6__DOT__aw_shakehand) 
-                                           << 3U) | 
-                                          (((IData)(vlSelf->SocTop__DOT__time_axi6__DOT__w_shakehand) 
-                                            << 2U) 
-                                           | (IData)(vlSelf->SocTop__DOT__time_axi6__DOT__state_time_m)))));
-    if (VSocTop__ConstPool__TABLE_11b7ddfa_0[__Vtableidx6]) {
-        vlSelf->SocTop__DOT__time_axi6__DOT__state_time_m_nxt 
-            = VSocTop__ConstPool__TABLE_eb26f566_0[__Vtableidx6];
-    }
+    __Vtableidx6 = ((0xffffffc0U & (((IData)(vlSelf->SocTop__DOT__tim_axi_b_valid) 
+                                     << 6U) & ((IData)(vlSelf->SocTop__DOT__add_axi_b_ready) 
+                                               << 5U))) 
+                    | ((0x20U & ((IData)(vlSelf->SocTop__DOT__add_axi_aw_valid) 
+                                 << 4U)) | ((0x10U 
+                                             & ((IData)(vlSelf->SocTop__DOT__add_axi_w_valid) 
+                                                << 3U)) 
+                                            | (((IData)(vlSelf->SocTop__DOT__time_axi6__DOT__aw_shakehand) 
+                                                << 3U) 
+                                               | (((IData)(vlSelf->SocTop__DOT__time_axi6__DOT__w_shakehand) 
+                                                   << 2U) 
+                                                  | (IData)(vlSelf->SocTop__DOT__time_axi6__DOT__state_time_m))))));
+    vlSelf->SocTop__DOT__time_axi6__DOT__state_time_m_nxt 
+        = VSocTop__ConstPool__TABLE_a19c1a61_0[__Vtableidx6];
     vlSelf->SocTop__DOT__time_axi6__DOT__csr_mtime_l_w_ena 
         = ((((IData)(vlSelf->SocTop__DOT__time_axi6__DOT__mode_right) 
              & (IData)(vlSelf->SocTop__DOT__time_axi6__DOT__w_shakehand)) 
