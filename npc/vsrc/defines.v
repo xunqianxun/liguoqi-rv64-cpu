@@ -2,6 +2,8 @@
 `define ysyx22040228_RSTENA    1'b1
 `define ysyx22040228_MTIMECMP  64'h0000000002004000
 `define ysyx22040228_MTIME     64'h000000000200bff8
+`define ysyx22040228_SERIAL_H  64'h00000000a00003ff
+`define ysyx22040228_SERIAL_L  64'h00000000a00003f8
 
 //pip define 
 `define ysyx22040228_PCBUS     63:0
