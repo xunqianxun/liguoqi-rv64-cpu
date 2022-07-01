@@ -99,8 +99,10 @@ module time_axi (
     output   reg                                       time_axi_r_valid   ,
     input    wire                                      time_axi_r_ready   
 );
+    /* verilator lint_off UNOPTFLAT */
     reg   [`ysyx22040228_REGBUS]   car_mtime_l;
     reg   [`ysyx22040228_REGBUS]   csr_mtime_h;
+    /* verilator lint_on UNOPTFLAT */
     wire                           csr_mtime_l_r_ena ;
     wire                           csr_mtine_h_r_ena ;
     wire                           csr_mtime_l_w_ena ;
@@ -198,14 +200,14 @@ module time_axi (
                 else                            begin  state_time_r_nxt = `ysyx22040228_TIME_WAITE; end 
             end 
             `ysyx22040228_TIME_READ : begin
-                if(ar_shakehand)                begin  state_time_m_nxt = `ysyx22040228_TIME_WIBK ; end 
-                else                            begin  state_time_m_nxt = `ysyx22040228_TIME_READ ; end
+                if(ar_shakehand)                begin  state_time_r_nxt = `ysyx22040228_TIME_WIBK ; end 
+                else                            begin  state_time_r_nxt = `ysyx22040228_TIME_READ ; end
             end 
             `ysyx22040228_TIME_WIBK : begin
-                if( |time_axi_r_ready)          begin  state_time_m_nxt = `ysyx22040228_TIME_WAITE; end 
-                else                            begin  state_time_m_nxt = `ysyx22040228_TIME_WIBK ; end
+                if( |time_axi_r_ready)          begin  state_time_r_nxt = `ysyx22040228_TIME_WAITE; end 
+                else                            begin  state_time_r_nxt = `ysyx22040228_TIME_WIBK ; end
             end 
-            default:                            begin  state_time_m_nxt = `ysyx22040228_TIME_WAITE; end 
+            default:                            begin  state_time_r_nxt = `ysyx22040228_TIME_WAITE; end 
         endcase
     end
 

@@ -232,8 +232,10 @@ module SocTop (
     wire   [`ysyx22040228_SIZE_BUS]  tim_axi_aw_size  ;
     wire   [`ysyx22040228_BURST_BUS] tim_axi_aw_burst ;
     wire   [`ysyx22040228_CACHE_BUS] tim_axi_aw_cache ;
+    /* verilator lint_off UNUSED */
     wire   [`ysyx22040228_PROT_BUS]  tim_axi_aw_port  ;
     wire   [`ysyx22040228_QOS_BUS]   tim_axi_aw_qos   ;
+    /* verilator lint_on UNUSED */
     wire                             tim_axi_aw_ready ;
     wire                             tim_axi_aw_valid ;
 
