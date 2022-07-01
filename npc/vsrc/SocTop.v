@@ -8,6 +8,7 @@ Function:top module of this soc
 `include "./vsrc/i_cache1.v"
 `include "./vsrc/axi_mnq.v"
 `include "./vsrc/soc_axi4.v"
+`include "./vsrc/time_axi4.v"
 `include "./vsrc/rvcpu.v"
 `include "./vsrc/defines_axi4.v"
 `include "./vsrc/defines.v"
@@ -344,6 +345,7 @@ module SocTop (
     );
     wire   [2:0]   prot_chose_write  ;
     assign prot_chose_write = ((t_axi_aw_addr == `ysyx22040228_MTIMECMP) || (t_axi_aw_addr == `ysyx22040228_MTIME)) ? 3'b010 :
+                              ((t_axi_aw_addr >))
                                                                                                                       3'b100 ;
     wire   [2:0]   prot_chose_read   ;
     assign prot_chose_read  = ((t_axi_ar_addr == `ysyx22040228_MTIMECMP) || (t_axi_ar_addr == `ysyx22040228_MTIME)) ? 3'b010 :
@@ -484,7 +486,7 @@ module SocTop (
         .time_axi_r_resp     (tim_axi_r_resp    ) ,
         .time_axi_r_last     (tim_axi_r_last    ) ,
         .time_axi_r_valid    (tim_axi_r_valid   ) ,
-        .time_axi_r_ready    (tim_axi_r_ready   ) ,
+        .time_axi_r_ready    (tim_axi_r_ready   ) 
     );
 
     wire          [4*SLAVE_NUM-1      : 0]              add_axi_aw_id      ;
@@ -679,7 +681,7 @@ module SocTop (
     assign      add_axi_ar_burst  =  {soc_axi_ar_burst  , tim_axi_ar_burst  , io_axi_ar_burst  } ;
     assign      add_axi_ar_cache  =  {soc_axi_ar_cache  , tim_axi_ar_cache  , io_axi_ar_cache  } ;
     assign      add_axi_ar_prot   =  {soc_axi_ar_prot   , tim_axi_ar_prot   , io_axi_ar_prot   } ;
-    assign      add_axi_ar_qos    =  {soc_axi_ar_qos    , tim_axi_ar_qos    , io_axi_ar_prot   } ;
+    assign      add_axi_ar_qos    =  {soc_axi_ar_qos    , tim_axi_ar_qos    , io_axi_ar_qos    } ;
     assign      add_axi_ar_valid  =  {soc_axi_ar_valid  , tim_axi_ar_valid  , io_axi_ar_valid  } ;
     assign      add_axi_ar_ready  =  {soc_axi_ar_ready  , tim_axi_ar_ready  , io_axi_ar_ready  } ;
 
