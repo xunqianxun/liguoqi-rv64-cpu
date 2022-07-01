@@ -7,6 +7,13 @@ Function:write data cache
 `include "./vsrc/defines_axi4.v"
 `include "./vsrc/i_cache_data_ram.v"
 `include "./vsrc/i_cache_tag_ram.v"
+
+`define ysyx22040228_IDLE    6'b000001
+`define ysyx22040228_CHOSE   6'b000010
+`define ysyx22040228_HIT     6'b000100
+`define ysyx22040228_MISS    6'b001000
+`define ysyx22040228_WRITE   6'b010000
+`define ysyx22040228_WBCK    6'b100000
 module i_cache1 (
     input       wire                                         clk             ,
     input       wire                                         rst             ,
@@ -23,12 +30,25 @@ module i_cache1 (
     input       wire                                         axi_working_ti                                  
 );
 
-    `define ysyx22040228_IDLE    6'b000001
-    `define ysyx22040228_CHOSE   6'b000010
-    `define ysyx22040228_HIT     6'b000100
-    `define ysyx22040228_MISS    6'b001000
-    `define ysyx22040228_WRITE   6'b010000
-    `define ysyx22040228_WBCK    6'b100000
+    //----------------------data temporary storage------------------------//
+    reg  [63:0]    addr_lock_reg ; 
+   // reg            ena_lock_reg  ;
+    always @(posedge clk) begin
+        if(state_inst == `ysyx22040228_WRITE) begin
+            addr_lock_reg <= inst_addr ;
+            //ena_lock_reg  <= `ysyx22040228_ABLE;
+        end 
+        else begin
+            if(axi_working_ti && (~i_cache_ok))begin
+                addr_lock_reg <= addr_lock_reg ;
+               // ena_lock_reg  <= ena_lock_reg  ;
+            end 
+            else begin
+                addr_lock_reg <= 64'h0         ;
+                //ena_lock_reg  <= `ysyx22040228_ENABLE;
+            end 
+        end
+    end 
 
     wire  [54:0]  i_in_teg                     ;
     assign i_in_teg = inst_addr[63:9]          ;
@@ -113,25 +133,6 @@ module i_cache1 (
         end 
     end
     //-----------------------miss state data lock---------------------------------//
-
-    reg  [63:0]    addr_lock_reg ; 
-    //reg            ena_lock_reg  ;
-    always @(posedge clk) begin
-        if(state_inst == `ysyx22040228_WRITE) begin
-            addr_lock_reg <= inst_addr ;
-            //ena_lock_reg  <= `ysyx22040228_ABLE;
-        end 
-        else begin
-            if(axi_working_ti)begin
-                addr_lock_reg <= addr_lock_reg ;
-                //ena_lock_reg  <= ena_lock_reg  ;
-            end 
-            else begin
-                addr_lock_reg <= 64'h0         ;
-                //ena_lock_reg  <= `ysyx22040228_ENABLE;
-            end 
-        end
-    end 
 
     assign cache_addr      = axi_working_ti ?  addr_lock_reg : inst_addr ; 
     assign cache_read_ena  = ((state_inst == `ysyx22040228_WRITE) && (~cache_in_ok)) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE  ;

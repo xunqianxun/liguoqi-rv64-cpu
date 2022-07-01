@@ -23,23 +23,17 @@ module d_cache1 (
     input         wire        [7:0]                           mem_mask_i         ,
     input         wire                                        mem_data_read_ena  ,
     input         wire                                        mem_data_writ_ena  ,
-    //------------------------out for cpu core----------------------------------//
+
     output        reg         [`ysyx22040228_AXI_REGBUS]      mem_data_out_cpu   ,
     output        reg                                         mem_data_finish    ,
 
-    //----------------------------- merge sign out------------------------------//
-    // input         wire        [`ysyx22040228_DCACHE_ADDR_W]   in_dcache_addr     ,
-    // input         wire                                        in_dcache_ena      ,
-
     input         wire        [`ysyx22040228_DCACHE_DATA_W]   in_dcache_data     ,
-
-    //----------------------------- merge sign in-------------------------------//    
+ 
     input         wire                                        in_dcache_ok       ,
     output        wire        [63:0]                          out_dcache_addr    ,
     output        wire        [`ysyx22040228_DCACHE_DATA_W]   out_dcache_data    ,
     output        wire                                        outr_dcache_ena    ,
-    output        wire                                        outw_dcache_ena    
-    //input         wire                                        axi_working_td     
+    output        wire                                        outw_dcache_ena 
 );
     wire [5:0]  count_addr ;
     assign count_addr = mem_addr_i[8:3];

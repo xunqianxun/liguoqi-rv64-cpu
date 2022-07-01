@@ -177,8 +177,8 @@ module axi_mnq (
     assign s_axi_r_last   = (s_read_state == `ysyx22040228_S_DATA) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE; 
     assign s_axi_r_data   = (s_read_state == `ysyx22040228_S_DATA) ? ((s_axi_ar_id == 4'b0000) ? ram_data_in : {32'b0, inst_data_in}) : `ysyx22040228_ZEROWORD;
 
-    assign read_ram_ena   = ((s_read_state == `ysyx22040228_S_DATA) & (s_axi_ar_id == 4'b0000)) ;
-    assign read_inst_ena  = ((s_read_state == `ysyx22040228_S_DATA) & (s_axi_ar_id == 4'b0001)) ;
+    assign read_ram_ena   = ((s_read_state == `ysyx22040228_S_DATA) && (s_axi_ar_id == 4'b0000)) ;
+    assign read_inst_ena  = ((s_read_state == `ysyx22040228_S_DATA) && (s_axi_ar_id == 4'b0001)) ;
     assign addr_oup       = (s_read_state == `ysyx22040228_S_DATA) ? read_addr_reg : `ysyx22040228_ZEROWORD ;
 
 endmodule
