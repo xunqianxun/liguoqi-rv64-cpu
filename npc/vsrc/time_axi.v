@@ -214,13 +214,13 @@ module time_axi (
            time_axi_r_id = time_axi_ar_id;
            time_axi_r_data = time_csr_link;
            time_axi_r_last = 1'b1;
-           time_axi_r_resp = `AXI_PROT_DATA_ACCESS;
+           time_axi_r_resp = 2'b00;
         end 
         else begin
            time_axi_r_id = 4'b0000;
            time_axi_r_data = `ysyx22040228_AXI_ZERO_WORD;
            time_axi_r_last = 1'b0;
-           time_axi_r_resp = `AXI_PROT_DATA_ACCESS;
+           time_axi_r_resp = `2'b00;
         end 
     end
     

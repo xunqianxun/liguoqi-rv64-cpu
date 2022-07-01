@@ -67,7 +67,7 @@ static void _eval_initial_loop(VSocTop__Syms* __restrict vlSymsp) {
             Verilated::debug(1);
             __Vchange = VSocTop___024root___change_request(&(vlSymsp->TOP));
             Verilated::debug(__Vsaved_debug);
-            VL_FATAL_MT("vsrc/SocTop.v", 13, "",
+            VL_FATAL_MT("vsrc/SocTop.v", 15, "",
                 "Verilated model didn't DC converge\n"
                 "- See https://verilator.org/warn/DIDNOTCONVERGE");
         } else {
@@ -98,7 +98,7 @@ void VSocTop::eval_step() {
             Verilated::debug(1);
             __Vchange = VSocTop___024root___change_request(&(vlSymsp->TOP));
             Verilated::debug(__Vsaved_debug);
-            VL_FATAL_MT("vsrc/SocTop.v", 13, "",
+            VL_FATAL_MT("vsrc/SocTop.v", 15, "",
                 "Verilated model didn't converge\n"
                 "- See https://verilator.org/warn/DIDNOTCONVERGE");
         } else {
