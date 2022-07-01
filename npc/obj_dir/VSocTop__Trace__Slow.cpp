@@ -727,6 +727,7 @@ void VSocTop___024root__traceInitSub0(VSocTop___024root* vlSelf, VerilatedVcd* t
         tracep->declBus(c+194,"SocTop i_cache12 cache_or_data", false,-1, 31,0);
         tracep->declBit(c+648,"SocTop i_cache12 cache_in_ok", false,-1);
         tracep->declBit(c+19,"SocTop i_cache12 axi_working_ti", false,-1);
+        tracep->declQuad(c+575,"SocTop i_cache12 addr_lock_reg", false,-1, 63,0);
         tracep->declQuad(c+654,"SocTop i_cache12 i_in_teg", false,-1, 54,0);
         tracep->declBus(c+129,"SocTop i_cache12 state_inst", false,-1, 5,0);
         tracep->declBit(c+632,"SocTop i_cache12 inst_hit_ok", false,-1);
@@ -737,7 +738,6 @@ void VSocTop___024root__traceInitSub0(VSocTop___024root* vlSelf, VerilatedVcd* t
         tracep->declBit(c+636,"SocTop i_cache12 inst_write_cache", false,-1);
         tracep->declBit(c+656,"SocTop i_cache12 inst_chose1", false,-1);
         tracep->declBit(c+657,"SocTop i_cache12 inst_chose2", false,-1);
-        tracep->declQuad(c+575,"SocTop i_cache12 addr_lock_reg", false,-1, 63,0);
         tracep->declBus(c+658,"SocTop i_cache12 i_cache_addr1", false,-1, 5,0);
         tracep->declQuad(c+659,"SocTop i_cache12 i_cache_tag1", false,-1, 55,0);
         tracep->declBit(c+130,"SocTop i_cache12 i_tag_ena1", false,-1);

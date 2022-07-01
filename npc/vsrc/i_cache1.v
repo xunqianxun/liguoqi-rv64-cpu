@@ -39,7 +39,7 @@ module i_cache1 (
             //ena_lock_reg  <= `ysyx22040228_ABLE;
         end 
         else begin
-            if(axi_working_ti)begin
+            if(axi_working_ti && (~i_cache_ok))begin
                 addr_lock_reg <= addr_lock_reg ;
                // ena_lock_reg  <= ena_lock_reg  ;
             end 
