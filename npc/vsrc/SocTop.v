@@ -101,7 +101,6 @@ module SocTop (
     wire            arbitrate_ti_sign;
 
     wire   time_init_sign       ;
-    assign time_init_sign = 1'b0;
 
     wire   [`ysyx22040228_ID_BUS]    t_axi_aw_id    ;
     wire   [`ysyx22040228_ADDR_BUS]  t_axi_aw_addr  ;
@@ -437,6 +436,55 @@ module SocTop (
         .slave_axi_r_last    (add_axi_r_last    ) ,
         .slave_axi_r_valid   (add_axi_r_valid   ) ,
         .slave_axi_r_ready   (add_axi_r_ready   ) 
+    );
+
+    time_axi time_axi6 (
+        .clk                 (aclk              ) ,
+        .rst                 (rst               ) ,
+        .time_interrupt      (time_init_sign    ) ,
+
+        .time_axi_aw_id      (tim_axi_aw_id     ) , 
+        .time_axi_aw_addr    (tim_axi_aw_addr   ) ,
+        .time_axi_aw_len     (tim_Axi_aw_len    ) ,
+        .time_axi_aw_size    (tim_axi_aw_size   ) ,
+        .time_axi_aw_burst   (tim_axi_aw_burst  ) ,
+        .time_axi_aw_cache   (tim_axi_aw_cache  ) ,
+        .time_axi_aw_prot    (tim_axi_aw_port   ) ,
+        .time_axi_aw_qos     (tim_axi_aw_qos    ) ,
+        .time_axi_aw_valid   (tim_axi_aw_valid  ) ,
+        .time_axi_aw_ready   (tim_axi_aw_ready  ) , 
+
+        .time_axi_w_data     (tim_axi_w_data    ) ,
+        .time_axi_w_strb     (tim_axi_w_strb    ) ,
+        .time_axi_w_last     (tim_axi_w_last    ) ,
+        .time_axi_w_ready    (tim_axi_w_ready   ) ,
+
+    //write response channel
+        .time_axi_b_id       (tim_axi_b_id      ) ,
+        .time_axi_b_resp     (tim_axi_b_resp    ) ,
+        .time_axi_b_user     (tim_axi_b_user    ) ,
+        .time_axi_b_valid    (tim_axi_b_valid   ) ,
+        .time_axi_b_ready    (tim_axi_b_ready   ) ,
+
+    //read address channel
+        .time_axi_ar_id      (tim_axi_ar_id     ) ,
+        .time_axi_ar_addr    (tim_axi_ar_addr   ) ,
+        .time_axi_ar_len     (tim_axi_ar_len    ) ,
+        .time_axi_ar_size    (tim_axi_ar_size   ) ,
+        .time_axi_ar_burst   (tim_axi_ar_burst  ) ,
+        .time_axi_ar_cache   (tim_axi_ar_cache  ) ,
+        .time_axi_ar_prot    (tim_axi_ar_prot   ) ,
+        .time_axi_ar_qos     (tim_axi_ar_qos    ) ,
+        .time_axi_ar_valid   (tim_axi_ar_valid  ) ,
+        .time_axi_ar_ready   (tim_axi_ar_ready  ) ,
+
+    //read data channel
+        .time_axi_r_id       (tim_axi_r_id      ) ,
+        .time_axi_r_data     (tim_axi_r_data    ) ,
+        .time_axi_r_resp     (tim_axi_r_resp    ) ,
+        .time_axi_r_last     (tim_axi_r_last    ) ,
+        .time_axi_r_valid    (tim_axi_r_valid   ) ,
+        .time_axi_r_ready    (tim_axi_r_ready   ) ,
     );
 
     wire          [4*SLAVE_NUM-1      : 0]              add_axi_aw_id      ;

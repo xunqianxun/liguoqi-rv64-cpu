@@ -1,5 +1,5 @@
-`include "defines_axi.v"
-`include "defines.v"
+`include "./vsrc/defines_axi.v"
+`include "./vsrc/defines.v"
 
 // Burst types
 `define AXI_BURST_TYPE_FIXED                                2'b00
@@ -55,57 +55,47 @@ module time_axi (
 
     //-------------------------------------------------------------------//
     //                        time ensprtion                             //
-    input    wire     [`ysyx22040228_ID       ]        time_axi_aw_id     , 
-    input    wire     [`ysyx22040228_ADDR     ]        time_axi_aw_addr   ,
-    input    wire     [`ysyx22040228_LEN      ]        time_axi_aw_len    ,
-    input    wire     [`ysyx22040228_SIZE     ]        time_axi_aw_size   ,
-    input    wire     [`ysyx22040228_BURST    ]        time_axi_aw_burst  ,
-    input    wire     [`ysyx22040228_LOCK     ]        time_axi_aw_lock   ,
-    input    wire     [`ysyx22040228_CACHE    ]        time_axi_aw_cache  ,
-    inout    wire     [`ysyx22040228_PROT     ]        time_axi_aw_prot   ,
-    inout    wire     [`ysyx22040228_QOS      ]        time_axi_aw_qos    ,
-    input    wire     [`ysyx22040228_REGION   ]        time_axi_aw_region ,
-    input    wire     [`ysyx22040228_USER     ]        time_axi_aw_user   ,
+    input    wire     [`ysyx22040228_ID_BUS   ]        time_axi_aw_id     , 
+    input    wire     [`ysyx22040228_ADDR_BUS ]        time_axi_aw_addr   ,
+    input    wire     [`ysyx22040228_LEN_BUS  ]        time_axi_aw_len    ,
+    input    wire     [`ysyx22040228_SIZE_BUS ]        time_axi_aw_size   ,
+    input    wire     [`ysyx22040228_BURST_BUS]        time_axi_aw_burst  ,
+    input    wire     [`ysyx22040228_CACHE_BUS]        time_axi_aw_cache  ,
+    inout    wire     [`ysyx22040228_PROT_BUS ]        time_axi_aw_prot   ,
+    inout    wire     [`ysyx22040228_QOS_BUS  ]        time_axi_aw_qos    ,
     input    wire                                      time_axi_aw_valid  ,
     output   wire                                      time_axi_aw_ready  , 
 
     //write data channel
-    input    wire     [`ysyx22040228_ID       ]        time_axi_w_id      ,
-    input    wire     [`ysyx22040228_DATA     ]        time_axi_w_data    ,
-    input    wire     [`ysyx22040228_STRB     ]        time_axi_w_strb    ,
-    input    wire     [`ysyx22040228_LAST     ]        time_axi_w_last    ,
-    input    wire     [`ysyx22040228_USER     ]        time_axi_w_user    ,
+    input    wire     [`ysyx22040228_DATA_BUS ]        time_axi_w_data    ,
+    input    wire     [`ysyx22040228_STRB_BUS ]        time_axi_w_strb    ,
+    input    wire                                      time_axi_w_last    ,
     input    wire                                      time_axi_w_valid   ,
     output   wire                                      time_axi_w_ready   ,
 
     //write response channel
-    output   wire     [`ysyx22040228_ID       ]        time_axi_b_id      ,
-    output   wire     [`ysyx22040228_RESP     ]        time_axi_b_resp    ,
-    output   wire     [`ysyx22040228_USER     ]        time_axi_b_user    ,
+    output   wire     [`ysyx22040228_ID_BUS   ]        time_axi_b_id      ,
+    output   wire     [`ysyx22040228_RESP_BUS ]        time_axi_b_resp    ,
     output   wire                                      time_axi_b_valid   ,
     input    wire                                      time_axi_b_ready   ,
 
     //read address channel
-    input    wire     [`ysyx22040228_ID       ]        time_axi_ar_id     ,
-    input    wire     [`ysyx22040228_ADDR     ]        time_axi_ar_addr   ,
-    input    wire     [`ysyx22040228_LEN      ]        time_axi_ar_len    ,
-    input    wire     [`ysyx22040228_SIZE     ]        time_axi_ar_size   ,
-    input    wire     [`ysyx22040228_BURST    ]        time_axi_ar_burst  ,
-    input    wire     [`ysyx22040228_LOCK     ]        time_axi_ar_lock   ,
-    input    wire     [`ysyx22040228_CACHE    ]        time_axi_ar_cache  ,
-    input    wire     [`ysyx22040228_PROT     ]        time_axi_ar_prot   ,
-    input    wire     [`ysyx22040228_QOS      ]        time_axi_ar_qos    ,
-    input    wire     [`ysyx22040228_REGION   ]        time_axi_ar_region ,
-    inout    wire     [`ysyx22040228_USER     ]        time_axi_ar_user   ,
+    input    wire     [`ysyx22040228_ID_BUS   ]        time_axi_ar_id     ,
+    input    wire     [`ysyx22040228_ADDR_BUS ]        time_axi_ar_addr   ,
+    input    wire     [`ysyx22040228_LEN_BUS  ]        time_axi_ar_len    ,
+    input    wire     [`ysyx22040228_SIZE_BUS ]        time_axi_ar_size   ,
+    input    wire     [`ysyx22040228_BURST_BUS]        time_axi_ar_burst  ,
+    input    wire     [`ysyx22040228_CACHE_BUS]        time_axi_ar_cache  ,
+    input    wire     [`ysyx22040228_PROT_BUS ]        time_axi_ar_prot   ,
+    input    wire     [`ysyx22040228_QOS_BUS  ]        time_axi_ar_qos    ,
     input    wire                                      time_axi_ar_valid  ,
     output   wire                                      time_axi_ar_ready  ,
 
     //read data channel
-    output   wire     [`ysyx22040228_ID       ]        time_axi_r_id      ,
-    output   wire     [`ysyx22040228_DATA     ]        time_axi_r_data    ,
-    output   wire     [`ysyx22040228_RESP     ]        time_axi_r_resp    ,
-    output   wire     [`ysyx22040228_LAST     ]        time_axi_r_last    ,
-    output   wire     [`ysyx22040228_USER     ]        time_axi_r_user    ,
+    output   wire     [`ysyx22040228_ID_BUS   ]        time_axi_r_id      ,
+    output   wire     [`ysyx22040228_DATA_BUS ]        time_axi_r_data    ,
+    output   wire     [`ysyx22040228_RESP_BUS ]        time_axi_r_resp    ,
+    output   wire                                      time_axi_r_last    ,
     output   wire                                      time_axi_r_valid   ,
     input    wire                                      time_axi_r_ready   ,
 );
@@ -136,12 +126,12 @@ module time_axi (
     //---------------------write state check------------------------------//
     reg [1:0] state_time_m;
     reg [1:0] state_time_m_nxt;
-    always @(*) begin
+    always @(posedge clk) begin
         if(rst == `ysyx22040228_AXI_RSTENA) begin
-            state_time_m = `ysyx22040228_TIME_WAITE; 
+            state_time_m <= `ysyx22040228_TIME_WAITE; 
         end 
         else begin
-            state_time_m = state_time_m_nxt        ;
+            state_time_m <= state_time_m_nxt        ;
         end 
     end
 
@@ -192,12 +182,12 @@ module time_axi (
 
     reg [1:0] state_time_r;
     reg [1:0] state_time_r_nxt;
-        always @(*) begin
+        always @(posedge clk) begin
         if(rst == `ysyx22040228_AXI_RSTENA) begin
-            state_time_r = `ysyx22040228_TIME_WAITE; 
+            state_time_r <= `ysyx22040228_TIME_WAITE; 
         end 
         else begin
-            state_time_r = state_time_r_nxt        ;
+            state_time_r <= state_time_r_nxt        ;
         end 
     end
 

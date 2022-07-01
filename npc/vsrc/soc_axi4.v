@@ -234,7 +234,7 @@ module soc_axi4(
             slave_axi_ar_addr [64*1-1   :     0     ]      <= master_axi_ar_addr    ;
             slave_axi_ar_len  [8*1-1    :     0     ]      <= master_axi_ar_len     ;
             slave_axi_ar_size [3*1-1    :     0     ]      <= master_axi_ar_size    ;
-            slave_axi_ar_burst[3*1-1    :     0     ]      <= master_axi_ar_burst   ;
+            slave_axi_ar_burst[2*1-1    :     0     ]      <= master_axi_ar_burst   ;
             slave_axi_ar_cache[4*1-1    :     0     ]      <= master_axi_ar_cache   ;
             slave_axi_ar_prot [3*1-1    :     0     ]      <= master_axi_ar_prot    ;
             slave_axi_ar_qos  [4*1-1    :     0     ]      <= master_axi_ar_qos     ;
@@ -252,9 +252,9 @@ module soc_axi4(
             slave_axi_ar_addr [64*2-1   :     64*1  ]      <= master_axi_ar_addr    ;
             slave_axi_ar_len  [8*2-1    :     8*1   ]      <= master_axi_ar_len     ;
             slave_axi_ar_size [3*2-1    :     3*1   ]      <= master_axi_ar_size    ;
-            slave_axi_ar_burst[3*2-1    :     3*1   ]      <= master_axi_ar_burst   ;
+            slave_axi_ar_burst[2*2-1    :     3*1   ]      <= master_axi_ar_burst   ;
             slave_axi_ar_cache[4*2-1    :     4*1   ]      <= master_axi_ar_cache   ;
-            slave_axi_ar_prot [3*2-1    :     2*1   ]      <= master_axi_ar_prot    ;
+            slave_axi_ar_prot [3*2-1    :     3*1   ]      <= master_axi_ar_prot    ;
             slave_axi_ar_qos  [4*2-1    :     4*1   ]      <= master_axi_ar_qos     ;
             slave_axi_ar_valid[1*2-1    :     1*1   ]      <= master_axi_ar_valid   ;
             master_axi_ar_ready <= slave_axi_ar_ready[1*2-1    : 1*1]  ;
@@ -270,7 +270,7 @@ module soc_axi4(
             slave_axi_ar_addr [64*3-1   :     64*2  ]      <= master_axi_ar_addr    ;
             slave_axi_ar_len  [8*3-1    :     8*2   ]      <= master_axi_ar_len     ;
             slave_axi_ar_size [3*3-1    :     3*2   ]      <= master_axi_ar_size    ;
-            slave_axi_ar_burst[3*3-1    :     3*2   ]      <= master_axi_ar_burst   ;
+            slave_axi_ar_burst[2*3-1    :     3*2   ]      <= master_axi_ar_burst   ;
             slave_axi_ar_cache[4*3-1    :     4*2   ]      <= master_axi_ar_cache   ;
             slave_axi_ar_prot [3*3-1    :     3*2   ]      <= master_axi_ar_prot    ;
             slave_axi_ar_qos  [4*3-1    :     4*2   ]      <= master_axi_ar_qos     ;
