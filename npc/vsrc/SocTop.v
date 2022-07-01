@@ -364,7 +364,7 @@ module SocTop (
         .master_axi_aw_valid (t_axi_aw_valid    ) ,
         .master_axi_aw_ready (t_axi_aw_ready    ) ,
 
-        .master_axi_w_id     (t_axi_w_id        ) ,
+        //.master_axi_w_id     (t_axi_w_id        ) ,
         .master_axi_w_data   (t_axi_w_data      ) ,
         .master_axi_w_strb   (t_axi_w_strb      ) ,
         .master_axi_w_last   (t_axi_w_last      ) ,
@@ -404,7 +404,7 @@ module SocTop (
         .slave_axi_aw_valid  (add_axi_aw_valid  ) ,
         .slave_axi_aw_ready  (add_axi_aw_ready  ) ,
 
-        .slave_axi_w_id      (add_axi_w_id      ) ,
+        //.slave_axi_w_id      (add_axi_w_id      ) ,
         .slave_axi_w_data    (add_axi_w_data    ) ,
         .slave_axi_w_strb    (add_axi_w_strb    ) ,
         .slave_axi_w_last    (add_axi_w_last    ) ,
@@ -439,14 +439,14 @@ module SocTop (
     wire          [64*SLAVE_NUM-1     : 0]              add_axi_aw_addr    ;
     wire          [8*SLAVE_NUM-1      : 0]              add_axi_aw_len     ;
     wire          [3*SLAVE_NUM-1      : 0]              add_axi_aw_size    ;
-    wire          [2*slave_NUM-1      : 0]              add_axi_aw_burst   ;
+    wire          [2*SLAVE_NUM-1      : 0]              add_axi_aw_burst   ;
     wire          [4*SLAVE_NUM-1      : 0]              add_axi_aw_cache   ;
     wire          [3*SLAVE_NUM-1      : 0]              add_axi_aw_prot    ;
     wire          [4*SLAVE_NUM-1      : 0]              add_axi_aw_qos     ;
     wire          [1*SLAVE_NUM-1      : 0]              add_axi_aw_valid   ;
     wire          [1*SLAVE_NUM-1      : 0]              add_axi_aw_ready   ;
 
-    wire          [4*SLAVE_NUM-1      : 0]              add_axi_w_id       ;
+    //wire          [4*SLAVE_NUM-1      : 0]              add_axi_w_id       ;
     wire          [64*SLAVE_NUM-1     : 0]              add_axi_w_data     ;
     wire          [8*SLAVE_NUM-1      : 0]              add_axi_w_strb     ;
     wire          [1*SLAVE_NUM-1      : 0]              add_axi_w_last     ;
@@ -608,7 +608,7 @@ module SocTop (
     assign      add_axi_aw_valid  =  {soc_axi_aw_valid  , tim_axi_aw_valid  , io_axi_aw_valid  } ;
     assign      add_axi_aw_ready  =  {soc_axi_aw_ready  , tim_axi_aw_ready  , io_axi_aw_ready  } ;
 
-    assign      add_axi_w_id      =  {soc_axi_w_id      , tim_axi_w_id      , io_axi_w_id      } ;
+    //assign      add_axi_w_id      =  {soc_axi_w_id      , tim_axi_w_id      , io_axi_w_id      } ;
     assign      add_axi_w_data    =  {soc_axi_w_data    , tim_axi_w_data    , io_axi_w_data    } ;
     assign      add_axi_w_strb    =  {soc_axi_w_strb    , tim_axi_w_strb    , io_axi_w_strb    } ;
     assign      add_axi_w_last    =  {soc_axi_w_last    , tim_axi_w_last    , io_axi_w_last    } ;
@@ -628,7 +628,7 @@ module SocTop (
     assign      add_axi_ar_cache  =  {soc_axi_ar_cache  , tim_axi_ar_cache  , io_axi_ar_cache  } ;
     assign      add_axi_ar_prot   =  {soc_axi_ar_prot   , tim_axi_ar_prot   , io_axi_ar_prot   } ;
     assign      add_axi_ar_qos    =  {soc_axi_ar_qos    , tim_axi_ar_qos    , io_axi_ar_prot   } ;
-    assign      add_axi_ar_valid  =  {soc_axi_ar_valid  , tim_axi_ar_valid  , io_Axi_ar_valid  } ;
+    assign      add_axi_ar_valid  =  {soc_axi_ar_valid  , tim_axi_ar_valid  , io_axi_ar_valid  } ;
     assign      add_axi_ar_ready  =  {soc_axi_ar_ready  , tim_axi_ar_ready  , io_axi_ar_ready  } ;
 
     assign      add_axi_r_id      =  {soc_axi_r_id      , tim_axi_r_id      , io_axi_r_id      } ;

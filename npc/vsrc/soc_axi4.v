@@ -29,7 +29,7 @@ module soc_axi4(
     input             wire                                               master_axi_aw_valid  ,
     output            reg                                                master_axi_aw_ready  ,
 
-    input             wire         [`ysyx22040228_ID_BUS]                master_axi_w_id      ,
+    //input             wire         [`ysyx22040228_ID_BUS]                master_axi_w_id      ,
     input             wire         [`ysyx22040228_DATA_BUS]              master_axi_w_data    ,
     input             wire         [`ysyx22040228_STRB_BUS]              master_axi_w_strb    ,
     input             wire                                               master_axi_w_last    ,
@@ -69,7 +69,7 @@ module soc_axi4(
     output            reg          [1*SLAVE_NUM-1      : 0]              slave_axi_aw_valid   ,
     input             wire         [1*SLAVE_NUM-1      : 0]              slave_axi_aw_ready   ,
 
-    output            reg          [4*SLAVE_NUM-1      : 0]              slave_axi_w_id       ,
+    //output            reg          [4*SLAVE_NUM-1      : 0]              slave_axi_w_id       ,
     output            reg          [64*SLAVE_NUM-1     : 0]              slave_axi_w_data     ,
     output            reg          [8*SLAVE_NUM-1      : 0]              slave_axi_w_strb     ,
     output            reg          [1*SLAVE_NUM-1      : 0]              slave_axi_w_last     ,
@@ -112,7 +112,7 @@ module soc_axi4(
             slave_axi_aw_prot      <= 9'b0       ;
             slave_axi_aw_qos       <= 12'b0      ;
             slave_axi_aw_valid     <= 3'b0       ;
-            slave_axi_w_id         <= 12'b0      ;
+            //slave_axi_w_id         <= 12'b0      ;
             slave_axi_w_data       <= 192'b0     ;
             slave_axi_w_strb       <= 24'b0      ;
             slave_axi_w_last       <= 3'b0       ;
@@ -133,7 +133,7 @@ module soc_axi4(
             slave_axi_aw_prot [3*1-1    :     0     ]      <= master_axi_aw_prot    ;
             slave_axi_aw_qos  [4*1-1    :     0     ]      <= master_axi_aw_qos     ;
             slave_axi_aw_valid[1*1-1    :     0     ]      <= master_axi_aw_valid   ;
-            slave_axi_w_id    [4*1-1    :     0     ]      <= master_axi_w_id       ;
+            //slave_axi_w_id    [4*1-1    :     0     ]      <= master_axi_w_id       ;
             slave_axi_w_data  [64*1-1   :     0     ]      <= master_axi_w_data     ;
             slave_axi_w_strb  [8*1-1    :     0     ]      <= master_axi_w_strb     ;
             slave_axi_w_last  [1*1-1    :     0     ]      <= master_axi_w_last     ;
@@ -154,7 +154,7 @@ module soc_axi4(
             slave_axi_aw_prot [3*2-1    :     3*1   ]      <= master_axi_aw_prot    ;
             slave_axi_aw_qos  [4*2-1    :     4*1   ]      <= master_axi_aw_qos     ;
             slave_axi_aw_valid[1*2-1    :     1*1   ]      <= master_axi_aw_valid   ;
-            slave_axi_w_id    [4*2-1    :     4*1   ]      <= master_axi_w_id       ;
+            //slave_axi_w_id    [4*2-1    :     4*1   ]      <= master_axi_w_id       ;
             slave_axi_w_data  [64*2-1   :     64*1  ]      <= master_axi_w_data     ;
             slave_axi_w_strb  [8*2-1    :     8*1   ]      <= master_axi_w_strb     ;
             slave_axi_w_last  [1*2-1    :     1*1   ]      <= master_axi_w_last     ;
@@ -175,7 +175,7 @@ module soc_axi4(
             slave_axi_aw_prot [3*3-1    :     3*2   ]      <= master_axi_aw_prot    ;
             slave_axi_aw_qos  [4*3-1    :     4*2   ]      <= master_axi_aw_qos     ;
             slave_axi_aw_valid[1*3-1    :     1*2   ]      <= master_axi_aw_valid   ;
-            slave_axi_w_id    [4*3-1    :     4*2   ]      <= master_axi_w_id       ;
+            //slave_axi_w_id    [4*3-1    :     4*2   ]      <= master_axi_w_id       ;
             slave_axi_w_data  [64*3-1   :     64*2  ]      <= master_axi_w_data     ;
             slave_axi_w_strb  [8*3-1    :     8*2   ]      <= master_axi_w_strb     ;
             slave_axi_w_last  [1*3-1    :     1*2   ]      <= master_axi_w_last     ;
@@ -196,7 +196,7 @@ module soc_axi4(
             slave_axi_aw_prot      <= 9'b0       ;
             slave_axi_aw_qos       <= 12'b0      ;
             slave_axi_aw_valid     <= 3'b0       ;
-            slave_axi_w_id         <= 12'b0      ;
+            //slave_axi_w_id         <= 12'b0      ;
             slave_axi_w_data       <= 192'b0     ;
             slave_axi_w_strb       <= 24'b0      ;
             slave_axi_w_last       <= 3'b0       ;
