@@ -12,7 +12,7 @@ Function:top module of this soc
 `include "./vsrc/defines_axi4.v"
 `include "./vsrc/defines.v"
 module SocTop (
-    input            wire                                    aclk                 ,
+    input            wire                                    clk                 ,
     input            wire                                    rst                  ,
    //-----------------------------AXI--------------------------------------------//
    //----------------------write address cahnnel---------------------------------//
@@ -70,7 +70,9 @@ module SocTop (
 );
     parameter SLAVE_NUM =  3 ;
     //-----------------------------wire about rvcpu------------------------------//
-    
+    wire aclk;
+    assign aclk = clk ;
+
     wire  [63:0]    rvcpu_inst_addr  ;
     wire            rvcpu_inst_ena   ;
     wire  [63:0]    rvcpu_data_addr  ;
