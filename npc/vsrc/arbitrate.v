@@ -209,7 +209,7 @@ module arbitrate (
     wire i_cache_valid ;
     wire d_cache_valid ;
     assign arb_sign      = (i_cache_ena && d_cache_read_ena);
-    assign i_cache_valid = axi_r_last && i_cache_ena && (~arb_sign) ;
+    assign i_cache_valid = (~axi_r_last) && i_cache_ena && (~arb_sign) ;
     assign d_cache_valid = (i_cache_state != `ysyx22040228_READ_ADDR) && (i_cache_state != `ysyx22040228_READ_DATA) && d_cache_read_ena           ;
 
     reg [1:0] i_cache_state     ;
