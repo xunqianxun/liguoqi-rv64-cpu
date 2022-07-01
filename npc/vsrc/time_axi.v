@@ -68,9 +68,7 @@ module time_axi (
 
     //write data channel
     input    wire     [`ysyx22040228_DATA_BUS ]        time_axi_w_data    ,
-    /* verilator lint_off UNUSED */
     input    wire     [`ysyx22040228_STRB_BUS ]        time_axi_w_strb    ,
-    /* verilator lint_on UNUSED */
     input    wire                                      time_axi_w_last    ,
     input    wire                                      time_axi_w_valid   ,
     output   wire                                      time_axi_w_ready   ,
@@ -101,14 +99,28 @@ module time_axi (
     output   reg                                       time_axi_r_valid   ,
     input    wire                                      time_axi_r_ready   
 );
-    /* verilator lint_off UNOPTFLAT */
     reg   [`ysyx22040228_REGBUS]   car_mtime_l;
     reg   [`ysyx22040228_REGBUS]   csr_mtime_h;
-    /* verilator lint_on UNOPTFLAT */
+    wire  [`ysyx22040228_REGBUS]   csr_mtime_l_nxt   ;
+    wire  [`ysyx22040228_REGBUS]   csr_mtime_h_nxt   ;
     wire                           csr_mtime_l_r_ena ;
     wire                           csr_mtime_h_r_ena ;
     wire                           csr_mtime_l_w_ena ;
-    wire                           csr_mtime_h_w_ena ;                       
+    wire                           csr_mtime_h_w_ena ;  
+    wire      [63:0]               wmask             ;
+    assign wmask = {{8{axi_w_strb[7]}}, {8{axi_w_strb[6]}}, {8{axi_w_strb[5]}}, {8{axi_w_strb[4]}}, {8{axi_w_strb[3]}},
+                    {8{axi_w_strb[2]}}, {8{axi_w_strb[1]}}, {8{axi_w_strb[0]}}};                      
+
+    always @(posedge clk) begin
+        if(rst == `ysyx22040228_RSTENA)begin
+            car_mtime_l <= `ysyx22040228_ZEROWORD ;
+            csr_mtime_h <= `ysyx22040228_ZEROWORD ;
+        end
+        else begin
+            car_mtime_l <= csr_mtime_l_nxt        ;
+            csr_mtime_h <= csr_mtime_h_nxt        ;
+        end 
+    end
 
     //---------------------------shake hande------------------------------//
     wire aw_shakehand ;
@@ -123,8 +135,8 @@ module time_axi (
     assign mode_right        = (time_axi_aw_len == 8'd0) && (time_axi_aw_size == `AXI_SIZE_BYTES_64) && (time_axi_aw_burst == `AXI_BURST_TYPE_INCR) && (time_axi_aw_cache == `AXI_ARCACHE_DEVICE_NON_BUFFERABLE) && (time_axi_aw_prot == `AXI_PROT_UNPRIVILEGED_ACCESS) && (time_axi_aw_qos == 4'b0000);
     assign csr_mtime_l_w_ena = mode_right && w_shakehand && aw_shakehand && (time_axi_aw_addr == `ysyx22040228_MTIMECMP);
     assign csr_mtime_h_w_ena = mode_right && w_shakehand && aw_shakehand && (time_axi_aw_addr == `ysyx22040228_MTIME   );
-    assign car_mtime_l       = csr_mtime_l_w_ena ? time_axi_w_data : (car_mtime_l + 1);
-    assign csr_mtime_h       = csr_mtime_h_w_ena ? time_axi_w_data : csr_mtime_h      ;
+    assign csr_mtime_l_nxt   = csr_mtime_l_w_ena ? (wmask & time_axi_w_data) : (car_mtime_l + 1);
+    assign csr_mtime_h_nxt   = csr_mtime_h_w_ena ? (wmask & time_axi_w_data) : csr_mtime_h      ;
     assign time_axi_aw_ready = time_axi_aw_valid && time_axi_w_valid && mode_right     ;
     assign time_axi_w_ready  = time_axi_aw_valid && time_axi_w_valid && time_axi_w_last;
     assign time_interrupt    = (car_mtime_l > csr_mtime_h) ? 1'b1 : 1'b0 ;
