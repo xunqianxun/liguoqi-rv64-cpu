@@ -635,7 +635,9 @@ void VSocTop___024root___settle__TOP__1(VSocTop___024root* vlSelf) {
     VSocTop___024root____Vdpiimwrap_SocTop__DOT__rvcpu1__DOT__mem_wb8__DOT__difftest_dut_thepc_TOP(vlSelf->SocTop__DOT__rvcpu1__DOT__mem_wb8__DOT__wb_pc_o);
     vlSelf->SocTop__DOT__rvcpu1__DOT__ex_ex_mem_pc 
         = ((IData)(vlSelf->rst) ? 0ULL : vlSelf->SocTop__DOT__rvcpu1__DOT__idex_ex_pc);
-    if ((0x20U == (IData)(vlSelf->SocTop__DOT__i_cache12__DOT__state_inst))) {
+    if (vlSelf->rst) {
+        vlSelf->SocTop__DOT__i_cache_inst_valid = 1U;
+    } else if ((0x20U == (IData)(vlSelf->SocTop__DOT__i_cache12__DOT__state_inst))) {
         vlSelf->SocTop__DOT__i_cache_inst_valid = 0U;
     } else if ((((4U == (IData)(vlSelf->SocTop__DOT__i_cache12__DOT__state_inst)) 
                  & (IData)(vlSelf->rst)) | (IData)(vlSelf->SocTop__DOT__i_cache12__DOT__inst_write_cache))) {

@@ -67,20 +67,17 @@ module arbitrate (
     //-----------------------------d_cache---------------------------------------//
     input       wire       [63:0]                            d_cache_addr         ,
     input       wire       [63:0]                            d_cache_data         ,
-    input       wire                                         d_cache_read_ena     ,
-    input       wire                                         d_cache_write_ena    ,
-    input       wire       [7:0 ]                            d_cache_mask         ,
+    input       wire       [3:0]                             d_cache_type         ,
+    input       wire                                         d_cache_resp         ,
     output      wire       [63:0]                            d_cache_data_o       ,
-    output      wire                                         d_cache_ok           ,
-    //output      wire                                         axi_working_td       ,
+    output      wire                                         d_cache_valid        ,
     //----------------------------i_cache----------------------------------------//
     input       wire       [63:0]                            i_cache_addr         ,
     input       wire                                         i_cache_ena          ,
-    output      wire       [63:0]                            i_cache_data_o       ,
-    output      wire                                         i_cache_ok           ,
-    output      wire                                         axi_working_ti       ,
-    //---------------------------axi sign----------------------------------------//
-
+    input       wire                                         i_cache_resp         ,
+    output      wire       [63:0]                            i_cache_data         ,
+    output      wire                                         i_cache_valid        ,
+    output      wire                                         arb_working_ti       ,
     //----------------------write address cahnnel--------------------------------//
     output      wire       [`ysyx22040228_ID_BUS]            axi_aw_id            ,
     output      wire       [`ysyx22040228_ADDR_BUS]          axi_aw_addr          ,
@@ -126,11 +123,14 @@ module arbitrate (
     input       wire                                         axi_r_valid          ,
     output      wire                                         axi_r_ready           
 );
-    assign axi_working_ti = (i_cache_state != `ysyx22040228_READ_IDLE) || (d_cache_state != `ysyx22040228_READ_IDLE) || (i_cache_ena && d_cache_read_ena);
-    //assign axi_working_td = (transfor_state != `ysyx22040228_ABE_IDLE) || (d_cache_state != `ysyx22040228_READ_IDLE) ;
 
-    //-----------------------------write about sign-------------------------------//
-    //-------------------------wirte channel sign make----------------------------// 
+    always @(*) begin
+        if((d_cache_type == 4'b0010) || (d_cache_type == 4'b1000))
+            arb_working_ti = `ysyx22040228_ABLE;
+        else 
+            arb_working_ti = `ysyx22040228_ENABLE;
+    end
+
     wire  aw_shankhand = axi_aw_valid && axi_aw_ready;
     wire  w_shankhand  = axi_w_valid  && axi_w_ready ;
     wire  b_shankhand  = axi_b_valid  && axi_b_ready && (axi_b_id == 4'b0000);
@@ -180,37 +180,43 @@ module arbitrate (
     assign axi_aw_cache  =  `AXI_AWCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE;
     assign axi_aw_port   =  `AXI_PROT_UNPRIVILEGED_ACCESS;
     assign axi_aw_qos    =  4'h0                         ;
-    assign axi_aw_valid  =  ((transfor_state == `ysyx22040228_ABE_IDLE) || (transfor_state == `ysyx22040228_ABE_INFO)) ? d_cache_write_ena  : `ysyx22040228_ENABLE  ;
+    assign axi_aw_valid  =  ((transfor_state == `ysyx22040228_ABE_IDLE) || (transfor_state == `ysyx22040228_ABE_INFO)) ? ((d_cache_resp == 4'b0001) || (d_cache_resp == 4'b0100))  : `ysyx22040228_ENABLE  ;
     assign axi_aw_addr   =  ((transfor_state == `ysyx22040228_ABE_IDLE) || (transfor_state == `ysyx22040228_ABE_INFO)) ? d_cache_addr       : `ysyx22040228_ZEROWORD;
 
     assign axi_w_data    =  ((transfor_state == `ysyx22040228_ABE_IDLE) || (transfor_state == `ysyx22040228_ABE_INFO)) ? d_cache_data       : `ysyx22040228_ZEROWORD;
-    assign axi_w_strb    =  ((transfor_state == `ysyx22040228_ABE_IDLE) || (transfor_state == `ysyx22040228_ABE_INFO)) ? d_cache_mask       : 8'b0                  ;             
+    assign axi_w_strb    =  8'b11111111;             
     assign axi_w_last    =  1'b1                         ;
     assign axi_w_valid   =  ((transfor_state == `ysyx22040228_ABE_IDLE) || (transfor_state == `ysyx22040228_ABE_INFO)) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE  ;
     assign axi_b_ready   =  `ysyx22040228_ABLE           ;
-    assign d_cache_ok    =  (b_success) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE ;
+    reg w_dcache_valid ;
+    always @(*) begin
+        if(b_shankhand)
+            w_dcache_valid = `ysyx22040228_ABLE;
+        else if(d_cache_resp)
+            w_dcache_valid = `ysyx22040228_ENABLE;
+        else 
+            w_dcache_valid = `ysyx22040228_ENABLE;
+    end
+
+    assign d_cache_valid = b_shankhand         ? w_dcache_valid :
+                           d_cache_r_shankhand ? r_dcache_valid :
+                                            `ysyx22040228_ENABLE;
     //-------------------------wirte channel sign make----------------------------// 
     wire r_shankhand          ;
     wire d_cache_ar_shankhand ;
     wire i_cache_ar_shankhand ;
     wire d_cache_r_shankhand  ;
     wire i_cache_r_shankhand  ;
-    // wire d_cache_rsuccess     ;
-    // wire i_cache_rsuccess     ;
     assign d_cache_ar_shankhand = d_cache_valid && axi_ar_ready ;
     assign i_cache_ar_shankhand = i_cache_valid && axi_ar_ready ;
     assign r_shankhand          = axi_r_valid   && axi_r_ready  ;
-    assign d_cache_r_shankhand  = r_shankhand && (axi_r_id == 4'b0000)         ;
-    //assign d_cache_rsuccess     = d_cache_r_shankhand && (axi_r_resp == 2'b00) ;
-    assign i_cache_r_shankhand  = r_shankhand && (axi_r_id == 4'b0001)         ;
-    //assign i_cache_rsuccess     = i_cache_r_shankhand && (axi_r_resp == 2'b00) ;
+    assign d_cache_r_shankhand  = r_shankhand && (axi_r_id == 4'b0000) && (axi_r_resp == 2'b00)        ;
+    assign i_cache_r_shankhand  = r_shankhand && (axi_r_id == 4'b0001) && (axi_r_resp == 2'b00)        ;
 
-    wire arb_sign      ;
     wire i_cache_valid ;
     wire d_cache_valid ;
-    assign arb_sign      = (i_cache_ena && d_cache_read_ena);
-    assign i_cache_valid = (~axi_r_last) && i_cache_ena && (~arb_sign) ;
-    assign d_cache_valid = (i_cache_state != `ysyx22040228_READ_ADDR) && (i_cache_state != `ysyx22040228_READ_DATA) && d_cache_read_ena           ;
+    assign i_cache_valid = i_cache_ena && ~arb_working_ti ;
+    assign d_cache_valid = (i_cache_state != `ysyx22040228_READ_ADDR) && (i_cache_state != `ysyx22040228_READ_DATA) && ((d_cache_resp == 4'b0010) || (d_cache_resp == 4'b1000));
 
     reg [1:0] i_cache_state     ;
     reg [1:0] i_cache_state_nxt ;
@@ -294,30 +300,35 @@ module arbitrate (
 
     assign axi_r_ready  = `ysyx22040228_ABLE                              ;
     
-    reg  i_cache_okreg ;
-    reg  d_cache_okreg ;
-    assign i_cache_ok = i_cache_okreg ;
-    assign d_cache_ok = d_cache_okreg ;
-
-    assign i_cache_data_o = i_cache_data_oupt  ;
-    assign d_cache_data_o = d_cache_data_outp  ;
-    reg [63:0] i_cache_data_oupt ;
-    reg [63:0] d_cache_data_outp ;
-    always @(posedge clk) begin
-        if(i_cache_r_shankhand && axi_r_last && (axi_r_id == 4'b0001) && (axi_r_resp == 2'b00)) begin
-            i_cache_okreg <= `ysyx22040228_ABLE           ;
-            i_cache_data_oupt <= axi_r_data            ;
-        end
-        else if(d_cache_r_shankhand && axi_r_last && (axi_r_id == 4'b0000) && (axi_r_resp == 2'b00)) begin
-            d_cache_data_outp <= axi_r_data ;
-            d_cache_okreg     <= `ysyx22040228_ABLE    ;
+    always @(*) begin
+        if(i_cache_r_shankhand) begin
+            i_cache_data = axi_r_data ;
+            i_cache_valid= `ysyx22040228_ABLE;
         end 
+        else if(i_cache_resp) begin
+            i_cache_data = `ysyx22040228_ZEROWORD;
+            i_cache_valid= `ysyx22040228_ENABLE;
+        end
         else begin
-            i_cache_data_oupt <= 64'h0 ;
-            d_cache_data_outp <= 64'h0 ;
-            i_cache_okreg <= 1'b0      ;
-            d_cache_okreg <= 1'b0      ;
+            i_cache_data = `ysyx22040228_ZEROWORD;
+            i_cache_valid= `ysyx22040228_ENABLE;
         end  
-    end 
-endmodule 
+    end
+    reg  r_dcache_valid ;
+    always @(*) begin
+        if(d_cache_r_shankhand) begin
+            d_cache_data = axi_r_data ;
+            r_dcache_valid= `ysyx22040228_ABLE;
+        end 
+        else if(i_cache_resp) begin
+            d_cache_data = `ysyx22040228_ZEROWORD;
+            r_dcache_valid= `ysyx22040228_ENABLE;
+        end
+        else begin
+            d_cache_data = `ysyx22040228_ZEROWORD;
+            r_dcache_valid= `ysyx22040228_ENABLE;
+        end  
+    end
+
+endmodule
 

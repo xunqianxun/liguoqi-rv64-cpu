@@ -4510,7 +4510,9 @@ VL_INLINE_OPT void VSocTop___024root___combo__TOP__8(VSocTop___024root* vlSelf) 
                                                           : vlSelf->in_inst_data_in)
                                                          : 0ULL) 
                                                        >> 0x20U));
-    if ((0x20U == (IData)(vlSelf->SocTop__DOT__i_cache12__DOT__state_inst))) {
+    if (vlSelf->rst) {
+        vlSelf->SocTop__DOT__i_cache_inst_valid = 1U;
+    } else if ((0x20U == (IData)(vlSelf->SocTop__DOT__i_cache12__DOT__state_inst))) {
         vlSelf->SocTop__DOT__i_cache_inst_valid = 0U;
     } else if ((((4U == (IData)(vlSelf->SocTop__DOT__i_cache12__DOT__state_inst)) 
                  & (IData)(vlSelf->rst)) | (IData)(vlSelf->SocTop__DOT__i_cache12__DOT__inst_write_cache))) {

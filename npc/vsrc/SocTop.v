@@ -87,13 +87,14 @@ module SocTop (
     wire            i_cache_read_ena ;
     wire  [63:0]    i_cache_addr     ;  
     wire            i_cache_ready    ;
+    wire            i_caceh_resp     ;
 
     wire  [63:0]    d_cache_data_out ; 
     wire            d_cache_mem_finish;   
     wire  [63:0]    d_cache_out_addr ;
     wire  [63:0]    d_cache_out_data ;
-    wire            d_cache_read_ena ;
-    wire            d_cache_write_ena;  
+    wire            d_cache_out_resp ;
+    wire  [3:0]     d_cache_out_type ;  
 
     wire  [63:0]    arbitrate_d_data ;
     wire            arbitrate_d_ok   ;
@@ -375,8 +376,8 @@ module SocTop (
 
     );
 
-    i_cache1 i_cache12 (
-        .clk                 (aclk                 ) ,
+    i_cache i_cache2 (
+        .clk                 (aclk                ) ,
         .rst                 (rst                 ) ,
         .inst_addr           (rvcpu_inst_addr     ) ,
         .inst_ena            (rvcpu_inst_ena      ) ,
@@ -385,35 +386,32 @@ module SocTop (
         .inst_valid          (i_cache_inst_valid  ) ,
 
         .cache_read_ena      (i_cache_read_ena    ) ,
+        .cache_read_resp     (i_caceh_resp        ) ,
         .cache_addr          (i_cache_addr        ) ,
-        .cache_or_data       (arbitrate_i_data    ) ,
-        .cache_in_ok         (arbitrate_i_ok      ) ,
-        .axi_working_ti      (arbitrate_ti_sign   )                           
+        .cache_in_data       (arbitrate_i_data    ) ,
+        .cache_in_valid      (arbitrate_i_ok      ) ,
+        .arb_working_ti      (arbitrate_ti_sign   )                           
 );
     
-    d_cache1 d_cache13 (
-        .clk                 (aclk                ) ,
+    d_cache d_cache3 (
+        .clk                 (aclk               ) ,
         .rst                 (rst                ) ,
 
         .mem_addr_i          (rvcpu_data_addr    ) ,
         .mem_data_i          (rvcpu_data_o       ) ,
-        .mem_mask_i          (rvcpu_wmask        ) ,
-        .mem_data_read_ena   (rvcpu_re           ) ,
-        .mem_data_writ_ena   (rvcpu_we           ) ,
-
-        .mem_data_out_cpu    (d_cache_data_out   ) ,
-        .mem_data_finish     (d_cache_mem_finish ) ,
-
-        // .in_dcache_addr      () ,
-        // .in_dcache_ena       () ,
+        .mem_strb_i          (rvcpu_wmask        ) ,
+        .mem_data_read_valid (rvcpu_re           ) ,
+        .mem_data_write_valid(rvcpu_we           ) ,
+        .mem_data_out        (d_cache_data_out   ) ,
+        .mem_data_ready      (d_cache_mem_finish ) ,
 
         .in_dcache_data      (arbitrate_d_data   ) ,
- 
-        .in_dcache_ok        (arbitrate_d_ok     ) ,
+        .in_dcache_ready     (arbitrate_d_ok     ) ,
+        .out_dcache_resp     (d_cache_out_resp   ) ,
         .out_dcache_addr     (d_cache_out_addr   ) ,
         .out_dcache_data     (d_cache_out_data   ) ,
-        .outr_dcache_ena     (d_cache_read_ena   ) ,
-        .outw_dcache_ena     (d_cache_write_ena  )
+        .out_dcache_type     (d_cache_out_type   )
+
     );
 
     wire [7:0] d_cache_mask_gd = 8'b11111111 ;
@@ -424,17 +422,18 @@ module SocTop (
 
         .d_cache_addr        (d_cache_out_addr   ) ,
         .d_cache_data        (d_cache_out_data   ) ,
-        .d_cache_read_ena    (d_cache_read_ena   ) ,
-        .d_cache_write_ena   (d_cache_write_ena  ) ,
+        .d_cache_type        (d_cache_out_type   ) ,
+        .d_cache_resp        (d_cache_out_resp   ) ,
         .d_cache_mask        (d_cache_mask_gd    ) ,
         .d_cache_data_o      (arbitrate_d_data   ) ,
-        .d_cache_ok          (arbitrate_d_ok     ) ,
+        .d_cache_valid       (arbitrate_d_ok     ) ,
 
         .i_cache_addr        (i_cache_addr       ) ,
         .i_cache_ena         (i_cache_read_ena   ) ,
-        .i_cache_data_o      (arbitrate_i_data   ) ,
-        .i_cache_ok          (arbitrate_i_ok     ) ,
-        .axi_working_ti      (arbitrate_ti_sign  ) ,
+        .i_cache_resp        (i_caceh_resp       ) ,
+        .i_cache_data        (arbitrate_i_data   ) ,
+        .i_cache_valid       (arbitrate_i_ok     ) ,
+        .arb_working_ti      (arbitrate_ti_sign  ) ,
 
         .axi_aw_id           (t_axi_aw_id        ) ,
         .axi_aw_addr         (t_axi_aw_addr      ) ,
