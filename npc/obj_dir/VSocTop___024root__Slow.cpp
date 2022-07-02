@@ -2766,7 +2766,7 @@ void VSocTop___024root___initial__TOP__2(VSocTop___024root* vlSelf) {
     VSocTop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    VSocTop___024root___initial__TOP__2\n"); );
     // Body
-    vlSelf->in_inst_data_in = 0U;
+    vlSelf->in_inst_data_in = 0ULL;
 }
 
 void VSocTop___024root___settle__TOP__6(VSocTop___024root* vlSelf) {
@@ -2792,7 +2792,7 @@ void VSocTop___024root___settle__TOP__6(VSocTop___024root* vlSelf) {
                                                           & ((IData)(vlSelf->SocTop__DOT__add_axi_ar_id) 
                                                              >> 8U)))
                                                          ? vlSelf->in_ram_data_in
-                                                         : (QData)((IData)(vlSelf->in_inst_data_in)))
+                                                         : vlSelf->in_inst_data_in)
                                                         : 0ULL));
     vlSelf->SocTop__DOT__add_axi_r_data[5U] = (IData)(
                                                       (((2U 
@@ -2804,7 +2804,7 @@ void VSocTop___024root___settle__TOP__6(VSocTop___024root* vlSelf) {
                                                            & ((IData)(vlSelf->SocTop__DOT__add_axi_ar_id) 
                                                               >> 8U)))
                                                           ? vlSelf->in_ram_data_in
-                                                          : (QData)((IData)(vlSelf->in_inst_data_in)))
+                                                          : vlSelf->in_inst_data_in)
                                                          : 0ULL) 
                                                        >> 0x20U));
 }
@@ -2850,7 +2850,7 @@ void VSocTop___024root___ctor_var_reset(VSocTop___024root* vlSelf) {
     vlSelf->out_read_ram_ena = VL_RAND_RESET_I(1);
     vlSelf->out_read_inst_ena = VL_RAND_RESET_I(1);
     vlSelf->out_addr_outp = VL_RAND_RESET_Q(64);
-    vlSelf->in_inst_data_in = VL_RAND_RESET_I(32);
+    vlSelf->in_inst_data_in = VL_RAND_RESET_Q(64);
     vlSelf->in_ram_data_in = VL_RAND_RESET_Q(64);
     vlSelf->out_write_ram_ena = VL_RAND_RESET_I(1);
     vlSelf->out_write_ram_data = VL_RAND_RESET_Q(64);

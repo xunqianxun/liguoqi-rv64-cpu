@@ -153,7 +153,10 @@ module i_cache1 (
     assign inst_data       = (state_inst == `ysyx22040228_HIT) && (inst_ena) ? ((i_tag_data1 == i_in_teg) ? (inst_addr[2] ? i_out_data1[63:32] : i_out_data1[31:0]) : (inst_addr[2] ? i_out_data2[63:32] : i_out_data2[31:0])) :
                              inst_write_cache                                ? (inst_in_cache1 ? (inst_addr[2] ? i_out_data1[63:32] : i_out_data1[31:0]) : (inst_addr[2] ? i_out_data2[63:32] : i_out_data2[31:0]))            :
                                                                               32'b0;                   
-    assign inst_valid      = ~axi_working_ti;
+    assign inst_valid      = (state_inst == `ysyx22040228_READ) ?  `ysyx22040228_ABLE  :
+                             (state_inst == `ysyx22040228_HIT)  ?  `ysyx22040228_ABLE  :
+                             (state_inst == `ysyx22040228_WRITE)?  `ysyx22040228_ABLE  :
+                                                                `ysyx22040228_ENABLE   ;
 
     wire    [5:0]    i_cache_addr1;
     wire    [55:0]   i_cache_tag1 ;

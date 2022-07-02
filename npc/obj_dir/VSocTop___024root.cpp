@@ -4484,7 +4484,7 @@ VL_INLINE_OPT void VSocTop___024root___combo__TOP__8(VSocTop___024root* vlSelf) 
                                                           & ((IData)(vlSelf->SocTop__DOT__add_axi_ar_id) 
                                                              >> 8U)))
                                                          ? vlSelf->in_ram_data_in
-                                                         : (QData)((IData)(vlSelf->in_inst_data_in)))
+                                                         : vlSelf->in_inst_data_in)
                                                         : 0ULL));
     vlSelf->SocTop__DOT__add_axi_r_data[5U] = (IData)(
                                                       (((2U 
@@ -4496,7 +4496,7 @@ VL_INLINE_OPT void VSocTop___024root___combo__TOP__8(VSocTop___024root* vlSelf) 
                                                            & ((IData)(vlSelf->SocTop__DOT__add_axi_ar_id) 
                                                               >> 8U)))
                                                           ? vlSelf->in_ram_data_in
-                                                          : (QData)((IData)(vlSelf->in_inst_data_in)))
+                                                          : vlSelf->in_inst_data_in)
                                                          : 0ULL) 
                                                        >> 0x20U));
     if ((1U & ((IData)(vlSelf->rst) | (~ (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_type))))) {
