@@ -27,7 +27,6 @@ module pc (
 
   //  reg   [ 1:0]   jump_cont = 2'b11;
   //  assign pip_b_cont = jump_cont;
-    reg [63:0] pc
     always @(posedge clk) begin
         if(rst == `ysyx22040228_RSTENA) begin
             pc <= `ysyx22040228_START      ;   
