@@ -313,7 +313,7 @@ module arbitrate (
             d_cache_okreg     <= `ysyx22040228_ABLE    ;
         end 
         else begin
-            i_cache_data_oupt <= 32'h0 ;
+            i_cache_data_oupt <= 64'h0 ;
             d_cache_data_outp <= 64'h0 ;
             i_cache_okreg <= 1'b0      ;
             d_cache_okreg <= 1'b0      ;

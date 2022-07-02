@@ -97,7 +97,7 @@ module SocTop (
 
     wire  [63:0]    arbitrate_d_data ;
     wire            arbitrate_d_ok   ;
-    wire  [31:0]    arbitrate_i_data ;
+    wire  [63:0]    arbitrate_i_data ;
     wire            arbitrate_i_ok   ;
     wire            arbitrate_ti_sign;
 
@@ -481,7 +481,7 @@ module SocTop (
     wire         read_ram_sign   ; 
     wire         read_inst_sign  ;
     wire [63:0]  addr_oup_sign   ;
-    wire [31:0]  inst_data_sign  ;
+    wire [63:0]  inst_data_sign  ;
     wire [63:0]  ram_data_sign   ;
     wire         write_ena_sign  ;
     wire [63:0]  write_addr_sign ;
