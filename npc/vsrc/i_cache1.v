@@ -196,9 +196,9 @@ module i_cache1 (
     //-------------------------------ram data---------------------------------//
     
     wire    [5:0]    i_addrdata1;
-    wire    [31:0]   i_in_data1 ;
+    wire    [63:0]   i_in_data1 ;
     wire             i_data_ena1 ;
-    wire    [31:0]   i_out_data1 ;
+    wire    [63:0]   i_out_data1 ;
     assign  i_addrdata1 = inst_addr[8:3];
     assign  i_in_data1  = (((state_inst == `ysyx22040228_WRITE) && (cache_in_ok)) && inst_chose1) ? cache_or_data        : 32'b0                 ; 
     assign  i_data_ena1 = (((state_inst == `ysyx22040228_WRITE) && (cache_in_ok)) && inst_chose1) ? `ysyx22040228_ABLE   : `ysyx22040228_ENABLE  ;
@@ -212,9 +212,9 @@ module i_cache1 (
     );
 
     wire    [5:0]    i_addrdata2 ;
-    wire    [31:0]   i_in_data2  ;
+    wire    [63:0]   i_in_data2  ;
     wire             i_data_ena2 ;
-    wire    [31:0]   i_out_data2 ;
+    wire    [63:0]   i_out_data2 ;
     assign  i_addrdata2 = inst_addr[8:3];
     assign  i_in_data2  = (((state_inst == `ysyx22040228_WRITE) && (cache_in_ok)) && inst_chose2) ? cache_or_data        : 32'b0                 ; 
     assign  i_data_ena2 = (((state_inst == `ysyx22040228_WRITE) && (cache_in_ok)) && inst_chose2) ? `ysyx22040228_ENABLE : `ysyx22040228_ENABLE  ;

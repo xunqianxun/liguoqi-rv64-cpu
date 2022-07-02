@@ -76,7 +76,7 @@ module arbitrate (
     //----------------------------i_cache----------------------------------------//
     input       wire       [63:0]                            i_cache_addr         ,
     input       wire                                         i_cache_ena          ,
-    output      wire       [31:0]                            i_cache_data_o       ,
+    output      wire       [63:0]                            i_cache_data_o       ,
     output      wire                                         i_cache_ok           ,
     output      wire                                         axi_working_ti       ,
     //---------------------------axi sign----------------------------------------//
@@ -294,11 +294,6 @@ module arbitrate (
 
     assign axi_r_ready  = `ysyx22040228_ABLE                              ;
     
-
-    // assign i_cache_ok   = ((axi_r_id == 4'b0001) && (axi_r_last == `ysyx22040228_ABLE) && (axi_r_resp == 2'b00)) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE;
-    // assign i_cache_data_o = (i_cache_ok) ? axi_r_data : `ysyx22040228_ZEROWORD;
-    // assign d_cache_ok   = ((axi_r_id == 4'b0010) && (axi_r_last == `ysyx22040228_ABLE) && (axi_r_resp == 2'b00)) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE;
-    // assign d_cache_data_o = (d_cache_ok) ? axi_r_data : `ysyx22040228_ZEROWORD;
     reg  i_cache_okreg ;
     reg  d_cache_okreg ;
     assign i_cache_ok = i_cache_okreg ;
@@ -306,16 +301,12 @@ module arbitrate (
 
     assign i_cache_data_o = i_cache_data_oupt  ;
     assign d_cache_data_o = d_cache_data_outp  ;
-    reg [31:0] i_cache_data_oupt ;
+    reg [63:0] i_cache_data_oupt ;
     reg [63:0] d_cache_data_outp ;
     always @(posedge clk) begin
         if(i_cache_r_shankhand && axi_r_last && (axi_r_id == 4'b0001) && (axi_r_resp == 2'b00)) begin
             i_cache_okreg <= `ysyx22040228_ABLE           ;
-            // if(i_cache_addr[2] == `ysyx22040228_ABLE)
-            //     i_cache_data_oupt <= axi_r_data[63:32] ;
-            // else 
-            //     i_cache_data_oupt <= axi_r_data[31:0 ] ;
-            i_cache_data_oupt <= axi_r_data[31:0]         ;
+            i_cache_data_oupt <= axi_r_data            ;
         end
         else if(d_cache_r_shankhand && axi_r_last && (axi_r_id == 4'b0000) && (axi_r_resp == 2'b00)) begin
             d_cache_data_outp <= axi_r_data ;
