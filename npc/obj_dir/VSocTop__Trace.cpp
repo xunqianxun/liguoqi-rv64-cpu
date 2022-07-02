@@ -36,7 +36,9 @@ void VSocTop___024root__traceChgSub0(VSocTop___024root* vlSelf, VerilatedVcd* tr
             tracep->chgBit(oldp+9,(vlSelf->SocTop__DOT__rvcpu_we));
             tracep->chgBit(oldp+10,(vlSelf->SocTop__DOT__rvcpu_re));
             tracep->chgIData(oldp+11,(vlSelf->SocTop__DOT__i_cache_inst_data),32);
-            tracep->chgBit(oldp+12,((1U & (~ (IData)(vlSelf->SocTop__DOT__arbitrate_ti_sign)))));
+            tracep->chgBit(oldp+12,(((0x20U == (IData)(vlSelf->SocTop__DOT__i_cache12__DOT__state_inst)) 
+                                     | ((4U == (IData)(vlSelf->SocTop__DOT__i_cache12__DOT__state_inst)) 
+                                        | (0x10U == (IData)(vlSelf->SocTop__DOT__i_cache12__DOT__state_inst))))));
             tracep->chgBit(oldp+13,(vlSelf->SocTop__DOT__i_cache_read_ena));
             tracep->chgBit(oldp+14,((1U & (~ ((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__stall_ctrl) 
                                               >> 1U)))));
