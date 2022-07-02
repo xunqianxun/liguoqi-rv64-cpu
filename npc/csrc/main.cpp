@@ -198,10 +198,10 @@ extern void isa_exec_once(int y){
 int ddy ;
 ddy = y;
 while(ddy){
-  if(main_time > 10) {
+  if(main_time > 11) {
     rvcpu->rst = 0 ;
   }
-  if((main_time % 10) == 1){
+  if((main_time % 10) == 2){
     rvcpu->clk = 1;
     rvcpu->eval();
     if(rvcpu->out_read_inst_ena == 1) {

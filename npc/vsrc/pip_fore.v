@@ -36,10 +36,11 @@ assign x1_ena = (rst == `ysyx22040228_RSTENA) ? 0:inst_jalr;
 
 wire [63:0] operand1;
 wire [63:0] operand2;
-assign operand1 = inst_jalr ? x1_data:pc_i;
+assign operand1 = inst_jalr ? x1_data:((rst == `ysyx22040228_RSTENA)? `ysyx22040228_START pc_i);
 assign operand2 = inst_jal  ? {{44{j_imm[20]}} , j_imm[20:1] << 1} :
                   inst_bxx  ? {{52{b_imm[12]}} , b_imm[12:1] << 1} :
-                  inst_jalr ? {{52{i_imm[11]}} , i_imm[11:0]}      : `ysyx22040228_NEXTPC; 
+                  inst_jalr ? {{52{i_imm[11]}} , i_imm[11:0]}      :
+                   `ysyx22040228_NEXTPC; 
 
 wire [63:0] j_pc;
 assign j_pc         = operand1 + operand2;

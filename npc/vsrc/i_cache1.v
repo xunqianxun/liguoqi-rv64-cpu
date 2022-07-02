@@ -13,7 +13,7 @@ Function:write data cache
 `define ysyx22040228_HIT     6'b000100
 `define ysyx22040228_MISS    6'b001000
 `define ysyx22040228_WRITE   6'b010000
-`define ysyx22040228_WBCK    6'b100000
+`define ysyx22040228_READ    6'b100000
 module i_cache1 (
     input       wire                                         clk             ,
     input       wire                                         rst             ,
@@ -25,7 +25,7 @@ module i_cache1 (
 
     output      wire                                         cache_read_ena  ,
     output      wire          [63:0]                         cache_addr      ,
-    input       wire          [31:0]                         cache_or_data   ,
+    input       wire          [63:0]                         cache_or_data   ,
     input       wire                                         cache_in_ok     ,
     input       wire                                         axi_working_ti                                  
 );
@@ -57,6 +57,7 @@ module i_cache1 (
     /* verilator lint_on UNOPTFLAT */
     reg       inst_hit_ok   ;
     reg       write_i_ok    ;
+    reg       read_ok       ;
     wire      state_sign    ;
     assign state_sign = (~inst_ena) && (inst_ready) ;
 
@@ -68,9 +69,15 @@ module i_cache1 (
             case (state_inst)
                `ysyx22040228_IDLE : begin
                    if(state_sign)
-                        state_inst = `ysyx22040228_CHOSE;
+                        state_inst = `ysyx22040228_READ;
                    else 
                         state_inst = `ysyx22040228_IDLE;  
+               end 
+               `ysyx22040228_READ  : begin
+                   if(read_ok)
+                        state_inst = `ysyx22040228_CHOSE;
+                   else
+                        state_inst = `ysyx22040228_READ ;
                end 
                `ysyx22040228_CHOSE : begin
                    if(((i_tag_data1 == i_in_teg) && (i_tag_user1 == `ysyx22040228_ABLE)) || ((i_tag_data2 == i_in_teg) && (i_tag_user2 == `ysyx22040228_ABLE))) 
@@ -97,6 +104,13 @@ module i_cache1 (
             endcase
         end 
     end 
+
+    always @(posedge clk or negedge rst) begin
+        if(state_inst == `ysyx22040228_READ)
+            read_ok <= `ysyx22040228_ABLE;
+        else
+            read_ok <= `ysyx22040228_ENABLE;
+    end
 
     always @(posedge clk or negedge rst) begin
         if(state_inst == `ysyx22040228_HIT)
@@ -136,7 +150,7 @@ module i_cache1 (
 
     assign cache_addr      = axi_working_ti ?  addr_lock_reg : inst_addr ; 
     assign cache_read_ena  = ((state_inst == `ysyx22040228_WRITE) && (~cache_in_ok)) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE  ;
-    assign inst_data       = (state_inst == `ysyx22040228_HIT) && (inst_ena) ? ((i_tag_data1 == i_in_teg) ? i_out_data1 : i_out_data2) :
+    assign inst_data       = (state_inst == `ysyx22040228_HIT) && (inst_ena) ? ((i_tag_data1 == i_in_teg) ? (inst_addr[2] ? i_out_data1[63:32] : i_out_data1[31:0]) : (inst_addr[2] ? i_out_data2[63:32] : i_out_data2[31:0])) :
                              inst_write_cache                                ? (inst_in_cache1 ? i_out_data1 : i_out_data2)            :
                                                                               32'b0;                   
     assign inst_valid      = ~axi_working_ti;
@@ -187,7 +201,7 @@ module i_cache1 (
     wire    [31:0]   i_out_data1 ;
     assign  i_addrdata1 = inst_addr[8:3];
     assign  i_in_data1  = (((state_inst == `ysyx22040228_WRITE) && (cache_in_ok)) && inst_chose1) ? cache_or_data        : 32'b0                 ; 
-    assign  i_data_ena1 = (((state_inst == `ysyx22040228_WRITE) && (cache_in_ok)) && inst_chose1) ? `ysyx22040228_ENABLE : `ysyx22040228_ENABLE  ;
+    assign  i_data_ena1 = (((state_inst == `ysyx22040228_WRITE) && (cache_in_ok)) && inst_chose1) ? `ysyx22040228_ABLE   : `ysyx22040228_ENABLE  ;
     i_cache_data_ram u_data01(
         .clk         (clk           ),
         //.rst         (rst           ),

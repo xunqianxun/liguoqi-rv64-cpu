@@ -2466,7 +2466,7 @@ void VSocTop___024root___settle__TOP__1(VSocTop___024root* vlSelf) {
             & (2U != (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__i_cache_state))) 
            & (IData)(vlSelf->SocTop__DOT__d_cache_read_ena));
     vlSelf->SocTop__DOT__arbitrate4__DOT__i_cache_valid 
-        = (((IData)(vlSelf->SocTop__DOT__t_axi_r_last) 
+        = (((~ (IData)(vlSelf->SocTop__DOT__t_axi_r_last)) 
             & (IData)(vlSelf->SocTop__DOT__i_cache_read_ena)) 
            & (~ ((IData)(vlSelf->SocTop__DOT__i_cache_read_ena) 
                  & (IData)(vlSelf->SocTop__DOT__d_cache_read_ena))));

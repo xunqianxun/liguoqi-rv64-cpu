@@ -27,25 +27,26 @@ module pc (
 
   //  reg   [ 1:0]   jump_cont = 2'b11;
   //  assign pip_b_cont = jump_cont;
-  
+    reg [63:0] pc
     always @(posedge clk) begin
         if(rst == `ysyx22040228_RSTENA) begin
-            pc <= `ysyx22040228_START;   
+            pc <= `ysyx22040228_START      ;   
         end
         else begin
             if (ex_pc_ena) begin
-                  pc <= ex_pc_i               ;
+                  pc <= ex_pc_i            ;
             end 
             else if (id_pc_ena)
                   pc <= id_pc_i            ;
             else if (pc_stall == `ysyx22040228_STOP) begin 
-                  pc <= pc                 ;
+                  pc <= pc            ;
             end
             else begin
                   pc <= static_pc_i        ;              
             end
         end
     end
+
     
     assign ce = (rst == `ysyx22040228_RSTENA)? 1'b1:1'b0;
     
