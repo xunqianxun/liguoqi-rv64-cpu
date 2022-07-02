@@ -4,8 +4,8 @@ Name:SocTOp.v
 Function:top module of this soc
 ************************************************************/
 `include "./vsrc/arbitrate.v"
-`include "./vsrc/d_cache1.v"
-`include "./vsrc/i_cache1.v"
+`include "./vsrc/d_cache.v"
+`include "./vsrc/i_cache.v"
 `include "./vsrc/axi_mnq.v"
 `include "./vsrc/soc_axi4.v"
 `include "./vsrc/time_axi.v"
@@ -424,9 +424,8 @@ module SocTop (
         .d_cache_data        (d_cache_out_data   ) ,
         .d_cache_type        (d_cache_out_type   ) ,
         .d_cache_resp        (d_cache_out_resp   ) ,
-        .d_cache_mask        (d_cache_mask_gd    ) ,
         .d_cache_data_o      (arbitrate_d_data   ) ,
-        .d_cache_valid       (arbitrate_d_ok     ) ,
+        .d_cache_valid_      (arbitrate_d_ok     ) ,
 
         .i_cache_addr        (i_cache_addr       ) ,
         .i_cache_ena         (i_cache_read_ena   ) ,

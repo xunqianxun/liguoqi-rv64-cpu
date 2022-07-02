@@ -70,12 +70,12 @@ module arbitrate (
     input       wire       [3:0]                             d_cache_type         ,
     input       wire                                         d_cache_resp         ,
     output      wire       [63:0]                            d_cache_data_o       ,
-    output      wire                                         d_cache_valid        ,
+    output      wire                                         d_cache_valid_       ,
     //----------------------------i_cache----------------------------------------//
     input       wire       [63:0]                            i_cache_addr         ,
     input       wire                                         i_cache_ena          ,
     input       wire                                         i_cache_resp         ,
-    output      wire       [63:0]                            i_cache_data         ,
+    output      reg        [63:0]                            i_cache_data         ,
     output      wire                                         i_cache_valid        ,
     output      wire                                         arb_working_ti       ,
     //----------------------write address cahnnel--------------------------------//
@@ -198,9 +198,9 @@ module arbitrate (
             w_dcache_valid = `ysyx22040228_ENABLE;
     end
 
-    assign d_cache_valid = b_shankhand         ? w_dcache_valid :
-                           d_cache_r_shankhand ? r_dcache_valid :
-                                            `ysyx22040228_ENABLE;
+    assign d_cache_valid_ = b_shankhand         ? w_dcache_valid :
+                            d_cache_r_shankhand ? r_dcache_valid :
+                                             `ysyx22040228_ENABLE;
     //-------------------------wirte channel sign make----------------------------// 
     wire r_shankhand          ;
     wire d_cache_ar_shankhand ;
@@ -215,7 +215,7 @@ module arbitrate (
 
     wire i_cache_valid ;
     wire d_cache_valid ;
-    assign i_cache_valid = i_cache_ena && ~arb_working_ti ;
+    assign i_cache_valid = i_cache_ena && (~arb_working_ti) ;
     assign d_cache_valid = (i_cache_state != `ysyx22040228_READ_ADDR) && (i_cache_state != `ysyx22040228_READ_DATA) && ((d_cache_resp == 4'b0010) || (d_cache_resp == 4'b1000));
 
     reg [1:0] i_cache_state     ;
