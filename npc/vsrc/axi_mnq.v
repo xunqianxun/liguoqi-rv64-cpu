@@ -54,7 +54,7 @@ module axi_mnq (
     output      wire                                         read_ram_ena           ,
     output      wire                                         read_inst_ena          ,
     output      wire       [63:0]                            addr_oup               ,
-    input       wire       [31:0]                            inst_data_in           ,
+    input       wire       [63:0]                            inst_data_in           ,
     input       wire       [63:0]                            ram_data_in            , 
     output      wire                                         write_ram_ena          ,
     output      wire       [63:0]                            write_ram_data         ,
@@ -175,7 +175,7 @@ module axi_mnq (
     assign s_axi_r_id     = (s_read_state == `ysyx22040228_S_DATA) ? s_axi_ar_id : 4'b0 ;
     assign s_axi_r_resp   = 2'b00 ;
     assign s_axi_r_last   = (s_read_state == `ysyx22040228_S_DATA) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE; 
-    assign s_axi_r_data   = (s_read_state == `ysyx22040228_S_DATA) ? ((s_axi_ar_id == 4'b0000) ? ram_data_in : inst_data_in : `ysyx22040228_ZEROWORD;
+    assign s_axi_r_data   = (s_read_state == `ysyx22040228_S_DATA) ? ((s_axi_ar_id == 4'b0000) ? ram_data_in : inst_data_in) : `ysyx22040228_ZEROWORD;
 
     assign read_ram_ena   = ((s_read_state == `ysyx22040228_S_DATA) && (s_axi_ar_id == 4'b0000)) ;
     assign read_inst_ena  = ((s_read_state == `ysyx22040228_S_DATA) && (s_axi_ar_id == 4'b0001)) ;
