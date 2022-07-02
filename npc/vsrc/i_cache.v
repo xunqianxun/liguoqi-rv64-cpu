@@ -8,12 +8,12 @@ Function:write data cache
 `include "./vsrc/i_cache_data_ram.v"
 `include "./vsrc/i_cache_tag_ram.v"
 
-`define ysyx22040228_IDLE    6'b000001
-`define ysyx22040228_MISSR   6'b000010
-`define ysyx22040228_HIT     6'b000100
-`define ysyx22040228_COREBCH 6'b001000
-`define ysyx22040228_COREBCM 6'b010000
-`define ysyx22040228_READ    6'b100000
+`define ysyx22040228_IDLE    6'b000011
+`define ysyx22040228_MISSR   6'b000110
+`define ysyx22040228_HIT     6'b001100
+`define ysyx22040228_COREBCH 6'b011000
+`define ysyx22040228_COREBCM 6'b110000
+`define ysyx22040228_READ    6'b100001
 
 module i_cache (
     input       wire                                         clk             ,
@@ -68,7 +68,7 @@ module i_cache (
                         state_inst_nxt = `ysyx22040228_IDLE;  
                end 
                `ysyx22040228_READ  : begin
-                   if(read_ok) && (((i_tag_data1 == icache_tag) && (i_tag_user1 == `ysyx22040228_ABLE)) || ((i_tag_data2 == icache_tag) && (i_tag_user2 == `ysyx22040228_ABLE)))
+                   if((read_ok) && (((i_tag_data1 == icache_tag) && (i_tag_user1 == `ysyx22040228_ABLE)) || ((i_tag_data2 == icache_tag) && (i_tag_user2 == `ysyx22040228_ABLE))))
                         state_inst_nxt = `ysyx22040228_HIT;
                    else if(read_ok)
                         state_inst_nxt = `ysyx22040228_MISSR;
@@ -137,7 +137,7 @@ module i_cache (
     assign  inst_valid  = (state_inst == `ysyx22040228_READ) ? `ysyx22040228_ENABLE :
                           (state_inst == `ysyx22040228_HIT)  ? `ysyx22040228_ENABLE :
                           (state_inst == `ysyx22040228_MISSR)? `ysyx22040228_ENABLE :
-                          arb_working_ti                     ? `ysyx22040228_ENABLE ;
+                          arb_working_ti                     ? `ysyx22040228_ENABLE :
                                                                  `ysyx22040228_ABLE ;
 
 
@@ -154,7 +154,7 @@ module i_cache (
             miss_data      = cache_in_data       ;
             cache_read_resp= `ysyx22040228_ABLE  ; 
             write_i_ok     = `ysyx22040228_ABLE  ;
-            if((i_tag_user1 == `ysyx22040228_ENABLE) || (i_counter1[icache_index]] >= i_counter2[icache_index]))begin
+            if((i_tag_user1 == `ysyx22040228_ENABLE) || (i_counter1[icache_index] >= i_counter2[icache_index]))begin
                 miss_ena_o = `ysyx22040228_ABLE  ;
             end    
             else if((i_tag_user2 == `ysyx22040228_ENABLE) || (i_counter1[icache_index] < i_counter2[icache_index])) begin
