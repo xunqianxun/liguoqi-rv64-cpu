@@ -1220,7 +1220,7 @@ void VSocTop___024root__traceChgSub0(VSocTop___024root* vlSelf, VerilatedVcd* tr
                                          ? vlSelf->in_ram_data_in
                                          : (QData)((IData)(vlSelf->in_inst_data_in)))
                                      : 0ULL)),64);
-        tracep->chgQData(oldp+704,((QData)((IData)(vlSelf->in_inst_data_in))),64);
+        tracep->chgQData(oldp+704,((QData)((IData)(vlSelf->in_inst_data_in))),33);
         tracep->chgQData(oldp+706,(((1U & ((~ (IData)(vlSelf->rst)) 
                                            & ((IData)(vlSelf->rst)
                                                ? 0U
@@ -1501,6 +1501,7 @@ void VSocTop___024root__traceChgSub0(VSocTop___024root* vlSelf, VerilatedVcd* tr
                                      [(0x3fU & (IData)(
                                                        (vlSelf->SocTop__DOT__rvcpu_data_addr 
                                                         >> 3U)))]))));
+        tracep->chgQData(oldp+735,((QData)((IData)(vlSelf->in_inst_data_in))),64);
     }
 }
 
