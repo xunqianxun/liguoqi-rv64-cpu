@@ -155,7 +155,9 @@ module i_cache1 (
                                                                               32'b0;                   
     /* verilator lint_off LATCH */
     always @(*) begin
-        if(state_inst == `ysyx22040228_READ)
+        if(rst == `ysyx22040228_ABLE)
+            inst_valid  = `ysyx22040228_ABLE  ;
+        else if(state_inst == `ysyx22040228_READ)
             inst_valid  = `ysyx22040228_ENABLE;
         else if(((state_inst == `ysyx22040228_HIT) && (inst_ena)) || inst_write_cache)
             inst_valid  = `ysyx22040228_ABLE  ;
