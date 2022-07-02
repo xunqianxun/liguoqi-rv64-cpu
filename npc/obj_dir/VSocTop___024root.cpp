@@ -5739,56 +5739,53 @@ VL_INLINE_OPT void VSocTop___024root___combo__TOP__10(VSocTop___024root* vlSelf)
     vlSelf->SocTop__DOT__rvcpu_data_addr = ((IData)(vlSelf->rst)
                                              ? 0ULL
                                              : vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_lsaddr);
-    vlSelf->SocTop__DOT__i_cache_inst_data = (IData)(
-                                                     (((4U 
-                                                        == (IData)(vlSelf->SocTop__DOT__i_cache12__DOT__state_inst)) 
-                                                       & (IData)(vlSelf->rst))
-                                                       ? 
-                                                      ((vlSelf->SocTop__DOT__i_cache12__DOT__u_tag01__DOT__out_data 
-                                                        == 
-                                                        (vlSelf->SocTop__DOT__rvcpu_inst_addr 
-                                                         >> 9U))
-                                                        ? 
-                                                       ((1U 
-                                                         & (IData)(
-                                                                   (vlSelf->SocTop__DOT__rvcpu_inst_addr 
-                                                                    >> 2U)))
-                                                         ? (QData)((IData)(
-                                                                           (vlSelf->SocTop__DOT__i_cache12__DOT__u_data01__DOT__out_data 
-                                                                            >> 0x20U)))
-                                                         : (QData)((IData)(vlSelf->SocTop__DOT__i_cache12__DOT__u_data01__DOT__out_data)))
-                                                        : 
-                                                       ((1U 
-                                                         & (IData)(
-                                                                   (vlSelf->SocTop__DOT__rvcpu_inst_addr 
-                                                                    >> 2U)))
-                                                         ? (QData)((IData)(
-                                                                           (vlSelf->SocTop__DOT__i_cache12__DOT__u_data02__DOT__out_data 
-                                                                            >> 0x20U)))
-                                                         : (QData)((IData)(vlSelf->SocTop__DOT__i_cache12__DOT__u_data02__DOT__out_data))))
-                                                       : 
-                                                      ((IData)(vlSelf->SocTop__DOT__i_cache12__DOT__inst_write_cache)
-                                                        ? 
-                                                       ((IData)(vlSelf->SocTop__DOT__i_cache12__DOT__inst_in_cache1)
-                                                         ? 
-                                                        ((1U 
-                                                          & (IData)(
-                                                                    (vlSelf->SocTop__DOT__rvcpu_inst_addr 
-                                                                     >> 2U)))
-                                                          ? (QData)((IData)(
-                                                                            (vlSelf->SocTop__DOT__i_cache12__DOT__u_data01__DOT__out_data 
-                                                                             >> 0x20U)))
-                                                          : (QData)((IData)(vlSelf->SocTop__DOT__i_cache12__DOT__u_data01__DOT__out_data)))
-                                                         : 
-                                                        ((1U 
-                                                          & (IData)(
-                                                                    (vlSelf->SocTop__DOT__rvcpu_inst_addr 
-                                                                     >> 2U)))
-                                                          ? (QData)((IData)(
-                                                                            (vlSelf->SocTop__DOT__i_cache12__DOT__u_data02__DOT__out_data 
-                                                                             >> 0x20U)))
-                                                          : (QData)((IData)(vlSelf->SocTop__DOT__i_cache12__DOT__u_data02__DOT__out_data))))
-                                                        : 0ULL)));
+    vlSelf->SocTop__DOT__i_cache_inst_data = (((4U 
+                                                == (IData)(vlSelf->SocTop__DOT__i_cache12__DOT__state_inst)) 
+                                               & (IData)(vlSelf->rst))
+                                               ? ((vlSelf->SocTop__DOT__i_cache12__DOT__u_tag01__DOT__out_data 
+                                                   == 
+                                                   (vlSelf->SocTop__DOT__rvcpu_inst_addr 
+                                                    >> 9U))
+                                                   ? 
+                                                  ((1U 
+                                                    & (IData)(
+                                                              (vlSelf->SocTop__DOT__rvcpu_inst_addr 
+                                                               >> 2U)))
+                                                    ? (IData)(
+                                                              (vlSelf->SocTop__DOT__i_cache12__DOT__u_data01__DOT__out_data 
+                                                               >> 0x20U))
+                                                    : (IData)(vlSelf->SocTop__DOT__i_cache12__DOT__u_data01__DOT__out_data))
+                                                   : 
+                                                  ((1U 
+                                                    & (IData)(
+                                                              (vlSelf->SocTop__DOT__rvcpu_inst_addr 
+                                                               >> 2U)))
+                                                    ? (IData)(
+                                                              (vlSelf->SocTop__DOT__i_cache12__DOT__u_data02__DOT__out_data 
+                                                               >> 0x20U))
+                                                    : (IData)(vlSelf->SocTop__DOT__i_cache12__DOT__u_data02__DOT__out_data)))
+                                               : ((IData)(vlSelf->SocTop__DOT__i_cache12__DOT__inst_write_cache)
+                                                   ? 
+                                                  ((IData)(vlSelf->SocTop__DOT__i_cache12__DOT__inst_in_cache1)
+                                                    ? 
+                                                   ((1U 
+                                                     & (IData)(
+                                                               (vlSelf->SocTop__DOT__rvcpu_inst_addr 
+                                                                >> 2U)))
+                                                     ? (IData)(
+                                                               (vlSelf->SocTop__DOT__i_cache12__DOT__u_data01__DOT__out_data 
+                                                                >> 0x20U))
+                                                     : (IData)(vlSelf->SocTop__DOT__i_cache12__DOT__u_data01__DOT__out_data))
+                                                    : 
+                                                   ((1U 
+                                                     & (IData)(
+                                                               (vlSelf->SocTop__DOT__rvcpu_inst_addr 
+                                                                >> 2U)))
+                                                     ? (IData)(
+                                                               (vlSelf->SocTop__DOT__i_cache12__DOT__u_data02__DOT__out_data 
+                                                                >> 0x20U))
+                                                     : (IData)(vlSelf->SocTop__DOT__i_cache12__DOT__u_data02__DOT__out_data)))
+                                                   : 0U));
     vlSelf->SocTop__DOT__i_cache_read_ena = ((0x10U 
                                               == (IData)(vlSelf->SocTop__DOT__i_cache12__DOT__state_inst)) 
                                              & (~ (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__i_cache_okreg)));

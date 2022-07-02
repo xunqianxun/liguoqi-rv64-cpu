@@ -481,7 +481,7 @@ module SocTop (
     wire         read_ram_sign   ; 
     wire         read_inst_sign  ;
     wire [63:0]  addr_oup_sign   ;
-    wire [63:0]  inst_data_sign  ;
+    wire [32:0]  inst_data_sign  ;
     wire [63:0]  ram_data_sign   ;
     wire         write_ena_sign  ;
     wire [63:0]  write_addr_sign ;
