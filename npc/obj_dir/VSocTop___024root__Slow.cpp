@@ -55,13 +55,6 @@ void VSocTop___024root___settle__TOP__1(VSocTop___024root* vlSelf) {
     vlSelf->SocTop__DOT__tim_axi_b_resp = 0U;
     vlSelf->SocTop__DOT__tim_axi_r_resp = 0U;
     vlSelf->SocTop__DOT__tim_axi_b_valid = (2U == (IData)(vlSelf->SocTop__DOT__time_axi6__DOT__state_time_m_nxt));
-    vlSelf->SocTop__DOT__rvcpu1__DOT__if_stall_req 
-        = (1U & ((~ (IData)(vlSelf->rst)) & (~ ((0x20U 
-                                                 == (IData)(vlSelf->SocTop__DOT__i_cache12__DOT__state_inst)) 
-                                                | ((4U 
-                                                    == (IData)(vlSelf->SocTop__DOT__i_cache12__DOT__state_inst)) 
-                                                   | (0x10U 
-                                                      == (IData)(vlSelf->SocTop__DOT__i_cache12__DOT__state_inst)))))));
     VSocTop___024root____Vdpiimwrap_SocTop__DOT__rvcpu1__DOT__regfile10__DOT__difftest_dut_regs_TOP(
                                                                                 vlSelf->SocTop__DOT__rvcpu1__DOT__regfile10__DOT__regs
                                                                                 [0U], 
@@ -642,6 +635,12 @@ void VSocTop___024root___settle__TOP__1(VSocTop___024root* vlSelf) {
     VSocTop___024root____Vdpiimwrap_SocTop__DOT__rvcpu1__DOT__mem_wb8__DOT__difftest_dut_thepc_TOP(vlSelf->SocTop__DOT__rvcpu1__DOT__mem_wb8__DOT__wb_pc_o);
     vlSelf->SocTop__DOT__rvcpu1__DOT__ex_ex_mem_pc 
         = ((IData)(vlSelf->rst) ? 0ULL : vlSelf->SocTop__DOT__rvcpu1__DOT__idex_ex_pc);
+    if ((0x20U == (IData)(vlSelf->SocTop__DOT__i_cache12__DOT__state_inst))) {
+        vlSelf->SocTop__DOT__i_cache_inst_valid = 0U;
+    } else if ((((4U == (IData)(vlSelf->SocTop__DOT__i_cache12__DOT__state_inst)) 
+                 & (IData)(vlSelf->rst)) | (IData)(vlSelf->SocTop__DOT__i_cache12__DOT__inst_write_cache))) {
+        vlSelf->SocTop__DOT__i_cache_inst_valid = 1U;
+    }
     vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__tmr_trap_ena 
         = ((((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__csr0__DOT__csr_mip_mtip) 
              & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__csr0__DOT__csr_mstatus_mie)) 
@@ -965,6 +964,8 @@ void VSocTop___024root___settle__TOP__1(VSocTop___024root* vlSelf) {
     vlSelf->SocTop__DOT__rvcpu1__DOT__id3__DOT__inst_csrrc 
         = (1U & (IData)(((0x80U == (0x80U & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__id_ex_type))) 
                          & (0x3000U == (0x7000U & vlSelf->SocTop__DOT__rvcpu1__DOT__if_id_inst)))));
+    vlSelf->SocTop__DOT__rvcpu1__DOT__if_stall_req 
+        = (1U & ((~ (IData)(vlSelf->rst)) & (~ (IData)(vlSelf->SocTop__DOT__i_cache_inst_valid))));
     if ((0x80U & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__idex_ex_type))) {
         vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__trap_mcause_value = 0ULL;
         if ((1U & (~ ((0x40U == (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__idex_ex_opcode)) 
@@ -2867,6 +2868,7 @@ void VSocTop___024root___ctor_var_reset(VSocTop___024root* vlSelf) {
     vlSelf->SocTop__DOT__rvcpu_we = VL_RAND_RESET_I(1);
     vlSelf->SocTop__DOT__rvcpu_re = VL_RAND_RESET_I(1);
     vlSelf->SocTop__DOT__i_cache_inst_data = VL_RAND_RESET_I(32);
+    vlSelf->SocTop__DOT__i_cache_inst_valid = VL_RAND_RESET_I(1);
     vlSelf->SocTop__DOT__i_cache_read_ena = VL_RAND_RESET_I(1);
     vlSelf->SocTop__DOT__d_cache_data_out = VL_RAND_RESET_Q(64);
     vlSelf->SocTop__DOT__d_cache_read_ena = VL_RAND_RESET_I(1);

@@ -1179,9 +1179,7 @@ void VSocTop___024root__traceFullSub0(VSocTop___024root* vlSelf, VerilatedVcd* t
         tracep->fullBit(oldp+10,(vlSelf->SocTop__DOT__rvcpu_we));
         tracep->fullBit(oldp+11,(vlSelf->SocTop__DOT__rvcpu_re));
         tracep->fullIData(oldp+12,(vlSelf->SocTop__DOT__i_cache_inst_data),32);
-        tracep->fullBit(oldp+13,(((0x20U == (IData)(vlSelf->SocTop__DOT__i_cache12__DOT__state_inst)) 
-                                  | ((4U == (IData)(vlSelf->SocTop__DOT__i_cache12__DOT__state_inst)) 
-                                     | (0x10U == (IData)(vlSelf->SocTop__DOT__i_cache12__DOT__state_inst))))));
+        tracep->fullBit(oldp+13,(vlSelf->SocTop__DOT__i_cache_inst_valid));
         tracep->fullBit(oldp+14,(vlSelf->SocTop__DOT__i_cache_read_ena));
         tracep->fullBit(oldp+15,((1U & (~ ((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__stall_ctrl) 
                                            >> 1U)))));
