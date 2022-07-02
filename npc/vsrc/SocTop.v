@@ -63,7 +63,7 @@ module SocTop (
     output        wire                                         out_read_ram_ena     ,
     output        wire                                         out_read_inst_ena    ,
     output        wire        [63:0]                           out_addr_outp        ,
-    inout         wire        [31:0]                           in_inst_data_in      ,
+    inout         wire        [63:0]                           in_inst_data_in      ,
     input         wire        [63:0]                           in_ram_data_in       ,
     output        wire                                         out_write_ram_ena    ,
     output        wire        [63:0]                           out_write_ram_data   ,
@@ -481,7 +481,7 @@ module SocTop (
     wire         read_ram_sign   ; 
     wire         read_inst_sign  ;
     wire [63:0]  addr_oup_sign   ;
-    wire [31:0]  inst_data_sign  ;
+    wire [63:0]  inst_data_sign  ;
     wire [63:0]  ram_data_sign   ;
     wire         write_ena_sign  ;
     wire [63:0]  write_addr_sign ;
