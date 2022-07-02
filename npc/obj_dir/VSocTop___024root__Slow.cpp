@@ -690,8 +690,24 @@ void VSocTop___024root___settle__TOP__1(VSocTop___024root* vlSelf) {
                                                       ((IData)(vlSelf->SocTop__DOT__i_cache12__DOT__inst_write_cache)
                                                         ? 
                                                        ((IData)(vlSelf->SocTop__DOT__i_cache12__DOT__inst_in_cache1)
-                                                         ? vlSelf->SocTop__DOT__i_cache12__DOT__u_data01__DOT__out_data
-                                                         : vlSelf->SocTop__DOT__i_cache12__DOT__u_data02__DOT__out_data)
+                                                         ? 
+                                                        ((1U 
+                                                          & (IData)(
+                                                                    (vlSelf->SocTop__DOT__rvcpu_inst_addr 
+                                                                     >> 2U)))
+                                                          ? (QData)((IData)(
+                                                                            (vlSelf->SocTop__DOT__i_cache12__DOT__u_data01__DOT__out_data 
+                                                                             >> 0x20U)))
+                                                          : (QData)((IData)(vlSelf->SocTop__DOT__i_cache12__DOT__u_data01__DOT__out_data)))
+                                                         : 
+                                                        ((1U 
+                                                          & (IData)(
+                                                                    (vlSelf->SocTop__DOT__rvcpu_inst_addr 
+                                                                     >> 2U)))
+                                                          ? (QData)((IData)(
+                                                                            (vlSelf->SocTop__DOT__i_cache12__DOT__u_data02__DOT__out_data 
+                                                                             >> 0x20U)))
+                                                          : (QData)((IData)(vlSelf->SocTop__DOT__i_cache12__DOT__u_data02__DOT__out_data))))
                                                         : 0ULL)));
     vlSelf->SocTop__DOT__i_cache_read_ena = ((0x10U 
                                               == (IData)(vlSelf->SocTop__DOT__i_cache12__DOT__state_inst)) 

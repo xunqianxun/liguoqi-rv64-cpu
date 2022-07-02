@@ -152,7 +152,7 @@ module i_cache1 (
     assign cache_read_ena  = ((state_inst == `ysyx22040228_WRITE) && (~cache_in_ok)) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE  ;
     assign inst_data       = (state_inst == `ysyx22040228_HIT) && (inst_ena) ? ((i_tag_data1 == i_in_teg) ? (inst_addr[2] ? i_out_data1[63:32] : i_out_data1[31:0]) : (inst_addr[2] ? i_out_data2[63:32] : i_out_data2[31:0])) :
                              inst_write_cache                                ? (inst_in_cache1 ? (inst_addr[2] ? i_out_data1[63:32] : i_out_data1[31:0]) : (inst_addr[2] ? i_out_data2[63:32] : i_out_data2[31:0]))            :
-                                                                              64'b0;                   
+                                                                              32'b0;                   
     assign inst_valid      = ~axi_working_ti;
 
     wire    [5:0]    i_cache_addr1;
