@@ -20,9 +20,6 @@ module i_cache (
     input       wire                                         clk             ,
     input       wire                                         rst             ,
     input       wire          [63:0]                         inst_addr       ,
-    /* verilator lint_off UNUSED */    
-    input       wire                                         inst_ena        ,
-    /* verilator lint_on UNUSED */    
     input       wire                                         inst_ready      ,
     output      reg           [31:0]                         inst_data       ,
     output      reg                                          inst_valid      ,
@@ -37,15 +34,16 @@ module i_cache (
     wire   icache_if_shankhand   ;
     assign icache_if_shankhand = inst_ready && inst_valid ;
 
-    reg [63:0]   addr_lock ;
-    always @(posedge clk) begin
-        if(icache_if_shankhand) begin
-            addr_lock <= inst_addr ;
-        end  
-        else begin
-            addr_lock <= addr_lock ;
-        end 
-    end
+     reg [63:0]   addr_lock ;
+     assign addr_lock = inst_addr ;
+    // always @(posedge clk) begin
+    //     if(icache_if_shankhand) begin
+    //         addr_lock <= inst_addr ;
+    //     end  
+    //     else begin
+    //         addr_lock <= addr_lock ;
+    //     end 
+    // end
     wire [54:0 ] icache_tag    =   addr_lock[63:9 ];
     wire [ 5:0 ] icache_index  =   addr_lock[ 8:3 ];
 
@@ -138,11 +136,11 @@ module i_cache (
           inst_hit_ok  = `ysyx22040228_ENABLE          ;  
         end 
     end
-    assign  inst_valid  = (state_inst == `ysyx22040228_READ) ? `ysyx22040228_ENABLE :
-                          (state_inst == `ysyx22040228_HIT)  ? `ysyx22040228_ENABLE :
-                          (state_inst == `ysyx22040228_MISSR)? `ysyx22040228_ENABLE :
-                          arb_working_ti                     ? `ysyx22040228_ENABLE :
-                                                                 `ysyx22040228_ABLE ;
+    assign  inst_valid  = (state_inst == `ysyx22040228_I_READ) ? `ysyx22040228_ABLE :
+                          (state_inst == `ysyx22040228_I_HIT)  ? `ysyx22040228_ABLE :
+                          (state_inst == `ysyx22040228_I_MISSR)? `ysyx22040228_ABLE :
+                          arb_working_ti                       ? `ysyx22040228_ABLE :
+                                                               `ysyx22040228_ENABLE ;
 
 
     reg   [63:0]    miss_data ;
@@ -155,6 +153,7 @@ module i_cache (
             cache_addr     = inst_addr           ;
         end 
         else if((state_inst ==  `ysyx22040228_I_MISSR) && (cache_in_valid)) begin
+            cache_read_ena = `ysyx22040228_ENABLE;
             miss_data      = cache_in_data       ;
             cache_read_resp= `ysyx22040228_ABLE  ; 
             write_i_ok     = `ysyx22040228_ABLE  ;

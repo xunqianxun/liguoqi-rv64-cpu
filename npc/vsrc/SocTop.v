@@ -73,7 +73,6 @@ module SocTop (
     assign aclk = clk ;
 
     wire  [63:0]    rvcpu_inst_addr  ;
-    wire            rvcpu_inst_ena   ;
     wire  [63:0]    rvcpu_data_addr  ;
     wire  [7:0 ]    rvcpu_wmask      ;
     wire  [63:0]    rvcpu_data_o     ;
@@ -357,11 +356,10 @@ module SocTop (
 
 
     rvcpu rvcpu1 (
-        .clk                 (aclk                 ) ,
+        .clk                 (aclk                ) ,
         .rst                 (rst                 ) ,
         
         .inst_addr           (rvcpu_inst_addr     ) ,
-        .inst_ena            (rvcpu_inst_ena      ) ,
     
         .inst_ready          (i_cache_ready       ) ,
         .inst                (i_cache_inst_data   ) ,
@@ -383,7 +381,6 @@ module SocTop (
         .clk                 (aclk                ) ,
         .rst                 (rst                 ) ,
         .inst_addr           (rvcpu_inst_addr     ) ,
-        .inst_ena            (rvcpu_inst_ena      ) ,
         .inst_ready          (i_cache_ready       ) ,
         .inst_data           (i_cache_inst_data   ) ,
         .inst_valid          (i_cache_inst_valid  ) ,

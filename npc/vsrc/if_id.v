@@ -11,6 +11,7 @@ module if_id (
     // from pc if
     input    wire    [`ysyx22040228_PCBUS]                     if_pc        ,  //pc地址
     input    wire    [`ysyx22040228_INSTBUS]                   if_inst      ,
+    input                                                      if_newpc     ,
     // from id
     input    wire                                              if_id_flush  ,  
     //from exe 
@@ -55,8 +56,8 @@ always@(posedge clk) begin
         end
     end
 
-assign if_stall_req  = (rst == `ysyx22040228_RSTENA) ? 1'b0:(if_inst_valid == 1'b0);
-assign if_inst_ready = (stall_ctrl[1] == `ysyx22040228_NOSTOP) ; 
+assign if_stall_req  = (rst == `ysyx22040228_RSTENA) ? 1'b0:((if_inst_valid == 1'b0) && (if_newpc) ? 1'b1 : 1'b0);
+assign if_inst_ready = if_newpc ;
 
 
 endmodule//if_id

@@ -37,39 +37,11 @@ module rvcpu (
 
     input           wire                                        timer_intr     
 );
-
-//import "DPI-C" function int returninst(output int a);
-// export "DPI-C" function svtoc;
-// task svtoc;
-// output int inst_data;
-// inst_data = inst;
-// endtask
-
-//initial run();
-//function int svtoc(void);
-// if(b == inst) begin
-// return inst;
-// end
-//endfunction
-//  task run();
-//    $display("%b", inst);
-//endtask
-
-// wire    [`ysyx22040228_PCBUS]     pc                 ;
-// assign inst_addr = pc                                ;
-
 //about Pip_prediction
 wire    [`ysyx22040228_REGBUS]           pip_regfile_x1     ;
 wire                                     pip_refflie_x1_ena ;
 wire    [`ysyx22040228_REGADDRBUS]       pip_regfile_x1_addr;
 wire    [`ysyx22040228_PCBUS]            pip_pc             ;
-// wire    [ 1:0]                           cont_data          ;
-// wire                                     cont_ena           ;
-
-//about pc
-//wire    [`ysyx22040228_PCBUS]           id_pc_pc           ;
-//wire                                    id_pc_ena          ;
-
 //about if_id
 wire                                    if_stall_req       ;
 wire    [`ysyx22040228_PCBUS]           if_id_pc           ;
