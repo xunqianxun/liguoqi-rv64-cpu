@@ -48,7 +48,7 @@ module d_cache (
     assign dcache_write_ready     = (state_dwrite == `ysyx22040228_IDLE) ;
 
     wire [54:0 ] dcache_tag    =   mem_addr_i[63:9 ];
-    wire [ 6:0 ] dcache_index  =   mem_addr_i[ 8:3 ];
+    wire [ 5:0 ] dcache_index  =   mem_addr_i[ 8:3 ];
     wire [ 2:0 ] dcache_offset =   mem_addr_i[ 2:0 ];
 
     reg  [5:0]  state_dread     ;

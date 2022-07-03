@@ -44,7 +44,7 @@ module i_cache (
         end 
     end
     wire [54:0 ] icache_tag    =   addr_lock[63:9 ];
-    wire [ 6:0 ] icache_index  =   addr_lock[ 8:3 ];
+    wire [ 5:0 ] icache_index  =   addr_lock[ 8:3 ];
     wire [ 2:0 ] icache_offset =   addr_lock[ 2:0 ];
 
     reg  [5:0]  state_inst     ;
