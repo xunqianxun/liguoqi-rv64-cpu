@@ -722,7 +722,6 @@ void VSocTop___024root__traceInitSub0(VSocTop___024root* vlSelf, VerilatedVcd* t
         tracep->declBit(c+27,"SocTop i_cache2 cache_in_valid", false,-1);
         tracep->declBit(c+28,"SocTop i_cache2 arb_working_ti", false,-1);
         tracep->declBit(c+273,"SocTop i_cache2 icache_if_shankhand", false,-1);
-        tracep->declQuad(c+407,"SocTop i_cache2 addr_lock", false,-1, 63,0);
         tracep->declQuad(c+656,"SocTop i_cache2 icache_tag", false,-1, 54,0);
         tracep->declBus(c+658,"SocTop i_cache2 icache_index", false,-1, 5,0);
         tracep->declBus(c+659,"SocTop i_cache2 state_inst", false,-1, 5,0);
