@@ -34,7 +34,7 @@ module i_cache (
     wire   icache_if_shankhand   ;
     assign icache_if_shankhand = inst_ready && inst_valid ;
 
-     reg [63:0]   addr_lock ;
+     wire  [63:0]   addr_lock ;
      assign addr_lock = inst_addr ;
     // always @(posedge clk) begin
     //     if(icache_if_shankhand) begin
