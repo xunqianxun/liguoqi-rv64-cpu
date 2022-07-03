@@ -95,7 +95,9 @@ module SocTop (
     wire  [3:0]     d_cache_out_type ;  
 
     wire  [63:0]    arbitrate_d_data ;
+    /* verilator lint_off UNOPTFLAT */
     wire            arbitrate_d_ok   ;
+    /* verilator lint_on UNOPTFLAT */
     wire  [63:0]    arbitrate_i_data ;
     wire            arbitrate_i_ok   ;
     wire            arbitrate_ti_sign;
@@ -125,7 +127,9 @@ module SocTop (
     wire                             t_axi_b_ready  ;
 
     wire   [`ysyx22040228_ID_BUS]    t_axi_ar_id    ;
+    /* verilator lint_off UNOPTFLAT */
     wire   [`ysyx22040228_ADDR_BUS]  t_axi_ar_addr  ;
+    /* verilator lint_on UNOPTFLAT */
     wire   [`ysyx22040228_LEN_BUS]   t_axi_ar_len   ;
     wire   [`ysyx22040228_SIZE_BUS]  t_axi_ar_size  ;
     wire   [`ysyx22040228_BURST_BUS] t_axi_ar_burst ;
@@ -134,8 +138,9 @@ module SocTop (
     wire   [`ysyx22040228_QOS_BUS]   t_axi_ar_qos   ;
     wire                             t_axi_ar_valid ;
     wire                             t_axi_ar_ready ;
-
+    /* verilator lint_off UNOPTFLAT */
     wire   [`ysyx22040228_ID_BUS]    t_axi_r_id     ;
+    /* verilator lint_on UNOPTFLAT */
     wire   [`ysyx22040228_DATA_BUS]  t_axi_r_data   ;
     wire   [`ysyx22040228_RESP_BUS]  t_axi_r_resp   ;
     wire                             t_axi_r_last   ;
