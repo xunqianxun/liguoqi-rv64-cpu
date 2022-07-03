@@ -116,7 +116,7 @@ module d_cache (
     reg         mem_hit_ok ;
     reg         hit_data_ready;
     always @(*) begin
-        if(state_dread == `ysyx22040228_HIT)
+        if(state_dread == `ysyx22040228_HIT) begin
             if((tag_data1 == dcache_tag) && (tag_user1 == `ysyx22040228_ABLE))begin
                 mem_hit_ok     = `ysyx22040228_ABLE  ;
                 mem_data_out   = out_data1           ;
@@ -130,11 +130,13 @@ module d_cache (
             else begin
                 mem_data_out   = 63'b0               ;
                 hit_data_ready = `ysyx22040228_ENABLE;
-            end  
-        else   
+            end
+        end   
+        else   begin
             mem_hit_ok     = `ysyx22040228_ENABLE    ; 
             mem_data_out   = 63'b0                   ;
             hit_data_ready = `ysyx22040228_ENABLE    ; 
+        end 
     end 
 
     reg        dirty_ok  ;
@@ -276,7 +278,7 @@ module d_cache (
     reg  [7:0]  hitw_data_strb2;
     reg         hitw_data_ready;  
     always @(*) begin
-        if(state_dwrite == `ysyx22040228_HIT)
+        if(state_dwrite == `ysyx22040228_HIT) begin
             if((tag_data1 == dcache_tag) && (tag_user1 == `ysyx22040228_ABLE))begin
                 memw_hit_ok     = `ysyx22040228_ABLE   ;
                 hitw_data_strb1 = mem_strb_i           ;
@@ -292,12 +294,14 @@ module d_cache (
                 hitw_data_strb1 =  8'b00000000         ;
                 hitw_data_strb2 =  8'b00000000         ;  
                 hitw_data_ready = `ysyx22040228_ENABLE ;
-            end  
-        else   
+            end
+        end   
+        else  begin
             memw_hit_ok  = `ysyx22040228_ENABLE    ; 
             hitw_data_strb1 =  8'b00000000         ;
             hitw_data_strb2 =  8'b00000000         ;  
-            hitw_data_ready = `ysyx22040228_ENABLE ;   
+            hitw_data_ready = `ysyx22040228_ENABLE ; 
+        end   
     end 
 
     reg        dirtyw_ok       ;

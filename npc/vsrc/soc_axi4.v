@@ -148,7 +148,7 @@ module soc_axi4(
             slave_axi_b_ready [1*1-1    :     0     ]      = master_axi_b_ready    ;
         end 
         else if(prot_chose_write[1] == `ysyx22040228_ABLE) begin
-            master_axi_aw_ready <= slave_axi_aw_ready[1*2-1    : 1*1]  ;
+            master_axi_aw_ready = slave_axi_aw_ready[1*2-1    : 1*1]  ;
             slave_axi_aw_id   [4*2-1    :     4*1   ]      = master_axi_aw_id      ;
             slave_axi_aw_addr [64*2-1   :     64*1  ]      = master_axi_aw_addr    ;
             slave_axi_aw_len  [8*2-1    :     8*1   ]      = master_axi_aw_len     ;

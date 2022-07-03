@@ -108,7 +108,7 @@ module i_cache (
 
     reg         inst_hit_ok ;
     always @(*) begin
-        if(state_inst == `ysyx22040228_I_HIT)
+        if(state_inst == `ysyx22040228_I_HIT) begin
             if((i_tag_data1 == icache_tag) && (i_tag_user1 == `ysyx22040228_ABLE))begin
                 if(addr_lock[2] == `ysyx22040228_ABLE)   begin
                     inst_data = inst_out_1[63:32]      ;
@@ -132,10 +132,12 @@ module i_cache (
             else begin
                 inst_data    = 32'b0                   ;
                 inst_hit_ok  = `ysyx22040228_ENABLE    ;
-            end  
-        else   
+            end
+        end 
+        else begin  
           inst_hit_ok  = `ysyx22040228_ENABLE          ;  
-    end 
+        end 
+    end
     assign  inst_valid  = (state_inst == `ysyx22040228_READ) ? `ysyx22040228_ENABLE :
                           (state_inst == `ysyx22040228_HIT)  ? `ysyx22040228_ENABLE :
                           (state_inst == `ysyx22040228_MISSR)? `ysyx22040228_ENABLE :
