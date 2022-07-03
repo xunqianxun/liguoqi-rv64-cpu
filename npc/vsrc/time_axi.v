@@ -168,26 +168,30 @@ module time_axi (
             end 
             `ysyx22040228_TIME_RESP : begin
                 if(b_shankhand)                 begin  state_time_m_nxt = `ysyx22040228_TIME_WAITE ; end 
-                else                            begin  state_time_m_nxt = `ysyx22040228_TIME_WRITE ; end
+                else                            begin  state_time_m_nxt = `ysyx22040228_TIME_RESP  ; end
             end 
             default:                            begin  state_time_m_nxt = `ysyx22040228_TIME_WRITE ; end 
         endcase
     end
 
-    //wire respon 
-    always @(*) begin
-        if(state_time_m_nxt == `ysyx22040228_TIME_RESP ) begin 
-            time_axi_b_id    = time_axi_aw_id ;
-            time_axi_b_resp  = 2'b0 ;
-            time_axi_b_valid = 1'b1;
+    //wire respon
+    reg [3:0] time_reg_id ;
+    reg [1:0] time_reg_resp ;
+
+    always @(posedge clk) begin
+        if(rst == `ysyx22040228_RSTENA) begin 
+            time_reg_id <= 4'b0000;
+            time_reg_resp <= 2'b0 ;
         end 
         else begin
-            time_axi_b_id    = 4'b0000 ;
-            time_axi_b_resp  = 2'b0 ;
-            time_axi_b_valid = 1'b0;
+            time_reg_id <= time_axi_aw_id ;
+            time_reg_resp <= 2'b00 ;
         end 
     end
 
+    assign time_axi_b_valid = (state_time_m != `ysyx22040228_TIME_WRITE) && (state_time_m != `ysyx22040228_TIME_WAITE) ;
+    assign time_axi_b_resp  = time_reg_resp ;
+    assign time_axi_b_id    = (state_time_m == `ysyx22040228_TIME_RESP) ? time_reg_id : 4'b00000 ;
     //-------------------------read state channel------------------------//
     wire mode_right_r;
     wire ar_shakehand ;
