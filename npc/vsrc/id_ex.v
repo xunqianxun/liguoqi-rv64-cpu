@@ -76,6 +76,18 @@ module id_ex (
              ex_ls_sel          <= id_ls_sel          ;
          end
      end
+     else if(stall_ctrl == 5'b11111)begin
+         ex_pc              <= ex_pc          ;
+         ex_inst            <= ex_inst        ;
+         ex_inst_type       <= ex_inst_type   ;
+         ex_inst_opcode     <= ex_inst_opcode ;
+         ex_op1             <= ex_op1         ; 
+         ex_op2             <= ex_op2         ;
+         ex_rd_ena          <= ex_rd_ena      ;
+         ex_rd_addr         <= ex_rd_addr     ;
+         ex_addr_offset     <= ex_addr_offset ;
+         ex_ls_sel          <= ex_ls_sel      ;
+     end 
      else if((stall_ctrl[1:0] == 2'b11) && (stall_ctrl[2] == `ysyx22040228_STOP) && (stall_ctrl[3] == `ysyx22040228_NOSTOP)) begin
          ex_pc              <= `ysyx22040228_ZEROWORD  ;
          ex_inst            <= 32'b0       ;
