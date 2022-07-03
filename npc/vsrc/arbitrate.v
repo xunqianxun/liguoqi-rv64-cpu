@@ -76,7 +76,7 @@ module arbitrate (
     input       wire                                         i_cache_ena          ,
     input       wire                                         i_cache_resp         ,
     output      reg        [63:0]                            i_cache_data         ,
-    output      wire                                         i_cache_valid        ,
+    output      wire                                         i_cache_valid_       ,
     output      wire                                         arb_working_ti       ,
     //----------------------write address cahnnel--------------------------------//
     output      wire       [`ysyx22040228_ID_BUS]            axi_aw_id            ,
@@ -303,15 +303,15 @@ module arbitrate (
     always @(*) begin
         if(i_cache_r_shankhand) begin
             i_cache_data = axi_r_data ;
-            i_cache_valid= `ysyx22040228_ABLE;
+            i_cache_valid_= `ysyx22040228_ABLE;
         end 
         else if(i_cache_resp) begin
             i_cache_data = `ysyx22040228_ZEROWORD;
-            i_cache_valid= `ysyx22040228_ENABLE;
+            i_cache_valid_= `ysyx22040228_ENABLE;
         end
         else begin
             i_cache_data = `ysyx22040228_ZEROWORD;
-            i_cache_valid= `ysyx22040228_ENABLE;
+            i_cache_valid_= `ysyx22040228_ENABLE;
         end  
     end
     reg  r_dcache_valid ;

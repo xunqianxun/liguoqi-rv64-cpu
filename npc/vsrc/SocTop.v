@@ -431,7 +431,7 @@ module SocTop (
         .i_cache_ena         (i_cache_read_ena   ) ,
         .i_cache_resp        (i_caceh_resp       ) ,
         .i_cache_data        (arbitrate_i_data   ) ,
-        .i_cache_valid       (arbitrate_i_ok     ) ,
+        .i_cache_valid_      (arbitrate_i_ok     ) ,
         .arb_working_ti      (arbitrate_ti_sign  ) ,
 
         .axi_aw_id           (t_axi_aw_id        ) ,

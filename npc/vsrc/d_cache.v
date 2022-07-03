@@ -15,7 +15,7 @@ Function:write data cache
 `include "./vsrc/d_cache_data_ram.v"
 `include "./vsrc/d_cache_tag_ram.v"
 
-module d_cache1 (
+module d_cache (
     input         wire                                        clk                ,
     input         wire                                        rst                ,
     //-------------------------input  cache-------------------------------------//
@@ -98,7 +98,7 @@ module d_cache1 (
                         state_dread_nxt = `ysyx22040228_MISSR;
                end 
                 default: begin
-                  state_inst_nxt       =  `ysyx22040228_IDLE ;
+                  state_dread_nxt       =  `ysyx22040228_IDLE ;
                 end 
             endcase 
     end 
@@ -175,6 +175,8 @@ module d_cache1 (
     reg  [63:0]  missr_out_addr ;
     reg  [7: 0]  missr_data_ena1;
     reg          missr_tag_ena1 ;
+    reg  [7: 0]  missr_data_ena2;
+    reg          missr_tag_ena2 ;
     reg          missr_out_resp ;
     always @(*) begin
         if(state_dread == `ysyx22040228_MISSR) begin
@@ -385,7 +387,7 @@ module d_cache1 (
             counter1[dcache_index] <= 3'b0 ;
         if((state_dwrite == `ysyx22040228_HIT) && (tag_data2 == dcache_tag))
             counter2[dcache_index] <= 3'b0 ;
-        if(mem_data_read_ena && mem_data_writ_ena) begin
+        if(d_cache_resp !=  4'b0000) begin
 		    for(i = 0;i<64;i=i+1) begin
 			   counter1[i][2:0] <= (counter1[i] == 3'd7) ? 3'd7 : counter1[i][2:0] + 1'b1;
                counter2[i][2:0] <= (counter2[i] == 3'd7) ? 3'd7 : counter2[i][2:0] + 1'b1;
