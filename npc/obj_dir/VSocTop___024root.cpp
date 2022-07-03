@@ -307,6 +307,9 @@ VL_INLINE_OPT void VSocTop___024root___combo__TOP__3(VSocTop___024root* vlSelf) 
                                                       >> 4U)
                                                       : 0U))));
     }
+    vlSelf->out_addr_outp = (((QData)((IData)(vlSelf->SocTop__DOT__add_axi_ar_addr[5U])) 
+                              << 0x20U) | (QData)((IData)(
+                                                          vlSelf->SocTop__DOT__add_axi_ar_addr[4U])));
 }
 
 VL_INLINE_OPT void VSocTop___024root___sequent__TOP__4(VSocTop___024root* vlSelf) {
@@ -6888,11 +6891,6 @@ VL_INLINE_OPT void VSocTop___024root___combo__TOP__5(VSocTop___024root* vlSelf) 
                                               >> 1U) 
                                              & (IData)(vlSelf->SocTop__DOT__time_axi6__DOT__mode_right));
     vlSelf->read_ena_sign_ = vlSelf->SocTop__DOT__axi_mnq4__DOT__ar_shankhand;
-    vlSelf->out_addr_outp = ((IData)(vlSelf->SocTop__DOT__axi_mnq4__DOT__ar_shankhand)
-                              ? (((QData)((IData)(vlSelf->SocTop__DOT__add_axi_ar_addr[5U])) 
-                                  << 0x20U) | (QData)((IData)(
-                                                              vlSelf->SocTop__DOT__add_axi_ar_addr[4U])))
-                              : 0ULL);
     __Vtableidx5 = ((0xfffffff0U & (((IData)(vlSelf->SocTop__DOT__add_axi_r_ready) 
                                      << 2U) & ((2U 
                                                 == (IData)(vlSelf->SocTop__DOT__axi_mnq4__DOT__s_read_state)) 

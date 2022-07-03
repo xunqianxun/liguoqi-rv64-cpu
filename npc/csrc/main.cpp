@@ -213,7 +213,6 @@ while(ddy){
       vaddr_write(rvcpu->out_write_ram_addr, 8, rvcpu->out_write_ram_data);
     }
   }
-  rvcpu->eval();
   if((main_time % 10) == 6){
   rvcpu->clk = 0;
   }
