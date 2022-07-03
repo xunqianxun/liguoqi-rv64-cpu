@@ -206,6 +206,7 @@ while(ddy){
     rvcpu->eval();
     if(rvcpu->read_ena_sign_ == 1){
       printf("read\n");
+      printf("addr == %lx\n",rvcpu->out_addr_outp);
       rvcpu->read_data_sign_ = vaddr_read(rvcpu->out_addr_outp, 8);
     }
     if(rvcpu->out_write_ram_ena == 1){
