@@ -101,30 +101,30 @@ module i_cache (
                 if(inst_addr[2] == `ysyx22040228_ABLE)   begin
                     inst_data = inst_out_1[63:32]      ;
                     inst_hit_ok  = `ysyx22040228_ABLE  ;
-                    inst_valid   = `ysyx22040228_ENABLE;
+                    inst_valid   = `ysyx22040228_ABLE;
                 end 
                 else if(inst_addr[2] == `ysyx22040228_ENABLE) begin
                     inst_data = inst_out_1[31:0 ]      ;
                     inst_hit_ok  = `ysyx22040228_ABLE  ;
-                    inst_valid   = `ysyx22040228_ENABLE;
+                    inst_valid   = `ysyx22040228_ABLE;
                 end
             end
             else if((i_tag_data2 == icache_tag) && (i_tag_user2 == `ysyx22040228_ABLE))begin
                 if(inst_addr[2] == `ysyx22040228_ABLE)   begin
                     inst_data = inst_out_2[63:32]      ;
                     inst_hit_ok  = `ysyx22040228_ABLE  ;
-                    inst_valid   = `ysyx22040228_ENABLE;
+                    inst_valid   = `ysyx22040228_ABLE;
                 end 
                 else if(inst_addr[2] == `ysyx22040228_ENABLE) begin
                     inst_data = inst_out_2[31:0 ]      ;
                     inst_hit_ok  = `ysyx22040228_ABLE  ;
-                    inst_valid   = `ysyx22040228_ENABLE;
+                    inst_valid   = `ysyx22040228_ABLE;
                 end
             end
             else begin
                 inst_data    = 32'b0                   ;
                 inst_hit_ok  = `ysyx22040228_ENABLE    ;
-                inst_valid   = `ysyx22040228_ENABLE    ;
+                inst_valid   = `ysyx22040228_ABLE    ;
             end
         end 
         else begin  
