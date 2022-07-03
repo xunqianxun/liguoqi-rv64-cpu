@@ -19,11 +19,11 @@ module i_cache (
     input       wire                                         clk             ,
     input       wire                                         rst             ,
     input       wire          [63:0]                         inst_addr       ,
+    /* verilator lint_off UNUSED */    
     input       wire                                         inst_ena        ,
+    /* verilator lint_on UNUSED */    
     input       wire                                         inst_ready      ,
-    /* verilator lint_off UNUSED */
     output      reg           [31:0]                         inst_data       ,
-    /* verilator lint_on UNUSED */
     output      reg                                          inst_valid      ,
 
     output      reg                                          cache_read_ena  ,
@@ -114,7 +114,7 @@ module i_cache (
                     inst_data = inst_out_1[63:32]      ;
                     inst_hit_ok  = `ysyx22040228_ABLE  ;
                 end 
-                if(addr_lock[2] == `ysyx22040228_ENABLE) begin
+                else if(addr_lock[2] == `ysyx22040228_ENABLE) begin
                     inst_data = inst_out_1[31:0 ]      ;
                     inst_hit_ok  = `ysyx22040228_ABLE  ;
                 end
@@ -124,7 +124,7 @@ module i_cache (
                     inst_data = inst_out_2[63:32]      ;
                     inst_hit_ok  = `ysyx22040228_ABLE  ;
                 end 
-                if(addr_lock[2] == `ysyx22040228_ENABLE) begin
+                else if(addr_lock[2] == `ysyx22040228_ENABLE) begin
                     inst_data = inst_out_2[31:0 ]      ;
                     inst_hit_ok  = `ysyx22040228_ABLE  ;
                 end

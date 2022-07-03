@@ -128,13 +128,13 @@ module d_cache (
                 hit_data_ready = `ysyx22040228_ABLE  ;
             end
             else begin
-                mem_data_out   = 63'b0               ;
+                mem_data_out   = 64'b0               ;
                 hit_data_ready = `ysyx22040228_ENABLE;
             end
         end   
         else   begin
             mem_hit_ok     = `ysyx22040228_ENABLE    ; 
-            mem_data_out   = 63'b0                   ;
+            mem_data_out   = 64'b0                   ;
             hit_data_ready = `ysyx22040228_ENABLE    ; 
         end 
     end 
