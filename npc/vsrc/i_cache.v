@@ -84,14 +84,18 @@ module i_cache (
             endcase 
     end 
 
-    reg          read_ok    ;
-    always @(posedge clk) begin
+    reg          read_ok_    ;
+    reg          read_ok     ;
+    always @(*) begin
         if(state_inst == `ysyx22040228_I_READ) begin
-            read_ok <= `ysyx22040228_ABLE    ;
+            read_ok_ = `ysyx22040228_ABLE    ;
         end 
         else begin
-            read_ok <= `ysyx22040228_ENABLE  ;
+            read_ok_ = `ysyx22040228_ENABLE  ;
         end 
+    end
+    always @(posedge clk) begin
+        read_ok <= read_ok_;
     end
 
     reg         inst_hit_ok ;
@@ -196,7 +200,7 @@ module i_cache (
         .clk         (clk           ),
         .addr_i      (icache_index ),
         .data_i      (miss_data    ),
-        .write_ena   (miss_ena_t    ),
+        .write_ena   (miss_ena_o    ),
         .data_o      (inst_out_1    )
     );
     wire [63:0] inst_out_2;
@@ -205,7 +209,7 @@ module i_cache (
         //.rst         (rst           ),
         .addr_i      (icache_index ),
         .data_i      (miss_data     ),
-        .write_ena   (miss_ena_o    ),
+        .write_ena   (miss_ena_t    ),
         .data_o      (inst_out_2    )
     );
 

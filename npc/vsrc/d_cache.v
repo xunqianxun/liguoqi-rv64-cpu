@@ -104,14 +104,18 @@ module d_cache (
             endcase 
     end 
 
-    reg          read_ok    ;
-    always @(posedge clk) begin
+    reg          read_ok_    ;
+    reg          read_ok     ;
+    always @(*) begin
         if(state_dread == `ysyx22040228_READ) begin
-            read_ok <= `ysyx22040228_ABLE  ;
+            read_ok_ = `ysyx22040228_ABLE  ;
         end 
         else begin
-            read_ok <= `ysyx22040228_ENABLE ;
+            read_ok_ = `ysyx22040228_ENABLE ;
         end 
+    end
+    always @(posedge clk) begin
+        read_ok = read_ok_;
     end
 
     reg         mem_hit_ok ;
@@ -264,14 +268,18 @@ module d_cache (
             endcase 
     end 
 
-    reg          read_w_ok    ;
-    always @(posedge clk) begin
+    reg          read_w_ok_    ;
+    reg          read_w_ok     ;
+    always @(*) begin
         if(state_dwrite == `ysyx22040228_READ) begin
-            read_w_ok <= `ysyx22040228_ABLE  ;
+            read_w_ok_ = `ysyx22040228_ABLE  ;
         end 
         else begin
-            read_w_ok <= `ysyx22040228_ENABLE ;
+            read_w_ok_ = `ysyx22040228_ENABLE ;
         end 
+    end
+    always @(posedge clk) begin
+        read_w_ok <= read_w_ok_ ;
     end
 
     reg         memw_hit_ok    ;

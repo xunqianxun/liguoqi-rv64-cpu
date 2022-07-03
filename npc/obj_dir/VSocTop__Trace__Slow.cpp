@@ -2237,7 +2237,7 @@ void VSocTop___024root__traceFullSub0(VSocTop___024root* vlSelf, VerilatedVcd* t
                                                      (vlSelf->SocTop__DOT__rvcpu_inst_addr 
                                                       >> 3U)))),6);
         tracep->fullCData(oldp+642,(vlSelf->SocTop__DOT__i_cache2__DOT__state_inst),6);
-        tracep->fullBit(oldp+643,((0x20U == (IData)(vlSelf->SocTop__DOT__i_cache2__DOT__state_inst))));
+        tracep->fullBit(oldp+643,(vlSelf->SocTop__DOT__i_cache2__DOT__read_ok));
         tracep->fullBit(oldp+644,(vlSelf->SocTop__DOT__i_cache2__DOT__inst_hit_ok));
         tracep->fullQData(oldp+645,(vlSelf->SocTop__DOT__i_cache2__DOT__u_tag01__DOT__out_data),55);
         tracep->fullBit(oldp+647,(vlSelf->SocTop__DOT__i_cache2__DOT__u_tag01__DOT__out_vaild));
@@ -2252,9 +2252,9 @@ void VSocTop___024root__traceFullSub0(VSocTop___024root* vlSelf, VerilatedVcd* t
         tracep->fullBit(oldp+658,((1U == (IData)(vlSelf->SocTop__DOT__d_cache3__DOT__state_dread))));
         tracep->fullBit(oldp+659,((1U == (IData)(vlSelf->SocTop__DOT__d_cache3__DOT__state_dwrite))));
         tracep->fullCData(oldp+660,(vlSelf->SocTop__DOT__d_cache3__DOT__state_dread),6);
-        tracep->fullBit(oldp+661,((2U == (IData)(vlSelf->SocTop__DOT__d_cache3__DOT__state_dread))));
+        tracep->fullBit(oldp+661,(vlSelf->SocTop__DOT__d_cache3__DOT__read_ok));
         tracep->fullCData(oldp+662,(vlSelf->SocTop__DOT__d_cache3__DOT__state_dwrite),6);
-        tracep->fullBit(oldp+663,((2U == (IData)(vlSelf->SocTop__DOT__d_cache3__DOT__state_dwrite))));
+        tracep->fullBit(oldp+663,(vlSelf->SocTop__DOT__d_cache3__DOT__read_w_ok));
         tracep->fullBit(oldp+664,((4U == (IData)(vlSelf->SocTop__DOT__d_cache3__DOT__state_dwrite))));
         tracep->fullIData(oldp+665,(vlSelf->SocTop__DOT__d_cache3__DOT__i),32);
         tracep->fullQData(oldp+666,(vlSelf->SocTop__DOT__d_cache3__DOT__u_tag0__DOT__out_data),55);
