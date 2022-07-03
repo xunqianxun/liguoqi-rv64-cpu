@@ -105,12 +105,12 @@ module d_cache (
     end 
 
     reg          read_ok    ;
-    always @(*) begin
+    always @(posedge clk) begin
         if(state_dread == `ysyx22040228_READ) begin
-            read_ok = `ysyx22040228_ABLE  ;
+            read_ok <= `ysyx22040228_ABLE  ;
         end 
         else begin
-            read_ok = `ysyx22040228_ENABLE ;
+            read_ok <= `ysyx22040228_ENABLE ;
         end 
     end
 
@@ -265,12 +265,12 @@ module d_cache (
     end 
 
     reg          read_w_ok    ;
-    always @(*) begin
+    always @(posedge clk) begin
         if(state_dwrite == `ysyx22040228_READ) begin
-            read_w_ok = `ysyx22040228_ABLE  ;
+            read_w_ok <= `ysyx22040228_ABLE  ;
         end 
         else begin
-            read_w_ok = `ysyx22040228_ENABLE ;
+            read_w_ok <= `ysyx22040228_ENABLE ;
         end 
     end
 

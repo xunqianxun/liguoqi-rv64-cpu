@@ -85,12 +85,12 @@ module i_cache (
     end 
 
     reg          read_ok    ;
-    always @(*) begin
+    always @(posedge clk) begin
         if(state_inst == `ysyx22040228_I_READ) begin
-            read_ok = `ysyx22040228_ABLE    ;
+            read_ok <= `ysyx22040228_ABLE    ;
         end 
         else begin
-            read_ok = `ysyx22040228_ENABLE  ;
+            read_ok <= `ysyx22040228_ENABLE  ;
         end 
     end
 
