@@ -414,8 +414,6 @@ module SocTop (
 
     );
 
-    wire [7:0] d_cache_mask_gd = 8'b11111111 ;
-
     arbitrate arbitrate4(
         .clk                 (aclk                ) ,
         .rst                 (rst                ) ,

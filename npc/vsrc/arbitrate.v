@@ -69,7 +69,7 @@ module arbitrate (
     input       wire       [63:0]                            d_cache_data         ,
     input       wire       [3:0]                             d_cache_type         ,
     input       wire                                         d_cache_resp         ,
-    output      wire       [63:0]                            d_cache_data_o       ,
+    output      reg        [63:0]                            d_cache_data_o       ,
     output      wire                                         d_cache_valid_       ,
     //----------------------------i_cache----------------------------------------//
     input       wire       [63:0]                            i_cache_addr         ,
@@ -134,7 +134,7 @@ module arbitrate (
     wire  aw_shankhand = axi_aw_valid && axi_aw_ready;
     wire  w_shankhand  = axi_w_valid  && axi_w_ready ;
     wire  b_shankhand  = axi_b_valid  && axi_b_ready && (axi_b_id == 4'b0000);
-    wire  b_success    = b_shankhand  && (axi_b_resp == 2'b00)               ;
+    //wire  b_success    = b_shankhand  && (axi_b_resp == 2'b00)               ;
 
     reg [1:0] transfor_state    ;
     reg [1:0] transfor_state_nex;
@@ -180,7 +180,7 @@ module arbitrate (
     assign axi_aw_cache  =  `AXI_AWCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE;
     assign axi_aw_port   =  `AXI_PROT_UNPRIVILEGED_ACCESS;
     assign axi_aw_qos    =  4'h0                         ;
-    assign axi_aw_valid  =  ((transfor_state == `ysyx22040228_ABE_IDLE) || (transfor_state == `ysyx22040228_ABE_INFO)) ? ((d_cache_resp == 4'b0001) || (d_cache_resp == 4'b0100))  : `ysyx22040228_ENABLE  ;
+    assign axi_aw_valid  =  ((transfor_state == `ysyx22040228_ABE_IDLE) || (transfor_state == `ysyx22040228_ABE_INFO)) ? ((d_cache_type == 4'b0001) || (d_cache_type == 4'b0100))  : `ysyx22040228_ENABLE  ;
     assign axi_aw_addr   =  ((transfor_state == `ysyx22040228_ABE_IDLE) || (transfor_state == `ysyx22040228_ABE_INFO)) ? d_cache_addr       : `ysyx22040228_ZEROWORD;
 
     assign axi_w_data    =  ((transfor_state == `ysyx22040228_ABE_IDLE) || (transfor_state == `ysyx22040228_ABE_INFO)) ? d_cache_data       : `ysyx22040228_ZEROWORD;
@@ -216,7 +216,7 @@ module arbitrate (
     wire i_cache_valid ;
     wire d_cache_valid ;
     assign i_cache_valid = i_cache_ena && (~arb_working_ti) ;
-    assign d_cache_valid = (i_cache_state != `ysyx22040228_READ_ADDR) && (i_cache_state != `ysyx22040228_READ_DATA) && ((d_cache_resp == 4'b0010) || (d_cache_resp == 4'b1000));
+    assign d_cache_valid = (i_cache_state != `ysyx22040228_READ_ADDR) && (i_cache_state != `ysyx22040228_READ_DATA) && ((d_cache_type == 4'b0010) || (d_cache_type == 4'b1000));
 
     reg [1:0] i_cache_state     ;
     reg [1:0] i_cache_state_nxt ;

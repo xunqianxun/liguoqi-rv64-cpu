@@ -21,7 +21,9 @@ module i_cache (
     input       wire          [63:0]                         inst_addr       ,
     input       wire                                         inst_ena        ,
     input       wire                                         inst_ready      ,
+    /* verilator lint_off UNUSED */
     output      reg           [31:0]                         inst_data       ,
+    /* verilator lint_on UNUSED */
     output      reg                                          inst_valid      ,
 
     output      reg                                          cache_read_ena  ,
@@ -45,7 +47,7 @@ module i_cache (
     end
     wire [54:0 ] icache_tag    =   addr_lock[63:9 ];
     wire [ 5:0 ] icache_index  =   addr_lock[ 8:3 ];
-    wire [ 2:0 ] icache_offset =   addr_lock[ 2:0 ];
+    //wire [ 2:0 ] icache_offset =   addr_lock[ 2:0 ];
 
     reg  [5:0]  state_inst     ;
     reg  [5:0]  state_inst_nxt ;
@@ -179,7 +181,7 @@ module i_cache (
     i_cache_tag_ram u_tag01(
         .clk         (clk          ),
         .addr_i      (icache_index ),
-        .data_i      (icache_tag   ),
+        .data_i      ({1'b1,icache_tag}),
         .write_ena   (miss_ena_o   ),
         .tag_data    (i_tag_data1  ),
         .tag_valid   (i_tag_user1  )
@@ -190,7 +192,7 @@ module i_cache (
     i_cache_tag_ram u_tag02(
         .clk         (clk          ),
         .addr_i      (icache_index ),
-        .data_i      (icache_tag   ),
+        .data_i      ({1'b1,icache_tag}),
         .write_ena   (miss_ena_t   ),
         .tag_data    (i_tag_data2  ),
         .tag_valid   (i_tag_user2  )
@@ -200,7 +202,7 @@ module i_cache (
     wire [63:0] inst_out_1;
     i_cache_data_ram u_data01(
         .clk         (clk           ),
-        .addr_i      (icache_offset ),
+        .addr_i      (icache_index ),
         .data_i      (miss_data    ),
         .write_ena   (miss_ena_t    ),
         .data_o      (inst_out_1    )
@@ -209,7 +211,7 @@ module i_cache (
     i_cache_data_ram u_data02(
         .clk         (clk           ),
         //.rst         (rst           ),
-        .addr_i      (icache_offset ),
+        .addr_i      (icache_index ),
         .data_i      (miss_data     ),
         .write_ena   (miss_ena_o    ),
         .data_o      (inst_out_2    )

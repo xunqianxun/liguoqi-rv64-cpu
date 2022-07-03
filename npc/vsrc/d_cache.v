@@ -49,7 +49,7 @@ module d_cache (
 
     wire [54:0 ] dcache_tag    =   mem_addr_i[63:9 ];
     wire [ 5:0 ] dcache_index  =   mem_addr_i[ 8:3 ];
-    wire [ 2:0 ] dcache_offset =   mem_addr_i[ 2:0 ];
+    //wire [ 2:0 ] dcache_offset =   mem_addr_i[ 2:0 ];
 
     reg  [5:0]  state_dread     ;
     reg  [5:0]  state_dread_nxt ;
@@ -128,12 +128,12 @@ module d_cache (
                 hit_data_ready = `ysyx22040228_ABLE  ;
             end
             else begin
-                mem_data_out   = 32'b0               ;
+                mem_data_out   = 63'b0               ;
                 hit_data_ready = `ysyx22040228_ENABLE;
             end  
         else   
             mem_hit_ok     = `ysyx22040228_ENABLE    ; 
-            mem_data_out   = 32'b0                   ;
+            mem_data_out   = 63'b0                   ;
             hit_data_ready = `ysyx22040228_ENABLE    ; 
     end 
 
@@ -374,8 +374,6 @@ module d_cache (
     //--------------------------------------bit code---------------------------//
     reg  [2:0]  counter1 [`ysyx22040228_CACHE_DATA_W];
     reg  [2:0]  counter2 [`ysyx22040228_CACHE_DATA_W];
-    wire [5:0]  count_a;
-    assign count_a = mem_addr_i[8:3];
     integer i ;
 
     always @(posedge clk) begin
