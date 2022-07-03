@@ -36,9 +36,9 @@ always@(posedge clk) begin
             id_pc   <= `ysyx22040228_ZEROWORD;
             id_inst <= 32'h0000_0000;
         end 
-        else if(stall_ctrl == 5'b11111) begin
-            id_pc   <= id_pc;
-            id_inst <= id_inst;
+        else if((stall_ctrl[1] == `ysyx22040228_STOP) && (stall_ctrl[2] == `ysyx22040228_NOSTOP) && (stall_ctrl[4:3]==2'b00)) begin
+            id_pc   <= `ysyx22040228_ZEROWORD;
+            id_inst <= 32'h0000_0000;
         end
         else if((stall_ctrl[0]==`ysyx22040228_STOP) && (stall_ctrl[1] == `ysyx22040228_STOP) && (stall_ctrl[2] == `ysyx22040228_STOP)) begin
             id_pc   <= id_pc;
