@@ -34,9 +34,10 @@ module pc (
                   pc <= ex_pc_i            ;
                   new_sign  <= 1'b1        ;
             end 
-            else if (id_pc_ena)
+            else if (id_pc_ena) begin
                   pc <= id_pc_i            ;
                   new_sign <= 1'b1         ;
+            end 
             else if (pc_stall == `ysyx22040228_STOP) begin 
                   pc <= pc                 ;
                   new_sign <= new_sign     ;
