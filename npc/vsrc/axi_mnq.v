@@ -174,6 +174,6 @@ module axi_mnq (
     assign s_axi_r_data   = (s_read_state == `ysyx22040228_S_DATA) ? mnq_data_in : `ysyx22040228_ZEROWORD;
 
     assign mnq_read_ena   = (ar_shankhand) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE;
-    assign addr_oup       = (ar_shankhand) ? s_axi_ar_addr : `ysyx22040228_ZEROWORD ;
+    assign addr_oup       = s_axi_ar_addr;//(ar_shankhand) ? s_axi_ar_addr : `ysyx22040228_ZEROWORD ;
 
 endmodule
