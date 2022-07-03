@@ -30,11 +30,9 @@ class VSocTop VL_NOT_FINAL {
     // propagate new values into/out from the Verilated model.
     VL_IN8(&clk,0,0);
     VL_IN8(&rst,0,0);
-    VL_OUT8(&out_read_ram_ena,0,0);
-    VL_OUT8(&out_read_inst_ena,0,0);
+    VL_OUT8(&read_ena_sign_,0,0);
     VL_OUT64(&out_addr_outp,63,0);
-    VL_INOUT64(&in_inst_data_in,63,0);
-    VL_IN64(&in_ram_data_in,63,0);
+    VL_INOUT64(&read_data_sign_,63,0);
     VL_OUT8(&out_write_ram_ena,0,0);
     VL_OUT64(&out_write_ram_data,63,0);
     VL_OUT64(&out_write_ram_addr,63,0);

@@ -13,11 +13,9 @@ VSocTop::VSocTop(VerilatedContext* _vcontextp__, const char* _vcname__)
     : vlSymsp{new VSocTop__Syms(_vcontextp__, _vcname__, this)}
     , clk{vlSymsp->TOP.clk}
     , rst{vlSymsp->TOP.rst}
-    , out_read_ram_ena{vlSymsp->TOP.out_read_ram_ena}
-    , out_read_inst_ena{vlSymsp->TOP.out_read_inst_ena}
+    , read_ena_sign_{vlSymsp->TOP.read_ena_sign_}
     , out_addr_outp{vlSymsp->TOP.out_addr_outp}
-    , in_inst_data_in{vlSymsp->TOP.in_inst_data_in}
-    , in_ram_data_in{vlSymsp->TOP.in_ram_data_in}
+    , read_data_sign_{vlSymsp->TOP.read_data_sign_}
     , out_write_ram_ena{vlSymsp->TOP.out_write_ram_ena}
     , out_write_ram_data{vlSymsp->TOP.out_write_ram_data}
     , out_write_ram_addr{vlSymsp->TOP.out_write_ram_addr}

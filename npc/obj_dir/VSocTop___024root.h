@@ -21,12 +21,10 @@ VL_MODULE(VSocTop___024root) {
     // PORTS
     VL_IN8(clk,0,0);
     VL_IN8(rst,0,0);
-    VL_OUT8(out_read_ram_ena,0,0);
-    VL_OUT8(out_read_inst_ena,0,0);
+    VL_OUT8(read_ena_sign_,0,0);
     VL_OUT8(out_write_ram_ena,0,0);
     VL_OUT64(out_addr_outp,63,0);
-    VL_INOUT64(in_inst_data_in,63,0);
-    VL_IN64(in_ram_data_in,63,0);
+    VL_INOUT64(read_data_sign_,63,0);
     VL_OUT64(out_write_ram_data,63,0);
     VL_OUT64(out_write_ram_addr,63,0);
 
@@ -239,6 +237,7 @@ VL_MODULE(VSocTop___024root) {
         CData/*0:0*/ SocTop__DOT__arbitrate4__DOT__r_dcache_valid;
         CData/*1:0*/ SocTop__DOT__axi_mnq4__DOT__s_write_state;
         CData/*1:0*/ SocTop__DOT__axi_mnq4__DOT__s_write_state_nxt;
+        CData/*0:0*/ SocTop__DOT__axi_mnq4__DOT__ar_shankhand;
         CData/*1:0*/ SocTop__DOT__axi_mnq4__DOT__s_read_state;
         CData/*1:0*/ SocTop__DOT__axi_mnq4__DOT__s_read_state_nxt;
         CData/*0:0*/ SocTop__DOT__time_axi6__DOT__aw_shakehand;
@@ -294,9 +293,9 @@ VL_MODULE(VSocTop___024root) {
         QData/*63:0*/ SocTop__DOT__rvcpu_data_addr;
         QData/*63:0*/ SocTop__DOT__rvcpu_data_o;
         QData/*63:0*/ SocTop__DOT__i_cache_addr;
-        QData/*63:0*/ SocTop__DOT__d_cache_data_out;
     };
     struct {
+        QData/*63:0*/ SocTop__DOT__d_cache_data_out;
         QData/*63:0*/ SocTop__DOT__d_cache_out_addr;
         QData/*63:0*/ SocTop__DOT__arbitrate_d_data;
         QData/*63:0*/ SocTop__DOT__arbitrate_i_data;
@@ -306,6 +305,7 @@ VL_MODULE(VSocTop___024root) {
         QData/*63:0*/ SocTop__DOT__t_axi_r_data;
         QData/*63:0*/ SocTop__DOT__tim_axi_r_data;
         QData/*63:0*/ SocTop__DOT__io_axi_r_data;
+        QData/*63:0*/ SocTop__DOT__read_data_sign;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__if_id_pc;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex_id_rd_data;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex_mem_addr;
@@ -359,14 +359,12 @@ VL_MODULE(VSocTop___024root) {
         QData/*63:0*/ SocTop__DOT__d_cache3__DOT__dirtyw_out_data;
         QData/*63:0*/ SocTop__DOT__d_cache3__DOT__missw_out_addr;
         QData/*63:0*/ SocTop__DOT__d_cache3__DOT__in_rem_data1;
-        QData/*63:0*/ SocTop__DOT__d_cache3__DOT__in_ram_data2;
-        QData/*54:0*/ SocTop__DOT__d_cache3__DOT__u_tag0__DOT__out_data;
     };
     struct {
+        QData/*54:0*/ SocTop__DOT__d_cache3__DOT__u_tag0__DOT__out_data;
         QData/*54:0*/ SocTop__DOT__d_cache3__DOT__u_tag1__DOT__out_data;
         QData/*63:0*/ SocTop__DOT__d_cache3__DOT__u_data0__DOT__out_data;
         QData/*63:0*/ SocTop__DOT__d_cache3__DOT__u_data1__DOT__out_data;
-        QData/*63:0*/ SocTop__DOT__axi_mnq4__DOT__read_addr_reg;
         QData/*63:0*/ SocTop__DOT__axi_mnq4__DOT__write_data_reg;
         QData/*63:0*/ SocTop__DOT__axi_mnq4__DOT__write_addr_reg;
         QData/*63:0*/ SocTop__DOT__time_axi6__DOT__car_mtime_l;

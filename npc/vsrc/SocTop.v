@@ -480,7 +480,7 @@ module SocTop (
     wire [63:0]  write_data_sign ;
     assign  read_ena_sign_    = read_ena_sign ;
     assign  out_addr_outp     = addr_oup_sign ;
-    assign  read_data_sign_   = read_data_sign;
+    assign  read_data_sign   = read_data_sign_;
     assign  out_write_ram_ena = write_ena_sign;
     assign  out_write_ram_addr= write_addr_sign;
     assign  out_write_ram_data= write_data_sign;
