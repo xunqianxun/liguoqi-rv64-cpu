@@ -149,7 +149,7 @@ module d_cache (
     reg [63:0] dirty_out_data ;
     reg [3:0]  dirty_out_type ;
     always @(*) begin
-        if(state_dread == `ysyx22040228_DIRTY) begin
+        if((state_dread == `ysyx22040228_DIRTY) && (~in_dcache_ready)) begin
             if((dirty1[dcache_index] == `ysyx22040228_ABLE) && (counter1[dcache_index] >= counter2[dcache_index])) begin
                 dirty_out_addr = mem_addr_i ;
                 dirty_out_data = out_data1  ;
@@ -186,7 +186,7 @@ module d_cache (
     reg          missr_tag_ena2 ;
     reg          missr_out_resp ;
     always @(*) begin
-        if(state_dread == `ysyx22040228_MISSR) begin
+        if((state_dread == `ysyx22040228_MISSR) && (~in_dcache_ready)) begin
             missr_out_type = 4'b0010    ;
             missr_out_addr = mem_addr_i ;
         end
@@ -260,7 +260,7 @@ module d_cache (
                end 
                `ysyx22040228_DIRTY : begin
                    if(dirtyw_ok)
-                        state_dwrite_nxt = `ysyx22040228_MISSR;
+                        state_dwrite_nxt = `ysyx22040228_MISSW;
                end 
                 default: begin
                   state_dwrite_nxt       =  `ysyx22040228_IDLE ;
@@ -318,7 +318,7 @@ module d_cache (
     reg [63:0] dirtyw_out_data ;
     reg [3:0]  dirtyw_out_type ;
     always @(*) begin
-        if(state_dwrite == `ysyx22040228_DIRTY) begin
+        if((state_dwrite == `ysyx22040228_DIRTY) && (~in_dcache_ready)) begin
             if((dirty1[dcache_index] == `ysyx22040228_ABLE) && (counter1[dcache_index] >= counter2[dcache_index])) begin
                 dirtyw_out_addr = mem_addr_i ;
                 dirtyw_out_data = out_data1  ;
@@ -355,7 +355,7 @@ module d_cache (
     reg          missw_tag_ena2 ;
     reg          missw_out_resp ;
     always @(*) begin
-        if(state_dwrite == `ysyx22040228_MISSW) begin
+        if((state_dwrite == `ysyx22040228_MISSW) && (~in_dcache_ready)) begin
             missw_out_type = 4'b1000    ;
             missw_out_addr = mem_addr_i ;
         end
