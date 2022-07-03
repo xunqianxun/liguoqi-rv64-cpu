@@ -19,7 +19,7 @@ void VSocTop___024root__traceChgTop0(void* voidSelf, VerilatedVcd* tracep) {
 void VSocTop___024root__traceChgSub0(VSocTop___024root* vlSelf, VerilatedVcd* tracep) {
     if (false && vlSelf) {}  // Prevent unused
     VSocTop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VlWide<6>/*191:0*/ __Vtemp19;
+    VlWide<6>/*191:0*/ __Vtemp25;
     vluint32_t* const oldp = tracep->oldp(vlSymsp->__Vm_baseCode + 1);
     if (false && oldp) {}  // Prevent unused
     // Body
@@ -1233,19 +1233,19 @@ void VSocTop___024root__traceChgSub0(VSocTop___024root* vlSelf, VerilatedVcd* tr
                                                       >> 4U))))),2);
         tracep->chgBit(oldp+711,(((~ (IData)(vlSelf->rst)) 
                                   & (2U == (IData)(vlSelf->SocTop__DOT__axi_mnq4__DOT__s_write_state)))));
-        __Vtemp19[0U] = (IData)(vlSelf->SocTop__DOT__io_axi_r_data);
-        __Vtemp19[1U] = (IData)((vlSelf->SocTop__DOT__io_axi_r_data 
+        __Vtemp25[0U] = (IData)(vlSelf->SocTop__DOT__io_axi_r_data);
+        __Vtemp25[1U] = (IData)((vlSelf->SocTop__DOT__io_axi_r_data 
                                  >> 0x20U));
-        __Vtemp19[2U] = (IData)(vlSelf->SocTop__DOT__tim_axi_r_data);
-        __Vtemp19[3U] = (IData)((vlSelf->SocTop__DOT__tim_axi_r_data 
+        __Vtemp25[2U] = (IData)(vlSelf->SocTop__DOT__tim_axi_r_data);
+        __Vtemp25[3U] = (IData)((vlSelf->SocTop__DOT__tim_axi_r_data 
                                  >> 0x20U));
-        __Vtemp19[4U] = (IData)(((2U == (IData)(vlSelf->SocTop__DOT__axi_mnq4__DOT__s_read_state))
+        __Vtemp25[4U] = (IData)(((2U == (IData)(vlSelf->SocTop__DOT__axi_mnq4__DOT__s_read_state))
                                   ? vlSelf->read_data_sign_
                                   : 0ULL));
-        __Vtemp19[5U] = (IData)((((2U == (IData)(vlSelf->SocTop__DOT__axi_mnq4__DOT__s_read_state))
+        __Vtemp25[5U] = (IData)((((2U == (IData)(vlSelf->SocTop__DOT__axi_mnq4__DOT__s_read_state))
                                    ? vlSelf->read_data_sign_
                                    : 0ULL) >> 0x20U));
-        tracep->chgWData(oldp+712,(__Vtemp19),192);
+        tracep->chgWData(oldp+712,(__Vtemp25),192);
         tracep->chgQData(oldp+718,(((2U == (IData)(vlSelf->SocTop__DOT__axi_mnq4__DOT__s_read_state))
                                      ? vlSelf->read_data_sign_
                                      : 0ULL)),64);
