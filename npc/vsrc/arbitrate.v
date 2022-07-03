@@ -134,7 +134,6 @@ module arbitrate (
     wire  aw_shankhand = axi_aw_valid && axi_aw_ready;
     wire  w_shankhand  = axi_w_valid  && axi_w_ready ;
     wire  b_shankhand  = axi_b_valid  && axi_b_ready && (axi_b_id == 4'b0000) && (axi_b_resp == 2'b00);
-    //wire  b_success    = b_shankhand  && (axi_b_resp == 2'b00)               ;
 
     reg [1:0] transfor_state    ;
     reg [1:0] transfor_state_nex;
