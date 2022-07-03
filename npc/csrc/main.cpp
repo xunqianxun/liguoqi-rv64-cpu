@@ -204,16 +204,12 @@ while(ddy){
   if((main_time % 10) == 2){
     rvcpu->clk = 1;
     rvcpu->eval();
-    if(rvcpu->out_read_inst_ena == 1) {
-      printf("inst_read\n");
-      rvcpu->in_inst_data_in = ifetch(rvcpu->out_addr_outp, 4);
-    }
-    if(rvcpu->out_read_ram_ena == 1){
-      printf("ram_read\n");
-      rvcpu->in_ram_data_in = vaddr_read(rvcpu->out_addr_outp, 8);
+    if(rvcpu->read_ena_sign_ == 1){
+      printf("read\n");
+      rvcpu->read_data_sign_ = vaddr_read(rvcpu->out_addr_outp, 8);
     }
     if(rvcpu->out_write_ram_ena == 1){
-      printf("ram_write\n");
+      printf("write\n");
       vaddr_write(rvcpu->out_write_ram_addr, 8, rvcpu->out_write_ram_data);
     }
   }
