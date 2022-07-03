@@ -51,11 +51,9 @@ module axi_mnq (
     output      wire                                         s_axi_r_valid          ,
     input       wire                                         s_axi_r_ready          ,
 
-    output      wire                                         read_ram_ena           ,
-    output      wire                                         read_inst_ena          ,
+    output      wire                                         mnq_read_ena           ,
     output      wire       [63:0]                            addr_oup               ,
-    input       wire       [63:0]                            inst_data_in           ,
-    input       wire       [63:0]                            ram_data_in            , 
+    input       wire       [63:0]                            mnq_data_in            ,
     output      wire                                         write_ram_ena          ,
     output      wire       [63:0]                            write_ram_data         ,
     output      wire       [63:0]                            write_ram_addr              
@@ -154,31 +152,30 @@ module axi_mnq (
             default: s_read_state_nxt = `ysyx22040228_S_IDLE;
         endcase
     end
-    reg  [63:0]  read_addr_reg ;
     reg  [63:0]  write_data_reg;
     reg  [63:0]  write_addr_reg;
     always @(posedge clk) begin
         if(rst == `ysyx22040228_RSTENA)begin
-            read_addr_reg   <= `ysyx22040228_ZEROWORD;
             write_data_reg  <= `ysyx22040228_ZEROWORD;
             write_addr_reg  <= `ysyx22040228_ZEROWORD;
+            read_id_reg     <= 4'b0                  ;
+            
         end
         else begin
-            read_addr_reg   <= s_axi_ar_addr;
             write_data_reg  <= s_axi_w_data ;
             write_addr_reg  <= s_axi_aw_addr;
+            read_id_reg     <= s_axi_ar_id  ;
         end 
     end
 
-    assign s_axi_ar_ready = ((s_read_state == `ysyx22040228_S_IDLE) | (s_read_state == `ysyx22040228_S_ADDR)) ;
+    assign s_axi_ar_ready = ((s_read_state == `ysyx22040228_S_IDLE) || (s_read_state == `ysyx22040228_S_ADDR)) ;
     assign s_axi_r_valid  = (s_read_state == `ysyx22040228_S_DATA) ;
     assign s_axi_r_id     = (s_read_state == `ysyx22040228_S_DATA) ? s_axi_ar_id : 4'b0 ;
     assign s_axi_r_resp   = 2'b00 ;
     assign s_axi_r_last   = (s_read_state == `ysyx22040228_S_DATA) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE; 
-    assign s_axi_r_data   = (s_read_state == `ysyx22040228_S_DATA) ? ((s_axi_ar_id == 4'b0000) ? ram_data_in : inst_data_in) : `ysyx22040228_ZEROWORD;
+    assign s_axi_r_data   = (s_read_state == `ysyx22040228_S_DATA) ? mnq_data_in : `ysyx22040228_ZEROWORD;
 
-    assign read_ram_ena   = ((s_read_state == `ysyx22040228_S_DATA) && (s_axi_ar_id == 4'b0000)) ;
-    assign read_inst_ena  = ((s_read_state == `ysyx22040228_S_DATA) && (s_axi_ar_id == 4'b0001)) ;
-    assign addr_oup       = (s_read_state == `ysyx22040228_S_DATA) ? read_addr_reg : `ysyx22040228_ZEROWORD ;
+    assign mnq_read_ena   = (ar_shankhand) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE;
+    assign addr_oup       = (ar_shankhand) ? s_axi_ar_addr : `ysyx22040228_ZEROWORD ;
 
 endmodule
