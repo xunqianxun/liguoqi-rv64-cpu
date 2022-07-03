@@ -21,7 +21,6 @@ module rvcpu (
     input           wire                                        rst            ,
     
     output          wire         [`ysyx22040228_PCBUS]          inst_addr      ,
-    output          wire                                        inst_ena       ,
    
     output          wire                                        inst_ready     ,
     input           wire         [`ysyx22040228_INSTBUS]        inst           ,
@@ -46,6 +45,7 @@ wire    [`ysyx22040228_PCBUS]            pip_pc             ;
 wire                                    if_stall_req       ;
 wire    [`ysyx22040228_PCBUS]           if_id_pc           ;
 wire    [`ysyx22040228_INSTBUS]         if_id_inst         ;
+wire                                    new_pc_sign        ;
 
 //about ex
 wire                                    ex_flush           ;
@@ -146,7 +146,7 @@ pc pc1 (
     .ex_pc_i             (ex_pc_branchpc       ),
     .pc_stall            (stall_ctrl[0]        ),
     .pc                  (inst_addr            ), 
-    .ce                  (inst_ena             )            
+    .new_sign            (new_pc_sign          )            
 );
 
 if_id if_id2 (
@@ -154,6 +154,7 @@ if_id if_id2 (
     .rst                 (rst                  ),
     .if_pc               (inst_addr            ),
     .if_inst             (inst                 ),
+    .if_newpc            (new_pc_sign          ),
     .if_id_flush         (ex_flush             ),
     .if_id_bubble        (id_if_flush          ),
     .if_inst_valid       (bui_inst_valid       ),
