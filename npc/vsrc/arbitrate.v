@@ -317,15 +317,15 @@ module arbitrate (
     reg  r_dcache_valid ;
     always @(*) begin
         if(d_cache_r_shankhand) begin
-            d_cache_data = axi_r_data ;
+            d_cache_data_o = axi_r_data ;
             r_dcache_valid= `ysyx22040228_ABLE;
         end 
         else if(i_cache_resp) begin
-            d_cache_data = `ysyx22040228_ZEROWORD;
+            d_cache_data_o = `ysyx22040228_ZEROWORD;
             r_dcache_valid= `ysyx22040228_ENABLE;
         end
         else begin
-            d_cache_data = `ysyx22040228_ZEROWORD;
+            d_cache_data_o = `ysyx22040228_ZEROWORD;
             r_dcache_valid= `ysyx22040228_ENABLE;
         end  
     end

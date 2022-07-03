@@ -387,7 +387,7 @@ module d_cache (
             counter1[dcache_index] <= 3'b0 ;
         if((state_dwrite == `ysyx22040228_HIT) && (tag_data2 == dcache_tag))
             counter2[dcache_index] <= 3'b0 ;
-        if(d_cache_resp !=  4'b0000) begin
+        if(mem_read_valid && mem_write_valid) begin
 		    for(i = 0;i<64;i=i+1) begin
 			   counter1[i][2:0] <= (counter1[i] == 3'd7) ? 3'd7 : counter1[i][2:0] + 1'b1;
                counter2[i][2:0] <= (counter2[i] == 3'd7) ? 3'd7 : counter2[i][2:0] + 1'b1;

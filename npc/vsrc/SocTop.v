@@ -400,8 +400,8 @@ module SocTop (
         .mem_addr_i          (rvcpu_data_addr    ) ,
         .mem_data_i          (rvcpu_data_o       ) ,
         .mem_strb_i          (rvcpu_wmask        ) ,
-        .mem_data_read_valid (rvcpu_re           ) ,
-        .mem_data_write_valid(rvcpu_we           ) ,
+        .mem_read_valid      (rvcpu_re           ) ,
+        .mem_write_valid     (rvcpu_we           ) ,
         .mem_data_out        (d_cache_data_out   ) ,
         .mem_data_ready      (d_cache_mem_finish ) ,
 
