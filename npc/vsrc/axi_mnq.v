@@ -154,21 +154,23 @@ module axi_mnq (
     end
     reg  [63:0]  write_data_reg;
     reg  [63:0]  write_addr_reg;
+    reg  [3:0]   r_s_axi_ar_id ;
     always @(posedge clk) begin
         if(rst == `ysyx22040228_RSTENA)begin
             write_data_reg  <= `ysyx22040228_ZEROWORD;
             write_addr_reg  <= `ysyx22040228_ZEROWORD;
-            
+            r_s_axi_ar_id   <= 4'b0000               ;
         end
         else begin
             write_data_reg  <= s_axi_w_data ;
             write_addr_reg  <= s_axi_aw_addr;
+            r_s_axi_ar_id   <= s_axi_ar_id  ;
         end 
     end
 
     assign s_axi_ar_ready = ((s_read_state == `ysyx22040228_S_IDLE) || (s_read_state == `ysyx22040228_S_ADDR)) ;
     assign s_axi_r_valid  = (s_read_state == `ysyx22040228_S_DATA) ;
-    assign s_axi_r_id     = (s_read_state == `ysyx22040228_S_DATA) ? s_axi_ar_id : 4'b0 ;
+    assign s_axi_r_id     = (s_read_state == `ysyx22040228_S_DATA) ? r_s_axi_ar_id : 4'b0 ;
     assign s_axi_r_resp   = 2'b00 ;
     assign s_axi_r_last   = (s_read_state == `ysyx22040228_S_DATA) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE; 
     assign s_axi_r_data   = (s_read_state == `ysyx22040228_S_DATA) ? mnq_data_in : `ysyx22040228_ZEROWORD;

@@ -352,15 +352,15 @@ void VSocTop___024root___settle__TOP__2(VSocTop___024root* vlSelf) {
                                        >> 2U))));
     }
     vlSelf->SocTop__DOT__tim_axi_r_last = (2U == (IData)(vlSelf->SocTop__DOT__time_axi6__DOT__state_time_r));
-    vlSelf->SocTop__DOT__soc_axi_ar_ready = ((0U == (IData)(vlSelf->SocTop__DOT__axi_mnq4__DOT__s_read_state)) 
-                                             | (1U 
-                                                == (IData)(vlSelf->SocTop__DOT__axi_mnq4__DOT__s_read_state)));
     vlSelf->SocTop__DOT__rvcpu1__DOT__id3__DOT__inst_jal 
         = ((IData)(vlSelf->rst) ? 0U : (IData)((0x1bU 
                                                 == 
                                                 (0x1fU 
                                                  & (vlSelf->SocTop__DOT__rvcpu1__DOT__if_id_inst 
                                                     >> 2U)))));
+    vlSelf->SocTop__DOT__soc_axi_ar_ready = ((0U == (IData)(vlSelf->SocTop__DOT__axi_mnq4__DOT__s_read_state)) 
+                                             | (1U 
+                                                == (IData)(vlSelf->SocTop__DOT__axi_mnq4__DOT__s_read_state)));
     vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__op1_subw_op2 
         = ((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__idex_ex_op2) 
            - (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__idex_ex_op2));
@@ -1415,9 +1415,6 @@ void VSocTop___024root___settle__TOP__2(VSocTop___024root* vlSelf) {
     if (vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__tmr_trap_ena) {
         vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__csr_rd_en = 0U;
     }
-    vlSelf->out_addr_outp = (((QData)((IData)(vlSelf->SocTop__DOT__add_axi_ar_addr[5U])) 
-                              << 0x20U) | (QData)((IData)(
-                                                          vlSelf->SocTop__DOT__add_axi_ar_addr[4U])));
     if ((4U == (IData)(vlSelf->SocTop__DOT__d_cache3__DOT__state_dwrite))) {
         if (((vlSelf->SocTop__DOT__d_cache3__DOT__u_tag0__DOT__out_data 
               == (vlSelf->SocTop__DOT__rvcpu_data_addr 
@@ -3861,6 +3858,11 @@ void VSocTop___024root___settle__TOP__6(VSocTop___024root* vlSelf) {
                                                            (0xf0U 
                                                             & (IData)(vlSelf->SocTop__DOT__add_axi_ar_qos))))));
     vlSelf->read_ena_sign_ = vlSelf->SocTop__DOT__axi_mnq4__DOT__ar_shankhand;
+    vlSelf->out_addr_outp = ((IData)(vlSelf->SocTop__DOT__axi_mnq4__DOT__ar_shankhand)
+                              ? (((QData)((IData)(vlSelf->SocTop__DOT__add_axi_ar_addr[5U])) 
+                                  << 0x20U) | (QData)((IData)(
+                                                              vlSelf->SocTop__DOT__add_axi_ar_addr[4U])))
+                              : 0ULL);
     __Vtableidx5 = ((0xfffffff0U & (((IData)(vlSelf->SocTop__DOT__add_axi_r_ready) 
                                      << 2U) & ((2U 
                                                 == (IData)(vlSelf->SocTop__DOT__axi_mnq4__DOT__s_read_state)) 
