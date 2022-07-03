@@ -32,17 +32,8 @@ module i_cache (
     input       wire                                         arb_working_ti                                  
 );
     wire   icache_if_shankhand   ;
-    assign icache_if_shankhand = inst_ready && inst_valid ;
+    assign icache_if_shankhand = inst_ready && inst_valid && ~arb_working_ti ;
 
-    // wire  [63:0]   addr_lock ;
-    // always @(posedge clk) begin
-    //     if(icache_if_shankhand) begin
-    //         addr_lock <= inst_addr ;
-    //     end  
-    //     else begin
-    //         addr_lock <= addr_lock ;
-    //     end 
-    // end
     wire [54:0 ] icache_tag    =   inst_addr[63:9 ];
     wire [ 5:0 ] icache_index  =   inst_addr[ 8:3 ];
 
@@ -141,11 +132,6 @@ module i_cache (
           inst_valid   = `ysyx22040228_ENABLE          ;   
         end 
     end
-    // assign  inst_valid  = (state_inst == `ysyx22040228_I_READ) ? `ysyx22040228_ABLE :
-    //                       (state_inst == `ysyx22040228_I_HIT)  ? `ysyx22040228_ABLE :
-    //                       (state_inst == `ysyx22040228_I_MISSR)? `ysyx22040228_ABLE :
-    //                       arb_working_ti                       ? `ysyx22040228_ABLE :
-    //                                                            `ysyx22040228_ENABLE ;
 
 
     reg   [63:0]    miss_data ;
