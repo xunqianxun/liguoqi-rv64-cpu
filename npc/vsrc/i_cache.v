@@ -34,8 +34,7 @@ module i_cache (
     wire   icache_if_shankhand   ;
     assign icache_if_shankhand = inst_ready && inst_valid ;
 
-     wire  [63:0]   addr_lock ;
-     assign addr_lock = inst_addr ;
+    // wire  [63:0]   addr_lock ;
     // always @(posedge clk) begin
     //     if(icache_if_shankhand) begin
     //         addr_lock <= inst_addr ;
@@ -44,8 +43,8 @@ module i_cache (
     //         addr_lock <= addr_lock ;
     //     end 
     // end
-    wire [54:0 ] icache_tag    =   addr_lock[63:9 ];
-    wire [ 5:0 ] icache_index  =   addr_lock[ 8:3 ];
+    wire [54:0 ] icache_tag    =   inst_addr[63:9 ];
+    wire [ 5:0 ] icache_index  =   inst_addr[ 8:3 ];
 
     reg  [5:0]  state_inst     ;
     reg  [5:0]  state_inst_nxt ;
@@ -108,21 +107,21 @@ module i_cache (
     always @(*) begin
         if(state_inst == `ysyx22040228_I_HIT) begin
             if((i_tag_data1 == icache_tag) && (i_tag_user1 == `ysyx22040228_ABLE))begin
-                if(addr_lock[2] == `ysyx22040228_ABLE)   begin
+                if(inst_addr[2] == `ysyx22040228_ABLE)   begin
                     inst_data = inst_out_1[63:32]      ;
                     inst_hit_ok  = `ysyx22040228_ABLE  ;
                 end 
-                else if(addr_lock[2] == `ysyx22040228_ENABLE) begin
+                else if(inst_addr[2] == `ysyx22040228_ENABLE) begin
                     inst_data = inst_out_1[31:0 ]      ;
                     inst_hit_ok  = `ysyx22040228_ABLE  ;
                 end
             end
             else if((i_tag_data2 == icache_tag) && (i_tag_user2 == `ysyx22040228_ABLE))begin
-                if(addr_lock[2] == `ysyx22040228_ABLE)   begin
+                if(inst_addr[2] == `ysyx22040228_ABLE)   begin
                     inst_data = inst_out_2[63:32]      ;
                     inst_hit_ok  = `ysyx22040228_ABLE  ;
                 end 
-                else if(addr_lock[2] == `ysyx22040228_ENABLE) begin
+                else if(inst_addr[2] == `ysyx22040228_ENABLE) begin
                     inst_data = inst_out_2[31:0 ]      ;
                     inst_hit_ok  = `ysyx22040228_ABLE  ;
                 end
