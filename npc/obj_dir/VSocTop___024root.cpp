@@ -865,9 +865,12 @@ VL_INLINE_OPT void VSocTop___024root___sequent__TOP__4(VSocTop___024root* vlSelf
                                                   ((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__ex_pc_branchena)
                                                     ? 0ULL
                                                     : 
-                                                   ((0x1fU 
-                                                     == (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__stall_ctrl))
-                                                     ? vlSelf->SocTop__DOT__rvcpu1__DOT__if_id_pc
+                                                   ((IData)(
+                                                            (2U 
+                                                             == 
+                                                             (0x1eU 
+                                                              & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__stall_ctrl))))
+                                                     ? 0ULL
                                                      : 
                                                     ((IData)(
                                                              (7U 
@@ -1821,9 +1824,12 @@ VL_INLINE_OPT void VSocTop___024root___sequent__TOP__4(VSocTop___024root* vlSelf
                                                    == (IData)(vlSelf->SocTop__DOT__d_cache3__DOT__state_dread));
     vlSelf->SocTop__DOT__rvcpu1__DOT__if_id_inst = 
         ((IData)(vlSelf->rst) ? 0U : ((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__ex_pc_branchena)
-                                       ? 0U : ((0x1fU 
-                                                == (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__stall_ctrl))
-                                                ? vlSelf->SocTop__DOT__rvcpu1__DOT__if_id_inst
+                                       ? 0U : ((IData)(
+                                                       (2U 
+                                                        == 
+                                                        (0x1eU 
+                                                         & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__stall_ctrl))))
+                                                ? 0U
                                                 : ((IData)(
                                                            (7U 
                                                             == 
