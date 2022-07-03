@@ -472,9 +472,9 @@ module SocTop (
         .axi_r_ready         (t_axi_r_ready      )  
     );    
 
-    wire         read_ena_sign_  ;
+    wire         read_ena_sign  ;
     wire [63:0]  addr_oup_sign   ;
-    wire [63:0]  read_data_sign_ ;
+    wire [63:0]  read_data_sign ;
     wire         write_ena_sign  ;
     wire [63:0]  write_addr_sign ;
     wire [63:0]  write_data_sign ;

@@ -158,13 +158,11 @@ module axi_mnq (
         if(rst == `ysyx22040228_RSTENA)begin
             write_data_reg  <= `ysyx22040228_ZEROWORD;
             write_addr_reg  <= `ysyx22040228_ZEROWORD;
-            read_id_reg     <= 4'b0                  ;
             
         end
         else begin
             write_data_reg  <= s_axi_w_data ;
             write_addr_reg  <= s_axi_aw_addr;
-            read_id_reg     <= s_axi_ar_id  ;
         end 
     end
 
