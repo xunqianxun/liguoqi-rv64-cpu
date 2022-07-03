@@ -393,8 +393,7 @@ VL_MODULE(VSocTop___024root) {
 
     // LOCAL VARIABLES
     CData/*0:0*/ __Vclklast__TOP__clk;
-    CData/*3:0*/ __Vchglast__TOP__SocTop__DOT__t_axi_b_id;
-    CData/*0:0*/ __Vchglast__TOP__SocTop__DOT__t_axi_b_valid;
+    CData/*0:0*/ __Vchglast__TOP__SocTop__DOT__arbitrate_d_ok;
     CData/*3:0*/ __Vchglast__TOP__SocTop__DOT__t_axi_r_id;
     CData/*1:0*/ __Vchglast__TOP__SocTop__DOT__time_axi6__DOT__state_time_m_nxt;
     QData/*63:0*/ __Vchglast__TOP__SocTop__DOT__t_axi_ar_addr;

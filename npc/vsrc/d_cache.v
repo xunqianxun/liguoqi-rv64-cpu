@@ -3,6 +3,7 @@ Author:LiGuoqi
 Name:d_cache1.v
 Function:write data cache
 ************************************************************/
+/* verilator lint_off LATCH */
 `define ysyx22040228_IDLE    6'b000001
 `define ysyx22040228_READ    6'b000010
 `define ysyx22040228_HIT     6'b000100
@@ -194,7 +195,7 @@ module d_cache (
                 missr_out_resp  = 1'b1              ;
                 missr_i_ok      = `ysyx22040228_ABLE;
             end 
-            if((counter1[dcache_index] < counter2[dcache_index]) || tag_user2 == `ysyx22040228_ENABLE) begin
+            else if((counter1[dcache_index] < counter2[dcache_index]) || tag_user2 == `ysyx22040228_ENABLE) begin
                 missr_data_ena2 = 8'b11111111       ;
                 missr_tag_ena2  = `ysyx22040228_ABLE;
                 missr_out_resp  = 1'b1              ;
@@ -359,7 +360,7 @@ module d_cache (
                 missw_out_resp  = 1'b1              ;
                 missw_i_ok      = `ysyx22040228_ABLE;
             end 
-            if((counter1[dcache_index] < counter2[dcache_index]) || tag_user2 == `ysyx22040228_ENABLE) begin
+            else if((counter1[dcache_index] < counter2[dcache_index]) || tag_user2 == `ysyx22040228_ENABLE) begin
                 missw_data_ena2 = 8'b11111111       ;
                 missw_tag_ena2  = `ysyx22040228_ABLE;
                 missw_out_resp  = 1'b1              ;
@@ -499,5 +500,7 @@ module d_cache (
     assign mem_data_ready  = (state_dread == `ysyx22040228_HIT)   ? hit_data_ready :
                              (state_dwrite == `ysyx22040228_HIT)  ? hitw_data_ready:
                                                                `ysyx22040228_ENABLE;
+
+/* verilator lint_on LATCH */
 
 endmodule

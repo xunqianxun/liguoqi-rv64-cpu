@@ -3,6 +3,7 @@ Author:LiGuoqi
 Name:d_cache1.v
 Function:write data cache
 ************************************************************/
+/* verilator lint_off LATCH */
 `include "./vsrc/defines.v"
 `include "./vsrc/defines_axi4.v"
 `include "./vsrc/i_cache_data_ram.v"
@@ -47,7 +48,6 @@ module i_cache (
     end
     wire [54:0 ] icache_tag    =   addr_lock[63:9 ];
     wire [ 5:0 ] icache_index  =   addr_lock[ 8:3 ];
-    //wire [ 2:0 ] icache_offset =   addr_lock[ 2:0 ];
 
     reg  [5:0]  state_inst     ;
     reg  [5:0]  state_inst_nxt ;
@@ -237,5 +237,7 @@ module i_cache (
 		    end
         end 
 	end
+
+/* verilator lint_on LATCH */
 
 endmodule    
