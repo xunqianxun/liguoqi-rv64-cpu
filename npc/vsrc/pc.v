@@ -39,7 +39,7 @@ module pc (
                   new_sign <= 1'b1         ;
             else if (pc_stall == `ysyx22040228_STOP) begin 
                   pc <= pc                 ;
-                  new_sign <= new_pc_sign  ;
+                  new_sign <= new_sign     ;
             end
             else begin
                   pc <= static_pc_i        ; 
