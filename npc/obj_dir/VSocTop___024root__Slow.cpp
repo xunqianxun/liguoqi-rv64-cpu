@@ -2899,7 +2899,7 @@ void VSocTop___024root___settle__TOP__2(VSocTop___024root* vlSelf) {
     vlSelf->SocTop__DOT__i_cache2__DOT__icache_if_shankhand 
         = ((((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__new_pc_sign) 
              & (~ (IData)(vlSelf->SocTop__DOT__i_cache_inst_valid))) 
-            & (IData)(vlSelf->SocTop__DOT__i_cache_inst_valid)) 
+            & (~ (IData)(vlSelf->SocTop__DOT__i_cache_inst_valid))) 
            & (~ (IData)(vlSelf->SocTop__DOT__arbitrate_ti_sign)));
     vlSelf->SocTop__DOT__prot_chose_write = (((0x2004000ULL 
                                                == vlSelf->SocTop__DOT__t_axi_aw_addr) 

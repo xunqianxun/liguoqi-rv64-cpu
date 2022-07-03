@@ -6148,7 +6148,7 @@ VL_INLINE_OPT void VSocTop___024root___combo__TOP__5(VSocTop___024root* vlSelf) 
     vlSelf->SocTop__DOT__i_cache2__DOT__icache_if_shankhand 
         = ((((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__new_pc_sign) 
              & (~ (IData)(vlSelf->SocTop__DOT__i_cache_inst_valid))) 
-            & (IData)(vlSelf->SocTop__DOT__i_cache_inst_valid)) 
+            & (~ (IData)(vlSelf->SocTop__DOT__i_cache_inst_valid))) 
            & (~ (IData)(vlSelf->SocTop__DOT__arbitrate_ti_sign)));
     vlSelf->SocTop__DOT__arbitrate4__DOT__i_cache_valid 
         = ((IData)(vlSelf->SocTop__DOT__i_cache_read_ena) 
