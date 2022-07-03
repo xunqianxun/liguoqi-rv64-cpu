@@ -60,11 +60,9 @@ module SocTop (
     // input       wire                                         out_axi_r_last       ,
     // input       wire                                         out_axi_r_valid      ,
     // output      wire                                         out_axi_r_ready          
-    output        wire                                         out_read_ram_ena     ,
-    output        wire                                         out_read_inst_ena    ,
+    output        wire                                         read_ena_sign_       ,
     output        wire        [63:0]                           out_addr_outp        ,
-    inout         wire        [63:0]                           in_inst_data_in      ,
-    input         wire        [63:0]                           in_ram_data_in       ,
+    inout         wire        [63:0]                           read_data_sign_      ,
     output        wire                                         out_write_ram_ena    ,
     output        wire        [63:0]                           out_write_ram_data   ,
     output        wire        [63:0]                           out_write_ram_addr     
@@ -474,19 +472,15 @@ module SocTop (
         .axi_r_ready         (t_axi_r_ready      )  
     );    
 
-    wire         read_ram_sign   ; 
-    wire         read_inst_sign  ;
+    wire         read_ena_sign_  ;
     wire [63:0]  addr_oup_sign   ;
-    wire [63:0]  inst_data_sign  ;
-    wire [63:0]  ram_data_sign   ;
+    wire [63:0]  read_data_sign_ ;
     wire         write_ena_sign  ;
     wire [63:0]  write_addr_sign ;
     wire [63:0]  write_data_sign ;
-    assign  out_read_ram_ena  = read_ram_sign ;
-    assign  out_read_inst_ena = read_inst_sign;
+    assign  read_ena_sign_    = read_ena_sign ;
     assign  out_addr_outp     = addr_oup_sign ;
-    assign  inst_data_sign    = in_inst_data_in;
-    assign  ram_data_sign     = in_ram_data_in;
+    assign  read_data_sign_   = read_data_sign;
     assign  out_write_ram_ena = write_ena_sign;
     assign  out_write_ram_addr= write_addr_sign;
     assign  out_write_ram_data= write_data_sign;
@@ -538,11 +532,9 @@ module SocTop (
         .s_axi_r_valid       (soc_axi_r_valid    ) ,    
         .s_axi_r_ready       (soc_axi_r_ready    ) ,
 
-        .read_ram_ena        (read_ram_sign      ) ,
-        .read_inst_ena       (read_inst_sign     ) ,
+        .mnq_read_ena        (read_ena_sign      ) ,
         .addr_oup            (addr_oup_sign      ) ,
-        .inst_data_in        (inst_data_sign     ) ,
-        .ram_data_in         (ram_data_sign      ) , 
+        .mnq_data_in         (read_data_sign     ) ,
         .write_ram_ena       (write_ena_sign     ) ,
         .write_ram_data      (write_data_sign    ) ,
         .write_ram_addr      (write_addr_sign    )     
