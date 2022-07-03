@@ -3784,23 +3784,23 @@ VL_INLINE_OPT void VSocTop___024root___sequent__TOP__4(VSocTop___024root* vlSelf
                   >> 9U)) & (IData)(vlSelf->SocTop__DOT__i_cache2__DOT__u_tag01__DOT__out_vaild))) {
             if ((1U & (IData)((vlSelf->SocTop__DOT__rvcpu_inst_addr 
                                >> 2U)))) {
-                vlSelf->SocTop__DOT__i_cache_inst_valid = 0U;
+                vlSelf->SocTop__DOT__i_cache_inst_valid = 1U;
             } else if ((1U & (~ (IData)((vlSelf->SocTop__DOT__rvcpu_inst_addr 
                                          >> 2U))))) {
-                vlSelf->SocTop__DOT__i_cache_inst_valid = 0U;
+                vlSelf->SocTop__DOT__i_cache_inst_valid = 1U;
             }
         } else if (((vlSelf->SocTop__DOT__i_cache2__DOT__u_tag02__DOT__out_data 
                      == (vlSelf->SocTop__DOT__rvcpu_inst_addr 
                          >> 9U)) & (IData)(vlSelf->SocTop__DOT__i_cache2__DOT__u_tag02__DOT__out_vaild))) {
             if ((1U & (IData)((vlSelf->SocTop__DOT__rvcpu_inst_addr 
                                >> 2U)))) {
-                vlSelf->SocTop__DOT__i_cache_inst_valid = 0U;
+                vlSelf->SocTop__DOT__i_cache_inst_valid = 1U;
             } else if ((1U & (~ (IData)((vlSelf->SocTop__DOT__rvcpu_inst_addr 
                                          >> 2U))))) {
-                vlSelf->SocTop__DOT__i_cache_inst_valid = 0U;
+                vlSelf->SocTop__DOT__i_cache_inst_valid = 1U;
             }
         } else {
-            vlSelf->SocTop__DOT__i_cache_inst_valid = 0U;
+            vlSelf->SocTop__DOT__i_cache_inst_valid = 1U;
         }
     } else {
         vlSelf->SocTop__DOT__i_cache_inst_valid = 0U;

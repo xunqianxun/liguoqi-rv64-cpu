@@ -57,7 +57,7 @@ always@(posedge clk) begin
     end
 
 assign if_stall_req  = (rst == `ysyx22040228_RSTENA) ? 1'b0:((if_inst_valid == 1'b0) && (if_newpc) ? 1'b1 : 1'b0);
-assign if_inst_ready = if_newpc ;
+assign if_inst_ready = (stall_ctrl[1] == 1'b0) ;
 
 
 endmodule//if_id
