@@ -115,7 +115,7 @@ module d_cache (
         end 
     end
     always @(posedge clk) begin
-        read_ok = read_ok_;
+        read_ok <= read_ok_;
     end
 
     reg         mem_hit_ok ;
