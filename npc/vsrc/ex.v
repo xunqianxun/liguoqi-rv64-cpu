@@ -4,6 +4,8 @@ Name:ex.v
 Function:Instruction execution module and CSR is instantiated
 ************************************************************/
 `include "./vsrc/csr.v"
+`include "./vsrc/divider.v"
+`include "./vsrc/multiplier.v"
 `include "./vsrc/defines.v"
 module ex (
     input         wire                                         clk               ,
@@ -136,7 +138,7 @@ assign mul_ready =  (inst_opcode_i == `INST_MUL   ) |
                     (inst_opcode_i == `INST_MULHSU) | 
                     (inst_opcode_i == `INST_MULHU ) | 
                     (inst_opcode_i == `INST_MULW  ) ;
-multipler multipler1 (
+multiplier multiplier1 (
     .clk             (clk            ) ,
     .rst             (rst            ) ,
     .mult_ready      (mul_ready      ) ,
