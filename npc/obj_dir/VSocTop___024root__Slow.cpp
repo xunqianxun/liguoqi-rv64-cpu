@@ -2559,7 +2559,7 @@ void VSocTop___024root___settle__TOP__2(VSocTop___024root* vlSelf) {
     if (((0x10U == (IData)(vlSelf->SocTop__DOT__d_cache3__DOT__state_dread)) 
          & (~ (IData)(vlSelf->SocTop__DOT__arbitrate_d_ok)))) {
         vlSelf->SocTop__DOT__d_cache3__DOT__missr_out_addr 
-            = vlSelf->SocTop__DOT__rvcpu_data_addr;
+            = (0xfffffffffffffff8ULL & vlSelf->SocTop__DOT__rvcpu_data_addr);
     } else if (((IData)(vlSelf->SocTop__DOT__arbitrate_d_ok) 
                 & (0x10U == (IData)(vlSelf->SocTop__DOT__d_cache3__DOT__state_dread)))) {
         vlSelf->SocTop__DOT__d_cache3__DOT__missr_out_addr = 0ULL;
@@ -2567,7 +2567,7 @@ void VSocTop___024root___settle__TOP__2(VSocTop___024root* vlSelf) {
     if (((0x10U == (IData)(vlSelf->SocTop__DOT__d_cache3__DOT__state_dwrite)) 
          & (~ (IData)(vlSelf->SocTop__DOT__arbitrate_d_ok)))) {
         vlSelf->SocTop__DOT__d_cache3__DOT__missw_out_addr 
-            = vlSelf->SocTop__DOT__rvcpu_data_addr;
+            = (0xfffffffffffffff8ULL & vlSelf->SocTop__DOT__rvcpu_data_addr);
     } else if (((IData)(vlSelf->SocTop__DOT__arbitrate_d_ok) 
                 & (0x10U == (IData)(vlSelf->SocTop__DOT__d_cache3__DOT__state_dwrite)))) {
         vlSelf->SocTop__DOT__d_cache3__DOT__missw_out_addr = 0ULL;
@@ -2588,7 +2588,7 @@ void VSocTop___024root___settle__TOP__2(VSocTop___024root* vlSelf) {
                                                   & (IData)(
                                                             (vlSelf->SocTop__DOT__rvcpu_data_addr 
                                                              >> 3U)))]))
-                ? vlSelf->SocTop__DOT__rvcpu_data_addr
+                ? (0xfffffffffffffff8ULL & vlSelf->SocTop__DOT__rvcpu_data_addr)
                 : ((vlSelf->SocTop__DOT__d_cache3__DOT__dirty2
                     [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
                                        >> 3U)))] & 
@@ -2598,7 +2598,7 @@ void VSocTop___024root___settle__TOP__2(VSocTop___024root* vlSelf) {
                      vlSelf->SocTop__DOT__d_cache3__DOT__counter2
                      [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
                                         >> 3U)))]))
-                    ? vlSelf->SocTop__DOT__rvcpu_data_addr
+                    ? (0xfffffffffffffff8ULL & vlSelf->SocTop__DOT__rvcpu_data_addr)
                     : 0ULL));
     } else if (((IData)(vlSelf->SocTop__DOT__arbitrate_d_ok) 
                 & (8U == (IData)(vlSelf->SocTop__DOT__d_cache3__DOT__state_dread)))) {
@@ -2620,7 +2620,7 @@ void VSocTop___024root___settle__TOP__2(VSocTop___024root* vlSelf) {
                                                   & (IData)(
                                                             (vlSelf->SocTop__DOT__rvcpu_data_addr 
                                                              >> 3U)))]))
-                ? vlSelf->SocTop__DOT__rvcpu_data_addr
+                ? (0xfffffffffffffff8ULL & vlSelf->SocTop__DOT__rvcpu_data_addr)
                 : ((vlSelf->SocTop__DOT__d_cache3__DOT__dirty2
                     [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
                                        >> 3U)))] & 
@@ -2630,7 +2630,7 @@ void VSocTop___024root___settle__TOP__2(VSocTop___024root* vlSelf) {
                      vlSelf->SocTop__DOT__d_cache3__DOT__counter2
                      [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
                                         >> 3U)))]))
-                    ? vlSelf->SocTop__DOT__rvcpu_data_addr
+                    ? (0xfffffffffffffff8ULL & vlSelf->SocTop__DOT__rvcpu_data_addr)
                     : 0ULL));
     } else if (((IData)(vlSelf->SocTop__DOT__arbitrate_d_ok) 
                 & (8U == (IData)(vlSelf->SocTop__DOT__d_cache3__DOT__state_dwrite)))) {
