@@ -5369,7 +5369,8 @@ VL_INLINE_OPT void VSocTop___024root___combo__TOP__5(VSocTop___024root* vlSelf) 
     }
     if (((2U == (IData)(vlSelf->SocTop__DOT__i_cache2__DOT__state_inst)) 
          & (~ (IData)(vlSelf->SocTop__DOT__arbitrate_i_ok)))) {
-        vlSelf->SocTop__DOT__i_cache_addr = vlSelf->SocTop__DOT__rvcpu_inst_addr;
+        vlSelf->SocTop__DOT__i_cache_addr = (0xfffffffffffffff8ULL 
+                                             & vlSelf->SocTop__DOT__rvcpu_inst_addr);
     }
     if (((2U == (IData)(vlSelf->SocTop__DOT__i_cache2__DOT__state_inst)) 
          & (~ (IData)(vlSelf->SocTop__DOT__arbitrate_i_ok)))) {
