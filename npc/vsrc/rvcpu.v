@@ -58,6 +58,7 @@ wire    [`ysyx22040228_DATABUS]         ex_mem_addr        ;
 wire                                    ex_pc_branchena    ;
 wire    [`ysyx22040228_PCBUS]           ex_pc_branchpc     ;
 wire                                    ex_ctrl_req        ;
+wire                                    div_rem_s_req      ;
 
 //about id
 //wire                                   id_flush           ;
@@ -284,6 +285,7 @@ ex ex5 (
     //to ctrl
     .if_stell_req        (if_stall_req         ),
     .ex_stall_req        (ex_ctrl_req          ),
+    .mul_div_req         (div_rem_s_req        ),
     
     //to interrupt
     .timer_intr          (timer_intr           ),
@@ -371,6 +373,7 @@ ctrl ctrl9 (
    .id_stall_req         (id_ctrl_req          ),
    .ex_stall_req         (ex_ctrl_req          ),
    .mem_stall_req        (mem_ctrl_req         ),
+   .div_mul_req          (div_rem_s_req        ),
 
    .stall_ctrl           (stall_ctrl           )
 );
