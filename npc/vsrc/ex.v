@@ -39,6 +39,7 @@ module ex (
     //to ctrl
     input         wire                                       if_stell_req      ,
     output        wire                                       ex_stall_req      ,
+    output        wire                                       mul_div_req       ,
     
     //to interrupt
     input         wire                                       timer_intr        ,
@@ -114,11 +115,62 @@ always @(*) begin
           `INST_SRLIW, `INST_SRLW:  begin exe_res = srlw_res                 ;end
           `INST_SRAIW, `INST_SRAW:  begin exe_res = sraw_res                 ;end
           `INST_SUBW             :  begin exe_res = subw_res                 ;end
-          `INST_EBREAK           :  begin exe_res = op1_i                    ;end 
+          `INST_EBREAK           :  begin exe_res = op1_i                    ;end
+          `INST_MUL ,  `INST_MULH,
+          `INST_MULHSU,`INST_MULHU,
+          `INST_MULW             :  begin exe_res = mul_data                 ;end 
+          `INST_DIV , `INST_DIVU ,
+          `INST_DIVUW,`INST_DIVW ,
+          `INST_REM , `INST_REMU ,
+          `INST_REMUW,`INST_REMW :  begin exe_res = divrem_data              ;end 
         default    :                begin exe_res = `ysyx22040228_ZEROWORD   ;end
         endcase
     end
 end
+
+reg   [63:0]   mul_data        ;
+reg            mul_finish_sign ;
+wire           mul_ready       ;
+assign mul_ready =  (inst_opcode_i == `INST_MUL   ) | 
+                    (inst_opcode_i == `INST_MULH  ) | 
+                    (inst_opcode_i == `INST_MULHSU) | 
+                    (inst_opcode_i == `INST_MULHU ) | 
+                    (inst_opcode_i == `INST_MULW  ) ;
+multipler multipler1 (
+    .clk             (clk            ) ,
+    .rst             (rst            ) ,
+    .mult_ready      (mul_ready      ) ,
+    .inst_opcode     (inst_opcode_i  ) ,
+    .mult_op1        (op1_i          ) ,
+    .mult_op2        (op2_i          ) ,
+    .product_val     (mul_data       ) ,
+    .mult_finish     (mul_finish_sign)  
+);
+
+reg   [63:0]   divrem_data      ;
+reg            dr_finish_sign   ;
+wire           dr_ready         ;
+assign  dr_ready  = (inst_opcode_i == `INST_DIV     ) |
+                    (inst_opcode_i == `INST_DIVU    ) |
+                    (inst_opcode_i == `INST_DIVUW   ) |
+                    (inst_opcode_i == `INST_DIVW    ) |
+                    (inst_opcode_i == `INST_REM     ) |
+                    (inst_opcode_i == `INST_REMU    ) |
+                    (inst_opcode_i == `INST_REMUW   ) |
+                    (inst_opcode_i == `INST_REMW    ) ;
+divider divider2 (
+    .clk              (clk            ) ,
+    .rst              (rst            ) ,
+
+    .divisor          (op1_i          ) ,
+    .dividend         (op2_i          ) ,
+    .inst_opcode      (inst_opcode_i  ) ,
+    .div_ready        (dr_ready       ) ,
+    .div_rem_data     (divrem_data    ) ,
+    .div_finish       (dr_finish_sign )  
+);
+
+assign mul_div_req = (~dr_finish_sign && dr_ready) || (~mul_finish_sign && mul_ready) ;
 
 //branch
 reg                ex_flush_branch                  ;

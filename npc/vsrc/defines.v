@@ -4,6 +4,7 @@
 `define ysyx22040228_MTIME     64'h000000000200bff8
 `define ysyx22040228_SERIAL_H  64'h00000000a00003ff
 `define ysyx22040228_SERIAL_L  64'h00000000a00003f8
+`define ysyx22040228_DIV_ZERO  128'h000000000000000000000000000000
 
 //pip define 
 `define ysyx22040228_PCBUS     63:0
@@ -85,6 +86,23 @@
 `define INST_BGE           8'b00001000
 `define INST_BLTU          8'b00010000
 `define INST_BGEU          8'b00100000
+
+`define INST_MUL           8'b00001110
+`define INST_MULH          8'b00011100
+`define INST_MULHSU        8'b00111000
+`define INST_MULHU         8'b01110000
+`define INST_MULW          8'b11100000
+
+`define INST_DIV           8'b10000110
+`define INST_DIVU          8'b00011010
+`define INST_DIVUW         8'b00100101
+`define INST_DIVW          8'b01010001
+
+`define INST_REM           8'b11000001
+`define INST_REMU          8'b10000101
+`define INST_REMUW         8'b01000011
+`define INST_REMW          8'b00010011
+
 
 `define INST_CSRRW         8'b01000000
 `define INST_CSRRS         8'b10000000
