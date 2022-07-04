@@ -21,7 +21,7 @@ module i_cache (
     input       wire                                         rst             ,
     /* verilator lint_off UNUSED */
     input       wire          [63:0]                         inst_addr       ,
-    /* verilator lint_on UNUSED */
+    /* verilator lint_on  UNUSED */
     input       wire                                         inst_ready      ,
     output      reg           [31:0]                         inst_data       ,
     output      reg                                          inst_valid      ,

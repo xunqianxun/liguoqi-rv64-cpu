@@ -20,7 +20,9 @@ module d_cache (
     input         wire                                        clk                ,
     input         wire                                        rst                ,
     //-------------------------input  cache-------------------------------------//
+    /* verilator lint_off UNUSED */
     input         wire        [`ysyx22040228_DATAADDRBUS]     mem_addr_i         ,
+    /* verilator lint_on UNUSED */
     input         wire        [`ysyx22040228_REGBUS]          mem_data_i         ,
     input         wire        [7:0]                           mem_strb_i         ,
     input         wire                                        mem_read_valid     ,
@@ -151,12 +153,12 @@ module d_cache (
     always @(*) begin
         if((state_dread == `ysyx22040228_DIRTY) && (~in_dcache_ready)) begin
             if((dirty1[dcache_index] == `ysyx22040228_ABLE) && (counter1[dcache_index] >= counter2[dcache_index])) begin
-                dirty_out_addr = mem_addr_i ;
+                dirty_out_addr = {mem_addr_i[63:3],3'b0} ;
                 dirty_out_data = out_data1  ;
                 dirty_out_type = 4'b0001    ;
             end 
             else if((dirty2[dcache_index] == `ysyx22040228_ABLE) && (counter1[dcache_index] < counter2[dcache_index])) begin
-                dirty_out_addr = mem_addr_i ;
+                dirty_out_addr = {mem_addr_i[63:3],3'b0} ;
                 dirty_out_data = out_data2  ;
                 dirty_out_type  = 4'b0001   ;
             end
@@ -188,7 +190,7 @@ module d_cache (
     always @(*) begin
         if((state_dread == `ysyx22040228_MISSR) && (~in_dcache_ready)) begin
             missr_out_type = 4'b0010    ;
-            missr_out_addr = mem_addr_i ;
+            missr_out_addr = {mem_addr_i[63:3],3'b0} ;
         end
         else if((in_dcache_ready) && (state_dread == `ysyx22040228_MISSR)) begin
             missr_out_type = 4'b0000                ;
@@ -320,12 +322,12 @@ module d_cache (
     always @(*) begin
         if((state_dwrite == `ysyx22040228_DIRTY) && (~in_dcache_ready)) begin
             if((dirty1[dcache_index] == `ysyx22040228_ABLE) && (counter1[dcache_index] >= counter2[dcache_index])) begin
-                dirtyw_out_addr = mem_addr_i ;
+                dirtyw_out_addr = {mem_addr_i[63:3],3'b0} ;
                 dirtyw_out_data = out_data1  ;
                 dirtyw_out_type = 4'b0100    ;
             end 
             else if((dirty2[dcache_index] == `ysyx22040228_ABLE) && (counter1[dcache_index] < counter2[dcache_index])) begin
-                dirtyw_out_addr = mem_addr_i ;
+                dirtyw_out_addr = {mem_addr_i[63:3],3'b0} ;
                 dirtyw_out_data = out_data2  ;
                 dirtyw_out_type  = 4'b0100    ;
             end
@@ -357,7 +359,7 @@ module d_cache (
     always @(*) begin
         if((state_dwrite == `ysyx22040228_MISSW) && (~in_dcache_ready)) begin
             missw_out_type = 4'b1000    ;
-            missw_out_addr = mem_addr_i ;
+            missw_out_addr = {mem_addr_i[63:3],3'b0} ;
         end
         else if((in_dcache_ready) && (state_dwrite == `ysyx22040228_MISSW)) begin
             missw_out_type = 4'b0000                ;
