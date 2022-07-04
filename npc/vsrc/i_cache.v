@@ -145,7 +145,7 @@ module i_cache (
     always @(*) begin
         if((state_inst ==  `ysyx22040228_I_MISSR) && (~cache_in_valid)) begin
             cache_read_ena = `ysyx22040228_ABLE  ;
-            cache_addr     = inst_addr           ;
+            cache_addr     = {inst_addr[63:3],3'b0}    ;
         end 
         else if((state_inst ==  `ysyx22040228_I_MISSR) && (cache_in_valid)) begin
             cache_read_ena = `ysyx22040228_ENABLE;
