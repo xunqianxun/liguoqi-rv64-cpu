@@ -16,7 +16,9 @@ module pc (
 
     input    wire    [`ysyx22040228_PCBUS]                  ex_pc_i      ,   //执行阶段送来的指令
     input    wire                                           ex_pc_ena    ,   // 执行阶段指令送来的使能信号
+    /* verilator lint_off UNUSED */
     input    wire    [4:0]                                  stall_ctrl   ,   //pc暂停信号
+    /* verilator lint_on UNUSED */
     //to if
     output   reg     [`ysyx22040228_PCBUS]                  pc               
 );

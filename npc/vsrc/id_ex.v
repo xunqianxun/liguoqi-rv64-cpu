@@ -8,9 +8,9 @@ module id_ex (
     input       wire                                     clk                ,
     input       wire                                     rst                ,
     input       wire                                     id_ex_bubble       ,
-
+    /* verilator lint_off UNUSED */
     input       wire       [ 4:0]                        stall_ctrl         ,
-
+    /* verilator lint_on UNUSED */
     input       wire       [`ysyx22040228_INSTBUS]       id_inst            ,
     input       wire       [`ysyx22040228_PCBUS]         id_pc              ,
     input       wire       [ 7:0]                        id_inst_type       ,
