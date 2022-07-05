@@ -16,7 +16,7 @@ module pc (
 
     input    wire    [`ysyx22040228_PCBUS]                  ex_pc_i      ,   //执行阶段送来的指令
     input    wire                                           ex_pc_ena    ,   // 执行阶段指令送来的使能信号
-    input    wire                                           pc_stall     ,   //pc暂停信号
+    input    wire                                           stall_ctrl   ,   //pc暂停信号
     //to if
     output   reg     [`ysyx22040228_PCBUS]                  pc               
 );
