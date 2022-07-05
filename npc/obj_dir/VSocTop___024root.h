@@ -347,7 +347,7 @@ VL_MODULE(VSocTop___024root) {
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__multiplier1__DOT__multipler;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__shang_data;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__yushu_data;
-        QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__op2_absolute;
+        QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__tempb;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__csr0__DOT__csr_mcycle;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__csr0__DOT__csr_mstatus;
         QData/*61:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__csr0__DOT__csr_mtvec_base;

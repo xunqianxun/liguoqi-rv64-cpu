@@ -29,6 +29,7 @@ module divider (
     wire   div_rem_signbit ;
     assign div_rem_signbit = op1_signbit ^ op2_signbit ;
 
+    /* verilator lint_off COMBDLY */
     reg   [63:0] tempa ;
     reg   [63:0] tempb ;
     always @(divisor or dividend or rst) begin
@@ -41,6 +42,7 @@ module divider (
         tempb <= op2_absolute  ;
         end 
     end
+    /* verilator lint_on COMBDLY */
     reg  [7 : 0]  counter;
     reg  [127:0]  temp_a ;
     reg  [127:0]  temp_b ;
