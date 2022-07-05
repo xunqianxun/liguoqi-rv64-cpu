@@ -3,7 +3,7 @@ Author:LiGuoqi
 Name:divider.v
 Function:execute muliplication instruction
 ************************************************************/
-`include "defines.v"
+`include "./vsrc/defines.v"
 module divider (
     input        wire                                       clk               ,
     input        wire                                       rst               ,
