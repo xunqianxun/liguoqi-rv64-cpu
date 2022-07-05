@@ -28,19 +28,13 @@ module pc (
             pc <= `ysyx22040228_START      ; 
         end
         else begin
-            if (ex_pc_ena) begin
-                  pc <= ex_pc_i            ;
-            end 
-            else if (id_pc_ena) begin
-                  pc <= id_pc_i            ;
-            end 
-            else if (stall_ctrl[0] == `ysyx22040228_STOP) begin 
+            if (stall_ctrl[0] == `ysyx22040228_STOP) begin 
                   pc <= pc                 ;
             end
-            else if((stall_ctrl[1:0] == 2'b00) && (ex_pc_change)) begin
+            else if((stall_ctrl[1:0] == 2'b00) && ((ex_pc_change) || (ex_pc_ena))) begin
                   pc <= pc_ex              ;
             end 
-            else if((stall_ctrl[1:0] == 2'b00) && (id_pc_change)) begin
+            else if((stall_ctrl[1:0] == 2'b00) && ((id_pc_change) || (id_pc_ena))) begin
                   pc <= pc_id              ;
             end 
             else begin
