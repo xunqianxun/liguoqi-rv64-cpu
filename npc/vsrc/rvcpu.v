@@ -161,7 +161,7 @@ if_id if_id2 (
     .if_inst_ready       (inst_ready           ),
     .if_inst_stall       (core_stall_sign      ),
     .stall_ctrl          (stall_ctrl           ),
-    .if_stall_req        (if_stall_req         ),
+    .if_unstall_req      (if_stall_req         ),
     .id_pc               (if_id_pc             ),
     .id_inst             (if_id_inst           )
 );
