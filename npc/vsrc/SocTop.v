@@ -78,6 +78,7 @@ module SocTop (
     wire  [63:0]    rvcpu_data_o     ;
     wire            rvcpu_we         ;
     wire            rvcpu_re         ;
+    wire            core_stall_l     ;
 
     wire  [31:0]    i_cache_inst_data;
     wire            i_cache_inst_valid;
@@ -360,6 +361,7 @@ module SocTop (
         .inst_ready          (i_cache_ready       ) ,
         .inst                (i_cache_inst_data   ) ,
         .bui_inst_valid      (i_cache_inst_valid  ) ,
+        .core_stall_sign     (core_stall_l        ),
 
         .data_addr           (rvcpu_data_addr     ) ,
         .wmask               (rvcpu_wmask         ) ,
@@ -378,6 +380,7 @@ module SocTop (
         .rst                 (rst                 ) ,
         .inst_addr           (rvcpu_inst_addr     ) ,
         .inst_ready          (i_cache_ready       ) ,
+        .core_stall          (core_stall_l        ),
         .inst_data           (i_cache_inst_data   ) ,
         .inst_valid          (i_cache_inst_valid  ) ,
 

@@ -41,47 +41,26 @@ always @(posedge clk) begin
         ex_mem_pc_o   <= `ysyx22040228_ZEROWORD ;
         ex_mem_inst_o <= 32'b0 ;
     end
+    else if(stall_ctrl[3:0] == 4'b1111) begin
+        mem_inst_type <= mem_inst_type ;
+        mem_rd_ena    <= mem_rd_ena  ;
+        mem_rd_data   <= mem_rd_data ;
+        mem_rd_addr   <= mem_rd_addr ;
+        mem_ls_sel    <= mem_ls_sel  ;
+        mem_ls_addr   <= mem_ls_addr ;
+        ex_mem_pc_o   <= ex_mem_pc_o ;
+        ex_mem_inst_o <= ex_mem_inst_o; 
+    edn 
     else begin
-        if(stall_ctrl[3] == `ysyx22040228_NOSTOP && stall_ctrl[4] == `ysyx22040228_NOSTOP) begin
-            mem_inst_type <= ex_inst_type ;
-            mem_rd_ena    <= ex_rd_ena ;
-            mem_rd_data   <= ex_rd_data ;
-            mem_rd_addr   <= ex_rd_addr ;
-            mem_ls_sel    <= ex_ls_sel ;
-            mem_ls_addr   <= ex_ls_addr ;
-            ex_mem_pc_o   <= ex_mem_pc_i;
-            ex_mem_inst_o <= ex_mem_inst_i;
-        end
-        else if((stall_ctrl[2:0] == 3'b111) && (stall_ctrl[3] == `ysyx22040228_STOP) && (stall_ctrl[4] == `ysyx22040228_NOSTOP)) begin
-            mem_inst_type <= 8'd0 ;
-            mem_rd_ena    <= 1'b0 ;
-            mem_rd_data   <= `ysyx22040228_ZEROWORD ;
-            mem_rd_addr   <= 5'b0 ;
-            mem_ls_sel    <= 3'd0 ;
-            mem_ls_addr   <= `ysyx22040228_ZEROWORD ;
-            ex_mem_pc_o   <= `ysyx22040228_ZEROWORD ;
-            ex_mem_inst_o <= 32'b0 ;
-        end
-        if(stall_ctrl == 5'b11111)begin
-            mem_inst_type <= mem_inst_type ;
-            mem_rd_ena    <= mem_rd_ena  ;
-            mem_rd_data   <= mem_rd_data ;
-            mem_rd_addr   <= mem_rd_addr ;
-            mem_ls_sel    <= mem_ls_sel  ;
-            mem_ls_addr   <= mem_ls_addr ;
-            ex_mem_pc_o   <= ex_mem_pc_o ;
-            ex_mem_inst_o <= ex_mem_inst_o; 
-        end 
-        else begin
-            mem_inst_type <= ex_inst_type ;
-            mem_rd_ena    <= ex_rd_ena ;
-            mem_rd_data   <= ex_rd_data ;
-            mem_rd_addr   <= ex_rd_addr ;
-            mem_ls_sel    <= ex_ls_sel ;
-            mem_ls_addr   <= ex_ls_addr ;
-            ex_mem_pc_o   <= ex_mem_pc_i;
-            ex_mem_inst_o <= ex_mem_inst_i;
-        end
+        mem_inst_type <= ex_inst_type ;
+        mem_rd_ena    <= ex_rd_ena ;
+        mem_rd_data   <= ex_rd_data ;
+        mem_rd_addr   <= ex_rd_addr ;
+        mem_ls_sel    <= ex_ls_sel ;
+        mem_ls_addr   <= ex_ls_addr ;
+        ex_mem_pc_o   <= ex_mem_pc_i;
+        ex_mem_inst_o <= ex_mem_inst_i;
+
     end
 end
 

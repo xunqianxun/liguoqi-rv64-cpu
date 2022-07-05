@@ -50,33 +50,19 @@ module id_ex (
          ex_addr_offset     <= 12'b0       ;
          ex_ls_sel          <= 3'b0        ;
      end
-     else if((stall_ctrl[2] == `ysyx22040228_NOSTOP) && (stall_ctrl[4:3] == 2'b00)) begin
-         if(id_ex_bubble) begin
-             ex_pc              <= `ysyx22040228_ZEROWORD  ;
-             ex_inst            <= 32'b0       ;             
-             ex_inst_type       <= 8'b0        ;
-             ex_inst_opcode     <= 8'B0        ;
-             ex_op1             <= 64'b0       ; 
-             ex_op2             <= 64'b0       ;
-             ex_rd_ena          <= 1'b0        ;
-             ex_rd_addr         <= 5'b0        ;
-             ex_addr_offset     <= 12'b0       ;
-             ex_ls_sel          <= 3'b0        ;
-         end
-         else begin
-             ex_pc              <= id_pc              ;
-             ex_inst            <= id_inst            ;
-             ex_inst_type       <= id_inst_type       ;
-             ex_inst_opcode     <= id_inst_opcode     ;
-             ex_op1             <= id_op1             ; 
-             ex_op2             <= id_op2             ;
-             ex_rd_ena          <= id_rd_ena          ;
-             ex_rd_addr         <= id_rd_addr         ;
-             ex_addr_offset     <= id_addr_offset     ;
-             ex_ls_sel          <= id_ls_sel          ;
-         end
+     else if(id_ex_bubble) begin
+         ex_pc              <= `ysyx22040228_ZEROWORD  ;
+         ex_inst            <= 32'b0       ;             
+         ex_inst_type       <= 8'b0        ;
+         ex_inst_opcode     <= 8'B0        ;
+         ex_op1             <= 64'b0       ;              
+         ex_op2             <= 64'b0       ;
+         ex_rd_ena          <= 1'b0        ;
+         ex_rd_addr         <= 5'b0        ;
+         ex_addr_offset     <= 12'b0       ;
+         ex_ls_sel          <= 3'b0        ;
      end
-     else if(stall_ctrl == 5'b11111)begin
+     else if(stall_ctrl[3:0] == 4'b1111)begin
          ex_pc              <= ex_pc          ;
          ex_inst            <= ex_inst        ;
          ex_inst_type       <= ex_inst_type   ;
@@ -88,18 +74,6 @@ module id_ex (
          ex_addr_offset     <= ex_addr_offset ;
          ex_ls_sel          <= ex_ls_sel      ;
      end 
-     else if((stall_ctrl[1:0] == 2'b11) && (stall_ctrl[2] == `ysyx22040228_STOP) && (stall_ctrl[3] == `ysyx22040228_NOSTOP)) begin
-         ex_pc              <= `ysyx22040228_ZEROWORD  ;
-         ex_inst            <= 32'b0       ;
-         ex_inst_type       <= 8'b0        ;
-         ex_inst_opcode     <= 8'B0        ;
-         ex_op1             <= 64'b0       ; 
-         ex_op2             <= 64'b0       ;
-         ex_rd_ena          <= 1'b0        ;
-         ex_rd_addr         <= 5'b0        ;
-         ex_addr_offset     <= 12'b0       ;
-         ex_ls_sel          <= 3'b0        ;
-     end
      else begin
          ex_pc              <= id_pc              ;
          ex_inst            <= id_inst            ;

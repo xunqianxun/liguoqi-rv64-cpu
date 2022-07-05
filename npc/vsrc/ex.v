@@ -8,10 +8,10 @@ Function:Instruction execution module and CSR is instantiated
 `include "./vsrc/multiplier.v"
 `include "./vsrc/defines.v"
 module ex (
-    input         wire                                         clk               ,
-    input         wire                                         rst               ,
-    input         wire          [`ysyx22040228_PCBUS]          pc_i              ,
-    input         wire          [`ysyx22040228_INSTBUS]        id_ex_inst        ,
+    input         wire                                        clk               ,
+    input         wire                                        rst               ,
+    input         wire          [`ysyx22040228_PCBUS]         pc_i              ,
+    input         wire          [`ysyx22040228_INSTBUS]       id_ex_inst        ,
 
     input         wire          [ 7:0]                        inst_type_i       ,
     input         wire          [ 7:0]                        inst_opcode_i     ,

@@ -18,8 +18,7 @@ module pc (
     input    wire                                           ex_pc_ena    ,   // 执行阶段指令送来的使能信号
     input    wire                                           pc_stall     ,   //pc暂停信号
     //to if
-    output   reg     [`ysyx22040228_PCBUS]                  pc           ,
-    output   reg                                            new_sign     
+    output   reg     [`ysyx22040228_PCBUS]                  pc               
 );
 
   //  reg   [ 1:0]   jump_cont = 2'b11;
@@ -27,24 +26,19 @@ module pc (
     always @(posedge clk) begin
         if(rst == `ysyx22040228_RSTENA) begin
             pc <= `ysyx22040228_START      ; 
-            new_sign <= 1'b1               ; 
         end
         else begin
             if (ex_pc_ena) begin
                   pc <= ex_pc_i            ;
-                  new_sign  <= 1'b1        ;
             end 
             else if (id_pc_ena) begin
                   pc <= id_pc_i            ;
-                  new_sign <= 1'b1         ;
             end 
             else if (pc_stall == `ysyx22040228_STOP) begin 
                   pc <= pc                 ;
-                  new_sign <= new_sign     ;
             end
             else begin
-                  pc <= static_pc_i        ; 
-                  new_sign <= 1'b1         ;             
+                  pc <= static_pc_i        ;            
             end
         end
     end

@@ -11,17 +11,17 @@ module if_id (
     // from pc if
     input    wire    [`ysyx22040228_PCBUS]                     if_pc        ,  //pc地址
     input    wire    [`ysyx22040228_INSTBUS]                   if_inst      ,
-    input                                                      if_newpc     ,
     // from id
     input    wire                                              if_id_flush  ,  
     //from exe 
     input    wire                                              if_id_bubble ,
     // axi
-    input    wire                                              if_inst_valid,     // IF空闲与否信号
-    output   wire                                              if_inst_ready,     //IF输入的指令读完成信号可继续进行的请求信号
+    input    wire                                              if_inst_valid,   
+    output   wire                                              if_inst_ready,  
+    output   wire                                              if_inst_stall,  
     // ctrl
     input    wire      [4:0]                                   stall_ctrl   ,     //暂停控制信号
-    output   wire                                              if_stall_req ,     //if_id阶段的暂停请求信号
+    output   wire                                              if_unstall_req ,     //if_id阶段的暂停请求信号
     // id
     output   reg      [`ysyx22040228_PCBUS]                    id_pc        , //输出给id译码阶段的指令地址
     output   reg      [`ysyx22040228_INSTBUS]                  id_inst        //输出给id译码阶段的指令数据
@@ -32,7 +32,7 @@ always@(posedge clk) begin
             id_pc   <= `ysyx22040228_ZEROWORD;
             id_inst <= 32'h0000_0000;
         end
-        else if(if_id_flush) begin
+        else if(if_id_flush | if_id_bubble) || (fl_bub_temp) begin
             id_pc   <= `ysyx22040228_ZEROWORD;
             id_inst <= 32'h0000_0000;
         end 
@@ -45,20 +45,28 @@ always@(posedge clk) begin
             id_inst <= id_inst;
         end
         else begin
-            if(if_id_bubble) begin
-                id_pc   <= `ysyx22040228_ZEROWORD;
-                id_inst <= 32'h0000_0000;
-            end
-            else begin
-                id_pc   <= if_pc;
-                id_inst <= if_inst;
-            end
+            id_pc   <= if_pc;
+            id_inst <= if_inst;
         end
     end
+    reg     fl_bub_temp ;
+    always @(posedge clk) begin
+        if(rst == `ysyx22040228_RSTENA) 
+            fl_bub_temp <= 1'b0    ;
+        else if((stall_ctrl[1:0] == 2'b11) && (if_id_flush | if_id_bubble)) begin
+            fl_bub_temp <= 1'b1    ;
+        end 
+        else if(stall_ctrl[1:0] == 2'b00) begin
+            fl_bub_temp <= 1'b0    ;
+        end 
+    end
 
-assign if_stall_req  = (rst == `ysyx22040228_RSTENA) ? 1'b0:((if_inst_valid == 1'b0) && (if_newpc) ? 1'b1 : 1'b0);
-assign if_inst_ready = (if_newpc) && ((if_inst_valid == 1'b0)) ;
+
+assign if_inst_stall   = (stall_ctrl == 5'b11111) || (stall_ctrl == 5'b01111) ;
+assign if_unstall_req  = (rst == `ysyx22040228_RSTENA) ? 1'b0:((if_inst_valid == 1'b1) ? 1'b1 : 1'b0);
+assign if_inst_ready   = (rst != `ysyx22040228_RSTENA) ;
 
 
 endmodule//if_id
 
+ 

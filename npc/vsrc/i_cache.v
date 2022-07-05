@@ -23,6 +23,7 @@ module i_cache (
     input       wire          [63:0]                         inst_addr       ,
     /* verilator lint_on  UNUSED */
     input       wire                                         inst_ready      ,
+    input       wire                                         core_stall      ,
     output      reg           [31:0]                         inst_data       ,
     output      reg                                          inst_valid      ,
 
@@ -103,7 +104,12 @@ module i_cache (
     reg         inst_hit_ok ;
     always @(*) begin
         if(state_inst == `ysyx22040228_I_HIT) begin
-            if((i_tag_data1 == icache_tag) && (i_tag_user1 == `ysyx22040228_ABLE))begin
+            if(core_stall == `ysyx22040228_ABLE) begin
+                inst_data = 32'b0 ;
+                inst_hit_ok = `ysyx22040228_ENABLE;
+                inst_valid  = `ysyx22040228_ENABLE;
+            end 
+            else if((i_tag_data1 == icache_tag) && (i_tag_user1 == `ysyx22040228_ABLE))begin
                 if(inst_addr[2] == `ysyx22040228_ABLE)   begin
                     inst_data = inst_out_1[63:32]      ;
                     inst_hit_ok  = `ysyx22040228_ABLE  ;
