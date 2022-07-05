@@ -130,6 +130,8 @@ always @(*) begin
     end
 end
 
+wire clk_in ;
+assign clk_in = clk ;
 reg   [63:0]   mul_data        ;
 reg            mul_finish_sign ;
 wire           mul_ready       ;
@@ -139,7 +141,7 @@ assign mul_ready =  (inst_opcode_i == `INST_MUL   ) |
                     (inst_opcode_i == `INST_MULHU ) | 
                     (inst_opcode_i == `INST_MULW  ) ;
 multiplier multiplier1 (
-    .clk             (clk            ) ,
+    .clk             (clk_in         ) ,
     .rst             (rst            ) ,
     .mult_ready      (mul_ready      ) ,
     .inst_opcode     (inst_opcode_i  ) ,
@@ -161,7 +163,7 @@ assign  dr_ready  = (inst_opcode_i == `INST_DIV     ) |
                     (inst_opcode_i == `INST_REMUW   ) |
                     (inst_opcode_i == `INST_REMW    ) ;
 divider divider2 (
-    .clk              (clk            ) ,
+    .clk              (clk_in         ) ,
     .rst              (rst            ) ,
 
     .divisor          (op1_i          ) ,
@@ -218,7 +220,7 @@ wire [`ysyx22040228_REGBUS] mask_set_res   = read_csr_data | op1_i ;
 wire [`ysyx22040228_REGBUS] mask_clear_res = read_csr_data & (~op1_i) ;
 
  csr csr0 (
-     .clk               (clk)                ,
+     .clk               (clk_in)             ,
      .rst               (rst)                ,
 
      .pc_i              (pc_i)               ,

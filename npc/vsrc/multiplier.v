@@ -16,7 +16,7 @@ module multiplier (
 );
 
     reg     mult_valid ;
-    assign  mult_finish = mult_valid & ~( | multiplier) ;
+    assign  mult_finish = mult_valid & ~( | multipler) ;
 
     always @(posedge clk) begin
         if(~mult_ready | mult_finish)
@@ -36,7 +36,7 @@ module multiplier (
 
     reg  [127:0] multiplcand ;
     always @(posedge clk) begin
-        if(mutl_valid)
+        if(mult_valid)
             multiplcand <= {multiplcand[126:0],1'b0} ;
         else if(mult_ready)
             multiplcand <= {64'b0,op1_absolute}; 
