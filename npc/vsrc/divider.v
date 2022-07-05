@@ -68,10 +68,13 @@ module divider (
             end 
         end 
     end
+    wire [63:0]  fan_data ;
+    assign fan_data = ~shang_data + 1
+
     assign div_finish   =  finish_sign ;
-    assign div_rem_data = (inst_opcode == `INST_MUL)      ? (div_rem_signbit ? (~shang_data + 1) : shang_data)                                  :
-                          (inst_opcode == `INST_MULH)     ? (div_rem_signbit ? {(~shang_data + 1)[63:32], 32'b0} : {shang_data[63:32], 32'b0})  :
-                          (inst_opcode == `INST_MULHSU)   ? (div_rem_signbit ? {(~shang_data + 1)[63:32], 32'b0} : {shang_data[63:32], 32'b0})  :
+    assign div_rem_data = (inst_opcode == `INST_MUL)      ? (div_rem_signbit ? fan_data : shang_data)                                  :
+                          (inst_opcode == `INST_MULH)     ? (div_rem_signbit ? {fan_data[63:32], 32'b0} : {shang_data[63:32], 32'b0})  :
+                          (inst_opcode == `INST_MULHSU)   ? (div_rem_signbit ? {fan_data[63:32], 32'b0} : {shang_data[63:32], 32'b0})  :
                           (inst_opcode == `INST_MULHU)    ? ({shang_data[63:32], 32'b0})                                                        :
                           (inst_opcode == `INST_MULW)     ? (shang_data[31]  ? {32'hffffffff, shang_data[31:0]} : {32'b0, shang_data[31:0]})    :
                           (inst_opcode == `INST_REM)      ? yushu_data                                                                          :
