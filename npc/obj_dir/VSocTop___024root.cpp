@@ -6893,7 +6893,7 @@ VL_INLINE_OPT void VSocTop___024root___combo__TOP__5(VSocTop___024root* vlSelf) 
                 vlSelf->SocTop__DOT__i_cache_inst_valid = 1U;
             }
         } else {
-            vlSelf->SocTop__DOT__i_cache_inst_valid = 1U;
+            vlSelf->SocTop__DOT__i_cache_inst_valid = 0U;
         }
     } else {
         vlSelf->SocTop__DOT__i_cache_inst_valid = 0U;

@@ -3204,7 +3204,7 @@ void VSocTop___024root___settle__TOP__2(VSocTop___024root* vlSelf) {
                 vlSelf->SocTop__DOT__i_cache_inst_valid = 1U;
             }
         } else {
-            vlSelf->SocTop__DOT__i_cache_inst_valid = 1U;
+            vlSelf->SocTop__DOT__i_cache_inst_valid = 0U;
         }
     } else {
         vlSelf->SocTop__DOT__i_cache_inst_valid = 0U;
