@@ -76,14 +76,13 @@ VL_MODULE(VSocTop___024root) {
         CData/*0:0*/ SocTop__DOT__io_axi_r_last;
         CData/*0:0*/ SocTop__DOT__io_axi_r_valid;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__if_stall_req;
-        CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__new_pc_sign;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__ex_id_rd_ena;
+        CData/*7:0*/ SocTop__DOT__rvcpu1__DOT__ex_id_rd_type;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__ex_pc_branchena;
         CData/*4:0*/ SocTop__DOT__rvcpu1__DOT__id_reg_addr1;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__id_reg_ena1;
         CData/*4:0*/ SocTop__DOT__rvcpu1__DOT__id_reg_addr2;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__id_reg_ena2;
-        CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__id_ctrl_req;
         CData/*7:0*/ SocTop__DOT__rvcpu1__DOT__id_ex_type;
         CData/*7:0*/ SocTop__DOT__rvcpu1__DOT__id_ex_opcode;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__id_ex_rd_ena;
@@ -95,9 +94,9 @@ VL_MODULE(VSocTop___024root) {
         CData/*7:0*/ SocTop__DOT__rvcpu1__DOT__idex_ex_type;
         CData/*7:0*/ SocTop__DOT__rvcpu1__DOT__idex_ex_opcode;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__idex_ex_rdena;
+        CData/*4:0*/ SocTop__DOT__rvcpu1__DOT__idex_ex_rdaddr;
     };
     struct {
-        CData/*4:0*/ SocTop__DOT__rvcpu1__DOT__idex_ex_rdaddr;
         CData/*2:0*/ SocTop__DOT__rvcpu1__DOT__idex_ex_sel;
         CData/*7:0*/ SocTop__DOT__rvcpu1__DOT__exmem_mem_type;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__exmem_mem_ena;
@@ -161,9 +160,9 @@ VL_MODULE(VSocTop___024root) {
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__ecall_trap_ena;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__cmt_mret_ena;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__csr_wr_en;
+        CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__csr_rd_en;
     };
     struct {
-        CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__csr_rd_en;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__multiplier1__DOT__mult_valid;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__multiplier1__DOT__product_signbit;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__finish_sign;
@@ -227,9 +226,9 @@ VL_MODULE(VSocTop___024root) {
         CData/*7:0*/ SocTop__DOT__d_cache3__DOT__data_ena1;
         CData/*7:0*/ SocTop__DOT__d_cache3__DOT__data_ena2;
         CData/*0:0*/ SocTop__DOT__d_cache3__DOT__u_tag0__DOT__out_vaild;
+        CData/*0:0*/ SocTop__DOT__d_cache3__DOT__u_tag1__DOT__out_vaild;
     };
     struct {
-        CData/*0:0*/ SocTop__DOT__d_cache3__DOT__u_tag1__DOT__out_vaild;
         CData/*0:0*/ SocTop__DOT__arbitrate4__DOT__b_shankhand;
         CData/*1:0*/ SocTop__DOT__arbitrate4__DOT__transfor_state;
         CData/*1:0*/ SocTop__DOT__arbitrate4__DOT__transfor_state_nex;
@@ -293,9 +292,9 @@ VL_MODULE(VSocTop___024root) {
         VlWide<4>/*127:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__temp_a;
         VlWide<4>/*127:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__temp_b;
         IData/*31:0*/ SocTop__DOT__rvcpu1__DOT__mem7__DOT__data_word;
+        IData/*31:0*/ SocTop__DOT__rvcpu1__DOT__mem_wb8__DOT__wb_inst_o;
     };
     struct {
-        IData/*31:0*/ SocTop__DOT__rvcpu1__DOT__mem_wb8__DOT__wb_inst_o;
         IData/*31:0*/ SocTop__DOT__rvcpu1__DOT__regfile10__DOT__i;
         IData/*31:0*/ SocTop__DOT__i_cache2__DOT__i;
         IData/*31:0*/ SocTop__DOT__d_cache3__DOT__i;
@@ -359,9 +358,9 @@ VL_MODULE(VSocTop___024root) {
         QData/*63:0*/ SocTop__DOT__i_cache2__DOT__u_data02__DOT__out_data;
         QData/*63:0*/ SocTop__DOT__d_cache3__DOT__dirty_out_addr;
         QData/*63:0*/ SocTop__DOT__d_cache3__DOT__dirty_out_data;
+        QData/*63:0*/ SocTop__DOT__d_cache3__DOT__missr_out_addr;
     };
     struct {
-        QData/*63:0*/ SocTop__DOT__d_cache3__DOT__missr_out_addr;
         QData/*63:0*/ SocTop__DOT__d_cache3__DOT__dirtyw_out_addr;
         QData/*63:0*/ SocTop__DOT__d_cache3__DOT__dirtyw_out_data;
         QData/*63:0*/ SocTop__DOT__d_cache3__DOT__missw_out_addr;

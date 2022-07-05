@@ -62,7 +62,7 @@ module id_ex (
          ex_addr_offset     <= 12'b0       ;
          ex_ls_sel          <= 3'b0        ;
      end
-     else if(stall_ctrl[3:0] == 4'b1111)begin
+     else if(stall_ctrl[2:0] == 3'b111)begin
          ex_pc              <= ex_pc          ;
          ex_inst            <= ex_inst        ;
          ex_inst_type       <= ex_inst_type   ;

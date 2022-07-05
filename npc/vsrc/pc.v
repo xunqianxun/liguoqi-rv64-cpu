@@ -21,8 +21,6 @@ module pc (
     output   reg     [`ysyx22040228_PCBUS]                  pc               
 );
 
-  //  reg   [ 1:0]   jump_cont = 2'b11;
-  //  assign pip_b_cont = jump_cont;
     always @(posedge clk) begin
         if(rst == `ysyx22040228_RSTENA) begin
             pc <= `ysyx22040228_START      ; 
@@ -37,12 +35,44 @@ module pc (
             else if (pc_stall == `ysyx22040228_STOP) begin 
                   pc <= pc                 ;
             end
+            else if((stall_ctrl[1:0] == 2'b00) && (ex_pc_change)) begin
+                  pc <= pc_ex              ;
+            end 
+            else if((stall_ctrl[1:0] == 2'b00) && (id_pc_change)) begin
+                  pc <= pc_id              ;
+            end 
             else begin
                   pc <= static_pc_i        ;            
             end
         end
     end
 
+    reg        ex_pc_change ;
+    reg        id_pc_change ;
+    reg [63:0] pc_ex        ;
+    reg [63:0] pc_id        ;
+    always @(posedge clk) begin
+        if(rst == `ysyx22040228_RSTENA) begin
+            ex_pc_change <= 1'b0    ;
+            id_pc_change <= 1'b0    ;
+            pc_ex <= `ysyx22040228_ZEROWORD ;
+            pc_id <= `ysyx22040228_ZEROWORD ;
+        end 
+        else if((stall_ctrl[1:0] == 2'b11) && (ex_pc_ena)) begin
+            ex_pc_change <= 1'b1    ;
+            pc_ex <= ex_pc_i        ;
+        end 
+        else if((stall_ctrl[1:0] == 2'b11) && (id_pc_ena)) begin
+            id_pc_change <= 1'b1    ;
+            pc_id <= id_pc_i        ;
+        end 
+        else if(stall_ctrl[1:0] == 2'b00) begin
+            ex_pc_change <= 1'b0    ;
+            id_pc_change <= 1'b0    ;
+            pc_ex <= `ysyx22040228_ZEROWORD ;
+            pc_id <= `ysyx22040228_ZEROWORD ;
+        end 
+    end
     
     
 endmodule//pc

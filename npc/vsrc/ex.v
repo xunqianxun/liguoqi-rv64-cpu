@@ -41,7 +41,6 @@ module ex (
     //to ctrl
     input         wire                                       if_stell_req      ,
     output        wire                                       ex_stall_req      ,
-    output        wire                                       mul_div_req       ,
     
     //to interrupt
     input         wire                                       timer_intr        ,
@@ -199,7 +198,7 @@ assign branch_pc     = (trap_ena | cmt_mret_ena) ? read_csr_data :
                        (ex_flush_branch == `ysyx22040228_FLUSHABLE) ? pc_i + 64'd4 :
                                                           `ysyx22040228_ZEROWORD   ;
 
-assign ex_stall_req = branch_pc_ena && if_stell_req  ;
+assign ex_stall_req = mul_div_req    ;
 assign ex_flush     = branch_pc_ena  ;
 
 //CSR

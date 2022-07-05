@@ -20,7 +20,10 @@ module if_id (
     output   wire                                              if_inst_ready,  
     output   wire                                              if_inst_stall,  
     // ctrl
-    input    wire      [4:0]                                   stall_ctrl   ,     //暂停控制信号
+    input    wire      [4:0]                                   stall_ctrl   , 
+    input    wire                                              mem_stall_sign,
+    input    wire                                              ex_stall_sign,
+    input    wire                                              id_stall_sign,
     output   wire                                              if_unstall_req ,     //if_id阶段的暂停请求信号
     // id
     output   reg      [`ysyx22040228_PCBUS]                    id_pc        , //输出给id译码阶段的指令地址
@@ -62,7 +65,7 @@ always@(posedge clk) begin
     end
 
 
-assign if_inst_stall   = (stall_ctrl == 5'b11111) || (stall_ctrl == 5'b01111) ;
+assign if_inst_stall   = mem_stall_sign | ex_stall_sign | id_stall_sign ;
 assign if_unstall_req  = (rst == `ysyx22040228_RSTENA) ? 1'b0:((if_inst_valid == 1'b1) ? 1'b1 : 1'b0);
 assign if_inst_ready   = (rst != `ysyx22040228_RSTENA) ;
 
