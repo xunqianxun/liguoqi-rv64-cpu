@@ -36,7 +36,9 @@ module multiplier (
 
     reg  [127:0] multiplcand ;
     always @(posedge clk) begin
-        if(mult_valid)
+        if(rst == `ysyx22040228_RSTENA)
+            multiplcand <= `ysyx22040228_DIV_ZERO ;
+        else if(mult_valid)
             multiplcand <= {multiplcand[126:0],1'b0} ;
         else if(mult_ready)
             multiplcand <= {64'b0,op1_absolute}; 
@@ -67,7 +69,7 @@ module multiplier (
             product_signbit <= op1_signbit ^ op2_signbit ;
     end
 
-    assign product_val = (inst_opcode == `INST_MUL)      ? product_temp                                                       :
+    assign product_val = (inst_opcode == `INST_MUL)      ? product_temp[63:0]                                                       :
                          (inst_opcode == `INST_MULH)     ? (product_signbit ? {(~product_temp[63:32]+1),32'b0} : {product_temp[63:32],32'b0}) :
                          (inst_opcode == `INST_MULHU)    ? (product_signbit ? {(~product_temp[63:32]+1),32'b0} : {product_temp[63:32],32'b0}) :
                          (inst_opcode == `INST_MULW)     ? (product_signbit ? (product_temp[31] ? {32'hffffffff,(~product_temp[31:0]+1)} : {32'b0,(~product_temp[31:0]+1)}) : (product_temp[31] ? {32'hffffffff,product_temp[31:0]} : {32'b0,product_temp[31:0]})) :

@@ -27,13 +27,19 @@ module divider (
     assign op1_absolute = op1_signbit ? (~divisor + 1) : divisor ;
     assign op2_absolute = op2_signbit ? (~dividend + 1) : dividend ;
     wire   div_rem_signbit ;
-    assign div_rem_signbit = op1_signbit ^ op2_absolute ;
+    assign div_rem_signbit = op1_signbit ^ op2_signbit ;
 
     reg   [63:0] tempa ;
     reg   [63:0] tempb ;
-    always @(divisor or dividend) begin
+    always @(divisor or dividend or rst) begin
+        if(rst == `ysyx22040228_RSTENA) begin
+            tempa <= `ysyx22040228_ZEROWORD ;
+            tempb <= `ysyx22040228_ZEROWORD ;
+        end 
+        else begin
         tempa <= op1_absolute  ;
         tempb <= op2_absolute  ;
+        end 
     end
     reg  [7 : 0]  counter;
     reg  [127:0]  temp_a ;
@@ -47,7 +53,7 @@ module divider (
         else begin
             if(counter <= 63) begin
                 temp_a <= {temp_a[126:0],1'b0} ;
-                if(temp_a[63:32] >= tempb) begin
+                if(temp_a[63:0] >= tempb) begin
                     temp_a <= temp_a - temp_b + 1'b1 ;
                 end 
                 else begin
