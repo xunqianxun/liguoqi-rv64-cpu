@@ -32,7 +32,7 @@ module pc (
             else if (id_pc_ena) begin
                   pc <= id_pc_i            ;
             end 
-            else if (pc_stall == `ysyx22040228_STOP) begin 
+            else if (stall_ctrl[0] == `ysyx22040228_STOP) begin 
                   pc <= pc                 ;
             end
             else if((stall_ctrl[1:0] == 2'b00) && (ex_pc_change)) begin

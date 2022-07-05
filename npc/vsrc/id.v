@@ -36,7 +36,6 @@ module id (
     
     //ctrl
     output      wire                                                           id_stall_req        ,
-    input       wire                                                           if_stall_req        ,
 
     //id_exe
     output      wire         [7:0]                                             inst_type           ,

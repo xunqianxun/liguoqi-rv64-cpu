@@ -39,7 +39,6 @@ module ex (
     output        wire          [`ysyx22040228_PCBUS]         branch_pc         ,
     
     //to ctrl
-    input         wire                                       if_stell_req      ,
     output        wire                                       ex_stall_req      ,
     
     //to interrupt
@@ -172,7 +171,7 @@ divider divider2 (
     .div_rem_data     (divrem_data    ) ,
     .div_finish       (dr_finish_sign )  
 );
-
+wire   mul_div_req ;
 assign mul_div_req = (~dr_finish_sign && dr_ready) || (~mul_finish_sign && mul_ready) ;
 
 //branch

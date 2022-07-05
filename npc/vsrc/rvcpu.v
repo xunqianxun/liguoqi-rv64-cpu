@@ -144,7 +144,7 @@ pc pc1 (
     .id_pc_ena           (id_pip_jalrena       ),
     .ex_pc_ena           (ex_pc_branchena      ),
     .ex_pc_i             (ex_pc_branchpc       ),
-    .pc_stall            (stall_ctrl[0]        ),
+    .stall_ctrl          (stall_ctrl           ),
     .pc                  (inst_addr            )             
 );
 
