@@ -136,7 +136,7 @@ module i_cache (
             else begin
                 inst_data    = 32'b0                   ;
                 inst_hit_ok  = `ysyx22040228_ENABLE    ;
-                inst_valid   = `ysyx22040228_ABLE      ;
+                inst_valid   = `ysyx22040228_ENABLE    ;
             end
         end 
         else begin  

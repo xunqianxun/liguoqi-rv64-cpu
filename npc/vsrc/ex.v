@@ -138,6 +138,7 @@ assign mul_ready =  (inst_opcode_i == `INST_MUL   ) |
                     (inst_opcode_i == `INST_MULHSU) | 
                     (inst_opcode_i == `INST_MULHU ) | 
                     (inst_opcode_i == `INST_MULW  ) ;
+
 multiplier multiplier1 (
     .clk             (clk_in         ) ,
     .rst             (rst            ) ,
@@ -160,6 +161,28 @@ assign  dr_ready  = (inst_opcode_i == `INST_DIV     ) |
                     (inst_opcode_i == `INST_REMU    ) |
                     (inst_opcode_i == `INST_REMUW   ) |
                     (inst_opcode_i == `INST_REMW    ) ;
+
+wire  [63:0]  op1_divdata ;
+wire  [63:0]  op2_divdata ;
+assign op1_divdata = (inst_opcode_i == `INST_DIV     ) ? op1_i         :
+                     (inst_opcode_i == `INST_DIVU    ) ? op1_i         :
+                     (inst_opcode_i == `INST_DIVUW   ) ? {32'b0, op1_i[31:0]}   :
+                     (inst_opcode_i == `INST_DIVW    ) ? {32'b0, op1_i[31:0]}   :
+                     (inst_opcode_i == `INST_REM     ) ? op1_i         :
+                     (inst_opcode_i == `INST_REMU    ) ? op1_i         :
+                     (inst_opcode_i == `INST_REMUW   ) ? {32'b0, op1_i[31:0]}   :
+                     (inst_opcode_i == `INST_REMW    ) ? {32'b0, op1_i[31:0]}   :
+                                                `ysyx22040228_ZEROWORD ;
+
+assign op2_divdata = (inst_opcode_i == `INST_DIV     ) ? op2_i         :
+                     (inst_opcode_i == `INST_DIVU    ) ? op2_i         : 
+                     (inst_opcode_i == `INST_DIVUW   ) ? {32'b0, op2_i[31:0]}   :
+                     (inst_opcode_i == `INST_DIVW    ) ? {32'b0, op2_i[31:0]}   : 
+                     (inst_opcode_i == `INST_REM     ) ? op2_i         :
+                     (inst_opcode_i == `INST_REMU    ) ? op2_i         :  
+                     (inst_opcode_i == `INST_REMUW   ) ? {32'b0, op2_i[31:0]}   :    
+                     (inst_opcode_i == `INST_REMW    ) ? {32'b0, op2_i[31:0]}   :
+                                                `ysyx22040228_ZEROWORD ;           
 divider divider2 (
     .clk              (clk_in         ) ,
     .rst              (rst            ) ,
