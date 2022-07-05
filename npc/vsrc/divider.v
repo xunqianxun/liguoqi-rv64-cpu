@@ -69,7 +69,7 @@ module divider (
         end 
     end
     wire [63:0]  fan_data ;
-    assign fan_data = ~shang_data + 1
+    assign fan_data = ~shang_data + 1 ;
 
     assign div_finish   =  finish_sign ;
     assign div_rem_data = (inst_opcode == `INST_MUL)      ? (div_rem_signbit ? fan_data : shang_data)                                  :
