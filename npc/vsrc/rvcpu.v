@@ -46,7 +46,6 @@ wire    [`ysyx22040228_PCBUS]            pip_pc             ;
 wire                                    if_stall_req       ;
 wire    [`ysyx22040228_PCBUS]           if_id_pc           ;
 wire    [`ysyx22040228_INSTBUS]         if_id_inst         ;
-wire                                    new_pc_sign        ;
 
 //about ex
 wire                                    ex_flush           ;

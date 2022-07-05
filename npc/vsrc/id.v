@@ -181,11 +181,11 @@ assign inst_opcode[7] = (rst == `ysyx22040228_RSTENA) ? 0 :              | inst_
 
 
 //output sign 
-// wire op1_loda_relate ;
-// wire op2_loda_relate ;
-// assign op1_loda_relate = (rst == `ysyx22040228_RSTENA) ? 0 : op1_read_o && (ex_inst_type == 8'b00000010) && (op1_addr_o == ex_rd_addr) ;
-// assign op2_loda_relate = (rst == `ysyx22040228_RSTENA) ? 0 : op2_read_o && (ex_inst_type == 8'b00000010) && (op2_addr_o == ex_rd_addr) ;
-// assign id_stall_req = (rst == `ysyx22040228_RSTENA) ? 0 : op1_loda_relate | op2_loda_relate ;
+wire op1_loda_relate ;
+wire op2_loda_relate ;
+assign op1_loda_relate = (rst == `ysyx22040228_RSTENA) ? 0 : op1_read_o && (ex_inst_type == 8'b00000010) && (op1_addr_o == ex_rd_addr) ;
+assign op2_loda_relate = (rst == `ysyx22040228_RSTENA) ? 0 : op2_read_o && (ex_inst_type == 8'b00000010) && (op2_addr_o == ex_rd_addr) ;
+assign id_stall_req = (rst == `ysyx22040228_RSTENA) ? 0 : op1_loda_relate | op2_loda_relate ;
 
 assign pc_o   = (rst == `ysyx22040228_RSTENA) ? `ysyx22040228_ZEROWORD : pc_i ;
 assign inst_o = (rst == `ysyx22040228_RSTENA) ? 32'b0 : inst_i ;
