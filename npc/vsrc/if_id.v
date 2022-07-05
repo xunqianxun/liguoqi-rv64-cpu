@@ -32,7 +32,7 @@ always@(posedge clk) begin
             id_pc   <= `ysyx22040228_ZEROWORD;
             id_inst <= 32'h0000_0000;
         end
-        else if(if_id_flush | if_id_bubble) || (fl_bub_temp) begin
+        else if((if_id_flush | if_id_bubble) || (fl_bub_temp)) begin
             id_pc   <= `ysyx22040228_ZEROWORD;
             id_inst <= 32'h0000_0000;
         end 
@@ -69,4 +69,5 @@ assign if_inst_ready   = (rst != `ysyx22040228_RSTENA) ;
 
 endmodule//if_id
 
- 
+
+

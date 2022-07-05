@@ -50,7 +50,7 @@ always @(posedge clk) begin
         mem_ls_addr   <= mem_ls_addr ;
         ex_mem_pc_o   <= ex_mem_pc_o ;
         ex_mem_inst_o <= ex_mem_inst_o; 
-    edn 
+    end  
     else begin
         mem_inst_type <= ex_inst_type ;
         mem_rd_ena    <= ex_rd_ena ;
