@@ -339,6 +339,8 @@ VL_MODULE(VSocTop___024root) {
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__upper_imm;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__mul_data;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__divrem_data;
+        QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__op1_divdata;
+        QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__op2_divdata;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__read_csr_data;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__wbck_csr_data;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__trap_mcause_value;
@@ -357,10 +359,10 @@ VL_MODULE(VSocTop___024root) {
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__mem_wb8__DOT__wb_pc_o;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__mem_wb8__DOT__pc_data1;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__mem_wb8__DOT__trap_code;
-        QData/*63:0*/ SocTop__DOT__i_cache2__DOT__miss_data;
-        QData/*54:0*/ SocTop__DOT__i_cache2__DOT__u_tag01__DOT__out_data;
     };
     struct {
+        QData/*63:0*/ SocTop__DOT__i_cache2__DOT__miss_data;
+        QData/*54:0*/ SocTop__DOT__i_cache2__DOT__u_tag01__DOT__out_data;
         QData/*54:0*/ SocTop__DOT__i_cache2__DOT__u_tag02__DOT__out_data;
         QData/*63:0*/ SocTop__DOT__i_cache2__DOT__u_data01__DOT__out_data;
         QData/*63:0*/ SocTop__DOT__i_cache2__DOT__u_data02__DOT__out_data;
