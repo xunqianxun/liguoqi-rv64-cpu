@@ -8,7 +8,7 @@ module multiplier (
     inout          wire                                            clk              ,
     input          wire                                            rst              ,
     input          wire                                            mult_ready       ,
-    input          wire            [8 :0]                          inst_opcode      ,
+    input          wire            [7 :0]                          inst_opcode      ,
     input          wire            [63:0]                          mult_op1         ,
     input          wire            [63:0]                          mult_op2         ,
     output         wire            [63:0]                          product_val      ,
