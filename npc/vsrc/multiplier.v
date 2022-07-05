@@ -8,7 +8,7 @@ module multiplier (
     inout          wire                                            clk              ,
     input          wire                                            rst              ,
     input          wire                                            mult_ready       ,
-    input          wire                                            inst_opcode      ,
+    input          wire            [8 :0]                          inst_opcode      ,
     input          wire            [63:0]                          mult_op1         ,
     input          wire            [63:0]                          mult_op2         ,
     output         wire            [63:0]                          product_val      ,
@@ -50,7 +50,7 @@ module multiplier (
     end
 
     wire [127:0] product_lins ;
-    assign product_lins = multipler[0] ? multipler : 128'b0 ;
+    assign product_lins = multipler[0] ? multiplcand : 128'b0 ;
     reg  [127:0] product_temp ;
     always @(posedge clk) begin
         if(mult_valid)

@@ -10,7 +10,7 @@ module divider (
 
     input        wire    [63:0]                             divisor           ,
     input        wire    [63:0]                             dividend          ,
-    input        wire                                       inst_opcode       ,
+    input        wire    [8 :0]                             inst_opcode       ,
     input        wire                                       div_ready         ,
     output       wire    [63:0]                             div_rem_data      ,
     output       wire                                       div_finish                               
