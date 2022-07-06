@@ -59,7 +59,7 @@ Function:arbitrate i_cache and d_cache
 
 `include "./vsrc/defines.v"
 `include "./vsrc/defines_axi4.v"
-module arbitrate (
+module arbitratem (
     //-----------------------------system----------------------------------------//
     input       wire                                         clk                  ,
     input       wire                                         rst                  ,
