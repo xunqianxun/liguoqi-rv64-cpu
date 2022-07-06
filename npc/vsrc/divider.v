@@ -51,7 +51,7 @@ module divider (
         else begin
             if(counter <= 63) begin
                 finish_sign     <= 1'b0     ;
-                temp_a = temp_a << 1 ;
+                temp_a <= temp_a << 1 ;
                 if(temp_a >= temp_b)
                     temp_a <= temp_a - temp_b + 1'b1 ;
                 else 
