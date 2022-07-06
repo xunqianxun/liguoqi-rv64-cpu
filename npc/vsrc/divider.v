@@ -30,20 +30,16 @@ module divider (
     assign div_rem_signbit = op1_signbit ^ op2_signbit ;
 
     /* verilator lint_off COMBDLY */
-    reg   [63:0] tempa ;
-    reg   [63:0] tempb ;
-    always @(divisor or dividend or rst) begin
-        if(rst == `ysyx22040228_RSTENA) begin
-            tempa <= `ysyx22040228_ZEROWORD ;
-            tempb <= `ysyx22040228_ZEROWORD ;
-        end 
-        else begin
-        tempa <= op1_absolute  ;
-        tempb <= op2_absolute  ;
-        end 
+    reg  [7 : 0]  counter;
+    always @(posedge clk) begin
+        if(rst == `ysyx22040228_RSTENA)
+            counter <= 8'b0  ;
+        else if(div_ready && (i < 8'd64))
+            counter <= counter + 1 ;
+        else 
+            counter <= 8'b0  ;
     end
     /* verilator lint_on COMBDLY */
-    reg  [7 : 0]  counter;
     reg  [127:0]  temp_a ;
     reg  [127:0]  temp_b ;
     always @(posedge clk) begin
@@ -54,15 +50,12 @@ module divider (
         end 
         else begin
             if(counter <= 63) begin
-                temp_a <= {temp_a[126:0],1'b0} ;
-                if(temp_a[63:0] >= tempb) begin
+                finish_sign     <= 1'b0     ;
+                temp_a = temp_a << 1 ;
+                if(temp_a >= temp_b)
                     temp_a <= temp_a - temp_b + 1'b1 ;
-                end 
-                else begin
-                    temp_a <= temp_a ;
-                end
-                counter <= counter + 1  ;
-                finish_sign <= 1'b0 ; 
+                else 
+                    temp_a <= temp_a   ;
             end
             else  begin
                 counter <= 8'b0 ;
