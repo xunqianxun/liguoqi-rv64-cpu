@@ -27,11 +27,11 @@ int is_exit_status_bad();
 
 
 extern "C" void caceh_check(long long write_data){
-  printf("dcaceh_data = %lx\n", write_data);
+  printf("dcaceh_data = %llx \n", write_data);
 }
 
 extern "C" void caceh_checkteg(const svBitVecVal* write_teg){
-  printf("dcaceh_teg = %lx\n", write_teg);
+  printf("dcaceh_teg = %lx \n", write_teg);
 }
 
 
