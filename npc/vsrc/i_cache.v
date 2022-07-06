@@ -159,10 +159,16 @@ module i_cache (
             miss_data      = cache_in_data       ;
             cache_read_resp= `ysyx22040228_ABLE  ; 
             write_i_ok     = `ysyx22040228_ABLE  ;
-            if((i_tag_user1 == `ysyx22040228_ENABLE) || (i_counter1[icache_index] >= i_counter2[icache_index]))begin
+            if(i_tag_user1 == `ysyx22040228_ENABLE)begin
+                miss_ena_o = `ysyx22040228_ABLE  ; 
+            end 
+            else if(i_counter1[icache_index] >= i_counter2[icache_index])begin
                 miss_ena_o = `ysyx22040228_ABLE  ;
+            end
+            else if(i_tag_user2 == `ysyx22040228_ENABLE) begin
+                miss_ena_t = `ysyx22040228_ABLE  ;
             end    
-            else if((i_tag_user2 == `ysyx22040228_ENABLE) || (i_counter1[icache_index] < i_counter2[icache_index])) begin
+            else if(i_counter1[icache_index] < i_counter2[icache_index]) begin
                 miss_ena_t = `ysyx22040228_ABLE  ;
             end
             else begin
