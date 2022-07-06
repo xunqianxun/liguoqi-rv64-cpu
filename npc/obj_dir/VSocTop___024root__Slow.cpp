@@ -133,6 +133,12 @@ void VSocTop___024root___settle__TOP__2(VSocTop___024root* vlSelf) {
         vlSelf->out_write_ram_addr = 0ULL;
         vlSelf->out_write_ram_data = 0ULL;
     }
+    vlSelf->SocTop__DOT__add_axi_aw_id = ((IData)(vlSelf->rst)
+                                           ? 0U : (
+                                                   (0xffU 
+                                                    & (IData)(vlSelf->SocTop__DOT__add_axi_aw_id)) 
+                                                   | ((IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__dwrite_aw_id) 
+                                                      << 8U)));
     vlSelf->SocTop__DOT__tim_axi_b_valid = ((1U != (IData)(vlSelf->SocTop__DOT__time_axi6__DOT__state_time_m)) 
                                             & (0U != (IData)(vlSelf->SocTop__DOT__time_axi6__DOT__state_time_m)));
     if (vlSelf->rst) {
@@ -161,126 +167,134 @@ void VSocTop___024root___settle__TOP__2(VSocTop___024root* vlSelf) {
                                                           (vlSelf->SocTop__DOT__arbitratem4__DOT__dwrite_w_data 
                                                            >> 0x20U));
     }
-    if (vlSelf->rst) {
-        vlSelf->SocTop__DOT__rvcpu1__DOT__mem7__DOT__store_data = 0ULL;
-        vlSelf->SocTop__DOT__add_axi_aw_id = 0U;
-    } else {
-        vlSelf->SocTop__DOT__rvcpu1__DOT__mem7__DOT__store_data 
-            = ((4U & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_sel))
-                ? 0ULL : ((2U & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_sel))
-                           ? ((1U & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_sel))
-                               ? vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_data
-                               : ((IData)(vlSelf->rst)
-                                   ? 0ULL : ((1U & (IData)(
-                                                           (vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_lsaddr 
-                                                            >> 2U)))
-                                              ? ((QData)((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_data)) 
-                                                 << 0x20U)
-                                              : (QData)((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_data)))))
-                           : ((1U & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_sel))
-                               ? ((IData)(vlSelf->rst)
-                                   ? 0ULL : ((0U == 
-                                              (3U & (IData)(
-                                                            (vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_lsaddr 
-                                                             >> 1U))))
-                                              ? (QData)((IData)(
-                                                                (0xffffU 
-                                                                 & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_data))))
-                                              : ((1U 
-                                                  == 
-                                                  (3U 
-                                                   & (IData)(
-                                                             (vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_lsaddr 
-                                                              >> 1U))))
-                                                  ? 
-                                                 ((QData)((IData)(
-                                                                  (0xffffU 
-                                                                   & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_data)))) 
-                                                  << 0x10U)
-                                                  : 
-                                                 ((2U 
-                                                   == 
-                                                   (3U 
-                                                    & (IData)(
-                                                              (vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_lsaddr 
-                                                               >> 1U))))
-                                                   ? 
-                                                  ((QData)((IData)(
-                                                                   (0xffffU 
-                                                                    & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_data)))) 
-                                                   << 0x20U)
-                                                   : 
-                                                  ((QData)((IData)(
-                                                                   (0xffffU 
-                                                                    & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_data)))) 
-                                                   << 0x30U)))))
-                               : ((IData)(vlSelf->rst)
-                                   ? 0ULL : ((1U & (IData)(
-                                                           (vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_lsaddr 
-                                                            >> 2U)))
-                                              ? ((1U 
-                                                  & (IData)(
-                                                            (vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_lsaddr 
-                                                             >> 1U)))
-                                                  ? 
-                                                 ((1U 
-                                                   & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_lsaddr))
-                                                   ? 
-                                                  ((QData)((IData)(
-                                                                   (0xffU 
-                                                                    & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_data)))) 
-                                                   << 0x38U)
-                                                   : 
-                                                  ((QData)((IData)(
-                                                                   (0xffU 
-                                                                    & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_data)))) 
-                                                   << 0x30U))
-                                                  : 
-                                                 ((1U 
-                                                   & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_lsaddr))
-                                                   ? 
-                                                  ((QData)((IData)(
-                                                                   (0xffU 
-                                                                    & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_data)))) 
-                                                   << 0x28U)
-                                                   : 
-                                                  ((QData)((IData)(
-                                                                   (0xffU 
-                                                                    & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_data)))) 
-                                                   << 0x20U)))
-                                              : ((1U 
-                                                  & (IData)(
-                                                            (vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_lsaddr 
-                                                             >> 1U)))
-                                                  ? 
-                                                 ((1U 
-                                                   & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_lsaddr))
-                                                   ? 
-                                                  ((QData)((IData)(
-                                                                   (0xffU 
-                                                                    & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_data)))) 
-                                                   << 0x18U)
-                                                   : 
-                                                  ((QData)((IData)(
-                                                                   (0xffU 
-                                                                    & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_data)))) 
-                                                   << 0x10U))
-                                                  : 
-                                                 ((1U 
-                                                   & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_lsaddr))
-                                                   ? 
-                                                  ((QData)((IData)(
-                                                                   (0xffU 
-                                                                    & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_data)))) 
-                                                   << 8U)
-                                                   : (QData)((IData)(
-                                                                     (0xffU 
-                                                                      & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_data)))))))))));
-        vlSelf->SocTop__DOT__add_axi_aw_id = ((0xffU 
-                                               & (IData)(vlSelf->SocTop__DOT__add_axi_aw_id)) 
-                                              | ((IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__dwrite_aw_id) 
-                                                 << 8U));
-    }
+    vlSelf->SocTop__DOT__rvcpu1__DOT__mem7__DOT__store_data 
+        = ((IData)(vlSelf->rst) ? 0ULL : ((4U & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_sel))
+                                           ? 0ULL : 
+                                          ((2U & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_sel))
+                                            ? ((1U 
+                                                & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_sel))
+                                                ? vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_data
+                                                : ((IData)(vlSelf->rst)
+                                                    ? 0ULL
+                                                    : 
+                                                   ((1U 
+                                                     & (IData)(
+                                                               (vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_lsaddr 
+                                                                >> 2U)))
+                                                     ? 
+                                                    ((QData)((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_data)) 
+                                                     << 0x20U)
+                                                     : (QData)((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_data)))))
+                                            : ((1U 
+                                                & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_sel))
+                                                ? ((IData)(vlSelf->rst)
+                                                    ? 0ULL
+                                                    : 
+                                                   ((0U 
+                                                     == 
+                                                     (3U 
+                                                      & (IData)(
+                                                                (vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_lsaddr 
+                                                                 >> 1U))))
+                                                     ? (QData)((IData)(
+                                                                       (0xffffU 
+                                                                        & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_data))))
+                                                     : 
+                                                    ((1U 
+                                                      == 
+                                                      (3U 
+                                                       & (IData)(
+                                                                 (vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_lsaddr 
+                                                                  >> 1U))))
+                                                      ? 
+                                                     ((QData)((IData)(
+                                                                      (0xffffU 
+                                                                       & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_data)))) 
+                                                      << 0x10U)
+                                                      : 
+                                                     ((2U 
+                                                       == 
+                                                       (3U 
+                                                        & (IData)(
+                                                                  (vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_lsaddr 
+                                                                   >> 1U))))
+                                                       ? 
+                                                      ((QData)((IData)(
+                                                                       (0xffffU 
+                                                                        & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_data)))) 
+                                                       << 0x20U)
+                                                       : 
+                                                      ((QData)((IData)(
+                                                                       (0xffffU 
+                                                                        & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_data)))) 
+                                                       << 0x30U)))))
+                                                : ((IData)(vlSelf->rst)
+                                                    ? 0ULL
+                                                    : 
+                                                   ((1U 
+                                                     & (IData)(
+                                                               (vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_lsaddr 
+                                                                >> 2U)))
+                                                     ? 
+                                                    ((1U 
+                                                      & (IData)(
+                                                                (vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_lsaddr 
+                                                                 >> 1U)))
+                                                      ? 
+                                                     ((1U 
+                                                       & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_lsaddr))
+                                                       ? 
+                                                      ((QData)((IData)(
+                                                                       (0xffU 
+                                                                        & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_data)))) 
+                                                       << 0x38U)
+                                                       : 
+                                                      ((QData)((IData)(
+                                                                       (0xffU 
+                                                                        & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_data)))) 
+                                                       << 0x30U))
+                                                      : 
+                                                     ((1U 
+                                                       & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_lsaddr))
+                                                       ? 
+                                                      ((QData)((IData)(
+                                                                       (0xffU 
+                                                                        & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_data)))) 
+                                                       << 0x28U)
+                                                       : 
+                                                      ((QData)((IData)(
+                                                                       (0xffU 
+                                                                        & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_data)))) 
+                                                       << 0x20U)))
+                                                     : 
+                                                    ((1U 
+                                                      & (IData)(
+                                                                (vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_lsaddr 
+                                                                 >> 1U)))
+                                                      ? 
+                                                     ((1U 
+                                                       & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_lsaddr))
+                                                       ? 
+                                                      ((QData)((IData)(
+                                                                       (0xffU 
+                                                                        & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_data)))) 
+                                                       << 0x18U)
+                                                       : 
+                                                      ((QData)((IData)(
+                                                                       (0xffU 
+                                                                        & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_data)))) 
+                                                       << 0x10U))
+                                                      : 
+                                                     ((1U 
+                                                       & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_lsaddr))
+                                                       ? 
+                                                      ((QData)((IData)(
+                                                                       (0xffU 
+                                                                        & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_data)))) 
+                                                       << 8U)
+                                                       : (QData)((IData)(
+                                                                         (0xffU 
+                                                                          & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_data))))))))))));
     vlSelf->SocTop__DOT__t_axi_r_valid = ((~ (IData)(vlSelf->rst)) 
                                           & (2U == (IData)(vlSelf->SocTop__DOT__axi_mnq4__DOT__s_read_state)));
     if (vlSelf->rst) {
@@ -930,9 +944,6 @@ void VSocTop___024root___settle__TOP__2(VSocTop___024root* vlSelf) {
         vlSelf->SocTop__DOT__t_axi_r_resp = (3U & ((IData)(vlSelf->SocTop__DOT__io_axi_r_resp) 
                                                    >> 4U));
     }
-    vlSelf->SocTop__DOT__rvcpu_data_o = ((1U & ((IData)(vlSelf->rst) 
-                                                | (~ (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_type))))
-                                          ? 0ULL : vlSelf->SocTop__DOT__rvcpu1__DOT__mem7__DOT__store_data);
     vlSelf->SocTop__DOT__arbitratem4__DOT__dwrite_success 
         = ((((~ (IData)(vlSelf->rst)) & (2U == (IData)(vlSelf->SocTop__DOT__axi_mnq4__DOT__s_write_state))) 
             & (1U == ((IData)(vlSelf->rst) ? 0U : (0xfU 
@@ -944,6 +955,9 @@ void VSocTop___024root___settle__TOP__2(VSocTop___024root* vlSelf) {
                                                          >> 2U)) 
                                                      | ((IData)(vlSelf->SocTop__DOT__io_axi_b_resp) 
                                                         >> 4U))))));
+    vlSelf->SocTop__DOT__rvcpu_data_o = ((1U & ((IData)(vlSelf->rst) 
+                                                | (~ (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__exmem_mem_type))))
+                                          ? 0ULL : vlSelf->SocTop__DOT__rvcpu1__DOT__mem7__DOT__store_data);
     vlSelf->SocTop__DOT__time_axi6__DOT__wmask = (((QData)((IData)(
                                                                    (((- (IData)(
                                                                                 (1U 
@@ -3455,7 +3469,7 @@ void VSocTop___024root___settle__TOP__2(VSocTop___024root* vlSelf) {
                                                | (8U 
                                                   == (IData)(vlSelf->SocTop__DOT__d_cache_out_type)))) 
                                            << 6U) | 
-                                          (((IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__dwrite_success) 
+                                          (((IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__dwrite_ok) 
                                             << 5U) 
                                            | (((IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__iread_success) 
                                                << 4U) 

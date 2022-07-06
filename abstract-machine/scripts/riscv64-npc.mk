@@ -15,7 +15,7 @@ LDFLAGS   += -T $(AM_HOME)/scripts/linker.ld --defsym=_pmem_start=0x80000000 --d
 LDFLAGS   += --gc-sections -e _start
 CFLAGS += -DMAINARGS=\"$(mainargs)\"
 NPCFLAGS += -l $(shell dirname $(IMAGE).elf)
-#NPCFLAGS += -b
+NPCFLAGS += -b
 NPC_HOME = /home/mulin/ysyx-workbench/npc
 .PHONY: $(AM_HOME)/am/src/riscv/npc/trm.c
 
