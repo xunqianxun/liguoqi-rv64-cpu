@@ -3,7 +3,7 @@ Author:LiGuoqi
 Name:SocTOp.v
 Function:top module of this soc
 ************************************************************/
-`include "./vsrc/arbitrate.v"
+`include "./vsrc/arbitratem.v"
 `include "./vsrc/d_cache.v"
 `include "./vsrc/i_cache.v"
 `include "./vsrc/axi_mnq.v"
@@ -411,7 +411,7 @@ module SocTop (
 
     );
 
-    arbitrate arbitrate4(
+    arbitratem arbitratem4(
         .clk                 (aclk                ) ,
         .rst                 (rst                ) ,
 
