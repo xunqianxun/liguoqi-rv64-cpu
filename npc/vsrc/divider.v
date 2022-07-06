@@ -15,8 +15,8 @@ module divider (
     output       wire    [63:0]                             div_rem_data      ,
     output       wire                                       div_finish                               
 );
-    reg   [63:0] shang_data  ;
-    reg   [63:0] yushu_data  ;
+    // reg   [63:0] shang_data  ;
+    // reg   [63:0] yushu_data  ;
     reg          finish_sign ;
     wire         op1_signbit ;
     wire         op2_signbit ;
@@ -47,8 +47,8 @@ module divider (
             temp_a <= `ysyx22040228_DIV_ZERO;
             temp_b <= `ysyx22040228_DIV_ZERO;
             finish_sign <= 1'b0             ;
-            shang_data <= `ysyx22040228_ZEROWORD;
-            yushu_data <= `ysyx22040228_ZEROWORD;
+            // shang_data <= `ysyx22040228_ZEROWORD;
+            // yushu_data <= `ysyx22040228_ZEROWORD;
         end 
         else begin
             if(counter <= 63) begin
@@ -60,8 +60,8 @@ module divider (
                     temp_a <= temp_a   ;
             end
             else  begin
-                shang_data <= temp_a[63 :0 ] ;
-                yushu_data <= temp_a[127:64] ;
+                // shang_data <= temp_a[63 :0 ] ;
+                // yushu_data <= temp_a[127:64] ;
                 counter <= 8'b0 ;
                 temp_a <= {`ysyx22040228_ZEROWORD,op1_absolute};
                 temp_b <= {op2_absolute,`ysyx22040228_ZEROWORD};
@@ -74,18 +74,18 @@ module divider (
         end 
     end
     wire [63:0]  fan_data ;
-    assign fan_data = ~shang_data + 1 ;
+    assign fan_data = ~temp_a[63 :0 ] + 1 ;
 
     assign div_finish   =  finish_sign ;
-    assign div_rem_data = (inst_opcode == `INST_MUL)      ? (div_rem_signbit ? fan_data : shang_data)                                  :
-                          (inst_opcode == `INST_MULH)     ? (div_rem_signbit ? {fan_data[63:32], 32'b0} : {shang_data[63:32], 32'b0})  :
-                          (inst_opcode == `INST_MULHSU)   ? (div_rem_signbit ? {fan_data[63:32], 32'b0} : {shang_data[63:32], 32'b0})  :
-                          (inst_opcode == `INST_MULHU)    ? ({shang_data[63:32], 32'b0})                                                        :
-                          (inst_opcode == `INST_MULW)     ? (shang_data[31]  ? {32'hffffffff, shang_data[31:0]} : {32'b0, shang_data[31:0]})    :
-                          (inst_opcode == `INST_REM)      ? yushu_data                                                                          :
-                          (inst_opcode == `INST_REMU)     ? yushu_data                                                                          :
-                          (inst_opcode == `INST_REMUW)    ? yushu_data                                                                          :
-                          (inst_opcode == `INST_REMW)     ? yushu_data                                                                          :
+    assign div_rem_data = (inst_opcode == `INST_MUL)      ? (div_rem_signbit ? fan_data : temp_a[63 :0 ])                                  :
+                          (inst_opcode == `INST_MULH)     ? (div_rem_signbit ? {fan_data[63:32], 32'b0} : {temp_a[63:32], 32'b0})  :
+                          (inst_opcode == `INST_MULHSU)   ? (div_rem_signbit ? {fan_data[63:32], 32'b0} : {temp_a[63:32], 32'b0})  :
+                          (inst_opcode == `INST_MULHU)    ? ({temp_a[63:32], 32'b0})                                                        :
+                          (inst_opcode == `INST_MULW)     ? (temp_a[31]  ? {32'hffffffff, temp_a[31:0]} : {32'b0, temp_a[31:0]})    :
+                          (inst_opcode == `INST_REM)      ? temp_a[127:64]                                                                          :
+                          (inst_opcode == `INST_REMU)     ? temp_a[127:64]                                                                          :
+                          (inst_opcode == `INST_REMUW)    ? temp_a[127:64]                                                                          :
+                          (inst_opcode == `INST_REMW)     ? temp_a[127:64]                                                                          :
                                                                                                                           `ysyx22040228_ZEROWORD;
      
 endmodule
