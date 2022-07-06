@@ -640,8 +640,9 @@ VL_INLINE_OPT void VSocTop___024root___sequent__TOP__4(VSocTop___024root* vlSelf
         VSocTop___024root____Vdpiimwrap_SocTop__DOT__d_cache3__DOT__u_tag0__DOT__caceh_checkteg_TOP(
                                                                                 (vlSelf->SocTop__DOT__rvcpu_data_addr 
                                                                                 >> 9U), 0ULL);
-    } else if ((0x3dU == (0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                           >> 3U))))) {
+    } else if (((0x3dU == (0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                            >> 3U)))) 
+                & (~ (IData)(vlSelf->SocTop__DOT__d_cache3__DOT__tag_ena1)))) {
         VSocTop___024root____Vdpiimwrap_SocTop__DOT__d_cache3__DOT__u_tag0__DOT__caceh_checkteg_TOP(0ULL, 
                                                                                 (0x7fffffffffffffULL 
                                                                                 & vlSelf->SocTop__DOT__d_cache3__DOT__u_tag0__DOT__ram
@@ -656,8 +657,9 @@ VL_INLINE_OPT void VSocTop___024root___sequent__TOP__4(VSocTop___024root* vlSelf
         VSocTop___024root____Vdpiimwrap_SocTop__DOT__d_cache3__DOT__u_tag0__DOT__caceh_checkteg_TOP(
                                                                                 (vlSelf->SocTop__DOT__rvcpu_data_addr 
                                                                                 >> 9U), 0ULL);
-    } else if ((0x3dU == (0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                           >> 3U))))) {
+    } else if (((0x3dU == (0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                            >> 3U)))) 
+                & (~ (IData)(vlSelf->SocTop__DOT__d_cache3__DOT__tag_ena2)))) {
         VSocTop___024root____Vdpiimwrap_SocTop__DOT__d_cache3__DOT__u_tag0__DOT__caceh_checkteg_TOP(0ULL, 
                                                                                 (0x7fffffffffffffULL 
                                                                                 & vlSelf->SocTop__DOT__d_cache3__DOT__u_tag1__DOT__ram
@@ -668,11 +670,12 @@ VL_INLINE_OPT void VSocTop___024root___sequent__TOP__4(VSocTop___024root* vlSelf
                                                                                 >> 3U)))]));
     }
     if (((0x3dU == (0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                     >> 3U)))) & (0xffU 
-                                                  == (IData)(vlSelf->SocTop__DOT__d_cache3__DOT__data_ena1)))) {
+                                     >> 3U)))) & (0U 
+                                                  != (IData)(vlSelf->SocTop__DOT__d_cache3__DOT__data_ena1)))) {
         VSocTop___024root____Vdpiimwrap_SocTop__DOT__d_cache3__DOT__u_data0__DOT__caceh_check_TOP(vlSelf->SocTop__DOT__d_cache3__DOT__in_rem_data1, 0ULL);
-    } else if ((0x3dU == (0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                           >> 3U))))) {
+    } else if (((0x3dU == (0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                            >> 3U)))) 
+                & (0U == (IData)(vlSelf->SocTop__DOT__d_cache3__DOT__data_ena1)))) {
         VSocTop___024root____Vdpiimwrap_SocTop__DOT__d_cache3__DOT__u_data0__DOT__caceh_check_TOP(0ULL, 
                                                                                 vlSelf->SocTop__DOT__d_cache3__DOT__u_data0__DOT__ram
                                                                                 [
@@ -682,11 +685,12 @@ VL_INLINE_OPT void VSocTop___024root___sequent__TOP__4(VSocTop___024root* vlSelf
                                                                                 >> 3U)))]);
     }
     if (((0x3dU == (0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                     >> 3U)))) & (0xffU 
-                                                  == (IData)(vlSelf->SocTop__DOT__d_cache3__DOT__data_ena2)))) {
+                                     >> 3U)))) & (0U 
+                                                  != (IData)(vlSelf->SocTop__DOT__d_cache3__DOT__data_ena2)))) {
         VSocTop___024root____Vdpiimwrap_SocTop__DOT__d_cache3__DOT__u_data0__DOT__caceh_check_TOP(vlSelf->SocTop__DOT__d_cache3__DOT__in_rem_data1, 0ULL);
-    } else if ((0x3dU == (0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                           >> 3U))))) {
+    } else if (((0x3dU == (0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                            >> 3U)))) 
+                & (0U == (IData)(vlSelf->SocTop__DOT__d_cache3__DOT__data_ena2)))) {
         VSocTop___024root____Vdpiimwrap_SocTop__DOT__d_cache3__DOT__u_data0__DOT__caceh_check_TOP(0ULL, 
                                                                                 vlSelf->SocTop__DOT__d_cache3__DOT__u_data1__DOT__ram
                                                                                 [
@@ -4705,6 +4709,13 @@ VL_INLINE_OPT void VSocTop___024root___sequent__TOP__4(VSocTop___024root* vlSelf
     if (vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__tmr_trap_ena) {
         vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__ecall_trap_ena = 0U;
     }
+}
+
+VL_INLINE_OPT void VSocTop___024root___sequent__TOP__5(VSocTop___024root* vlSelf) {
+    if (false && vlSelf) {}  // Prevent unused
+    VSocTop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    VL_DEBUG_IF(VL_DBG_MSGF("+    VSocTop___024root___sequent__TOP__5\n"); );
+    // Body
     vlSelf->SocTop__DOT__rvcpu1__DOT__ex_id_rd_type 
         = ((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__idex_ex_type) 
            & (- (IData)((1U & (~ (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__tmr_trap_ena))))));
@@ -4717,13 +4728,6 @@ VL_INLINE_OPT void VSocTop___024root___sequent__TOP__4(VSocTop___024root* vlSelf
     vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__trap_ena 
         = ((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__ecall_trap_ena) 
            | (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__tmr_trap_ena));
-}
-
-VL_INLINE_OPT void VSocTop___024root___sequent__TOP__5(VSocTop___024root* vlSelf) {
-    if (false && vlSelf) {}  // Prevent unused
-    VSocTop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+    VSocTop___024root___sequent__TOP__5\n"); );
-    // Body
     vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__read_csr_data 
         = (((((((((- (QData)((IData)(((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__csr_rd_en) 
                                       & (0xb00U == (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__csr_idx)))))) 

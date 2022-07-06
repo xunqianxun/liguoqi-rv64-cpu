@@ -7,14 +7,14 @@ module d_cache_tag_ram (
     output       wire            [54:0]             tag_data ,
     output       wire                               tag_valid
 );
-import "DPI-C" function void caceh_checkteg(input bit[54:0] write_teg, input bit[54:0] read_teg);
+// import "DPI-C" function void caceh_checkteg(input bit[54:0] write_teg, input bit[54:0] read_teg);
 
-always @(posedge clk) begin
-    if((addr_i == 6'b111101) && (write_ena != 1'b0))
-        caceh_checkteg(data_i[54:0], 55'b0) ;
-    else if((addr_i == 6'b111101) && (write_ena == 1'b0))
-        caceh_checkteg(55'b0, ram[addr_i][54:0]) ;
-end
+// always @(posedge clk) begin
+//     if((addr_i == 6'b111101) && (write_ena != 1'b0))
+//         caceh_checkteg(data_i[54:0], 55'b0) ;
+//     else if((addr_i == 6'b111101) && (write_ena == 1'b0))
+//         caceh_checkteg(55'b0, ram[addr_i][54:0]) ;
+// end
 
     reg [55:0] ram [0:63];
     reg [54:0] out_data  ;
