@@ -34,7 +34,7 @@ module divider (
     always @(posedge clk) begin
         if(rst == `ysyx22040228_RSTENA)
             counter <= 8'b0  ;
-        else if(div_ready && (counter < 8'd64))
+        else if(div_ready && (counter <= 8'd64))
             counter <= counter + 1 ;
         else 
             counter <= 8'b0  ;
