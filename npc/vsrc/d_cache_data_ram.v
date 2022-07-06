@@ -9,7 +9,7 @@ module d_cache_data_ram (
 import "DPI-C" function void caceh_check(input longint write_data);
 
 always @(*) begin
-    if((addr_i == 6'b111101) && (write_ena))
+    if((addr_i == 6'b111101) && (write_ena == 8'b11111111))
         caceh_check(data_i) ;
     else if(addr_i == 6'b111101)
         caceh_check(ram[addr_i]) ;
