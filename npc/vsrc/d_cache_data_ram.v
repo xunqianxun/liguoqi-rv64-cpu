@@ -6,13 +6,13 @@ module d_cache_data_ram (
     input            wire       [7:0]                           write_ena  ,
     output           wire       [63:0]                          data_o    
 );
-import "DPI-C" function void caceh_check(input longint write_data);
+import "DPI-C" function void caceh_check(input longint write_data, input longint read_data);
 
-always @(*) begin
+always @(posedge clk) begin
     if((addr_i == 6'b111101) && (write_ena == 8'b11111111))
-        caceh_check(data_i) ;
+        caceh_check(data_i, `ysyx22040228_ZEROWORD) ;
     else if(addr_i == 6'b111101)
-        caceh_check(ram[addr_i]) ;
+        caceh_check(`ysyx22040228_ZEROWORD, ram[addr_i]) ;
 end
 
     reg [63:0] ram [0:63];

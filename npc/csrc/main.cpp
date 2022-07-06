@@ -26,12 +26,14 @@ uint32_t ifetch(uint64_t addr, int len);
 int is_exit_status_bad();
 
 
-extern "C" void caceh_check(long long write_data){
-  printf("dcaceh_data = %llx \n", write_data);
+extern "C" void caceh_check(long long write_data, long long read_data){
+  printf("writedcaceh_data = %llx \n", write_data);
+  printf("readdcaceh_data = %llx \n", read_data);
 }
 
-extern "C" void caceh_checkteg(const svBitVecVal* write_teg){
-  printf("dcaceh_teg = %lx \n", write_teg);
+extern "C" void caceh_checkteg(const svBitVecVal* write_teg, const svBitVecVal* read_teg){
+  printf("writedcaceh_teg = %lx \n", write_teg);
+  printf("readdcaceh_teg = %lx \n", read_teg);
 }
 
 
