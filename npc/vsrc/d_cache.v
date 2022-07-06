@@ -150,7 +150,7 @@ module d_cache (
     reg [63:0] dirty_out_addr ;
     reg [63:0] dirty_out_data ;
     reg [3:0]  dirty_out_type ;
-    reg        drity_clean_o  ;
+    reg        dirty_clean_o  ;
     reg        dirty_clean_t  ;
     always @(*) begin
         if((state_dread == `ysyx22040228_DIRTY) && (~in_dcache_ready)) begin
@@ -158,7 +158,7 @@ module d_cache (
                 dirty_out_addr = {mem_addr_i[63:3],3'b0} ;
                 dirty_out_data = out_data1  ;
                 dirty_out_type = 4'b0001    ;
-                drity_clean_o  = `ysyx22040228_ABLE ;
+                dirty_clean_o  = `ysyx22040228_ABLE ;
             end 
             else if((dirty2[dcache_index] == `ysyx22040228_ABLE) && (counter1[dcache_index] < counter2[dcache_index])) begin
                 dirty_out_addr = {mem_addr_i[63:3],3'b0} ;
@@ -177,8 +177,8 @@ module d_cache (
             dirty_out_data = `ysyx22040228_ZEROWORD  ;
             dirty_out_type  = 4'b0000                ;
             dirty_ok     = `ysyx22040228_ABLE        ;
-            drity_clean_o = `ysyx22040228_ENABLE     ;
-            drity_clean_t = `ysyx22040228_ENABLE     ;
+            dirty_clean_o = `ysyx22040228_ENABLE     ;
+            dirty_clean_t = `ysyx22040228_ENABLE     ;
         end
         else begin
             dirty_ok   = `ysyx22040228_ENABLE;
