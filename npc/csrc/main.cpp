@@ -26,6 +26,14 @@ uint32_t ifetch(uint64_t addr, int len);
 int is_exit_status_bad();
 
 
+extern "C" void caceh_check(long long write_data){
+  printf("dcaceh_data = %lx\n", write_data);
+}
+
+extern "C" void caceh_checkteg(const svBitVecVal* write_teg){
+  printf("dcaceh_teg = %lx\n", write_teg);
+}
+
 
 extern "C" void difftest_dut_thepc(long long thepc_data){
     cpu.pc = thepc_data  ;
