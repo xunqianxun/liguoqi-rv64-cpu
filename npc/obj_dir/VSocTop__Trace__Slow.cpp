@@ -1598,10 +1598,7 @@ void VSocTop___024root__traceFullSub0(VSocTop___024root* vlSelf, VerilatedVcd* t
         tracep->fullCData(oldp+291,(vlSelf->SocTop__DOT__arbitrate4__DOT__arbitrate_state_nxt),3);
         tracep->fullBit(oldp+292,(vlSelf->SocTop__DOT__arbitrate4__DOT__dread_success));
         tracep->fullBit(oldp+293,(vlSelf->SocTop__DOT__arbitrate4__DOT__dwrite_success));
-        tracep->fullBit(oldp+294,(((((0U == (IData)(vlSelf->SocTop__DOT__t_axi_r_id)) 
-                                     & (IData)(vlSelf->SocTop__DOT__t_axi_r_valid)) 
-                                    & (IData)(vlSelf->SocTop__DOT__t_axi_r_valid)) 
-                                   & (0U == (IData)(vlSelf->SocTop__DOT__t_axi_r_resp)))));
+        tracep->fullBit(oldp+294,(vlSelf->SocTop__DOT__arbitrate4__DOT__iread_success));
         tracep->fullBit(oldp+295,(vlSelf->SocTop__DOT__arbitrate4__DOT__dread_arshankhand));
         tracep->fullBit(oldp+296,(vlSelf->SocTop__DOT__arbitrate4__DOT__iread_arshankhand));
         tracep->fullBit(oldp+297,(vlSelf->SocTop__DOT__arbitrate4__DOT__dwrite_awshankhand));

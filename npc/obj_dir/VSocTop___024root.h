@@ -236,6 +236,7 @@ VL_MODULE(VSocTop___024root) {
         CData/*2:0*/ SocTop__DOT__arbitrate4__DOT__arbitrate_state_nxt;
         CData/*0:0*/ SocTop__DOT__arbitrate4__DOT__dread_success;
         CData/*0:0*/ SocTop__DOT__arbitrate4__DOT__dwrite_success;
+        CData/*0:0*/ SocTop__DOT__arbitrate4__DOT__iread_success;
         CData/*3:0*/ SocTop__DOT__arbitrate4__DOT__dread_ar_id;
         CData/*7:0*/ SocTop__DOT__arbitrate4__DOT__dread_ar_len;
         CData/*2:0*/ SocTop__DOT__arbitrate4__DOT__dread_ar_size;
@@ -292,9 +293,9 @@ VL_MODULE(VSocTop___024root) {
         SData/*8:0*/ SocTop__DOT__add_axi_aw_prot;
         SData/*11:0*/ SocTop__DOT__add_axi_aw_qos;
         SData/*11:0*/ SocTop__DOT__add_axi_ar_id;
-        SData/*8:0*/ SocTop__DOT__add_axi_ar_size;
     };
     struct {
+        SData/*8:0*/ SocTop__DOT__add_axi_ar_size;
         SData/*11:0*/ SocTop__DOT__add_axi_ar_cache;
         SData/*8:0*/ SocTop__DOT__add_axi_ar_prot;
         SData/*11:0*/ SocTop__DOT__add_axi_ar_qos;
@@ -358,9 +359,9 @@ VL_MODULE(VSocTop___024root) {
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__op1_add_op2;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__op1_addw_op2;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__shift_res;
-        QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__sllw_res;
     };
     struct {
+        QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__sllw_res;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__srlw_res;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__sraw_res;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__upper_imm;
@@ -424,6 +425,8 @@ VL_MODULE(VSocTop___024root) {
         VlUnpacked<QData/*55:0*/, 64> SocTop__DOT__d_cache3__DOT__u_tag0__DOT__ram;
         VlUnpacked<QData/*55:0*/, 64> SocTop__DOT__d_cache3__DOT__u_tag1__DOT__ram;
         VlUnpacked<QData/*63:0*/, 64> SocTop__DOT__d_cache3__DOT__u_data0__DOT__ram;
+    };
+    struct {
         VlUnpacked<QData/*63:0*/, 64> SocTop__DOT__d_cache3__DOT__u_data1__DOT__ram;
     };
 
