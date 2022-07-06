@@ -75,7 +75,9 @@ module arbitrate (
     //----------------------------i_cache----------------------------------------//
     input       wire       [63:0]                            i_cache_addr         ,
     input       wire                                         i_cache_ena          ,
+    /* verilator lint_off UNUSED */
     input       wire                                         i_cache_resp         ,
+    /* verilator lint_on UNUSED */
     output      reg        [63:0]                            i_cache_data         ,
     output      wire                                         i_cache_valid_       ,
     //----------------------write address cahnnel--------------------------------//
@@ -387,6 +389,11 @@ module arbitrate (
     assign axi_ar_qos     = (arbitrate_state == `ysyx22040228_ARB_IREAD) ? iread_ar_qos      :
                             (arbitrate_state == `ysyx22040228_ARB_DREAD) ? dread_ar_qos      :
                                                                             4'b0000          ;
-
+    assign axi_ar_valid   = (arbitrate_state == `ysyx22040228_ARB_IREAD) ? iread_ar_valid    :
+                            (arbitrate_state == `ysyx22040228_ARB_DREAD) ? dread_ar_valid    :
+                                                                        `ysyx22040228_ENABLE ;
+    assign axi_r_ready    = (arbitrate_state == `ysyx22040228_ARB_IREAD) ? iread_r_ready     :
+                            (arbitrate_state == `ysyx22040228_ARB_DREAD) ? dread_r_ready     :
+                                                                        `ysyx22040228_ENABLE ;
 
 endmodule
