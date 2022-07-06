@@ -953,7 +953,7 @@ VL_INLINE_OPT void VSocTop___024root___sequent__TOP__4(VSocTop___024root* vlSelf
                                                    == (IData)(vlSelf->SocTop__DOT__i_cache2__DOT__state_inst));
     __Vdly__SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__counter 
         = ((IData)(vlSelf->rst) ? 0U : (((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__dr_ready) 
-                                         & (0x40U > (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__counter)))
+                                         & (0x40U >= (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__counter)))
                                          ? (0xffU & 
                                             ((IData)(1U) 
                                              + (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__counter)))
