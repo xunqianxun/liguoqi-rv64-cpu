@@ -9,9 +9,9 @@ module d_cache_data_ram (
 import "DPI-C" function void caceh_check(input longint write_data, input longint read_data);
 
 always @(posedge clk) begin
-    if((addr_i == 6'b111101) && (write_ena == 8'b11111111))
+    if((addr_i == 6'b111101) && (write_ena != 8'b00000000))
         caceh_check(data_i, `ysyx22040228_ZEROWORD) ;
-    else if(addr_i == 6'b111101)
+    else if(addr_i == 6'b111101) && (write_ena == 8'b00000000)
         caceh_check(`ysyx22040228_ZEROWORD, ram[addr_i]) ;
 end
 

@@ -10,9 +10,9 @@ module d_cache_tag_ram (
 import "DPI-C" function void caceh_checkteg(input bit[54:0] write_teg, input bit[54:0] read_teg);
 
 always @(posedge clk) begin
-    if((addr_i == 6'b111101) && (write_ena))
+    if((addr_i == 6'b111101) && (write_ena != 1'b0))
         caceh_checkteg(data_i[54:0], 55'b0) ;
-    else if(addr_i == 6'b111101)
+    else if((addr_i == 6'b111101) && (write_ena == 1'b0))
         caceh_checkteg(55'b0, ram[addr_i][54:0]) ;
 end
 

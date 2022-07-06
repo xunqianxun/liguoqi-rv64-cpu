@@ -14,9 +14,9 @@ extern "C" {
 
     // DPI IMPORTS
     // DPI import at vsrc/d_cache_data_ram.v:9:30
-    extern void caceh_check(long long write_data);
+    extern void caceh_check(long long write_data, long long read_data);
     // DPI import at vsrc/d_cache_tag_ram.v:10:30
-    extern void caceh_checkteg(const svBitVecVal* write_teg);
+    extern void caceh_checkteg(const svBitVecVal* write_teg, const svBitVecVal* read_teg);
     // DPI import at vsrc/mem_wb.v:23:30
     extern void difftest_dut_pc(long long pc_data, long long exit_code, svBit endyn, svBit exe);
     // DPI import at vsrc/regfile.v:32:30
