@@ -51,7 +51,7 @@ module divider (
             // yushu_data <= `ysyx22040228_ZEROWORD;
         end 
         else begin
-            if(counter <= 63) begin
+            if((counter <= 63) && (div_ready)) begin
                 finish_sign     <= 1'b0     ;
                 temp_a <= temp_a << 1 ;
                 if(temp_a >= temp_b)
@@ -75,11 +75,10 @@ module divider (
     assign fan_data = ~temp_a[63 :0 ] + 1 ;
 
     assign div_finish   =  finish_sign ;
-    assign div_rem_data = (inst_opcode == `INST_MUL)      ? (div_rem_signbit ? fan_data : temp_a[63 :0 ])                                  :
-                          (inst_opcode == `INST_MULH)     ? (div_rem_signbit ? {fan_data[63:32], 32'b0} : {temp_a[63:32], 32'b0})  :
-                          (inst_opcode == `INST_MULHSU)   ? (div_rem_signbit ? {fan_data[63:32], 32'b0} : {temp_a[63:32], 32'b0})  :
-                          (inst_opcode == `INST_MULHU)    ? ({temp_a[63:32], 32'b0})                                                        :
-                          (inst_opcode == `INST_MULW)     ? (temp_a[31]  ? {32'hffffffff, temp_a[31:0]} : {32'b0, temp_a[31:0]})    :
+    assign div_rem_data = (inst_opcode == `INST_DIV)      ? (div_rem_signbit ? fan_data : temp_a[63 :0 ])                                  :
+                          (inst_opcode == `INST_DIVU)     ? (div_rem_signbit ? fan_data : temp_a[63 :0 ])                                  :
+                          (inst_opcode == `INST_DIVUW)    ? (div_rem_signbit ? fan_data : temp_a[63 :0 ])                                  :
+                          (inst_opcode == `INST_DIVW)     ? (div_rem_signbit ? fan_data : temp_a[63 :0 ])                                  :
                           (inst_opcode == `INST_REM)      ? temp_a[127:64]                                                                          :
                           (inst_opcode == `INST_REMU)     ? temp_a[127:64]                                                                          :
                           (inst_opcode == `INST_REMUW)    ? temp_a[127:64]                                                                          :
