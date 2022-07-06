@@ -60,7 +60,7 @@
 
 // `include "./vsrc/defines.v"
 // `include "./vsrc/defines_axi4.v"
-// module arbitrate (
+// module arbitratennnn (
 //     //-----------------------------system----------------------------------------//
 //     input       wire                                         clk                  ,
 //     input       wire                                         rst                  ,
