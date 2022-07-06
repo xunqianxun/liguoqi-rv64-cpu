@@ -461,8 +461,8 @@ module d_cache (
     always @(posedge clk) begin
         if(rst == `ysyx22040228_RSTENA) begin
            	for(j = 0;j<64;j=j+1) begin
-			   dirty1[j] <= 3'b0;
-               dirty2[j] <= 3'b0;
+			   dirty1[j] <= 1'b0;
+               dirty2[j] <= 1'b0;
 		    end 
         end 
         else if((state_dwrite == `ysyx22040228_HIT) && (tag_data1 == dcache_tag)) begin
