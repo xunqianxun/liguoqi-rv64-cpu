@@ -166,7 +166,7 @@ module arbitratem (
                     arbitrate_state_nxt = `ysyx22040228_ARB_DREAD ;
             end 
             `ysyx22040228_ARB_DWRITE : begin
-                if(dwrite_success)
+                if(dwrite_ok)
                     arbitrate_state_nxt = `ysyx22040228_ARB_IDLE  ;
                 else 
                     arbitrate_state_nxt = `ysyx22040228_ARB_DWRITE;
