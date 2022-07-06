@@ -270,7 +270,7 @@ module arbitratem (
         else if(iread_arshankhand) begin
             iread_ar_valid   <= `ysyx22040228_ENABLE ;
         end 
-        else if(arbitrate_state == `ysyx22040228_ARB_DREAD) begin
+        else if(arbitrate_state == `ysyx22040228_ARB_IREAD) begin
             iread_ar_id      <= 4'b0000             ;
             iread_ar_addr    <= i_cache_addr        ;
             iread_ar_len     <= 8'b0                ;
