@@ -160,7 +160,7 @@ module arbitratem (
                     arbitrate_state_nxt = `ysyx22040228_ARB_IDLE  ;
             end 
             `ysyx22040228_ARB_DREAD : begin
-                if(dread_success)
+                if(dread_ok)
                     arbitrate_state_nxt = `ysyx22040228_ARB_IDLE  ;
                 else 
                     arbitrate_state_nxt = `ysyx22040228_ARB_DREAD ;
@@ -197,7 +197,7 @@ module arbitratem (
     wire                                      dread_r_ready         ;
     assign dread_r_ready = `ysyx22040228_ABLE                       ;
     assign dread_arshankhand = dread_ar_valid && axi_ar_ready       ;
-
+    reg    dread_ok ;
     assign dread_success = (axi_r_id == 4'b0001) && dread_r_ready && axi_r_valid && axi_r_last && (axi_r_resp == 2'b00) ;
     always @(posedge clk) begin
         if(dread_success) begin
@@ -210,7 +210,7 @@ module arbitratem (
             dread_ar_prot    <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
             dread_ar_qos     <= 4'h0                ;
             dread_ar_valid   <= `ysyx22040228_ENABLE ;
-
+            dread_ok         <=  `ysyx22040228_ABLE ;
             d_cache_data_o   <= axi_r_data          ;
             dread_cache_valid<= `ysyx22040228_ABLE  ;
         end 
@@ -229,6 +229,7 @@ module arbitratem (
             dread_ar_valid   <= `ysyx22040228_ABLE  ;
         end 
         else begin
+            dread_ok         <= `ysyx22040228_ENABLE   ;
             d_cache_data_o   <= `ysyx22040228_ZEROWORD ;
             dread_cache_valid<= `ysyx22040228_ENABLE   ;
         end 
@@ -311,12 +312,13 @@ module arbitratem (
     assign dwrite_awshankhand = dwrite_aw_valid && axi_aw_ready ;
     assign dwrite_wshankhand  = dwrite_w_valid  && axi_w_ready  ;
     assign dwrite_success     = dwrite_b_ready && axi_b_valid && (axi_b_id == 4'b0001) && (axi_b_resp == 2'b00) ;
-
+    reg    dwrite_ok   ;
     always @(posedge clk) begin
         if(dwrite_success) begin
             dwrite_aw_valid     <= `ysyx22040228_ENABLE;
             dwrite_w_valid      <= `ysyx22040228_ENABLE;
             dwrite_cache_valid  <= `ysyx22040228_ABLE  ;
+            dwrite_ok           <= `ysyx22040228_ABLE  ;
         end 
         else if(dwrite_awshankhand && dwrite_wshankhand)begin
             dwrite_aw_valid     <= `ysyx22040228_ENABLE;
@@ -339,6 +341,7 @@ module arbitratem (
         end 
         else begin
             dwrite_cache_valid  <= `ysyx22040228_ENABLE;
+            dwrite_ok           <= `ysyx22040228_ENABLE;
         end 
     end
 
