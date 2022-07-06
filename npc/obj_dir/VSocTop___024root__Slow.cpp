@@ -695,13 +695,6 @@ void VSocTop___024root___settle__TOP__2(VSocTop___024root* vlSelf) {
             vlSelf->SocTop__DOT__i_cache2__DOT__miss_ena_t = 0U;
         }
     }
-    if (((2U == (IData)(vlSelf->SocTop__DOT__i_cache2__DOT__state_inst)) 
-         & (~ (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__iread_cache_valid)))) {
-        vlSelf->SocTop__DOT__i_cache_read_ena = 1U;
-    } else if (((2U == (IData)(vlSelf->SocTop__DOT__i_cache2__DOT__state_inst)) 
-                & (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__iread_cache_valid))) {
-        vlSelf->SocTop__DOT__i_cache_read_ena = 0U;
-    }
     if ((1U & (~ ((2U == (IData)(vlSelf->SocTop__DOT__i_cache2__DOT__state_inst)) 
                   & (~ (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__iread_cache_valid)))))) {
         vlSelf->SocTop__DOT__i_cache2__DOT__write_i_ok 
@@ -736,8 +729,22 @@ void VSocTop___024root___settle__TOP__2(VSocTop___024root* vlSelf) {
                                                                : 0ULL)) 
                                                             >> 0x20U));
     }
+    vlSelf->SocTop__DOT__add_axi_r_ready = ((IData)(vlSelf->rst)
+                                             ? 0U : 
+                                            ((3U & (IData)(vlSelf->SocTop__DOT__add_axi_r_ready)) 
+                                             | (((4U 
+                                                  == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__arbitrate_state)) 
+                                                 | (5U 
+                                                    == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__arbitrate_state))) 
+                                                << 2U)));
+    if (((2U == (IData)(vlSelf->SocTop__DOT__i_cache2__DOT__state_inst)) 
+         & (~ (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__iread_cache_valid)))) {
+        vlSelf->SocTop__DOT__i_cache_read_ena = 1U;
+    } else if (((2U == (IData)(vlSelf->SocTop__DOT__i_cache2__DOT__state_inst)) 
+                & (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__iread_cache_valid))) {
+        vlSelf->SocTop__DOT__i_cache_read_ena = 0U;
+    }
     if (vlSelf->rst) {
-        vlSelf->SocTop__DOT__add_axi_r_ready = 0U;
         vlSelf->SocTop__DOT__rvcpu1__DOT__id3__DOT__inst_lui = 0U;
         vlSelf->SocTop__DOT__rvcpu1__DOT__id3__DOT__inst_auipc = 0U;
         vlSelf->SocTop__DOT__add_axi_ar_qos = 0U;
@@ -750,13 +757,6 @@ void VSocTop___024root___settle__TOP__2(VSocTop___024root* vlSelf) {
         vlSelf->SocTop__DOT__add_axi_ar_size = 0U;
         vlSelf->SocTop__DOT__add_axi_ar_valid = 0U;
     } else {
-        vlSelf->SocTop__DOT__add_axi_r_ready = ((3U 
-                                                 & (IData)(vlSelf->SocTop__DOT__add_axi_r_ready)) 
-                                                | (((4U 
-                                                     == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__arbitrate_state)) 
-                                                    | (5U 
-                                                       == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__arbitrate_state))) 
-                                                   << 2U));
         vlSelf->SocTop__DOT__rvcpu1__DOT__id3__DOT__inst_lui 
             = (IData)((0xdU == (0x1fU & (vlSelf->SocTop__DOT__rvcpu1__DOT__if_id_inst 
                                          >> 2U))));
@@ -846,14 +846,14 @@ void VSocTop___024root___settle__TOP__2(VSocTop___024root* vlSelf) {
                                                       & (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__dread_ar_valid))) 
                                                     << 2U));
     }
-    vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__mul_finish_sign 
-        = ((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__multiplier1__DOT__mult_valid) 
-           & (~ (IData)((0U != vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__multiplier1__DOT__multipler))));
     vlSelf->SocTop__DOT__arbitrate_d_ok = ((5U == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__arbitrate_state))
                                             ? (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__dread_cache_valid)
                                             : ((2U 
                                                 == (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__arbitrate_state)) 
                                                & (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__dwrite_cache_valid)));
+    vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__mul_finish_sign 
+        = ((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__multiplier1__DOT__mult_valid) 
+           & (~ (IData)((0U != vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__multiplier1__DOT__multipler))));
     vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__tmr_trap_ena 
         = ((((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__csr0__DOT__csr_mip_mtip) 
              & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__csr0__DOT__csr_mstatus_mie)) 
@@ -1198,11 +1198,6 @@ void VSocTop___024root___settle__TOP__2(VSocTop___024root* vlSelf) {
                                                            == 
                                                            (0xf0U 
                                                             & (IData)(vlSelf->SocTop__DOT__add_axi_ar_qos))))));
-    vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__mul_div_req 
-        = (((~ (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__finish_sign)) 
-            & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__dr_ready)) 
-           | ((~ (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__mul_finish_sign)) 
-              & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__mul_ready)));
     if ((1U & (~ ((0x10U == (IData)(vlSelf->SocTop__DOT__d_cache3__DOT__state_dread)) 
                   & (~ (IData)(vlSelf->SocTop__DOT__arbitrate_d_ok)))))) {
         if (((IData)(vlSelf->SocTop__DOT__arbitrate_d_ok) 
@@ -1511,6 +1506,11 @@ void VSocTop___024root___settle__TOP__2(VSocTop___024root* vlSelf) {
                 & (0x10U == (IData)(vlSelf->SocTop__DOT__d_cache3__DOT__state_dwrite)))) {
         vlSelf->SocTop__DOT__d_cache3__DOT__missw_out_type = 0U;
     }
+    vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__mul_div_req 
+        = (((~ (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__finish_sign)) 
+            & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__dr_ready)) 
+           | ((~ (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__mul_finish_sign)) 
+              & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__mul_ready)));
     if ((0x80U & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__idex_ex_type))) {
         vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__trap_mcause_value = 0ULL;
         if ((1U & (~ ((0x40U == (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__idex_ex_opcode)) 
@@ -3383,10 +3383,9 @@ void VSocTop___024root___settle__TOP__2(VSocTop___024root* vlSelf) {
                  >> 7U) & (7U != (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__idex_ex_opcode)))
                 ? vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__read_csr_data
                 : vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__exe_res));
-    vlSelf->SocTop__DOT__arbitrate4__DOT__write_dcache_shankhand 
-        = ((~ (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__read_icache_shankhand)) 
-           & ((1U == (IData)(vlSelf->SocTop__DOT__d_cache_out_type)) 
-              | (4U == (IData)(vlSelf->SocTop__DOT__d_cache_out_type))));
+    vlSelf->SocTop__DOT__arbitrate4__DOT__read_icache_shankhand 
+        = ((0U == (IData)(vlSelf->SocTop__DOT__d_cache_out_type)) 
+           & (IData)(vlSelf->SocTop__DOT__i_cache_read_ena));
     if (((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__ecall_trap_ena) 
          | (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__tmr_trap_ena))) {
         vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__csr0__DOT__mstatus_mpp_nxt = 3U;
@@ -3444,12 +3443,10 @@ void VSocTop___024root___settle__TOP__2(VSocTop___024root* vlSelf) {
                                                           == (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__ex_id_rd_type))) 
                                                       & ((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__id_reg_addr2) 
                                                          == (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__idex_ex_rdaddr))))))));
-    vlSelf->SocTop__DOT__arbitrate4__DOT__read_icache_shankhand 
-        = (((0U == (IData)(vlSelf->SocTop__DOT__d_cache_out_type)) 
-            & (~ (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__write_dcache_shankhand))) 
-           & (IData)(vlSelf->SocTop__DOT__i_cache_read_ena));
     __Vtableidx1 = (((IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__read_icache_shankhand) 
-                     << 8U) | (((IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__write_dcache_shankhand) 
+                     << 8U) | ((((~ (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__read_icache_shankhand)) 
+                                 & ((1U == (IData)(vlSelf->SocTop__DOT__d_cache_out_type)) 
+                                    | (4U == (IData)(vlSelf->SocTop__DOT__d_cache_out_type)))) 
                                 << 7U) | ((((~ (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__read_icache_shankhand)) 
                                             & ((2U 
                                                 == (IData)(vlSelf->SocTop__DOT__d_cache_out_type)) 
@@ -4091,7 +4088,6 @@ void VSocTop___024root___ctor_var_reset(VSocTop___024root* vlSelf) {
         vlSelf->SocTop__DOT__d_cache3__DOT__u_data1__DOT__ram[__Vi0] = VL_RAND_RESET_Q(64);
     }
     vlSelf->SocTop__DOT__d_cache3__DOT__u_data1__DOT__out_data = VL_RAND_RESET_Q(64);
-    vlSelf->SocTop__DOT__arbitrate4__DOT__write_dcache_shankhand = VL_RAND_RESET_I(1);
     vlSelf->SocTop__DOT__arbitrate4__DOT__read_icache_shankhand = VL_RAND_RESET_I(1);
     vlSelf->SocTop__DOT__arbitrate4__DOT__arbitrate_state = VL_RAND_RESET_I(3);
     vlSelf->SocTop__DOT__arbitrate4__DOT__arbitrate_state_nxt = VL_RAND_RESET_I(3);
@@ -4159,7 +4155,6 @@ void VSocTop___024root___ctor_var_reset(VSocTop___024root* vlSelf) {
     vlSelf->SocTop__DOT__time_axi6__DOT__ar_shakehand = VL_RAND_RESET_I(1);
     vlSelf->SocTop__DOT__time_axi6__DOT__state_time_r = VL_RAND_RESET_I(2);
     vlSelf->SocTop__DOT__time_axi6__DOT__state_time_r_nxt = VL_RAND_RESET_I(2);
-    vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__read_icache_shankhand = VL_RAND_RESET_I(1);
     for (int __Vi0=0; __Vi0<3; ++__Vi0) {
         vlSelf->__Vm_traceActivity[__Vi0] = VL_RAND_RESET_I(1);
     }

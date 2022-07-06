@@ -372,7 +372,9 @@ void VSocTop___024root__traceChgSub0(VSocTop___024root* vlSelf, VerilatedVcd* tr
             tracep->chgBit(oldp+287,(((~ (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__read_icache_shankhand)) 
                                       & ((2U == (IData)(vlSelf->SocTop__DOT__d_cache_out_type)) 
                                          | (8U == (IData)(vlSelf->SocTop__DOT__d_cache_out_type))))));
-            tracep->chgBit(oldp+288,(vlSelf->SocTop__DOT__arbitrate4__DOT__write_dcache_shankhand));
+            tracep->chgBit(oldp+288,(((~ (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__read_icache_shankhand)) 
+                                      & ((1U == (IData)(vlSelf->SocTop__DOT__d_cache_out_type)) 
+                                         | (4U == (IData)(vlSelf->SocTop__DOT__d_cache_out_type))))));
             tracep->chgBit(oldp+289,(vlSelf->SocTop__DOT__arbitrate4__DOT__read_icache_shankhand));
             tracep->chgCData(oldp+290,(vlSelf->SocTop__DOT__arbitrate4__DOT__arbitrate_state_nxt),3);
             tracep->chgBit(oldp+291,(vlSelf->SocTop__DOT__arbitrate4__DOT__dread_success));
