@@ -6,6 +6,14 @@ module d_cache_data_ram (
     input            wire       [7:0]                           write_ena  ,
     output           wire       [63:0]                          data_o    
 );
+import "DPI-C" function void caceh_check(input longint write_data);
+
+always @(*) begin
+    if((addr_i == 6'b111101) && (write_ena))
+        caceh_check(data_i) ;
+    else if(addr_i == 6'b111101)
+        caceh_check(ram[addr_i]) ;
+end
 
     reg [63:0] ram [0:63];
     reg [63:0] out_data  ;
