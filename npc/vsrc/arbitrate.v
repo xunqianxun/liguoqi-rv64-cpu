@@ -172,7 +172,7 @@ module arbitrate (
                     arbitrate_state_nxt = `ysyx22040228_ARB_DWRITE;
             end 
             `ysyx22040228_ARB_IREAD : begin
-                if(dread_success)
+                if(iread_success)
                     arbitrate_state_nxt = `ysyx22040228_ARB_IDLE  ;
                 else 
                     arbitrate_state_nxt = `ysyx22040228_ARB_IREAD ;
@@ -253,7 +253,7 @@ module arbitrate (
 
     assign iread_success = (axi_r_id == 4'b0000) && iread_r_ready && axi_r_valid && axi_r_last && (axi_r_resp == 2'b00) ;
     always @(posedge clk) begin
-        if(dread_success) begin
+        if(iread_success) begin
             iread_ar_id      <= 4'b0001             ;
             iread_ar_addr    <= `ysyx22040228_ZEROWORD   ;
             iread_ar_len     <= 8'b0                ;
