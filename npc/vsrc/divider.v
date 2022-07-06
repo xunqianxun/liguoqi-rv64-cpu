@@ -51,20 +51,26 @@ module divider (
             // yushu_data <= `ysyx22040228_ZEROWORD;
         end 
         else begin
-            if((counter <= 63) && (div_ready)) begin
-                finish_sign     <= 1'b0     ;
-                temp_a <= temp_a << 1 ;
-                if(temp_a >= temp_b)
-                    temp_a <= temp_a - temp_b + 1'b1 ;
-                else 
-                    temp_a <= temp_a   ;
+            if((counter <= 64) && (div_ready)) begin
+                if(counter > 0)begin
+                    finish_sign     <= 1'b0     ;
+                    temp_a <= temp_a << 1 ;
+                    if(temp_a >= temp_b)
+                        temp_a <= temp_a - temp_b + 1'b1 ;
+                    else 
+                        temp_a <= temp_a   ;
+                end 
+                else begin
+                    temp_a <= {`ysyx22040228_ZEROWORD,op1_absolute};
+                    temp_b <= {op2_absolute,`ysyx22040228_ZEROWORD};
+                end 
             end
             else  begin
                 // shang_data <= temp_a[63 :0 ] ;
                 // yushu_data <= temp_a[127:64] ;
                 counter <= 8'b0 ;
-                temp_a <= {`ysyx22040228_ZEROWORD,op1_absolute};
-                temp_b <= {op2_absolute,`ysyx22040228_ZEROWORD};
+                // temp_a <= {`ysyx22040228_ZEROWORD,op1_absolute};
+                // temp_b <= {op2_absolute,`ysyx22040228_ZEROWORD};
                 if(div_ready)begin
                     finish_sign <= 1'b1 ;
                 end 
