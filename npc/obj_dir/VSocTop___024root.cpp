@@ -1038,6 +1038,7 @@ VL_INLINE_OPT void VSocTop___024root___sequent__TOP__4(VSocTop___024root* vlSelf
         }
     } else {
         __Vdly__SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__counter = 0U;
+        vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__finish_sign = 0U;
         if (vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__dr_ready) {
             vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__finish_sign = 1U;
         }
