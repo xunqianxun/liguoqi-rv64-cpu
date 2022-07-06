@@ -100,7 +100,6 @@ module SocTop (
     /* verilator lint_on UNOPTFLAT */
     wire  [63:0]    arbitrate_i_data ;
     wire            arbitrate_i_ok   ;
-    wire            arbitrate_ti_sign;
 
     wire   time_init_sign       ;
 
@@ -388,8 +387,7 @@ module SocTop (
         .cache_read_resp     (i_caceh_resp        ) ,
         .cache_addr          (i_cache_addr        ) ,
         .cache_in_data       (arbitrate_i_data    ) ,
-        .cache_in_valid      (arbitrate_i_ok      ) ,
-        .arb_working_ti      (arbitrate_ti_sign   )                           
+        .cache_in_valid      (arbitrate_i_ok      )                       
 );
     
     d_cache d_cache3 (
@@ -429,7 +427,6 @@ module SocTop (
         .i_cache_resp        (i_caceh_resp       ) ,
         .i_cache_data        (arbitrate_i_data   ) ,
         .i_cache_valid_      (arbitrate_i_ok     ) ,
-        .arb_working_ti      (arbitrate_ti_sign  ) ,
 
         .axi_aw_id           (t_axi_aw_id        ) ,
         .axi_aw_addr         (t_axi_aw_addr      ) ,

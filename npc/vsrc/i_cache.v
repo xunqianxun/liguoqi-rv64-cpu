@@ -31,11 +31,10 @@ module i_cache (
     output      reg                                          cache_read_resp ,
     output      reg           [63:0]                         cache_addr      ,
     input       wire          [63:0]                         cache_in_data   ,
-    input       wire                                         cache_in_valid  ,
-    input       wire                                         arb_working_ti                                  
+    input       wire                                         cache_in_valid                                 
 );
     wire   icache_if_shankhand   ;
-    assign icache_if_shankhand = inst_ready && ~inst_valid && ~arb_working_ti ;
+    assign icache_if_shankhand = inst_ready && ~inst_valid  ;
 
     wire [54:0 ] icache_tag    =   inst_addr[63:9 ];
     wire [ 5:0 ] icache_index  =   inst_addr[ 8:3 ];
