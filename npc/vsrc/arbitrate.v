@@ -276,7 +276,7 @@ module arbitrate (
             iread_ar_burst   <= `AXI_BURST_TYPE_INCR;
             iread_ar_cache   <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
             iread_ar_prot    <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
-            idread_ar_qos     <= 4'h0                ;
+            iread_ar_qos     <= 4'h0                ;
             iread_ar_valid   <= `ysyx22040228_ABLE  ;
         end 
         else begin
@@ -351,7 +351,7 @@ module arbitrate (
     assign axi_aw_len     = dwrite_aw_len     ;
     assign axi_aw_size    = dwrite_aw_size    ;
     assign axi_aw_burst   = dwrite_aw_burst   ;
-    assign axi_aw_cache   = dwrite_aw_caceh   ;
+    assign axi_aw_cache   = dwrite_aw_cache   ;
     assign axi_aw_port    = dwrite_aw_port    ;
     assign axi_aw_qos     = dwrite_aw_qos     ;
     assign axi_aw_valid   = dwrite_aw_valid   ;
