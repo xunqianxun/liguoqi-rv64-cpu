@@ -807,13 +807,6 @@ void VSocTop___024root___settle__TOP__2(VSocTop___024root* vlSelf) {
                                                 & (IData)(
                                                           (vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__op1_sub_op2 
                                                            >> 0x3fU)))));
-    vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__tempb 
-        = ((IData)(vlSelf->rst) ? 0ULL : ((1U & (IData)(
-                                                        (vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__op2_divdata 
-                                                         >> 0x3fU)))
-                                           ? (1ULL 
-                                              + (~ vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__op2_divdata))
-                                           : vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__op2_divdata));
     vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__div_rem_signbit 
         = (1U & ((IData)((vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__op1_divdata 
                           >> 0x3fU)) ^ (IData)((vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__op2_divdata 
@@ -3965,7 +3958,6 @@ void VSocTop___024root___ctor_var_reset(VSocTop___024root* vlSelf) {
     vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__yushu_data = VL_RAND_RESET_Q(64);
     vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__finish_sign = VL_RAND_RESET_I(1);
     vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__div_rem_signbit = VL_RAND_RESET_I(1);
-    vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__tempb = VL_RAND_RESET_Q(64);
     vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__counter = VL_RAND_RESET_I(8);
     VL_RAND_RESET_W(128, vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__temp_a);
     VL_RAND_RESET_W(128, vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__temp_b);
