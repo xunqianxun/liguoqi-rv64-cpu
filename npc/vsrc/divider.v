@@ -59,8 +59,8 @@ module divider (
             end
             else  begin
                 counter <= 8'b0 ;
-                temp_a <= {`ysyx22040228_ZEROWORD,tempa};
-                temp_b <= {tempb,`ysyx22040228_ZEROWORD};
+                temp_a <= {`ysyx22040228_ZEROWORD,op1_absolute};
+                temp_b <= {op2_absolute,`ysyx22040228_ZEROWORD};
                 shang_data <= temp_a[63 :0 ] ;
                 yushu_data <= temp_a[127:64] ;
                 if(div_ready)begin
