@@ -1017,7 +1017,7 @@ VL_INLINE_OPT void VSocTop___024root___sequent__TOP__4(VSocTop___024root* vlSelf
     if (vlSelf->SocTop__DOT__arbitratem4__DOT__iread_success) {
         vlSelf->SocTop__DOT__arbitratem4__DOT__iread_ar_id = 1U;
     } else if ((1U & (~ (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__iread_arshankhand)))) {
-        if ((5U == (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__arbitrate_state))) {
+        if ((4U == (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__arbitrate_state))) {
             vlSelf->SocTop__DOT__arbitratem4__DOT__iread_ar_id = 0U;
         }
     }
@@ -1031,7 +1031,7 @@ VL_INLINE_OPT void VSocTop___024root___sequent__TOP__4(VSocTop___024root* vlSelf
     if (vlSelf->SocTop__DOT__arbitratem4__DOT__iread_success) {
         vlSelf->SocTop__DOT__arbitrate_i_data = vlSelf->SocTop__DOT__t_axi_r_data;
     } else if ((1U & (~ (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__iread_arshankhand)))) {
-        if ((5U != (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__arbitrate_state))) {
+        if ((4U != (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__arbitrate_state))) {
             vlSelf->SocTop__DOT__arbitrate_i_data = 0ULL;
         }
     }
@@ -1045,7 +1045,7 @@ VL_INLINE_OPT void VSocTop___024root___sequent__TOP__4(VSocTop___024root* vlSelf
     if (vlSelf->SocTop__DOT__arbitratem4__DOT__iread_success) {
         vlSelf->SocTop__DOT__arbitratem4__DOT__iread_ar_addr = 0ULL;
     } else if ((1U & (~ (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__iread_arshankhand)))) {
-        if ((5U == (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__arbitrate_state))) {
+        if ((4U == (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__arbitrate_state))) {
             vlSelf->SocTop__DOT__arbitratem4__DOT__iread_ar_addr 
                 = vlSelf->SocTop__DOT__i_cache_addr;
         }
@@ -1086,28 +1086,28 @@ VL_INLINE_OPT void VSocTop___024root___sequent__TOP__4(VSocTop___024root* vlSelf
     if (vlSelf->SocTop__DOT__arbitratem4__DOT__iread_success) {
         vlSelf->SocTop__DOT__arbitratem4__DOT__iread_cache_valid = 1U;
     } else if ((1U & (~ (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__iread_arshankhand)))) {
-        if ((5U != (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__arbitrate_state))) {
+        if ((4U != (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__arbitrate_state))) {
             vlSelf->SocTop__DOT__arbitratem4__DOT__iread_cache_valid = 0U;
         }
     }
     if (vlSelf->SocTop__DOT__arbitratem4__DOT__iread_success) {
         vlSelf->SocTop__DOT__arbitratem4__DOT__iread_ar_cache = 2U;
     } else if ((1U & (~ (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__iread_arshankhand)))) {
-        if ((5U == (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__arbitrate_state))) {
+        if ((4U == (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__arbitrate_state))) {
             vlSelf->SocTop__DOT__arbitratem4__DOT__iread_ar_cache = 2U;
         }
     }
     if (vlSelf->SocTop__DOT__arbitratem4__DOT__iread_success) {
         vlSelf->SocTop__DOT__arbitratem4__DOT__iread_ar_prot = 0U;
     } else if ((1U & (~ (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__iread_arshankhand)))) {
-        if ((5U == (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__arbitrate_state))) {
+        if ((4U == (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__arbitrate_state))) {
             vlSelf->SocTop__DOT__arbitratem4__DOT__iread_ar_prot = 0U;
         }
     }
     if (vlSelf->SocTop__DOT__arbitratem4__DOT__iread_success) {
         vlSelf->SocTop__DOT__arbitratem4__DOT__iread_ar_qos = 0U;
     } else if ((1U & (~ (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__iread_arshankhand)))) {
-        if ((5U == (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__arbitrate_state))) {
+        if ((4U == (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__arbitrate_state))) {
             vlSelf->SocTop__DOT__arbitratem4__DOT__iread_ar_qos = 0U;
         }
     }
@@ -1135,21 +1135,21 @@ VL_INLINE_OPT void VSocTop___024root___sequent__TOP__4(VSocTop___024root* vlSelf
     if (vlSelf->SocTop__DOT__arbitratem4__DOT__iread_success) {
         vlSelf->SocTop__DOT__arbitratem4__DOT__iread_ar_size = 3U;
     } else if ((1U & (~ (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__iread_arshankhand)))) {
-        if ((5U == (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__arbitrate_state))) {
+        if ((4U == (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__arbitrate_state))) {
             vlSelf->SocTop__DOT__arbitratem4__DOT__iread_ar_size = 3U;
         }
     }
     if (vlSelf->SocTop__DOT__arbitratem4__DOT__iread_success) {
         vlSelf->SocTop__DOT__arbitratem4__DOT__iread_ar_len = 0U;
     } else if ((1U & (~ (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__iread_arshankhand)))) {
-        if ((5U == (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__arbitrate_state))) {
+        if ((4U == (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__arbitrate_state))) {
             vlSelf->SocTop__DOT__arbitratem4__DOT__iread_ar_len = 0U;
         }
     }
     if (vlSelf->SocTop__DOT__arbitratem4__DOT__iread_success) {
         vlSelf->SocTop__DOT__arbitratem4__DOT__iread_ar_burst = 1U;
     } else if ((1U & (~ (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__iread_arshankhand)))) {
-        if ((5U == (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__arbitrate_state))) {
+        if ((4U == (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__arbitrate_state))) {
             vlSelf->SocTop__DOT__arbitratem4__DOT__iread_ar_burst = 1U;
         }
     }
@@ -1186,7 +1186,7 @@ VL_INLINE_OPT void VSocTop___024root___sequent__TOP__4(VSocTop___024root* vlSelf
         vlSelf->SocTop__DOT__arbitratem4__DOT__iread_ar_valid = 0U;
     } else if (vlSelf->SocTop__DOT__arbitratem4__DOT__iread_arshankhand) {
         vlSelf->SocTop__DOT__arbitratem4__DOT__iread_ar_valid = 0U;
-    } else if ((5U == (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__arbitrate_state))) {
+    } else if ((4U == (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__arbitrate_state))) {
         vlSelf->SocTop__DOT__arbitratem4__DOT__iread_ar_valid = 1U;
     }
     if (vlSelf->SocTop__DOT__arbitratem4__DOT__dread_success) {
