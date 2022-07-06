@@ -44,13 +44,9 @@ VL_INLINE_OPT QData VSocTop___024root___change_request_1(VSocTop___024root* vlSe
     // Body
     // Change detection
     QData __req = false;  // Logically a bool
-    __req |= ((vlSelf->SocTop__DOT__arbitrate4__DOT__write_dcache_shankhand ^ vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__write_dcache_shankhand)
-         | (vlSelf->SocTop__DOT__arbitrate4__DOT__read_icache_shankhand ^ vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__read_icache_shankhand));
-    VL_DEBUG_IF( if(__req && ((vlSelf->SocTop__DOT__arbitrate4__DOT__write_dcache_shankhand ^ vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__write_dcache_shankhand))) VL_DBG_MSGF("        CHANGE: vsrc/arbitrate.v:130: SocTop.arbitrate4.write_dcache_shankhand\n"); );
+    __req |= ((vlSelf->SocTop__DOT__arbitrate4__DOT__read_icache_shankhand ^ vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__read_icache_shankhand));
     VL_DEBUG_IF( if(__req && ((vlSelf->SocTop__DOT__arbitrate4__DOT__read_icache_shankhand ^ vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__read_icache_shankhand))) VL_DBG_MSGF("        CHANGE: vsrc/arbitrate.v:131: SocTop.arbitrate4.read_icache_shankhand\n"); );
     // Final
-    vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__write_dcache_shankhand 
-        = vlSelf->SocTop__DOT__arbitrate4__DOT__write_dcache_shankhand;
     vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__read_icache_shankhand 
         = vlSelf->SocTop__DOT__arbitrate4__DOT__read_icache_shankhand;
     return __req;

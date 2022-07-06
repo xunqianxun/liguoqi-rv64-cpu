@@ -3383,11 +3383,10 @@ void VSocTop___024root___settle__TOP__2(VSocTop___024root* vlSelf) {
                  >> 7U) & (7U != (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__idex_ex_opcode)))
                 ? vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__read_csr_data
                 : vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__exe_res));
-    vlSelf->SocTop__DOT__arbitrate4__DOT__read_dcache_shankhand 
-        = (((~ (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__write_dcache_shankhand)) 
-            & (~ (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__read_icache_shankhand))) 
-           & ((2U == (IData)(vlSelf->SocTop__DOT__d_cache_out_type)) 
-              | (8U == (IData)(vlSelf->SocTop__DOT__d_cache_out_type))));
+    vlSelf->SocTop__DOT__arbitrate4__DOT__write_dcache_shankhand 
+        = ((~ (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__read_icache_shankhand)) 
+           & ((1U == (IData)(vlSelf->SocTop__DOT__d_cache_out_type)) 
+              | (4U == (IData)(vlSelf->SocTop__DOT__d_cache_out_type))));
     if (((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__ecall_trap_ena) 
          | (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__tmr_trap_ena))) {
         vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__csr0__DOT__mstatus_mpp_nxt = 3U;
@@ -3445,18 +3444,17 @@ void VSocTop___024root___settle__TOP__2(VSocTop___024root* vlSelf) {
                                                           == (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__ex_id_rd_type))) 
                                                       & ((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__id_reg_addr2) 
                                                          == (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__idex_ex_rdaddr))))))));
-    vlSelf->SocTop__DOT__arbitrate4__DOT__write_dcache_shankhand 
-        = (((~ (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__read_dcache_shankhand)) 
-            & (~ (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__read_icache_shankhand))) 
-           & ((1U == (IData)(vlSelf->SocTop__DOT__d_cache_out_type)) 
-              | (4U == (IData)(vlSelf->SocTop__DOT__d_cache_out_type))));
     vlSelf->SocTop__DOT__arbitrate4__DOT__read_icache_shankhand 
-        = (((~ (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__read_dcache_shankhand)) 
+        = (((0U == (IData)(vlSelf->SocTop__DOT__d_cache_out_type)) 
             & (~ (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__write_dcache_shankhand))) 
            & (IData)(vlSelf->SocTop__DOT__i_cache_read_ena));
     __Vtableidx1 = (((IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__read_icache_shankhand) 
                      << 8U) | (((IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__write_dcache_shankhand) 
-                                << 7U) | (((IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__read_dcache_shankhand) 
+                                << 7U) | ((((~ (IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__read_icache_shankhand)) 
+                                            & ((2U 
+                                                == (IData)(vlSelf->SocTop__DOT__d_cache_out_type)) 
+                                               | (8U 
+                                                  == (IData)(vlSelf->SocTop__DOT__d_cache_out_type)))) 
                                            << 6U) | 
                                           (((IData)(vlSelf->SocTop__DOT__arbitrate4__DOT__dwrite_success) 
                                             << 5U) 
@@ -4093,7 +4091,6 @@ void VSocTop___024root___ctor_var_reset(VSocTop___024root* vlSelf) {
         vlSelf->SocTop__DOT__d_cache3__DOT__u_data1__DOT__ram[__Vi0] = VL_RAND_RESET_Q(64);
     }
     vlSelf->SocTop__DOT__d_cache3__DOT__u_data1__DOT__out_data = VL_RAND_RESET_Q(64);
-    vlSelf->SocTop__DOT__arbitrate4__DOT__read_dcache_shankhand = VL_RAND_RESET_I(1);
     vlSelf->SocTop__DOT__arbitrate4__DOT__write_dcache_shankhand = VL_RAND_RESET_I(1);
     vlSelf->SocTop__DOT__arbitrate4__DOT__read_icache_shankhand = VL_RAND_RESET_I(1);
     vlSelf->SocTop__DOT__arbitrate4__DOT__arbitrate_state = VL_RAND_RESET_I(3);
@@ -4162,7 +4159,6 @@ void VSocTop___024root___ctor_var_reset(VSocTop___024root* vlSelf) {
     vlSelf->SocTop__DOT__time_axi6__DOT__ar_shakehand = VL_RAND_RESET_I(1);
     vlSelf->SocTop__DOT__time_axi6__DOT__state_time_r = VL_RAND_RESET_I(2);
     vlSelf->SocTop__DOT__time_axi6__DOT__state_time_r_nxt = VL_RAND_RESET_I(2);
-    vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__write_dcache_shankhand = VL_RAND_RESET_I(1);
     vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate4__DOT__read_icache_shankhand = VL_RAND_RESET_I(1);
     for (int __Vi0=0; __Vi0<3; ++__Vi0) {
         vlSelf->__Vm_traceActivity[__Vi0] = VL_RAND_RESET_I(1);

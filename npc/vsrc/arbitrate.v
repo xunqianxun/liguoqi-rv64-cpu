@@ -130,9 +130,9 @@ module arbitrate (
     wire    write_dcache_shankhand ;
     wire    read_icache_shankhand  ;
 
-    assign read_dcache_shankhand   =  (~read_icache_shankhand)  && ((d_cache_type == 4'b0010) || (d_cache_type == 4'b1000));
-    assign write_dcache_shankhand  =  (~read_icache_shankhand)  && ((d_cache_type == 4'b0001) || (d_cache_type == 4'b0100)); 
-    assign read_icache_shankhand   =  (d_cache_type == 4'b0000) && (~write_dcache_shankhand)&& i_cache_ena ;
+    assign read_dcache_shankhand   =  (~read_icache_shankhand) && ((d_cache_type == 4'b0010) || (d_cache_type == 4'b1000));
+    assign write_dcache_shankhand  =  (~read_icache_shankhand) && ((d_cache_type == 4'b0001) || (d_cache_type == 4'b0100)); 
+    assign read_icache_shankhand   =  (d_cache_type == 4'b0000) && i_cache_ena ;
 
     reg  [2:0]    arbitrate_state ;
     reg  [2:0]    arbitrate_state_nxt ;
