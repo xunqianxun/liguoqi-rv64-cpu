@@ -79,7 +79,7 @@ wire     [31:0]      op1_sraw_op2  = ( {32{op1_i[31]}} << (6'd32 - {1'b0,op2_i[4
 wire     [`ysyx22040228_REGBUS]  sraw_res      = {{32{op1_sraw_op2[31]}},op1_sraw_op2}                                         ;
 
 //about subw
-wire     [31:0]      op1_subw_op2  = op2_i[31:0] - op2_i[31:0]             ;
+wire     [31:0]      op1_subw_op2  = op1_i[31:0] - op2_i[31:0]             ;
 wire     [`ysyx22040228_REGBUS]  subw_res      = {{32{op1_subw_op2[31]}},op1_subw_op2} ;
 
 
