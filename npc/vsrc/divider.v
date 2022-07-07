@@ -114,6 +114,10 @@ always @(*) begin
             yushu = temp_a[127:64] ;
             shang = temp_a[63:0]   ;
         end 
+    end
+    else begin
+        yushu = temp_a[127:64] ;
+        shang = temp_a[63:0]   ;
     end 
 end
 
