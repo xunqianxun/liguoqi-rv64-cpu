@@ -598,8 +598,8 @@ void VSocTop___024root__traceInitSub0(VSocTop___024root* vlSelf, VerilatedVcd* t
         tracep->declBit(c+564,"SocTop rvcpu1 ex5 multiplier1 product_signbit", false,-1);
         tracep->declBit(c+800,"SocTop rvcpu1 ex5 divider2 clk", false,-1);
         tracep->declBit(c+801,"SocTop rvcpu1 ex5 divider2 rst", false,-1);
-        tracep->declQuad(c+521,"SocTop rvcpu1 ex5 divider2 diviser", false,-1, 63,0);
-        tracep->declQuad(c+523,"SocTop rvcpu1 ex5 divider2 dividend", false,-1, 63,0);
+        tracep->declQuad(c+523,"SocTop rvcpu1 ex5 divider2 diviser", false,-1, 63,0);
+        tracep->declQuad(c+521,"SocTop rvcpu1 ex5 divider2 dividend", false,-1, 63,0);
         tracep->declBus(c+458,"SocTop rvcpu1 ex5 divider2 inst_opcode", false,-1, 7,0);
         tracep->declBit(c+520,"SocTop rvcpu1 ex5 divider2 div_ready", false,-1);
         tracep->declQuad(c+237,"SocTop rvcpu1 ex5 divider2 div_rem_data", false,-1, 63,0);

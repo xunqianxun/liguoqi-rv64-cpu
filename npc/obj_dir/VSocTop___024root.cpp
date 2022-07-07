@@ -512,32 +512,32 @@ VL_INLINE_OPT void VSocTop___024root___sequent__TOP__4(VSocTop___024root* vlSelf
                 = (0x7fU & ((IData)(1U) + (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__counter)));
             vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__finish = 0U;
             if ((((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__sigin_inst) 
-                  & (IData)((vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__op2_divdata 
+                  & (IData)((vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__op1_divdata 
                              >> 0x3fU))) & (IData)(
-                                                   (vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__op1_divdata 
+                                                   (vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__op2_divdata 
                                                     >> 0x3fU)))) {
                 vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__dividend_t 
-                    = (1ULL + (~ vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__op2_divdata));
-                vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__divider_t 
                     = (1ULL + (~ vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__op1_divdata));
-                vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__sign = 0U;
-            } else if (((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__sigin_inst) 
-                        & (IData)((vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__op2_divdata 
-                                   >> 0x3fU)))) {
-                vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__dividend_t 
+                vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__divider_t 
                     = (1ULL + (~ vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__op2_divdata));
-                vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__sign = 1U;
+                vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__sign = 0U;
             } else if (((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__sigin_inst) 
                         & (IData)((vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__op1_divdata 
                                    >> 0x3fU)))) {
-                vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__divider_t 
+                vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__dividend_t 
                     = (1ULL + (~ vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__op1_divdata));
+                vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__sign = 1U;
+            } else if (((IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__sigin_inst) 
+                        & (IData)((vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__op2_divdata 
+                                   >> 0x3fU)))) {
+                vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__divider_t 
+                    = (1ULL + (~ vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__op2_divdata));
                 vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__sign = 1U;
             } else {
                 vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__divider_t 
-                    = vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__op1_divdata;
-                vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__dividend_t 
                     = vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__op2_divdata;
+                vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__dividend_t 
+                    = vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__op1_divdata;
                 vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__sign = 0U;
             }
         }
