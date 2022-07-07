@@ -32,7 +32,7 @@ reg     [64:0]   temp_b   ;
 reg              finish   ;
 wire             sigin_inst ;
 assign sigin_inst = (inst_opcode == `INST_DIV) || (inst_opcode == `INST_DIVW) || (inst_opcode == `INST_REM) || (inst_opcode == `INST_REMW);
-
+/* verilator lint_off BLKSEQ */
 always @(posedge clk ) begin
     if(rst == `ysyx22040228_RSTENA) begin
         counter = 7'b0 ;
@@ -95,23 +95,24 @@ always @(posedge clk ) begin
         endcase
     end 
 end
+/* verilator lint_on BLKSEQ */
 
 reg [63:0] yushu ;
 reg [63:0] shang ;
 
 always @(*) begin
     if(rst == `ysyx22040228_RSTENA) begin
-        yushu <= `ysyx22040228_ZEROWORD ;
-        shang <= `ysyx22040228_ZEROWORD ;
+        yushu = `ysyx22040228_ZEROWORD ;
+        shang = `ysyx22040228_ZEROWORD ;
     end 
     else if(finish) begin
         if(sign) begin
-            yushu <= ~temp_a[127:64] + 1 ;
-            shang <= ~temp_a[63:0]   + 1 ;
+            yushu = ~temp_a[127:64] + 1 ;
+            shang = ~temp_a[63:0]   + 1 ;
         end 
         else begin
-            yushu <= temp_a[127:64] ;
-            shang <= temp_a[63:0]   ;
+            yushu = temp_a[127:64] ;
+            shang = temp_a[63:0]   ;
         end 
     end 
 end
