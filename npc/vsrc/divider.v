@@ -35,54 +35,54 @@ assign sigin_inst = (inst_opcode == `INST_DIV) || (inst_opcode == `INST_DIVW) ||
 
 always @(posedge clk ) begin
     if(rst == `ysyx22040228_RSTENA) begin
-        counter <= 7'b0 ;
-        dividend_t <= 64'h0 ;
-        divider_t  <= 64'h0 ;
-        temp_a     <= 129'h0 ;
-        temp_b     <= 65'h0  ;
-        finish     <= 1'b0;
-        sign       <= 1'b0 ;
+        counter = 7'b0 ;
+        dividend_t = 64'h0 ;
+        divider_t  = 64'h0 ;
+        temp_a     = 129'h0 ;
+        temp_b     = 65'h0  ;
+        finish     = 1'b0;
+        sign       = 1'b0 ;
     end
     else begin
         case (counter)
             0 : begin
                 if(div_ready) begin
-                    counter <= counter + 1 ;
-                    finish  <= 1'b0        ;
+                    counter = counter + 1 ;
+                    finish  = 1'b0        ;
                     if((sigin_inst) && (dividend[63]) && (divider[63])) begin
-                        dividend_t <= ~dividend + 1 ;
-                        divider_t  <= ~divider + 1  ;
-                        sign       <= 1'b0          ;
+                        dividend_t = ~dividend + 1 ;
+                        divider_t  = ~divider + 1  ;
+                        sign       = 1'b0          ;
                     end 
                     else if((sigin_inst) && dividend[63]) begin
-                        dividend_t <= ~dividend + 1 ;
-                        divider_t  <= divider_t     ;
-                        sign      <= 1'b1        ;
+                        dividend_t = ~dividend + 1 ;
+                        divider_t  = divider_t     ;
+                        sign      = 1'b1        ;
                     end 
                     else if((sigin_inst) && divider[63]) begin
-                        divider_t  <= ~divider + 1    ;
-                        dividend_t  <= dividend_t     ;
-                        sign      <= 1'b1          ;
+                        divider_t  = ~divider + 1    ;
+                        dividend_t  = dividend_t     ;
+                        sign      = 1'b1          ;
                     end
                     else begin
-                        divider_t <= divider ;
-                        dividend_t <= dividend ;
-                        sig n     <= 1'b0    ; 
+                        divider_t = divider ;
+                        dividend_t = dividend ;
+                        sign     = 1'b0    ; 
                     end 
                 end
             end
             1 : begin
-                temp_a <= {65'b0, dividend_t};
-                temp_b <= {1'b0 , divider_t} ;
-                counter <= counter + 1 ;
+                temp_a = {65'b0, dividend_t};
+                temp_b = {1'b0 , divider_t} ;
+                counter = counter + 1 ;
             end  
             66 : begin
-                finish <= 1'b1 ;
-                counter <= counter + 1 ;
+                finish = 1'b1 ;
+                counter = counter + 1 ;
             end 
             67 : begin
-                 counter <= 7'h0 ;
-                 finish <= 1'b0  ;
+                 counter = 7'h0 ;
+                 finish = 1'b0  ;
             end 
             default:  begin
                 temp_a = {temp_a[127:0],1'b0};
