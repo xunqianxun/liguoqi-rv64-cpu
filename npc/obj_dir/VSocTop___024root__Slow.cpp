@@ -1696,7 +1696,11 @@ void VSocTop___024root___settle__TOP__2(VSocTop___024root* vlSelf) {
                                                          (vlSelf->SocTop__DOT__rvcpu_data_addr 
                                                           >> 3U)))]))) {
             vlSelf->SocTop__DOT__d_cache3__DOT__dirty_out_addr 
-                = (0xfffffffffffffff8ULL & vlSelf->SocTop__DOT__rvcpu_data_addr);
+                = ((vlSelf->SocTop__DOT__d_cache3__DOT__u_tag0__DOT__out_data 
+                    << 6U) | (QData)((IData)((0x3fU 
+                                              & (IData)(
+                                                        (vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                                         >> 3U))))));
         } else if ((vlSelf->SocTop__DOT__d_cache3__DOT__dirty2
                     [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
                                        >> 3U)))] & 
@@ -1707,7 +1711,11 @@ void VSocTop___024root___settle__TOP__2(VSocTop___024root* vlSelf) {
                      [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
                                         >> 3U)))]))) {
             vlSelf->SocTop__DOT__d_cache3__DOT__dirty_out_addr 
-                = (0xfffffffffffffff8ULL & vlSelf->SocTop__DOT__rvcpu_data_addr);
+                = ((vlSelf->SocTop__DOT__d_cache3__DOT__u_tag1__DOT__out_data 
+                    << 6U) | (QData)((IData)((0x3fU 
+                                              & (IData)(
+                                                        (vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                                         >> 3U))))));
         }
     } else if (((IData)(vlSelf->SocTop__DOT__arbitrate_d_ok) 
                 & (8U == (IData)(vlSelf->SocTop__DOT__d_cache3__DOT__state_dread)))) {
@@ -1729,7 +1737,11 @@ void VSocTop___024root___settle__TOP__2(VSocTop___024root* vlSelf) {
                                                   & (IData)(
                                                             (vlSelf->SocTop__DOT__rvcpu_data_addr 
                                                              >> 3U)))]))
-                ? (0xfffffffffffffff8ULL & vlSelf->SocTop__DOT__rvcpu_data_addr)
+                ? ((vlSelf->SocTop__DOT__d_cache3__DOT__u_tag0__DOT__out_data 
+                    << 6U) | (QData)((IData)((0x3fU 
+                                              & (IData)(
+                                                        (vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                                         >> 3U))))))
                 : ((vlSelf->SocTop__DOT__d_cache3__DOT__dirty2
                     [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
                                        >> 3U)))] & 
@@ -1739,7 +1751,11 @@ void VSocTop___024root___settle__TOP__2(VSocTop___024root* vlSelf) {
                      vlSelf->SocTop__DOT__d_cache3__DOT__counter2
                      [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
                                         >> 3U)))]))
-                    ? (0xfffffffffffffff8ULL & vlSelf->SocTop__DOT__rvcpu_data_addr)
+                    ? ((vlSelf->SocTop__DOT__d_cache3__DOT__u_tag1__DOT__out_data 
+                        << 6U) | (QData)((IData)((0x3fU 
+                                                  & (IData)(
+                                                            (vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                                             >> 3U))))))
                     : 0ULL));
     } else if (((IData)(vlSelf->SocTop__DOT__arbitrate_d_ok) 
                 & (8U == (IData)(vlSelf->SocTop__DOT__d_cache3__DOT__state_dwrite)))) {
