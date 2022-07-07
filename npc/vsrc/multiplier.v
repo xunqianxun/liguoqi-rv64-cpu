@@ -72,7 +72,7 @@ module multiplier (
     assign product_val = (inst_opcode == `INST_MUL)      ? product_temp[63:0]                                                       :
                          (inst_opcode == `INST_MULH)     ? (product_signbit ? {(~product_temp[63:32]+1),32'b0} : {product_temp[63:32],32'b0}) :
                          (inst_opcode == `INST_MULHU)    ? (product_signbit ? {(~product_temp[63:32]+1),32'b0} : {product_temp[63:32],32'b0}) :
-                         (inst_opcode == `INST_MULW)     ? (product_signbit ? (product_temp[31] ? {32'hffffffff,(~product_temp[31:0]+1)} : {32'b0,(~product_temp[31:0]+1)}) : (product_temp[31] ? {32'hffffffff,product_temp[31:0]} : {32'b0,product_temp[31:0]})) :
+                         (inst_opcode == `INST_MULW)     ? (product_signbit ? (~product_temp[31] ? {32'hffffffff,(~product_temp[31:0]+1)} : {32'b0,(~product_temp[31:0]+1)}) : (product_temp[31] ? {32'hffffffff,product_temp[31:0]} : {32'b0,product_temp[31:0]})) :
                                                                                                                             `ysyx22040228_ZEROWORD;
     
 endmodule
