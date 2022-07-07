@@ -223,10 +223,8 @@ while(ddy){
       }
     }
     if(rvcpu->out_write_ram_ena == 1){
-      if(rvcpu->out_write_ram_addr != 0){
-      printf("write = %llx\n", rvcpu->out_write_ram_addr);
+      printf("write = %lx\n", rvcpu->out_write_ram_addr);
       vaddr_write(rvcpu->out_write_ram_addr, 8, rvcpu->out_write_ram_data);
-      }
     }
   }
   if((main_time % 10) == 6){

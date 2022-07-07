@@ -6915,36 +6915,39 @@ VL_INLINE_OPT void VSocTop___024root___combo__TOP__6(VSocTop___024root* vlSelf) 
                                      == (vlSelf->SocTop__DOT__rvcpu_data_addr 
                                          >> 9U)) & (IData)(vlSelf->SocTop__DOT__d_cache3__DOT__u_tag1__DOT__out_vaild))))
                               ? 4U : (((IData)(vlSelf->SocTop__DOT__d_cache3__DOT__read_w_ok) 
-                                       & ((vlSelf->SocTop__DOT__d_cache3__DOT__dirty1
-                                           [(0x3fU 
-                                             & (IData)(
-                                                       (vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                                        >> 3U)))] 
-                                           & (vlSelf->SocTop__DOT__d_cache3__DOT__counter1
+                                       & (((vlSelf->SocTop__DOT__d_cache3__DOT__dirty1
+                                            [(0x3fU 
+                                              & (IData)(
+                                                        (vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                                         >> 3U)))] 
+                                            & (vlSelf->SocTop__DOT__d_cache3__DOT__counter1
+                                               [(0x3fU 
+                                                 & (IData)(
+                                                           (vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                                            >> 3U)))] 
+                                               >= vlSelf->SocTop__DOT__d_cache3__DOT__counter2
+                                               [(0x3fU 
+                                                 & (IData)(
+                                                           (vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                                            >> 3U)))])) 
+                                           & (IData)(vlSelf->SocTop__DOT__d_cache3__DOT__u_tag1__DOT__out_vaild)) 
+                                          | ((vlSelf->SocTop__DOT__d_cache3__DOT__dirty2
                                               [(0x3fU 
                                                 & (IData)(
                                                           (vlSelf->SocTop__DOT__rvcpu_data_addr 
                                                            >> 3U)))] 
-                                              >= vlSelf->SocTop__DOT__d_cache3__DOT__counter2
-                                              [(0x3fU 
-                                                & (IData)(
-                                                          (vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                                           >> 3U)))])) 
-                                          | (vlSelf->SocTop__DOT__d_cache3__DOT__dirty2
-                                             [(0x3fU 
-                                               & (IData)(
-                                                         (vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                                          >> 3U)))] 
-                                             & (vlSelf->SocTop__DOT__d_cache3__DOT__counter1
-                                                [(0x3fU 
-                                                  & (IData)(
-                                                            (vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                                             >> 3U)))] 
-                                                < vlSelf->SocTop__DOT__d_cache3__DOT__counter2
-                                                [(0x3fU 
-                                                  & (IData)(
-                                                            (vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                                             >> 3U)))]))))
+                                              & (vlSelf->SocTop__DOT__d_cache3__DOT__counter1
+                                                 [(0x3fU 
+                                                   & (IData)(
+                                                             (vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                                              >> 3U)))] 
+                                                 < 
+                                                 vlSelf->SocTop__DOT__d_cache3__DOT__counter2
+                                                 [(0x3fU 
+                                                   & (IData)(
+                                                             (vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                                              >> 3U)))])) 
+                                             & (IData)(vlSelf->SocTop__DOT__d_cache3__DOT__u_tag0__DOT__out_vaild))))
                                        ? 8U : ((IData)(vlSelf->SocTop__DOT__d_cache3__DOT__read_w_ok)
                                                 ? 0x10U
                                                 : 2U))))
@@ -6991,36 +6994,39 @@ VL_INLINE_OPT void VSocTop___024root___combo__TOP__6(VSocTop___024root* vlSelf) 
                                      == (vlSelf->SocTop__DOT__rvcpu_data_addr 
                                          >> 9U)) & (IData)(vlSelf->SocTop__DOT__d_cache3__DOT__u_tag1__DOT__out_vaild))))
                               ? 4U : (((IData)(vlSelf->SocTop__DOT__d_cache3__DOT__read_ok) 
-                                       & ((vlSelf->SocTop__DOT__d_cache3__DOT__dirty1
-                                           [(0x3fU 
-                                             & (IData)(
-                                                       (vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                                        >> 3U)))] 
-                                           & (vlSelf->SocTop__DOT__d_cache3__DOT__counter1
+                                       & (((vlSelf->SocTop__DOT__d_cache3__DOT__dirty1
+                                            [(0x3fU 
+                                              & (IData)(
+                                                        (vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                                         >> 3U)))] 
+                                            & (vlSelf->SocTop__DOT__d_cache3__DOT__counter1
+                                               [(0x3fU 
+                                                 & (IData)(
+                                                           (vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                                            >> 3U)))] 
+                                               >= vlSelf->SocTop__DOT__d_cache3__DOT__counter2
+                                               [(0x3fU 
+                                                 & (IData)(
+                                                           (vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                                            >> 3U)))])) 
+                                           & (IData)(vlSelf->SocTop__DOT__d_cache3__DOT__u_tag1__DOT__out_vaild)) 
+                                          | ((vlSelf->SocTop__DOT__d_cache3__DOT__dirty2
                                               [(0x3fU 
                                                 & (IData)(
                                                           (vlSelf->SocTop__DOT__rvcpu_data_addr 
                                                            >> 3U)))] 
-                                              >= vlSelf->SocTop__DOT__d_cache3__DOT__counter2
-                                              [(0x3fU 
-                                                & (IData)(
-                                                          (vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                                           >> 3U)))])) 
-                                          | (vlSelf->SocTop__DOT__d_cache3__DOT__dirty2
-                                             [(0x3fU 
-                                               & (IData)(
-                                                         (vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                                          >> 3U)))] 
-                                             & (vlSelf->SocTop__DOT__d_cache3__DOT__counter1
-                                                [(0x3fU 
-                                                  & (IData)(
-                                                            (vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                                             >> 3U)))] 
-                                                < vlSelf->SocTop__DOT__d_cache3__DOT__counter2
-                                                [(0x3fU 
-                                                  & (IData)(
-                                                            (vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                                             >> 3U)))]))))
+                                              & (vlSelf->SocTop__DOT__d_cache3__DOT__counter1
+                                                 [(0x3fU 
+                                                   & (IData)(
+                                                             (vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                                              >> 3U)))] 
+                                                 < 
+                                                 vlSelf->SocTop__DOT__d_cache3__DOT__counter2
+                                                 [(0x3fU 
+                                                   & (IData)(
+                                                             (vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                                              >> 3U)))])) 
+                                             & (IData)(vlSelf->SocTop__DOT__d_cache3__DOT__u_tag0__DOT__out_vaild))))
                                        ? 8U : ((IData)(vlSelf->SocTop__DOT__d_cache3__DOT__read_ok)
                                                 ? 0x10U
                                                 : 2U))))
