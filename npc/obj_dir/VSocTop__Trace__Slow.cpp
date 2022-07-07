@@ -1259,8 +1259,8 @@ void VSocTop___024root__traceFullTop0(void* voidSelf, VerilatedVcd* tracep) {
 void VSocTop___024root__traceFullSub0(VSocTop___024root* vlSelf, VerilatedVcd* tracep) {
     if (false && vlSelf) {}  // Prevent unused
     VSocTop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VlWide<4>/*127:0*/ __Vtemp57;
-    VlWide<6>/*191:0*/ __Vtemp59;
+    VlWide<4>/*127:0*/ __Vtemp58;
+    VlWide<6>/*191:0*/ __Vtemp60;
     vluint32_t* const oldp = tracep->oldp(vlSymsp->__Vm_baseCode);
     if (false && oldp) {}  // Prevent unused
     // Body
@@ -2291,17 +2291,17 @@ void VSocTop___024root__traceFullSub0(VSocTop___024root* vlSelf, VerilatedVcd* t
         tracep->fullWData(oldp+550,(vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__multiplier1__DOT__multiplcand),128);
         tracep->fullQData(oldp+554,(vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__multiplier1__DOT__multipler),64);
         if ((1U & (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__multiplier1__DOT__multipler))) {
-            __Vtemp57[0U] = vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__multiplier1__DOT__multiplcand[0U];
-            __Vtemp57[1U] = vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__multiplier1__DOT__multiplcand[1U];
-            __Vtemp57[2U] = vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__multiplier1__DOT__multiplcand[2U];
-            __Vtemp57[3U] = vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__multiplier1__DOT__multiplcand[3U];
+            __Vtemp58[0U] = vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__multiplier1__DOT__multiplcand[0U];
+            __Vtemp58[1U] = vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__multiplier1__DOT__multiplcand[1U];
+            __Vtemp58[2U] = vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__multiplier1__DOT__multiplcand[2U];
+            __Vtemp58[3U] = vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__multiplier1__DOT__multiplcand[3U];
         } else {
-            __Vtemp57[0U] = 0U;
-            __Vtemp57[1U] = 0U;
-            __Vtemp57[2U] = 0U;
-            __Vtemp57[3U] = 0U;
+            __Vtemp58[0U] = 0U;
+            __Vtemp58[1U] = 0U;
+            __Vtemp58[2U] = 0U;
+            __Vtemp58[3U] = 0U;
         }
-        tracep->fullWData(oldp+556,(__Vtemp57),128);
+        tracep->fullWData(oldp+556,(__Vtemp58),128);
         tracep->fullWData(oldp+560,(vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__multiplier1__DOT__product_temp),128);
         tracep->fullBit(oldp+564,(vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__multiplier1__DOT__product_signbit));
         tracep->fullCData(oldp+565,(vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__counter),7);
@@ -2556,19 +2556,19 @@ void VSocTop___024root__traceFullSub0(VSocTop___024root* vlSelf, VerilatedVcd* t
                                                   >> 4U))))),2);
         tracep->fullBit(oldp+817,(((~ (IData)(vlSelf->rst)) 
                                    & (2U == (IData)(vlSelf->SocTop__DOT__axi_mnq4__DOT__s_write_state)))));
-        __Vtemp59[0U] = (IData)(vlSelf->SocTop__DOT__io_axi_r_data);
-        __Vtemp59[1U] = (IData)((vlSelf->SocTop__DOT__io_axi_r_data 
+        __Vtemp60[0U] = (IData)(vlSelf->SocTop__DOT__io_axi_r_data);
+        __Vtemp60[1U] = (IData)((vlSelf->SocTop__DOT__io_axi_r_data 
                                  >> 0x20U));
-        __Vtemp59[2U] = (IData)(vlSelf->SocTop__DOT__tim_axi_r_data);
-        __Vtemp59[3U] = (IData)((vlSelf->SocTop__DOT__tim_axi_r_data 
+        __Vtemp60[2U] = (IData)(vlSelf->SocTop__DOT__tim_axi_r_data);
+        __Vtemp60[3U] = (IData)((vlSelf->SocTop__DOT__tim_axi_r_data 
                                  >> 0x20U));
-        __Vtemp59[4U] = (IData)(((2U == (IData)(vlSelf->SocTop__DOT__axi_mnq4__DOT__s_read_state))
+        __Vtemp60[4U] = (IData)(((2U == (IData)(vlSelf->SocTop__DOT__axi_mnq4__DOT__s_read_state))
                                   ? vlSelf->read_data_sign_
                                   : 0ULL));
-        __Vtemp59[5U] = (IData)((((2U == (IData)(vlSelf->SocTop__DOT__axi_mnq4__DOT__s_read_state))
+        __Vtemp60[5U] = (IData)((((2U == (IData)(vlSelf->SocTop__DOT__axi_mnq4__DOT__s_read_state))
                                    ? vlSelf->read_data_sign_
                                    : 0ULL) >> 0x20U));
-        tracep->fullWData(oldp+818,(__Vtemp59),192);
+        tracep->fullWData(oldp+818,(__Vtemp60),192);
         tracep->fullQData(oldp+824,(((2U == (IData)(vlSelf->SocTop__DOT__axi_mnq4__DOT__s_read_state))
                                       ? vlSelf->read_data_sign_
                                       : 0ULL)),64);

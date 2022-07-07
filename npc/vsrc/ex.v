@@ -187,8 +187,8 @@ divider divider2 (
     .clk              (clk_in         ) ,
     .rst              (rst            ) ,
 
-    .diviser          (op1_divdata    ) ,
-    .dividend         (op2_divdata    ) ,
+    .diviser          (op2_divdata    ) ,
+    .dividend         (op1_divdata    ) ,
     .inst_opcode      (inst_opcode_i  ) ,
     .div_ready        (dr_ready       ) ,
     .div_rem_data     (divrem_data    ) ,
