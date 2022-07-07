@@ -77,7 +77,7 @@ module d_cache (
                `ysyx22040228_READ  : begin
                    if((read_ok) && (((tag_data1 == dcache_tag) && (tag_user1 == `ysyx22040228_ABLE)) || ((tag_data2 == dcache_tag) && (tag_user2 == `ysyx22040228_ABLE))))
                         state_dread_nxt = `ysyx22040228_HIT  ;
-                   else if((read_ok) && (((dirty1[dcache_index] == `ysyx22040228_ABLE) && (counter1[dcache_index] >= counter2[dcache_index])) || ((dirty2[dcache_index] == `ysyx22040228_ABLE) && (counter1[dcache_index] < counter2[dcache_index]))))
+                   else if((read_ok) && (((dirty1[dcache_index] == `ysyx22040228_ABLE) && (counter1[dcache_index] >= counter2[dcache_index]) && (tag_user2 == `ysyx22040228_ABLE)) || ((dirty2[dcache_index] == `ysyx22040228_ABLE) && (counter1[dcache_index] < counter2[dcache_index]) && (tag_user1 == `ysyx22040228_ABLE))))
                         state_dread_nxt = `ysyx22040228_DIRTY;
                    else if(read_ok)
                         state_dread_nxt = `ysyx22040228_MISSR;
@@ -259,7 +259,7 @@ module d_cache (
                `ysyx22040228_READ  : begin
                    if((read_w_ok) && (((tag_data1 == dcache_tag) && (tag_user1 == `ysyx22040228_ABLE)) || ((tag_data2 == dcache_tag) && (tag_user2 == `ysyx22040228_ABLE))))
                         state_dwrite_nxt = `ysyx22040228_HIT  ;
-                   else if((read_w_ok) && (((dirty1[dcache_index] == `ysyx22040228_ABLE) && (counter1[dcache_index] >= counter2[dcache_index])) || ((dirty2[dcache_index] == `ysyx22040228_ABLE) && (counter1[dcache_index] < counter2[dcache_index]))))
+                   else if((read_w_ok) && (((dirty1[dcache_index] == `ysyx22040228_ABLE) && (counter1[dcache_index] >= counter2[dcache_index]) && (tag_user2 == `ysyx22040228_ABLE)) || ((dirty2[dcache_index] == `ysyx22040228_ABLE) && (counter1[dcache_index] < counter2[dcache_index]) && (tag_user1 == `ysyx22040228_ABLE))))
                         state_dwrite_nxt = `ysyx22040228_DIRTY;
                    else if(read_w_ok)
                         state_dwrite_nxt = `ysyx22040228_MISSW;
