@@ -155,13 +155,13 @@ module d_cache (
     always @(*) begin
         if((state_dread == `ysyx22040228_DIRTY) && (~in_dcache_ready)) begin
             if((dirty1[dcache_index] == `ysyx22040228_ABLE) && (counter1[dcache_index] >= counter2[dcache_index])) begin
-                dirty_out_addr = {mem_addr_i[63:3],3'b0} ;
+                dirty_out_addr = {tag_data1, dcache_index} ;
                 dirty_out_data = out_data1  ;
                 dirty_out_type = 4'b0001    ;
                 dirty_clean_o  = `ysyx22040228_ABLE ;
             end 
             else if((dirty2[dcache_index] == `ysyx22040228_ABLE) && (counter1[dcache_index] < counter2[dcache_index])) begin
-                dirty_out_addr = {mem_addr_i[63:3],3'b0} ;
+                dirty_out_addr = {tag_data2, dcache_index} ;
                 dirty_out_data = out_data2  ;
                 dirty_out_type = 4'b0001   ;
                 dirty_clean_t  = `ysyx22040228_ABLE ;
@@ -342,13 +342,13 @@ module d_cache (
     always @(*) begin
         if((state_dwrite == `ysyx22040228_DIRTY) && (~in_dcache_ready)) begin
             if((dirty1[dcache_index] == `ysyx22040228_ABLE) && (counter1[dcache_index] >= counter2[dcache_index])) begin
-                dirtyw_out_addr = {mem_addr_i[63:3],3'b0} ;
+                dirtyw_out_addr = {tag_data1, dcache_index} ;
                 dirtyw_out_data = out_data1  ;
                 dirtyw_out_type = 4'b0100    ;
                 dirtyw_clean_o  = `ysyx22040228_ABLE ;
             end 
             else if((dirty2[dcache_index] == `ysyx22040228_ABLE) && (counter1[dcache_index] < counter2[dcache_index])) begin
-                dirtyw_out_addr = {mem_addr_i[63:3],3'b0} ;
+                dirtyw_out_addr = {tag_data2, dcache_index} ;
                 dirtyw_out_data = out_data2  ;
                 dirtyw_out_type = 4'b0100    ;
                 dirtyw_clean_t  = `ysyx22040228_ABLE ;
