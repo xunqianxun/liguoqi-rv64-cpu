@@ -90,7 +90,7 @@ always @(posedge clk ) begin
                     temp_a = ({(temp_a[128:64] - temp_b), temp_a[63:0]}) + 1 ;
                 else 
                     temp_a = temp_a ;
-                counter = counter ;
+                counter = counter + 1 ;
             end 
         endcase
     end 
