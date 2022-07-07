@@ -13,7 +13,7 @@ module divider (
     input        wire                                       clk               ,
     input        wire                                       rst               ,
 
-    input        wire    [63:0]                             divisor           ,
+    input        wire    [63:0]                             diviser           ,
     input        wire    [63:0]                             dividend          ,
     input        wire    [7 :0]                             inst_opcode       ,
     input        wire                                       div_ready         ,
@@ -57,17 +57,17 @@ always @(posedge clk ) begin
                     else if((sigin_inst) && dividend[63]) begin
                         dividend_t <= ~dividend + 1 ;
                         divider_t  <= divider_t     ;
-                        sigin      <= 1'b1        ;
+                        sign      <= 1'b1        ;
                     end 
                     else if((sigin_inst) && divider[63]) begin
                         divider_t  <= ~divider + 1    ;
                         dividend_t  <= dividend_t     ;
-                        sigin      <= 1'b1          ;
+                        sign      <= 1'b1          ;
                     end
                     else begin
                         divider_t <= divider ;
                         dividend_t <= dividend ;
-                        sigin     <= 1'b0    ; 
+                        sign     <= 1'b0    ; 
                     end 
                 end
             end
