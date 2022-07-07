@@ -49,9 +49,9 @@ always @(posedge clk ) begin
                 if(div_ready) begin
                     counter = counter + 1 ;
                     finish  = 1'b0        ;
-                    if((sigin_inst) && (dividend[63]) && (divider[63])) begin
+                    if((sigin_inst) && (dividend[63]) && (diviser[63])) begin
                         dividend_t = ~dividend + 1 ;
-                        divider_t  = ~divider + 1  ;
+                        divider_t  = ~diviser + 1  ;
                         sign       = 1'b0          ;
                     end 
                     else if((sigin_inst) && dividend[63]) begin
@@ -59,13 +59,13 @@ always @(posedge clk ) begin
                         divider_t  = divider_t     ;
                         sign      = 1'b1        ;
                     end 
-                    else if((sigin_inst) && divider[63]) begin
-                        divider_t  = ~divider + 1    ;
+                    else if((sigin_inst) && diviser[63]) begin
+                        divider_t  = ~diviser + 1    ;
                         dividend_t  = dividend_t     ;
                         sign      = 1'b1          ;
                     end
                     else begin
-                        divider_t = divider ;
+                        divider_t = diviser ;
                         dividend_t = dividend ;
                         sign     = 1'b0    ; 
                     end 
