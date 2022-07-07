@@ -167,21 +167,21 @@ wire  [63:0]  op2_divdata ;
 assign op1_divdata = (inst_opcode_i == `INST_DIV     ) ? op1_i         :
                      (inst_opcode_i == `INST_DIVU    ) ? op1_i         :
                      (inst_opcode_i == `INST_DIVUW   ) ? {32'b0, op1_i[31:0]}   :
-                     (inst_opcode_i == `INST_DIVW    ) ? {32'b0, op1_i[31:0]}   :
+                     (inst_opcode_i == `INST_DIVW    ) ? (op1_i[32] ? {32'hffffffff, op1_i[31:0]} : {32'b0, op1_i[31:0]})   :
                      (inst_opcode_i == `INST_REM     ) ? op1_i         :
                      (inst_opcode_i == `INST_REMU    ) ? op1_i         :
                      (inst_opcode_i == `INST_REMUW   ) ? {32'b0, op1_i[31:0]}   :
-                     (inst_opcode_i == `INST_REMW    ) ? {32'b0, op1_i[31:0]}   :
+                     (inst_opcode_i == `INST_REMW    ) ? (op1_i[32] ? {32'hffffffff, op1_i[31:0]} : {32'b0, op1_i[31:0]})   :
                                                 `ysyx22040228_ZEROWORD ;
 
 assign op2_divdata = (inst_opcode_i == `INST_DIV     ) ? op2_i         :
                      (inst_opcode_i == `INST_DIVU    ) ? op2_i         : 
                      (inst_opcode_i == `INST_DIVUW   ) ? {32'b0, op2_i[31:0]}   :
-                     (inst_opcode_i == `INST_DIVW    ) ? {32'b0, op2_i[31:0]}   : 
+                     (inst_opcode_i == `INST_DIVW    ) ? (op2_i[32] ? {32'hffffffff, op2_i[31:0]} : {32'b0, op2_i[31:0]})   : 
                      (inst_opcode_i == `INST_REM     ) ? op2_i         :
                      (inst_opcode_i == `INST_REMU    ) ? op2_i         :  
                      (inst_opcode_i == `INST_REMUW   ) ? {32'b0, op2_i[31:0]}   :    
-                     (inst_opcode_i == `INST_REMW    ) ? {32'b0, op2_i[31:0]}   :
+                     (inst_opcode_i == `INST_REMW    ) ? (op2_i[32] ? {32'hffffffff, op2_i[31:0]} : {32'b0, op2_i[31:0]})   :
                                                 `ysyx22040228_ZEROWORD ;           
 divider divider2 (
     .clk              (clk_in         ) ,
