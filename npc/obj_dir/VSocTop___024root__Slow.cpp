@@ -1421,22 +1421,21 @@ void VSocTop___024root___settle__TOP__2(VSocTop___024root* vlSelf) {
     }
     if (((8U == (IData)(vlSelf->SocTop__DOT__d_cache3__DOT__state_dread)) 
          & (~ (IData)(vlSelf->SocTop__DOT__arbitrate_d_ok)))) {
-        vlSelf->SocTop__DOT__d_cache3__DOT__dirty_out_data 
-            = ((vlSelf->SocTop__DOT__d_cache3__DOT__dirty1
-                [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                   >> 3U)))] & (vlSelf->SocTop__DOT__d_cache3__DOT__counter1
-                                                [(0x3fU 
-                                                  & (IData)(
-                                                            (vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                                             >> 3U)))] 
-                                                >= 
-                                                vlSelf->SocTop__DOT__d_cache3__DOT__counter2
-                                                [(0x3fU 
-                                                  & (IData)(
-                                                            (vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                                             >> 3U)))]))
-                ? vlSelf->SocTop__DOT__d_cache3__DOT__u_data0__DOT__out_data
-                : ((vlSelf->SocTop__DOT__d_cache3__DOT__dirty2
+        if ((vlSelf->SocTop__DOT__d_cache3__DOT__dirty1
+             [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                >> 3U)))] & (vlSelf->SocTop__DOT__d_cache3__DOT__counter1
+                                             [(0x3fU 
+                                               & (IData)(
+                                                         (vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                                          >> 3U)))] 
+                                             >= vlSelf->SocTop__DOT__d_cache3__DOT__counter2
+                                             [(0x3fU 
+                                               & (IData)(
+                                                         (vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                                          >> 3U)))]))) {
+            vlSelf->SocTop__DOT__d_cache3__DOT__dirty_out_data 
+                = vlSelf->SocTop__DOT__d_cache3__DOT__u_data0__DOT__out_data;
+        } else if ((vlSelf->SocTop__DOT__d_cache3__DOT__dirty2
                     [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
                                        >> 3U)))] & 
                     (vlSelf->SocTop__DOT__d_cache3__DOT__counter1
@@ -1444,9 +1443,10 @@ void VSocTop___024root___settle__TOP__2(VSocTop___024root* vlSelf) {
                                         >> 3U)))] < 
                      vlSelf->SocTop__DOT__d_cache3__DOT__counter2
                      [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                        >> 3U)))]))
-                    ? vlSelf->SocTop__DOT__d_cache3__DOT__u_data1__DOT__out_data
-                    : 0ULL));
+                                        >> 3U)))]))) {
+            vlSelf->SocTop__DOT__d_cache3__DOT__dirty_out_data 
+                = vlSelf->SocTop__DOT__d_cache3__DOT__u_data1__DOT__out_data;
+        }
     } else if (((IData)(vlSelf->SocTop__DOT__arbitrate_d_ok) 
                 & (8U == (IData)(vlSelf->SocTop__DOT__d_cache3__DOT__state_dread)))) {
         vlSelf->SocTop__DOT__d_cache3__DOT__dirty_out_data = 0ULL;
@@ -1679,22 +1679,21 @@ void VSocTop___024root___settle__TOP__2(VSocTop___024root* vlSelf) {
     }
     if (((8U == (IData)(vlSelf->SocTop__DOT__d_cache3__DOT__state_dread)) 
          & (~ (IData)(vlSelf->SocTop__DOT__arbitrate_d_ok)))) {
-        vlSelf->SocTop__DOT__d_cache3__DOT__dirty_out_addr 
-            = ((vlSelf->SocTop__DOT__d_cache3__DOT__dirty1
-                [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                   >> 3U)))] & (vlSelf->SocTop__DOT__d_cache3__DOT__counter1
-                                                [(0x3fU 
-                                                  & (IData)(
-                                                            (vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                                             >> 3U)))] 
-                                                >= 
-                                                vlSelf->SocTop__DOT__d_cache3__DOT__counter2
-                                                [(0x3fU 
-                                                  & (IData)(
-                                                            (vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                                             >> 3U)))]))
-                ? (0xfffffffffffffff8ULL & vlSelf->SocTop__DOT__rvcpu_data_addr)
-                : ((vlSelf->SocTop__DOT__d_cache3__DOT__dirty2
+        if ((vlSelf->SocTop__DOT__d_cache3__DOT__dirty1
+             [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                >> 3U)))] & (vlSelf->SocTop__DOT__d_cache3__DOT__counter1
+                                             [(0x3fU 
+                                               & (IData)(
+                                                         (vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                                          >> 3U)))] 
+                                             >= vlSelf->SocTop__DOT__d_cache3__DOT__counter2
+                                             [(0x3fU 
+                                               & (IData)(
+                                                         (vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                                          >> 3U)))]))) {
+            vlSelf->SocTop__DOT__d_cache3__DOT__dirty_out_addr 
+                = (0xfffffffffffffff8ULL & vlSelf->SocTop__DOT__rvcpu_data_addr);
+        } else if ((vlSelf->SocTop__DOT__d_cache3__DOT__dirty2
                     [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
                                        >> 3U)))] & 
                     (vlSelf->SocTop__DOT__d_cache3__DOT__counter1
@@ -1702,9 +1701,10 @@ void VSocTop___024root___settle__TOP__2(VSocTop___024root* vlSelf) {
                                         >> 3U)))] < 
                      vlSelf->SocTop__DOT__d_cache3__DOT__counter2
                      [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                        >> 3U)))]))
-                    ? (0xfffffffffffffff8ULL & vlSelf->SocTop__DOT__rvcpu_data_addr)
-                    : 0ULL));
+                                        >> 3U)))]))) {
+            vlSelf->SocTop__DOT__d_cache3__DOT__dirty_out_addr 
+                = (0xfffffffffffffff8ULL & vlSelf->SocTop__DOT__rvcpu_data_addr);
+        }
     } else if (((IData)(vlSelf->SocTop__DOT__arbitrate_d_ok) 
                 & (8U == (IData)(vlSelf->SocTop__DOT__d_cache3__DOT__state_dread)))) {
         vlSelf->SocTop__DOT__d_cache3__DOT__dirty_out_addr = 0ULL;
@@ -1827,30 +1827,30 @@ void VSocTop___024root___settle__TOP__2(VSocTop___024root* vlSelf) {
     }
     if (((8U == (IData)(vlSelf->SocTop__DOT__d_cache3__DOT__state_dread)) 
          & (~ (IData)(vlSelf->SocTop__DOT__arbitrate_d_ok)))) {
-        vlSelf->SocTop__DOT__d_cache3__DOT__dirty_out_type 
-            = ((vlSelf->SocTop__DOT__d_cache3__DOT__dirty1
-                [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                   >> 3U)))] & (vlSelf->SocTop__DOT__d_cache3__DOT__counter1
-                                                [(0x3fU 
-                                                  & (IData)(
-                                                            (vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                                             >> 3U)))] 
-                                                >= 
-                                                vlSelf->SocTop__DOT__d_cache3__DOT__counter2
-                                                [(0x3fU 
-                                                  & (IData)(
-                                                            (vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                                             >> 3U)))]))
-                ? 1U : ((vlSelf->SocTop__DOT__d_cache3__DOT__dirty2
-                         [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                            >> 3U)))] 
-                         & (vlSelf->SocTop__DOT__d_cache3__DOT__counter1
-                            [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                               >> 3U)))] 
-                            < vlSelf->SocTop__DOT__d_cache3__DOT__counter2
-                            [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
-                                               >> 3U)))]))
-                         ? 1U : 0U));
+        if ((vlSelf->SocTop__DOT__d_cache3__DOT__dirty1
+             [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                >> 3U)))] & (vlSelf->SocTop__DOT__d_cache3__DOT__counter1
+                                             [(0x3fU 
+                                               & (IData)(
+                                                         (vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                                          >> 3U)))] 
+                                             >= vlSelf->SocTop__DOT__d_cache3__DOT__counter2
+                                             [(0x3fU 
+                                               & (IData)(
+                                                         (vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                                          >> 3U)))]))) {
+            vlSelf->SocTop__DOT__d_cache3__DOT__dirty_out_type = 1U;
+        } else if ((vlSelf->SocTop__DOT__d_cache3__DOT__dirty2
+                    [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                       >> 3U)))] & 
+                    (vlSelf->SocTop__DOT__d_cache3__DOT__counter1
+                     [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                        >> 3U)))] < 
+                     vlSelf->SocTop__DOT__d_cache3__DOT__counter2
+                     [(0x3fU & (IData)((vlSelf->SocTop__DOT__rvcpu_data_addr 
+                                        >> 3U)))]))) {
+            vlSelf->SocTop__DOT__d_cache3__DOT__dirty_out_type = 1U;
+        }
     } else if (((IData)(vlSelf->SocTop__DOT__arbitrate_d_ok) 
                 & (8U == (IData)(vlSelf->SocTop__DOT__d_cache3__DOT__state_dread)))) {
         vlSelf->SocTop__DOT__d_cache3__DOT__dirty_out_type = 0U;
