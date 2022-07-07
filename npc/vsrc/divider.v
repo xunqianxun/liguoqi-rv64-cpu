@@ -67,7 +67,7 @@ always @(posedge clk ) begin
                     else begin
                         divider_t <= divider ;
                         dividend_t <= dividend ;
-                        sign     <= 1'b0    ; 
+                        sig n     <= 1'b0    ; 
                     end 
                 end
             end
@@ -105,7 +105,7 @@ always @(*) begin
         shang <= `ysyx22040228_ZEROWORD ;
     end 
     else if(finish) begin
-        if(sigin) begin
+        if(sign) begin
             yushu <= ~temp_a[127:64] + 1 ;
             shang <= ~temp_a[63:0]   + 1 ;
         end 
