@@ -166,11 +166,11 @@ module d_cache (
                 dirty_out_type = 4'b0001   ;
                 dirty_clean_t  = `ysyx22040228_ABLE ;
             end
-            else begin
-                dirty_out_addr = `ysyx22040228_ZEROWORD  ;
-                dirty_out_data = `ysyx22040228_ZEROWORD  ;
-                dirty_out_type  = 4'b0000                ;
-            end  
+            // else begin
+            //     dirty_out_addr = `ysyx22040228_ZEROWORD  ;
+            //     dirty_out_data = `ysyx22040228_ZEROWORD  ;
+            //     dirty_out_type  = 4'b0000                ;
+            // end  
         end 
         else if((in_dcache_ready) && (state_dread == `ysyx22040228_DIRTY)) begin
             dirty_out_addr = `ysyx22040228_ZEROWORD  ;
