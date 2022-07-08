@@ -10,7 +10,7 @@
 void VSocTop___024root___combo__TOP__3(VSocTop___024root* vlSelf);
 void VSocTop___024root___sequent__TOP__4(VSocTop___024root* vlSelf);
 void VSocTop___024root___sequent__TOP__5(VSocTop___024root* vlSelf);
-void VSocTop___024root___combo__TOP__6(VSocTop___024root* vlSelf);
+void VSocTop___024root___combo__TOP__7(VSocTop___024root* vlSelf);
 
 void VSocTop___024root___eval(VSocTop___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
@@ -18,13 +18,11 @@ void VSocTop___024root___eval(VSocTop___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    VSocTop___024root___eval\n"); );
     // Body
     VSocTop___024root___combo__TOP__3(vlSelf);
-    vlSelf->__Vm_traceActivity[1U] = 1U;
     if (((IData)(vlSelf->clk) & (~ (IData)(vlSelf->__Vclklast__TOP__clk)))) {
         VSocTop___024root___sequent__TOP__4(vlSelf);
-        vlSelf->__Vm_traceActivity[2U] = 1U;
         VSocTop___024root___sequent__TOP__5(vlSelf);
     }
-    VSocTop___024root___combo__TOP__6(vlSelf);
+    VSocTop___024root___combo__TOP__7(vlSelf);
     // Final
     vlSelf->__Vclklast__TOP__clk = vlSelf->clk;
 }
