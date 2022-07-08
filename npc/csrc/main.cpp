@@ -215,8 +215,8 @@ while(ddy){
     rvcpu->clk = 1;
     rvcpu->eval();
     if(rvcpu->read_ena_sign_ == 1){
-      //  printf("read\n");
-      //  printf("addr == %lx\n",rvcpu->out_addr_outp);
+        printf("npc_pc : \n", cpu.pc)
+        printf("addraddr : %lx\n",rvcpu->out_addr_outp);
       if(rvcpu->out_addr_outp != 0){
 
       rvcpu->read_data_sign_ = vaddr_read(rvcpu->out_addr_outp, 8);
@@ -224,7 +224,7 @@ while(ddy){
     }
     if(rvcpu->out_write_ram_ena == 1){
       if(rvcpu->out_write_ram_addr != 0){
-      printf("write = %lx\n", rvcpu->out_write_ram_addr);
+      printf("writeaddr : %lx\n", rvcpu->out_write_ram_addr);
       vaddr_write(rvcpu->out_write_ram_addr, 8, rvcpu->out_write_ram_data);
       }
     }
