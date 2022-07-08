@@ -213,7 +213,7 @@ module d_cache (
                 missr_out_resp  = 1'b1              ;
                 missr_i_ok      = `ysyx22040228_ABLE;
             end 
-            if(counter1[dcache_index] >= counter2[dcache_index]) begin
+            else if(counter1[dcache_index] >= counter2[dcache_index]) begin
                 missr_data_ena1 = 8'b11111111       ;
                 missr_tag_ena1  = `ysyx22040228_ABLE;
                 missr_out_resp  = 1'b1              ;
@@ -400,7 +400,7 @@ module d_cache (
                 missw_out_resp  = 1'b1              ;
                 missw_i_ok      = `ysyx22040228_ABLE;
             end 
-            if(counter1[dcache_index] >= counter2[dcache_index]) begin
+            else if(counter1[dcache_index] >= counter2[dcache_index]) begin
                 missw_data_ena1 = 8'b11111111       ;
                 missw_tag_ena1  = `ysyx22040228_ABLE;
                 missw_out_resp  = 1'b1              ;

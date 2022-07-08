@@ -162,12 +162,12 @@ module i_cache (
             if(i_tag_user1 == `ysyx22040228_ENABLE)begin
                 miss_ena_o = `ysyx22040228_ABLE  ; 
             end 
-            else if(i_counter1[icache_index] >= i_counter2[icache_index])begin
-                miss_ena_o = `ysyx22040228_ABLE  ;
-            end
             else if(i_tag_user2 == `ysyx22040228_ENABLE) begin
                 miss_ena_t = `ysyx22040228_ABLE  ;
-            end    
+            end 
+            else if(i_counter1[icache_index] >= i_counter2[icache_index])begin
+                miss_ena_o = `ysyx22040228_ABLE  ;
+            end   
             else if(i_counter1[icache_index] < i_counter2[icache_index]) begin
                 miss_ena_t = `ysyx22040228_ABLE  ;
             end
