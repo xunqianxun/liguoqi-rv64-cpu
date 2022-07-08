@@ -237,7 +237,7 @@ module i_cache (
             i_counter1[icache_index] <= 3'b0 ;
         if(((state_inst == `ysyx22040228_I_HIT) && ((i_tag_data2 == icache_tag) && (i_tag_user2 == `ysyx22040228_ABLE))) || (miss_ena_t))
             i_counter2[icache_index] <= 3'b0 ;
-        if(icache_if_shankhand) begin
+        if(icache_if_shankhand && inst_valid) begin
 		    for(i = 0;i<64;i=i+1) begin
 			   i_counter1[i][2:0] <= (i_counter1[i] == 3'd7) ? 3'd7 : i_counter1[i][2:0] + 1'b1;
                i_counter2[i][2:0] <= (i_counter2[i] == 3'd7) ? 3'd7 : i_counter2[i][2:0] + 1'b1;
