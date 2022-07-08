@@ -207,6 +207,7 @@ if((main_time % 10) == 9){
 extern void isa_exec_once(int y){
 int ddy ;
 ddy = y;
+printf("npc_pc : %lx\n", cpu.pc);
 while(ddy){
   if(main_time > 11) {
     rvcpu->rst = 0 ;
@@ -215,7 +216,6 @@ while(ddy){
     rvcpu->clk = 1;
     rvcpu->eval();
     if(rvcpu->read_ena_sign_ == 1){
-        printf("npc_pc : %lx\n", cpu.pc);
         printf("addraddr : %lx\n",rvcpu->out_addr_outp);
       if(rvcpu->out_addr_outp != 0){
 
