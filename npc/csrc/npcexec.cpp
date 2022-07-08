@@ -85,9 +85,6 @@ static void execute(uint64_t n) {
   for (;n > 0; n --) {
     exec_once(&s, cpu.pc);
     g_nr_guest_inst ++;
-    if(difftest_ena == 1){
-    printf("cpu_pc : %lx \n", cpu.pc) ;
-    }
     //trace_and_difftest(&s, cpu.pc);
     if (npc_state.state != NEMU_RUNNING) break;
     IFDEF(CONFIG_DEVICE, device_update());
