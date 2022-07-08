@@ -238,7 +238,7 @@ while(ddy){
   }
 
   rvcpu->eval();
-  tfp->dump(main_time);
+  //tfp->dump(main_time);
   main_time++;
 }
 }
