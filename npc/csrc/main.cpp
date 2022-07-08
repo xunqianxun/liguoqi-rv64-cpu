@@ -215,7 +215,7 @@ while(ddy){
     rvcpu->clk = 1;
     rvcpu->eval();
     if(rvcpu->read_ena_sign_ == 1){
-        printf("npc_pc : \n", cpu.pc)
+        printf("npc_pc : %lx\n", cpu.pc);
         printf("addraddr : %lx\n",rvcpu->out_addr_outp);
       if(rvcpu->out_addr_outp != 0){
 
