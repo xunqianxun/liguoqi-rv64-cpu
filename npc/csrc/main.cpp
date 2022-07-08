@@ -207,7 +207,6 @@ if((main_time % 10) == 9){
 extern void isa_exec_once(int y){
 int ddy ;
 ddy = y;
-printf("npc_pc : %lx\n", cpu.pc);
 while(ddy){
   if(main_time > 11) {
     rvcpu->rst = 0 ;
