@@ -48,7 +48,7 @@
 `define AXI_SIZE_BYTES_64                                   3'b110
 `define AXI_SIZE_BYTES_128                                  3'b111
 
-module time_axi (
+module clint (
     input    wire                                      clk                ,
     input    wire                                      rst                ,
     output   wire                                      time_interrupt     ,
