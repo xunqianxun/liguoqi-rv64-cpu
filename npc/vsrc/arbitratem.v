@@ -72,6 +72,14 @@ module arbitratem (
     /* verilator lint_on UNUSED */
     output      reg        [63:0]                            d_cache_data_o       ,
     output      wire                                         d_cache_valid_       ,
+    //----------------------------uncache----------------------------------------//
+    input       wire       [63:0]                            uncache_addr         ,
+    input       wire       [63:0]                            uncache_data         ,
+    input       wire                                         uncache_read_ena     ,
+    input       wire                                         uncache_write_ena    ,
+    input       wire       [7:0]                             uncache_mask         ,
+    output      reg        [63:0]                            uncahce_data_o       ,
+    output      wire                                         uncahce_valid_       ,
     //----------------------------i_cache----------------------------------------//
     input       wire       [63:0]                            i_cache_addr         ,
     input       wire                                         i_cache_ena          ,
@@ -129,10 +137,14 @@ module arbitratem (
     wire    read_dcache_shankhand  ;
     wire    write_dcache_shankhand ;
     wire    read_icache_shankhand  ;
+    wire    read_uncahce_shankhand ;
+    wire    write_uncahce_shankhand;
 
+    assign read_uncahce_shankhand  =  (~read_icache_shankhand) && (uncache_read_ena) ;
+    assign write_uncahce_shankhand =  (~read_icache_shankhand) && (uncache_write_ena);
     assign read_dcache_shankhand   =  (~read_icache_shankhand) && ((d_cache_type == 4'b0010) || (d_cache_type == 4'b1000));
     assign write_dcache_shankhand  =  (~read_icache_shankhand) && ((d_cache_type == 4'b0001) || (d_cache_type == 4'b0100)); 
-    assign read_icache_shankhand   =  (d_cache_type == 4'b0000) && i_cache_ena ;
+    assign read_icache_shankhand   =  ((d_cache_type == 4'b0000) | (~uncache_read_ena) | (~uncache_write_ena)) && i_cache_ena ;
 
     reg  [2:0]    arbitrate_state ;
     reg  [2:0]    arbitrate_state_nxt ;
@@ -150,9 +162,9 @@ module arbitratem (
     always @(*) begin
         case (arbitrate_state)
             `ysyx22040228_ARB_IDLE : begin
-                if(read_dcache_shankhand)
+                if(read_dcache_shankhand | read_uncahce_shankhand)
                     arbitrate_state_nxt = `ysyx22040228_ARB_DREAD ;
-                else if(write_dcache_shankhand)
+                else if(write_dcache_shankhand | write_uncahce_shankhand)
                     arbitrate_state_nxt = `ysyx22040228_ARB_DWRITE;
                 else if(read_icache_shankhand)
                     arbitrate_state_nxt = `ysyx22040228_ARB_IREAD ;
@@ -201,6 +213,7 @@ module arbitratem (
     assign dread_success = (axi_r_id == 4'b0001) && dread_r_ready && axi_r_valid && axi_r_last && (axi_r_resp == 2'b00) ;
     always @(posedge clk) begin
         if(dread_success) begin
+            if(read_dcache_shankhand) begin
             dread_ar_id      <= 4'b0001             ;
             dread_ar_addr    <= `ysyx22040228_ZEROWORD   ;
             dread_ar_len     <= 8'b0                ;
@@ -213,11 +226,27 @@ module arbitratem (
             dread_ok         <=  `ysyx22040228_ABLE ;
             d_cache_data_o   <= axi_r_data          ;
             dread_cache_valid<= `ysyx22040228_ABLE  ;
+            end 
+            else begin
+            dread_ar_id      <= 4'b0001             ;
+            dread_ar_addr    <= `ysyx22040228_ZEROWORD   ;
+            dread_ar_len     <= 8'b0                ;
+            dread_ar_size    <= `AXI_SIZE_BYTES_8   ;
+            dread_ar_burst   <= `AXI_BURST_TYPE_INCR;
+            dread_ar_cache   <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
+            dread_ar_prot    <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
+            dread_ar_qos     <= 4'h0                ;
+            dread_ar_valid   <= `ysyx22040228_ENABLE ;
+            dread_ok         <=  `ysyx22040228_ABLE ;
+            uncahce_data_o   <= axi_r_data          ;
+            dread_cache_valid<= `ysyx22040228_ABLE  ;
+            end 
         end 
         else if(dread_arshankhand) begin
             dread_ar_valid   <= `ysyx22040228_ENABLE ;
         end 
         else if(arbitrate_state == `ysyx22040228_ARB_DREAD) begin
+            if(read_dcache_shankhand) begin
             dread_ar_id      <= 4'b0001             ;
             dread_ar_addr    <= d_cache_addr        ;
             dread_ar_len     <= 8'b0                ;
@@ -227,10 +256,23 @@ module arbitratem (
             dread_ar_prot    <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
             dread_ar_qos     <= 4'h0                ;
             dread_ar_valid   <= `ysyx22040228_ABLE  ;
+            end 
+            else begin
+            dread_ar_id      <= 4'b0001             ;
+            dread_ar_addr    <= {uncache_addr[63:3], 3'b000}        ;
+            dread_ar_len     <= 8'b0                ;
+            dread_ar_size    <= `AXI_SIZE_BYTES_8   ;
+            dread_ar_burst   <= `AXI_BURST_TYPE_INCR;
+            dread_ar_cache   <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
+            dread_ar_prot    <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
+            dread_ar_qos     <= 4'h0                ;
+            dread_ar_valid   <= `ysyx22040228_ABLE  ;
+            end 
         end 
         else begin
             dread_ok         <= `ysyx22040228_ENABLE   ;
             d_cache_data_o   <= `ysyx22040228_ZEROWORD ;
+            uncahce_data_o   <= `ysyx22040228_ZEROWORD ;
             dread_cache_valid<= `ysyx22040228_ENABLE   ;
         end 
     end
@@ -325,6 +367,7 @@ module arbitratem (
             dwrite_w_valid      <= `ysyx22040228_ENABLE;
         end 
         else if(arbitrate_state == `ysyx22040228_ARB_DWRITE) begin
+            if(write_dcache_shankhand) begin
             dwrite_aw_id        <= 4'b0001           ;
             dwrite_aw_addr      <= d_cache_addr      ;
             dwrite_aw_len       <= 8'd0              ;
@@ -338,6 +381,22 @@ module arbitratem (
             dwrite_w_strb       <= 8'b11111111       ;
             dwrite_w_last       <= `ysyx22040228_ABLE;
             dwrite_w_valid      <= `ysyx22040228_ABLE;
+            end 
+            else begin
+            dwrite_aw_id        <= 4'b0001           ;
+            dwrite_aw_addr      <= {uncache_addr[63:3], 3'b000}      ;
+            dwrite_aw_len       <= 8'd0              ;
+            dwrite_aw_size      <= `AXI_SIZE_BYTES_8 ;
+            dwrite_aw_burst     <= `AXI_BURST_TYPE_INCR;
+            dwrite_aw_cache     <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
+            dwrite_aw_port      <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
+            dwrite_aw_qos       <= 4'h0              ;
+            dwrite_aw_valid     <= `ysyx22040228_ABLE;
+            dwrite_w_data       <= uncache_data      ;
+            dwrite_w_strb       <= uncache_mask      ;
+            dwrite_w_last       <= `ysyx22040228_ABLE;
+            dwrite_w_valid      <= `ysyx22040228_ABLE;
+            end 
         end 
         else begin
             dwrite_cache_valid  <= `ysyx22040228_ENABLE;
@@ -346,9 +405,13 @@ module arbitratem (
     end
 
 
-    assign d_cache_valid_ = (arbitrate_state == `ysyx22040228_ARB_DREAD)  ? dread_cache_valid  : 
-                            (arbitrate_state == `ysyx22040228_ARB_DWRITE) ? dwrite_cache_valid :
-                                                                            `ysyx22040228_ENABLE;
+    assign d_cache_valid_ = ((arbitrate_state == `ysyx22040228_ARB_DREAD) && (read_dcache_shankhand))   ? dread_cache_valid  : 
+                            ((arbitrate_state == `ysyx22040228_ARB_DWRITE) && (write_dcache_shankhand)) ? dwrite_cache_valid :
+                                                                                                         `ysyx22040228_ENABLE;
+    assign uncahce_valid_ = ((arbitrate_state == `ysyx22040228_ARB_DREAD) && (read_uncahce_shankhand))   ? dread_cache_valid  : 
+                            ((arbitrate_state == `ysyx22040228_ARB_DWRITE) && (write_uncahce_shankhand)) ? dwrite_cache_valid :
+                                                                                                          `ysyx22040228_ENABLE;
+
     assign i_cache_valid_ = iread_cache_valid ;
 
     assign axi_aw_id      = dwrite_aw_id      ;

@@ -80,6 +80,21 @@ module SocTop (
     wire            rvcpu_re         ;
     wire            core_stall_l     ;
 
+    wire  [63:0]    uncahce_arb_data ;
+    wire  [63:0]    uncache_arb_addr ;
+    wire  [7:0]     uncache_arb_mask ;
+    wire  [63:0]    uncache_arb_data_o;
+    wire            uncache_arb_we   ;
+    wire            uncahce_arb_re   ;
+    wire            uncahce_arb_finish;
+    wire  [63:0]    uncahce_dc_data ;
+    wire  [63:0]    uncache_dc_addr ;
+    wire  [7:0]     uncache_dc_mask ;
+    wire  [63:0]    uncache_dc_data_o;
+    wire            uncache_dc_we   ;
+    wire            uncahce_dc_re   ;
+    wire            uncahce_dc_finish;    
+
     wire  [31:0]    i_cache_inst_data;
     wire            i_cache_inst_valid;
     wire            i_cache_read_ena ;
@@ -374,6 +389,35 @@ module SocTop (
 
     );
 
+    wire [2:0] mmio_thing ;
+    uncache_mmio uncache_mmio7(
+        .mmio_sign           (mmio_thing          ) ,
+
+        .core_addr           (rvcpu_data_addr     ) ,
+        .core_data           (rvcpu_wmask         ) ,
+        .core_mask           (rvcpu_data_o        ) ,
+        .core_we             (d_cache_data_out    ) ,
+        .core_re             (rvcpu_we            ) ,
+        .in_core_data        (rvcpu_re            ) ,
+        .in_core_finish      (d_cache_mem_finish  ) ,
+
+        .arb_addr            (uncahce_arb_addr    ) ,
+        .arb_data            (uncahce_arb_data    ) ,
+        .arb_mask            (uncahce_arb_mask    ) ,
+        .arb_we              (uncahce_arb_we      ) ,
+        .arb_re              (uncahce_arb_re      ) ,
+        .in_arb_data         (uncache_arb_data_o  ) ,
+        .in_arb_finish       (uncahce_arb_finish  ) ,
+
+        .dcache_addr         (uncahce_dc_addr     ) ,
+        .dcache_data         (uncahce_dc_data     ) ,
+        .dcache_mask         (uncache_dc_mask     ) ,
+        .dcache_we           (uncache_dc_we       ) ,
+        .dcache_re           (uncahce_dc_re       ) ,
+        .in_dcache_data      (uncache_dc_data_o   ) ,
+        .in_dcache_finish    (uncahce_dc_finish   )
+    );
+
     i_cache i_cache2 (
         .clk                 (aclk                ) ,
         .rst                 (rst                 ) ,
@@ -394,13 +438,13 @@ module SocTop (
         .clk                 (aclk               ) ,
         .rst                 (rst                ) ,
 
-        .mem_addr_i          (rvcpu_data_addr    ) ,
-        .mem_data_i          (rvcpu_data_o       ) ,
-        .mem_strb_i          (rvcpu_wmask        ) ,
-        .mem_read_valid      (rvcpu_re           ) ,
-        .mem_write_valid     (rvcpu_we           ) ,
-        .mem_data_out        (d_cache_data_out   ) ,
-        .mem_data_ready      (d_cache_mem_finish ) ,
+        .mem_addr_i          (uncahce_dc_addr    ) ,
+        .mem_data_i          (uncahce_dc_data    ) ,
+        .mem_strb_i          (uncache_dc_mask    ) ,
+        .mem_read_valid      (uncahce_dc_re      ) ,
+        .mem_write_valid     (uncahce_dc_we      ) ,
+        .mem_data_out        (uncache_dc_data_o  ) ,
+        .mem_data_ready      (uncahce_dc_finish  ) ,
 
         .in_dcache_data      (arbitrate_d_data   ) ,
         .in_dcache_ready     (arbitrate_d_ok     ) ,
@@ -421,6 +465,14 @@ module SocTop (
         .d_cache_resp        (d_cache_out_resp   ) ,
         .d_cache_data_o      (arbitrate_d_data   ) ,
         .d_cache_valid_      (arbitrate_d_ok     ) ,
+
+        .uncache_addr        (uncahce_arb_addr   ) ,
+        .uncache_data        (uncahce_arb_data   ) ,
+        .uncache_read_ena    (uncahce_arb_re     ) ,
+        .uncache_write_ena   (uncahce_arb_we     ) ,
+        .uncache_mask        (uncahce_arb_mask   ) ,
+        .uncahce_data_o      (uncache_arb_data_o ) ,
+        .uncahce_valid_      (uncahce_arb_finish ) ,
 
         .i_cache_addr        (i_cache_addr       ) ,
         .i_cache_ena         (i_cache_read_ena   ) ,
@@ -537,13 +589,14 @@ module SocTop (
         .write_ram_data      (write_data_sign    ) ,
         .write_ram_addr      (write_addr_sign    )     
     );
-    wire   [2:0]   prot_chose_write = 3'b100 ;
+    wire   [2:0]   prot_chose_write;// = 3'b100 ;
     //assign prot_chose_write = ((t_axi_aw_addr == `ysyx22040228_MTIMECMP) || (t_axi_aw_addr == `ysyx22040228_MTIME)) ? 3'b010 :
     //                                                                                                                  3'b100 ;
-    wire   [2:0]   prot_chose_read  = 3'b100 ;
+    assign prot_chose_write = mmio_thing ;
+    wire   [2:0]   prot_chose_read ;// = 3'b100 ;
     //assign prot_chose_read  = ((t_axi_ar_addr == `ysyx22040228_MTIMECMP) || (t_axi_ar_addr == `ysyx22040228_MTIME)) ? 3'b010 :
     //                                                                                                                  3'b100 ;
-
+    assign prot_chose_write = mmio_thing;
     soc_axi4 soc_axi45 (
         .clk                 (aclk               ) ,
         .rst                 (rst               ) ,
