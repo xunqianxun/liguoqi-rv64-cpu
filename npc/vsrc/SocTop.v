@@ -12,6 +12,7 @@ Function:top module of this soc
 `include "./vsrc/rvcpu.v"
 `include "./vsrc/defines_axi4.v"
 `include "./vsrc/defines.v"
+`include "./vsrc/uncahce_mmio.v"
 module SocTop (
     input            wire                                    clk                 ,
     input            wire                                    rst                  ,
