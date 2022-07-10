@@ -8,7 +8,7 @@ Function:top module of this soc
 `include "./vsrc/i_cache.v"
 `include "./vsrc/axi_mnq.v"
 `include "./vsrc/soc_axi4.v"
-`include "./vsrc/time_axi.v"
+`include "./vsrc/clint.v"
 `include "./vsrc/rvcpu.v"
 `include "./vsrc/defines_axi4.v"
 `include "./vsrc/defines.v"
@@ -633,7 +633,7 @@ module SocTop (
         .slave_axi_r_ready   (add_axi_r_ready   ) 
     );
 
-    time_axi time_axi6 (
+    clint clint6 (
         .clk                 (aclk              ) ,
         .rst                 (rst               ) ,
         .time_interrupt      (time_init_sign    ) ,
