@@ -448,6 +448,7 @@ VL_MODULE(VSocTop___024root) {
         QData/*63:0*/ SocTop__DOT__d_cache3__DOT__dirtyw_out_data;
         QData/*63:0*/ SocTop__DOT__d_cache3__DOT__missw_out_addr;
         QData/*63:0*/ SocTop__DOT__d_cache3__DOT__in_rem_data1;
+        QData/*63:0*/ SocTop__DOT__d_cache3__DOT__in_ram_data2;
         QData/*54:0*/ SocTop__DOT__d_cache3__DOT__u_tag0__DOT__out_data;
         QData/*54:0*/ SocTop__DOT__d_cache3__DOT__u_tag1__DOT__out_data;
         QData/*63:0*/ SocTop__DOT__d_cache3__DOT__u_data0__DOT__out_data;
@@ -876,11 +877,12 @@ VL_MODULE(VSocTop___024root) {
         CData/*5:0*/ __Vdlyvlsb__SocTop__DOT__d_cache3__DOT__u_data1__DOT__ram__v7;
         CData/*7:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__u_data1__DOT__ram__v7;
         CData/*0:0*/ __Vdlyvset__SocTop__DOT__d_cache3__DOT__u_data1__DOT__ram__v7;
+        CData/*0:0*/ __Vdly__SocTop__DOT__arbitratem4__DOT__dwrite_ok;
         CData/*0:0*/ __Vclklast__TOP__clk;
         CData/*0:0*/ __Vchglast__TOP__SocTop__DOT__arbitrate_d_ok;
-        SData/*11:0*/ __Vdly__SocTop__DOT__rvcpu1__DOT__idex_ex_offset;
     };
     struct {
+        SData/*11:0*/ __Vdly__SocTop__DOT__rvcpu1__DOT__idex_ex_offset;
         IData/*31:0*/ __Vdly__SocTop__DOT__rvcpu1__DOT__if_id_inst;
         VlWide<4>/*127:0*/ __Vdly__SocTop__DOT__rvcpu1__DOT__ex5__DOT__multiplier1__DOT__multiplcand;
         QData/*63:0*/ __Vdly__SocTop__DOT__rvcpu_inst_addr;
