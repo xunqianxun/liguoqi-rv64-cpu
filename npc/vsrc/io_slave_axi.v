@@ -65,7 +65,9 @@ module io_slave_axi (
 
     //write data channel
     input    wire     [`ysyx22040228_DATA_BUS ]        ioe_axi_w_data    ,
+    /* verilator lint_off UNUSED */
     input    wire     [`ysyx22040228_STRB_BUS ]        ioe_axi_w_strb    ,
+    /* verilator lint_on UNUSED */
     input    wire                                      ioe_axi_w_last    ,
     input    wire                                      ioe_axi_w_valid   ,
     output   wire                                      ioe_axi_w_ready   ,
@@ -77,6 +79,7 @@ module io_slave_axi (
     input    wire                                      ioe_axi_b_ready   ,
 
     //read address channel
+    /* verilator lint_off UNUSED */
     input    wire     [`ysyx22040228_ID_BUS   ]        ioe_axi_ar_id     ,
     input    wire     [`ysyx22040228_ADDR_BUS ]        ioe_axi_ar_addr   ,
     input    wire     [`ysyx22040228_LEN_BUS  ]        ioe_axi_ar_len    ,
@@ -87,6 +90,7 @@ module io_slave_axi (
     input    wire     [`ysyx22040228_QOS_BUS  ]        ioe_axi_ar_qos    ,
     input    wire                                      ioe_axi_ar_valid  ,
     output   wire                                      ioe_axi_ar_ready  ,
+    /* verilator lint_on UNUSED */
 
     //read data channel
     output   wire     [`ysyx22040228_ID_BUS   ]        ioe_axi_r_id      ,
