@@ -12,7 +12,7 @@ IMG_NPC?= /home/mulin/oscpu/bin/custom-output/rt-thread/rtthread.bin
 IMGE_FLAGS?= 
 LINK= -LDFLAGS "-ldl"
 LINEREAD=-LDFLAGS "-lreadline"
-LINKDEBUG=-CPPFLAGS=-DVL_DEBUG
+LINKDEBUG=--prof-cfuncs -CFLAGS -DVL_DEBUG
 VERILAGS= -Wall
 #VERILAGS+= --trace
 VERILAGS+= --cc
