@@ -19,7 +19,7 @@
 using namespace std;
 
 VSocTop* rvcpu ;
-VerilatedVcdC* tfp;
+//VerilatedVcdC* tfp;
 VerilatedContext* contextp;
 
 uint32_t ifetch(uint64_t addr, int len);
@@ -98,9 +98,9 @@ contextp = new VerilatedContext ;
 contextp->commandArgs(argc, argv) ;
 rvcpu = new VSocTop(contextp);
 Verilated::traceEverOn(true) ; //out vcd need
-tfp = new VerilatedVcdC ; // out vcd need
+//tfp = new VerilatedVcdC ; // out vcd need
 rvcpu->trace(tfp,0) ;
-tfp->open("obj_dir/SocTop.vcd") ; // open vcd
+//tfp->open("obj_dir/SocTop.vcd") ; // open vcd
 rvcpu->rst = 1;
 init_monitor(argc, argv);
 
@@ -113,7 +113,7 @@ is_exit_status_bad();
 //close npc function
 
 extern int close_npc(){
-tfp->close() ;
+//tfp->close() ;
 delete rvcpu ;
 delete contextp ;
 exit(0) ;
@@ -249,7 +249,7 @@ while(ddy){
   }
 
   rvcpu->eval();
-  tfp->dump(main_time);
+  //tfp->dump(main_time);
   main_time++;
 }
 }
