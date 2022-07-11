@@ -352,13 +352,13 @@ module arbitratem (
     assign dwrite_awshankhand = dwrite_aw_valid && axi_aw_ready ;
     assign dwrite_wshankhand  = dwrite_w_valid  && axi_w_ready  ;
     assign dwrite_success     = dwrite_b_ready && axi_b_valid && (axi_b_id == 4'b0001) && (axi_b_resp == 2'b00) ;
-    reg    dwrite_ok   ;
+    reg    dwrite_ok_   ;
     always @(posedge clk) begin
         if(dwrite_success) begin
             dwrite_aw_valid     <= `ysyx22040228_ENABLE;
             dwrite_w_valid      <= `ysyx22040228_ENABLE;
             dwrite_cache_valid  <= `ysyx22040228_ABLE  ;
-            dwrite_ok           <= `ysyx22040228_ABLE  ;
+            dwrite_ok_           <= `ysyx22040228_ABLE  ;
         end 
         else if(dwrite_awshankhand && dwrite_wshankhand)begin
             dwrite_aw_valid     <= `ysyx22040228_ENABLE;
@@ -398,8 +398,13 @@ module arbitratem (
         end 
         else begin
             dwrite_cache_valid  <= `ysyx22040228_ENABLE;
-            dwrite_ok           <= `ysyx22040228_ENABLE;
+            dwrite_ok_           <= `ysyx22040228_ENABLE;
         end 
+    end
+    //delay because write core write finish 
+    reg   dwrite_ok ;
+    always @(posedge clk) begin
+        dwrite_ok <= dwrite_ok_ ;
     end
 
 
