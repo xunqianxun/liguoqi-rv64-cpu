@@ -1,10 +1,15 @@
 #include <am.h>
 
+uint32_t boot_time;
 void __am_timer_init() {
+boot_time = inl(RTC_ADDR);
 }
-
 void __am_timer_uptime(AM_TIMER_UPTIME_T *uptime) {
-  uptime->us = 0;
+uint64_t time;
+uint32_t time_hie;
+time_hie = inlm(RTC_ADDR) - boot_time;
+time = time_hie;
+uptime->us = time;
 }
 
 void __am_timer_rtc(AM_TIMER_RTC_T *rtc) {
