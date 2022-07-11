@@ -21,10 +21,15 @@ VL_MODULE(VSocTop___024root) {
     VL_IN8(rst,0,0);
     VL_OUT8(read_ena_sign_,0,0);
     VL_OUT8(out_write_ram_ena,0,0);
+    VL_OUT8(out_serial_write_,0,0);
+    VL_OUT8(out_rtc_read_,0,0);
     VL_OUT64(out_addr_outp,63,0);
     VL_INOUT64(read_data_sign_,63,0);
     VL_OUT64(out_write_ram_data,63,0);
     VL_OUT64(out_write_ram_addr,63,0);
+    VL_OUT64(out_slave_addr_,63,0);
+    VL_OUT64(out_serial_data_,63,0);
+    VL_IN64(in_rtc_data_,63,0);
 
     // LOCAL SIGNALS
     // Anonymous structures to workaround compiler member-count bugs
@@ -44,36 +49,22 @@ VL_MODULE(VSocTop___024root) {
         CData/*2:0*/ SocTop__DOT__t_axi_ar_prot;
         CData/*3:0*/ SocTop__DOT__t_axi_ar_qos;
         CData/*0:0*/ SocTop__DOT__t_axi_ar_valid;
-        CData/*3:0*/ SocTop__DOT__t_axi_r_id;
-        CData/*0:0*/ SocTop__DOT__t_axi_r_last;
-        CData/*0:0*/ SocTop__DOT__t_axi_r_valid;
         CData/*0:0*/ SocTop__DOT__t_axi_r_ready;
         CData/*5:0*/ SocTop__DOT__add_axi_aw_burst;
         CData/*2:0*/ SocTop__DOT__add_axi_aw_valid;
         CData/*2:0*/ SocTop__DOT__add_axi_w_last;
         CData/*2:0*/ SocTop__DOT__add_axi_w_valid;
-        CData/*5:0*/ SocTop__DOT__add_axi_b_resp;
         CData/*2:0*/ SocTop__DOT__add_axi_b_valid;
         CData/*2:0*/ SocTop__DOT__add_axi_b_ready;
         CData/*5:0*/ SocTop__DOT__add_axi_ar_burst;
         CData/*2:0*/ SocTop__DOT__add_axi_ar_valid;
-        CData/*5:0*/ SocTop__DOT__add_axi_r_resp;
         CData/*2:0*/ SocTop__DOT__add_axi_r_last;
         CData/*2:0*/ SocTop__DOT__add_axi_r_valid;
         CData/*2:0*/ SocTop__DOT__add_axi_r_ready;
         CData/*0:0*/ SocTop__DOT__soc_axi_ar_ready;
         CData/*0:0*/ SocTop__DOT__tim_axi_b_valid;
-        CData/*0:0*/ SocTop__DOT__io_axi_aw_ready;
-        CData/*0:0*/ SocTop__DOT__io_axi_w_ready;
-        CData/*3:0*/ SocTop__DOT__io_axi_b_id;
-        CData/*1:0*/ SocTop__DOT__io_axi_b_resp;
-        CData/*0:0*/ SocTop__DOT__io_axi_b_valid;
+        CData/*1:0*/ SocTop__DOT__tim_axi_r_resp;
         CData/*0:0*/ SocTop__DOT__io_axi_ar_ready;
-        CData/*3:0*/ SocTop__DOT__io_axi_r_id;
-        CData/*1:0*/ SocTop__DOT__io_axi_r_resp;
-        CData/*0:0*/ SocTop__DOT__io_axi_r_last;
-        CData/*0:0*/ SocTop__DOT__io_axi_r_valid;
-        CData/*2:0*/ SocTop__DOT__mmio_thing;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__ex_id_rd_ena;
         CData/*7:0*/ SocTop__DOT__rvcpu1__DOT__ex_id_rd_type;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__ex_pc_branchena;
@@ -93,8 +84,6 @@ VL_MODULE(VSocTop___024root) {
         CData/*4:0*/ SocTop__DOT__rvcpu1__DOT__idex_ex_rdaddr;
         CData/*2:0*/ SocTop__DOT__rvcpu1__DOT__idex_ex_sel;
         CData/*7:0*/ SocTop__DOT__rvcpu1__DOT__exmem_mem_type;
-    };
-    struct {
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__exmem_mem_ena;
         CData/*4:0*/ SocTop__DOT__rvcpu1__DOT__exmem_mem_addr;
         CData/*2:0*/ SocTop__DOT__rvcpu1__DOT__exmem_mem_sel;
@@ -109,6 +98,8 @@ VL_MODULE(VSocTop___024root) {
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__id3__DOT__inst_ebreak;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__op1_ls_op2;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__mul_finish_sign;
+    };
+    struct {
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__mul_ready;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__dr_ready;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__mul_div_req;
@@ -159,8 +150,6 @@ VL_MODULE(VSocTop___024root) {
         CData/*0:0*/ SocTop__DOT__d_cache3__DOT__dirty_clean_o;
         CData/*0:0*/ SocTop__DOT__d_cache3__DOT__dirty_clean_t;
         CData/*0:0*/ SocTop__DOT__d_cache3__DOT__missr_i_ok;
-    };
-    struct {
         CData/*3:0*/ SocTop__DOT__d_cache3__DOT__missr_out_type;
         CData/*7:0*/ SocTop__DOT__d_cache3__DOT__missr_data_ena1;
         CData/*0:0*/ SocTop__DOT__d_cache3__DOT__missr_tag_ena1;
@@ -175,6 +164,8 @@ VL_MODULE(VSocTop___024root) {
         CData/*3:0*/ SocTop__DOT__d_cache3__DOT__dirtyw_out_type;
         CData/*0:0*/ SocTop__DOT__d_cache3__DOT__dirtyw_clean_o;
         CData/*0:0*/ SocTop__DOT__d_cache3__DOT__dirtyw_clean_t;
+    };
+    struct {
         CData/*0:0*/ SocTop__DOT__d_cache3__DOT__missw_i_ok;
         CData/*3:0*/ SocTop__DOT__d_cache3__DOT__missw_out_type;
         CData/*7:0*/ SocTop__DOT__d_cache3__DOT__missw_data_ena1;
@@ -189,9 +180,6 @@ VL_MODULE(VSocTop___024root) {
         CData/*0:0*/ SocTop__DOT__d_cache3__DOT__u_tag1__DOT__out_vaild;
         CData/*0:0*/ SocTop__DOT__arbitratem4__DOT__read_dcache_shankhand;
         CData/*0:0*/ SocTop__DOT__arbitratem4__DOT__write_dcache_shankhand;
-        CData/*0:0*/ SocTop__DOT__arbitratem4__DOT__read_icache_shankhand;
-        CData/*0:0*/ SocTop__DOT__arbitratem4__DOT__read_uncahce_shankhand;
-        CData/*0:0*/ SocTop__DOT__arbitratem4__DOT__write_uncahce_shankhand;
         CData/*2:0*/ SocTop__DOT__arbitratem4__DOT__arbitrate_state;
         CData/*2:0*/ SocTop__DOT__arbitratem4__DOT__arbitrate_state_nxt;
         CData/*0:0*/ SocTop__DOT__arbitratem4__DOT__dread_success;
@@ -225,8 +213,6 @@ VL_MODULE(VSocTop___024root) {
         CData/*3:0*/ SocTop__DOT__arbitratem4__DOT__dwrite_aw_cache;
         CData/*2:0*/ SocTop__DOT__arbitratem4__DOT__dwrite_aw_port;
         CData/*3:0*/ SocTop__DOT__arbitratem4__DOT__dwrite_aw_qos;
-    };
-    struct {
         CData/*0:0*/ SocTop__DOT__arbitratem4__DOT__dwrite_aw_valid;
         CData/*7:0*/ SocTop__DOT__arbitratem4__DOT__dwrite_w_strb;
         CData/*0:0*/ SocTop__DOT__arbitratem4__DOT__dwrite_w_last;
@@ -244,8 +230,15 @@ VL_MODULE(VSocTop___024root) {
         CData/*1:0*/ SocTop__DOT__clint6__DOT__state_time_m_nxt;
         CData/*3:0*/ SocTop__DOT__clint6__DOT__time_reg_id;
         CData/*1:0*/ SocTop__DOT__clint6__DOT__time_reg_resp;
+    };
+    struct {
         CData/*1:0*/ SocTop__DOT__clint6__DOT__state_time_r;
         CData/*1:0*/ SocTop__DOT__clint6__DOT__state_time_r_nxt;
+        CData/*1:0*/ SocTop__DOT__io_slave_axi9__DOT__s_write_state;
+        CData/*1:0*/ SocTop__DOT__io_slave_axi9__DOT__s_write_state_nxt;
+        CData/*1:0*/ SocTop__DOT__io_slave_axi9__DOT__s_read_state;
+        CData/*1:0*/ SocTop__DOT__io_slave_axi9__DOT__s_read_state_nxt;
+        CData/*3:0*/ SocTop__DOT__io_slave_axi9__DOT__r_s_axi_ar_id;
         SData/*11:0*/ SocTop__DOT__add_axi_aw_id;
         SData/*8:0*/ SocTop__DOT__add_axi_aw_size;
         SData/*11:0*/ SocTop__DOT__add_axi_aw_cache;
@@ -286,13 +279,10 @@ VL_MODULE(VSocTop___024root) {
         QData/*63:0*/ SocTop__DOT__arbitrate_i_data;
         QData/*63:0*/ SocTop__DOT__t_axi_ar_addr;
         QData/*63:0*/ SocTop__DOT__t_axi_r_data;
-        QData/*63:0*/ SocTop__DOT__io_axi_r_data;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__if_id_pc;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex_id_rd_data;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__id_ex_op;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__mem_id_data;
-    };
-    struct {
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__wb_regfile_data;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__idex_ex_pc;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__idex_ex_op1;
@@ -306,6 +296,8 @@ VL_MODULE(VSocTop___024root) {
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__pc1__DOT__pc_id;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__op1_sub_op2;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__op1_add_op2;
+    };
+    struct {
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__op1_addw_op2;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__shift_res;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__sllw_res;
@@ -356,9 +348,9 @@ VL_MODULE(VSocTop___024root) {
         QData/*63:0*/ SocTop__DOT__clint6__DOT__csr_mtime_h;
         QData/*63:0*/ SocTop__DOT__clint6__DOT__csr_mtime_l_nxt;
         QData/*63:0*/ SocTop__DOT__clint6__DOT__csr_mtime_h_nxt;
+        QData/*63:0*/ SocTop__DOT__io_slave_axi9__DOT__write_data_reg;
+        QData/*63:0*/ SocTop__DOT__io_slave_axi9__DOT__write_addr_reg;
         VlUnpacked<QData/*63:0*/, 32> SocTop__DOT__rvcpu1__DOT__regfile10__DOT__regs;
-    };
-    struct {
         VlUnpacked<CData/*2:0*/, 64> SocTop__DOT__i_cache2__DOT__i_counter1;
         VlUnpacked<CData/*2:0*/, 64> SocTop__DOT__i_cache2__DOT__i_counter2;
         VlUnpacked<QData/*55:0*/, 64> SocTop__DOT__i_cache2__DOT__u_tag01__DOT__ram;
@@ -370,6 +362,8 @@ VL_MODULE(VSocTop___024root) {
         VlUnpacked<CData/*0:0*/, 64> SocTop__DOT__d_cache3__DOT__dirty1;
         VlUnpacked<CData/*0:0*/, 64> SocTop__DOT__d_cache3__DOT__dirty2;
         VlUnpacked<QData/*55:0*/, 64> SocTop__DOT__d_cache3__DOT__u_tag0__DOT__ram;
+    };
+    struct {
         VlUnpacked<QData/*55:0*/, 64> SocTop__DOT__d_cache3__DOT__u_tag1__DOT__ram;
         VlUnpacked<QData/*63:0*/, 64> SocTop__DOT__d_cache3__DOT__u_data0__DOT__ram;
         VlUnpacked<QData/*63:0*/, 64> SocTop__DOT__d_cache3__DOT__u_data1__DOT__ram;
@@ -460,6 +454,77 @@ VL_MODULE(VSocTop___024root) {
         CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter1__v127;
         CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter1__v128;
         CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter1__v129;
+        CData/*5:0*/ __Vdlyvdim0__SocTop__DOT__d_cache3__DOT__counter2__v64;
+        CData/*0:0*/ __Vdlyvset__SocTop__DOT__d_cache3__DOT__counter2__v64;
+        CData/*5:0*/ __Vdlyvdim0__SocTop__DOT__d_cache3__DOT__counter2__v65;
+        CData/*0:0*/ __Vdlyvset__SocTop__DOT__d_cache3__DOT__counter2__v65;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v66;
+        CData/*0:0*/ __Vdlyvset__SocTop__DOT__d_cache3__DOT__counter2__v66;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v67;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v68;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v69;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v70;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v71;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v72;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v73;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v74;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v75;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v76;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v77;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v78;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v79;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v80;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v81;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v82;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v83;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v84;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v85;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v86;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v87;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v88;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v89;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v90;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v91;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v92;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v93;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v94;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v95;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v96;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v97;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v98;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v99;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v100;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v101;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v102;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v103;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v104;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v105;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v106;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v107;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v108;
+    };
+    struct {
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v109;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v110;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v111;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v112;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v113;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v114;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v115;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v116;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v117;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v118;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v119;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v120;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v121;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v122;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v123;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v124;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v125;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v126;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v127;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v128;
+        CData/*2:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__counter2__v129;
         CData/*5:0*/ __Vdlyvdim0__SocTop__DOT__d_cache3__DOT__u_tag0__DOT__ram__v0;
         CData/*5:0*/ __Vdlyvlsb__SocTop__DOT__d_cache3__DOT__u_tag0__DOT__ram__v0;
         CData/*0:0*/ __Vdlyvset__SocTop__DOT__d_cache3__DOT__u_tag0__DOT__ram__v0;

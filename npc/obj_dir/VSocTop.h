@@ -33,6 +33,11 @@ class VSocTop VL_NOT_FINAL {
     VL_OUT8(&out_write_ram_ena,0,0);
     VL_OUT64(&out_write_ram_data,63,0);
     VL_OUT64(&out_write_ram_addr,63,0);
+    VL_OUT64(&out_slave_addr_,63,0);
+    VL_OUT64(&out_serial_data_,63,0);
+    VL_IN64(&in_rtc_data_,63,0);
+    VL_OUT8(&out_serial_write_,0,0);
+    VL_OUT8(&out_rtc_read_,0,0);
 
     // CELLS
     // Public to allow access to /* verilator public */ items.

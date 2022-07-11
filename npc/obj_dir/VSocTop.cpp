@@ -18,6 +18,11 @@ VSocTop::VSocTop(VerilatedContext* _vcontextp__, const char* _vcname__)
     , out_write_ram_ena{vlSymsp->TOP.out_write_ram_ena}
     , out_write_ram_data{vlSymsp->TOP.out_write_ram_data}
     , out_write_ram_addr{vlSymsp->TOP.out_write_ram_addr}
+    , out_slave_addr_{vlSymsp->TOP.out_slave_addr_}
+    , out_serial_data_{vlSymsp->TOP.out_serial_data_}
+    , in_rtc_data_{vlSymsp->TOP.in_rtc_data_}
+    , out_serial_write_{vlSymsp->TOP.out_serial_write_}
+    , out_rtc_read_{vlSymsp->TOP.out_rtc_read_}
     , rootp{&(vlSymsp->TOP)}
 {
 }
@@ -63,7 +68,7 @@ static void _eval_initial_loop(VSocTop__Syms* __restrict vlSymsp) {
             Verilated::debug(1);
             __Vchange = VSocTop___024root___change_request(&(vlSymsp->TOP));
             Verilated::debug(__Vsaved_debug);
-            VL_FATAL_MT("vsrc/SocTop.v", 16, "",
+            VL_FATAL_MT("vsrc/SocTop.v", 17, "",
                 "Verilated model didn't DC converge\n"
                 "- See https://verilator.org/warn/DIDNOTCONVERGE");
         } else {
@@ -93,7 +98,7 @@ void VSocTop::eval_step() {
             Verilated::debug(1);
             __Vchange = VSocTop___024root___change_request(&(vlSymsp->TOP));
             Verilated::debug(__Vsaved_debug);
-            VL_FATAL_MT("vsrc/SocTop.v", 16, "",
+            VL_FATAL_MT("vsrc/SocTop.v", 17, "",
                 "Verilated model didn't converge\n"
                 "- See https://verilator.org/warn/DIDNOTCONVERGE");
         } else {

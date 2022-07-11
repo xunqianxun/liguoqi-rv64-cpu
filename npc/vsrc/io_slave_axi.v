@@ -101,7 +101,7 @@ module io_slave_axi (
     output   wire     [63:0]                           out_serial_data   ,
     output   wire                                      out_serial_write  ,
     input    wire     [63:0]                           in_rtc_data       ,
-    output   wire                                      out_rtc_read      ,
+    output   wire                                      out_rtc_read      
 
 );
 
@@ -225,3 +225,4 @@ module io_slave_axi (
     assign out_slave_addr = (ar_shankhand) ? ioe_axi_ar_addr : `ysyx22040228_ZEROWORD   ;
 
 endmodule
+

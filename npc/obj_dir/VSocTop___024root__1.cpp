@@ -43,7 +43,7 @@ VL_INLINE_OPT QData VSocTop___024root___change_request_1(VSocTop___024root* vlSe
     // Change detection
     QData __req = false;  // Logically a bool
     __req |= ((vlSelf->SocTop__DOT__arbitrate_d_ok ^ vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate_d_ok));
-    VL_DEBUG_IF( if(__req && ((vlSelf->SocTop__DOT__arbitrate_d_ok ^ vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate_d_ok))) VL_DBG_MSGF("        CHANGE: vsrc/SocTop.v:115: SocTop.arbitrate_d_ok\n"); );
+    VL_DEBUG_IF( if(__req && ((vlSelf->SocTop__DOT__arbitrate_d_ok ^ vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate_d_ok))) VL_DBG_MSGF("        CHANGE: vsrc/SocTop.v:122: SocTop.arbitrate_d_ok\n"); );
     // Final
     vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate_d_ok 
         = vlSelf->SocTop__DOT__arbitrate_d_ok;
