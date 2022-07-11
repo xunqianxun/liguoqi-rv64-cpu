@@ -360,7 +360,7 @@ module arbitratem (
             dwrite_cache_valid  <= `ysyx22040228_ABLE  ;
             dwrite_ok           <= `ysyx22040228_ABLE  ;
         end
-        else if(dwrite_ok_) begin
+        else if(dwrite_ok) begin
             dwrite_ok          <= `ysyx22040228_ENABLE ;
         end  
         else if(dwrite_awshankhand && dwrite_wshankhand)begin
