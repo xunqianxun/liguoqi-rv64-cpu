@@ -108,6 +108,12 @@ extern void isa_reg_display() ;
 
 #define FMT_PADDR MUXDEF(PMEM64, "0x%016lx", "0x%08x")
 
+//----------------------------time-----------------------//
+uint64_t boot_time = 0;
+
+uint64_t get_time_internal();
+uint64_t get_time();
+uint64_t rtc_io_handler();
 
 
 

@@ -111,10 +111,9 @@ is_exit_status_bad();
 }
 
 //----------------------get time-------------------------------//
-static uint64_t boot_time = 0;
 
-static uint64_t get_time_internal() {
-  struct timespec now;
+uint64_t get_time_internal() {
+  timespec now;
   clock_gettime(CLOCK_MONOTONIC_COARSE, &now);
   uint64_t us = now.tv_sec * 1000000 + now.tv_nsec / 1000;
 
@@ -127,7 +126,7 @@ uint64_t get_time() {
   return now - boot_time;
 }
 
-static uint64_t rtc_io_handler() {
+uint64_t rtc_io_handler() {
 
     uint64_t us = get_time();
     rtc_port_base[0] = (uint32_t)us;
