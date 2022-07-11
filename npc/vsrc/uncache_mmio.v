@@ -42,10 +42,15 @@ module uncache_mmio (
     assign uncache    = (start_sign &&((core_addr >= `ysyx22040228_SERIAL_START) && (core_addr <= `ysyx22040228_SERIAL_END))) ||
                         (start_sign &&((core_addr >= `ysyx22040228_RTC_START) && (core_addr <= `ysyx22040228_RTC_END))) ;
     assign  arb_addr = uncache ? core_addr : `ysyx22040228_ZEROWORD; 
-    assign  arb_data = uncache ? core_data : `ysyx22040228_ZEROWORD;  
+    assign  arb_data = uncache ? (core_data & aw_mask) : `ysyx22040228_ZEROWORD;  
     assign  arb_mask = uncache ? core_mask : 8'b00000000           ;
     assign  arb_we   = uncache ? core_we   : `ysyx22040228_ENABLE  ;
     assign  arb_re   = uncache ? core_re   : `ysyx22040228_ENABLE  ;
+
+
+    wire   [63:0]  aw_mask ;
+    assign aw_mask = {{8{ioe_axi_aw_strb[7]}}, {8{ioe_axi_aw_strb[6]}}, {8{ioe_axi_aw_strb[5]}}, {8{ioe_axi_aw_strb[4]}},
+                      {8{ioe_axi_aw_strb[3]}}, {8{ioe_axi_aw_strb[2]}}, {8{ioe_axi_aw_strb[1]}}, {8{ioe_axi_aw_strb[0]}}}
 
     assign dcache_addr = ~uncache ? core_addr : `ysyx22040228_ZEROWORD ;
     assign dcache_data = ~uncache ? core_data : `ysyx22040228_ZEROWORD ;

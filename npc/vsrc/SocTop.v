@@ -66,7 +66,13 @@ module SocTop (
     inout         wire        [63:0]                           read_data_sign_      ,
     output        wire                                         out_write_ram_ena    ,
     output        wire        [63:0]                           out_write_ram_data   ,
-    output        wire        [63:0]                           out_write_ram_addr     
+    output        wire        [63:0]                           out_write_ram_addr   ,
+
+    output        wire        [63:0]                           out_slave_addr_      ,
+    output        wire        [63:0]                           out_serial_data_     ,
+    input         wire        [63:0]                           in_rtc_data_         ,
+    output        wire                                         out_serial_write_    ,
+    output        wire                                         out_rtc_read_          
 );
     parameter SLAVE_NUM =  3 ;
     //-----------------------------wire about rvcpu------------------------------//
@@ -282,8 +288,7 @@ module SocTop (
     wire                             tim_axi_r_last   ;
     wire                             tim_axi_r_valid  ;
     wire                             tim_axi_r_ready  ;
-    /* verilator lint_off UNUSED */
-    /* verilator lint_off UNDRIVEN */
+
     wire   [`ysyx22040228_ID_BUS]    io_axi_aw_id    ;
     wire   [`ysyx22040228_ADDR_BUS]  io_axi_aw_addr  ;
     wire   [`ysyx22040228_LEN_BUS]   io_axi_aw_len   ;
@@ -323,8 +328,7 @@ module SocTop (
     wire                             io_axi_r_last   ;
     wire                             io_axi_r_valid  ;
     wire                             io_axi_r_ready  ;
-    /* verilator lint_on UNUSED */
-    /* verilator lint_on UNDRIVEN */
+
     assign  {soc_axi_aw_id     , tim_axi_aw_id     , io_axi_aw_id     }   =  add_axi_aw_id   ;
     assign  {soc_axi_aw_addr   , tim_axi_aw_addr   , io_axi_aw_addr   }   =  add_axi_aw_addr ;
     assign  {soc_axi_aw_len    , tim_axi_aw_len    , io_axi_aw_len    }   =  add_axi_aw_len  ;
@@ -591,15 +595,11 @@ module SocTop (
         .write_ram_addr      (write_addr_sign    )     
     );
     wire   [2:0]   prot_chose_write;// = 3'b100 ;
-    //assign prot_chose_write = ((t_axi_aw_addr == `ysyx22040228_MTIMECMP) || (t_axi_aw_addr == `ysyx22040228_MTIME)) ? 3'b010 :
-    //                                                                                                                  3'b100 ;
     assign prot_chose_write = mmio_thing ;
     wire   [2:0]   prot_chose_read ;// = 3'b100 ;
-    //assign prot_chose_read  = ((t_axi_ar_addr == `ysyx22040228_MTIMECMP) || (t_axi_ar_addr == `ysyx22040228_MTIME)) ? 3'b010 :
-    //                                                                                                                  3'b100 ;
     assign prot_chose_read = mmio_thing;
     soc_axi4 soc_axi45 (
-        .clk                 (aclk               ) ,
+        .clk                 (aclk              ) ,
         .rst                 (rst               ) ,
         .prot_chose_write    (prot_chose_write  ) ,
         .prot_chose_read     (prot_chose_read   ) ,
@@ -734,6 +734,58 @@ module SocTop (
         .time_axi_r_last     (tim_axi_r_last    ) ,
         .time_axi_r_valid    (tim_axi_r_valid   ) ,
         .time_axi_r_ready    (tim_axi_r_ready   ) 
+    );
+
+    io_slave_axi io_slave_axi9(
+        .clk                 (aclk              ) ,
+        .rst                 (rst               ) ,
+
+        .ioe_axi_aw_id       (io_axi_aw_id      ) , 
+        .ioe_axi_aw_addr     (io_axi_aw_addr    ) ,
+        .ioe_axi_aw_len      (io_axi_aw_len     ) ,
+        .ioe_axi_aw_size     (io_axi_aw_size    ) ,
+        .ioe_axi_aw_burst    (io_axi_aw_burst   ) ,
+        .ioe_axi_aw_cache    (io_axi_aw_cache   ) ,
+        .ioe_axi_aw_prot     (io_axi_aw_port    ) ,
+        .ioe_axi_aw_qos      (io_axi_aw_qos     ) ,
+        .ioe_axi_aw_valid    (io_axi_aw_valid   ) ,
+        .ioe_axi_aw_ready    (io_axi_aw_ready   ) , 
+
+        .ioe_axi_w_data      (io_axi_w_data     ) ,
+        .ioe_axi_w_strb      (io_axi_w_strb     ) ,
+        .ioe_axi_w_last      (io_axi_w_last     ) ,
+        .ioe_axi_w_valid     (io_axi_w_valid    ) ,
+        .ioe_axi_w_ready     (io_axi_w_ready    ) ,
+
+        .ioe_axi_b_id        (io_axi_b_id       ) ,
+        .ioe_axi_b_resp      (io_axi_b_resp     ) ,
+        .ioe_axi_b_valid     (io_axi_b_valid    ) ,
+        .ioe_axi_b_ready     (io_axi_b_ready    ) ,
+
+        .ioe_axi_ar_id       (io_axi_ar_id      ) ,
+        .ioe_axi_ar_addr     (io_axi_ar_addr    ) ,
+        .ioe_axi_ar_len      (io_axi_ar_len     ) ,
+        .ioe_axi_ar_size     (io_axi_ar_size    ) ,
+        .ioe_axi_ar_burst    (io_axi_ar_burst   ) ,
+        .ioe_axi_ar_cache    (io_axi_ar_cache   ) ,
+        .ioe_axi_ar_prot     (io_axi_ar_prot    ) ,
+        .ioe_axi_ar_qos      (io_axi_ar_qos     ) ,
+        .ioe_axi_ar_valid    (io_axi_ar_valid   ) ,
+        .ioe_axi_ar_ready    (io_axi_ar_ready   ) ,
+
+        .ioe_axi_r_id        (io_axi_r_id       ) ,
+        .ioe_axi_r_data      (io_axi_r_data     ) ,
+        .ioe_axi_r_resp      (io_axi_r_resp     ) ,
+        .ioe_axi_r_last      (io_axi_r_last     ) ,
+        .ioe_axi_r_valid     (io_axi_r_valid    ) ,
+        .ioe_axi_r_ready     (io_axi_r_ready    ) ,
+
+        .out_slave_addr      (out_slave_addr_   ) ,
+
+        .out_serial_data     (out_serial_data_  ) ,
+        .out_serial_write    (out_serial_write_ ) ,
+        .in_rtc_data         (in_rtc_data_      ) ,
+        .out_rtc_read        (out_rtc_read_     ) 
     );
 
 
