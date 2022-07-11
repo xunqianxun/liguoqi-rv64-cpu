@@ -1180,7 +1180,6 @@ void VSocTop___024root___ctor_var_reset(VSocTop___024root* vlSelf) {
     vlSelf->SocTop__DOT__io_slave_axi9__DOT__s_read_state_nxt = VL_RAND_RESET_I(2);
     vlSelf->SocTop__DOT__io_slave_axi9__DOT__write_data_reg = VL_RAND_RESET_Q(64);
     vlSelf->SocTop__DOT__io_slave_axi9__DOT__write_addr_reg = VL_RAND_RESET_Q(64);
-    vlSelf->SocTop__DOT__io_slave_axi9__DOT__r_s_axi_ar_id = VL_RAND_RESET_I(4);
     vlSelf->__Vdly__SocTop__DOT__rvcpu_inst_addr = VL_RAND_RESET_Q(64);
     vlSelf->__Vdly__SocTop__DOT__rvcpu1__DOT__if_id_inst = VL_RAND_RESET_I(32);
     vlSelf->__Vdly__SocTop__DOT__rvcpu1__DOT__if_id_pc = VL_RAND_RESET_Q(64);
