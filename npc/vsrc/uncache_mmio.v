@@ -50,7 +50,7 @@ module uncache_mmio (
 
     wire   [63:0]  aw_mask ;
     assign aw_mask = {{8{ioe_axi_aw_strb[7]}}, {8{ioe_axi_aw_strb[6]}}, {8{ioe_axi_aw_strb[5]}}, {8{ioe_axi_aw_strb[4]}},
-                      {8{ioe_axi_aw_strb[3]}}, {8{ioe_axi_aw_strb[2]}}, {8{ioe_axi_aw_strb[1]}}, {8{ioe_axi_aw_strb[0]}}}
+                      {8{ioe_axi_aw_strb[3]}}, {8{ioe_axi_aw_strb[2]}}, {8{ioe_axi_aw_strb[1]}}, {8{ioe_axi_aw_strb[0]}}};
 
     assign dcache_addr = ~uncache ? core_addr : `ysyx22040228_ZEROWORD ;
     assign dcache_data = ~uncache ? core_data : `ysyx22040228_ZEROWORD ;
