@@ -109,30 +109,6 @@ close_npc();
 is_exit_status_bad();
 }
 
-//----------------------get time-------------------------------//
-
-extern uint64_t get_time_internal() {
-  timespec now;
-  clock_gettime(CLOCK_MONOTONIC_COARSE, &now);
-  uint64_t us = now.tv_sec * 1000000 + now.tv_nsec / 1000;
-
-  return us;
-}
-
-extern uint64_t get_time() {
-  if (boot_time == 0) boot_time = get_time_internal();
-  uint64_t now = get_time_internal();
-  return now - boot_time;
-}
-
-extern uint64_t rtc_io_handler() {
-
-    uint64_t us = get_time();
-    rtc_port_base[0] = (uint32_t)us;
-    rtc_port_base[1] = us >> 32;
-
-    return rtc_port_base ;
-  }
 
 //close npc function
 
@@ -259,7 +235,7 @@ while(ddy){
     }
     if(rvcpu->out_rtc_read_ == 1) {
 
-      rvcpu->in_rtc_data_ = rtc_io_handler();
+      rvcpu->in_rtc_data_ = get_time();
     }
   }
   if((main_time % 10) == 6){
