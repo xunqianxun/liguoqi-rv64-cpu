@@ -2708,8 +2708,7 @@ void VSocTop___024root__traceFullSub0(VSocTop___024root* vlSelf, VerilatedVcd* t
                                                & (IData)(vlSelf->SocTop__DOT__add_axi_ar_qos)))))));
         tracep->fullBit(oldp+848,(vlSelf->SocTop__DOT__clint6__DOT__ar_shakehand));
         tracep->fullCData(oldp+849,(vlSelf->SocTop__DOT__clint6__DOT__state_time_r_nxt),2);
-        tracep->fullBit(oldp+850,(((IData)(vlSelf->SocTop__DOT__add_axi_aw_valid) 
-                                   & (IData)(vlSelf->SocTop__DOT__io_axi_aw_ready))));
+        tracep->fullBit(oldp+850,(vlSelf->SocTop__DOT__io_slave_axi9__DOT__aw_shankhand));
         tracep->fullBit(oldp+851,(((IData)(vlSelf->SocTop__DOT__add_axi_w_valid) 
                                    & (IData)(vlSelf->SocTop__DOT__io_axi_w_ready))));
         tracep->fullCData(oldp+852,(vlSelf->SocTop__DOT__io_slave_axi9__DOT__s_write_state_nxt),2);

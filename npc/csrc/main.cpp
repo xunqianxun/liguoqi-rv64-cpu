@@ -215,11 +215,11 @@ while(ddy){
     rvcpu->eval();
     if(rvcpu->read_ena_sign_ == 1){
         //printf("addraddr : %lx\n",rvcpu->out_addr_outp);
-      //if(rvcpu->out_addr_outp != 0){
+      if(rvcpu->out_addr_outp != 0){
         printf("addraddr : %lx\n",rvcpu->out_addr_outp);
 
       rvcpu->read_data_sign_ = vaddr_read(rvcpu->out_addr_outp, 8);
-      //}
+      }
     }
     if(rvcpu->out_write_ram_ena == 1){
       //if((rvcpu->out_write_ram_addr != 0) && (rvcpu->out_write_ram_addr != 0xa00003f8)){
@@ -234,8 +234,9 @@ while(ddy){
       
     }
     if(rvcpu->out_rtc_read_ == 1) {
+
       rvcpu->in_rtc_data_ = get_time();
-      //printf("get_time = %d", rvcpu->in_rtc_data_);
+      printf("get_time = %d", rvcpu->in_rtc_data_);
     }
   }
   if((main_time % 10) == 6){

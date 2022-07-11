@@ -1424,8 +1424,7 @@ void VSocTop___024root__traceChgSub0(VSocTop___024root* vlSelf, VerilatedVcd* tr
                                                   & (IData)(vlSelf->SocTop__DOT__add_axi_ar_qos)))))));
             tracep->chgBit(oldp+847,(vlSelf->SocTop__DOT__clint6__DOT__ar_shakehand));
             tracep->chgCData(oldp+848,(vlSelf->SocTop__DOT__clint6__DOT__state_time_r_nxt),2);
-            tracep->chgBit(oldp+849,(((IData)(vlSelf->SocTop__DOT__add_axi_aw_valid) 
-                                      & (IData)(vlSelf->SocTop__DOT__io_axi_aw_ready))));
+            tracep->chgBit(oldp+849,(vlSelf->SocTop__DOT__io_slave_axi9__DOT__aw_shankhand));
             tracep->chgBit(oldp+850,(((IData)(vlSelf->SocTop__DOT__add_axi_w_valid) 
                                       & (IData)(vlSelf->SocTop__DOT__io_axi_w_ready))));
             tracep->chgCData(oldp+851,(vlSelf->SocTop__DOT__io_slave_axi9__DOT__s_write_state_nxt),2);
