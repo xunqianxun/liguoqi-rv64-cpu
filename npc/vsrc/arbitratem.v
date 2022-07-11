@@ -402,9 +402,11 @@ module arbitratem (
         end 
     end
     //delay because write core write finish 
-    reg   dwrite_ok ;
+    reg   dwrite_ok1 ;
+    reg   dwrite_ok  ;
     always @(posedge clk) begin
-        dwrite_ok <= dwrite_ok_ ;
+        dwrite_ok1 <= dwrite_ok_ ;
+        dwrite_ok  <= dwrite_ok1 ;
     end
 
 
