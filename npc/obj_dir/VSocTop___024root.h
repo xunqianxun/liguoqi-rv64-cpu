@@ -29,7 +29,9 @@ VL_MODULE(VSocTop___024root) {
     // LOCAL SIGNALS
     // Anonymous structures to workaround compiler member-count bugs
     struct {
-        CData/*7:0*/ SocTop__DOT__rvcpu_wmask;
+        CData/*7:0*/ SocTop__DOT__uncache_arb_mask;
+        CData/*0:0*/ SocTop__DOT__uncache_arb_we;
+        CData/*0:0*/ SocTop__DOT__uncache_arb_re;
         CData/*0:0*/ SocTop__DOT__uncahce_dc_re;
         CData/*0:0*/ SocTop__DOT__uncahce_dc_finish;
         CData/*0:0*/ SocTop__DOT__i_cache_inst_valid;
@@ -74,7 +76,9 @@ VL_MODULE(VSocTop___024root) {
         CData/*0:0*/ SocTop__DOT__io_axi_r_last;
         CData/*0:0*/ SocTop__DOT__io_axi_r_valid;
         CData/*2:0*/ SocTop__DOT__prot_chose_read;
+        CData/*0:0*/ SocTop__DOT__uncahce_arb_finish;
         CData/*0:0*/ SocTop__DOT__uncahce_dc_we;
+        CData/*0:0*/ SocTop__DOT__uncache_arb_data;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__ex_id_rd_ena;
         CData/*7:0*/ SocTop__DOT__rvcpu1__DOT__ex_id_rd_type;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__ex_pc_branchena;
@@ -89,12 +93,12 @@ VL_MODULE(VSocTop___024root) {
         CData/*4:0*/ SocTop__DOT__rvcpu1__DOT__wb_id_addr;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__wb_id_ena;
         CData/*7:0*/ SocTop__DOT__rvcpu1__DOT__idex_ex_type;
+    };
+    struct {
         CData/*7:0*/ SocTop__DOT__rvcpu1__DOT__idex_ex_opcode;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__idex_ex_rdena;
         CData/*4:0*/ SocTop__DOT__rvcpu1__DOT__idex_ex_rdaddr;
         CData/*2:0*/ SocTop__DOT__rvcpu1__DOT__idex_ex_sel;
-    };
-    struct {
         CData/*7:0*/ SocTop__DOT__rvcpu1__DOT__exmem_mem_type;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__exmem_mem_ena;
         CData/*4:0*/ SocTop__DOT__rvcpu1__DOT__exmem_mem_addr;
@@ -140,7 +144,6 @@ VL_MODULE(VSocTop___024root) {
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__csr0__DOT__csr_mip_mtip;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__mem_wb8__DOT__difftest_exyn;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__mem_wb8__DOT__teap_yn;
-        CData/*0:0*/ SocTop__DOT__uncache_mmio7__DOT__uncache;
         CData/*0:0*/ SocTop__DOT__i_cache2__DOT__icache_if_shankhand;
         CData/*5:0*/ SocTop__DOT__i_cache2__DOT__state_inst;
         CData/*5:0*/ SocTop__DOT__i_cache2__DOT__state_inst_nxt;
@@ -156,11 +159,11 @@ VL_MODULE(VSocTop___024root) {
         CData/*0:0*/ SocTop__DOT__d_cache3__DOT__read_ok;
         CData/*0:0*/ SocTop__DOT__d_cache3__DOT__mem_hit_ok;
         CData/*0:0*/ SocTop__DOT__d_cache3__DOT__dirty_ok;
+    };
+    struct {
         CData/*3:0*/ SocTop__DOT__d_cache3__DOT__dirty_out_type;
         CData/*0:0*/ SocTop__DOT__d_cache3__DOT__dirty_clean_o;
         CData/*0:0*/ SocTop__DOT__d_cache3__DOT__dirty_clean_t;
-    };
-    struct {
         CData/*0:0*/ SocTop__DOT__d_cache3__DOT__missr_i_ok;
         CData/*3:0*/ SocTop__DOT__d_cache3__DOT__missr_out_type;
         CData/*7:0*/ SocTop__DOT__d_cache3__DOT__missr_data_ena1;
@@ -191,8 +194,6 @@ VL_MODULE(VSocTop___024root) {
         CData/*0:0*/ SocTop__DOT__arbitratem4__DOT__read_dcache_shankhand;
         CData/*0:0*/ SocTop__DOT__arbitratem4__DOT__write_dcache_shankhand;
         CData/*0:0*/ SocTop__DOT__arbitratem4__DOT__read_icache_shankhand;
-        CData/*0:0*/ SocTop__DOT__arbitratem4__DOT__read_uncahce_shankhand;
-        CData/*0:0*/ SocTop__DOT__arbitratem4__DOT__write_uncahce_shankhand;
         CData/*2:0*/ SocTop__DOT__arbitratem4__DOT__arbitrate_state;
         CData/*2:0*/ SocTop__DOT__arbitratem4__DOT__arbitrate_state_nxt;
         CData/*0:0*/ SocTop__DOT__arbitratem4__DOT__dread_success;
@@ -224,9 +225,9 @@ VL_MODULE(VSocTop___024root) {
         CData/*2:0*/ SocTop__DOT__arbitratem4__DOT__dwrite_aw_size;
         CData/*1:0*/ SocTop__DOT__arbitratem4__DOT__dwrite_aw_burst;
         CData/*3:0*/ SocTop__DOT__arbitratem4__DOT__dwrite_aw_cache;
-        CData/*2:0*/ SocTop__DOT__arbitratem4__DOT__dwrite_aw_port;
     };
     struct {
+        CData/*2:0*/ SocTop__DOT__arbitratem4__DOT__dwrite_aw_port;
         CData/*3:0*/ SocTop__DOT__arbitratem4__DOT__dwrite_aw_qos;
         CData/*0:0*/ SocTop__DOT__arbitratem4__DOT__dwrite_aw_valid;
         CData/*7:0*/ SocTop__DOT__arbitratem4__DOT__dwrite_w_strb;
@@ -277,7 +278,7 @@ VL_MODULE(VSocTop___024root) {
         VlWide<3>/*64:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__temp_b;
         IData/*31:0*/ SocTop__DOT__rvcpu1__DOT__mem_wb8__DOT__wb_inst_o;
         QData/*63:0*/ SocTop__DOT__rvcpu_inst_addr;
-        QData/*63:0*/ SocTop__DOT__rvcpu_data_o;
+        QData/*63:0*/ SocTop__DOT__uncache_arb_addr;
         QData/*63:0*/ SocTop__DOT__uncache_arb_data_o;
         QData/*63:0*/ SocTop__DOT__i_cache_addr;
         QData/*63:0*/ SocTop__DOT__d_cache_data_out;
@@ -290,9 +291,9 @@ VL_MODULE(VSocTop___024root) {
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__if_id_pc;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex_id_rd_data;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__id_ex_op;
-        QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__mem_id_data;
     };
     struct {
+        QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__mem_id_data;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__wb_regfile_data;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__idex_ex_pc;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__idex_ex_op1;
@@ -356,9 +357,9 @@ VL_MODULE(VSocTop___024root) {
         QData/*63:0*/ SocTop__DOT__clint6__DOT__csr_mtime_h;
         QData/*63:0*/ SocTop__DOT__clint6__DOT__csr_mtime_l_nxt;
         QData/*63:0*/ SocTop__DOT__clint6__DOT__csr_mtime_h_nxt;
-        VlUnpacked<QData/*63:0*/, 32> SocTop__DOT__rvcpu1__DOT__regfile10__DOT__regs;
     };
     struct {
+        VlUnpacked<QData/*63:0*/, 32> SocTop__DOT__rvcpu1__DOT__regfile10__DOT__regs;
         VlUnpacked<CData/*2:0*/, 64> SocTop__DOT__i_cache2__DOT__i_counter1;
         VlUnpacked<CData/*2:0*/, 64> SocTop__DOT__i_cache2__DOT__i_counter2;
         VlUnpacked<QData/*55:0*/, 64> SocTop__DOT__i_cache2__DOT__u_tag01__DOT__ram;
@@ -546,7 +547,6 @@ VL_MODULE(VSocTop___024root) {
         CData/*0:0*/ __Vchglast__TOP__SocTop__DOT__arbitrate_d_ok;
         IData/*31:0*/ __Vdly__SocTop__DOT__rvcpu1__DOT__if_id_inst;
         QData/*63:0*/ SocTop__DOT____Vcellout__uncache_mmio7__dcache_addr;
-        QData/*63:0*/ SocTop__DOT____Vcellout__uncache_mmio7__arb_addr;
         QData/*63:0*/ __Vdly__SocTop__DOT__rvcpu_inst_addr;
         QData/*63:0*/ __Vdly__SocTop__DOT__rvcpu1__DOT__idex_ex_pc;
         QData/*54:0*/ __Vdlyvval__SocTop__DOT__i_cache2__DOT__u_tag01__DOT__ram__v0;
