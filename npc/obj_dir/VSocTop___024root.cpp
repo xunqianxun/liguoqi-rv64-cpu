@@ -2622,7 +2622,7 @@ VL_INLINE_OPT void VSocTop___024root___settle__TOP__130__PROF__uncache_mmio__l37
                                                      <= vlSelf->SocTop__DOT__rvcpu_data_addr) 
                                                     & (0xa000004fULL 
                                                        >= vlSelf->SocTop__DOT__rvcpu_data_addr)))
-                                                 ? 2U
+                                                 ? 1U
                                                  : 4U));
 }
 
