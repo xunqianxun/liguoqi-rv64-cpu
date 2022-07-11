@@ -35,7 +35,7 @@ module uncache_mmio (
     wire   start_sign;
     assign start_sign = (core_we | core_re );
     assign mmio_sign  = (start_sign &&((core_addr >= `ysyx22040228_SERIAL_START) && (core_addr <= `ysyx22040228_SERIAL_END))) ? 3'b001 :
-                        (start_sign &&((core_addr >= `ysyx22040228_RTC_START) && (core_addr <= `ysyx22040228_RTC_END)))       ? 3'b010 :
+                        (start_sign &&((core_addr >= `ysyx22040228_RTC_START) && (core_addr <= `ysyx22040228_RTC_END)))       ? 3'b001 :
                                                                                                                                 3'b100 ;
 
     wire   uncache  ;
