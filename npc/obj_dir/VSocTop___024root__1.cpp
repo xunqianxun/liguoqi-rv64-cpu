@@ -1487,8 +1487,8 @@ void VSocTop___024root___sequent__TOP__642__PROF__csr__l190(VSocTop___024root* v
 void VSocTop___024root___sequent__TOP__643__PROF__csr__l88(VSocTop___024root* vlSelf);
 void VSocTop___024root___sequent__TOP__644__PROF__arbitratem__l212(VSocTop___024root* vlSelf);
 void VSocTop___024root___sequent__TOP__645__PROF__arbitratem__l296(VSocTop___024root* vlSelf);
-void VSocTop___024root___sequent__TOP__646__PROF__arbitratem__l356(VSocTop___024root* vlSelf);
-void VSocTop___024root___sequent__TOP__647__PROF__arbitratem__l212(VSocTop___024root* vlSelf);
+void VSocTop___024root___sequent__TOP__646__PROF__arbitratem__l212(VSocTop___024root* vlSelf);
+void VSocTop___024root___sequent__TOP__647__PROF__arbitratem__l356(VSocTop___024root* vlSelf);
 void VSocTop___024root___sequent__TOP__648__PROF__arbitratem__l356(VSocTop___024root* vlSelf);
 void VSocTop___024root___sequent__TOP__649__PROF__arbitratem__l356(VSocTop___024root* vlSelf);
 void VSocTop___024root___sequent__TOP__650__PROF__arbitratem__l356(VSocTop___024root* vlSelf);
@@ -1963,8 +1963,8 @@ void VSocTop___024root___eval(VSocTop___024root* vlSelf) {
         VSocTop___024root___sequent__TOP__643__PROF__csr__l88(vlSelf);
         VSocTop___024root___sequent__TOP__644__PROF__arbitratem__l212(vlSelf);
         VSocTop___024root___sequent__TOP__645__PROF__arbitratem__l296(vlSelf);
-        VSocTop___024root___sequent__TOP__646__PROF__arbitratem__l356(vlSelf);
-        VSocTop___024root___sequent__TOP__647__PROF__arbitratem__l212(vlSelf);
+        VSocTop___024root___sequent__TOP__646__PROF__arbitratem__l212(vlSelf);
+        VSocTop___024root___sequent__TOP__647__PROF__arbitratem__l356(vlSelf);
         VSocTop___024root___sequent__TOP__648__PROF__arbitratem__l356(vlSelf);
         VSocTop___024root___sequent__TOP__649__PROF__arbitratem__l356(vlSelf);
         VSocTop___024root___sequent__TOP__650__PROF__arbitratem__l356(vlSelf);

@@ -6354,11 +6354,11 @@ VL_INLINE_OPT void VSocTop___024root___settle__TOP__286__PROF__arbitratem__l406(
     VL_DEBUG_IF(VL_DBG_MSGF("+    VSocTop___024root___settle__TOP__286__PROF__arbitratem__l406\n"); );
     // Body
     vlSelf->SocTop__DOT__arbitrate_d_ok = (((5U == (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__arbitrate_state)) 
-                                            & (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__read_dcache_shankhand))
+                                            & (~ (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__read_uncahce_shankhand)))
                                             ? (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__dread_cache_valid)
                                             : (((2U 
                                                  == (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__arbitrate_state)) 
-                                                & (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__write_dcache_shankhand)) 
+                                                & (~ (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__write_uncahce_shankhand))) 
                                                & (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__dwrite_cache_valid)));
 }
 
@@ -8130,25 +8130,10 @@ VL_INLINE_OPT void VSocTop___024root___sequent__TOP__645__PROF__arbitratem__l296
     }
 }
 
-VL_INLINE_OPT void VSocTop___024root___sequent__TOP__646__PROF__arbitratem__l356(VSocTop___024root* vlSelf) {
+VL_INLINE_OPT void VSocTop___024root___sequent__TOP__646__PROF__arbitratem__l212(VSocTop___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VSocTop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+    VSocTop___024root___sequent__TOP__646__PROF__arbitratem__l356\n"); );
-    // Body
-    if (vlSelf->SocTop__DOT__arbitratem4__DOT__dwrite_success) {
-        vlSelf->SocTop__DOT__arbitratem4__DOT__dwrite_ok = 1U;
-    } else if ((1U & (~ ((IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__dwrite_awshankhand) 
-                         & (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__dwrite_wshankhand))))) {
-        if ((2U != (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__arbitrate_state))) {
-            vlSelf->SocTop__DOT__arbitratem4__DOT__dwrite_ok = 0U;
-        }
-    }
-}
-
-VL_INLINE_OPT void VSocTop___024root___sequent__TOP__647__PROF__arbitratem__l212(VSocTop___024root* vlSelf) {
-    if (false && vlSelf) {}  // Prevent unused
-    VSocTop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+    VSocTop___024root___sequent__TOP__647__PROF__arbitratem__l212\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+    VSocTop___024root___sequent__TOP__646__PROF__arbitratem__l212\n"); );
     // Body
     if (vlSelf->SocTop__DOT__arbitratem4__DOT__dread_success) {
         if (vlSelf->SocTop__DOT__arbitratem4__DOT__read_dcache_shankhand) {
@@ -8157,6 +8142,21 @@ VL_INLINE_OPT void VSocTop___024root___sequent__TOP__647__PROF__arbitratem__l212
     } else if ((1U & (~ (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__dread_arshankhand)))) {
         if ((5U != (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__arbitrate_state))) {
             vlSelf->SocTop__DOT__arbitrate_d_data = 0ULL;
+        }
+    }
+}
+
+VL_INLINE_OPT void VSocTop___024root___sequent__TOP__647__PROF__arbitratem__l356(VSocTop___024root* vlSelf) {
+    if (false && vlSelf) {}  // Prevent unused
+    VSocTop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    VL_DEBUG_IF(VL_DBG_MSGF("+    VSocTop___024root___sequent__TOP__647__PROF__arbitratem__l356\n"); );
+    // Body
+    if (vlSelf->SocTop__DOT__arbitratem4__DOT__dwrite_success) {
+        vlSelf->SocTop__DOT__arbitratem4__DOT__dwrite_ok = 1U;
+    } else if ((1U & (~ ((IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__dwrite_awshankhand) 
+                         & (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__dwrite_wshankhand))))) {
+        if ((2U != (IData)(vlSelf->SocTop__DOT__arbitratem4__DOT__arbitrate_state))) {
+            vlSelf->SocTop__DOT__arbitratem4__DOT__dwrite_ok = 0U;
         }
     }
 }
