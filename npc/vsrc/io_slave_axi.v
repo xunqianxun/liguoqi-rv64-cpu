@@ -163,7 +163,7 @@ module io_slave_axi (
     assign ioe_axi_b_valid  = (s_write_state == `ysyx22040228_S_RESP) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE ;
 
     assign out_serial_write  = (s_write_state == `ysyx22040228_S_RESP) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE ;
-    assign out_slave_addr  = (s_write_state == `ysyx22040228_S_RESP) ? write_addr_reg     : `ysyx22040228_ZEROWORD;
+    assign out_slave_addr  = (s_write_state == `ysyx22040228_S_RESP) ? write_addr_reg     : ((ar_shankhand) ? ioe_axi_ar_addr : `ysyx22040228_ZEROWORD);
     assign out_serial_data = (s_write_state == `ysyx22040228_S_RESP) ? write_data_reg     : `ysyx22040228_ZEROWORD;
 
     wire   ar_shankhand   = ioe_axi_ar_ready && ioe_axi_ar_valid && (ioe_axi_ar_len == 8'd0) && (ioe_axi_ar_size == 3'b011) && (ioe_axi_ar_burst == 2'b01) ;
@@ -211,10 +211,15 @@ module io_slave_axi (
             write_addr_reg  <= `ysyx22040228_ZEROWORD;
             r_s_axi_ar_id   <= 4'b0000               ;
         end
-        else begin
+        else if(aw_shankhand) begin
             write_data_reg  <= ioe_axi_w_data ;
             write_addr_reg  <= ioe_axi_aw_addr;
             r_s_axi_ar_id   <= ioe_axi_ar_id  ;
+        end 
+        else begin
+            write_data_reg  <= `ysyx22040228_ZEROWORD;
+            write_addr_reg  <= `ysyx22040228_ZEROWORD;
+            r_s_axi_ar_id   <= 4'b0000               ;
         end 
     end
 
@@ -226,7 +231,7 @@ module io_slave_axi (
     assign ioe_axi_r_data   = (s_read_state == `ysyx22040228_S_DATA) ? in_rtc_data : `ysyx22040228_ZEROWORD;
 
     assign out_rtc_read   = (ar_shankhand) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE;
-    assign out_slave_addr = (ar_shankhand) ? ioe_axi_ar_addr : `ysyx22040228_ZEROWORD   ;
+    //assign out_slave_addr = (ar_shankhand) ? ioe_axi_ar_addr : `ysyx22040228_ZEROWORD   ;
 
 endmodule
 
