@@ -597,7 +597,7 @@ module SocTop (
     wire   [2:0]   prot_chose_read ;// = 3'b100 ;
     //assign prot_chose_read  = ((t_axi_ar_addr == `ysyx22040228_MTIMECMP) || (t_axi_ar_addr == `ysyx22040228_MTIME)) ? 3'b010 :
     //                                                                                                                  3'b100 ;
-    assign prot_chose_write = mmio_thing;
+    assign prot_chose_read = mmio_thing;
     soc_axi4 soc_axi45 (
         .clk                 (aclk               ) ,
         .rst                 (rst               ) ,

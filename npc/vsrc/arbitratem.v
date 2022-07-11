@@ -69,7 +69,6 @@ module arbitratem (
     input       wire       [3:0]                             d_cache_type         ,
     /* verilator lint_off UNUSED */
     input       wire                                         d_cache_resp         ,
-    /* verilator lint_on UNUSED */
     output      reg        [63:0]                            d_cache_data_o       ,
     output      wire                                         d_cache_valid_       ,
     //----------------------------uncache----------------------------------------//
@@ -83,7 +82,6 @@ module arbitratem (
     //----------------------------i_cache----------------------------------------//
     input       wire       [63:0]                            i_cache_addr         ,
     input       wire                                         i_cache_ena          ,
-    /* verilator lint_off UNUSED */
     input       wire                                         i_cache_resp         ,
     /* verilator lint_on UNUSED */
     output      reg        [63:0]                            i_cache_data         ,

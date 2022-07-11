@@ -33,7 +33,7 @@ module uncache_mmio (
     input     wire                                         in_dcache_finish 
 );
     wire   start_sign;
-    assign start_sign = ((core_we | core_re ) && (~in_core_finish));
+    assign start_sign = (core_we | core_re );
     assign mmio_sign  = (start_sign &&((core_addr >= `ysyx22040228_SERIAL_START) && (core_addr <= `ysyx22040228_SERIAL_END))) ? 3'b001 :
                         (start_sign &&((core_addr >= `ysyx22040228_RTC_START) && (core_addr <= `ysyx22040228_RTC_END)))       ? 3'b010 :
                                                                                                                                 3'b100 ;
@@ -49,7 +49,7 @@ module uncache_mmio (
 
     assign dcache_addr = ~uncache ? core_addr : `ysyx22040228_ZEROWORD ;
     assign dcache_data = ~uncache ? core_data : `ysyx22040228_ZEROWORD ;
-    assign dcache_mask = ~uncache ? core_mask : `ysyx22040228_ZEROWORD ;
+    assign dcache_mask = ~uncache ? core_mask : 8'b00000000            ;
     assign dcache_we   = ~uncache ? core_we   : `ysyx22040228_ENABLE   ;
     assign dcache_re   = ~uncache ? core_re   : `ysyx22040228_ENABLE   ;
 
