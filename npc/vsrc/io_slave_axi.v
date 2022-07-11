@@ -48,7 +48,7 @@
 `define AXI_SIZE_BYTES_64                                   3'b110
 `define AXI_SIZE_BYTES_128                                  3'b111
 
-module io_axi4 (
+module io_slave_axi (
     input    wire                                      clk               ,
     input    wire                                      rst               ,
 
@@ -130,7 +130,7 @@ module io_axi4 (
             `ysyx22040228_S_IDLE : begin
                 if(aw_shankhand && w_shankhand) 
                     s_write_state_nxt = `ysyx22040228_S_RESP ;
-                else if(s_axi_aw_valid | s_axi_w_valid) 
+                else if(ioe_axi_aw_valid | ioe_axi_w_valid) 
                     s_write_state_nxt = `ysyx22040228_S_INFO ;
                 else 
                     s_write_state_nxt = `ysyx22040228_S_IDLE ;
@@ -151,7 +151,7 @@ module io_axi4 (
         endcase
     end
 
-    assign ioe_axi_aw_ready = (ioe_axi_aw_valid && ioe_axi_w_valid && (ioe_axi_aw_len == 8'b0) && (ioe_axi_aw_size == 3'b011) && (ioe_axi_aw_burst == 2'b01) && (ioe_axi_aw_cache == 4'b0010) && (ioe_axi_aw_port == 3'b000) && ioe_axi_aw_qos == 4'h0);
+    assign ioe_axi_aw_ready = (ioe_axi_aw_valid && ioe_axi_w_valid && (ioe_axi_aw_len == 8'b0) && (ioe_axi_aw_size == 3'b011) && (ioe_axi_aw_burst == 2'b01) && (ioe_axi_aw_cache == 4'b0010) && (ioe_axi_aw_prot == 3'b000) && ioe_axi_aw_qos == 4'h0);
     assign ioe_axi_w_ready  = ioe_axi_aw_valid && ioe_axi_w_valid  && (ioe_axi_w_last) ;
 
     assign ioe_axi_b_id     = ioe_axi_aw_id;
@@ -178,7 +178,7 @@ module io_axi4 (
             `ysyx22040228_S_IDLE : begin
                 if(ar_shankhand)
                     s_read_state_nxt = `ysyx22040228_S_DATA ;
-                else if(s_axi_ar_valid)
+                else if(ioe_axi_ar_valid)
                     s_read_state_nxt = `ysyx22040228_S_ADDR ;
                 else
                     s_read_state_nxt = `ysyx22040228_S_IDLE ;
