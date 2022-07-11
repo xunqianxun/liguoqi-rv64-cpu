@@ -99,7 +99,7 @@ contextp->commandArgs(argc, argv) ;
 rvcpu = new VSocTop(contextp);
 Verilated::traceEverOn(true) ; //out vcd need
 //tfp = new VerilatedVcdC ; // out vcd need
-rvcpu->trace(tfp,0) ;
+//rvcpu->trace(tfp,0) ;
 //tfp->open("obj_dir/SocTop.vcd") ; // open vcd
 rvcpu->rst = 1;
 init_monitor(argc, argv);
