@@ -12,6 +12,7 @@ IMG_NPC?= /home/mulin/oscpu/bin/custom-output/rt-thread/rtthread.bin
 IMGE_FLAGS?= 
 LINK= -LDFLAGS "-ldl"
 LINEREAD=-LDFLAGS "-lreadline"
+LINKDEBUG=-CPPFLAGS=-DVL_DEBUG
 VERILAGS= -Wall
 #VERILAGS+= --trace
 VERILAGS+= --cc
@@ -22,7 +23,7 @@ sim:
 	@$(shell if[!-e$(SIM_DIR)];then mkdir -p$(SIM_DIR);fi)
 
 run:git
-	@verilator $(VERILAGS) $(LINK) $(LINEREAD) ./csrc/main.cpp $(VERILOG)SocTop.v
+	@verilator $(VERILAGS) $(LINK) $(LINEREAD) $(LINKDEBUG) ./csrc/main.cpp $(VERILOG)SocTop.v
 	@make -C $(OBJ_PATH) -f VSocTop.mk VSocTop
 	./obj_dir/VSocTop $(IMGE_FLAGS) $(IMG_NPC)
 
