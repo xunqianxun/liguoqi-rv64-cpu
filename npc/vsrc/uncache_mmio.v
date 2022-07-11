@@ -57,3 +57,4 @@ module uncache_mmio (
     assign  in_core_finish  = uncache ? in_arb_finish : in_dcache_finish ;                                                                                                                  
 
 endmodule
+

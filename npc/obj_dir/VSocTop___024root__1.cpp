@@ -7,22 +7,20 @@
 
 #include "verilated_dpi.h"
 
-void VSocTop___024root___combo__TOP__3(VSocTop___024root* vlSelf);
+void VSocTop___024root___sequent__TOP__3(VSocTop___024root* vlSelf);
 void VSocTop___024root___sequent__TOP__4(VSocTop___024root* vlSelf);
-void VSocTop___024root___sequent__TOP__5(VSocTop___024root* vlSelf);
-void VSocTop___024root___combo__TOP__7(VSocTop___024root* vlSelf);
+void VSocTop___024root___combo__TOP__5(VSocTop___024root* vlSelf);
 
 void VSocTop___024root___eval(VSocTop___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VSocTop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    VSocTop___024root___eval\n"); );
     // Body
-    VSocTop___024root___combo__TOP__3(vlSelf);
     if (((IData)(vlSelf->clk) & (~ (IData)(vlSelf->__Vclklast__TOP__clk)))) {
+        VSocTop___024root___sequent__TOP__3(vlSelf);
         VSocTop___024root___sequent__TOP__4(vlSelf);
-        VSocTop___024root___sequent__TOP__5(vlSelf);
     }
-    VSocTop___024root___combo__TOP__7(vlSelf);
+    VSocTop___024root___combo__TOP__5(vlSelf);
     // Final
     vlSelf->__Vclklast__TOP__clk = vlSelf->clk;
 }
@@ -44,6 +42,15 @@ VL_INLINE_OPT QData VSocTop___024root___change_request_1(VSocTop___024root* vlSe
     // Body
     // Change detection
     QData __req = false;  // Logically a bool
+    __req |= ((vlSelf->SocTop__DOT__d_cache_mem_finish ^ vlSelf->__Vchglast__TOP__SocTop__DOT__d_cache_mem_finish)
+         | (vlSelf->SocTop__DOT__arbitrate_d_ok ^ vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate_d_ok));
+    VL_DEBUG_IF( if(__req && ((vlSelf->SocTop__DOT__d_cache_mem_finish ^ vlSelf->__Vchglast__TOP__SocTop__DOT__d_cache_mem_finish))) VL_DBG_MSGF("        CHANGE: vsrc/SocTop.v:107: SocTop.d_cache_mem_finish\n"); );
+    VL_DEBUG_IF( if(__req && ((vlSelf->SocTop__DOT__arbitrate_d_ok ^ vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate_d_ok))) VL_DBG_MSGF("        CHANGE: vsrc/SocTop.v:115: SocTop.arbitrate_d_ok\n"); );
+    // Final
+    vlSelf->__Vchglast__TOP__SocTop__DOT__d_cache_mem_finish 
+        = vlSelf->SocTop__DOT__d_cache_mem_finish;
+    vlSelf->__Vchglast__TOP__SocTop__DOT__arbitrate_d_ok 
+        = vlSelf->SocTop__DOT__arbitrate_d_ok;
     return __req;
 }
 

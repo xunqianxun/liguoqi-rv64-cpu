@@ -86,8 +86,8 @@ module SocTop (
     wire  [7:0]     uncache_arb_mask ;
     wire  [63:0]    uncache_arb_data_o;
     wire            uncache_arb_we   ;
-    wire            uncahce_arb_re   ;
-    wire            uncahce_arb_finish;
+    wire            uncache_arb_re   ;
+    wire            uncache_arb_finish;
     wire  [63:0]    uncahce_dc_data ;
     wire  [63:0]    uncache_dc_addr ;
     wire  [7:0]     uncache_dc_mask ;
@@ -467,13 +467,13 @@ module SocTop (
         .d_cache_data_o      (arbitrate_d_data   ) ,
         .d_cache_valid_      (arbitrate_d_ok     ) ,
 
-        .uncache_addr        (uncahce_arb_addr   ) ,
-        .uncache_data        (uncahce_arb_data   ) ,
-        .uncache_read_ena    (uncahce_arb_re     ) ,
-        .uncache_write_ena   (uncahce_arb_we     ) ,
-        .uncache_mask        (uncahce_arb_mask   ) ,
+        .uncache_addr        (uncache_arb_addr   ) ,
+        .uncache_data        (uncache_arb_data   ) ,
+        .uncache_read_ena    (uncache_arb_re     ) ,
+        .uncache_write_ena   (uncache_arb_we     ) ,
+        .uncache_mask        (uncache_arb_mask   ) ,
         .uncahce_data_o      (uncache_arb_data_o ) ,
-        .uncahce_valid_      (uncahce_arb_finish ) ,
+        .uncahce_valid_      (uncache_arb_finish ) ,
 
         .i_cache_addr        (i_cache_addr       ) ,
         .i_cache_ena         (i_cache_read_ena   ) ,
