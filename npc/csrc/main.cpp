@@ -15,7 +15,7 @@
 #include <VSocTop__Dpi.h>
 #include "monitor.cpp"
 #include <svdpi.h>
-//#include <time.h>
+#include <time.h>
 
 using namespace std;
 
@@ -111,21 +111,30 @@ is_exit_status_bad();
 }
 
 //----------------------get time-------------------------------//
-// static uint64_t boot_time = 0;
+static uint64_t boot_time = 0;
 
-// static uint64_t get_time_internal() {
-//   struct timespec now;
-//   clock_gettime(CLOCK_MONOTONIC_COARSE, &now);
-//   uint64_t us = now.tv_sec * 1000000 + now.tv_nsec / 1000;
+static uint64_t get_time_internal() {
+  struct timespec now;
+  clock_gettime(CLOCK_MONOTONIC_COARSE, &now);
+  uint64_t us = now.tv_sec * 1000000 + now.tv_nsec / 1000;
 
-//   return us;
-// }
+  return us;
+}
 
-// uint64_t get_time() {
-//   if (boot_time == 0) boot_time = get_time_internal();
-//   uint64_t now = get_time_internal();
-//   return now - boot_time;
-// }
+uint64_t get_time() {
+  if (boot_time == 0) boot_time = get_time_internal();
+  uint64_t now = get_time_internal();
+  return now - boot_time;
+}
+
+static uint64_t rtc_io_handler() {
+
+    uint64_t us = get_time();
+    rtc_port_base[0] = (uint32_t)us;
+    rtc_port_base[1] = us >> 32;
+
+    return rtc_port_base ;
+  }
 
 //close npc function
 
@@ -249,6 +258,10 @@ while(ddy){
         // printf("chufale printf");
          printf("%c", flower);
       
+    }
+    if(rvcpu->out_rtc_read_ == 1) {
+
+      rvcpu->in_rtc_data_ = rtc_io_handler();
     }
   }
   if((main_time % 10) == 6){
