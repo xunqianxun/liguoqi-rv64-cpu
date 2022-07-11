@@ -193,12 +193,27 @@ module d_cache (
     reg  [7: 0]  missr_data_ena2;
     reg          missr_tag_ena2 ;
     reg          missr_out_resp ;
+
+
+    reg          write_regr     ;
+    reg          write_regr_    ;
+    always @(posedge clk) begin
+        if(write_regr == `ysyx22040228_ABLE)
+            write_regr_ <= `ysyx22040228_ABLE;
+        else if((write_regr_) && (in_dcache_ready))
+            write_regr_ <= `ysyx22040228_ENABLE;
+        else 
+            write_regr_ <= write_regr_;
+    end
+
     always @(*) begin
         if((state_dread == `ysyx22040228_MISSR) && (~in_dcache_ready)) begin
             missr_out_type = 4'b0010    ;
             missr_out_addr = {mem_addr_i[63:3],3'b0} ;
+            write_regr     = `ysyx22040228_ABLE      ;
         end
-        else if((in_dcache_ready) && (state_dread == `ysyx22040228_MISSR)) begin
+        else if((in_dcache_ready) && (state_dread == `ysyx22040228_MISSR) && (write_regr_)) begin
+            write_regr     = `ysyx22040228_ENABLE   ;
             missr_out_type = 4'b0000                ;
             missr_out_addr = `ysyx22040228_ZEROWORD ;
             if(tag_user1 == `ysyx22040228_ENABLE) begin
@@ -232,7 +247,7 @@ module d_cache (
             missr_data_ena2  = 8'b00000000         ;
             missr_tag_ena2   = `ysyx22040228_ENABLE;
             missr_out_resp   = 1'b0                ;
-            missr_i_ok       = `ysyx22040228_ENABLE;
+            missr_i_ok       = 1'b0                ;
         end 
     end
 
@@ -380,12 +395,26 @@ module d_cache (
     reg  [7: 0]  missw_data_ena2;
     reg          missw_tag_ena2 ;
     reg          missw_out_resp ;
+
+    reg          write_regw     ;
+    reg          write_regw_    ;
+    always @(posedge clk) begin
+        if(write_regw == `ysyx22040228_ABLE)
+            write_regw_ <= `ysyx22040228_ABLE;
+        else if((write_regw_) && (in_dcache_ready))
+            write_regw_ <= `ysyx22040228_ENABLE;
+        else 
+            write_regw_ <= write_regw_;
+    end
+
     always @(*) begin
         if((state_dwrite == `ysyx22040228_MISSW) && (~in_dcache_ready)) begin
             missw_out_type = 4'b1000    ;
             missw_out_addr = {mem_addr_i[63:3],3'b0} ;
+            write_regw     = `ysyx22040228_ABLE      ;
         end
-        else if((in_dcache_ready) && (state_dwrite == `ysyx22040228_MISSW)) begin
+        else if((in_dcache_ready) && (state_dwrite == `ysyx22040228_MISSW) && (write_regw_)) begin
+            write_regw     = `ysyx22040228_ENABLE   ;
             missw_out_type = 4'b0000                ;
             missw_out_addr = `ysyx22040228_ZEROWORD ;
             if(tag_user1 == `ysyx22040228_ENABLE) begin
