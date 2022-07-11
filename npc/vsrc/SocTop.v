@@ -81,20 +81,20 @@ module SocTop (
     wire            rvcpu_re         ;
     wire            core_stall_l     ;
 
-    wire  [63:0]    uncahce_arb_data ;
+    wire  [63:0]    uncache_arb_data ;
     wire  [63:0]    uncache_arb_addr ;
     wire  [7:0]     uncache_arb_mask ;
     wire  [63:0]    uncache_arb_data_o;
     wire            uncache_arb_we   ;
     wire            uncache_arb_re   ;
     wire            uncache_arb_finish;
-    wire  [63:0]    uncahce_dc_data ;
+    wire  [63:0]    uncache_dc_data ;
     wire  [63:0]    uncache_dc_addr ;
     wire  [7:0]     uncache_dc_mask ;
     wire  [63:0]    uncache_dc_data_o;
     wire            uncache_dc_we   ;
-    wire            uncahce_dc_re   ;
-    wire            uncahce_dc_finish;    
+    wire            uncache_dc_re   ;
+    wire            uncache_dc_finish;    
 
     wire  [31:0]    i_cache_inst_data;
     wire            i_cache_inst_valid;
@@ -395,11 +395,11 @@ module SocTop (
         .mmio_sign           (mmio_thing          ) ,
 
         .core_addr           (rvcpu_data_addr     ) ,
-        .core_data           (rvcpu_wmask         ) ,
-        .core_mask           (rvcpu_data_o        ) ,
-        .core_we             (d_cache_data_out    ) ,
-        .core_re             (rvcpu_we            ) ,
-        .in_core_data        (rvcpu_re            ) ,
+        .core_data           (rvcpu_data_o        ) ,
+        .core_mask           (rvcpu_wmask         ) ,
+        .core_we             (rvcpu_we            ) ,
+        .core_re             (rvcpu_re            ) ,
+        .in_core_data        (d_cache_data_out    ) ,
         .in_core_finish      (d_cache_mem_finish  ) ,
 
         .arb_addr            (uncache_arb_addr    ) ,
@@ -410,13 +410,13 @@ module SocTop (
         .in_arb_data         (uncache_arb_data_o  ) ,
         .in_arb_finish       (uncache_arb_finish  ) ,
 
-        .dcache_addr         (uncahce_dc_addr     ) ,
-        .dcache_data         (uncahce_dc_data     ) ,
+        .dcache_addr         (uncache_dc_addr     ) ,
+        .dcache_data         (uncache_dc_data     ) ,
         .dcache_mask         (uncache_dc_mask     ) ,
         .dcache_we           (uncache_dc_we       ) ,
-        .dcache_re           (uncahce_dc_re       ) ,
+        .dcache_re           (uncache_dc_re       ) ,
         .in_dcache_data      (uncache_dc_data_o   ) ,
-        .in_dcache_finish    (uncahce_dc_finish   )
+        .in_dcache_finish    (uncache_dc_finish   )
     );
 
     i_cache i_cache2 (
@@ -439,13 +439,13 @@ module SocTop (
         .clk                 (aclk               ) ,
         .rst                 (rst                ) ,
 
-        .mem_addr_i          (uncahce_dc_addr    ) ,
-        .mem_data_i          (uncahce_dc_data    ) ,
+        .mem_addr_i          (uncache_dc_addr    ) ,
+        .mem_data_i          (uncache_dc_data    ) ,
         .mem_strb_i          (uncache_dc_mask    ) ,
-        .mem_read_valid      (uncahce_dc_re      ) ,
-        .mem_write_valid     (uncahce_dc_we      ) ,
+        .mem_read_valid      (uncache_dc_re      ) ,
+        .mem_write_valid     (uncache_dc_we      ) ,
         .mem_data_out        (uncache_dc_data_o  ) ,
-        .mem_data_ready      (uncahce_dc_finish  ) ,
+        .mem_data_ready      (uncache_dc_finish  ) ,
 
         .in_dcache_data      (arbitrate_d_data   ) ,
         .in_dcache_ready     (arbitrate_d_ok     ) ,
