@@ -403,8 +403,8 @@ module arbitratem (
     end
 
 
-    assign d_cache_valid_ = ((arbitrate_state == `ysyx22040228_ARB_DREAD) && (read_dcache_shankhand))   ? dread_cache_valid  : 
-                            ((arbitrate_state == `ysyx22040228_ARB_DWRITE) && (write_dcache_shankhand)) ? dwrite_cache_valid :
+    assign d_cache_valid_ = ((arbitrate_state == `ysyx22040228_ARB_DREAD) && (~read_uncahce_shankhand))   ? dread_cache_valid  : 
+                            ((arbitrate_state == `ysyx22040228_ARB_DWRITE) && (~write_uncahce_shankhand)) ? dwrite_cache_valid :
                                                                                                          `ysyx22040228_ENABLE;
     assign uncahce_valid_ = ((arbitrate_state == `ysyx22040228_ARB_DREAD) && (read_uncahce_shankhand))   ? dread_cache_valid  : 
                             ((arbitrate_state == `ysyx22040228_ARB_DWRITE) && (write_uncahce_shankhand)) ? dwrite_cache_valid :
