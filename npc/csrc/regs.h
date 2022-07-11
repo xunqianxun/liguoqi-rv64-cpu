@@ -111,9 +111,9 @@ extern void isa_reg_display() ;
 //----------------------------time-----------------------//
 uint64_t boot_time = 0;
 
-uint64_t get_time_internal();
-uint64_t get_time();
-uint64_t rtc_io_handler();
+extern uint64_t get_time_internal();
+extern uint64_t get_time();
+extern uint64_t rtc_io_handler();
 
 
 

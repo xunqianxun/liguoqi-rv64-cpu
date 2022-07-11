@@ -15,7 +15,6 @@
 #include <VSocTop__Dpi.h>
 #include "monitor.cpp"
 #include <svdpi.h>
-#include <time.h>
 
 using namespace std;
 
@@ -112,7 +111,7 @@ is_exit_status_bad();
 
 //----------------------get time-------------------------------//
 
-uint64_t get_time_internal() {
+extern uint64_t get_time_internal() {
   timespec now;
   clock_gettime(CLOCK_MONOTONIC_COARSE, &now);
   uint64_t us = now.tv_sec * 1000000 + now.tv_nsec / 1000;
@@ -120,13 +119,13 @@ uint64_t get_time_internal() {
   return us;
 }
 
-uint64_t get_time() {
+extern uint64_t get_time() {
   if (boot_time == 0) boot_time = get_time_internal();
   uint64_t now = get_time_internal();
   return now - boot_time;
 }
 
-uint64_t rtc_io_handler() {
+extern uint64_t rtc_io_handler() {
 
     uint64_t us = get_time();
     rtc_port_base[0] = (uint32_t)us;
