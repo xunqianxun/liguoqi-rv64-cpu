@@ -580,10 +580,10 @@ VL_INLINE_OPT void VSocTop___024root___sequent__TOP__825__PROF__d_cache_data_ram
     }
 }
 
-VL_INLINE_OPT void VSocTop___024root___sequent__TOP__826__PROF__d_cache__l494(VSocTop___024root* vlSelf) {
+VL_INLINE_OPT void VSocTop___024root___sequent__TOP__826__PROF__d_cache__l495(VSocTop___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VSocTop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+    VSocTop___024root___sequent__TOP__826__PROF__d_cache__l494\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+    VSocTop___024root___sequent__TOP__826__PROF__d_cache__l495\n"); );
     // Variables
     IData/*31:0*/ __Vilp;
     // Body
@@ -602,10 +602,10 @@ VL_INLINE_OPT void VSocTop___024root___sequent__TOP__826__PROF__d_cache__l494(VS
     }
 }
 
-VL_INLINE_OPT void VSocTop___024root___sequent__TOP__827__PROF__d_cache__l493(VSocTop___024root* vlSelf) {
+VL_INLINE_OPT void VSocTop___024root___sequent__TOP__827__PROF__d_cache__l494(VSocTop___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VSocTop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+    VSocTop___024root___sequent__TOP__827__PROF__d_cache__l493\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+    VSocTop___024root___sequent__TOP__827__PROF__d_cache__l494\n"); );
     // Variables
     IData/*31:0*/ __Vilp;
     // Body
@@ -650,10 +650,10 @@ VL_INLINE_OPT void VSocTop___024root___sequent__TOP__830__PROF__id_ex__l44(VSocT
         = vlSelf->__Vdly__SocTop__DOT__rvcpu1__DOT__idex_ex_type;
 }
 
-VL_INLINE_OPT void VSocTop___024root___sequent__TOP__833__PROF__d_cache__l463(VSocTop___024root* vlSelf) {
+VL_INLINE_OPT void VSocTop___024root___sequent__TOP__833__PROF__d_cache__l464(VSocTop___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VSocTop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+    VSocTop___024root___sequent__TOP__833__PROF__d_cache__l463\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+    VSocTop___024root___sequent__TOP__833__PROF__d_cache__l464\n"); );
     // Variables
     IData/*31:0*/ __Vilp;
     // Body
@@ -802,10 +802,10 @@ VL_INLINE_OPT void VSocTop___024root___sequent__TOP__833__PROF__d_cache__l463(VS
     }
 }
 
-VL_INLINE_OPT void VSocTop___024root___sequent__TOP__835__PROF__d_cache__l462(VSocTop___024root* vlSelf) {
+VL_INLINE_OPT void VSocTop___024root___sequent__TOP__835__PROF__d_cache__l463(VSocTop___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VSocTop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+    VSocTop___024root___sequent__TOP__835__PROF__d_cache__l462\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+    VSocTop___024root___sequent__TOP__835__PROF__d_cache__l463\n"); );
     // Variables
     IData/*31:0*/ __Vilp;
     // Body
@@ -1427,24 +1427,24 @@ void VSocTop___024root___sequent__TOP__578__PROF__d_cache_data_ram__l31(VSocTop_
 void VSocTop___024root___sequent__TOP__579__PROF__d_cache_data_ram__l33(VSocTop___024root* vlSelf);
 void VSocTop___024root___sequent__TOP__580__PROF__d_cache_data_ram__l35(VSocTop___024root* vlSelf);
 void VSocTop___024root___sequent__TOP__581__PROF__d_cache_data_ram__l37(VSocTop___024root* vlSelf);
-void VSocTop___024root___sequent__TOP__582__PROF__d_cache__l494(VSocTop___024root* vlSelf);
-void VSocTop___024root___sequent__TOP__583__PROF__d_cache__l501(VSocTop___024root* vlSelf);
-void VSocTop___024root___sequent__TOP__584__PROF__d_cache__l507(VSocTop___024root* vlSelf);
-void VSocTop___024root___sequent__TOP__585__PROF__d_cache__l493(VSocTop___024root* vlSelf);
-void VSocTop___024root___sequent__TOP__586__PROF__d_cache__l498(VSocTop___024root* vlSelf);
-void VSocTop___024root___sequent__TOP__587__PROF__d_cache__l504(VSocTop___024root* vlSelf);
-void VSocTop___024root___sequent__TOP__590__PROF__d_cache__l463(VSocTop___024root* vlSelf);
-void VSocTop___024root___sequent__TOP__591__PROF__d_cache__l470(VSocTop___024root* vlSelf);
-void VSocTop___024root___sequent__TOP__592__PROF__d_cache__l474(VSocTop___024root* vlSelf);
-void VSocTop___024root___sequent__TOP__593__PROF__d_cache__l478(VSocTop___024root* vlSelf);
-void VSocTop___024root___sequent__TOP__594__PROF__d_cache__l462(VSocTop___024root* vlSelf);
-void VSocTop___024root___sequent__TOP__595__PROF__d_cache__l468(VSocTop___024root* vlSelf);
-void VSocTop___024root___sequent__TOP__596__PROF__d_cache__l472(VSocTop___024root* vlSelf);
-void VSocTop___024root___sequent__TOP__597__PROF__d_cache__l477(VSocTop___024root* vlSelf);
+void VSocTop___024root___sequent__TOP__582__PROF__d_cache__l495(VSocTop___024root* vlSelf);
+void VSocTop___024root___sequent__TOP__583__PROF__d_cache__l502(VSocTop___024root* vlSelf);
+void VSocTop___024root___sequent__TOP__584__PROF__d_cache__l508(VSocTop___024root* vlSelf);
+void VSocTop___024root___sequent__TOP__585__PROF__d_cache__l494(VSocTop___024root* vlSelf);
+void VSocTop___024root___sequent__TOP__586__PROF__d_cache__l499(VSocTop___024root* vlSelf);
+void VSocTop___024root___sequent__TOP__587__PROF__d_cache__l505(VSocTop___024root* vlSelf);
+void VSocTop___024root___sequent__TOP__590__PROF__d_cache__l464(VSocTop___024root* vlSelf);
+void VSocTop___024root___sequent__TOP__591__PROF__d_cache__l471(VSocTop___024root* vlSelf);
+void VSocTop___024root___sequent__TOP__592__PROF__d_cache__l475(VSocTop___024root* vlSelf);
+void VSocTop___024root___sequent__TOP__593__PROF__d_cache__l479(VSocTop___024root* vlSelf);
+void VSocTop___024root___sequent__TOP__594__PROF__d_cache__l463(VSocTop___024root* vlSelf);
+void VSocTop___024root___sequent__TOP__595__PROF__d_cache__l469(VSocTop___024root* vlSelf);
+void VSocTop___024root___sequent__TOP__596__PROF__d_cache__l473(VSocTop___024root* vlSelf);
+void VSocTop___024root___sequent__TOP__597__PROF__d_cache__l478(VSocTop___024root* vlSelf);
 void VSocTop___024root___sequent__TOP__598__PROF__regfile__l108(VSocTop___024root* vlSelf);
-void VSocTop___024root___sequent__TOP__599__PROF__d_cache__l490(VSocTop___024root* vlSelf);
+void VSocTop___024root___sequent__TOP__599__PROF__d_cache__l491(VSocTop___024root* vlSelf);
 void VSocTop___024root___sequent__TOP__600__PROF__i_cache__l235(VSocTop___024root* vlSelf);
-void VSocTop___024root___sequent__TOP__601__PROF__d_cache__l459(VSocTop___024root* vlSelf);
+void VSocTop___024root___sequent__TOP__601__PROF__d_cache__l460(VSocTop___024root* vlSelf);
 void VSocTop___024root___sequent__TOP__602__PROF__clint__l181(VSocTop___024root* vlSelf);
 void VSocTop___024root___sequent__TOP__603__PROF__axi_mnq__l158(VSocTop___024root* vlSelf);
 void VSocTop___024root___sequent__TOP__604__PROF__axi_mnq__l158(VSocTop___024root* vlSelf);
@@ -1544,12 +1544,12 @@ void VSocTop___024root___sequent__TOP__697__PROF__if_id__l33(VSocTop___024root* 
 void VSocTop___024root___sequent__TOP__698__PROF__arbitratem__l356(VSocTop___024root* vlSelf);
 void VSocTop___024root___sequent__TOP__699__PROF__d_cache_data_ram__l21(VSocTop___024root* vlSelf);
 void VSocTop___024root___sequent__TOP__700__PROF__d_cache_data_ram__l21(VSocTop___024root* vlSelf);
-void VSocTop___024root___sequent__TOP__701__PROF__d_cache__l490(VSocTop___024root* vlSelf);
-void VSocTop___024root___sequent__TOP__702__PROF__d_cache__l490(VSocTop___024root* vlSelf);
+void VSocTop___024root___sequent__TOP__701__PROF__d_cache__l491(VSocTop___024root* vlSelf);
+void VSocTop___024root___sequent__TOP__702__PROF__d_cache__l491(VSocTop___024root* vlSelf);
 void VSocTop___024root___sequent__TOP__703__PROF__ex_mem__l34(VSocTop___024root* vlSelf);
 void VSocTop___024root___sequent__TOP__704__PROF__ex_mem__l34(VSocTop___024root* vlSelf);
-void VSocTop___024root___sequent__TOP__705__PROF__d_cache__l459(VSocTop___024root* vlSelf);
-void VSocTop___024root___sequent__TOP__706__PROF__d_cache__l459(VSocTop___024root* vlSelf);
+void VSocTop___024root___sequent__TOP__705__PROF__d_cache__l460(VSocTop___024root* vlSelf);
+void VSocTop___024root___sequent__TOP__706__PROF__d_cache__l460(VSocTop___024root* vlSelf);
 void VSocTop___024root___settle__TOP__8__PROF__mem_wb__l34(VSocTop___024root* vlSelf);
 void VSocTop___024root___settle__TOP__6__PROF__SocTop__l542(VSocTop___024root* vlSelf);
 void VSocTop___024root___settle__TOP__10__PROF__SocTop__l543(VSocTop___024root* vlSelf);
@@ -1752,8 +1752,8 @@ void VSocTop___024root___settle__TOP__198__PROF__io_slave_axi__l159(VSocTop___02
 void VSocTop___024root___settle__TOP__199__PROF__axi_mnq__l108(VSocTop___024root* vlSelf);
 void VSocTop___024root___settle__TOP__200__PROF__io_slave_axi__l158(VSocTop___024root* vlSelf);
 void VSocTop___024root___settle__TOP__201__PROF__clint__l141(VSocTop___024root* vlSelf);
-void VSocTop___024root___settle__TOP__202__PROF__d_cache__l556(VSocTop___024root* vlSelf);
-void VSocTop___024root___settle__TOP__203__PROF__d_cache__l577(VSocTop___024root* vlSelf);
+void VSocTop___024root___settle__TOP__202__PROF__d_cache__l557(VSocTop___024root* vlSelf);
+void VSocTop___024root___settle__TOP__203__PROF__d_cache__l578(VSocTop___024root* vlSelf);
 void VSocTop___024root___settle__TOP__204__PROF__d_cache__l155(VSocTop___024root* vlSelf);
 void VSocTop___024root___settle__TOP__205__PROF__d_cache__l357(VSocTop___024root* vlSelf);
 void VSocTop___024root___settle__TOP__206__PROF__d_cache__l155(VSocTop___024root* vlSelf);
@@ -1780,7 +1780,7 @@ void VSocTop___024root___settle__TOP__226__PROF__d_cache__l125(VSocTop___024root
 void VSocTop___024root___settle__TOP__227__PROF__d_cache__l410(VSocTop___024root* vlSelf);
 void VSocTop___024root___settle__TOP__228__PROF__d_cache__l209(VSocTop___024root* vlSelf);
 void VSocTop___024root___settle__TOP__229__PROF__uncache_mmio__l61(VSocTop___024root* vlSelf);
-void VSocTop___024root___settle__TOP__230__PROF__d_cache__l605(VSocTop___024root* vlSelf);
+void VSocTop___024root___settle__TOP__230__PROF__d_cache__l606(VSocTop___024root* vlSelf);
 void VSocTop___024root___settle__TOP__231__PROF__d_cache__l155(VSocTop___024root* vlSelf);
 void VSocTop___024root___settle__TOP__232__PROF__d_cache__l357(VSocTop___024root* vlSelf);
 void VSocTop___024root___settle__TOP__237__PROF__id__l211(VSocTop___024root* vlSelf);
@@ -1801,17 +1801,17 @@ void VSocTop___024root___settle__TOP__251__PROF__axi_mnq__l82(VSocTop___024root*
 void VSocTop___024root___settle__TOP__252__PROF__io_slave_axi__l119(VSocTop___024root* vlSelf);
 void VSocTop___024root___settle__TOP__253__PROF__SocTop__l351(VSocTop___024root* vlSelf);
 void VSocTop___024root___settle__TOP__254__PROF__clint__l131(VSocTop___024root* vlSelf);
-void VSocTop___024root___settle__TOP__255__PROF__d_cache__l523(VSocTop___024root* vlSelf);
-void VSocTop___024root___settle__TOP__256__PROF__d_cache__l538(VSocTop___024root* vlSelf);
-void VSocTop___024root___settle__TOP__257__PROF__d_cache__l552(VSocTop___024root* vlSelf);
-void VSocTop___024root___settle__TOP__258__PROF__d_cache__l573(VSocTop___024root* vlSelf);
-void VSocTop___024root___settle__TOP__259__PROF__d_cache__l591(VSocTop___024root* vlSelf);
+void VSocTop___024root___settle__TOP__255__PROF__d_cache__l524(VSocTop___024root* vlSelf);
+void VSocTop___024root___settle__TOP__256__PROF__d_cache__l539(VSocTop___024root* vlSelf);
+void VSocTop___024root___settle__TOP__257__PROF__d_cache__l553(VSocTop___024root* vlSelf);
+void VSocTop___024root___settle__TOP__258__PROF__d_cache__l574(VSocTop___024root* vlSelf);
+void VSocTop___024root___settle__TOP__259__PROF__d_cache__l592(VSocTop___024root* vlSelf);
 void VSocTop___024root___settle__TOP__260__PROF__d_cache__l266(VSocTop___024root* vlSelf);
 void VSocTop___024root___settle__TOP__261__PROF__d_cache__l69(VSocTop___024root* vlSelf);
 void VSocTop___024root___settle__TOP__262__PROF__mem__l59(VSocTop___024root* vlSelf);
 void VSocTop___024root___settle__TOP__263__PROF__mem__l72(VSocTop___024root* vlSelf);
 void VSocTop___024root___settle__TOP__264__PROF__mem__l81(VSocTop___024root* vlSelf);
-void VSocTop___024root___settle__TOP__265__PROF__d_cache__l585(VSocTop___024root* vlSelf);
+void VSocTop___024root___settle__TOP__265__PROF__d_cache__l586(VSocTop___024root* vlSelf);
 void VSocTop___024root___settle__TOP__266__PROF__id__l253(VSocTop___024root* vlSelf);
 void VSocTop___024root___settle__TOP__269__PROF__soc_axi4__l218(VSocTop___024root* vlSelf);
 void VSocTop___024root___settle__TOP__270__PROF__clint__l221(VSocTop___024root* vlSelf);
@@ -1902,24 +1902,24 @@ void VSocTop___024root___eval(VSocTop___024root* vlSelf) {
         VSocTop___024root___sequent__TOP__579__PROF__d_cache_data_ram__l33(vlSelf);
         VSocTop___024root___sequent__TOP__580__PROF__d_cache_data_ram__l35(vlSelf);
         VSocTop___024root___sequent__TOP__581__PROF__d_cache_data_ram__l37(vlSelf);
-        VSocTop___024root___sequent__TOP__582__PROF__d_cache__l494(vlSelf);
-        VSocTop___024root___sequent__TOP__583__PROF__d_cache__l501(vlSelf);
-        VSocTop___024root___sequent__TOP__584__PROF__d_cache__l507(vlSelf);
-        VSocTop___024root___sequent__TOP__585__PROF__d_cache__l493(vlSelf);
-        VSocTop___024root___sequent__TOP__586__PROF__d_cache__l498(vlSelf);
-        VSocTop___024root___sequent__TOP__587__PROF__d_cache__l504(vlSelf);
-        VSocTop___024root___sequent__TOP__590__PROF__d_cache__l463(vlSelf);
-        VSocTop___024root___sequent__TOP__591__PROF__d_cache__l470(vlSelf);
-        VSocTop___024root___sequent__TOP__592__PROF__d_cache__l474(vlSelf);
-        VSocTop___024root___sequent__TOP__593__PROF__d_cache__l478(vlSelf);
-        VSocTop___024root___sequent__TOP__594__PROF__d_cache__l462(vlSelf);
-        VSocTop___024root___sequent__TOP__595__PROF__d_cache__l468(vlSelf);
-        VSocTop___024root___sequent__TOP__596__PROF__d_cache__l472(vlSelf);
-        VSocTop___024root___sequent__TOP__597__PROF__d_cache__l477(vlSelf);
+        VSocTop___024root___sequent__TOP__582__PROF__d_cache__l495(vlSelf);
+        VSocTop___024root___sequent__TOP__583__PROF__d_cache__l502(vlSelf);
+        VSocTop___024root___sequent__TOP__584__PROF__d_cache__l508(vlSelf);
+        VSocTop___024root___sequent__TOP__585__PROF__d_cache__l494(vlSelf);
+        VSocTop___024root___sequent__TOP__586__PROF__d_cache__l499(vlSelf);
+        VSocTop___024root___sequent__TOP__587__PROF__d_cache__l505(vlSelf);
+        VSocTop___024root___sequent__TOP__590__PROF__d_cache__l464(vlSelf);
+        VSocTop___024root___sequent__TOP__591__PROF__d_cache__l471(vlSelf);
+        VSocTop___024root___sequent__TOP__592__PROF__d_cache__l475(vlSelf);
+        VSocTop___024root___sequent__TOP__593__PROF__d_cache__l479(vlSelf);
+        VSocTop___024root___sequent__TOP__594__PROF__d_cache__l463(vlSelf);
+        VSocTop___024root___sequent__TOP__595__PROF__d_cache__l469(vlSelf);
+        VSocTop___024root___sequent__TOP__596__PROF__d_cache__l473(vlSelf);
+        VSocTop___024root___sequent__TOP__597__PROF__d_cache__l478(vlSelf);
         VSocTop___024root___sequent__TOP__598__PROF__regfile__l108(vlSelf);
-        VSocTop___024root___sequent__TOP__599__PROF__d_cache__l490(vlSelf);
+        VSocTop___024root___sequent__TOP__599__PROF__d_cache__l491(vlSelf);
         VSocTop___024root___sequent__TOP__600__PROF__i_cache__l235(vlSelf);
-        VSocTop___024root___sequent__TOP__601__PROF__d_cache__l459(vlSelf);
+        VSocTop___024root___sequent__TOP__601__PROF__d_cache__l460(vlSelf);
         VSocTop___024root___sequent__TOP__602__PROF__clint__l181(vlSelf);
         VSocTop___024root___sequent__TOP__603__PROF__axi_mnq__l158(vlSelf);
         VSocTop___024root___sequent__TOP__604__PROF__axi_mnq__l158(vlSelf);
@@ -2019,12 +2019,12 @@ void VSocTop___024root___eval(VSocTop___024root* vlSelf) {
         VSocTop___024root___sequent__TOP__698__PROF__arbitratem__l356(vlSelf);
         VSocTop___024root___sequent__TOP__699__PROF__d_cache_data_ram__l21(vlSelf);
         VSocTop___024root___sequent__TOP__700__PROF__d_cache_data_ram__l21(vlSelf);
-        VSocTop___024root___sequent__TOP__701__PROF__d_cache__l490(vlSelf);
-        VSocTop___024root___sequent__TOP__702__PROF__d_cache__l490(vlSelf);
+        VSocTop___024root___sequent__TOP__701__PROF__d_cache__l491(vlSelf);
+        VSocTop___024root___sequent__TOP__702__PROF__d_cache__l491(vlSelf);
         VSocTop___024root___sequent__TOP__703__PROF__ex_mem__l34(vlSelf);
         VSocTop___024root___sequent__TOP__704__PROF__ex_mem__l34(vlSelf);
-        VSocTop___024root___sequent__TOP__705__PROF__d_cache__l459(vlSelf);
-        VSocTop___024root___sequent__TOP__706__PROF__d_cache__l459(vlSelf);
+        VSocTop___024root___sequent__TOP__705__PROF__d_cache__l460(vlSelf);
+        VSocTop___024root___sequent__TOP__706__PROF__d_cache__l460(vlSelf);
         VSocTop___024root___sequent__TOP__725__PROF__i_cache_data_ram__l15(vlSelf);
         VSocTop___024root___sequent__TOP__727__PROF__i_cache_data_ram__l15(vlSelf);
         VSocTop___024root___sequent__TOP__744__PROF__multiplier__l40(vlSelf);
@@ -2041,13 +2041,13 @@ void VSocTop___024root___eval(VSocTop___024root* vlSelf) {
         VSocTop___024root___sequent__TOP__808__PROF__arbitratem__l361(vlSelf);
         VSocTop___024root___sequent__TOP__824__PROF__d_cache_data_ram__l23(vlSelf);
         VSocTop___024root___sequent__TOP__825__PROF__d_cache_data_ram__l23(vlSelf);
-        VSocTop___024root___sequent__TOP__826__PROF__d_cache__l494(vlSelf);
-        VSocTop___024root___sequent__TOP__827__PROF__d_cache__l493(vlSelf);
+        VSocTop___024root___sequent__TOP__826__PROF__d_cache__l495(vlSelf);
+        VSocTop___024root___sequent__TOP__827__PROF__d_cache__l494(vlSelf);
         VSocTop___024root___sequent__TOP__828__PROF__id_ex__l50(vlSelf);
         VSocTop___024root___sequent__TOP__829__PROF__id_ex__l46(vlSelf);
         VSocTop___024root___sequent__TOP__830__PROF__id_ex__l44(vlSelf);
-        VSocTop___024root___sequent__TOP__833__PROF__d_cache__l463(vlSelf);
-        VSocTop___024root___sequent__TOP__835__PROF__d_cache__l462(vlSelf);
+        VSocTop___024root___sequent__TOP__833__PROF__d_cache__l464(vlSelf);
+        VSocTop___024root___sequent__TOP__835__PROF__d_cache__l463(vlSelf);
         VSocTop___024root___sequent__TOP__839__PROF__mem_wb__l38(vlSelf);
         VSocTop___024root___settle__TOP__8__PROF__mem_wb__l34(vlSelf);
         VSocTop___024root___sequent__TOP__841__PROF__mem_wb__l38(vlSelf);
@@ -2278,8 +2278,8 @@ void VSocTop___024root___eval(VSocTop___024root* vlSelf) {
     VSocTop___024root___settle__TOP__199__PROF__axi_mnq__l108(vlSelf);
     VSocTop___024root___settle__TOP__200__PROF__io_slave_axi__l158(vlSelf);
     VSocTop___024root___settle__TOP__201__PROF__clint__l141(vlSelf);
-    VSocTop___024root___settle__TOP__202__PROF__d_cache__l556(vlSelf);
-    VSocTop___024root___settle__TOP__203__PROF__d_cache__l577(vlSelf);
+    VSocTop___024root___settle__TOP__202__PROF__d_cache__l557(vlSelf);
+    VSocTop___024root___settle__TOP__203__PROF__d_cache__l578(vlSelf);
     VSocTop___024root___settle__TOP__204__PROF__d_cache__l155(vlSelf);
     VSocTop___024root___settle__TOP__205__PROF__d_cache__l357(vlSelf);
     VSocTop___024root___settle__TOP__206__PROF__d_cache__l155(vlSelf);
@@ -2306,7 +2306,7 @@ void VSocTop___024root___eval(VSocTop___024root* vlSelf) {
     VSocTop___024root___settle__TOP__227__PROF__d_cache__l410(vlSelf);
     VSocTop___024root___settle__TOP__228__PROF__d_cache__l209(vlSelf);
     VSocTop___024root___settle__TOP__229__PROF__uncache_mmio__l61(vlSelf);
-    VSocTop___024root___settle__TOP__230__PROF__d_cache__l605(vlSelf);
+    VSocTop___024root___settle__TOP__230__PROF__d_cache__l606(vlSelf);
     VSocTop___024root___settle__TOP__231__PROF__d_cache__l155(vlSelf);
     VSocTop___024root___settle__TOP__232__PROF__d_cache__l357(vlSelf);
     VSocTop___024root___settle__TOP__237__PROF__id__l211(vlSelf);
@@ -2327,17 +2327,17 @@ void VSocTop___024root___eval(VSocTop___024root* vlSelf) {
     VSocTop___024root___settle__TOP__252__PROF__io_slave_axi__l119(vlSelf);
     VSocTop___024root___settle__TOP__253__PROF__SocTop__l351(vlSelf);
     VSocTop___024root___settle__TOP__254__PROF__clint__l131(vlSelf);
-    VSocTop___024root___settle__TOP__255__PROF__d_cache__l523(vlSelf);
-    VSocTop___024root___settle__TOP__256__PROF__d_cache__l538(vlSelf);
-    VSocTop___024root___settle__TOP__257__PROF__d_cache__l552(vlSelf);
-    VSocTop___024root___settle__TOP__258__PROF__d_cache__l573(vlSelf);
-    VSocTop___024root___settle__TOP__259__PROF__d_cache__l591(vlSelf);
+    VSocTop___024root___settle__TOP__255__PROF__d_cache__l524(vlSelf);
+    VSocTop___024root___settle__TOP__256__PROF__d_cache__l539(vlSelf);
+    VSocTop___024root___settle__TOP__257__PROF__d_cache__l553(vlSelf);
+    VSocTop___024root___settle__TOP__258__PROF__d_cache__l574(vlSelf);
+    VSocTop___024root___settle__TOP__259__PROF__d_cache__l592(vlSelf);
     VSocTop___024root___settle__TOP__260__PROF__d_cache__l266(vlSelf);
     VSocTop___024root___settle__TOP__261__PROF__d_cache__l69(vlSelf);
     VSocTop___024root___settle__TOP__262__PROF__mem__l59(vlSelf);
     VSocTop___024root___settle__TOP__263__PROF__mem__l72(vlSelf);
     VSocTop___024root___settle__TOP__264__PROF__mem__l81(vlSelf);
-    VSocTop___024root___settle__TOP__265__PROF__d_cache__l585(vlSelf);
+    VSocTop___024root___settle__TOP__265__PROF__d_cache__l586(vlSelf);
     VSocTop___024root___settle__TOP__266__PROF__id__l253(vlSelf);
     VSocTop___024root___combo__TOP__1150__PROF__arbitratem__l211(vlSelf);
     VSocTop___024root___combo__TOP__1151__PROF__arbitratem__l295(vlSelf);
