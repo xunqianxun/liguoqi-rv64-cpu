@@ -10,6 +10,8 @@
 //==========
 
 class VSocTop__Syms;
+class VSocTop_VerilatedVcd;
+
 
 //----------
 
@@ -46,6 +48,7 @@ VL_MODULE(VSocTop___024root) {
         CData/*0:0*/ SocTop__DOT__uncache_dc_finish;
         CData/*0:0*/ SocTop__DOT__i_cache_inst_valid;
         CData/*0:0*/ SocTop__DOT__i_cache_read_ena;
+        CData/*0:0*/ SocTop__DOT__i_caceh_resp;
         CData/*3:0*/ SocTop__DOT__d_cache_out_type;
         CData/*0:0*/ SocTop__DOT__arbitrate_d_ok;
         CData/*3:0*/ SocTop__DOT__t_axi_ar_id;
@@ -97,9 +100,9 @@ VL_MODULE(VSocTop___024root) {
         CData/*4:0*/ SocTop__DOT__rvcpu1__DOT__id_reg_addr2;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__id_reg_ena2;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__id_ctrl_req;
-        CData/*7:0*/ SocTop__DOT__rvcpu1__DOT__id_ex_type;
     };
     struct {
+        CData/*7:0*/ SocTop__DOT__rvcpu1__DOT__id_ex_type;
         CData/*7:0*/ SocTop__DOT__rvcpu1__DOT__id_ex_opcode;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__id_ex_rd_ena;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__id_pip_jalrena;
@@ -163,9 +166,9 @@ VL_MODULE(VSocTop___024root) {
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__id3__DOT__inst_csrrw;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__id3__DOT__inst_csrrs;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__id3__DOT__inst_csrrc;
-        CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__id3__DOT__inst_csrrwi;
     };
     struct {
+        CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__id3__DOT__inst_csrrwi;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__id3__DOT__inst_ebreak;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__id3__DOT__ex_op1;
         CData/*0:0*/ SocTop__DOT__rvcpu1__DOT__id3__DOT__mem_op1;
@@ -229,9 +232,10 @@ VL_MODULE(VSocTop___024root) {
         CData/*0:0*/ SocTop__DOT__d_cache3__DOT__missr_tag_ena1;
         CData/*7:0*/ SocTop__DOT__d_cache3__DOT__missr_data_ena2;
         CData/*0:0*/ SocTop__DOT__d_cache3__DOT__missr_tag_ena2;
-        CData/*5:0*/ SocTop__DOT__d_cache3__DOT__state_dwrite;
     };
     struct {
+        CData/*0:0*/ SocTop__DOT__d_cache3__DOT__missr_out_resp;
+        CData/*5:0*/ SocTop__DOT__d_cache3__DOT__state_dwrite;
         CData/*5:0*/ SocTop__DOT__d_cache3__DOT__state_dwrite_nxt;
         CData/*0:0*/ SocTop__DOT__d_cache3__DOT__read_w_ok;
         CData/*7:0*/ SocTop__DOT__d_cache3__DOT__hitw_data_strb1;
@@ -246,6 +250,7 @@ VL_MODULE(VSocTop___024root) {
         CData/*0:0*/ SocTop__DOT__d_cache3__DOT__missw_tag_ena1;
         CData/*7:0*/ SocTop__DOT__d_cache3__DOT__missw_data_ena2;
         CData/*0:0*/ SocTop__DOT__d_cache3__DOT__missw_tag_ena2;
+        CData/*0:0*/ SocTop__DOT__d_cache3__DOT__missw_out_resp;
         CData/*0:0*/ SocTop__DOT__d_cache3__DOT__tag_ena1;
         CData/*0:0*/ SocTop__DOT__d_cache3__DOT__tag_ena2;
         CData/*7:0*/ SocTop__DOT__d_cache3__DOT__data_ena1;
@@ -293,11 +298,11 @@ VL_MODULE(VSocTop___024root) {
         CData/*0:0*/ SocTop__DOT__arbitratem4__DOT__dwrite_aw_valid;
         CData/*7:0*/ SocTop__DOT__arbitratem4__DOT__dwrite_w_strb;
         CData/*0:0*/ SocTop__DOT__arbitratem4__DOT__dwrite_w_last;
+    };
+    struct {
         CData/*0:0*/ SocTop__DOT__arbitratem4__DOT__dwrite_w_valid;
         CData/*0:0*/ SocTop__DOT__arbitratem4__DOT__dwrite_cache_valid;
         CData/*0:0*/ SocTop__DOT__arbitratem4__DOT__dwrite_awshankhand;
-    };
-    struct {
         CData/*0:0*/ SocTop__DOT__arbitratem4__DOT__dwrite_wshankhand;
         CData/*0:0*/ SocTop__DOT__arbitratem4__DOT__dwrite_ok;
         CData/*1:0*/ SocTop__DOT__axi_mnq4__DOT__s_write_state;
@@ -359,11 +364,15 @@ VL_MODULE(VSocTop___024root) {
         VlWide<4>/*127:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__multiplier1__DOT__product_temp;
         VlWide<5>/*128:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__temp_a;
         VlWide<3>/*64:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__divider2__DOT__temp_b;
-        IData/*31:0*/ SocTop__DOT__rvcpu1__DOT__mem7__DOT__data_word;
-        IData/*31:0*/ SocTop__DOT__rvcpu1__DOT__mem_wb8__DOT__wb_inst_o;
-        QData/*63:0*/ SocTop__DOT__rvcpu_inst_addr;
     };
     struct {
+        IData/*31:0*/ SocTop__DOT__rvcpu1__DOT__mem7__DOT__data_word;
+        IData/*31:0*/ SocTop__DOT__rvcpu1__DOT__mem_wb8__DOT__wb_inst_o;
+        IData/*31:0*/ SocTop__DOT__rvcpu1__DOT__regfile10__DOT__i;
+        IData/*31:0*/ SocTop__DOT__i_cache2__DOT__i;
+        IData/*31:0*/ SocTop__DOT__d_cache3__DOT__i;
+        IData/*31:0*/ SocTop__DOT__d_cache3__DOT__j;
+        QData/*63:0*/ SocTop__DOT__rvcpu_inst_addr;
         QData/*63:0*/ SocTop__DOT__rvcpu_data_addr;
         QData/*63:0*/ SocTop__DOT__rvcpu_data_o;
         QData/*63:0*/ SocTop__DOT__uncache_arb_addr;
@@ -421,6 +430,8 @@ VL_MODULE(VSocTop___024root) {
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__csr0__DOT__csr_mcause_nxt;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__csr0__DOT__csr_mcause;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__ex5__DOT__csr0__DOT__csr_mscrstch;
+    };
+    struct {
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__mem7__DOT__store_data;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__mem_wb8__DOT__wb_pc_o;
         QData/*63:0*/ SocTop__DOT__rvcpu1__DOT__mem_wb8__DOT__pc_data1;
@@ -428,8 +439,6 @@ VL_MODULE(VSocTop___024root) {
         QData/*63:0*/ SocTop__DOT__i_cache2__DOT__miss_data;
         QData/*54:0*/ SocTop__DOT__i_cache2__DOT__u_tag01__DOT__out_data;
         QData/*54:0*/ SocTop__DOT__i_cache2__DOT__u_tag02__DOT__out_data;
-    };
-    struct {
         QData/*63:0*/ SocTop__DOT__i_cache2__DOT__u_data01__DOT__out_data;
         QData/*63:0*/ SocTop__DOT__i_cache2__DOT__u_data02__DOT__out_data;
         QData/*63:0*/ SocTop__DOT__d_cache3__DOT__dirty_out_addr;
@@ -886,6 +895,7 @@ VL_MODULE(VSocTop___024root) {
         QData/*63:0*/ __Vdlyvval__SocTop__DOT__i_cache2__DOT__u_data02__DOT__ram__v0;
         QData/*54:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__u_tag0__DOT__ram__v0;
         QData/*54:0*/ __Vdlyvval__SocTop__DOT__d_cache3__DOT__u_tag1__DOT__ram__v0;
+        VlUnpacked<CData/*0:0*/, 3> __Vm_traceActivity;
     };
 
     // INTERNAL VARIABLES
