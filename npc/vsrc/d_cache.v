@@ -446,6 +446,7 @@ module d_cache (
             missw_data_ena2  = 8'b00000000         ;
             missw_data_ena1  = 8'b00000000         ;
             missw_tag_ena1   = `ysyx22040228_ENABLE;
+            missw_tag_ena2   = `ysyx22040228_ENABLE;
             missw_out_resp   = 1'b0                ;
             missw_i_ok       = `ysyx22040228_ENABLE;
         end 

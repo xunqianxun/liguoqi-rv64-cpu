@@ -13,6 +13,9 @@
 
 class VSocTop__Syms;
 class VSocTop___024root;
+class VerilatedVcdC;
+class VSocTop_VerilatedVcd;
+
 
 // This class is the main interface to the Verilated model
 class VSocTop VL_NOT_FINAL {
@@ -70,6 +73,8 @@ class VSocTop VL_NOT_FINAL {
     void eval_end_step() {}
     /// Simulation complete, run final blocks.  Application must call on completion.
     void final();
+    /// Trace signals in the model; called by application code
+    void trace(VerilatedVcdC* tfp, int levels, int options = 0);
     /// Return current simulation context for this model.
     /// Used to get to e.g. simulation time via contextp()->time()
     VerilatedContext* contextp() const;

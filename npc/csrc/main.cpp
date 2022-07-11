@@ -221,12 +221,12 @@ while(ddy){
       rvcpu->read_data_sign_ = vaddr_read(rvcpu->out_addr_outp, 8);
       }
     }
-    if(rvcpu->out_write_ram_ena == 1){
-      //if((rvcpu->out_write_ram_addr != 0) && (rvcpu->out_write_ram_addr != 0xa00003f8)){
-      //printf("writeaddr : %lx\n", rvcpu->out_write_ram_addr);
-      vaddr_write(rvcpu->out_write_ram_addr, 8, rvcpu->out_write_ram_data);
-     // }
-    }
+    // if(rvcpu->out_write_ram_ena == 1){
+    //   //if((rvcpu->out_write_ram_addr != 0) && (rvcpu->out_write_ram_addr != 0xa00003f8)){
+    //   //printf("writeaddr : %lx\n", rvcpu->out_write_ram_addr);
+    //   vaddr_write(rvcpu->out_write_ram_addr, 8, rvcpu->out_write_ram_data);
+    //  // }
+    // }
     if(rvcpu->out_serial_write_ == 1){
          char flower = (char) rvcpu->out_serial_data_;
         // printf("chufale printf");
@@ -241,6 +241,12 @@ while(ddy){
   }
   if((main_time % 10) == 6){
   rvcpu->clk = 0;
+      if(rvcpu->out_write_ram_ena == 1){
+      //if((rvcpu->out_write_ram_addr != 0) && (rvcpu->out_write_ram_addr != 0xa00003f8)){
+      //printf("writeaddr : %lx\n", rvcpu->out_write_ram_addr);
+      vaddr_write(rvcpu->out_write_ram_addr, 8, rvcpu->out_write_ram_data);
+     // }
+    }
   }
 
   if((main_time % 10) == 9){
