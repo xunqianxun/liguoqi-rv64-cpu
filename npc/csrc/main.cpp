@@ -246,8 +246,8 @@ while(ddy){
     }
     if(rvcpu->out_serial_write_ == 1){
       if(rvcpu->out_slave_addr_ != 0){
-        char flower = (char) rvcpu->out_serial_data_;
-        printf("%c", flower);
+        // char flower = (char) rvcpu->out_serial_data_;
+        // printf("%c", flower);
       }
     }
   }
