@@ -29,7 +29,7 @@ void csr_read(int index){
   //   csr_data = cpu.mstatus;
 }
 
-void csr_write(int index, int csrdata){
+void csr_write(int index, word_t csrdata){
   if(index == 0x305)
     cpu.mtvec = csrdata;
   else if(index == 0x300)
