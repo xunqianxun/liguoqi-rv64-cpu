@@ -27,29 +27,29 @@ module csr (
     input          wire                                        ex_stall       
 );
 
-// import "DPI-C" function void difftest_dut_csrs(
-//     input longint mcycle_val, //0xb00
-//     input longint mstatus_val, //0x300
-//     input longint mtvec_val, //0x305
-//     input longint mepc_val, //0x341
-//     input longint mcause_val, //0x342
-//     input longint mie_val, //0x304
-//     input longint mip_val, //0x344
-//     input longint mscratch_val //0x340
-// );
+import "DPI-C" function void difftest_dut_csrs(
+    input longint mcycle_val, //0xb00
+    input longint mstatus_val, //0x300
+    input longint mtvec_val, //0x305
+    input longint mepc_val, //0x341
+    input longint mcause_val, //0x342
+    input longint mie_val, //0x304
+    input longint mip_val, //0x344
+    input longint mscratch_val //0x340
+);
 
-// always@(*)begin
-// difftest_dut_csrs(    
-//     csr_mcycle  ,
-//     csr_mstatus ,
-//     csr_mtvec   ,
-//     csr_mepc    ,
-//     csr_mcause  ,
-//     csr_mie     ,
-//     csr_mip     ,
-//     csr_mscrstch
-// );
-// end
+always@(*)begin
+difftest_dut_csrs(    
+    csr_mcycle  ,
+    csr_mstatus ,
+    csr_mtvec   ,
+    csr_mepc    ,
+    csr_mcause  ,
+    csr_mie     ,
+    csr_mip     ,
+    csr_mscrstch
+);
+end
 // 0xb00
 wire       sel_mcycle  =  (csr_idx == 12'hb00) ;
 wire       rd_mcycle   =  csr_rd_en && sel_mcycle  ;
