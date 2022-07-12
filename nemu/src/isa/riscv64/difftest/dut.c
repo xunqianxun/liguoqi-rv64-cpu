@@ -9,7 +9,10 @@ bool isa_difftest_checkregs(CPU_state *ref_r, vaddr_t pc) {
     for (i = 1; i < ARRLEN(cpu.gpr); i ++) {
       difftest_check_reg(reg_name(i, 4), pc, ref_r->gpr[i], cpu.gpr[i]);
     }
-    difftest_check_reg("pc", pc, ref_r->pc, cpu.pc);
+    difftest_check_reg("mrpc"  , pc, ref_r->mepc, cpu.mepc);
+    difftest_check_reg("mcause", pc, ref_r->mcause, cpu.mcause);
+    difftest_check_reg("mrpc"  , pc, ref_r->mtvec, cpu.mtvec);
+    difftest_check_reg("pc"    , pc, ref_r->pc, cpu.pc);
     return false;
   }
   return true;
