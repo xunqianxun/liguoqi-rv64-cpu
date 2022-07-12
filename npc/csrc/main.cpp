@@ -225,10 +225,10 @@ while(ddy){
     rvcpu->clk = 1;
     rvcpu->eval();
     if(rvcpu->read_ena_sign_ == 1){
-        printf("addraddr : %lx\n",rvcpu->out_addr_outp);
+        //printf("addraddr : %lx\n",rvcpu->out_addr_outp);
         //printf("work unber = %d \n", main_time/10);
       if(rvcpu->out_addr_outp != 0){
-        //printf("addraddr : %lx\n",rvcpu->out_addr_outp);
+        if(difftest_ena == 1){printf("npc_pc : %lx\n",cpu.pc);}
 
       rvcpu->read_data_sign_ = vaddr_read(rvcpu->out_addr_outp, 8);
       }
