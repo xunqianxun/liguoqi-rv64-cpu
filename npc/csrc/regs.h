@@ -15,6 +15,14 @@ typedef struct
 {
   uint64_t gpr[32];
   uint64_t pc;
+  uint64_t mcycle;
+  uint64_t mstatus;
+  uint64_t mtvec;
+  uint64_t mepc ;
+  uint64_t mcause;
+  uint64_t mie ;
+  uint64_t mip ;
+  uint64_t mscratch;
 } CPU_state;
 
 typedef struct dut
@@ -49,7 +57,7 @@ typedef struct Decode {
 
 //---------------CONFIG SET-----------------------------//
 
-CPU_state cpu = { .pc =0x80000000};
+CPU_state cpu = { .pc =0x80000000 .mstatus = 0xa00001800};
 NPC_state npc_state = { .state = NEMU_STOP };
 
 

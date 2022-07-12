@@ -36,6 +36,17 @@ int is_exit_status_bad();
 //   printf("readdcaceh_teg = %lx \n", read_teg);
 // }
 
+extern "C" void difftest_dut_csrs(long long mcycle_val, long long mstatus_val, long long mtvec_val, long long mepc_val, long long mcause_val, long long mie_val, long long mip_val, long long mscratch_val){
+    cpu.mcycle = mcycle_val;
+    cpu.mstatus = mstatus_val;
+    cpu.mtvec = mtvec_val;
+    cpu.mepc = mepc_val ;
+    cpu.mie  = mie_val ;
+    cpu.mip  = mip_val ;
+    cpu.mscratch = mscratch_val;
+    cpu.mcause = mcause_val;
+}
+
 
 extern "C" void difftest_dut_thepc(long long thepc_data){
     cpu.pc = thepc_data  ;

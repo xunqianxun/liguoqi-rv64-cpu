@@ -20,6 +20,14 @@ extern void isa_reg_display() {
   for (i=0;i<32;i++) {
     printf("%s is %lx\n", regs[i] , cpu.gpr[i]);
   }
+  printf("mcycle is %lx\n", cpu.mcycle);
+  printf("mstatus is %lx\n", cpu.mstatus);
+  printf("mtvec is %lx\n", cpu.mtvec);
+  printf("mepc is %lx\n", cpu.mepc);
+  printf("mie is %lx\n", cpu.mie);
+  printf("mip is %lx\n", cpu.mip);
+  printf("mscratch is %lx\n", cpu.mscratch);
+  printf("mcause is %lx\n", cpu.mcause);
 }
 
 

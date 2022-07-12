@@ -13,6 +13,8 @@ extern "C" {
 
 
     // DPI IMPORTS
+    // DPI import at vsrc/csr.v:30:30
+    extern void difftest_dut_csrs(long long mcycle_val, long long mstatus_val, long long mtvec_val, long long mepc_val, long long mcause_val, long long mie_val, long long mip_val, long long mscratch_val);
     // DPI import at vsrc/mem_wb.v:23:30
     extern void difftest_dut_pc(long long pc_data, long long exit_code, svBit endyn, svBit exe);
     // DPI import at vsrc/regfile.v:32:30
