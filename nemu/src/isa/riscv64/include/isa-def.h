@@ -9,6 +9,7 @@ typedef struct {
   word_t mepc ;
   word_t mcause;
   word_t mtvec ;
+  word_t mstatus;
 } riscv64_CPU_state;
 
 // decode

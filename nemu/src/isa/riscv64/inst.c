@@ -3,7 +3,6 @@
 #include <cpu/ifetch.h>
 #include <cpu/decode.h>
 
-#define RC(i) readcsr(i)
 #define R(i) gpr(i)
 #define Mr vaddr_read
 #define Mw vaddr_write
@@ -14,11 +13,37 @@ enum {
   TYPE_R,
    // none
 };
-//csr0 == mepc;
-//csr1 == mcause;
-//csr2 == mtnec ;
+int csr_data ;
+void csr_read(int index){
+  if(index == 0x305)
+    csr_data = cpu.mtvec;
+  else if(index == 0x300)
+    csr_data = cpu.mstatus;
+  else if(index == 0x341)
+    csr_data = cpu.mepc ;
+  else if(index == 0x342)
+    csr_data = cpu.mcause;
+  // else if(index == 0x300)
+  //   csr_data = cpu.mstatus;
+  // else if(index == 0x300)
+  //   csr_data = cpu.mstatus;
+}
 
-#define csrR(n)  do { *csr = RC(n);} while (0)
+void csr_write(int index, int csrdata){
+  if(index == 0x305)
+    cpu.mtvec = csrdata;
+  else if(index == 0x300)
+    cpu.mstatus = csrdata;
+  else if(index == 0x341)
+    cpu.mepc = csrdata ;
+  else if(index == 0x342)
+    cpu.mcause = csrdata;
+  // else if(index == 0x300)
+  //   csr_data = cpu.mstatus;
+  // else if(index == 0x300)
+  //   csr_data = cpu.mstatus;
+}
+
 #define src1R(n) do { *src1 = R(n); } while (0)
 #define src2R(n) do { *src2 = R(n); } while (0)
 #define destR(n) do { *dest = n; } while (0)
@@ -32,6 +57,7 @@ static word_t immS(uint32_t i) { return (SEXT(BITS(i, 31, 25), 7) << 5) | BITS(i
 static word_t j_of(uint32_t i) { return (SEXT(BITS(i, 31, 31), 1) << 20) | (BITS(i, 19, 12) << 12) | (BITS(i, 20, 20) << 11) | BITS(i, 30, 21) << 1;}
 static word_t immB(uint32_t i) { return (SEXT(BITS(i, 31, 31), 1) << 12) | (BITS(i, 7, 7) << 11) | (BITS(i, 30, 25) << 5) | BITS(i, 11, 8) << 1;}
 
+int csr_immindex;
 static void decode_operand(Decode *s, word_t *dest, word_t *src1, word_t *src2, int type) {
   uint32_t i = s->isa.inst.val;
   int rd  = BITS(i, 11, 7);
@@ -40,7 +66,7 @@ static void decode_operand(Decode *s, word_t *dest, word_t *src1, word_t *src2, 
   destR(rd);
  // bool btyperes;
   switch (type) {
-    case TYPE_I: src1R(rs1);     src2I(immI(i)); destI(rd);  break;
+    case TYPE_I: src1R(rs1);     src2I(immI(i)); destI(rd); csr_read(immI(i)); csr_immindex = immI(i); break;
     case TYPE_U: src1I(immU(i)); destI(rd);      break;
     case TYPE_S: destI(immS(i)); src1R(rs1);     src2R(rs2); break;
     case TYPE_J: src1I(s->pc);   src2I(j_of(i)); destI(rd);  break;
@@ -170,7 +196,7 @@ static int decode_exec(Decode *s) {
   INSTPAT("0000001 ????? ????? 011 ????? 01100 11", mulhu   , R, R(dest) = (src1 * src2) >> 32);
   INSTPAT("0000001 ????? ????? 000 ????? 01110 11", mulw    , R, src1 = (src1 * src2) & 0x00000000ffffffff; if((src1 & 0x8000000000000000) == 0x8000000000000000) R(dest) = 0xffffffff00000000 | src1; else R(dest) = src1;); 
   INSTPAT("0000000 00000 00000 000 00000 11100 11", ecall   , I, s->dnpc = isa_raise_intr(0,s->pc));
-  //INSTPAT("??????? ????? ????? 001 ????? 11100 11", csrrw   , I, );
+  INSTPAT("??????? ????? ????? 001 ????? 11100 11", csrrw   , I, src1 = src1 | csr_data; csr_write(csr_immindex, src1); R(dest) = csr_data);
   INSTPAT("??????? ????? ????? ??? ????? ????? ??", inv     , N, INV(s->pc));
   INSTPAT_END();
 
