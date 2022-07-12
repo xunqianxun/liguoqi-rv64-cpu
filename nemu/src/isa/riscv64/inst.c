@@ -13,6 +13,9 @@ enum {
   TYPE_R,
    // none
 };
+
+riscv64_CPU_state cpu = {.mstatus = 0xa00001800};
+
 word_t csr_data ;
 void csr_read(int index){
   if(index == 0x305)
