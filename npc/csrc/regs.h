@@ -57,7 +57,7 @@ typedef struct Decode {
 
 //---------------CONFIG SET-----------------------------//
 
-CPU_state cpu = { .pc =0x80000000 .mstatus = 0xa00001800};
+CPU_state cpu = { .pc =0x80000000};
 NPC_state npc_state = { .state = NEMU_STOP };
 
 
