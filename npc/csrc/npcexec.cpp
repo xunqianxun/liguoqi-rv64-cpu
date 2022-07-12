@@ -49,7 +49,7 @@ static void trace_and_difftest(Decode *_this, uint64_t dnpc) {
    }
 #endif
 //  if (g_print_step) { IFDEF(CONFIG_ITRACE, puts(_this->logbuf)); }
-  if(difftest_ena == 1){difftest_step(name_pc, dnpc);}// printf("thispc=%lx dnpc=%lx\n",_this->pc, dnpc);
+  if(difftest_ena == 1){printf("npc = 0x%lx\n", dnpc); }//difftest_step(name_pc, dnpc);}
   else {difftest_ena = difftest_ena;}
 }
 

@@ -94,12 +94,12 @@ void init_difftest(char *ref_so_file, long img_size, int port) {
 
 static void checkregs(CPU_state *ref, uint64_t pc) {
   printf("nemu_pc=%lx npc_pc=%lx cpupc=%lx\n", pc, ref->pc, cpu.pc);
-  // if (!isa_difftest_checkregs(ref, pc)) {
-  //   npc_state.state = NEMU_ABORT;
-  //   npc_state.halt_pc = pc;
+  if (!isa_difftest_checkregs(ref, pc)) {
+    npc_state.state = NEMU_ABORT;
+    npc_state.halt_pc = pc;
     
-  //   isa_reg_display();
-  // }
+    isa_reg_display();
+  }
 }
 
 void difftest_step(uint64_t pc, uint64_t npc) {
