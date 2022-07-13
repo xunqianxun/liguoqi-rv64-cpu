@@ -8,8 +8,8 @@ struct Context {
 };
 
 #define GPR1 gpr[17] // a7
-#define GPR2 gpr[11]
-#define GPR3 gpr[12]
-#define GPR4 gpr[13]
-#define GPRx gpr[11]
+#define GPR2 gpr[5]
+#define GPR3 gpr[6]
+#define GPR4 gpr[7]
+#define GPRx gpr[5]
 #endif

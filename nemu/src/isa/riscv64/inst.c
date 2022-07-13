@@ -197,7 +197,7 @@ static int decode_exec(Decode *s) {
   INSTPAT("0000001 ????? ????? 010 ????? 01100 11", mulhsu  , R, op1data = src1; R(dest) = (op1data * src2) >> 32);
   INSTPAT("0000001 ????? ????? 011 ????? 01100 11", mulhu   , R, R(dest) = (src1 * src2) >> 32);
   INSTPAT("0000001 ????? ????? 000 ????? 01110 11", mulw    , R, src1 = (src1 * src2) & 0x00000000ffffffff; if((src1 & 0x8000000000000000) == 0x8000000000000000) R(dest) = 0xffffffff00000000 | src1; else R(dest) = src1;); 
-  INSTPAT("0000000 00000 00000 000 00000 11100 11", ecall   , I, s->dnpc = isa_raise_intr(11,s->pc));
+  INSTPAT("0000000 00000 00000 000 00000 11100 11", ecall   , I, s->dnpc = isa_raise_intr(gpr(17),s->pc));
   INSTPAT("??????? ????? ????? 001 ????? 11100 11", csrrw   , I, csr_write(csr_immindex, src1); R(dest) = csr_data);
   INSTPAT("??????? ????? ????? 010 ????? 11100 11", csrrs   , I, src1 = src1 | csr_data; csr_write(csr_immindex, src1); R(dest) = csr_data);
   INSTPAT("0011000 00010 00000 000 00000 11100 11", mret    , I, csr_read(0x341); s->dnpc = csr_data + 4;);

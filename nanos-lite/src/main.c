@@ -1,4 +1,4 @@
-#include </home/mulin/ysyx-workbench/nanos-lite/include/common.h>
+#include <common.h>
 
 void init_mm(void);
 void init_device(void);

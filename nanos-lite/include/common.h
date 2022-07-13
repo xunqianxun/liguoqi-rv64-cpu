@@ -16,5 +16,5 @@
 // size_t ramdisk_read(void *buf, size_t offset, size_t len);
 // size_t ramdisk_write(const void *buf, size_t offset, size_t len);
 // static uintptr_t loader(PCB *pcb, const char *filename)
-
+void do_syscall(Context *c);
 #endif
