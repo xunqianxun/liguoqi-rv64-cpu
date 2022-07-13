@@ -1,7 +1,7 @@
 #ifndef __PROC_H__
 #define __PROC_H__
 
-#include <common.h>
+#include </home/mulin/ysyx-workbench/nanos-lite/include/common.h>
 #include <memory.h>
 
 #define STACK_SIZE (8 * PGSIZE)
@@ -17,5 +17,6 @@ typedef union {
 } PCB;
 
 extern PCB *current;
+void naive_uload(PCB *pcb, const char *filename);
 
 #endif

@@ -1,4 +1,4 @@
-#include <common.h>
+#include </home/mulin/ysyx-workbench/nanos-lite/include/common.h>
 
 void init_mm(void);
 void init_device(void);
@@ -6,6 +6,11 @@ void init_ramdisk(void);
 void init_irq(void);
 void init_fs(void);
 void init_proc(void);
+
+// size_t get_ramdisk_size();
+// size_t ramdisk_read(void *buf, size_t offset, size_t len);
+// size_t ramdisk_write(const void *buf, size_t offset, size_t len);
+// static uintptr_t loader(PCB *pcb, const char *filename);
 
 int main() {
   extern const char logo[];
