@@ -1,5 +1,6 @@
 #include <am.h>
 #include <./riscv/riscv.h>
+#include <stdio.h>
 
 uint32_t boot_time;
 void __am_timer_init() {
@@ -10,6 +11,7 @@ uint64_t time;
 uint32_t time_hie;
 time_hie = inlm(RTC_ADDR) - boot_time;
 time = time_hie;
+printf("uptime = %d\n",time);
 uptime->us = time;
 }
 
