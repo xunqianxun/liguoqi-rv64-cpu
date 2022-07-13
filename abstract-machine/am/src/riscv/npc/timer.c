@@ -11,7 +11,7 @@ uint64_t time;
 uint32_t time_hie;
 time_hie = inlm(RTC_ADDR) - boot_time;
 time = time_hie;
-printf("uptime = %d\n",time);
+printf("uptime = %ld\n",time);
 uptime->us = time;
 }
 
