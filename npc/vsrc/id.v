@@ -161,7 +161,7 @@ wire inst_csrrci   = inst_type[7] &  funct3[2] &  funct3[1] &  funct3[0]   ;
 
 
 wire inst_csr_rs1  = inst_csrrw | inst_csrrs | inst_csrrc    ;
-wire inst_csr_imm  = inst_csrrwi | inst_csrrwi | inst_csrrwi ;
+wire inst_csr_imm  = inst_csrrwi | inst_csrrsi | inst_csrrci ;
 
 wire inst_ecall    = inst_type[7] & ~funct3[2] & ~funct3[1] & ~funct3[0] && (imm == 12'd0)         ;
 wire inst_ebreak   = inst_type[7] & ~funct3[2] & ~funct3[1] & ~funct3[0] && (imm == 12'd1)         ;
