@@ -52,7 +52,7 @@ static uintptr_t loader(PCB *pcb, const char *filename) {
   Elf_Phdr elfphdr = {};
   //init_ramdisk();
   ramdisk_read(&elfehdr, 0, get_ramdisk_size());
-  printf("magicdata = %lx", elfehdr.e_ident);
+  printf("magicdata = %x", elfehdr.e_ident);
   //assert(*(uint32_t *)elfehdr.e_ident == 0x7f454c46);
   uint64_t i = 0;
   for(i=0; i<elfehdr.e_phnum; i++){
