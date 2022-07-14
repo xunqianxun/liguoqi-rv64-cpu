@@ -1,4 +1,4 @@
-#include <reg.h>
+//#include <reg.h>
 #include "paddr.cpp"
 
 #define NR_MAP 16
