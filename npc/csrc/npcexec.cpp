@@ -35,7 +35,7 @@ uint64_t rtc_io_handler() {
     uint64_t us = get_time();
     rtc_io_baseus = (uint32_t)us;
     rtc_io_basems = us >> 32;
-    return rtc_io_baseus;
+    return rtc_io_basems;
 
 }
 
