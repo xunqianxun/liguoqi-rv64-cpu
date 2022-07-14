@@ -60,7 +60,7 @@ static void invoke_callback(io_callback_t c, uint32_t offset, int len, bool is_w
 }
 
 void init_map() {
-  io_space = malloc(IO_SPACE_MAX);
+  io_space = malloc(2*1024*1024);
   //assert(io_space);
   p_space = io_space;
 }
@@ -97,7 +97,7 @@ static void rtc_io_handler(uint32_t offset, int len, bool is_write) {
 
 #ifndef CONFIG_TARGET_AM
 static void timer_intr() {
-  if (nemu_state.state == NEMU_RUNNING) {
+  if (npc_state.state == NEMU_RUNNING) {
     extern void dev_raise_intr();
     dev_raise_intr();
   }
@@ -110,6 +110,6 @@ void init_timer() {
 //   add_pio_map ("rtc", CONFIG_RTC_PORT, rtc_port_base, 8, rtc_io_handler);
 // #else
 // #endif
-  add_mmio_map("rtc", CONFIG_RTC_MMIO, rtc_port_base, 8, rtc_io_handler);
+  add_mmio_map("rtc", 0xa0000048, rtc_port_base, 8, rtc_io_handler);
   //IFNDEF(CONFIG_TARGET_AM, add_alarm_handle(timer_intr));
 }
