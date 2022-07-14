@@ -117,7 +117,50 @@ extern void isa_reg_display() ;
 #define FMT_PADDR MUXDEF(PMEM64, "0x%016lx", "0x%08x")
 
 
+//-------------------------MMIO----------------------------//
+typedef void(*io_callback_t)(uint32_t, int, bool);
+uint8_t* new_space(int size);
 
+typedef struct {
+  const char *name;
+  // we treat ioaddr_t as paddr_t here
+  uint32_t low;
+  uint32_t high;
+  void *space;
+  io_callback_t callback;
+} IOMap;
+
+static inline bool map_inside(IOMap *map, uint32_t addr) {
+  return (addr >= map->low && addr <= map->high);
+}
+
+static inline int find_mapid_by_addr(IOMap *maps, int size, uint32_t addr) {
+  int i;
+  for (i = 0; i < size; i ++) {
+    if (map_inside(maps + i, addr)) {
+      //difftest_skip_ref();
+      return i;
+    }
+  }
+  return -1;
+}
+
+void add_pio_map(const char *name, uint16_t addr,
+        void *space, uint32_t len, io_callback_t callback);
+void add_mmio_map(const char *name, uint32_t addr,
+        void *space, uint32_t len, io_callback_t callback);
+
+uint64_t map_read(uint32_t addr, int len, IOMap *map);
+void map_write(uint32_t addr, int len, uint64_t data, IOMap *map);
+
+#define PAGE_SHIFT        12
+#define PAGE_SIZE         (1ul << PAGE_SHIFT)
+#define PAGE_MASK         (PAGE_SIZE - 1)
+
+#define TIMER_HZ 60
+
+typedef void (*alarm_handler_t) ();
+void add_alarm_handle(alarm_handler_t h);
 
 
 #endif

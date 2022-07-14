@@ -4,7 +4,7 @@
 #include <bits/stdc++.h>
 #include "regs.h"
 //#include "debug.h"
-#include "paddr.cpp"
+#include "mmio.cpp"
 
 #define false 0
 #define true 1
