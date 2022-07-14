@@ -27,9 +27,9 @@ uint64_t mmio_read(uint32_t addr, int len) {
   return map_read(addr, len, fetch_mmio_map(addr));
 }
 
-void mmio_write(uint32_t addr, int len, uint64_t data) {
-  map_write(addr, len, data, fetch_mmio_map(addr));
-}
+// void mmio_write(uint32_t addr, int len, uint64_t data) {
+//   map_write(addr, len, data, fetch_mmio_map(addr));
+// }
 
 #define IO_SPACE_MAX (2 * 1024 * 1024)
 
@@ -74,13 +74,13 @@ uint64_t map_read(uint32_t addr, int len, IOMap *map) {
   return ret;
 }
 
-void map_write(uint32_t addr, int len, uint64_t data, IOMap *map) {
-  //assert(len >= 1 && len <= 8);
-  //check_bound(map, addr);
-  uint32_t offset = addr - map->low;
-  host_write((void*)(map->space + offset), len, data);
-  invoke_callback(map->callback, offset, len, true);
-}
+// void map_write(uint32_t addr, int len, uint64_t data, IOMap *map) {
+//   //assert(len >= 1 && len <= 8);
+//   //check_bound(map, addr);
+//   uint32_t offset = addr - map->low;
+//   host_write((void*)(map->space + offset), len, data);
+//   invoke_callback(map->callback, offset, len, true);
+// }
 
 
 static uint32_t *rtc_port_base = NULL;
