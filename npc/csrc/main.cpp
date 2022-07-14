@@ -114,7 +114,6 @@ rvcpu->trace(tfp,0) ;
 tfp->open("obj_dir/SocTop.vcd") ; // open vcd
 rvcpu->rst = 1;
 init_monitor(argc, argv);
-init_timer();
 
 sdb_mainloop();
 close_npc();
@@ -240,8 +239,8 @@ while(ddy){
       
     }
     if(rvcpu->out_rtc_read_ == 1) {
-      mmio_read(rvcpu->out_slave_addr_, 8);
-      //rvcpu->in_rtc_data_ = get_time();
+     
+      rvcpu->in_rtc_data_ = rtc_io_handler();
       //printf("get_time = %d", rvcpu->in_rtc_data_);
     }
   }
