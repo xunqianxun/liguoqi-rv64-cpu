@@ -4751,7 +4751,7 @@ VL_INLINE_OPT void VSocTop___024root___sequent__TOP__4(VSocTop___024root* vlSelf
                    & (~ vlSelf->SocTop__DOT__rvcpu1__DOT__idex_ex_op1));
         } else if ((0x10U == (IData)(vlSelf->SocTop__DOT__rvcpu1__DOT__idex_ex_opcode))) {
             vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__wbck_csr_data 
-                = vlSelf->SocTop__DOT__rvcpu1__DOT__idex_ex_pc;
+                = (4ULL + vlSelf->SocTop__DOT__rvcpu1__DOT__idex_ex_pc);
         }
     } else {
         vlSelf->SocTop__DOT__rvcpu1__DOT__ex5__DOT__wbck_csr_data = 0ULL;
