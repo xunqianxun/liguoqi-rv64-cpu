@@ -70,7 +70,7 @@ uint64_t map_read(uint32_t addr, int len, IOMap *map) {
   //check_bound(map, addr);
   uint32_t offset = addr - map->low;
   invoke_callback(map->callback, offset, len, false); // prepare data to read
-  uint64_t ret = host_read((void*)(map->space + offset), len);
+  uint64_t ret = host_read((void *)(map->space + offset), len);
   return ret;
 }
 
