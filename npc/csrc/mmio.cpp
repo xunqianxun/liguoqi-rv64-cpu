@@ -70,7 +70,7 @@ uint64_t map_read(uint32_t addr, int len, IOMap *map) {
   //check_bound(map, addr);
   uint32_t offset = addr - map->low;
   invoke_callback(map->callback, offset, len, false); // prepare data to read
-  uint64_t ret = host_read(map->space + offset), len);
+  uint64_t ret = host_read((void *)(map->space + offset), len);
   return ret;
 }
 
@@ -92,6 +92,7 @@ static void rtc_io_handler(uint32_t offset, int len, bool is_write) {
     uint64_t us = get_time();
     rtc_port_base[0] = (uint32_t)us;
     rtc_port_base[1] = us >> 32;
+    printf("time = %d = %d",rtc_port_base[0],rtc_port_base[1]);
   }
 }
 
