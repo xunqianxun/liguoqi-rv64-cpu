@@ -241,7 +241,7 @@ while(ddy){
     if(rvcpu->out_rtc_read_ == 1) {
      
       rvcpu->in_rtc_data_ = rtc_io_handler();
-      printf("get_time = %d\n", rvcpu->in_rtc_data_);
+      //printf("get_time = %d\n", rvcpu->in_rtc_data_);
     }
   }
   if((main_time % 10) == 6){
