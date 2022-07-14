@@ -59,11 +59,11 @@ static void invoke_callback(io_callback_t c, uint32_t offset, int len, bool is_w
   if (c != NULL) { c(offset, len, is_write); }
 }
 
-void init_map() {
-  io_space = malloc((void*)(2*1024*1024));
-  //assert(io_space);
-  p_space = io_space;
-}
+// void init_map() {
+//   io_space = malloc((void*)(2*1024*1024));
+//   //assert(io_space);
+//   p_space = io_space;
+// }
 
 uint64_t map_read(uint32_t addr, int len, IOMap *map) {
   //assert(len >= 1 && len <= 8);
