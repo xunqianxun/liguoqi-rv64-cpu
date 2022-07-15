@@ -33,14 +33,12 @@ tfp->open("obj_dir/ysyxSoCFull.vcd") ; // open vcd
 ysyxSoCFull->rst = 1;
 init_monitor(argc, argv);
 
-sdb_mainloop();
-close_npc();
-is_exit_status_bad();
+
+
 }
 
 
 //close npc function
-
 extern int close_npc(){
 tfp->close() ;
 delete rvcpu ;
