@@ -18,8 +18,8 @@ VERILAGS+= --trace
 VERILAGS+= --cc
 VERILAGS+= --exe
 VERILAGS+= -build
-#VERILAGS+= -timescale 1ns/1ns
-VERILAGS+= -V npc/vsrc
+VERILAGS+= -timescale 1ns/1ns
+VERILAGS+= -v npc/vsrc
 
 
 sim:
