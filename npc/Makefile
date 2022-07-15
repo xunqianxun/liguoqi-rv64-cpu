@@ -19,7 +19,7 @@ VERILAGS+= --cc
 VERILAGS+= --exe
 VERILAGS+= -build
 VERILAGS+= -timescale 1ns/1ns
-VERILAGS+= -I vsrc
+VERILAGS+= -I /home/mulin/ysyx-workbench/npc/vsrc
 
 
 sim:
