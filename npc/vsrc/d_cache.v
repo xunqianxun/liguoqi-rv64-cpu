@@ -11,6 +11,12 @@ Function:write data cache
 `define ysyx22040228_MISSR   6'b010000
 `define ysyx22040228_UNCACHE 6'b100000
 `define ysyx22040228_MISSW   6'b010000
+
+`define ysyx22040228_FENCEIDLE  3'b001
+`define ysyx22040228_FENCECOUNT 3'b010
+`define ysyx22040228_FENCEEND   3'b100
+
+
 `include "./vsrc/defines.v"
 `include "./vsrc/defines_axi4.v"
 `include "./vsrc/d_cache_data_ram.v"
@@ -25,6 +31,7 @@ module d_cache (
     /* verilator lint_on UNUSED */
     input         wire        [`ysyx22040228_REGBUS]          mem_data_i         ,
     input         wire        [7:0]                           mem_strb_i         ,
+    input         wire                                        mem_fence_i        ,
     input         wire                                        mem_read_valid     ,
     input         wire                                        mem_write_valid    ,
     output        reg         [`ysyx22040228_AXI_REGBUS]      mem_data_out       ,
@@ -35,12 +42,103 @@ module d_cache (
     output        wire                                        out_dcache_resp    ,
     output        wire        [63:0]                          out_dcache_addr    ,
     output        wire        [`ysyx22040228_DCACHE_DATA_W]   out_dcache_data    ,
-    //type[0]---->  dirty
+    //type[0]---->  dirty | fence 
     //type[1]---->  missr
     //type[2]---->  dirtyw
     //type[3]---->  missw
     output        wire        [3:0]                           out_dcache_type        
 );
+    //----------------------------------fence-------------------------------------//
+    reg [7:0] counter    ;
+    reg     fence_valid_req;
+    reg     read_request ;
+    reg     read_success ;
+    reg     write_request;
+    reg     write_success;
+    always @(posedge clk) begin 
+        if(read_success) begin
+            read_request  <= `ysyx22040228_ENABLE;
+            write_request <= `ysyx22040228_ABLE ;
+        end 
+        else if(write_success) begin
+            write_request <= `ysyx22040228_ENABLE;
+            counter       <= counter + 1 ;
+        end 
+        else if((mem_fence_i) && (counter < 64)) begin
+            read_request <= `ysyx22040228_ABLE ;
+        end
+        else if((mem_fence_i) && (counter >= 64)) begin
+            fence_valid_req <= `ysyx22040228_ABLE;
+        else 
+            fence_valid_req <= `ysyx22040228_ENABLE;
+            counter <= 8'b00000000;
+        end 
+    end
+
+    always @(*) begin
+        if(read_request)
+            read_success = `ysyx22040228_ABLE;
+        else 
+            read_success = `ysyx22040228_ENABLE;
+    end
+    
+    reg           fence_write_valid1;
+    reg           fence_write_valid2;
+    reg  [63:0]   fence_data_out ;
+    reg  [63:0]   fence_addr_out ;
+    reg  [3:0]    fence_type_out ;
+    reg  [63:0]   fence_addr_cache;
+    reg           check_two      ;
+    always @(*) begin
+        if((write_request) && (tag_user1 == `ysyx22040228_ABLE)) begin
+            if((~in_dcache_ready) && (dirty1[counter] == `ysyx22040228_ABLE)) begin
+                fence_data_out = out_data1 ;
+                fence_addr_out = {tag_data1, counter, 3'b000} ;
+                fence_type_out = 4'b0001   ;
+            end 
+            else if((in_dcache_ready) && (dirty1[counter] == `ysyx22040228_ABLE))begin
+                fence_data_out = `ysyx22040228_ZEROWORD ;
+                fence_addr_out = `ysyx22040228_ZEROWORD ;
+                fence_type_out = 4'b0000                ;
+            end 
+            else begin
+                //fence_addr_out = {tag_data1, counter, 3'b000} ;
+                fence_write_valid1 = `ysyx22040228_ABLE ;
+            end 
+        end
+        else if((write_request) && (tag_user2 == `ysyx22040228_ABLE)) begin
+            if(~in_dcache_ready) begin
+                fence_data_out = out_data2 ;
+                fence_addr_out = {tag_data2, counter, 3'b000} ; 
+                fence_type_out = 4'b0001   ;
+            end 
+            else if(in_dcache_ready)begin
+                fence_data_out = `ysyx22040228_ZEROWORD ;
+                fence_addr_out = `ysyx22040228_ZEROWORD ;
+                fence_type_out = 4'b0000                ;
+            end 
+            else begin
+                //fence_addr_out = {tag_data1, counter, 3'b000} ;
+                fence_write_valid2 = `ysyx22040228_ABLE ;
+            end 
+        end
+        else if(delay_oclk) begin
+            write_success = `ysyx22040228_ENABLE;
+        end 
+        else begin
+            fence_write_valid1 = `ysyx22040228_ENABLE;
+            write_success  = `ysyx22040228_ABLE;
+            fence_write_valid2 = `ysyx22040228_ENABLE;
+        end  
+    end
+    reg delay_oclk ;
+    always @(posedge clk) begin
+        if(write_success)
+            delay_oclk <= `ysyx22040228_ABLE;
+        else 
+            delay_oclk <= `ysyx22040228_ENABLE;
+    end
+    //-----------------------------------dcache----------------------------------//
     wire   dcache_read_shankhand   ;
     wire   dcache_write_shankhand  ;
     wire   dcache_read_ready ;
@@ -507,38 +605,57 @@ module d_cache (
         else if(dirtyw_clean_t | dirty_clean_t) begin
             dirty2[dcache_index] <= `ysyx22040228_ENABLE ;
         end 
+        else if((write_request) && (dirty1[counter] == `ysyx22040228_ABLE) && in_dcache_ready)begin
+            dirty1[counter] == `ysyx22040228_ENABLE;
+        end 
+        else if((write_request) && (dirty2[counter] == `ysyx22040228_ABLE) && in_dcache_ready)begin
+            dirty2[counter] == `ysyx22040228_ENABLE;
+        end 
     end
 
 
     wire        tag_ena1 ;
     wire [54:0] tag_data1;
     wire        tag_user1;
+    wire [55:0] tag_din1 ;
+    wire [63:0] tag_addr1;
     d_cache_tag_ram u_tag0(
         .clk         (clk         ),
-        .addr_i      (dcache_index),
-        .data_i      ({1'b1,dcache_tag}),
+        .addr_i      (tag_addr1   ),
+        .data_i      (tag_din1    ),
         .write_ena   (tag_ena1    ),
         .tag_data    (tag_data1   ),
         .tag_valid   (tag_user1   )
     );
     assign tag_ena1 = (state_dread == `ysyx22040228_MISSR)  ? missr_tag_ena1 :
                       (state_dwrite == `ysyx22040228_MISSW) ? missw_tag_ena1 :
+                      ((write_request)&& fence_write_valid1)? `ysyx22040228_ABLE:
                                                          `ysyx22040228_ENABLE;
+    assign tag_din1 = ((write_request)&& fence_write_valid1) ? 56'h0         :
+                                                            {1'b1,dcache_tag};
+    assign tag_addr1 = ((write_request)&& fence_write_valid1)? counter       :
+                                                                 dcache_index;
 
     wire        tag_ena2 ;
     wire [54:0] tag_data2;
     wire        tag_user2;
+    wire [63:0] tag_addr2;
     d_cache_tag_ram u_tag1(
         .clk         (clk         ),
-        .addr_i      (dcache_index),
-        .data_i      ({1'b1,dcache_tag}),
+        .addr_i      (tag_addr2   ),
+        .data_i      (tag_din2    ),
         .write_ena   (tag_ena2    ),
         .tag_data    (tag_data2   ),
         .tag_valid   (tag_user2   )
     );
     assign tag_ena2 = (state_dread == `ysyx22040228_MISSR)  ? missr_tag_ena2 : 
                       (state_dwrite == `ysyx22040228_MISSW) ? missw_tag_ena2 :
+                      ((write_request)&& fence_write_valid2)? `ysyx22040228_ABLE:
                                                          `ysyx22040228_ENABLE;
+    assign tag_din2 = ((write_request)&& fence_write_valid2) ? 56'h0         :
+                                                            {1'b1,dcache_tag};
+    assign tag_addr2 = ((write_request)&& fence_write_valid2)? counter       :
+                                                                 dcache_index;
 
     wire [63:0] out_data1   ;
     wire [7:0]  data_ena1   ;
@@ -586,17 +703,20 @@ module d_cache (
     assign out_dcache_type = (state_dread == `ysyx22040228_DIRTY) ? dirty_out_type :
                              (state_dread == `ysyx22040228_MISSR) ? missr_out_type :
                              (state_dwrite == `ysyx22040228_DIRTY)? dirtyw_out_type:
-                             (state_dwrite == `ysyx22040228_MISSW) ? missw_out_type:
+                             (state_dwrite == `ysyx22040228_MISSW)?  missw_out_type:
+                             write_request                        ? fence_type_out :
                                                                                4'b0;
 
     assign out_dcache_addr = (state_dread == `ysyx22040228_DIRTY) ? dirty_out_addr :
                              (state_dread == `ysyx22040228_MISSR) ? missr_out_addr :
                              (state_dwrite == `ysyx22040228_DIRTY)? dirtyw_out_addr:
                              (state_dwrite == `ysyx22040228_MISSW)? missw_out_addr :
+                             write_request                        ? fence_addr_out :
                                                              `ysyx22040228_ZEROWORD;
 
     assign out_dcache_data = (state_dread == `ysyx22040228_DIRTY) ? dirty_out_data :
                              (state_dwrite == `ysyx22040228_DIRTY)? dirtyw_out_data:
+                             write_request                        ? fence_data_out :
                                                              `ysyx22040228_ZEROWORD;
 
     assign out_dcache_resp = (state_dread == `ysyx22040228_MISSR) ? missr_out_resp :
@@ -605,6 +725,7 @@ module d_cache (
 
     assign mem_data_ready  = (state_dread == `ysyx22040228_HIT)   ? hit_data_ready :
                              (state_dwrite == `ysyx22040228_HIT)  ? hitw_data_ready:
+                             fence_valid_req                      ? ysyx22040228_ABLE:
                                                                `ysyx22040228_ENABLE;
 
 /* verilator lint_on LATCH */

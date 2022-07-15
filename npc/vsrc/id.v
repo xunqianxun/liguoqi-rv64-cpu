@@ -166,16 +166,17 @@ wire inst_csr_imm  = inst_csrrwi | inst_csrrsi | inst_csrrci ;
 wire inst_ecall    = inst_type[7] & ~funct3[2] & ~funct3[1] & ~funct3[0] && (imm == 12'd0)         ;
 wire inst_ebreak   = inst_type[7] & ~funct3[2] & ~funct3[1] & ~funct3[0] && (imm == 12'd1)         ;
 wire inst_mret     = inst_type[7] & ~funct3[2] & ~funct3[1] & ~funct3[0] && (funct7 == 7'b0011000) ;
+wire inst_fence.i  = ~funct3[2] & ~funct3[1] & funct2[0] & (opcode == 7'b0000111);
 
 
 assign inst_opcode[0] = (rst == `ysyx22040228_RSTENA) ? 0 :  inst_csrrc  | inst_beq  | inst_addi | inst_srai | inst_slt  | inst_sra  | inst_auipc | inst_slliw | inst_subw | inst_divuw  | inst_divw  | inst_rem    | inst_remu  | inst_remuw  | inst_remw  | inst_ebreak ;
-assign inst_opcode[1] = (rst == `ysyx22040228_RSTENA) ? 0 :  inst_csrrwi | inst_ben  | inst_slti | inst_srai | inst_sltu | inst_or   | inst_jal   | inst_sraiw | inst_sllw | inst_mul    | inst_div   | inst_divu   | inst_remuw | inst_remw   | inst_ebreak ;
-assign inst_opcode[2] = (rst == `ysyx22040228_RSTENA) ? 0 :  inst_csrrsi | inst_blt  | inst_sltiu| inst_add  | inst_slt  | inst_and  | inst_jalr  | inst_sraiw | inst_srlw | inst_mul    | inst_mulh  | inst_div    | inst_divuw | inst_remu   | inst_ebreak ;
-assign inst_opcode[3] = (rst == `ysyx22040228_RSTENA) ? 0 :  inst_csrrci | inst_bge  | inst_xori | inst_add  | inst_sltu | inst_lui  | inst_addiw | inst_slliw | inst_sraw | inst_mul    | inst_mulh  | inst_mulhsu | inst_divu                              ;
-assign inst_opcode[4] = (rst == `ysyx22040228_RSTENA) ? 0 :  inst_ecall  | inst_bltu | inst_ori  | inst_sub  | inst_xor  | inst_sra  | inst_addiw | inst_srliw | inst_sllw | inst_mulh   | inst_mulhsu| inst_mulhu  | inst_divu  | inst_divw   | inst_remw   ;
-assign inst_opcode[5] = (rst == `ysyx22040228_RSTENA) ? 0 :  inst_mret   | inst_bgeu | inst_andi | inst_sub  | inst_srl  | inst_or   | inst_jalr  | inst_addw  | inst_subw | inst_mulhsu | inst_mulhu | inst_mulw   | inst_divuw                             ;
-assign inst_opcode[6] = (rst == `ysyx22040228_RSTENA) ? 0 :              | inst_csrrw| inst_slli | inst_sll  | inst_xor  | inst_and  | inst_jal   | inst_addw  | inst_sraw | inst_mulhu  | inst_mulw  | inst_divu   | inst_rem   | inst_remuw  | inst_divw   ;
-assign inst_opcode[7] = (rst == `ysyx22040228_RSTENA) ? 0 :              | inst_csrrs| inst_srli | inst_sll  | inst_srl  | inst_lui  | inst_auipc | inst_srliw | inst_srlw | inst_mulw   | inst_div   | inst_rem    | inst_remu                              ;
+assign inst_opcode[1] = (rst == `ysyx22040228_RSTENA) ? 0 :  inst_csrrwi | inst_ben  | inst_slti | inst_srai | inst_sltu | inst_or   | inst_jal   | inst_sraiw | inst_sllw | inst_mul    | inst_div   | inst_divu   | inst_remuw | inst_remw   | inst_ebreak  ;
+assign inst_opcode[2] = (rst == `ysyx22040228_RSTENA) ? 0 :  inst_csrrsi | inst_blt  | inst_sltiu| inst_add  | inst_slt  | inst_and  | inst_jalr  | inst_sraiw | inst_srlw | inst_mul    | inst_mulh  | inst_div    | inst_divuw | inst_remu   | inst_ebreak  ;
+assign inst_opcode[3] = (rst == `ysyx22040228_RSTENA) ? 0 :  inst_csrrci | inst_bge  | inst_xori | inst_add  | inst_sltu | inst_lui  | inst_addiw | inst_slliw | inst_sraw | inst_mul    | inst_mulh  | inst_mulhsu | inst_divu  | inst_fence.i               ;
+assign inst_opcode[4] = (rst == `ysyx22040228_RSTENA) ? 0 :  inst_ecall  | inst_bltu | inst_ori  | inst_sub  | inst_xor  | inst_sra  | inst_addiw | inst_srliw | inst_sllw | inst_mulh   | inst_mulhsu| inst_mulhu  | inst_divu  | inst_divw   | inst_remw    ;
+assign inst_opcode[5] = (rst == `ysyx22040228_RSTENA) ? 0 :  inst_mret   | inst_bgeu | inst_andi | inst_sub  | inst_srl  | inst_or   | inst_jalr  | inst_addw  | inst_subw | inst_mulhsu | inst_mulhu | inst_mulw   | inst_divuw | inst_fence.i               ;
+assign inst_opcode[6] = (rst == `ysyx22040228_RSTENA) ? 0 :              | inst_csrrw| inst_slli | inst_sll  | inst_xor  | inst_and  | inst_jal   | inst_addw  | inst_sraw | inst_mulhu  | inst_mulw  | inst_divu   | inst_rem   | inst_remuw  | inst_divw    ;
+assign inst_opcode[7] = (rst == `ysyx22040228_RSTENA) ? 0 :              | inst_csrrs| inst_srli | inst_sll  | inst_srl  | inst_lui  | inst_auipc | inst_srliw | inst_srlw | inst_mulw   | inst_div   | inst_rem    | inst_remu  | inst_fence.i               ;
 
 
 

@@ -15,11 +15,13 @@ module mem (
 
     input                wire          [`ysyx22040228_DATAADDRBUS]           ls_addr_i            ,
     input                wire          [ 2:0]                                ls_sel_i             ,
+    input                wire                                                fence_ready_         ,
 
     output               wire          [`ysyx22040228_DATAADDRBUS]           data_addr_o          ,
     output               wire          [ 7:0]                                wmask_o              ,
     input                wire          [`ysyx22040228_DATABUS]               data_i               ,
     output               wire          [`ysyx22040228_DATABUS]               data_o               ,
+    output               wire                                                fence                ,
     output               wire                                                we                   ,
     output               wire                                                re                   ,
     input                wire                                                mem_finish           ,
@@ -36,7 +38,8 @@ module mem (
 assign mem_pc_o = (rst == `ysyx22040228_RSTENA) ? `ysyx22040228_ZEROWORD : mem_pc_i ;
 assign mem_inst_o = (rst == `ysyx22040228_RSTENA) ? 32'b0 : mem_inst_i ;
     
-assign mem_stall_req = (rst == `ysyx22040228_RSTENA) ? 1'b0 : ((re|we) && (mem_finish == 1'b0)) ;
+assign mem_stall_req = (rst == `ysyx22040228_RSTENA) ? 1'b0 : (((re|we) && (mem_finish == 1'b0)) | (fence_ready_)) ;
+assign fence         = fence_ready_;
 
 assign rd_addr_o  = rd_addr_i ;
 assign rd_data_o  = inst_type_i[1] ? load_data : rd_data_i ;

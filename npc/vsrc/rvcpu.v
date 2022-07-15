@@ -33,6 +33,7 @@ module rvcpu (
     input           wire         [`ysyx22040228_DATABUS]        data_i         ,
     output          wire                                        we             ,
     output          wire                                        re             ,
+    output          wire                                        fence          ,
     input           wire                                        mem_finish     ,
 
     input           wire                                        timer_intr     
@@ -55,6 +56,7 @@ wire                                    ex_id_rd_ena       ;
 wire    [ 7:0]                          ex_id_rd_type      ;
 wire    [ 2:0]                          ex_mem_sel         ;
 wire    [`ysyx22040228_DATABUS]         ex_mem_addr        ;
+wire                                    ex_mem_fence       ;
 wire                                    ex_pc_branchena    ;
 wire    [`ysyx22040228_PCBUS]           ex_pc_branchpc     ;
 wire                                    ex_ctrl_req        ;
@@ -115,6 +117,7 @@ wire    [`ysyx22040228_REGBUS]         exmem_mem_data     ;
 wire    [`ysyx22040228_REGADDRBUS]     exmem_mem_addr     ;
 wire    [ 2:0]                         exmem_mem_sel      ;
 wire    [`ysyx22040228_DATAADDRBUS]    exmem_mem_lsaddr   ;
+wire                                   exmem_mem_fence    ;
 //difftest use
 wire    [`ysyx22040228_PCBUS]          ex_ex_mem_pc       ;
 wire    [`ysyx22040228_PCBUS]          ex_mem_mem_pc      ;
@@ -277,6 +280,7 @@ ex ex5 (
 
     .ls_sel_o            (ex_mem_sel           ),
     .ls_addr_o           (ex_mem_addr          ),
+    .fence_ready         (ex_mem_fence         ),
 
     .ex_flush            (ex_flush             ),
     .branch_pc_ena       (ex_pc_branchena      ),
@@ -307,6 +311,7 @@ ex_mem ex_mem6 (
 
     .ex_ls_sel           (ex_mem_sel           ),
     .ex_ls_addr          (ex_mem_addr          ),
+    .fence_ready_i       (ex_mem_fence         ),
     
     .mem_inst_type       (exmem_mem_type       ),
     .mem_rd_ena          (exmem_mem_ena        ),
@@ -316,7 +321,8 @@ ex_mem ex_mem6 (
     .ex_mem_inst_o       (ex_mem_mem_inst      ),
 
     .mem_ls_sel          (exmem_mem_sel        ),
-    .mem_ls_addr         (exmem_mem_lsaddr     )
+    .mem_ls_addr         (exmem_mem_lsaddr     ),
+    .fence_ready_o       (exmem_mem_fence      )
 );
 
 mem mem7 (
@@ -335,6 +341,7 @@ mem mem7 (
    .wmask_o              (wmask                ),
    .data_i               (data_i               ),
    .data_o               (data_o               ),
+   .fence                (fence                ),
    .we                   (we                   ),
    .re                   (re                   ),
    .mem_finish           (mem_finish           ),

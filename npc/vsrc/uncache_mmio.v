@@ -11,6 +11,7 @@ module uncache_mmio (
     input     wire          [63:0]                         core_addr        ,
     input     wire          [63:0]                         core_data        ,
     input     wire          [7:0]                          core_mask        ,
+    input     wire                                         fence_in         ,
     input     wire                                         core_we          ,
     input     wire                                         core_re          ,
     output    wire          [63:0]                         in_core_data     ,
@@ -27,6 +28,7 @@ module uncache_mmio (
     output    wire          [63:0]                         dcache_addr      ,
     output    wire          [63:0]                         dcache_data      ,
     output    wire          [7:0]                          dcache_mask      ,
+    output    wire                                         dcache_fence     ,
     output    wire                                         dcache_we        ,
     output    wire                                         dcache_re        ,
     input     wire          [63:0]                         in_dcache_data   ,
@@ -37,7 +39,7 @@ module uncache_mmio (
     assign mmio_sign  = (start_sign &&((core_addr >= `ysyx22040228_SERIAL_START) && (core_addr <= `ysyx22040228_SERIAL_END))) ? 3'b001 :
                         (start_sign &&((core_addr >= `ysyx22040228_RTC_START) && (core_addr <= `ysyx22040228_RTC_END)))       ? 3'b001 :
                                                                                                                                 3'b100 ;
-
+    assign dcache_fence = fence_in;
     wire   uncache  ;
     assign uncache    = (start_sign &&((core_addr >= `ysyx22040228_SERIAL_START) && (core_addr <= `ysyx22040228_SERIAL_END))) ||
                         (start_sign &&((core_addr >= `ysyx22040228_RTC_START) && (core_addr <= `ysyx22040228_RTC_END))) ;

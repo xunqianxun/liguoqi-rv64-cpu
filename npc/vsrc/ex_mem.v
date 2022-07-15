@@ -19,6 +19,7 @@ module ex_mem (
 
     input              wire          [ 2:0]                              ex_ls_sel       ,
     input              wire          [`ysyx22040228_DATAADDRBUS]         ex_ls_addr      ,
+    input              wire                                              fence_ready_i   ,
     
     output             reg           [ 7:0]                              mem_inst_type   ,
     output             reg                                               mem_rd_ena      ,
@@ -28,7 +29,8 @@ module ex_mem (
     output             reg           [`ysyx22040228_INSTBUS]             ex_mem_inst_o   ,
 
     output             reg           [ 2:0]                              mem_ls_sel      ,
-    output             reg           [`ysyx22040228_DATAADDRBUS]         mem_ls_addr       
+    output             reg           [`ysyx22040228_DATAADDRBUS]         mem_ls_addr     ,
+    output             reg                                               fence_ready_o     
 );
     
 always @(posedge clk) begin
@@ -41,6 +43,7 @@ always @(posedge clk) begin
         mem_ls_addr   <= `ysyx22040228_ZEROWORD ;
         ex_mem_pc_o   <= `ysyx22040228_ZEROWORD ;
         ex_mem_inst_o <= 32'b0 ;
+        fence_ready_o <= 1'b0  ;
     end
     else if(stall_ctrl[3:0] == 4'b1111) begin
         mem_inst_type <= mem_inst_type ;
@@ -51,6 +54,7 @@ always @(posedge clk) begin
         mem_ls_addr   <= mem_ls_addr ;
         ex_mem_pc_o   <= ex_mem_pc_o ;
         ex_mem_inst_o <= ex_mem_inst_o; 
+        fence_ready_o <= fence_ready_o;
     end  
     else begin
         mem_inst_type <= ex_inst_type ;
@@ -61,7 +65,7 @@ always @(posedge clk) begin
         mem_ls_addr   <= ex_ls_addr ;
         ex_mem_pc_o   <= ex_mem_pc_i;
         ex_mem_inst_o <= ex_mem_inst_i;
-
+        fence_ready_o <= fence_ready_i;
     end
 end
 

@@ -33,6 +33,7 @@ module ex (
 
     output        wire          [ 2:0]                        ls_sel_o          ,
     output        wire          [`ysyx22040228_REGBUS]        ls_addr_o         ,
+    output        wire                                        fence_ready       ,
 
     output        wire                                        ex_flush          ,
     output        wire                                        branch_pc_ena     ,
@@ -49,6 +50,7 @@ module ex (
 
 assign ex_pc_o = (rst == `ysyx22040228_RSTENA) ? `ysyx22040228_ZEROWORD : pc_i ;
 assign ex_inst_o = (rst == `ysyx22040228_RSTENA) ? 32'b0 : id_ex_inst ;
+assign fence_ready = (inst_opcode_i == `INST_FENCE) ? 1'b1 : 1'b0 ;
 
 reg      [`ysyx22040228_REGBUS]       exe_res   ;
 

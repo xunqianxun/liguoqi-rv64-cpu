@@ -114,6 +114,7 @@
 `define INST_EBREAK        8'b00000111
 `define INST_ECALL         8'b00010000
 `define INST_MRET          8'b00100000
+`define INST_FENCE         8'b10101000
 
 //mem
 //`define DATA_BUS           63:0
