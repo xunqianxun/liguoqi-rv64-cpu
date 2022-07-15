@@ -19,15 +19,14 @@ VERILAGS+= --cc
 VERILAGS+= --exe
 VERILAGS+= -build
 VERILAGS+= -timescale 1ns/1ns
-VERILAGS+= -y$(pwd)
-#VERILAGS+= -I "npc/vsrc/"
+VERILAGS+= -I "/home/mulin/ysyx-workbench/npc/vsrc"
 #VERILAGS+= --debug
 
 sim:
 	@$(shell if[!-e$(SIM_DIR)];then mkdir -p$(SIM_DIR);fi)
 
 run:git
-	@verilator $(VERILAGS) ./csrc/soc_main.cpp --top$(VERILOG)ysyxSoCFull.v
+	@verilator $(VERILAGS) ./csrc/soc_main.cpp $(VERILOG)ysyxSoCFull.v
 	@make -C $(OBJ_PATH) -f VysyxSoCFull.mk VysyxSoCFull
 	./obj_dir/VysyxSoCFull $(IMGE_FLAGS) $(IMG_NPC)
 
