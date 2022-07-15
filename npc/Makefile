@@ -21,7 +21,7 @@ VERILAGS+= -build
 VERILAGS+= -timescale 1ns/1ns
 VERILAGS+= -y$(pwd)
 #VERILAGS+= -I "npc/vsrc/"
-VERILAGS+= --debug
+#VERILAGS+= --debug
 
 sim:
 	@$(shell if[!-e$(SIM_DIR)];then mkdir -p$(SIM_DIR);fi)
