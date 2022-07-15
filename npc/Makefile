@@ -19,14 +19,30 @@ VERILAGS+= --cc
 VERILAGS+= --exe
 VERILAGS+= -build
 VERILAGS+= -timescale 1ns/1ns
-VERILAGS+= -I /home/mulin/ysyx-workbench/npc/vsrc
+VERILAGS+= -y ./vsrc/ysyx22040228.v
+VERILAGS+= -y ./vsrc/spi_top.v
+VERILAGS+= -y ./vsrc/spi_shift.v
+VERILAGS+= -y ./vsrc/spi_clgen.v
+VERILAGS+= -y ./vsrc/raminfr.v
+VERILAGS+= -y ./vsrc/uart_reas.v
+VERILAGS+= -y ./vsrc/spi.v
+VERILAGS+= -y ./vsrc/spi_Flash.v
+VERILAGS+= -y ./vsrc/uart_apb.v
+VERILAGS+= -y ./vsrc/uart_receiver.v
+VERILAGS+= -y ./vsrc/uart_rfifo.v
+VERILAGS+= -y ./vsrc/uart_sync_flops.v
+VERILAGS+= -y ./vsrc/uart_tfifor.v
+VERILAGS+= -y ./vsrc/uart_transmitter.v
+VERILAGS+= -I ./vsrc/spi_defines.v
+VERILAGS+= -I ./vsrc/uart_defines.v
+VERILAGS+= -I ./vsrc/amba_define.v
 
 
 sim:
 	@$(shell if[!-e$(SIM_DIR)];then mkdir -p$(SIM_DIR);fi)
 
 run:git
-	@verilator $(VERILAGS) ./csrc/soc_main.cpp ysyxSoCFull.v
+	@verilator $(VERILAGS) ./csrc/soc_main.cpp $(VERILOG)ysyxSoCFull.v
 	@make -C $(OBJ_PATH) -f VysyxSoCFull.mk VysyxSoCFull
 	./obj_dir/VysyxSoCFull $(IMGE_FLAGS) $(IMG_NPC)
 
