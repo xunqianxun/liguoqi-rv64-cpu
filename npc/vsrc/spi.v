@@ -1,4 +1,4 @@
-`include "amba_define.v"
+`include "./vsrc/amba_define.v"
 
 // define this macro to enable fast behavior simulation
 // for flash by skipping SPI transfers
