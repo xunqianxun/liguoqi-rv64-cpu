@@ -5,8 +5,8 @@ Function:AXI4 bus
 ************************************************************/
 `include "./vsrc/defines_axi4.v"
 `include "./vsrc/defines.v"
-`define  IO_ADDR   
-`define  TIME_ADDR
+// `define  IO_ADDR   
+// `define  TIME_ADDR
 
 //SLAVE_NUM 1 --> IO
 //SLAVE_NUM 2 --> TIME
