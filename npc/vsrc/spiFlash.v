@@ -81,7 +81,7 @@ module spiFlash (
       };
     else if (state == data_t) data <= { data[62:0], data[63] };
   end
-
+  
 endmodule
 
 import "DPI-C" function void flash_read(input longint addr, output longint data);
