@@ -294,6 +294,7 @@ module ysyx_22040228 (
     wire                             tim_axi_r_valid  ;
     wire                             tim_axi_r_ready  ;
    /* verilator lint_off UNUSED */
+   /* verilator lint_off UNDRIVEN */
     wire   [`ysyx22040228_ID_BUS]    io_axi_aw_id    ;
     wire   [`ysyx22040228_ADDR_BUS]  io_axi_aw_addr  ;
     wire   [`ysyx22040228_LEN_BUS]   io_axi_aw_len   ;
@@ -333,7 +334,8 @@ module ysyx_22040228 (
     wire                             io_axi_r_last   ;
     wire                             io_axi_r_valid  ;
     wire                             io_axi_r_ready  ;
-        /* verilator lint_on UNUSED */
+    /* verilator lint_on UNDRIVEN */
+    /* verilator lint_on UNUSED */
 
     assign  {soc_axi_aw_id     , tim_axi_aw_id     , io_axi_aw_id     }   =  add_axi_aw_id   ;
     assign  {soc_axi_aw_addr   , tim_axi_aw_addr   , io_axi_aw_addr   }   =  add_axi_aw_addr ;

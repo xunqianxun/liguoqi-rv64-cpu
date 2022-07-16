@@ -7651,6 +7651,7 @@ void VysyxSoCFull___024root__traceInitSub0(VysyxSoCFull___024root* vlSelf, Veril
         tracep->declQuad(c+3159,"ysyxSoCFull asic cpu cpu arbitrate_i_data", false,-1, 63,0);
         tracep->declBit(c+3161,"ysyxSoCFull asic cpu cpu arbitrate_i_ok", false,-1);
         tracep->declBit(c+3162,"ysyxSoCFull asic cpu cpu time_init_sign", false,-1);
+        tracep->declBit(c+3162,"ysyxSoCFull asic cpu cpu interrupt_", false,-1);
         tracep->declBus(c+3163,"ysyxSoCFull asic cpu cpu t_axi_aw_id", false,-1, 3,0);
         tracep->declQuad(c+3164,"ysyxSoCFull asic cpu cpu t_axi_aw_addr", false,-1, 63,0);
         tracep->declBus(c+3166,"ysyxSoCFull asic cpu cpu t_axi_aw_len", false,-1, 7,0);
@@ -10093,7 +10094,6 @@ void VysyxSoCFull___024root__traceInitSub0(VysyxSoCFull___024root* vlSelf, Veril
         tracep->declBus(c+3665,"ysyxSoCFull fpga fixer_auto_in_a_bits_mask", false,-1, 3,0);
         tracep->declBus(c+3666,"ysyxSoCFull fpga fixer_auto_in_a_bits_data", false,-1, 31,0);
         tracep->declBit(c+18891,"ysyxSoCFull fpga fixer_auto_in_d_ready", false,-1);
-        tracep->declBit(c+18892,"ysyxSoCFull fpga fixer_auto_in_d_valid", false,-1);
     }
 }
 
@@ -10104,6 +10104,7 @@ void VysyxSoCFull___024root__traceInitSub1(VysyxSoCFull___024root* vlSelf, Veril
     if (false && tracep && c) {}  // Prevent unused
     // Body
     {
+        tracep->declBit(c+18892,"ysyxSoCFull fpga fixer_auto_in_d_valid", false,-1);
         tracep->declBus(c+18893,"ysyxSoCFull fpga fixer_auto_in_d_bits_opcode", false,-1, 2,0);
         tracep->declBus(c+18894,"ysyxSoCFull fpga fixer_auto_in_d_bits_param", false,-1, 1,0);
         tracep->declBus(c+18895,"ysyxSoCFull fpga fixer_auto_in_d_bits_size", false,-1, 2,0);
@@ -20275,6 +20276,5 @@ void VysyxSoCFull___024root__traceInitSub1(VysyxSoCFull___024root* vlSelf, Veril
         tracep->declBit(c+19347,"ysyxSoCFull mem axi4buf bundleOut_0_awdeq io_enq_bits_echo_real_last", false,-1);
         tracep->declBit(c+8992,"ysyxSoCFull mem axi4buf bundleOut_0_awdeq io_deq_ready", false,-1);
         tracep->declBit(c+8993,"ysyxSoCFull mem axi4buf bundleOut_0_awdeq io_deq_valid", false,-1);
-        tracep->declBus(c+8994,"ysyxSoCFull mem axi4buf bundleOut_0_awdeq io_deq_bits_id", false,-1, 3,0);
     }
 }

@@ -11,6 +11,7 @@ void VysyxSoCFull___024root__traceInitSub2(VysyxSoCFull___024root* vlSelf, Veril
     if (false && tracep && c) {}  // Prevent unused
     // Body
     {
+        tracep->declBus(c+8994,"ysyxSoCFull mem axi4buf bundleOut_0_awdeq io_deq_bits_id", false,-1, 3,0);
         tracep->declBus(c+8995,"ysyxSoCFull mem axi4buf bundleOut_0_awdeq io_deq_bits_addr", false,-1, 31,0);
         tracep->declBit(c+8996,"ysyxSoCFull mem axi4buf bundleOut_0_awdeq io_deq_bits_echo_real_last", false,-1);
         {int i; for (i=0; i<2; i++) {
@@ -10378,7 +10379,6 @@ void VysyxSoCFull___024root__traceInitSub2(VysyxSoCFull___024root* vlSelf, Veril
         tracep->declBus(c+13180,"ysyxSoCFull asic chipMaster chiplink rx hqd fq ram ram_ext W0_data", false,-1, 31,0);
         tracep->declBit(c+19838,"ysyxSoCFull asic chipMaster chiplink rx hqd fq ram ram_ext R0_clk", false,-1);
         tracep->declBus(c+14854,"ysyxSoCFull asic chipMaster chiplink rx hqd fq ram ram_ext R0_addr", false,-1, 4,0);
-        tracep->declBit(c+16884,"ysyxSoCFull asic chipMaster chiplink rx hqd fq ram ram_ext R0_en", false,-1);
     }
 }
 
@@ -10389,6 +10389,7 @@ void VysyxSoCFull___024root__traceInitSub3(VysyxSoCFull___024root* vlSelf, Veril
     if (false && tracep && c) {}  // Prevent unused
     // Body
     {
+        tracep->declBit(c+16884,"ysyxSoCFull asic chipMaster chiplink rx hqd fq ram ram_ext R0_en", false,-1);
         tracep->declBus(c+13403,"ysyxSoCFull asic chipMaster chiplink rx hqd fq ram ram_ext R0_data", false,-1, 31,0);
         tracep->declBit(c+13413,"ysyxSoCFull asic chipMaster chiplink rx hqd fq ram ram_ext reg_R0_ren", false,-1);
         tracep->declBus(c+13414,"ysyxSoCFull asic chipMaster chiplink rx hqd fq ram ram_ext reg_R0_addr", false,-1, 4,0);
