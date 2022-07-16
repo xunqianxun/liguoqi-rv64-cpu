@@ -20,22 +20,8 @@ VERILAGS+= --exe
 VERILAGS+= -build
 VERILAGS+= -timescale 1ns/1ns
 VERILAGS+= -y ./vsrc/
-VERILAGS+= -y ./vsrc/spi_top.v
-VERILAGS+= -y ./vsrc/spi_shift.v
-VERILAGS+= -y ./vsrc/spi_clgen.v
-VERILAGS+= -y ./vsrc/raminfr.v
-VERILAGS+= -y ./vsrc/uart_reas.v
-VERILAGS+= -y ./vsrc/spi.v
-VERILAGS+= -y ./vsrc/spi_Flash.v
-VERILAGS+= -y ./vsrc/uart_apb.v
-VERILAGS+= -y ./vsrc/uart_receiver.v
-VERILAGS+= -y ./vsrc/uart_rfifo.v
-VERILAGS+= -y ./vsrc/uart_sync_flops.v
-VERILAGS+= -y ./vsrc/uart_tfifor.v
-VERILAGS+= -y ./vsrc/uart_transmitter.v
-VERILAGS+= -I ./vsrc/spi_defines.v
-VERILAGS+= -I ./vsrc/uart_defines.v
-VERILAGS+= -I ./vsrc/amba_define.v
+VERILAGS+= -I ./vsrc/
+
 
 
 sim:
