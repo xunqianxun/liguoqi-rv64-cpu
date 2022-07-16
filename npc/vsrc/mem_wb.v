@@ -28,8 +28,8 @@ module mem_wb (
 //     difftest_dut_thepc(wb_pc_o);
 // end
 
-// reg  [`ysyx22040228_PCBUS]    wb_pc_o;
-// reg  [`ysyx22040228_INSTBUS]  wb_inst_o;
+reg  [`ysyx22040228_PCBUS]    wb_pc_o;
+reg  [`ysyx22040228_INSTBUS]  wb_inst_o;
 
 
 // always@(*)begin
