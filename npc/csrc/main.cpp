@@ -13,13 +13,18 @@ VysyxSoCFull* ysyxSoCFull ;
 VerilatedVcdC* tfp;
 VerilatedContext* contextp;
 
-uint32_t ifetch(uint64_t addr, int len);
+extern "C" void flash_init(char *img);
 
 vluint64_t main_time = 0;
 double sc_time_stamp(){
   return main_time;
 }
 
+extern "C" void flash_read(uint64_t addr, uint64_t *data) {
+  if (!data) return;
+  Assert(in_flash(addr), "Flash address 0x%lx out of bound", addr);
+  *data = *(uint64_t *)(flash + addr);
+}
 
 int main(int argc , char** argv , char** env) {
 
