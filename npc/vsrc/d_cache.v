@@ -69,7 +69,8 @@ module d_cache (
         end
         else if((mem_fence_i) && (counter >= 64)) begin
             fence_valid_req <= `ysyx22040228_ABLE;
-        else 
+        end 
+        else begin
             fence_valid_req <= `ysyx22040228_ENABLE;
             counter <= 8'b00000000;
         end 
@@ -606,10 +607,10 @@ module d_cache (
             dirty2[dcache_index] <= `ysyx22040228_ENABLE ;
         end 
         else if((write_request) && (dirty1[counter] == `ysyx22040228_ABLE) && in_dcache_ready)begin
-            dirty1[counter] == `ysyx22040228_ENABLE;
+            dirty1[counter] <= `ysyx22040228_ENABLE;
         end 
         else if((write_request) && (dirty2[counter] == `ysyx22040228_ABLE) && in_dcache_ready)begin
-            dirty2[counter] == `ysyx22040228_ENABLE;
+            dirty2[counter] <= `ysyx22040228_ENABLE;
         end 
     end
 
