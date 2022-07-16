@@ -13,7 +13,6 @@ VysyxSoCFull* ysyxSoCFull ;
 VerilatedVcdC* tfp;
 VerilatedContext* contextp;
 
-extern "C" void flash_init(char *img);
 
 vluint64_t main_time = 0;
 double sc_time_stamp(){
@@ -44,10 +43,14 @@ while(1){
     ysyxSoCFull->clock = 0 ;
   }
 
+  ysyxSoCFull->eval();
+  tfp->dump(main_time);
+  main_time++;
+}
 tfp->close() ;
 delete ysyxSoCFull ;
 delete contextp ;
 exit(0) ;
 return 0;
-}
+
 }
