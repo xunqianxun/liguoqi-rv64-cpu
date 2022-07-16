@@ -80,7 +80,7 @@ VL_INLINE_OPT void VysyxSoCFull_TX___sequent__TOP__ysyxSoCFull__DOT__asic__DOT__
                                           & (IData)(vlSelf->__PVT__requests)))) 
                               | (IData)(vlSymsp->TOP.reset)))))) {
         VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:31029: Assertion failed in %NysyxSoCFull.asic.chipMaster.chiplink.tx\n",
-                  64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name());
+                  64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
         VL_STOP_MT("vsrc/ysyxSoCFull.v", 31029, "");
     }
     vlSelf->__PVT__qa_q__DOT__valid_0 = ((~ (IData)(vlSymsp->TOP.reset)) 
@@ -1634,7 +1634,7 @@ VL_INLINE_OPT void VysyxSoCFull_TX___sequent__TOP__ysyxSoCFull__DOT__fpga__DOT__
                                           & (IData)(vlSelf->__PVT__requests)))) 
                               | (IData)(vlSymsp->TOP.reset)))))) {
         VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:31029: Assertion failed in %NysyxSoCFull.fpga.chiplink.tx\n",
-                  64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name());
+                  64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
         VL_STOP_MT("vsrc/ysyxSoCFull.v", 31029, "");
     }
     vlSelf->__PVT__qa_q__DOT__valid_0 = ((~ (IData)(vlSymsp->TOP.reset)) 
