@@ -12,7 +12,7 @@ Function:top module of this soc
 `include "defines_axi4.v"
 `include "defines.v"
 `include "uncache_mmio.v"
-module SocTop (
+module ysyx_22040228 (
     input       wire                                    clk                       ,
     input       wire                                    rst                       ,
 
