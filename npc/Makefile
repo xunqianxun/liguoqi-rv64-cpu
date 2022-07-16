@@ -20,7 +20,7 @@ VERILAGS+= --exe
 VERILAGS+= -build
 VERILAGS+= -timescale 1ns/1ns
 VERILAGS+= -y ./vsrc/
-#VERILAGS+= -I /vsrc/
+#VERILAGS+= --top-module ysyxSoCFull
 
 
 
@@ -28,7 +28,7 @@ sim:
 	@$(shell if[!-e$(SIM_DIR)];then mkdir -p$(SIM_DIR);fi)
 
 run:git
-	@verilator $(VERILAGS) ./csrc/soc_main.cpp $(VERILOG)ysyxSoCFull.v
+	@verilator $(VERILAGS) ./csrc/soc_main.cpp --top-module ysyxSoCFull
 	@make -C $(OBJ_PATH) -f VysyxSoCFull.mk VysyxSoCFull
 	./obj_dir/VysyxSoCFull $(IMGE_FLAGS) $(IMG_NPC)
 
