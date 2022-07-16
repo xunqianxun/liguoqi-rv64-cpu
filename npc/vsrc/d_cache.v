@@ -72,7 +72,7 @@ module d_cache (
         end 
         else begin
             fence_valid_req <= `ysyx22040228_ENABLE;
-            counter <= 8'b00000000;
+            counter <= 7'b0000000;
         end 
     end
 
@@ -619,7 +619,7 @@ module d_cache (
     wire [54:0] tag_data1;
     wire        tag_user1;
     wire [55:0] tag_din1 ;
-    wire [63:0] tag_addr1;
+    wire [5:0]  tag_addr1;
     d_cache_tag_ram u_tag0(
         .clk         (clk         ),
         .addr_i      (tag_addr1   ),
@@ -640,7 +640,7 @@ module d_cache (
     wire        tag_ena2 ;
     wire [54:0] tag_data2;
     wire        tag_user2;
-    wire [63:0] tag_addr2;
+    wire [5:0]  tag_addr2;
     wire [55:0] tag_din2 ;
     d_cache_tag_ram u_tag1(
         .clk         (clk         ),

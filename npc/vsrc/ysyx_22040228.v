@@ -20,7 +20,7 @@ module ysyx_22040228 (
    //-----------------------------AXI--------------------------------------------//
    //----------------------write address cahnnel---------------------------------//
     output      wire       [`ysyx22040228_ID_BUS]            out_axi_aw_id        ,
-    output      wire       [`ysyx22040228_ADDR_BUS]          out_axi_aw_addr      ,
+    output      wire       [31:0]                            out_axi_aw_addr      ,
     output      wire       [`ysyx22040228_LEN_BUS]           out_axi_aw_len       ,
     output      wire       [`ysyx22040228_SIZE_BUS]          out_axi_aw_size      ,
     output      wire       [`ysyx22040228_BURST_BUS]         out_axi_aw_burst     ,
@@ -45,7 +45,7 @@ module ysyx_22040228 (
 
     //------------------------read address channel-------------------------------//
     output      wire       [`ysyx22040228_ID_BUS]            out_axi_ar_id        ,
-    output      wire       [`ysyx22040228_ADDR_BUS]          out_axi_ar_addr      ,
+    output      wire       [31:0]                            out_axi_ar_addr      ,
     output      wire       [`ysyx22040228_LEN_BUS]           out_axi_ar_len       ,
     output      wire       [`ysyx22040228_SIZE_BUS]          out_axi_ar_size      ,
     output      wire       [`ysyx22040228_BURST_BUS]         out_axi_ar_burst     ,
@@ -604,7 +604,7 @@ module ysyx_22040228 (
     // );
 
     assign out_axi_aw_id   = soc_axi_aw_id ;
-    assign out_axi_aw_addr = soc_axi_aw_addr;
+    assign out_axi_aw_addr = soc_axi_aw_addr[31:0];
     assign out_axi_aw_len  = soc_axi_aw_len ;
     assign out_axi_aw_size = soc_axi_aw_size;
     assign out_axi_aw_burst = soc_axi_aw_burst;
@@ -626,7 +626,7 @@ module ysyx_22040228 (
     assign out_axi_b_ready  = soc_axi_b_ready;
 
     assign out_axi_ar_id    = soc_axi_ar_id  ;
-    assign out_axi_ar_addr  = soc_axi_ar_addr;
+    assign out_axi_ar_addr  = soc_axi_ar_addr[31:0];
     assign out_axi_ar_len   = soc_axi_ar_len ;
     assign out_axi_ar_size  = soc_axi_ar_size;
     assign out_axi_ar_burst = soc_axi_ar_burst;
