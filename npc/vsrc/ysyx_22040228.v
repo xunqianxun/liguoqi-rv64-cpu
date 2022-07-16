@@ -3,6 +3,7 @@ Author:LiGuoqi
 Name:SocTOp.v
 Function:top module of this soc
 ************************************************************/
+/* verilator lint_off UNUSED */
 `include "arbitratem.v"
 `include "d_cache.v"
 `include "i_cache.v"

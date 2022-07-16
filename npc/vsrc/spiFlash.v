@@ -4,7 +4,7 @@
 // https://www.winbond.com/hq/product/code-storage-flash-memory/serial-nor-flash/?__locale=zh
 
 `define spi_cs_num 2
-
+/* verilator lint_off DECLFILENAME */
 module spiFlash (
   input                    clk,
   input  [`spi_cs_num-1:0] cs,
@@ -81,7 +81,7 @@ module spiFlash (
       };
     else if (state == data_t) data <= { data[62:0], data[63] };
   end
-  
+
 endmodule
 
 import "DPI-C" function void flash_read(input longint addr, output longint data);
