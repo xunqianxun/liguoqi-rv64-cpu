@@ -25,13 +25,14 @@ int main(int argc , char** argv , char** env) {
 
 contextp = new VerilatedContext ;
 contextp->commandArgs(argc, argv) ;
-ysyxSoCFull = new VSocTop(contextp);
+ysyxSoCFull = new VysyxSoCFull(contextp);
 Verilated::traceEverOn(true) ; //out vcd need
 tfp = new VerilatedVcdC ; // out vcd need
 ysyxSoCFull->trace(tfp,0) ;
 tfp->open("obj_dir/ysyxSoCFull.vcd") ; // open vcd
 ysyxSoCFull->reset = 1;
-flash_init(/home/mulin/ysyxSoC/ysyx/program/bin/loader/hello-loader.bin);
+char path = "/home/mulin/ysyxSoC/ysyx/program/bin/loader/hello-loader.bin";
+flash_init(path);
 
 while(1){
   if(main_time > 11) {
