@@ -28,7 +28,7 @@ sim:
 	@$(shell if[!-e$(SIM_DIR)];then mkdir -p$(SIM_DIR);fi)
 
 run:git
-	@verilator $(VERILAGS) ./csrc/soc_main.cpp $(VERILOG)ysyxSoCFull.v
+	@verilator $(VERILAGS) ./csrc/main.cpp $(VERILOG)ysyxSoCFull.v
 	@make -C $(OBJ_PATH) -f VysyxSoCFull.mk VysyxSoCFull
 	./obj_dir/VysyxSoCFull $(IMGE_FLAGS) $(IMG_NPC)
 
