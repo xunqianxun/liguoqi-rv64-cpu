@@ -641,6 +641,7 @@ module d_cache (
     wire [54:0] tag_data2;
     wire        tag_user2;
     wire [63:0] tag_addr2;
+    wire [55:0] tag_din2 ;
     d_cache_tag_ram u_tag1(
         .clk         (clk         ),
         .addr_i      (tag_addr2   ),
@@ -726,7 +727,7 @@ module d_cache (
 
     assign mem_data_ready  = (state_dread == `ysyx22040228_HIT)   ? hit_data_ready :
                              (state_dwrite == `ysyx22040228_HIT)  ? hitw_data_ready:
-                             fence_valid_req                      ? ysyx22040228_ABLE:
+                             fence_valid_req                      ? `ysyx22040228_ABLE:
                                                                `ysyx22040228_ENABLE;
 
 /* verilator lint_on LATCH */
