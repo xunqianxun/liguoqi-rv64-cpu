@@ -6,14 +6,12 @@ Function:top module of this soc
 `include "arbitratem.v"
 `include "d_cache.v"
 `include "i_cache.v"
-`include "axi_mnq.v"
 `include "soc_axi4.v"
 `include "clint.v"
 `include "rvcpu.v"
 `include "defines_axi4.v"
 `include "defines.v"
 `include "uncache_mmio.v"
-`include "io_slave_axi.v"
 module SocTop (
     input       wire                                    clk                       ,
     input       wire                                    rst                       ,
