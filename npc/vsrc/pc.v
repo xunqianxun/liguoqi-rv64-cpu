@@ -3,7 +3,7 @@ Author:LiGuoqi
 Name:pc.v
 Function:Instruction address transmitter
 ************************************************************/
-`include "./vsrc/defines.v"
+`include "defines.v"
 module pc ( 
     //系统输入
     input    wire                                           clk          ,

@@ -3,7 +3,7 @@ Author:LiGuoqi
 Name:mem.v
 Function:Reading and write data in the DATA-memory module
 ************************************************************/
-`include "./vsrc/defines.v"
+`include "defines.v"
 module mem (
     input                wire                                                rst                  ,
     input                wire          [ 7:0]                                inst_type_i          ,

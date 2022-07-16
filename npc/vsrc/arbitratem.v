@@ -57,8 +57,8 @@ Function:arbitrate i_cache and d_cache
 
 
 
-`include "./vsrc/defines.v"
-`include "./vsrc/defines_axi4.v"
+`include "defines.v"
+`include "defines_axi4.v"
 module arbitratem (
     //-----------------------------system----------------------------------------//
     input       wire                                         clk                  ,

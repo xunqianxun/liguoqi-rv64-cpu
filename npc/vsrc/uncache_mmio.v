@@ -1,5 +1,5 @@
-`include "./vsrc/defines.v"
-`include "./vsrc/defines_axi4.v"
+`include "defines.v"
+`include "defines_axi4.v"
 `define ysyx22040228_SERIAL_START 64'h00000000a00003f8
 `define ysyx22040228_SERIAL_END   64'h00000000a00003ff
 `define ysyx22040228_RTC_START    64'h00000000a0000048

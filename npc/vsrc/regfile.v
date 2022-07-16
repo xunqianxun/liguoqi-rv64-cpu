@@ -3,7 +3,7 @@ Author:LiGuoqi
 Name:regfile.v
 Function:32 general purpose registers
 ************************************************************/
-`include "./vsrc/defines.v"
+`include "defines.v"
 module regfile (
 	input                   wire                                     clk            ,
 	input                   wire                                     rst            ,

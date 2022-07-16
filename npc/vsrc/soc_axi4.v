@@ -3,8 +3,8 @@ Author:LiGuoqi
 Name:soc_axi.v
 Function:AXI4 bus
 ************************************************************/
-`include "./vsrc/defines_axi4.v"
-`include "./vsrc/defines.v"
+`include "defines_axi4.v"
+`include "defines.v"
 // `define  IO_ADDR   
 // `define  TIME_ADDR
 

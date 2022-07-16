@@ -4,10 +4,10 @@ Name:d_cache1.v
 Function:write data cache
 ************************************************************/
 /* verilator lint_off LATCH */
-`include "./vsrc/defines.v"
-`include "./vsrc/defines_axi4.v"
-`include "./vsrc/i_cache_data_ram.v"
-`include "./vsrc/i_cache_tag_ram.v"
+`include "defines.v"
+`include "defines_axi4.v"
+`include "i_cache_data_ram.v"
+`include "i_cache_tag_ram.v"
 
 `define ysyx22040228_I_IDLE    6'b000001
 `define ysyx22040228_I_MISSR   6'b000010

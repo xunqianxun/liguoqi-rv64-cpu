@@ -1,5 +1,5 @@
-`include "./vsrc/defines_axi4.v"
-`include "./vsrc/defines.v"
+`include "defines_axi4.v"
+`include "defines.v"
 
 // Burst types
 `define AXI_BURST_TYPE_FIXED                                2'b00

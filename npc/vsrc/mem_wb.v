@@ -3,7 +3,7 @@ Author:LiGuoqi
 Name:mem_wb.v
 Function:write data back to regfile module
 ************************************************************/
-`include "./vsrc/defines.v"
+`include "defines.v"
 module mem_wb (
     input                   wire                                             clk            ,
     input                   wire                                             rst            ,

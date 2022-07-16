@@ -3,17 +3,17 @@ Author:LiGuoqi
 Name:SocTOp.v
 Function:top module of this soc
 ************************************************************/
-`include "./vsrc/arbitratem.v"
-`include "./vsrc/d_cache.v"
-`include "./vsrc/i_cache.v"
-`include "./vsrc/axi_mnq.v"
-`include "./vsrc/soc_axi4.v"
-`include "./vsrc/clint.v"
-`include "./vsrc/rvcpu.v"
-`include "./vsrc/defines_axi4.v"
-`include "./vsrc/defines.v"
-`include "./vsrc/uncache_mmio.v"
-`include "./vsrc/io_slave_axi.v"
+`include "arbitratem.v"
+`include "d_cache.v"
+`include "i_cache.v"
+`include "axi_mnq.v"
+`include "soc_axi4.v"
+`include "clint.v"
+`include "rvcpu.v"
+`include "defines_axi4.v"
+`include "defines.v"
+`include "uncache_mmio.v"
+`include "io_slave_axi.v"
 module SocTop (
     input       wire                                    clk                       ,
     input       wire                                    rst                       ,

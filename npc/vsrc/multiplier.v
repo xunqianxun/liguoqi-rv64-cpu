@@ -3,7 +3,7 @@ Author:LiGuoqi
 Name:multiplier.v
 Function:execute muliplication instruction
 ************************************************************/
-`include "./vsrc/defines.v"
+`include "defines.v"
 module multiplier (
     inout          wire                                            clk              ,
     input          wire                                            rst              ,

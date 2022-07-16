@@ -3,10 +3,10 @@ Author:LiGuoqi
 Name:ex.v
 Function:Instruction execution module and CSR is instantiated
 ************************************************************/
-`include "./vsrc/csr.v"
-`include "./vsrc/divider.v"
-`include "./vsrc/multiplier.v"
-`include "./vsrc/defines.v"
+`include "csr.v"
+`include "divider.v"
+`include "multiplier.v"
+`include "defines.v"
 module ex (
     input         wire                                        clk               ,
     input         wire                                        rst               ,

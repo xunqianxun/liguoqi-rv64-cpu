@@ -4,7 +4,7 @@ Name:csr.v
 Function:The necessary registers in machine mode are designed
          andimplented.
 ************************************************************/
-`include "./vsrc/defines.v"
+`include "defines.v"
 module csr (
     input          wire                                        clk              ,
     input          wire                                        rst              ,

@@ -4,18 +4,18 @@ data:2021,10.21
 Name:rvcpu.v
 Function:Core top level module
 ************************************************************/
-`include "./vsrc/pip_fore.v"
-`include "./vsrc/pc.v"
-`include "./vsrc/if_id.v"
-`include "./vsrc/id.v"
-`include "./vsrc/id_ex.v"
-`include "./vsrc/ex.v"
-`include "./vsrc/ex_mem.v"
-`include "./vsrc/mem.v"
-`include "./vsrc/mem_wb.v"
-`include "./vsrc/ctrl.v"
-`include "./vsrc/defines.v"
-`include "./vsrc/regfile.v"
+`include "pip_fore.v"
+`include "pc.v"
+`include "if_id.v"
+`include "id.v"
+`include "id_ex.v"
+`include "ex.v"
+`include "ex_mem.v"
+`include "mem.v"
+`include "mem_wb.v"
+`include "ctrl.v"
+`include "defines.v"
+`include "regfile.v"
 module rvcpu (
     input           wire                                        clk            ,
     input           wire                                        rst            ,

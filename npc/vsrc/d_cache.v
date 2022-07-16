@@ -17,10 +17,10 @@ Function:write data cache
 `define ysyx22040228_FENCEEND   3'b100
 
 
-`include "./vsrc/defines.v"
-`include "./vsrc/defines_axi4.v"
-`include "./vsrc/d_cache_data_ram.v"
-`include "./vsrc/d_cache_tag_ram.v"
+`include "defines.v"
+`include "defines_axi4.v"
+`include "d_cache_data_ram.v"
+`include "d_cache_tag_ram.v"
 
 module d_cache (
     input         wire                                        clk                ,
@@ -84,7 +84,7 @@ module d_cache (
     
     reg           fence_write_valid1;
     reg           fence_write_valid2;
-    reg  [63:0]   fence_data_out ;
+    reg  [6:0]   fence_data_out ;
     reg  [63:0]   fence_addr_out ;
     reg  [3:0]    fence_type_out ;
     reg  [63:0]   fence_addr_cache;

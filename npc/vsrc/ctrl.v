@@ -3,7 +3,7 @@ Author:LiGuoqi
 Name:ctrl.v
 Function:Pause control of the whole pipeline
 ************************************************************/
-`include "./vsrc/defines.v"
+`include "defines.v"
 module ctrl (
     input                   wire                                      rst           ,
     input                   wire                                      if_stall_req  ,

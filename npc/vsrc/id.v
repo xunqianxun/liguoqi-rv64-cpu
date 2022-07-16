@@ -5,7 +5,7 @@ Name:id.v
 Function:Decoding module it is used to parse the key information 
          of the instruction
 ************************************************************/
-`include "./vsrc/defines.v"
+`include "defines.v"
 module id (
     //系统输入
     input       wire                                                           rst                 ,
