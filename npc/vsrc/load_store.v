@@ -4,7 +4,7 @@ Name:mem.v
 Function:Reading and write data in the DATA-memory module
 ************************************************************/
 `include "defines.v"
-module mem (
+module load_store (
     input                wire                                                rst                  ,
     input                wire          [ 7:0]                                inst_type_i          ,
     input                wire                                                rd_ena_i             ,

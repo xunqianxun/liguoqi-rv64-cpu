@@ -11,7 +11,7 @@ Function:Core top level module
 `include "id_ex.v"
 `include "ex.v"
 `include "ex_mem.v"
-`include "mem.v"
+`include "load_store.v"
 `include "mem_wb.v"
 `include "ctrl.v"
 `include "defines.v"
@@ -325,7 +325,7 @@ ex_mem ex_mem6 (
     .fence_ready_o       (exmem_mem_fence      )
 );
 
-mem mem7 (
+load_store load_store7 (
    .rst                  (rst                  ),
    .inst_type_i          (exmem_mem_type       ),
    .rd_ena_i             (exmem_mem_ena        ),
