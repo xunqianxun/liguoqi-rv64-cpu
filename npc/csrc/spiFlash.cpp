@@ -30,7 +30,7 @@ static uint8_t flash[FLASH_SIZE] PG_ALIGN = {};
 
 extern "C" void flash_read(long long addr, long long *data) {
   if (!data) return;
-  Assert(in_flash(addr), "Flash address 0x%lx out of bound", addr);
+  Assert(in_flash(addr), "Flash address 0x%llx out of bound", addr);
   *data = *(uint64_t *)(flash + addr);
 }
 
