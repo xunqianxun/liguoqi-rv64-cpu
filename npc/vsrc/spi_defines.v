@@ -1,6 +1,6 @@
 // Code your design here
 `timescale 1ns / 10ps
-
+/* verilator lint_off UNUSED */
 `define SPI_DIVIDER_LEN_8
 //`define SPI_DIVIDER_LEN_16
 //`define SPI_DIVIDER_LEN_24

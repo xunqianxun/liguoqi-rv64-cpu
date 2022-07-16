@@ -1,5 +1,5 @@
 `include "amba_define.v"
-
+/* verilator lint_off UNUSED */
 // define this macro to enable fast behavior simulation
 // for flash by skipping SPI transfers
 `define FAST_FLASH
