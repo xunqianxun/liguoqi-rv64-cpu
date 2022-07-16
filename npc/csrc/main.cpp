@@ -31,7 +31,7 @@ tfp = new VerilatedVcdC ; // out vcd need
 ysyxSoCFull->trace(tfp,0) ;
 tfp->open("obj_dir/ysyxSoCFull.vcd") ; // open vcd
 ysyxSoCFull->reset = 1;
-const char *path = "/home/mulin/ysyxSoC/ysyx/program/bin/loader/hello-loader.bin";
+char *path = "/home/mulin/ysyxSoC/ysyx/program/bin/loader/hello-loader.bin";
 flash_init(path);
 
 while(1){
@@ -50,4 +50,5 @@ delete ysyxSoCFull ;
 delete contextp ;
 exit(0) ;
 return 0;
+}
 }
