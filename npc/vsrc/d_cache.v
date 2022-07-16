@@ -49,7 +49,7 @@ module d_cache (
     output        wire        [3:0]                           out_dcache_type        
 );
     //----------------------------------fence-------------------------------------//
-    reg [7:0] counter    ;
+    reg [6:0] counter    ;
     reg     fence_valid_req;
     reg     read_request ;
     reg     read_success ;
@@ -85,19 +85,19 @@ module d_cache (
     
     reg           fence_write_valid1;
     reg           fence_write_valid2;
-    reg  [6:0]   fence_data_out ;
+    reg  [63:0]   fence_data_out ;
     reg  [63:0]   fence_addr_out ;
     reg  [3:0]    fence_type_out ;
     reg  [63:0]   fence_addr_cache;
     reg           check_two      ;
     always @(*) begin
         if((write_request) && (tag_user1 == `ysyx22040228_ABLE)) begin
-            if((~in_dcache_ready) && (dirty1[counter] == `ysyx22040228_ABLE)) begin
+            if((~in_dcache_ready) && (dirty1[counter[5:0]] == `ysyx22040228_ABLE)) begin
                 fence_data_out = out_data1 ;
-                fence_addr_out = {tag_data1, counter, 3'b000} ;
+                fence_addr_out = {tag_data1, counter[5:0], 3'b000} ;
                 fence_type_out = 4'b0001   ;
             end 
-            else if((in_dcache_ready) && (dirty1[counter] == `ysyx22040228_ABLE))begin
+            else if((in_dcache_ready) && (dirty1[counter[5:0]] == `ysyx22040228_ABLE))begin
                 fence_data_out = `ysyx22040228_ZEROWORD ;
                 fence_addr_out = `ysyx22040228_ZEROWORD ;
                 fence_type_out = 4'b0000                ;
@@ -108,12 +108,12 @@ module d_cache (
             end 
         end
         else if((write_request) && (tag_user2 == `ysyx22040228_ABLE)) begin
-            if(~in_dcache_ready) begin
+            if((~in_dcache_ready) && (dirty2[counter[5:0]] == `ysyx22040228_ABLE)) begin
                 fence_data_out = out_data2 ;
-                fence_addr_out = {tag_data2, counter, 3'b000} ; 
+                fence_addr_out = {tag_data2, counter[5:0], 3'b000} ; 
                 fence_type_out = 4'b0001   ;
             end 
-            else if(in_dcache_ready)begin
+            else if((in_dcache_ready) && (dirty2[counter[5:0]] == `ysyx22040228_ABLE))begin
                 fence_data_out = `ysyx22040228_ZEROWORD ;
                 fence_addr_out = `ysyx22040228_ZEROWORD ;
                 fence_type_out = 4'b0000                ;
@@ -606,11 +606,11 @@ module d_cache (
         else if(dirtyw_clean_t | dirty_clean_t) begin
             dirty2[dcache_index] <= `ysyx22040228_ENABLE ;
         end 
-        else if((write_request) && (dirty1[counter] == `ysyx22040228_ABLE) && in_dcache_ready)begin
-            dirty1[counter] <= `ysyx22040228_ENABLE;
+        else if((write_request) && (dirty1[counter[5:0]] == `ysyx22040228_ABLE) && in_dcache_ready)begin
+            dirty1[counter[5:0]] <= `ysyx22040228_ENABLE;
         end 
-        else if((write_request) && (dirty2[counter] == `ysyx22040228_ABLE) && in_dcache_ready)begin
-            dirty2[counter] <= `ysyx22040228_ENABLE;
+        else if((write_request) && (dirty2[counter[5:0]] == `ysyx22040228_ABLE) && in_dcache_ready)begin
+            dirty2[counter[5:0]] <= `ysyx22040228_ENABLE;
         end 
     end
 
@@ -634,7 +634,7 @@ module d_cache (
                                                          `ysyx22040228_ENABLE;
     assign tag_din1 = ((write_request)&& fence_write_valid1) ? 56'h0         :
                                                             {1'b1,dcache_tag};
-    assign tag_addr1 = ((write_request)&& fence_write_valid1)? counter       :
+    assign tag_addr1 = ((write_request)&& fence_write_valid1)? counter[5:0]  :
                                                                  dcache_index;
 
     wire        tag_ena2 ;
@@ -656,7 +656,7 @@ module d_cache (
                                                          `ysyx22040228_ENABLE;
     assign tag_din2 = ((write_request)&& fence_write_valid2) ? 56'h0         :
                                                             {1'b1,dcache_tag};
-    assign tag_addr2 = ((write_request)&& fence_write_valid2)? counter       :
+    assign tag_addr2 = ((write_request)&& fence_write_valid2)? counter[5:0]  :
                                                                  dcache_index;
 
     wire [63:0] out_data1   ;
@@ -698,9 +698,6 @@ module d_cache (
                           (state_dread == `ysyx22040228_MISSR)  ? in_dcache_data:
                           (state_dwrite == `ysyx22040228_MISSW) ? in_dcache_data:
                                                           `ysyx22040228_ZEROWORD;
-
-
-
 
     assign out_dcache_type = (state_dread == `ysyx22040228_DIRTY) ? dirty_out_type :
                              (state_dread == `ysyx22040228_MISSR) ? missr_out_type :

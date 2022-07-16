@@ -336,6 +336,7 @@ load_store load_store7 (
 
    .ls_addr_i            (exmem_mem_lsaddr     ),
    .ls_sel_i             (exmem_mem_sel        ),
+   .fence_ready_         (exmem_mem_fence      ),
 
    .data_addr_o          (data_addr            ),
    .wmask_o              (wmask                ),

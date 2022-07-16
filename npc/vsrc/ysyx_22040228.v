@@ -628,7 +628,7 @@ module ysyx_22040228 (
     assign out_axi_ar_id    = soc_axi_ar_id  ;
     assign out_axi_ar_addr  = soc_axi_ar_addr;
     assign out_axi_ar_len   = soc_axi_ar_len ;
-    assign out_axi_ar_size  = out_axi_ar_size;
+    assign out_axi_ar_size  = soc_axi_ar_size;
     assign out_axi_ar_burst = soc_axi_ar_burst;
     assign out_axi_ar_cache = soc_axi_ar_cache;
     assign out_axi_ar_prot  = soc_axi_ar_prot;
