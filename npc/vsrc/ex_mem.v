@@ -9,9 +9,7 @@ module ex_mem (
     input              wire                                              rst             ,
     input              wire          [`ysyx22040228_PCBUS]               ex_mem_pc_i     ,
     input              wire          [`ysyx22040228_INSTBUS]             ex_mem_inst_i   ,
-    /* verilator lint_off UNUSED */
     input              wire          [ 4:0]                              stall_ctrl      ,
-    /* verilator lint_on UNUSED */
     input              wire          [ 7:0]                              ex_inst_type    ,
     input              wire                                              ex_rd_ena       ,
     input              wire          [`ysyx22040228_REGBUS]              ex_rd_data      ,

@@ -26,9 +26,7 @@ module d_cache (
     input         wire                                        clk                ,
     input         wire                                        rst                ,
     //-------------------------input  cache-------------------------------------//
-    /* verilator lint_off UNUSED */
     input         wire        [`ysyx22040228_DATAADDRBUS]     mem_addr_i         ,
-    /* verilator lint_on UNUSED */
     input         wire        [`ysyx22040228_REGBUS]          mem_data_i         ,
     input         wire        [7:0]                           mem_strb_i         ,
     input         wire                                        mem_fence_i        ,
