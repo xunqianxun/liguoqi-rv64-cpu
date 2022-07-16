@@ -20,7 +20,7 @@ double sc_time_stamp(){
   return main_time;
 }
 
-extern "C" void flash_read(uint64_t addr, uint64_t *data) {
+extern "C" void flash_read(long long addr, long long *data) {
   if (!data) return;
   Assert(in_flash(addr), "Flash address 0x%lx out of bound", addr);
   *data = *(uint64_t *)(flash + addr);
