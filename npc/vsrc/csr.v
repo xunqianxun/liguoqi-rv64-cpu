@@ -49,7 +49,7 @@ module csr (
 //     csr_mip     ,
 //     csr_mscrstch
 // );
-end
+//end
 // 0xb00
 wire       sel_mcycle  =  (csr_idx == 12'hb00) ;
 wire       rd_mcycle   =  csr_rd_en && sel_mcycle  ;
