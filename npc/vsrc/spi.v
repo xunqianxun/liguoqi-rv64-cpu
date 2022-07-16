@@ -2,7 +2,7 @@
 
 // define this macro to enable fast behavior simulation
 // for flash by skipping SPI transfers
-//`define FAST_FLASH
+`define FAST_FLASH
 
 `define SPI_CTL_DIV_4         32'h00010000 //23:16 (divide by 4)
 `define SPI_CTL_DIV_2         32'h00000000 //23:16 (divide by 2)

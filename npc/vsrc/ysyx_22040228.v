@@ -16,7 +16,7 @@ module ysyx_22040228 (
     input       wire                                    clk                       ,
     input       wire                                    rst                       ,
 
-    output      wire                                         io_interrput         ,
+    input       wire                                         io_interrput         ,
    //-----------------------------AXI--------------------------------------------//
    //----------------------write address cahnnel---------------------------------//
     output      wire       [`ysyx22040228_ID_BUS]            out_axi_aw_id        ,
