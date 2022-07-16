@@ -3,6 +3,7 @@ Author:LiGuoqi
 Name:mem_wb.v
 Function:write data back to regfile module
 ************************************************************/
+/* verilator lint_off UNUSED */
 `include "defines.v"
 module mem_wb (
     input                   wire                                             clk            ,
@@ -20,20 +21,20 @@ module mem_wb (
     output                  reg                                              wb_rd_ena         
 );
 
-import "DPI-C" function void difftest_dut_pc(input longint pc_data, input longint exit_code, input bit endyn, input bit exe);
-import "DPI-C" function void difftest_dut_thepc(input longint thepc_data);
+// import "DPI-C" function void difftest_dut_pc(input longint pc_data, input longint exit_code, input bit endyn, input bit exe);
+// import "DPI-C" function void difftest_dut_thepc(input longint thepc_data);
 
-always @(*) begin
-    difftest_dut_thepc(wb_pc_o);
-end
+// always @(*) begin
+//     difftest_dut_thepc(wb_pc_o);
+// end
 
-reg  [`ysyx22040228_PCBUS]    wb_pc_o;
-reg  [`ysyx22040228_INSTBUS]  wb_inst_o;
+// reg  [`ysyx22040228_PCBUS]    wb_pc_o;
+// reg  [`ysyx22040228_INSTBUS]  wb_inst_o;
 
 
-always@(*)begin
-difftest_dut_pc(pc_data1, trap_code, teap_yn, difftest_exyn);    
-end  
+// always@(*)begin
+// difftest_dut_pc(pc_data1, trap_code, teap_yn, difftest_exyn);    
+// end  
     
 always @(posedge clk) begin
     if(rst == `ysyx22040228_RSTENA) begin
