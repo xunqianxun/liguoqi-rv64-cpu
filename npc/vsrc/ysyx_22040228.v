@@ -126,7 +126,9 @@ module ysyx_22040228 (
     wire  [63:0]    arbitrate_i_data ;
     wire            arbitrate_i_ok   ;
 
-    wire   time_init_sign       ;
+    wire   time_init_sign            ;
+    wire   interrupt_                ;
+    assign interrupt_ = time_init_sign | io_interrput;
 
     wire   [`ysyx22040228_ID_BUS]    t_axi_aw_id    ;
     wire   [`ysyx22040228_ADDR_BUS]  t_axi_aw_addr  ;
@@ -395,7 +397,7 @@ module ysyx_22040228 (
         .fence               (cache_fnece         ),
         .mem_finish          (d_cache_mem_finish  ) ,
 
-        .timer_intr          (time_init_sign      )
+        .timer_intr          (interrupt_          )
 
     );
 
