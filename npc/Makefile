@@ -30,7 +30,7 @@ sim:
 run:git
 	@verilator $(VERILAGS) ./csrc/main.cpp $(VERILOG)ysyxSoCFull.v
 	@make -C $(OBJ_PATH) -f VysyxSoCFull.mk VysyxSoCFull
-	./obj_dir/VysyxSoCFull $(IMGE_FLAGS) $(IMG_NPC)
+	./obj_dir/VysyxSoCFull
 
 gtk:
 	@gtkwave ./obj_dir/VysyxSoCFull.vcd
