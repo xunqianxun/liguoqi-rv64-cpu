@@ -30,7 +30,7 @@ ysyxSoCFull->reset = 1;
 char *path = (char *)"/home/mulin/ysyxSoC/ysyx/program/bin/loader/hello-loader.bin";
 flash_init(path);
 
-while(main_time > 10000){
+while(main_time > 100000){
   if(main_time >= 10) {
     ysyxSoCFull->reset = 0 ;
     ysyxSoCFull->eval()    ;
