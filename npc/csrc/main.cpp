@@ -38,7 +38,7 @@ flash_init(path);
 while((main_time > 100000) && !Verilated::gotFinish()){
 	  if( main_time % 10 == 0 ) {ysyxSoCFull->clock = 0; printf("inst_pc = 0x%lx inst_data = %x\n", pc_addr, pc_inst);}
 	  if( main_time % 10 == 5 ) {ysyxSoCFull->clock = 1;}
-		  
+		printf("inst_pc = 0x%lx inst_data = %x\n", pc_addr, pc_inst);  
 	  if( main_time < 10 )
 	  {
 		ysyxSoCFull->reset = 1;
