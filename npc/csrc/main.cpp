@@ -40,7 +40,7 @@ while((main_time > 100000) && !Verilated::gotFinish()){
 	  else
 	  {
 	    ysyxSoCFull->resett = 0;
-
+    }
   ysyxSoCFull->eval();
   tfp->dump(main_time);
   main_time++;
