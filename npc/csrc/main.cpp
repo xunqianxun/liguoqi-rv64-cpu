@@ -32,7 +32,7 @@ Verilated::traceEverOn(true) ; //out vcd need
 tfp = new VerilatedVcdC ; // out vcd need
 ysyxSoCFull->trace(tfp,0) ;
 tfp->open("obj_dir/ysyxSoCFull.vcd") ; // open vcd
-char *path = (char *)"/home/mulin/ysyxSoC/ysyx/program/bin/loader/rtthread-loader.bin";
+char *path = (char *)"/home/mulin/ysyxSoC/ysyx/program/bin/flash/rtthread-flash.bin";
 flash_init(path);
 
 while((main_time < 100000) && !Verilated::gotFinish()){
