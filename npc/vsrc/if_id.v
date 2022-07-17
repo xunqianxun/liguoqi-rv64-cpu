@@ -30,7 +30,7 @@ module if_id (
     output   reg      [`ysyx22040228_INSTBUS]                  id_inst        //输出给id译码阶段的指令数据
 );
 
- import "DPI-C" function void if_id_thepc(input longint thepc_data, input longint the_inst);
+ import "DPI-C" function void if_id_thepc(input longint thepc_data, input bit[31:0] the_inst);
 
  always @(posedge clk) begin
     if_id_thepc(id_pc, id_inst);
