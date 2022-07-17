@@ -33,7 +33,7 @@ run:git
 	./obj_dir/VysyxSoCFull
 
 gtk:
-	@gtkwave ./obj_dir/VysyxSoCFull.vcd
+	@gtkwave ./obj_dir/ysyxSoCFull.vcd
 git:
 	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
 clean:
