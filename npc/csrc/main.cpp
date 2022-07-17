@@ -9,10 +9,6 @@
 
 using namespace std;
 
-VysyxSoCFull* ysyxSoCFull ;
-VerilatedVcdC* tfp;
-VerilatedContext* contextp;
-
 
 vluint64_t main_time = 0;
 double sc_time_stamp(){
@@ -20,7 +16,9 @@ double sc_time_stamp(){
 }
 
 int main(int argc , char** argv , char** env) {
-
+VysyxSoCFull* ysyxSoCFull ;
+VerilatedVcdC* tfp;
+VerilatedContext* contextp;
 contextp = new VerilatedContext ;
 contextp->commandArgs(argc, argv) ;
 ysyxSoCFull = new VysyxSoCFull(contextp);
@@ -35,13 +33,16 @@ flash_init(path);
 while(1){
   if(main_time > 11) {
     ysyxSoCFull->reset = 0 ;
+    ysyxSoCFull->eval()    ;
   }
   if((main_time % 10) == 2){
     ysyxSoCFull->clock = 1 ;
+    ysyxSoCFull->eval()    ;
     printf("working\n");
   }
   if((main_time % 10) == 6){
     ysyxSoCFull->clock = 0 ;
+    ysyxSoCFull->eval()    ;
   }
 
   ysyxSoCFull->eval();
