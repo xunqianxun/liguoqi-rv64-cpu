@@ -26,23 +26,20 @@ Verilated::traceEverOn(true) ; //out vcd need
 tfp = new VerilatedVcdC ; // out vcd need
 ysyxSoCFull->trace(tfp,0) ;
 tfp->open("obj_dir/ysyxSoCFull.vcd") ; // open vcd
-ysyxSoCFull->reset = 1;
 char *path = (char *)"/home/mulin/ysyxSoC/ysyx/program/bin/loader/hello-loader.bin";
 flash_init(path);
 
-while(main_time > 100000){
-  if(main_time >= 10) {
-    ysyxSoCFull->reset = 0 ;
-    ysyxSoCFull->eval()    ;
-  }
-  if((main_time % 10) == 1){
-    ysyxSoCFull->clock = 1 ;
-    ysyxSoCFull->eval()    ;
-  }
-  if((main_time % 10) == 6){
-    ysyxSoCFull->clock = 0 ;
-    ysyxSoCFull->eval()    ;
-  }
+while((main_time > 100000) && !Verilated::gotFinish()){
+	  if( main_time % 10 == 0 ) ysyxSoCFull->clock = 0;
+	  if( main_time % 10 == 5 ) ysyxSoCFull->clock = 1;
+		  
+	  if( main_time < 10 )
+	  {
+		ysyxSoCFull->reset = 1;
+	  }
+	  else
+	  {
+	    ysyxSoCFull->resett = 0;
 
   ysyxSoCFull->eval();
   tfp->dump(main_time);
