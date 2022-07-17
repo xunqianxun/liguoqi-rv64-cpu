@@ -205,15 +205,17 @@ module arbitratem (
     wire                                      dread_r_ready         ;
     assign dread_r_ready = `ysyx22040228_ABLE                       ;
     assign dread_arshankhand = dread_ar_valid && axi_ar_ready       ;
-    reg    dread_ok ;
+    reg    dread_ok                                                 ;
+    reg   [1:0]     dread_counter = 2'b00                           ;
+    reg   [63:0]    temp_dread                                      ;
     assign dread_success = (axi_r_id == 4'b0001) && dread_r_ready && axi_r_valid && axi_r_last && (axi_r_resp == 2'b00) ;
     always @(posedge clk) begin
-        if(dread_success) begin
+        if(dread_success && (dread_counter == 2'b11)) begin
             if(read_dcache_shankhand) begin
             dread_ar_id      <= 4'b0001             ;
-            dread_ar_addr    <= `ysyx22040228_ZEROWORD   ;
+            dread_ar_addr    <= `ysyx22040228_ZEROWORD ;
             dread_ar_len     <= 8'b0                ;
-            dread_ar_size    <= `AXI_SIZE_BYTES_8   ;
+            dread_ar_size    <= `AXI_SIZE_BYTES_4   ;
             dread_ar_burst   <= `AXI_BURST_TYPE_INCR;
             dread_ar_cache   <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
             dread_ar_prot    <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
@@ -222,12 +224,14 @@ module arbitratem (
             dread_ok         <=  `ysyx22040228_ABLE ;
             d_cache_data_o   <= axi_r_data          ;
             dread_cache_valid<= `ysyx22040228_ABLE  ;
+            temp_dread       <= {temp_dread[63:32], axi_r_data[31:0]};
+            dread_counter    <= 2'b00               ;
             end 
             else begin
             dread_ar_id      <= 4'b0001             ;
             dread_ar_addr    <= `ysyx22040228_ZEROWORD   ;
             dread_ar_len     <= 8'b0                ;
-            dread_ar_size    <= `AXI_SIZE_BYTES_8   ;
+            dread_ar_size    <= `AXI_SIZE_BYTES_4   ;
             dread_ar_burst   <= `AXI_BURST_TYPE_INCR;
             dread_ar_cache   <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
             dread_ar_prot    <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
@@ -243,26 +247,43 @@ module arbitratem (
         end 
         else if(arbitrate_state == `ysyx22040228_ARB_DREAD) begin
             if(read_dcache_shankhand) begin
-            dread_ar_id      <= 4'b0001             ;
-            dread_ar_addr    <= d_cache_addr        ;
-            dread_ar_len     <= 8'b0                ;
-            dread_ar_size    <= `AXI_SIZE_BYTES_8   ;
-            dread_ar_burst   <= `AXI_BURST_TYPE_INCR;
-            dread_ar_cache   <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
-            dread_ar_prot    <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
-            dread_ar_qos     <= 4'h0                ;
-            dread_ar_valid   <= `ysyx22040228_ABLE  ;
+                if((dread_counter == 2'b01) && (dread_success)) begin
+                    dread_ar_id      <= 4'b0001             ;
+                    dread_ar_addr    <= {d_cache_addr[63:3], 1'b0, 2'b00};
+                    dread_ar_len     <= 8'd0                ;
+                    dread_ar_size    <= `AXI_SIZE_BYTES_4   ;
+                    dread_ar_burst   <= `AXI_BURST_TYPE_INCR;
+                    dread_ar_cache   <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
+                    dread_ar_prot    <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
+                    dread_ar_qos     <= 4'h0                ;
+                    dread_ar_valid   <= `ysyx22040228_ABLE  ;
+                    dread_counter    <= 2'b11               ;
+                    temp_dread       <= {axi_r_data[63:32],32'h0} ;
+                end 
+                else if(dread_counter == 2'b00) begin
+                    dread_ar_id      <= 4'b0001             ;
+                    dread_ar_addr    <= {d_cache_addr[63:3], 1'b1, 2'b00} ;
+                    dread_ar_len     <= 8'd0                ;
+                    dread_ar_size    <= `AXI_SIZE_BYTES_4   ;
+                    dread_ar_burst   <= `AXI_BURST_TYPE_INCR;
+                    dread_ar_cache   <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
+                    dread_ar_prot    <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
+                    dread_ar_qos     <= 4'h0                ;
+                    dread_ar_valid   <= `ysyx22040228_ABLE  ;
+                    dread_counter    <= 2'b01               ;
+                end 
             end 
             else begin
-            dread_ar_id      <= 4'b0001             ;
-            dread_ar_addr    <= {uncache_addr[63:3], 3'b000}        ;
-            dread_ar_len     <= 8'b0                ;
-            dread_ar_size    <= `AXI_SIZE_BYTES_8   ;
-            dread_ar_burst   <= `AXI_BURST_TYPE_INCR;
-            dread_ar_cache   <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
-            dread_ar_prot    <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
-            dread_ar_qos     <= 4'h0                ;
-            dread_ar_valid   <= `ysyx22040228_ABLE  ;
+                dread_ar_id      <= 4'b0001             ;
+                dread_ar_addr    <= {uncache_addr[63:2], 2'b00}   ;
+                dread_ar_len     <= 8'd0                ;
+                dread_ar_size    <= `AXI_SIZE_BYTES_4   ;
+                dread_ar_burst   <= `AXI_BURST_TYPE_INCR;
+                dread_ar_cache   <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
+                dread_ar_prot    <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
+                dread_ar_qos     <= 4'h0                ;
+                dread_ar_valid   <= `ysyx22040228_ABLE  ;
+                dread_counter    <= 2'b11               ;
             end 
         end 
         else begin
@@ -289,36 +310,54 @@ module arbitratem (
     wire                                      iread_arshankhand     ;
     assign iread_r_ready = `ysyx22040228_ABLE                       ;
     assign iread_arshankhand = iread_ar_valid && axi_ar_ready       ;
+    reg    [1:0]                              iread_counter = 2'b00 ;
+    reg    [63:0]                             temp_iread            ;
 
     assign iread_success = (axi_r_id == 4'b0000) && iread_r_ready && axi_r_valid && axi_r_last && (axi_r_resp == 2'b00) ;
     always @(posedge clk) begin
-        if(iread_success) begin
+        if((iread_success) && (iread_counter == 2'b11)) begin
             iread_ar_id      <= 4'b0001             ;
-            iread_ar_addr    <= `ysyx22040228_ZEROWORD   ;
+            iread_ar_addr    <= `ysyx22040228_ZEROWORD ;
             iread_ar_len     <= 8'b0                ;
-            iread_ar_size    <= `AXI_SIZE_BYTES_8   ;
+            iread_ar_size    <= `AXI_SIZE_BYTES_4   ;
             iread_ar_burst   <= `AXI_BURST_TYPE_INCR;
             iread_ar_cache   <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
             iread_ar_prot    <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
             iread_ar_qos     <= 4'h0                ;
             iread_ar_valid   <= `ysyx22040228_ENABLE ;
-
-            i_cache_data     <= axi_r_data          ;
+            i_cache_data     <= {temp_iread[63:32], axi_r_data}  ;
             iread_cache_valid<= `ysyx22040228_ABLE  ;
+            iread_counter    <= 2'b00               ;
         end 
         else if(iread_arshankhand) begin
             iread_ar_valid   <= `ysyx22040228_ENABLE ;
         end 
         else if(arbitrate_state == `ysyx22040228_ARB_IREAD) begin
-            iread_ar_id      <= 4'b0000             ;
-            iread_ar_addr    <= i_cache_addr        ;
-            iread_ar_len     <= 8'b0                ;
-            iread_ar_size    <= `AXI_SIZE_BYTES_8   ;
-            iread_ar_burst   <= `AXI_BURST_TYPE_INCR;
-            iread_ar_cache   <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
-            iread_ar_prot    <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
-            iread_ar_qos     <= 4'h0                ;
-            iread_ar_valid   <= `ysyx22040228_ABLE  ;
+            if(iread_success && (iread_counter == 2'b01)) begin
+                iread_ar_id      <= 4'b0000             ;
+                iread_ar_addr    <= {i_cache_addr[63:3], 1'b1, 2'b0};
+                iread_ar_len     <= 8'b0                ;
+                iread_ar_size    <= `AXI_SIZE_BYTES_4   ;
+                iread_ar_burst   <= `AXI_BURST_TYPE_INCR;
+                iread_ar_cache   <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
+                iread_ar_prot    <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
+                iread_ar_qos     <= 4'h0                ;
+                iread_ar_valid   <= `ysyx22040228_ABLE  ;
+                iread_counter    <= 2'b11               ;
+                temp_iread       <= {axi_r_data[63:32], 32'h0};
+            end 
+            else if(iread_counter == 2'b00) begin
+                iread_ar_id      <= 4'b0000             ;
+                iread_ar_addr    <= {i_cache_addr[63:3], 1'b1, 2'b0};
+                iread_ar_len     <= 8'b0                ;
+                iread_ar_size    <= `AXI_SIZE_BYTES_4   ;
+                iread_ar_burst   <= `AXI_BURST_TYPE_INCR;
+                iread_ar_cache   <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
+                iread_ar_prot    <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
+                iread_ar_qos     <= 4'h0                ;
+                iread_ar_valid   <= `ysyx22040228_ABLE  ;
+                iread_counter    <= 2'b01               ;
+            end 
         end 
         else begin
             i_cache_data     <= `ysyx22040228_ZEROWORD ;
@@ -350,13 +389,15 @@ module arbitratem (
     assign dwrite_awshankhand = dwrite_aw_valid && axi_aw_ready ;
     assign dwrite_wshankhand  = dwrite_w_valid  && axi_w_ready  ;
     assign dwrite_success     = dwrite_b_ready && axi_b_valid && (axi_b_id == 4'b0001) && (axi_b_resp == 2'b00) ;
-    reg    dwrite_ok   ;
+    reg    dwrite_ok                                                 ;
+    reg    [1:0]                              dwrite_counter = 2'b00 ;
     always @(posedge clk) begin
-        if(dwrite_success) begin
+        if(dwrite_success && (dwrite_counter == 2'b11)) begin
             dwrite_aw_valid     <= `ysyx22040228_ENABLE;
             dwrite_w_valid      <= `ysyx22040228_ENABLE;
             dwrite_cache_valid  <= `ysyx22040228_ABLE  ;
             dwrite_ok           <= `ysyx22040228_ABLE  ;
+            dwrite_counter      <= 2'b00               ;
         end
         else if(dwrite_ok) begin
             dwrite_ok          <= `ysyx22040228_ENABLE ;
@@ -367,34 +408,54 @@ module arbitratem (
         end 
         else if(arbitrate_state == `ysyx22040228_ARB_DWRITE) begin
             if(write_dcache_shankhand) begin
-            dwrite_aw_id        <= 4'b0001           ;
-            dwrite_aw_addr      <= d_cache_addr      ;
-            dwrite_aw_len       <= 8'd0              ;
-            dwrite_aw_size      <= `AXI_SIZE_BYTES_8 ;
-            dwrite_aw_burst     <= `AXI_BURST_TYPE_INCR;
-            dwrite_aw_cache     <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
-            dwrite_aw_port      <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
-            dwrite_aw_qos       <= 4'h0              ;
-            dwrite_aw_valid     <= `ysyx22040228_ABLE;
-            dwrite_w_data       <= d_cache_data      ;
-            dwrite_w_strb       <= 8'b11111111       ;
-            dwrite_w_last       <= `ysyx22040228_ABLE;
-            dwrite_w_valid      <= `ysyx22040228_ABLE && ~d_cache_resp;
+                if(dwrite_counter == 2'b00) begin
+                    dwrite_aw_id        <= 4'b0001           ;
+                    dwrite_aw_addr      <= {d_cache_addr[63:3], 1'b1, 2'b00} ;
+                    dwrite_aw_len       <= 8'd0              ;
+                    dwrite_aw_size      <= `AXI_SIZE_BYTES_4 ;
+                    dwrite_aw_burst     <= `AXI_BURST_TYPE_INCR;
+                    dwrite_aw_cache     <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
+                    dwrite_aw_port      <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
+                    dwrite_aw_qos       <= 4'h0              ;
+                    dwrite_aw_valid     <= `ysyx22040228_ABLE;
+                    dwrite_w_data       <= {d_cache_data[63:32], 32'h0}     ;
+                    dwrite_w_strb       <= 8'b00001111       ;
+                    dwrite_w_last       <= `ysyx22040228_ABLE;
+                    dwrite_w_valid      <= `ysyx22040228_ABLE;
+                    dwrite_counter      <= 2'b01             ;
+                end 
+                else if(dwrite_counter == 2'b01) begin
+                    dwrite_aw_id        <= 4'b0001           ;
+                    dwrite_aw_addr      <= {d_cache_addr[63:3], 1'b0, 2'b00} ;
+                    dwrite_aw_len       <= 8'd0              ;
+                    dwrite_aw_size      <= `AXI_SIZE_BYTES_4 ;
+                    dwrite_aw_burst     <= `AXI_BURST_TYPE_INCR;
+                    dwrite_aw_cache     <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
+                    dwrite_aw_port      <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
+                    dwrite_aw_qos       <= 4'h0              ;
+                    dwrite_aw_valid     <= `ysyx22040228_ABLE;
+                    dwrite_w_data       <= {32'h0, d_cache_data[31:0]}     ;
+                    dwrite_w_strb       <= 8'b00001111       ;
+                    dwrite_w_last       <= `ysyx22040228_ABLE;
+                    dwrite_w_valid      <= `ysyx22040228_ABLE;
+                    dwrite_counter      <= 2'b11             ;
+                end 
             end 
             else begin
-            dwrite_aw_id        <= 4'b0001           ;
-            dwrite_aw_addr      <= {uncache_addr[63:3], 3'b000}      ;
-            dwrite_aw_len       <= 8'd0              ;
-            dwrite_aw_size      <= `AXI_SIZE_BYTES_8 ;
-            dwrite_aw_burst     <= `AXI_BURST_TYPE_INCR;
-            dwrite_aw_cache     <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
-            dwrite_aw_port      <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
-            dwrite_aw_qos       <= 4'h0              ;
-            dwrite_aw_valid     <= `ysyx22040228_ABLE;
-            dwrite_w_data       <= uncache_data      ;
-            dwrite_w_strb       <= 8'b11111111       ;
-            dwrite_w_last       <= `ysyx22040228_ABLE;
-            dwrite_w_valid      <= `ysyx22040228_ABLE;
+                dwrite_aw_id        <= 4'b0001           ;
+                dwrite_aw_addr      <= {uncache_addr[63:2], 2'b00}  ;
+                dwrite_aw_len       <= 8'd0              ;
+                dwrite_aw_size      <= `AXI_SIZE_BYTES_4 ;
+                dwrite_aw_burst     <= `AXI_BURST_TYPE_INCR;
+                dwrite_aw_cache     <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
+                dwrite_aw_port      <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
+                dwrite_aw_qos       <= 4'h0              ;
+                dwrite_aw_valid     <= `ysyx22040228_ABLE;
+                dwrite_w_data       <= uncache_data      ;
+                dwrite_w_strb       <= uncache_addr[2] ? {uncache_mask[7:4],4'b0000} : {4'b0000, uncache_mask[3:0]} ;
+                dwrite_w_last       <= `ysyx22040228_ABLE;
+                dwrite_w_valid      <= `ysyx22040228_ABLE;
+                dwrite_counter      <= 2'b11             ;
             end 
         end 
         else begin

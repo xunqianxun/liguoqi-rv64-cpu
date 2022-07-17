@@ -1,9 +1,15 @@
 `include "defines.v"
 `include "defines_axi4.v"
-`define ysyx22040228_SERIAL_START 64'h00000000a00003f8
-`define ysyx22040228_SERIAL_END   64'h00000000a00003ff
-`define ysyx22040228_RTC_START    64'h00000000a0000048
-`define ysyx22040228_RTC_END      64'h00000000a000004f
+`define ysyx22040228_CLINT_START 64'h0000000002000000
+`define ysyx22040228_CLINT_END   64'h000000000200ffff
+`define ysyx22040228_UART_START  64'h0000000010000000
+`define ysyx22040228_UART_END    64'h0000000010000fff
+`define ysyx22040228_SPICTRL_START 64'h0000000010001000
+`define ysyx22040228_SPICTRL_END   64'h0000000010001fff
+`define ysyx22040228_SPI_START   64'h0000000030000000
+`define ysyx22040228_SPI_END     64'h000000003fffffff
+`define ysyx22040228_CHIPLINK_START 64'h0000000040000000
+`define ysyx22040228_CHIPLINK_END   64'h000000007fffffff
 
 module uncache_mmio (
     output    wire          [2:0]                          mmio_sign        ,
@@ -36,23 +42,24 @@ module uncache_mmio (
 );
     wire   start_sign;
     assign start_sign = (core_we | core_re );
-    assign mmio_sign  = (start_sign &&((core_addr >= `ysyx22040228_SERIAL_START) && (core_addr <= `ysyx22040228_SERIAL_END))) ? 3'b001 :
-                        (start_sign &&((core_addr >= `ysyx22040228_RTC_START) && (core_addr <= `ysyx22040228_RTC_END)))       ? 3'b001 :
-                                                                                                                                3'b100 ;
+    assign mmio_sign  = (start_sign &&((core_addr >= `ysyx22040228_CLINT_START) && (core_addr <= `ysyx22040228_CLINT_END))) ? 3'b010 :
+                                                                                                                              3'b100 ;
     assign dcache_fence = fence_in;
     wire   uncache  ;
-    assign uncache    = (start_sign &&((core_addr >= `ysyx22040228_SERIAL_START) && (core_addr <= `ysyx22040228_SERIAL_END))) ||
-                        (start_sign &&((core_addr >= `ysyx22040228_RTC_START) && (core_addr <= `ysyx22040228_RTC_END))) ;
+    assign uncache    = ((core_addr >= `ysyx22040228_UART_START) && (core_addr <= `ysyx22040228_UART_END)) |
+                        //((core_addr >= `ysyx22040228_SPICTRL_START) && (core_addr <= `ysyx22040228_SPICTRL_END)) |
+                        ((core_addr >= `ysyx22040228_SPI_START) && (core_addr <= `ysyx22040228_SPI_END)) |
+                        ((core_addr >= `ysyx22040228_CHIPLINK_START) && (core_addr <= `ysyx22040228_CHIPLINK_END)) ;
     assign  arb_addr = uncache ? core_addr : `ysyx22040228_ZEROWORD; 
-    assign  arb_data = uncache ? (core_data & aw_mask) : `ysyx22040228_ZEROWORD;  
+    assign  arb_data = uncache ? core_data : `ysyx22040228_ZEROWORD;  
     assign  arb_mask = uncache ? core_mask : 8'b00000000           ;
     assign  arb_we   = uncache ? core_we   : `ysyx22040228_ENABLE  ;
     assign  arb_re   = uncache ? core_re   : `ysyx22040228_ENABLE  ;
 
 
-    wire   [63:0]  aw_mask ;
-    assign aw_mask = {{8{core_mask[7]}}, {8{core_mask[6]}}, {8{core_mask[5]}}, {8{core_mask[4]}},
-                      {8{core_mask[3]}}, {8{core_mask[2]}}, {8{core_mask[1]}}, {8{core_mask[0]}}};
+    // wire   [63:0]  aw_mask ;
+    // assign aw_mask = {{8{core_mask[7]}}, {8{core_mask[6]}}, {8{core_mask[5]}}, {8{core_mask[4]}},
+    //                   {8{core_mask[3]}}, {8{core_mask[2]}}, {8{core_mask[1]}}, {8{core_mask[0]}}};
 
     assign dcache_addr = ~uncache ? core_addr : `ysyx22040228_ZEROWORD ;
     assign dcache_data = ~uncache ? core_data : `ysyx22040228_ZEROWORD ;

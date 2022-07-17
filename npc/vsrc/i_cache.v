@@ -146,11 +146,11 @@ module i_cache (
     reg   [63:0]    miss_data ;
     reg             miss_ena_o; 
     reg             miss_ena_t;
-    reg             write_i_ok;   
+    reg             write_i_ok;  
     always @(*) begin
         if((state_inst ==  `ysyx22040228_I_MISSR) && (~cache_in_valid)) begin
-            cache_read_ena = `ysyx22040228_ABLE  ;
-            cache_addr     = {inst_addr[63:3],3'b0}    ;
+            cache_read_ena = `ysyx22040228_ABLE    ;
+            cache_addr     = {inst_addr[63:3],3'b0};
         end 
         else if((state_inst ==  `ysyx22040228_I_MISSR) && (cache_in_valid)) begin
             cache_read_ena = `ysyx22040228_ENABLE;
