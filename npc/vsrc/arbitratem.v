@@ -335,7 +335,7 @@ module arbitratem (
         else if(arbitrate_state == `ysyx22040228_ARB_IREAD) begin
             if(iread_success && (iread_counter == 2'b01)) begin
                 iread_ar_id      <= 4'b0000             ;
-                iread_ar_addr    <= {i_cache_addr[63:3], 1'b1, 2'b0};
+                iread_ar_addr    <= {i_cache_addr[63:3], 1'b0, 2'b0};
                 iread_ar_len     <= 8'b0                ;
                 iread_ar_size    <= `AXI_SIZE_BYTES_4   ;
                 iread_ar_burst   <= `AXI_BURST_TYPE_INCR;
@@ -348,7 +348,7 @@ module arbitratem (
             end 
             else if(iread_counter == 2'b00) begin
                 iread_ar_id      <= 4'b0000             ;
-                iread_ar_addr    <= {i_cache_addr[63:3], 1'b0, 2'b0};
+                iread_ar_addr    <= {i_cache_addr[63:3], 1'b1, 2'b0};
                 iread_ar_len     <= 8'b0                ;
                 iread_ar_size    <= `AXI_SIZE_BYTES_4   ;
                 iread_ar_burst   <= `AXI_BURST_TYPE_INCR;

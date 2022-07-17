@@ -35,7 +35,7 @@ tfp->open("obj_dir/ysyxSoCFull.vcd") ; // open vcd
 char *path = (char *)"/home/mulin/ysyxSoC/ysyx/program/bin/flash/hello-flash.bin";
 flash_init(path);
 
-while((main_time < 100000) && !Verilated::gotFinish()){
+while((1) && !Verilated::gotFinish()){
 	  if( main_time % 10 == 0 ) {ysyxSoCFull->clock = 0;}
 	  if( main_time % 10 == 5 ) {ysyxSoCFull->clock = 1;} 
 	  if( main_time < 10 )
