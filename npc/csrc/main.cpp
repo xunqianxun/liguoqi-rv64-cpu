@@ -8,7 +8,13 @@
 #include <svdpi.h>
 
 using namespace std;
-
+uint64_t pc_addr ;
+uint32_t pc_inst ;
+extern "C" void if_id_thepc(long long thepc_data, const svBitVecVal* the_inst){
+pc_addr = thepc_data ;
+pc_inst = the_inst   ;
+}
+ 
 
 vluint64_t main_time = 0;
 double sc_time_stamp(){
@@ -30,8 +36,8 @@ char *path = (char *)"/home/mulin/ysyxSoC/ysyx/program/bin/loader/hello-loader.b
 flash_init(path);
 
 while((main_time > 100000) && !Verilated::gotFinish()){
-	  if( main_time % 10 == 0 ) ysyxSoCFull->clock = 0;
-	  if( main_time % 10 == 5 ) ysyxSoCFull->clock = 1;
+	  if( main_time % 10 == 0 ) {ysyxSoCFull->clock = 0; printf("inst_pc = 0x%lx inst_data = %x", pc_addr, pc_inst);}
+	  if( main_time % 10 == 5 ) {ysyxSoCFull->clock = 1;}
 		  
 	  if( main_time < 10 )
 	  {
