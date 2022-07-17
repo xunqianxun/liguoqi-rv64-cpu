@@ -38,7 +38,6 @@ while(1){
   if((main_time % 10) == 2){
     ysyxSoCFull->clock = 1 ;
     ysyxSoCFull->eval()    ;
-    printf("working\n");
   }
   if((main_time % 10) == 6){
     ysyxSoCFull->clock = 0 ;
