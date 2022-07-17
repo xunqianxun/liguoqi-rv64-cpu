@@ -325,7 +325,7 @@ module arbitratem (
             iread_ar_prot    <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
             iread_ar_qos     <= 4'h0                ;
             iread_ar_valid   <= `ysyx22040228_ENABLE ;
-            i_cache_data     <= {temp_iread[63:32], axi_r_data}  ;
+            i_cache_data     <= {temp_iread[63:32], axi_r_data[31:0]}  ;
             iread_cache_valid<= `ysyx22040228_ABLE  ;
             iread_counter    <= 2'b00               ;
         end 
@@ -424,7 +424,7 @@ module arbitratem (
                     dwrite_w_valid      <= `ysyx22040228_ABLE;
                     dwrite_counter      <= 2'b01             ;
                 end 
-                else if(dwrite_counter == 2'b01) begin
+                else if((dwrite_counter == 2'b01) && (dwrite_success)) begin
                     dwrite_aw_id        <= 4'b0001           ;
                     dwrite_aw_addr      <= {d_cache_addr[63:3], 1'b0, 2'b00} ;
                     dwrite_aw_len       <= 8'd0              ;
