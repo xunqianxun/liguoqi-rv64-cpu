@@ -9,7 +9,7 @@
 
 using namespace std;
 uint64_t pc_addr ;
-uint32_t pc_inst ;
+const unsigned int* pc_inst ;
 extern "C" void if_id_thepc(long long thepc_data, const svBitVecVal* the_inst){
 pc_addr = thepc_data ;
 pc_inst = the_inst   ;
