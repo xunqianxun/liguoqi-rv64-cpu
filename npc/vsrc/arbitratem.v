@@ -283,7 +283,7 @@ module arbitratem (
                 dread_ar_prot    <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
                 dread_ar_qos     <= 4'h0                ;
                 dread_ar_valid   <= `ysyx22040228_ABLE  ;
-                dread_counter    <= 2'b11               ;
+                dread_counter    <= 2'b00               ;
             end 
         end 
         else begin
