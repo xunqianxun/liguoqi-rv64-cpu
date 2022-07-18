@@ -328,7 +328,7 @@ module arbitratem (
             iread_ar_valid   <= `ysyx22040228_ENABLE ;
             i_cache_data     <= {temp_iread[63:32], axi_r_data[31:0]}  ;
             iread_cache_valid<= `ysyx22040228_ABLE  ;
-            iread_counter    <= 2'b00               ;
+            //iread_counter    <= 2'b00               ;
         end 
         else if(iread_arshankhand) begin
             iread_ar_valid   <= `ysyx22040228_ENABLE ;
