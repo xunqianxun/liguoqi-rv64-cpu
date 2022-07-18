@@ -48,10 +48,6 @@ module uncache_mmio (
     assign  arb_re   = uncache ? core_re   : `ysyx22040228_ENABLE  ;
 
 
-    // wire   [63:0]  aw_mask ;
-    // assign aw_mask = {{8{core_mask[7]}}, {8{core_mask[6]}}, {8{core_mask[5]}}, {8{core_mask[4]}},
-    //                   {8{core_mask[3]}}, {8{core_mask[2]}}, {8{core_mask[1]}}, {8{core_mask[0]}}};
-
     assign dcache_addr = ~uncache ? core_addr : `ysyx22040228_ZEROWORD ;
     assign dcache_data = ~uncache ? core_data : `ysyx22040228_ZEROWORD ;
     assign dcache_mask = ~uncache ? core_mask : 8'b00000000            ;
@@ -59,7 +55,9 @@ module uncache_mmio (
     assign dcache_re   = ~uncache ? core_re   : `ysyx22040228_ENABLE   ;
 
     assign  in_core_data    = uncache ? in_arb_data   : in_dcache_data   ;
-    assign  in_core_finish  = uncache ? in_arb_finish : in_dcache_finish ;                                                                                                                  
+    assign  in_core_finish  = uncache ? in_arb_finish : in_dcache_finish ;     
+
+    //---------------------------uncache_set----------------------------//                                                                                                             
 
 endmodule
 
