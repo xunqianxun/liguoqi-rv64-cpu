@@ -344,7 +344,7 @@ module arbitratem (
                 iread_ar_prot    <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
                 iread_ar_qos     <= 4'h0                ;
                 iread_ar_valid   <= `ysyx22040228_ABLE  ;
-                iread_counter    <= 2'b11               ;
+                //iread_counter    <= 2'b11               ;
                 temp_iread       <= {axi_r_data[63:32], 32'h0};
             //end 
             // else if(iread_counter == 2'b00) begin
