@@ -311,12 +311,12 @@ module arbitratem (
     wire                                      iread_arshankhand     ;
     assign iread_r_ready = `ysyx22040228_ABLE                       ;
     assign iread_arshankhand = iread_ar_valid && axi_ar_ready       ;
-    reg    [1:0]                              iread_counter = 2'b00 ;
+    //reg    [1:0]                              iread_counter = 2'b00 ;
     reg    [63:0]                             temp_iread            ;
 
     assign iread_success = (axi_r_id == 4'b0000) && iread_r_ready && axi_r_valid && axi_r_last && (axi_r_resp == 2'b00) ;
     always @(posedge clk) begin
-        if((iread_success) && (iread_counter == 2'b11)) begin
+        if((iread_success)) begin
             iread_ar_id      <= 4'b0001             ;
             iread_ar_addr    <= `ysyx22040228_ZEROWORD ;
             iread_ar_len     <= 8'b0                ;
@@ -334,10 +334,10 @@ module arbitratem (
             iread_ar_valid   <= `ysyx22040228_ENABLE ;
         end 
         else if(arbitrate_state == `ysyx22040228_ARB_IREAD) begin
-            if(iread_success && (iread_counter == 2'b01)) begin
+            if(iread_success) begin
                 iread_ar_id      <= 4'b0000             ;
                 iread_ar_addr    <= {i_cache_addr[63:3], 1'b0, 2'b0};
-                iread_ar_len     <= 8'b0                ;
+                iread_ar_len     <= 8'd2                ;
                 iread_ar_size    <= `AXI_SIZE_BYTES_4   ;
                 iread_ar_burst   <= `AXI_BURST_TYPE_INCR;
                 iread_ar_cache   <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
@@ -347,17 +347,17 @@ module arbitratem (
                 iread_counter    <= 2'b11               ;
                 temp_iread       <= {axi_r_data[63:32], 32'h0};
             end 
-            else if(iread_counter == 2'b00) begin
-                iread_ar_id      <= 4'b0000             ;
-                iread_ar_addr    <= {i_cache_addr[63:3], 1'b1, 2'b0};
-                iread_ar_len     <= 8'b0                ;
-                iread_ar_size    <= `AXI_SIZE_BYTES_4   ;
-                iread_ar_burst   <= `AXI_BURST_TYPE_INCR;
-                iread_ar_cache   <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
-                iread_ar_prot    <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
-                iread_ar_qos     <= 4'h0                ;
-                iread_ar_valid   <= `ysyx22040228_ABLE  ;
-                iread_counter    <= 2'b01               ;
+            // else if(iread_counter == 2'b00) begin
+            //     iread_ar_id      <= 4'b0000             ;
+            //     iread_ar_addr    <= {i_cache_addr[63:3], 1'b1, 2'b0};
+            //     iread_ar_len     <= 8'b0                ;
+            //     iread_ar_size    <= `AXI_SIZE_BYTES_4   ;
+            //     iread_ar_burst   <= `AXI_BURST_TYPE_INCR;
+            //     iread_ar_cache   <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
+            //     iread_ar_prot    <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
+            //     iread_ar_qos     <= 4'h0                ;
+            //     iread_ar_valid   <= `ysyx22040228_ABLE  ;
+            //     iread_counter    <= 2'b01               ;
             end 
         end 
         else begin
