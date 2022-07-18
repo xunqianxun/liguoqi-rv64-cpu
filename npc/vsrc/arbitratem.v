@@ -334,7 +334,7 @@ module arbitratem (
             iread_ar_valid   <= `ysyx22040228_ENABLE ;
         end 
         else if(arbitrate_state == `ysyx22040228_ARB_IREAD) begin
-            if(iread_success) begin
+            //if(iread_success) begin
                 iread_ar_id      <= 4'b0000             ;
                 iread_ar_addr    <= {i_cache_addr[63:3], 1'b0, 2'b0};
                 iread_ar_len     <= 8'd2                ;
@@ -346,7 +346,7 @@ module arbitratem (
                 iread_ar_valid   <= `ysyx22040228_ABLE  ;
                 iread_counter    <= 2'b11               ;
                 temp_iread       <= {axi_r_data[63:32], 32'h0};
-            end 
+            //end 
             // else if(iread_counter == 2'b00) begin
             //     iread_ar_id      <= 4'b0000             ;
             //     iread_ar_addr    <= {i_cache_addr[63:3], 1'b1, 2'b0};
