@@ -240,6 +240,7 @@ module arbitratem (
             dread_ok         <=  `ysyx22040228_ABLE ;
             uncahce_data_o   <= axi_r_data          ;
             dread_cache_valid<= `ysyx22040228_ABLE  ;
+            dread_counter    <= 2'b00               ;
             end 
         end 
         else if(dread_arshankhand) begin
