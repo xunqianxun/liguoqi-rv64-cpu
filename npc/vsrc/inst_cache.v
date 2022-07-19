@@ -225,7 +225,7 @@ module inst_cache (
 
     always @(*) begin
         if((state_inst ==  `ysyx22040228_I_MISSRH) && (~cache_in_valid)) begin
-            if(missr_counter == 2'b00) begin
+            if(missr_counter <= 2'b01) begin
                 cache_mism_ena = `ysyx22040228_ABLE    ;
                 cahce_mism_addr = {inst_addr[63:3], 1'b1, 2'b0};
                 missr_counter_n  = 2'b01                 ;
@@ -259,11 +259,7 @@ module inst_cache (
             end   
             else if(i_counter1[icache_index] < i_counter2[icache_index]) begin
                 mism_strb_l = `ysyx22040228_CACHE_STRBH;
-            end
-            else begin
-                mism_strb_l = `ysyx22040228_CACHE_STRBZ;
-                mism_ena_l = `ysyx22040228_ENABLE ;
-            end  
+            end 
         end
         else begin
             mism_data      = `ysyx22040228_CACHE_STRBZ ;
