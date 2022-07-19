@@ -146,7 +146,7 @@ module inst_cache (
                     inst_valid   = `ysyx22040228_ABLE;
                 end 
                 else if(inst_addr[2] == `ysyx22040228_ENABLE) begin
-                    inst_data = inst_out_2[95:64]      ;
+                    inst_data = data_out[95:64]      ;
                     inst_hit_ok  = `ysyx22040228_ABLE  ;
                     inst_valid   = `ysyx22040228_ABLE;
                 end
@@ -181,10 +181,10 @@ module inst_cache (
             miss_data      = {cache_in_data, cache_in_data}  ;
             write_i_ok     = `ysyx22040228_ABLE  ;
             miss_ena_l     = `ysyx22040228_ABLE  ;
-            if(i_tag_user1 == `ysyx22040228_ENABLE) begin
+            if(oteg_valid_o == `ysyx22040228_ENABLE) begin
                 miss_strb_l = `ysyx22040228_CACHE_STRBL;
             end 
-            else if(i_tag_user2 == `ysyx22040228_ENABLE) begin
+            else if(tteg_valid_o == `ysyx22040228_ENABLE) begin
                 miss_strb_l = `ysyx22040228_CACHE_STRBH;
             end 
             else if(i_counter1[icache_index] >= i_counter2[icache_index])begin

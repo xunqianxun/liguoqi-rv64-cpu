@@ -350,7 +350,7 @@ module arbitratem (
             iread_ar_valid   <= `ysyx22040228_ENABLE ;
         end 
         else if(arbitrate_state == `ysyx22040228_ARB_IREAD) begin
-            if((icache_addr >= `ysyx22040228_APB_START) && (icache_addr <= `ysyx22040228_APB_END))  begin
+            if((i_cache_addr >= `ysyx22040228_APB_START) && (i_cache_addr <= `ysyx22040228_APB_END))  begin
                 iread_ar_id      <= 4'b0000             ;
                 iread_ar_addr    <= {i_cache_addr[63:2], 2'b00};
                 iread_ar_len     <= 8'd0                ;

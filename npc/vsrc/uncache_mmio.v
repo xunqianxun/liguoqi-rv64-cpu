@@ -58,22 +58,22 @@ module uncache_mmio (
     reg   [63:0]    uncache_temp ;
     reg             uncahche_read_finish;
 
-    reg             uncahce_out_ena  ;
+    reg             uncache_out_ena  ;
     reg             uncahce_out_addr ;
     always @(*) begin
         if((uncache && core_re) && (~in_arb_finish)) begin
-            uncahce_out_ena = `ysyx22040228_ABLE    ;
+            uncache_out_ena = `ysyx22040228_ABLE    ;
             uncahce_out_addr = {core_addr[63:3], 1'b1, 2'b0};
             out_counter  = 2'b01                 ;
         end 
         else if((uncache) && (in_arb_finish) && (out_counter  == 2'b01)) begin
-            uncahce_out_ena = `ysyx22040228_ABLE    ;
+            uncache_out_ena = `ysyx22040228_ABLE    ;
             uncahce_out_addr = {core_addr[63:3], 1'b0, 2'b0};
             out_counter  = 2'b11                 ;
             uncache_temp      = {in_arb_data[31:0], 32'h0};
         end 
         else if((uncache) && (in_arb_finish) && (out_counter  == 2'b11)) begin
-            uncahce_out_ena  = `ysyx22040228_ENABLE;
+            uncache_out_ena  = `ysyx22040228_ENABLE;
             out_counter      = 2'b00               ;
             uncache_temp      = {uncache_temp[63:32], in_arb_data[31:0]};
             uncahche_read_finish = `ysyx22040228_ABLE;

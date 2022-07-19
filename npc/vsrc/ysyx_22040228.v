@@ -465,7 +465,6 @@ module ysyx_22040228 (
         .d_cache_addr        (d_cache_out_addr   ) ,
         .d_cache_data        (d_cache_out_data   ) ,
         .d_cache_type        (d_cache_out_type   ) ,
-        .d_cache_resp        (d_cache_out_resp   ) ,
         .d_cache_data_o      (arbitrate_d_data   ) ,
         .d_cache_valid_      (arbitrate_d_ok     ) ,
 
@@ -479,7 +478,6 @@ module ysyx_22040228 (
 
         .i_cache_addr        (i_cache_addr       ) ,
         .i_cache_ena         (i_cache_read_ena   ) ,
-        .i_cache_resp        (i_caceh_resp       ) ,
         .i_cache_data        (arbitrate_i_data   ) ,
         .i_cache_valid_      (arbitrate_i_ok     ) ,
 

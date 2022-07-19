@@ -37,7 +37,6 @@ module data_cache (
 
     input         wire        [`ysyx22040228_DCACHE_DATA_W]   in_dcache_data     ,
     input         wire                                        in_dcache_ready    ,
-    output        wire                                        out_dcache_resp    ,
     output        wire        [63:0]                          out_dcache_addr    ,
     output        wire        [`ysyx22040228_DCACHE_DATA_W]   out_dcache_data    ,
     //type[0]---->  dirty | fence 
@@ -465,13 +464,13 @@ module data_cache (
     always @(*) begin
         if((state_dwrite == `ysyx22040228_DIRTY) && (~in_dcache_ready)) begin
             if((dirty1[dcache_index] == `ysyx22040228_ABLE) && (counter1[dcache_index] >= counter2[dcache_index])) begin
-                dirtyw_out_addr = {32'h0,tag_data1, dcache_index, 3'b000} ;
+                dirtyw_out_addr = {32'h0,oteg_ata_o, dcache_index, 3'b000} ;
                 dirtyw_out_data = data_out[63:0]  ;
                 dirtyw_out_type = 4'b0100    ;
                 dirtyw_clean_o  = `ysyx22040228_ABLE ;
             end 
             else if((dirty2[dcache_index] == `ysyx22040228_ABLE) && (counter1[dcache_index] < counter2[dcache_index])) begin
-                dirtyw_out_addr = {32'h0,tag_data1, dcache_index, 3'b000} ;
+                dirtyw_out_addr = {32'h0,tteg_ata_o, dcache_index, 3'b000} ;
                 dirtyw_out_data = data_out[127:64]  ;
                 dirtyw_out_type = 4'b0100    ;
                 dirtyw_clean_t  = `ysyx22040228_ABLE ;
@@ -526,13 +525,13 @@ module data_cache (
             missw_out_type = 4'b0000                ;
             missw_out_addr = `ysyx22040228_ZEROWORD ;
             missw_data_ena = `ysyx22040228_ABLE     ;
-            if(tag_user1 == `ysyx22040228_ENABLE) begin
+            if(oteg_valid_o == `ysyx22040228_ENABLE) begin
                 missw_data_strb = `ysyx22040228_CACHE_STRBL;
                 missw_tag_ena1  = `ysyx22040228_ABLE;
                 missw_data_temp = {64'h0, in_dcache_data};
                 missw_i_ok      = `ysyx22040228_ABLE;    
             end
-            else if(tag_user2 == `ysyx22040228_ENABLE) begin
+            else if(tteg_valid_o == `ysyx22040228_ENABLE) begin
                 missw_data_strb = `ysyx22040228_CACHE_STRBH;
                 missw_tag_ena2  = `ysyx22040228_ABLE;
                 missw_data_temp = {in_dcache_data, 64'h0};
@@ -694,7 +693,7 @@ module data_cache (
         .CEN         (CE           ) ,
         .WEN         (w_data_ena   ) ,
         .BWEN        (w_strb_ram   ) ,
-        .A           (icache_index ) ,
+        .A           (dcache_index ) ,
         .D           (w_data_ram   )
     );
 
