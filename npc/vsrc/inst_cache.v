@@ -207,6 +207,7 @@ module inst_cache (
     end
 
     reg   [1:0]     missr_counter ;
+    reg   [1:0]     missr_counter_n;
     reg   [63:0]    temp_inst     ;
     reg   [127:0]   mism_data ;
     reg             mism_ena_l;
@@ -215,27 +216,34 @@ module inst_cache (
 
     reg             cache_mism_ena ;
     reg   [63:0]    cahce_mism_addr ;
+    always @(posedge clk) begin
+        if(rst == `ysyx22040228_RSTENA)
+            missr_counter <= 2'b00 ;
+        else 
+            missr_counter <= missr_counter_n ;
+    end
+
     always @(*) begin
         if((state_inst ==  `ysyx22040228_I_MISSRH) && (~cache_in_valid)) begin
             if(missr_counter == 2'b00) begin
                 cache_mism_ena = `ysyx22040228_ABLE    ;
                 cahce_mism_addr = {inst_addr[63:3], 1'b1, 2'b0};
-                missr_counter  = 2'b01                 ;
+                missr_counter_n  = 2'b01                 ;
             end 
             else begin
                 cache_mism_ena = `ysyx22040228_ABLE    ;
                 cahce_mism_addr = {inst_addr[63:3], 1'b0, 2'b0};
-                missr_counter  = 2'b11                 ;
+                missr_counter_n  = 2'b11                 ;
             end 
         end 
         else if((state_inst ==  `ysyx22040228_I_MISSRH) && (cache_in_valid) && (missr_counter  == 2'b01)) begin
             cache_mism_ena = `ysyx22040228_ABLE    ;
             cahce_mism_addr = {inst_addr[63:3], 1'b0, 2'b0};
-            missr_counter  = 2'b11                 ;
+            missr_counter_n  = 2'b11                 ;
             temp_inst      = {cache_in_data[31:0], 32'h0};
         end 
         else if((state_inst ==  `ysyx22040228_I_MISSRH) && (cache_in_valid) && (missr_counter  == 2'b11)) begin
-            missr_counter  = 2'b00               ;
+            missr_counter_n  = 2'b00               ;
             mism_data      = {temp_inst[63:32], cache_in_data[31:0], temp_inst[63:32], cache_in_data[31:0]};
             cache_mism_ena = `ysyx22040228_ENABLE;
             write_m_ok     = `ysyx22040228_ABLE  ;

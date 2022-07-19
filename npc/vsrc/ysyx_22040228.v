@@ -393,6 +393,8 @@ module ysyx_22040228 (
 
     wire [2:0] mmio_thing ;
     uncache_mmio uncache_mmio7(
+        .clk                 (aclk                ) ,
+        .rst                 (rst                 ) ,
         .mmio_sign           (mmio_thing          ) ,
 
         .core_addr           (rvcpu_data_addr     ) ,

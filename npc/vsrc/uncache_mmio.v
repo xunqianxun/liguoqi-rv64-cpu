@@ -3,6 +3,8 @@
 `include "cache_defines.v"
 /* verilator lint_off LATCH */
 module uncache_mmio (
+    input     wire                                         clk              ,
+    input     wire                                         rst              ,
     output    wire          [2:0]                          mmio_sign        ,
 
     input     wire          [63:0]                         core_addr        ,
@@ -55,22 +57,32 @@ module uncache_mmio (
     //---------------------------uncache_set----------------------------//
 
     reg   [1:0]     out_counter ;
+    reg   [1:0]     out_counter_n ;
     reg   [63:0]    uncache_temp ;
     reg             uncahche_read_finish;
 
     reg             uncache_out_ena  ;
     reg   [63:0]    uncahce_out_addr ;
+
+    always @(posedge clk) begin
+        if(rst == `ysyx22040228_RSTENA)
+            out_counter <= 2'b00 ;
+        else begin
+            out_counter <= out_counter_n ;
+        end 
+    end
+
     always @(*) begin
         if((uncache && core_re) && (~in_arb_finish)) begin
             if(out_counter == 2'b00) begin
                 uncache_out_ena = `ysyx22040228_ABLE    ;
                 uncahce_out_addr = {core_addr[63:3], 1'b1, 2'b0};
-                out_counter  = 2'b01                 ;
+                out_counter_n  = 2'b01                 ;
             end 
             else if(out_counter == 2'b01) begin
                 uncache_out_ena = `ysyx22040228_ABLE    ;
                 uncahce_out_addr = {core_addr[63:3], 1'b0, 2'b0};
-                out_counter  = 2'b01                 ;
+                out_counter_n  = 2'b01                 ;
             end 
         end 
         else if((uncache) && (in_arb_finish) && (out_counter  == 2'b01)) begin
@@ -81,7 +93,7 @@ module uncache_mmio (
         end 
         else if((uncache) && (in_arb_finish) && (out_counter  == 2'b11)) begin
             uncache_out_ena  = `ysyx22040228_ENABLE;
-            out_counter      = 2'b00               ;
+            out_counter_n      = 2'b00               ;
             uncache_temp      = {uncache_temp[63:32], in_arb_data[31:0]};
             uncahche_read_finish = `ysyx22040228_ABLE;
 
