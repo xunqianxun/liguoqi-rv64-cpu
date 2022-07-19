@@ -74,21 +74,20 @@ module uncache_mmio (
 
     always @(*) begin
         if((uncache && core_re) && (~in_arb_finish)) begin
-            if(out_counter == 2'b00) begin
+            if(out_counter <= 2'b01) begin
                 uncache_out_ena = `ysyx22040228_ABLE    ;
                 uncahce_out_addr = {core_addr[63:3], 1'b1, 2'b0};
                 out_counter_n  = 2'b01                 ;
             end 
-            else if(out_counter == 2'b01) begin
+            else if(out_counter == 2'b11) begin
                 uncache_out_ena = `ysyx22040228_ABLE    ;
                 uncahce_out_addr = {core_addr[63:3], 1'b0, 2'b0};
-                out_counter_n  = 2'b01                 ;
             end 
         end 
         else if((uncache) && (in_arb_finish) && (out_counter  == 2'b01)) begin
             uncache_out_ena = `ysyx22040228_ABLE    ;
             // uncahce_out_addr = {core_addr[63:3], 1'b0, 2'b0};
-            // out_counter  = 2'b11                 ;
+             out_counter_n  = 2'b11                 ;
             uncache_temp      = {in_arb_data[31:0], 32'h0};
         end 
         else if((uncache) && (in_arb_finish) && (out_counter  == 2'b11)) begin
@@ -106,23 +105,32 @@ module uncache_mmio (
     reg              uncache_out_ena1 ;
     reg   [63:0]     uncache_out_addr1 ;
     reg   [1:0]      out_counter1     ;
+    reg   [1:0]      out_counter1_n   ;
     reg              uncahche_write_finish;
+    always @(posedge clk) begin
+        if(rst == `ysyx22040228_RSTENA)
+            out_counter1 <= 2'b00 ;
+        else 
+            out_counter1 <= out_counter1_n;
+    end
+
     always @(*) begin
         if((uncache && core_we) && (~in_arb_finish)) begin
-            uncache_out_ena1 = `ysyx22040228_ABLE    ;
-            out_counter1      = 2'b01    ;
             if(out_counter1 <= 2'b01) begin
-                arb_data      = {32'h0, core_data[63:32]} ;
+                uncache_out_ena1 = `ysyx22040228_ABLE    ;
+                out_counter1_n    = 2'b01                ;
+                arb_data          = {32'h0, core_data[63:32]} ;
                 uncache_out_addr1 = {core_addr[63:3], 1'b1, 2'b0};
             end 
-            else begin
+            else if(out_counter1 == 2'b11) begin
+                uncache_out_ena1 = `ysyx22040228_ABLE    ;
                 arb_data      = {32'h0, core_data[31:0]} ;
                 uncache_out_addr1 = {core_addr[63:3], 1'b0, 2'b0};
             end 
         end 
         else if((uncache) && (in_arb_finish) && (out_counter1  == 2'b01)) begin
-            uncache_out_ena1 = `ysyx22040228_ABLE    ;
-            out_counter1       = 2'b11                 ;
+            uncache_out_ena1     = `ysyx22040228_ABLE    ;
+            out_counter1_n       = 2'b11                 ;
         end 
         else if((uncache) && (in_arb_finish) && (out_counter1  == 2'b11)) begin
             uncache_out_ena1 = `ysyx22040228_ENABLE;
