@@ -5,6 +5,7 @@ Function:top module of this soc
 ************************************************************/
 /* verilator lint_off UNUSED */
 /* verilator lint_off MODDUP */
+/* verilator lint_off LATCH */
 `include "arbitratem.v"
 `include "inst_cache.v"
 `include "data_cache.v"

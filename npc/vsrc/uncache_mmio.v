@@ -1,7 +1,7 @@
 `include "defines.v"
 `include "defines_axi4.v"
 `include "cache_defines.v"
-
+/* verilator lint_off LATCH */
 module uncache_mmio (
     output    wire          [2:0]                          mmio_sign        ,
 
@@ -101,13 +101,13 @@ module uncache_mmio (
                 uncache_out_addr1 = {core_addr[63:3], 1'b0, 2'b0};
             end 
         end 
-        else if((uncache) && (in_arb_finish) && (out_counter  == 2'b01)) begin
+        else if((uncache) && (in_arb_finish) && (out_counter1  == 2'b01)) begin
             uncache_out_ena1 = `ysyx22040228_ABLE    ;
             out_counter1       = 2'b11                 ;
         end 
-        else if((uncache) && (in_arb_finish) && (out_counter  == 2'b11)) begin
+        else if((uncache) && (in_arb_finish) && (out_counter1  == 2'b11)) begin
             uncache_out_ena1 = `ysyx22040228_ENABLE;
-            out_counter      = 2'b00               ;
+            out_counter1      = 2'b00               ;
             uncahche_write_finish = `ysyx22040228_ABLE;
 
         end 
