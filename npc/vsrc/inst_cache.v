@@ -6,8 +6,8 @@ Function:write instraction cache
 /* verilator lint_off LATCH */
 `include "defines.v"
 `include "defines_axi4.v"
-`include "i_cache_data_ram.v"
-`include "i_cache_tag_ram.v"
+`include "TEG_CC.v"
+`include "S011HD1P_X32Y2D128_BW.v"
 `include "cache_defines.v"
 
 `define ysyx22040228_I_IDLE    6'b000001

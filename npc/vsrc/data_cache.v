@@ -19,8 +19,8 @@ Function:write data cache
 
 `include "defines.v"
 `include "defines_axi4.v"
-`include "d_cache_data_ram.v"
-`include "d_cache_tag_ram.v"
+`include "S011HD1P_X32Y2D128_BW.v"
+`include "TEG_CC.v"
 
 module d_cache (
     input         wire                                        clk                ,
