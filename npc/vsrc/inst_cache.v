@@ -199,7 +199,7 @@ module inst_cache (
             end  
         end
         else begin
-            miss_data      = `ysyx22040228_ZEROWORD ;
+            miss_data      = `ysyx22040228_CACHE_STRBZ ;
             miss_ena_l     = `ysyx22040228_ENABLE ;
             miss_strb_l = `ysyx22040228_CACHE_STRBZ;
             write_i_ok     = `ysyx22040228_ENABLE   ;
@@ -214,7 +214,7 @@ module inst_cache (
     reg             write_m_ok;  
 
     reg             cache_mism_ena ;
-    reg             cahce_mism_addr ;
+    reg   [63:0]    cahce_mism_addr ;
     always @(*) begin
         if((state_inst ==  `ysyx22040228_I_MISSRH) && (~cache_in_valid)) begin
             cache_mism_ena = `ysyx22040228_ABLE    ;
@@ -251,7 +251,7 @@ module inst_cache (
             end  
         end
         else begin
-            mism_data      = `ysyx22040228_ZEROWORD ;
+            mism_data      = `ysyx22040228_CACHE_STRBZ ;
             mism_ena_l     = `ysyx22040228_ENABLE ;
             mism_strb_l = `ysyx22040228_CACHE_STRBZ;
             write_m_ok     = `ysyx22040228_ENABLE   ;
@@ -266,9 +266,9 @@ module inst_cache (
     wire                             oteg_valid_i  ;
     assign                           oteg_valid_i = inst_fence ? `ysyx22040228_ENABLE : `ysyx22040228_ABLE ;
     wire         [22:0]              oteg_data_i   ;
-    assign                           oteg_data_i  = inst_fence ? 12'h0 : icache_tag ;
+    assign                           oteg_data_i  = inst_fence ? 23'h0 : icache_tag ;
     wire         [5:0]               oteg_addr_i   ; 
-    assign                           oteg_addr_i  = inst_fence ? fence_counter : icache_index ;
+    assign                           oteg_addr_i  = inst_fence ? fence_counter[5:0] : icache_index ;
     wire   [`ysyx22040228_TEG_WITH]  oteg_ata_o    ;
     wire                             oteg_valid_o  ;
     TEG_CC TEG_ICACHEO(
@@ -289,9 +289,9 @@ module inst_cache (
     wire                             tteg_valid_i  ;
     assign                           tteg_valid_i = inst_fence ? `ysyx22040228_ENABLE : `ysyx22040228_ABLE ;
     wire         [22:0]              tteg_data_i   ;
-    assign                           tteg_data_i  = inst_fence ? 13'h0 : icache_tag ;
+    assign                           tteg_data_i  = inst_fence ? 23'h0 : icache_tag ;
     wire         [5:0]               tteg_addr_i   ; 
-    assign                           tteg_addr_i  = inst_fence ? fence_counter : icache_index ;
+    assign                           tteg_addr_i  = inst_fence ? fence_counter[5:0] : icache_index ;
     wire   [`ysyx22040228_TEG_WITH]  tteg_ata_o    ;
     wire                             tteg_valid_o  ;
     TEG_CC TEG_ICACHET(
@@ -310,11 +310,11 @@ module inst_cache (
     wire  [127:0] w_strb_ram;
     assign        w_strb_ram = (state_inst ==  `ysyx22040228_I_MISSRL) ? miss_strb_l :
                                (state_inst ==  `ysyx22040228_I_MISSRH) ? mism_strb_l :
-                                                             `ysyx22040228_ZEROWORD  ;
+                                                          `ysyx22040228_CACHE_STRBZ  ;
     wire  [127:0] w_data_ram;
     assign        w_data_ram = (state_inst ==  `ysyx22040228_I_MISSRL) ? miss_data :
                                (state_inst ==  `ysyx22040228_I_MISSRH) ? mism_data :
-                                                             `ysyx22040228_ZEROWORD;
+                                                          `ysyx22040228_CACHE_STRBZ;
     wire          w_data_ena;
     assign        w_data_ena = (state_inst ==  `ysyx22040228_I_MISSRL) ? miss_ena_l :
                                (state_inst ==  `ysyx22040228_I_MISSRH) ? mism_ena_l :

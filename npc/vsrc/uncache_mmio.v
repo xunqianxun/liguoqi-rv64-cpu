@@ -15,7 +15,7 @@ module uncache_mmio (
     output    wire                                         in_core_finish   ,
 
     output    wire          [63:0]                         arb_addr         ,
-    output    wire          [63:0]                         arb_data         ,
+    output    reg           [63:0]                         arb_data         ,
     output    wire          [7:0]                          arb_mask         ,
     output    wire                                         arb_we           ,
     output    wire                                         arb_re           ,
