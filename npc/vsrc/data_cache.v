@@ -91,7 +91,7 @@ module data_cache (
         if((write_request) && (oteg_valid_o == `ysyx22040228_ABLE)) begin
             if((~in_dcache_ready) && (dirty1[counter[5:0]] == `ysyx22040228_ABLE)) begin
                 fence_data_out = data_out[63:0] ;
-                fence_addr_out = {oteg_ata_o, counter[5:0], 3'b000} ;
+                fence_addr_out = {32'h0, oteg_ata_o, counter[5:0], 3'b000} ;
                 fence_type_out = 4'b0001   ;
             end 
             else if((in_dcache_ready) && (dirty1[counter[5:0]] == `ysyx22040228_ABLE))begin
@@ -107,7 +107,7 @@ module data_cache (
         else if((write_request) && (tteg_valid_o == `ysyx22040228_ABLE)) begin
             if((~in_dcache_ready) && (dirty2[counter[5:0]] == `ysyx22040228_ABLE)) begin
                 fence_data_out = data_out[127:64] ;
-                fence_addr_out = {tteg_ata_o, counter[5:0], 3'b000} ; 
+                fence_addr_out = {32'h0, tteg_ata_o, counter[5:0], 3'b000} ; 
                 fence_type_out = 4'b0001   ;
             end 
             else if((in_dcache_ready) && (dirty2[counter[5:0]] == `ysyx22040228_ABLE))begin
@@ -146,7 +146,7 @@ module data_cache (
     assign dcache_read_ready      = (state_dread == `ysyx22040228_IDLE)  ;
     assign dcache_write_ready     = (state_dwrite == `ysyx22040228_IDLE) ;
 
-    wire [11:0 ] dcache_tag    =   mem_addr_i[31:9];
+    wire [22:0 ] dcache_tag    =   mem_addr_i[31:9];
     wire [ 5:0 ] dcache_index  =   mem_addr_i[ 8:3 ];
     //wire [ 2:0 ] dcache_offset =   mem_addr_i[ 2:0 ];
 
@@ -631,9 +631,9 @@ module data_cache (
     wire                             oteg_valid_i  ;
     assign                           oteg_valid_i = mem_fence_i ? `ysyx22040228_ENABLE : `ysyx22040228_ABLE ;
     wire         [22:0]              oteg_data_i   ;
-    assign                           oteg_data_i  = mem_fence_i ? 12'h0 : dcache_tag ;
+    assign                           oteg_data_i  = mem_fence_i ? 23'h0 : dcache_tag ;
     wire         [5:0]               oteg_addr_i   ; 
-    assign                           oteg_addr_i  = mem_fence_i ? counter : dcache_index ;
+    assign                           oteg_addr_i  = mem_fence_i ? counter[5:0] : dcache_index ;
     wire   [`ysyx22040228_TEG_WITH]  oteg_ata_o    ;
     wire                             oteg_valid_o  ;
     TEG_CC TEG_DCACHEO(
@@ -654,9 +654,9 @@ module data_cache (
     wire                             tteg_valid_i  ;
     assign                           tteg_valid_i = mem_fence_i ? `ysyx22040228_ENABLE : `ysyx22040228_ABLE ;
     wire         [22:0]              tteg_data_i   ;
-    assign                           tteg_data_i  = mem_fence_i ? 12'h0 : dcache_tag ;
+    assign                           tteg_data_i  = mem_fence_i ? 23'h0 : dcache_tag ;
     wire         [5:0]               tteg_addr_i   ; 
-    assign                           tteg_addr_i  = mem_fence_i ? counter : dcache_index ;
+    assign                           tteg_addr_i  = mem_fence_i ? counter[5:0] : dcache_index ;
     wire   [`ysyx22040228_TEG_WITH]  tteg_ata_o    ;
     wire                             tteg_valid_o  ;
     TEG_CC TEG_DCACHET(
