@@ -272,14 +272,14 @@ module inst_cache (
     wire                             oteg_ena_i    ;
     assign                           oteg_ena_i  =  inst_fence                                                                                ? `ysyx22040228_ABLE : 
                                                     ((state_inst ==  `ysyx22040228_I_MISSRL) && ((miss_strb_l == `ysyx22040228_CACHE_STRBL))) ? `ysyx22040228_ABLE :
-                                                    ((state_inst ==  `ysyx22040228_I_MISSRH) && ((miss_strb_l == `ysyx22040228_CACHE_STRBL))) ? `ysyx22040228_ABLE :
+                                                    ((state_inst ==  `ysyx22040228_I_MISSRH) && ((mism_strb_l == `ysyx22040228_CACHE_STRBL))) ? `ysyx22040228_ABLE :
                                                                                                                                               `ysyx22040228_ENABLE ;
     wire                             oteg_valid_i  ;
     assign                           oteg_valid_i = inst_fence ? `ysyx22040228_ENABLE : `ysyx22040228_ABLE ;
     wire         [22:0]              oteg_data_i   ;
     assign                           oteg_data_i  = inst_fence ? 23'h0 : icache_tag ;
     wire         [5:0]               oteg_addr_i   ; 
-    assign                           oteg_addr_i  = inst_fence ? fence_counter[5:0] : icache_index ;
+    assign                           oteg_addr_i  = inst_fence ? fence_counter[5:0] : icache_index ;    
     wire   [`ysyx22040228_TEG_WITH]  oteg_ata_o    ;
     wire                             oteg_valid_o  ;
     TEG_CC TEG_ICACHEO(
@@ -295,7 +295,7 @@ module inst_cache (
     wire                             tteg_ena_i    ; 
     assign                           tteg_ena_i  =  inst_fence                                                                                ? `ysyx22040228_ABLE : 
                                                     ((state_inst ==  `ysyx22040228_I_MISSRL) && ((miss_strb_l == `ysyx22040228_CACHE_STRBH))) ? `ysyx22040228_ABLE :
-                                                    ((state_inst ==  `ysyx22040228_I_MISSRH) && ((miss_strb_l == `ysyx22040228_CACHE_STRBH))) ? `ysyx22040228_ABLE :
+                                                    ((state_inst ==  `ysyx22040228_I_MISSRH) && ((mism_strb_l == `ysyx22040228_CACHE_STRBH))) ? `ysyx22040228_ABLE :
                                                                                                                                               `ysyx22040228_ENABLE ;
     wire                             tteg_valid_i  ;
     assign                           tteg_valid_i = inst_fence ? `ysyx22040228_ENABLE : `ysyx22040228_ABLE ;
