@@ -217,9 +217,16 @@ module inst_cache (
     reg   [63:0]    cahce_mism_addr ;
     always @(*) begin
         if((state_inst ==  `ysyx22040228_I_MISSRH) && (~cache_in_valid)) begin
-            cache_mism_ena = `ysyx22040228_ABLE    ;
-            cahce_mism_addr = {inst_addr[63:3], 1'b1, 2'b0};
-            missr_counter  = 2'b01                 ;
+            if(missr_counter == 2'b00) begin
+                cache_mism_ena = `ysyx22040228_ABLE    ;
+                cahce_mism_addr = {inst_addr[63:3], 1'b1, 2'b0};
+                missr_counter  = 2'b01                 ;
+            end 
+            else begin
+                cache_mism_ena = `ysyx22040228_ABLE    ;
+                cahce_mism_addr = {inst_addr[63:3], 1'b0, 2'b0};
+                missr_counter  = 2'b11                 ;
+            end 
         end 
         else if((state_inst ==  `ysyx22040228_I_MISSRH) && (cache_in_valid) && (missr_counter  == 2'b01)) begin
             cache_mism_ena = `ysyx22040228_ABLE    ;

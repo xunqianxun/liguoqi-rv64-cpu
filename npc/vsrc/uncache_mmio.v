@@ -62,14 +62,21 @@ module uncache_mmio (
     reg   [63:0]    uncahce_out_addr ;
     always @(*) begin
         if((uncache && core_re) && (~in_arb_finish)) begin
-            uncache_out_ena = `ysyx22040228_ABLE    ;
-            uncahce_out_addr = {core_addr[63:3], 1'b1, 2'b0};
-            out_counter  = 2'b01                 ;
+            if(out_counter == 2'b00) begin
+                uncache_out_ena = `ysyx22040228_ABLE    ;
+                uncahce_out_addr = {core_addr[63:3], 1'b1, 2'b0};
+                out_counter  = 2'b01                 ;
+            end 
+            else if(out_counter == 2'b01) begin
+                uncache_out_ena = `ysyx22040228_ABLE    ;
+                uncahce_out_addr = {core_addr[63:3], 1'b0, 2'b0};
+                out_counter  = 2'b01                 ;
+            end 
         end 
         else if((uncache) && (in_arb_finish) && (out_counter  == 2'b01)) begin
             uncache_out_ena = `ysyx22040228_ABLE    ;
-            uncahce_out_addr = {core_addr[63:3], 1'b0, 2'b0};
-            out_counter  = 2'b11                 ;
+            // uncahce_out_addr = {core_addr[63:3], 1'b0, 2'b0};
+            // out_counter  = 2'b11                 ;
             uncache_temp      = {in_arb_data[31:0], 32'h0};
         end 
         else if((uncache) && (in_arb_finish) && (out_counter  == 2'b11)) begin
@@ -109,7 +116,6 @@ module uncache_mmio (
             uncache_out_ena1 = `ysyx22040228_ENABLE;
             out_counter1      = 2'b00               ;
             uncahche_write_finish = `ysyx22040228_ABLE;
-
         end 
         else begin
             uncahche_write_finish = `ysyx22040228_ENABLE;
