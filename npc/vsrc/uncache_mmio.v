@@ -40,7 +40,7 @@ module uncache_mmio (
     assign uncache    = ((core_addr >= `ysyx22040228_UART_START) && (core_addr <= `ysyx22040228_UART_END)) |
                         ((core_addr >= `ysyx22040228_SPICTRL_START) && (core_addr <= `ysyx22040228_SPICTRL_END)) |
                         ((core_addr >= `ysyx22040228_SPI_START) && (core_addr <= `ysyx22040228_SPI_END)) |
-                        ((core_addr >= `ysyx22040228_CLINT_START) && (core_addr <= `ysyx22040228_CLINT_END)) |
+                        ((core_addr >= `ysyx22040228_CLINT_START) && (core_addr <= `ysyx22040228_CLINT_END)) ;
                         //((core_addr >= `ysyx22040228_CHIPLINK_START) && (core_addr <= `ysyx22040228_CHIPLINK_END)) ;
 
 
@@ -89,7 +89,7 @@ module uncache_mmio (
     reg   [1:0]      out_counter1     ;
     reg              uncahche_write_finish;
     always @(*) begin
-        if(uncache && core_we) && (~in_arb_finish) begin
+        if((uncache && core_we) && (~in_arb_finish)) begin
             uncache_out_ena1 = `ysyx22040228_ABLE    ;
             out_counter1      = 2'b01    ;
             if(out_counter1 <= 2'b01) begin

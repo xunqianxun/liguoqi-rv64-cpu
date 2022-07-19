@@ -297,7 +297,7 @@ module i_cache (
     TEG_CC TEG_ICACHET(
         .clk         (clk          ),
         .addr_i      (tteg_addr_i  ),
-        .teg _i      (tteg_data_i  ),
+        .teg_i      (tteg_data_i  ),
         .teg_valid   (tteg_valid_i ),
         .teg_ena     (tteg_ena_i   ),
         .data_o      (tteg_ata_o   ),
