@@ -134,7 +134,7 @@ module uncache_mmio (
         end 
         else if((uncache) && (in_arb_finish) && (out_counter1  == 2'b11)) begin
             uncache_out_ena1 = `ysyx22040228_ENABLE;
-            out_counter1      = 2'b00               ;
+            out_counter1_n      = 2'b00               ;
             uncahche_write_finish = `ysyx22040228_ABLE;
         end 
         else begin
