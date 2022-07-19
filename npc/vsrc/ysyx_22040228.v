@@ -5,8 +5,8 @@ Function:top module of this soc
 ************************************************************/
 /* verilator lint_off UNUSED */
 `include "arbitratem.v"
-`include "d_cache.v"
-`include "i_cache.v"
+`include "inst_cache.v"
+`include "data_cache.v"
 `include "soc_axi4.v"
 `include "clint.v"
 `include "rvcpu.v"
@@ -14,8 +14,8 @@ Function:top module of this soc
 `include "defines.v"
 `include "uncache_mmio.v"
 module ysyx_22040228 (
-    input       wire                                    clk                       ,
-    input       wire                                    rst                       ,
+    input       wire                                         clk                  ,
+    input       wire                                         rst                  ,
 
     input       wire                                         io_interrput         ,
    //-----------------------------AXI--------------------------------------------//
@@ -63,18 +63,6 @@ module ysyx_22040228 (
     input       wire                                         out_axi_r_last       ,
     input       wire                                         out_axi_r_valid      ,
     output      wire                                         out_axi_r_ready          
-    // output        wire                                         read_ena_sign_       ,
-    // output        wire        [63:0]                           out_addr_outp        ,
-    // inout         wire        [63:0]                           read_data_sign_      ,
-    // output        wire                                         out_write_ram_ena    ,
-    // output        wire        [63:0]                           out_write_ram_data   ,
-    // output        wire        [63:0]                           out_write_ram_addr   ,
-
-    // output        wire        [63:0]                           out_slave_addr_      ,
-    // output        wire        [63:0]                           out_serial_data_     ,
-    // input         wire        [63:0]                           in_rtc_data_         ,
-    // output        wire                                         out_serial_write_    ,
-    // output        wire                                         out_rtc_read_          
 );
     parameter SLAVE_NUM =  3 ;
     //-----------------------------wire about rvcpu------------------------------//
@@ -432,23 +420,23 @@ module ysyx_22040228 (
         .in_dcache_finish    (uncache_dc_finish   )
     );
 
-    i_cache i_cache2 (
+    inst_cache inst_cache2 (
         .clk                 (aclk                ) ,
         .rst                 (rst                 ) ,
         .inst_addr           (rvcpu_inst_addr     ) ,
         .inst_ready          (i_cache_ready       ) ,
-        .core_stall          (core_stall_l        ),
+        .core_stall          (core_stall_l        ) ,
+        .inst_fence          (uncache_dc_fence    ) ,
         .inst_data           (i_cache_inst_data   ) ,
         .inst_valid          (i_cache_inst_valid  ) ,
 
         .cache_read_ena      (i_cache_read_ena    ) ,
-        .cache_read_resp     (i_caceh_resp        ) ,
         .cache_addr          (i_cache_addr        ) ,
         .cache_in_data       (arbitrate_i_data    ) ,
         .cache_in_valid      (arbitrate_i_ok      )                       
 );
     
-    d_cache d_cache3 (
+    data_cache data_cache3 (
         .clk                 (aclk               ) ,
         .rst                 (rst                ) ,
 
@@ -463,7 +451,6 @@ module ysyx_22040228 (
 
         .in_dcache_data      (arbitrate_d_data   ) ,
         .in_dcache_ready     (arbitrate_d_ok     ) ,
-        .out_dcache_resp     (d_cache_out_resp   ) ,
         .out_dcache_addr     (d_cache_out_addr   ) ,
         .out_dcache_data     (d_cache_out_data   ) ,
         .out_dcache_type     (d_cache_out_type   )
@@ -471,7 +458,7 @@ module ysyx_22040228 (
     );
 
     arbitratem arbitratem4(
-        .clk                 (aclk                ) ,
+        .clk                 (aclk               ) ,
         .rst                 (rst                ) ,
 
         .d_cache_addr        (d_cache_out_addr   ) ,
