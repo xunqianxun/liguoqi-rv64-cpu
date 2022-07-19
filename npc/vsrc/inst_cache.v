@@ -323,7 +323,7 @@ module inst_cache (
         .Q           (data_out     ) ,
         .CLK         (clk          ) ,
         .CEN         (CE           ) ,
-        .WEN         (w_data_ena   ) ,
+        .WEN         ( ~w_data_ena ) ,
         .BWEN        (w_strb_ram   ) ,
         .A           (icache_index ) ,
         .D           (w_data_ram   )
