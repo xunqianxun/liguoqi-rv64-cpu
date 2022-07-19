@@ -54,7 +54,8 @@ Function:arbitrate i_cache and d_cache
 `define ysyx22040228_ARB_DWRITE     3'b010
 `define ysyx22040228_ARB_IREAD      3'b100
 `define ysyx22040228_ARB_DREAD      3'b101
-
+`define ysyx22040228_ARB_DWRITEU    3'b011
+`define ysyx22040228_ARB_DREADU     3'b110
 
 
 `include "defines.v"
@@ -67,7 +68,7 @@ module arbitratem (
     input       wire       [63:0]                            d_cache_addr         ,
     input       wire       [63:0]                            d_cache_data         ,
     input       wire       [3:0]                             d_cache_type         ,
-    input       wire                                         d_cache_resp         ,
+    //input       wire                                         d_cache_resp         ,
     output      reg        [63:0]                            d_cache_data_o       ,
     output      wire                                         d_cache_valid_       ,
     //----------------------------uncache----------------------------------------//
@@ -81,7 +82,7 @@ module arbitratem (
     //----------------------------i_cache----------------------------------------//
     input       wire       [63:0]                            i_cache_addr         ,
     input       wire                                         i_cache_ena          ,
-    input       wire                                         i_cache_resp         ,
+    //input       wire                                         i_cache_resp         ,
     output      reg        [63:0]                            i_cache_data         ,
     output      wire                                         i_cache_valid_       ,
     //----------------------write address cahnnel--------------------------------//
@@ -152,16 +153,17 @@ module arbitratem (
             arbitrate_state <= arbitrate_state_nxt   ;
     end
 
-    reg     dread_success ;
-    reg     dwrite_success;
-    reg     iread_success ;
     always @(*) begin
         case (arbitrate_state)
             `ysyx22040228_ARB_IDLE : begin
-                if(read_dcache_shankhand | read_uncahce_shankhand)
+                if(read_dcache_shankhand)
                     arbitrate_state_nxt = `ysyx22040228_ARB_DREAD ;
-                else if(write_dcache_shankhand | write_uncahce_shankhand)
+                else if(read_uncahce_shankhand)
+                    arbitrate_state_nxt = `ysyx22040228_ARB_DREADU ;
+                else if(write_dcache_shankhand)
                     arbitrate_state_nxt = `ysyx22040228_ARB_DWRITE;
+                else if(write_uncahce_shankhand)
+                    arbitrate_state_nxt = `ysyx22040228_ARB_DWRITEU;
                 else if(read_icache_shankhand)
                     arbitrate_state_nxt = `ysyx22040228_ARB_IREAD ;
                 else 
@@ -173,12 +175,24 @@ module arbitratem (
                 else 
                     arbitrate_state_nxt = `ysyx22040228_ARB_DREAD ;
             end 
+            `ysyx22040228_ARB_DREADU : begin
+                if(dread_ok_u)
+                    arbitrate_state_nxt = `ysyx22040228_ARB_IDLE  ;
+                else 
+                    arbitrate_state_nxt = `ysyx22040228_ARB_DREADU ;
+            end 
             `ysyx22040228_ARB_DWRITE : begin
                 if(dwrite_ok)
                     arbitrate_state_nxt = `ysyx22040228_ARB_IDLE  ;
                 else 
                     arbitrate_state_nxt = `ysyx22040228_ARB_DWRITE;
             end 
+            `ysyx22040228_ARB_DWRITEU : begin
+                if(dwrite_ok_u)
+                    arbitrate_state_nxt = `ysyx22040228_ARB_IDLE  ;
+                else 
+                    arbitrate_state_nxt = `ysyx22040228_ARB_DWRITEU;
+            end
             `ysyx22040228_ARB_IREAD : begin
                 if(iread_success)
                     arbitrate_state_nxt = `ysyx22040228_ARB_IDLE  ;
@@ -206,16 +220,14 @@ module arbitratem (
     assign dread_r_ready = `ysyx22040228_ABLE                       ;
     assign dread_arshankhand = dread_ar_valid && axi_ar_ready       ;
     reg    dread_ok                                                 ;
-    reg   [1:0]     dread_counter = 2'b00                           ;
-    reg   [63:0]    temp_dread                                      ;
+    reg     dread_success                                           ;
     assign dread_success = (axi_r_id == 4'b0001) && dread_r_ready && axi_r_valid && axi_r_last && (axi_r_resp == 2'b00) ;
     always @(posedge clk) begin
-        if(dread_success && (dread_counter == 2'b11)) begin
-            if(read_dcache_shankhand) begin
+        if(dread_success) begin
             dread_ar_id      <= 4'b0001             ;
             dread_ar_addr    <= `ysyx22040228_ZEROWORD ;
             dread_ar_len     <= 8'b0                ;
-            dread_ar_size    <= `AXI_SIZE_BYTES_4   ;
+            dread_ar_size    <= `AXI_SIZE_BYTES_8   ;
             dread_ar_burst   <= `AXI_BURST_TYPE_INCR;
             dread_ar_cache   <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
             dread_ar_prot    <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
@@ -224,76 +236,81 @@ module arbitratem (
             dread_ok         <=  `ysyx22040228_ABLE ;
             d_cache_data_o   <= axi_r_data          ;
             dread_cache_valid<= `ysyx22040228_ABLE  ;
-            temp_dread       <= {temp_dread[63:32], axi_r_data[31:0]};
-            dread_counter    <= 2'b00               ;
-            end 
-            else begin
-            dread_ar_id      <= 4'b0001             ;
-            dread_ar_addr    <= `ysyx22040228_ZEROWORD   ;
-            dread_ar_len     <= 8'b0                ;
-            dread_ar_size    <= `AXI_SIZE_BYTES_4   ;
-            dread_ar_burst   <= `AXI_BURST_TYPE_INCR;
-            dread_ar_cache   <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
-            dread_ar_prot    <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
-            dread_ar_qos     <= 4'h0                ;
-            dread_ar_valid   <= `ysyx22040228_ENABLE ;
-            dread_ok         <=  `ysyx22040228_ABLE ;
-            uncahce_data_o   <= axi_r_data          ;
-            dread_cache_valid<= `ysyx22040228_ABLE  ;
-            dread_counter    <= 2'b00               ;
-            end 
         end 
         else if(dread_arshankhand) begin
             dread_ar_valid   <= `ysyx22040228_ENABLE ;
         end 
         else if(arbitrate_state == `ysyx22040228_ARB_DREAD) begin
-            if(read_dcache_shankhand) begin
-                if((dread_counter == 2'b01) && (dread_success)) begin
-                    dread_ar_id      <= 4'b0001             ;
-                    dread_ar_addr    <= {d_cache_addr[63:3], 1'b0, 2'b00};
-                    dread_ar_len     <= 8'd0                ;
-                    dread_ar_size    <= `AXI_SIZE_BYTES_4   ;
-                    dread_ar_burst   <= `AXI_BURST_TYPE_INCR;
-                    dread_ar_cache   <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
-                    dread_ar_prot    <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
-                    dread_ar_qos     <= 4'h0                ;
-                    dread_ar_valid   <= `ysyx22040228_ABLE  ;
-                    dread_counter    <= 2'b11               ;
-                    temp_dread       <= {axi_r_data[63:32],32'h0} ;
-                end 
-                else if(dread_counter == 2'b00) begin
-                    dread_ar_id      <= 4'b0001             ;
-                    dread_ar_addr    <= {d_cache_addr[63:3], 1'b1, 2'b00} ;
-                    dread_ar_len     <= 8'd0                ;
-                    dread_ar_size    <= `AXI_SIZE_BYTES_4   ;
-                    dread_ar_burst   <= `AXI_BURST_TYPE_INCR;
-                    dread_ar_cache   <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
-                    dread_ar_prot    <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
-                    dread_ar_qos     <= 4'h0                ;
-                    dread_ar_valid   <= `ysyx22040228_ABLE  ;
-                    dread_counter    <= 2'b01               ;
-                end 
-            end 
-            else begin
-                dread_ar_id      <= 4'b0001             ;
-                dread_ar_addr    <= {uncache_addr[63:2], 2'b00}   ;
-                dread_ar_len     <= 8'd0                ;
-                dread_ar_size    <= `AXI_SIZE_BYTES_4   ;
-                dread_ar_burst   <= `AXI_BURST_TYPE_INCR;
-                dread_ar_cache   <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
-                dread_ar_prot    <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
-                dread_ar_qos     <= 4'h0                ;
-                dread_ar_valid   <= `ysyx22040228_ABLE  ;
-                dread_counter    <= 2'b11               ;
-            end 
+            dread_ar_id      <= 4'b0001             ;
+            dread_ar_addr    <= {d_cache_addr[63:3], 3'b000};
+            dread_ar_len     <= 8'd0                ;
+            dread_ar_size    <= `AXI_SIZE_BYTES_8   ;
+            dread_ar_burst   <= `AXI_BURST_TYPE_INCR;
+            dread_ar_cache   <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
+            dread_ar_prot    <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
+            dread_ar_qos     <= 4'h0                ;
+            dread_ar_valid   <= `ysyx22040228_ABLE  ;
         end 
         else begin
             dread_ok         <= `ysyx22040228_ENABLE   ;
             d_cache_data_o   <= `ysyx22040228_ZEROWORD ;
-            uncahce_data_o   <= `ysyx22040228_ZEROWORD ;
             dread_cache_valid<= `ysyx22040228_ENABLE   ;
         end 
     end
+
+    reg     [`ysyx22040228_ID_BUS]            dread_ar_id_u           ;
+    reg     [`ysyx22040228_ADDR_BUS]          dread_ar_addr_u         ;
+    reg     [`ysyx22040228_LEN_BUS]           dread_ar_len_u          ;
+    reg     [`ysyx22040228_SIZE_BUS]          dread_ar_size_u         ;
+    reg     [`ysyx22040228_BURST_BUS]         dread_ar_burst_u        ;
+    reg     [`ysyx22040228_CACHE_BUS]         dread_ar_cache_u        ;
+    reg     [`ysyx22040228_PROT_BUS]          dread_ar_prot_u         ;
+    reg     [`ysyx22040228_QOS_BUS]           dread_ar_qos_u          ;
+    reg                                       dread_ar_valid_u        ;
+
+    reg                                       dread_cache_valid_u     ;
+    wire                                      dread_arshankhand_u     ;
+    wire                                      dread_r_ready_u         ;
+    assign dread_r_ready_u = `ysyx22040228_ABLE                       ;
+    assign dread_arshankhand_u = dread_ar_valid_u && axi_ar_ready       ;
+    reg    dread_ok_u                                                 ;
+    reg    dread_success_u                                            ;
+    assign dread_success_u = (axi_r_id == 4'b0001) && dread_r_ready_u && axi_r_valid && axi_r_last && (axi_r_resp == 2'b00) ;
+    always @(posedge clk) begin
+        if(dread_success_u) begin
+            dread_ar_id_u      <= 4'b0001             ;
+            dread_ar_addr_u    <= `ysyx22040228_ZEROWORD ;
+            dread_ar_len_u     <= 8'b0                ;
+            dread_ar_size_u    <= `AXI_SIZE_BYTES_4   ;
+            dread_ar_burst_u   <= `AXI_BURST_TYPE_INCR;
+            dread_ar_cache_u   <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
+            dread_ar_prot_u    <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
+            dread_ar_qos_u     <= 4'h0                ;
+            dread_ar_valid_u   <= `ysyx22040228_ENABLE ;
+            dread_ok_u         <=  `ysyx22040228_ABLE ;
+            uncahce_data_o     <= axi_r_data          ;
+            dread_cache_valid_u<= `ysyx22040228_ABLE  ;
+        end 
+        else if(dread_arshankhand_u) begin
+            dread_ar_valid_u   <= `ysyx22040228_ENABLE ;
+        end 
+        else if(arbitrate_state == `ysyx22040228_ARB_DREAD) begin
+            dread_ar_id_u      <= 4'b0001             ;
+            dread_ar_addr_u    <= {uncache_addr[63:2], 2'b00};
+            dread_ar_len_u     <= 8'd0                ;
+            dread_ar_size_u    <= `AXI_SIZE_BYTES_4   ;
+            dread_ar_burst_u   <= `AXI_BURST_TYPE_INCR;
+            dread_ar_cache_u   <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
+            dread_ar_prot_u    <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
+            dread_ar_qos_u     <= 4'h0                ;
+            dread_ar_valid_u   <= `ysyx22040228_ABLE  ;
+        end 
+        else begin
+            dread_ok_u         <= `ysyx22040228_ENABLE   ;
+            uncahce_data_o     <= `ysyx22040228_ZEROWORD ;
+            dread_cache_valid_u<= `ysyx22040228_ENABLE   ;
+        end 
+    end    
 
     reg     [`ysyx22040228_ID_BUS]            iread_ar_id           ;
     reg     [`ysyx22040228_ADDR_BUS]          iread_ar_addr         ;
@@ -311,9 +328,8 @@ module arbitratem (
     wire                                      iread_arshankhand     ;
     assign iread_r_ready = `ysyx22040228_ABLE                       ;
     assign iread_arshankhand = iread_ar_valid && axi_ar_ready       ;
-    //reg    [1:0]                              iread_counter = 2'b00 ;
     reg    [63:0]                             temp_iread            ;
-
+    reg    iread_success                                            ;
     assign iread_success = (axi_r_id == 4'b0000) && iread_r_ready && axi_r_valid && axi_r_last && (axi_r_resp == 2'b00) ;
     always @(posedge clk) begin
         if((iread_success)) begin
@@ -326,39 +342,35 @@ module arbitratem (
             iread_ar_prot    <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
             iread_ar_qos     <= 4'h0                ;
             iread_ar_valid   <= `ysyx22040228_ENABLE ;
-            i_cache_data     <= {temp_iread[63:32], axi_r_data[31:0]}  ;
             iread_cache_valid<= `ysyx22040228_ABLE  ;
-            //iread_counter    <= 2'b00               ;
+            i_cache_data     <= axi_r_data          ;
         end 
         else if(iread_arshankhand) begin
             iread_ar_valid   <= `ysyx22040228_ENABLE ;
         end 
         else if(arbitrate_state == `ysyx22040228_ARB_IREAD) begin
-            //if(iread_success) begin
+            if((icache_addr >= `ysyx22040228_APB_START) && (icache_addr <= `ysyx22040228_APB_END))  begin
                 iread_ar_id      <= 4'b0000             ;
-                iread_ar_addr    <= {i_cache_addr[63:3], 1'b0, 2'b0};
-                iread_ar_len     <= 8'd2                ;
+                iread_ar_addr    <= {i_cache_addr[63:2], 2'b00};
+                iread_ar_len     <= 8'd0                ;
                 iread_ar_size    <= `AXI_SIZE_BYTES_4   ;
                 iread_ar_burst   <= `AXI_BURST_TYPE_INCR;
                 iread_ar_cache   <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
                 iread_ar_prot    <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
                 iread_ar_qos     <= 4'h0                ;
                 iread_ar_valid   <= `ysyx22040228_ABLE  ;
-                //iread_counter    <= 2'b11               ;
-                temp_iread       <= {axi_r_data[63:32], 32'h0};
-            //end 
-            // else if(iread_counter == 2'b00) begin
-            //     iread_ar_id      <= 4'b0000             ;
-            //     iread_ar_addr    <= {i_cache_addr[63:3], 1'b1, 2'b0};
-            //     iread_ar_len     <= 8'b0                ;
-            //     iread_ar_size    <= `AXI_SIZE_BYTES_4   ;
-            //     iread_ar_burst   <= `AXI_BURST_TYPE_INCR;
-            //     iread_ar_cache   <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
-            //     iread_ar_prot    <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
-            //     iread_ar_qos     <= 4'h0                ;
-            //     iread_ar_valid   <= `ysyx22040228_ABLE  ;
-            //     iread_counter    <= 2'b01               ;
-            //end 
+            end 
+            else begin
+                iread_ar_id      <= 4'b0000             ;
+                iread_ar_addr    <= {i_cache_addr[63:3], 3'b000};
+                iread_ar_len     <= 8'd0                ;
+                iread_ar_size    <= `AXI_SIZE_BYTES_8   ;
+                iread_ar_burst   <= `AXI_BURST_TYPE_INCR;
+                iread_ar_cache   <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
+                iread_ar_prot    <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
+                iread_ar_qos     <= 4'h0                ;
+                iread_ar_valid   <= `ysyx22040228_ABLE  ;
+            end 
         end 
         else begin
             i_cache_data     <= `ysyx22040228_ZEROWORD ;
@@ -389,16 +401,15 @@ module arbitratem (
     assign dwrite_b_ready = `ysyx22040228_ABLE                        ;
     assign dwrite_awshankhand = dwrite_aw_valid && axi_aw_ready ;
     assign dwrite_wshankhand  = dwrite_w_valid  && axi_w_ready  ;
+    reg    dwrite_success                                           ;
     assign dwrite_success     = dwrite_b_ready && axi_b_valid && (axi_b_id == 4'b0001) && (axi_b_resp == 2'b00) ;
     reg    dwrite_ok                                                 ;
-    reg    [1:0]                              dwrite_counter = 2'b00 ;
     always @(posedge clk) begin
-        if(dwrite_success && (dwrite_counter == 2'b11)) begin
+        if(dwrite_success) begin
             dwrite_aw_valid     <= `ysyx22040228_ENABLE;
             dwrite_w_valid      <= `ysyx22040228_ENABLE;
             dwrite_cache_valid  <= `ysyx22040228_ABLE  ;
             dwrite_ok           <= `ysyx22040228_ABLE  ;
-            dwrite_counter      <= 2'b00               ;
         end
         else if(dwrite_ok) begin
             dwrite_ok          <= `ysyx22040228_ENABLE ;
@@ -408,96 +419,112 @@ module arbitratem (
             dwrite_w_valid      <= `ysyx22040228_ENABLE;
         end 
         else if(arbitrate_state == `ysyx22040228_ARB_DWRITE) begin
-            if(write_dcache_shankhand) begin
-                if(dwrite_counter == 2'b00) begin
-                    dwrite_aw_id        <= 4'b0001           ;
-                    dwrite_aw_addr      <= {d_cache_addr[63:3], 1'b1, 2'b00} ;
-                    dwrite_aw_len       <= 8'd0              ;
-                    dwrite_aw_size      <= `AXI_SIZE_BYTES_4 ;
-                    dwrite_aw_burst     <= `AXI_BURST_TYPE_INCR;
-                    dwrite_aw_cache     <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
-                    dwrite_aw_port      <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
-                    dwrite_aw_qos       <= 4'h0              ;
-                    dwrite_aw_valid     <= `ysyx22040228_ABLE;
-                    dwrite_w_data       <= {d_cache_data[63:32], 32'h0}     ;
-                    dwrite_w_strb       <= 8'b00001111       ;
-                    dwrite_w_last       <= `ysyx22040228_ABLE;
-                    dwrite_w_valid      <= `ysyx22040228_ABLE;
-                    dwrite_counter      <= 2'b01             ;
-                end 
-                else if((dwrite_counter == 2'b01) && (dwrite_success)) begin
-                    dwrite_aw_id        <= 4'b0001           ;
-                    dwrite_aw_addr      <= {d_cache_addr[63:3], 1'b0, 2'b00} ;
-                    dwrite_aw_len       <= 8'd0              ;
-                    dwrite_aw_size      <= `AXI_SIZE_BYTES_4 ;
-                    dwrite_aw_burst     <= `AXI_BURST_TYPE_INCR;
-                    dwrite_aw_cache     <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
-                    dwrite_aw_port      <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
-                    dwrite_aw_qos       <= 4'h0              ;
-                    dwrite_aw_valid     <= `ysyx22040228_ABLE;
-                    dwrite_w_data       <= {32'h0, d_cache_data[31:0]}     ;
-                    dwrite_w_strb       <= 8'b00001111       ;
-                    dwrite_w_last       <= `ysyx22040228_ABLE;
-                    dwrite_w_valid      <= `ysyx22040228_ABLE;
-                    dwrite_counter      <= 2'b11             ;
-                end 
-            end 
-            else begin
-                dwrite_aw_id        <= 4'b0001           ;
-                dwrite_aw_addr      <= {uncache_addr[63:2], 2'b00}  ;
-                dwrite_aw_len       <= 8'd0              ;
-                dwrite_aw_size      <= `AXI_SIZE_BYTES_4 ;
-                dwrite_aw_burst     <= `AXI_BURST_TYPE_INCR;
-                dwrite_aw_cache     <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
-                dwrite_aw_port      <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
-                dwrite_aw_qos       <= 4'h0              ;
-                dwrite_aw_valid     <= `ysyx22040228_ABLE;
-                dwrite_w_data       <= uncache_data      ;
-                dwrite_w_strb       <= uncache_addr[2] ? {uncache_mask[7:4],4'b0000} : {4'b0000, uncache_mask[3:0]} ;
-                dwrite_w_last       <= `ysyx22040228_ABLE;
-                dwrite_w_valid      <= `ysyx22040228_ABLE;
-                dwrite_counter      <= 2'b11             ;
-            end 
+            dwrite_aw_id        <= 4'b0001           ;
+            dwrite_aw_addr      <= {d_cache_addr[63:3], 3'b000} ;
+            dwrite_aw_len       <= 8'd0              ;
+            dwrite_aw_size      <= `AXI_SIZE_BYTES_8 ;
+            dwrite_aw_burst     <= `AXI_BURST_TYPE_INCR;
+            dwrite_aw_cache     <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
+            dwrite_aw_port      <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
+            dwrite_aw_qos       <= 4'h0              ;
+            dwrite_aw_valid     <= `ysyx22040228_ABLE;
+            dwrite_w_data       <= d_cache_data      ;
+            dwrite_w_strb       <= 8'b11111111       ;
+            dwrite_w_last       <= `ysyx22040228_ABLE;
+            dwrite_w_valid      <= `ysyx22040228_ABLE;
         end 
         else begin
             dwrite_cache_valid  <= `ysyx22040228_ENABLE;
             dwrite_ok           <= `ysyx22040228_ENABLE;
         end 
     end
-    //delay because write core write finish 
-    // reg   dwrite_ok1 ;
-    // reg   dwrite_ok  ;
-    // always @(posedge clk) begin
-    //     dwrite_ok1 <= dwrite_ok_ ;
-    //     dwrite_ok  <= (dwrite_ok1 && d_cache_resp) ;
-    // end
 
 
-    assign d_cache_valid_ = ((arbitrate_state == `ysyx22040228_ARB_DREAD) && (~read_uncahce_shankhand))   ? dread_cache_valid  : 
-                            ((arbitrate_state == `ysyx22040228_ARB_DWRITE) && (~write_uncahce_shankhand)) ? dwrite_cache_valid :
-                                                                                                         `ysyx22040228_ENABLE;
-    assign uncahce_valid_ = ((arbitrate_state == `ysyx22040228_ARB_DREAD) && (read_uncahce_shankhand))   ? dread_cache_valid  : 
-                            ((arbitrate_state == `ysyx22040228_ARB_DWRITE) && (write_uncahce_shankhand)) ? dwrite_cache_valid :
-                                                                                                          `ysyx22040228_ENABLE;
+    reg     [`ysyx22040228_ID_BUS]            dwrite_aw_id_u            ;
+    reg     [`ysyx22040228_ADDR_BUS]          dwrite_aw_addr_u          ;
+    reg     [`ysyx22040228_LEN_BUS]           dwrite_aw_len_u           ;
+    reg     [`ysyx22040228_SIZE_BUS]          dwrite_aw_size_u          ;
+    reg     [`ysyx22040228_BURST_BUS]         dwrite_aw_burst_u         ;
+    reg     [`ysyx22040228_CACHE_BUS]         dwrite_aw_cache_u         ;
+    reg     [`ysyx22040228_PROT_BUS]          dwrite_aw_port_u          ;
+    reg     [`ysyx22040228_QOS_BUS]           dwrite_aw_qos_u           ;
+    reg                                       dwrite_aw_valid_u         ;
+
+    reg     [`ysyx22040228_DATA_BUS]          dwrite_w_data_u           ;
+    reg     [`ysyx22040228_STRB_BUS]          dwrite_w_strb_u           ;
+    reg                                       dwrite_w_last_u           ;
+    reg                                       dwrite_w_valid_u          ;
+    reg                                       dwrite_cache_valid_u      ;
+
+    wire                                      dwrite_b_ready_u          ; 
+    wire                                      dwrite_awshankhand_u      ;
+    wire                                      dwrite_wshankhand_u       ;
+    assign dwrite_b_ready_u = `ysyx22040228_ABLE                        ;
+    assign dwrite_awshankhand_u = dwrite_aw_valid_u && axi_aw_ready ;
+    assign dwrite_wshankhand_u  = dwrite_w_valid_u  && axi_w_ready  ;
+    reg    dwrite_success_u                                         ;
+    assign dwrite_success_u   = dwrite_b_ready_u && axi_b_valid && (axi_b_id == 4'b0001) && (axi_b_resp == 2'b00) ;
+    reg    dwrite_ok_u                                                ;
+    always @(posedge clk) begin
+        if(dwrite_success_u) begin
+            dwrite_aw_valid_u     <= `ysyx22040228_ENABLE;
+            dwrite_w_valid_u      <= `ysyx22040228_ENABLE;
+            dwrite_cache_valid_u  <= `ysyx22040228_ABLE  ;
+            dwrite_ok_u           <= `ysyx22040228_ABLE  ;
+        end
+        else if(dwrite_ok_u) begin
+            dwrite_ok_u          <= `ysyx22040228_ENABLE ;
+        end  
+        else if(dwrite_awshankhand_u && dwrite_wshankhand_u)begin
+            dwrite_aw_valid_u     <= `ysyx22040228_ENABLE;
+            dwrite_w_valid_u      <= `ysyx22040228_ENABLE;
+        end 
+        else if(arbitrate_state == `ysyx22040228_ARB_DWRITEU) begin
+            dwrite_aw_id_u        <= 4'b0001           ;
+            dwrite_aw_addr_u      <= {d_cache_addr[63:2], 2'b00} ;
+            dwrite_aw_len_u       <= 8'd0              ;
+            dwrite_aw_size_u      <= `AXI_SIZE_BYTES_4 ;
+            dwrite_aw_burst_u     <= `AXI_BURST_TYPE_INCR;
+            dwrite_aw_cache_u     <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
+            dwrite_aw_port_u      <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
+            dwrite_aw_qos_u       <= 4'h0              ;
+            dwrite_aw_valid_u     <= `ysyx22040228_ABLE;
+            dwrite_w_data_u       <= uncache_data      ;
+            dwrite_w_strb_u       <= uncache_mask      ;
+            dwrite_w_last_u       <= `ysyx22040228_ABLE;
+            dwrite_w_valid_u      <= `ysyx22040228_ABLE;
+        end 
+        else begin
+            dwrite_cache_valid_u  <= `ysyx22040228_ENABLE;
+            dwrite_ok_u           <= `ysyx22040228_ENABLE;
+        end 
+    end
+
+    assign d_cache_valid_ = (arbitrate_state == `ysyx22040228_ARB_DREAD)   ? dread_cache_valid  : 
+                            (arbitrate_state == `ysyx22040228_ARB_DWRITE) ? dwrite_cache_valid  :
+                                                                            `ysyx22040228_ENABLE;
+    assign uncahce_valid_ = (arbitrate_state == `ysyx22040228_ARB_DREADU)   ? dread_cache_valid_u : 
+                            (arbitrate_state == `ysyx22040228_ARB_DWRITEU) ? dwrite_cache_valid_u :
+                                                                            `ysyx22040228_ENABLE  ;
 
     assign i_cache_valid_ = iread_cache_valid ;
 
-    assign axi_aw_id      = dwrite_aw_id      ;
-    assign axi_aw_addr    = dwrite_aw_addr    ;
-    assign axi_aw_len     = dwrite_aw_len     ;
-    assign axi_aw_size    = dwrite_aw_size    ;
-    assign axi_aw_burst   = dwrite_aw_burst   ;
-    assign axi_aw_cache   = dwrite_aw_cache   ;
-    assign axi_aw_port    = dwrite_aw_port    ;
-    assign axi_aw_qos     = dwrite_aw_qos     ;
-    assign axi_aw_valid   = dwrite_aw_valid   ;
+    assign axi_aw_id      = (arbitrate_state == `ysyx22040228_ARB_DWRITE) ?  dwrite_aw_id     :  dwrite_aw_id_u     ;
+    assign axi_aw_addr    = (arbitrate_state == `ysyx22040228_ARB_DWRITE) ?  dwrite_aw_addr   :  dwrite_aw_addr_u   ;
+    assign axi_aw_len     = (arbitrate_state == `ysyx22040228_ARB_DWRITE) ?  dwrite_aw_len    :  dwrite_aw_len_u    ;
+    assign axi_aw_size    = (arbitrate_state == `ysyx22040228_ARB_DWRITE) ?  dwrite_aw_size   :  dwrite_aw_size_u   ;
+    assign axi_aw_burst   = (arbitrate_state == `ysyx22040228_ARB_DWRITE) ?  dwrite_aw_burst  :  dwrite_aw_burst_u  ;
+    assign axi_aw_cache   = (arbitrate_state == `ysyx22040228_ARB_DWRITE) ?  dwrite_aw_cache  :  dwrite_aw_cache_u  ;
+    assign axi_aw_port    = (arbitrate_state == `ysyx22040228_ARB_DWRITE) ?  dwrite_aw_port   :  dwrite_aw_port_u   ;
+    assign axi_aw_qos     = (arbitrate_state == `ysyx22040228_ARB_DWRITE) ?  dwrite_aw_qos    :  dwrite_aw_qos_u    ;
+    assign axi_aw_valid   = (arbitrate_state == `ysyx22040228_ARB_DWRITE) ?  dwrite_aw_valid  :  dwrite_aw_valid_u  ;
 
-    assign axi_w_data     = dwrite_w_data     ;
-    assign axi_w_strb     = dwrite_w_strb     ;
-    assign axi_w_last     = dwrite_w_last     ;
-    assign axi_w_valid    = dwrite_w_valid    ;
+    assign axi_w_data     = (arbitrate_state == `ysyx22040228_ARB_DWRITE) ?  dwrite_w_data    :  dwrite_w_data_u    ;
+    assign axi_w_strb     = (arbitrate_state == `ysyx22040228_ARB_DWRITE) ?  dwrite_w_strb    :  dwrite_w_strb_u    ;
+    assign axi_w_last     = (arbitrate_state == `ysyx22040228_ARB_DWRITE) ?  dwrite_w_last    :  dwrite_w_last_u    ;
+    assign axi_w_valid    = (arbitrate_state == `ysyx22040228_ARB_DWRITE) ?  dwrite_w_valid   :  dwrite_w_valid_u   ;
 
-    assign axi_b_ready    = dwrite_b_ready    ;
+    assign axi_b_ready    = (arbitrate_state == `ysyx22040228_ARB_DWRITE) ?  dwrite_b_ready   :  dwrite_b_ready_u   ;
 
     assign axi_ar_id      = (arbitrate_state == `ysyx22040228_ARB_IREAD) ? iread_ar_id       :
                             (arbitrate_state == `ysyx22040228_ARB_DREAD) ? dread_ar_id       :
