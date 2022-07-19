@@ -74,9 +74,9 @@ module inst_cache (
                `ysyx22040228_I_READ  : begin
                    if((read_ok) && (((oteg_ata_o == icache_tag) && (oteg_valid_o == `ysyx22040228_ABLE)) || ((tteg_ata_o == icache_tag) && (tteg_valid_o == `ysyx22040228_ABLE))))
                         state_inst_nxt = `ysyx22040228_I_HIT;
-                   else if(read_ok && ((inst_addr >= `ysyx22040228_APB_START) && (inst_addr =<`ysyx22040228_APB_END)))
+                   else if(read_ok && ((inst_addr >= `ysyx22040228_APB_START) && (inst_addr <= `ysyx22040228_APB_END)))
                         state_inst_nxt = `ysyx22040228_I_MISSRL;
-                   else if(read_ok && ~((inst_addr >= `ysyx22040228_APB_START) && (inst_addr =<`ysyx22040228_APB_END)))
+                   else if(read_ok && ~((inst_addr >= `ysyx22040228_APB_START) && (inst_addr <= `ysyx22040228_APB_END)))
                         state_inst_nxt = `ysyx22040228_I_MISSRH;
                    else
                         state_inst_nxt = `ysyx22040228_I_READ ;
