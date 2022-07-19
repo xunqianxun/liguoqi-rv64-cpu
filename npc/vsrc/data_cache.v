@@ -22,7 +22,7 @@ Function:write data cache
 `include "S011HD1P_X32Y2D128_BW.v"
 `include "TEG_CC.v"
 
-module d_cache (
+module data_cache (
     input         wire                                        clk                ,
     input         wire                                        rst                ,
     //-------------------------input  cache-------------------------------------//
