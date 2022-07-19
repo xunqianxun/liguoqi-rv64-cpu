@@ -16,7 +16,7 @@ Function:write instraction cache
 `define ysyx22040228_I_MISSRH  6'b001000 //--> read APB can't use burst
 `define ysyx22040228_I_READ    6'b100000
 
-module iinst_cache (
+module inst_cache (
     input       wire                                         clk             ,
     input       wire                                         rst             ,
     input       wire          [63:0]                         inst_addr       ,
