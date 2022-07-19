@@ -640,7 +640,7 @@ module d_cache (
     TEGCC TEG_DCACHEO(
         .clk         (clk          ),
         .addr_i      (oteg_addr_i  ),
-        .teg _i      (oteg_data_i  ),
+        .teg_i       (oteg_data_i  ),
         .teg_valid   (oteg_valid_i ),
         .teg_ena     (oteg_ena_i   ), 
         .data_o      (oteg_ata_o   ),
@@ -663,7 +663,7 @@ module d_cache (
     TEG_CC TEG_DCACHET(
         .clk         (clk          ),
         .addr_i      (tteg_addr_i  ),
-        .teg _i      (tteg_data_i  ),
+        .teg_i       (tteg_data_i  ),
         .teg_valid   (tteg_valid_i ),
         .teg_ena     (tteg_ena_i   ),
         .data_o      (tteg_ata_o   ),
