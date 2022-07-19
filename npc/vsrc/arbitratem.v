@@ -273,7 +273,7 @@ module arbitratem (
     wire                                      dread_arshankhand_u     ;
     wire                                      dread_r_ready_u         ;
     assign dread_r_ready_u = `ysyx22040228_ABLE                       ;
-    assign dread_arshankhand_u = dread_ar_valid_u && axi_ar_ready       ;
+    assign dread_arshankhand_u = dread_ar_valid_u && axi_ar_ready     ;
     reg    dread_ok_u                                                 ;
     reg    dread_success_u                                            ;
     assign dread_success_u = (axi_r_id == 4'b0001) && dread_r_ready_u && axi_r_valid && axi_r_last && (axi_r_resp == 2'b00) ;
@@ -527,35 +527,45 @@ module arbitratem (
 
     assign axi_b_ready    = (arbitrate_state == `ysyx22040228_ARB_DWRITE) ?  dwrite_b_ready   :  dwrite_b_ready_u   ;
 
-    assign axi_ar_id      = (arbitrate_state == `ysyx22040228_ARB_IREAD) ? iread_ar_id       :
-                            (arbitrate_state == `ysyx22040228_ARB_DREAD) ? dread_ar_id       :
-                                                                            4'b0000          ;
-    assign axi_ar_addr    = (arbitrate_state == `ysyx22040228_ARB_IREAD) ? iread_ar_addr     :
-                            (arbitrate_state == `ysyx22040228_ARB_DREAD) ? dread_ar_addr     :
-                                                                            64'h0            ;
-    assign axi_ar_len     = (arbitrate_state == `ysyx22040228_ARB_IREAD) ? iread_ar_len      :
-                            (arbitrate_state == `ysyx22040228_ARB_DREAD) ? dread_ar_len      :
-                                                                            8'b0             ;
-    assign axi_ar_size    = (arbitrate_state == `ysyx22040228_ARB_IREAD) ? iread_ar_size     :
-                            (arbitrate_state == `ysyx22040228_ARB_DREAD) ? dread_ar_size     :
-                                                                            3'b011           ;
-    assign axi_ar_burst   = (arbitrate_state == `ysyx22040228_ARB_IREAD) ? iread_ar_burst    :
-                            (arbitrate_state == `ysyx22040228_ARB_DREAD) ? dread_ar_burst    :
-                                                                            2'b01            ;
-    assign axi_ar_cache   = (arbitrate_state == `ysyx22040228_ARB_IREAD) ? iread_ar_cache    :
-                            (arbitrate_state == `ysyx22040228_ARB_DREAD) ? dread_ar_cache    :
-                                                                            4'b0010          ;
-    assign axi_ar_prot    = (arbitrate_state == `ysyx22040228_ARB_IREAD) ? iread_ar_prot     :
-                            (arbitrate_state == `ysyx22040228_ARB_DREAD) ? dread_ar_prot     :
-                                                                            3'b000           ;
-    assign axi_ar_qos     = (arbitrate_state == `ysyx22040228_ARB_IREAD) ? iread_ar_qos      :
-                            (arbitrate_state == `ysyx22040228_ARB_DREAD) ? dread_ar_qos      :
-                                                                            4'b0000          ;
-    assign axi_ar_valid   = (arbitrate_state == `ysyx22040228_ARB_IREAD) ? iread_ar_valid    :
-                            (arbitrate_state == `ysyx22040228_ARB_DREAD) ? dread_ar_valid    :
-                                                                        `ysyx22040228_ENABLE ;
-    assign axi_r_ready    = (arbitrate_state == `ysyx22040228_ARB_IREAD) ? iread_r_ready     :
-                            (arbitrate_state == `ysyx22040228_ARB_DREAD) ? dread_r_ready     :
-                                                                        `ysyx22040228_ENABLE ;
+    assign axi_ar_id      = (arbitrate_state == `ysyx22040228_ARB_IREAD)  ? iread_ar_id       :
+                            (arbitrate_state == `ysyx22040228_ARB_DREAD)  ? dread_ar_id       :
+                            (arbitrate_state == `ysyx22040228_ARB_DREADU) ? dread_ar_id_u     :
+                                                                             4'b0000          ;
+    assign axi_ar_addr    = (arbitrate_state == `ysyx22040228_ARB_IREAD)  ? iread_ar_addr     :
+                            (arbitrate_state == `ysyx22040228_ARB_DREAD)  ? dread_ar_addr     :
+                            (arbitrate_state == `ysyx22040228_ARB_DREADU) ? dread_ar_addr     :
+                                                                             64'h0            ;
+    assign axi_ar_len     = (arbitrate_state == `ysyx22040228_ARB_IREAD)  ? iread_ar_len      :
+                            (arbitrate_state == `ysyx22040228_ARB_DREAD)  ? dread_ar_len      :
+                            (arbitrate_state == `ysyx22040228_ARB_DREADU) ? dread_ar_len_u    :
+                                                                             8'b0             ;
+    assign axi_ar_size    = (arbitrate_state == `ysyx22040228_ARB_IREAD)  ? iread_ar_size     :
+                            (arbitrate_state == `ysyx22040228_ARB_DREAD)  ? dread_ar_size     :
+                            (arbitrate_state == `ysyx22040228_ARB_DREADU) ? dread_ar_size_u   :
+                                                                             3'b011           ;
+    assign axi_ar_burst   = (arbitrate_state == `ysyx22040228_ARB_IREAD)  ? iread_ar_burst    :
+                            (arbitrate_state == `ysyx22040228_ARB_DREAD)  ? dread_ar_burst    :
+                            (arbitrate_state == `ysyx22040228_ARB_DREADU) ? dread_ar_burst_u  :
+                                                                             2'b01            ;
+    assign axi_ar_cache   = (arbitrate_state == `ysyx22040228_ARB_IREAD)  ? iread_ar_cache    :
+                            (arbitrate_state == `ysyx22040228_ARB_DREAD)  ? dread_ar_cache    :
+                            (arbitrate_state == `ysyx22040228_ARB_DREADU) ? dread_ar_cache_u  :
+                                                                             4'b0010          ;
+    assign axi_ar_prot    = (arbitrate_state == `ysyx22040228_ARB_IREAD)  ? iread_ar_prot     :
+                            (arbitrate_state == `ysyx22040228_ARB_DREAD)  ? dread_ar_prot     :
+                            (arbitrate_state == `ysyx22040228_ARB_DREADU) ? dread_ar_prot_u   :
+                                                                             3'b000           ;
+    assign axi_ar_qos     = (arbitrate_state == `ysyx22040228_ARB_IREAD)  ? iread_ar_qos      :
+                            (arbitrate_state == `ysyx22040228_ARB_DREAD)  ? dread_ar_qos      :
+                            (arbitrate_state == `ysyx22040228_ARB_DREADU) ? dread_ar_qos_u    :
+                                                                             4'b0000          ;
+    assign axi_ar_valid   = (arbitrate_state == `ysyx22040228_ARB_IREAD)  ? iread_ar_valid    :
+                            (arbitrate_state == `ysyx22040228_ARB_DREAD)  ? dread_ar_valid    :
+                            (arbitrate_state == `ysyx22040228_ARB_DREADU) ? dread_ar_valid_u  :
+                                                                         `ysyx22040228_ENABLE ;
+    assign axi_r_ready    = (arbitrate_state == `ysyx22040228_ARB_IREAD)  ? iread_r_ready     :
+                            (arbitrate_state == `ysyx22040228_ARB_DREAD)  ? dread_r_ready     :
+                            (arbitrate_state == `ysyx22040228_ARB_DREADU) ? dread_r_ready_u   :
+                                                                         `ysyx22040228_ENABLE ;
 
 endmodule
