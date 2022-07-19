@@ -295,7 +295,7 @@ module arbitratem (
         else if(dread_arshankhand_u) begin
             dread_ar_valid_u   <= `ysyx22040228_ENABLE ;
         end 
-        else if(arbitrate_state == `ysyx22040228_ARB_DREAD) begin
+        else if(arbitrate_state == `ysyx22040228_ARB_DREADU) begin
             dread_ar_id_u      <= 4'b0001             ;
             dread_ar_addr_u    <= {uncache_addr[63:2], 2'b00};
             dread_ar_len_u     <= 8'd0                ;

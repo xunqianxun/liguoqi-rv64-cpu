@@ -82,7 +82,7 @@ void VysyxSoCFull___024root__traceChgSub3(VysyxSoCFull___024root* vlSelf, Verila
     VlWide<4>/*127:0*/ __Vtemp8188;
     VlWide<4>/*127:0*/ __Vtemp8189;
     VlWide<4>/*127:0*/ __Vtemp8190;
-    vluint32_t* const oldp = tracep->oldp(vlSymsp->__Vm_baseCode + 16313);
+    vluint32_t* const oldp = tracep->oldp(vlSymsp->__Vm_baseCode + 16314);
     if (false && oldp) {}  // Prevent unused
     // Body
     {
@@ -3503,7 +3503,7 @@ void VysyxSoCFull___024root__traceChgSub3(VysyxSoCFull___024root* vlSelf, Verila
             tracep->chgQData(oldp+1702,(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_mmio7__DOT__uncahce_out_addr),64);
             tracep->chgBit(oldp+1704,(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_mmio7__DOT__uncache_out_ena1));
             tracep->chgQData(oldp+1705,(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_mmio7__DOT__uncache_out_addr1),64);
-            tracep->chgCData(oldp+1707,(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_mmio7__DOT__out_counter1),2);
+            tracep->chgCData(oldp+1707,(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_mmio7__DOT__out_counter1_n),2);
             tracep->chgBit(oldp+1708,(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_mmio7__DOT__uncahche_write_finish));
             tracep->chgBit(oldp+1709,(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__inst_cache2__DOT__icache_if_shankhand));
             tracep->chgCData(oldp+1710,(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__inst_cache2__DOT__state_inst_nxt),6);
