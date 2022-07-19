@@ -1,4 +1,4 @@
-`define ysyx22040228_TEG_WITH      12:0
+`define ysyx22040228_TEG_WITH      22:0
 `define ysyx22040228_INDEX_WITH    5:0
 `define ysyx22040228_CLINT_START   64'h0000000002000000
 `define ysyx22040228_CLINT_END     64'h000000000200ffff

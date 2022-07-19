@@ -59,7 +59,7 @@ module uncache_mmio (
     reg             uncahche_read_finish;
 
     reg             uncache_out_ena  ;
-    reg             uncahce_out_addr ;
+    reg   [63:0]    uncahce_out_addr ;
     always @(*) begin
         if((uncache && core_re) && (~in_arb_finish)) begin
             uncache_out_ena = `ysyx22040228_ABLE    ;

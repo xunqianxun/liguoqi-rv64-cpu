@@ -265,13 +265,13 @@ module inst_cache (
                                                                                                                                               `ysyx22040228_ENABLE ;
     wire                             oteg_valid_i  ;
     assign                           oteg_valid_i = inst_fence ? `ysyx22040228_ENABLE : `ysyx22040228_ABLE ;
-    wire         [12:0]              oteg_data_i   ;
+    wire         [22:0]              oteg_data_i   ;
     assign                           oteg_data_i  = inst_fence ? 12'h0 : icache_tag ;
     wire         [5:0]               oteg_addr_i   ; 
     assign                           oteg_addr_i  = inst_fence ? fence_counter : icache_index ;
     wire   [`ysyx22040228_TEG_WITH]  oteg_ata_o    ;
     wire                             oteg_valid_o  ;
-    TEGCC TEG_ICACHEO(
+    TEG_CC TEG_ICACHEO(
         .clk         (clk          ),
         .addr_i      (oteg_addr_i  ),
         .teg_i       (oteg_data_i  ),
@@ -288,7 +288,7 @@ module inst_cache (
                                                                                                                                               `ysyx22040228_ENABLE ;
     wire                             tteg_valid_i  ;
     assign                           tteg_valid_i = inst_fence ? `ysyx22040228_ENABLE : `ysyx22040228_ABLE ;
-    wire         [12:0]              tteg_data_i   ;
+    wire         [22:0]              tteg_data_i   ;
     assign                           tteg_data_i  = inst_fence ? 13'h0 : icache_tag ;
     wire         [5:0]               tteg_addr_i   ; 
     assign                           tteg_addr_i  = inst_fence ? fence_counter : icache_index ;
