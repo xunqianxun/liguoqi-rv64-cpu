@@ -274,7 +274,7 @@ module i_cache (
     TEGCC TEG_ICACHEO(
         .clk         (clk          ),
         .addr_i      (oteg_addr_i  ),
-        .teg _i      (oteg_data_i  ),
+        .teg_i       (oteg_data_i  ),
         .teg_valid   (oteg_valid_i ),
         .teg_ena     (oteg_ena_i   ), 
         .data_o      (oteg_ata_o   ),

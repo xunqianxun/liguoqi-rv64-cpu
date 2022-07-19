@@ -30,7 +30,7 @@ module TEG_CC (
     end
 
     assign data_o = out_data_r ;
-    assign 
+    assign data_valid = out_valid_r ;
 
 
 endmodule
