@@ -233,10 +233,10 @@ module inst_cache (
             cache_mism_ena = `ysyx22040228_ENABLE;
             write_m_ok     = `ysyx22040228_ABLE  ;
             mism_ena_l     = `ysyx22040228_ABLE  ;
-            if(i_tag_user1 == `ysyx22040228_ENABLE) begin
+            if(oteg_valid_o == `ysyx22040228_ENABLE) begin
                 mism_strb_l = `ysyx22040228_CACHE_STRBL;
             end 
-            else if(i_tag_user2 == `ysyx22040228_ENABLE) begin
+            else if(tteg_valid_o == `ysyx22040228_ENABLE) begin
                 mism_strb_l = `ysyx22040228_CACHE_STRBH;
             end 
             else if(i_counter1[icache_index] >= i_counter2[icache_index])begin
