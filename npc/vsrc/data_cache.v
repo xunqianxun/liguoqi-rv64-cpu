@@ -687,7 +687,7 @@ module data_cache (
                                (state_dwrite == `ysyx22040228_HIT) ? hitw_data_ena    :
                                (state_dwrite == `ysyx22040228_MISSW)? missw_data_ena  :
                                                                `ysyx22040228_ENABLE   ;
-    S011HD1P_X32Y2D128_BW REM_DCACHE (
+    S011HD1P_X32Y2D128_BWF REM_DCACHE (
         .Q           (data_out     ) ,
         .CLK         (clk          ) ,
         .CEN         (CE           ) ,
