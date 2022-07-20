@@ -23,7 +23,9 @@ module load_store (
     output               wire          [`ysyx22040228_DATABUS]               data_o               ,
     output               wire                                                fence                ,
     output               wire                                                we                   ,
+    output               wire          [2:0]                                 we_type_sel          ,
     output               wire                                                re                   ,
+    output               wire          [2:0]                                 re_type_sel          ,
     input                wire                                                mem_finish           ,
     
     output               wire                                                rd_ena_o             ,
@@ -45,8 +47,34 @@ assign rd_addr_o  = rd_addr_i ;
 assign rd_data_o  = inst_type_i[1] ? load_data : rd_data_i ;
 assign rd_ena_o   = rd_ena_i  ;
 
-assign we             = (rst == `ysyx22040228_RSTENA) ? 1'b0 : inst_type_i[0]  ;
-assign re             = (rst == `ysyx22040228_RSTENA) ? 1'b0 : inst_type_i[1]  ;
+//-------------------------------write type------------------------------------//
+//                we_type_sel == 3'b000 ------------>>> SB                     //
+//                we_type_sel == 3'b001 ------------>>> SH                     //
+//                we_type_sel == 3'b010 ------------>>> SW                     //
+//                we_type_sel == 3'b100 ------------>>> SD                     //
+//-----------------------------------------------------------------------------//      
+
+assign we             = (rst == `ysyx22040228_RSTENA)                                            ? 1'b0 : inst_type_i[0]  ;
+assign we_type_sel    = (rst == `ysyx22040228_RSTENA)                                            ? 3'b111                 :
+                        ((inst_type_i[0]) && (ls_sel_i == `SB_SEL))                              ? 3'b000                 :
+                        ((inst_type_i[0]) && (ls_sel_i == `SH_SEL))                              ? 3'b001                 :
+                        ((inst_type_i[0]) && (ls_sel_i == `SW_SEL))                              ? 3'b010                 :
+                        ((inst_type_i[0]) && (ls_sel_i == `SD_SEL))                              ? 3'b100                 :
+                                                                                                   3'b111                 ;
+//-------------------------------read type-------------------------------------//
+//                re_type_sel == 3'b000 ------------>>> LB | LBU               //
+//                re_type_sel == 3'b001 ------------>>> LH | LHU               //
+//                re_type_sel == 3'b010 ------------>>> LW | LWU               //
+//                re_type_sel == 3'b100 ------------>>> LD                     //
+//-----------------------------------------------------------------------------//           
+
+assign re             = (rst == `ysyx22040228_RSTENA)                                            ? 1'b0 : inst_type_i[1]  ;
+assign re_type_sel    = (rst == `ysyx22040228_RSTENA)                                            ? 3'b111                 :
+                        ((inst_type_i[1]) && ((ls_sel_i == `LB_SEL) || (ls_sel_i == L`LBU_SEL))) ? 3'b000                 :
+                        ((inst_type_i[1]) && ((ls_sel_i == `LH_SEL) || (ls_sel_i == L`LHU_SEL))) ? 3'b001                 :
+                        ((inst_type_i[1]) && ((ls_sel_i == `LW_SEL) || (ls_sel_i == L`LWU_SEL))) ? 3'b010                 :
+                        ((inst_type_i[1]) && (ls_sel_i == `LD_SEL))                              ? 3'b100                 :
+                                                                                                   3'b111                 ;
 assign data_addr_o    = (rst == `ysyx22040228_RSTENA) ? `ysyx22040228_ZEROWORD : ls_addr_i ;
 
 reg [`ysyx22040228_DATABUS] load_data ;

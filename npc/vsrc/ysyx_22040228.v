@@ -79,6 +79,8 @@ module ysyx_22040228 (
     wire            rvcpu_re         ;
     wire            cache_fnece      ;
     wire            core_stall_l     ;
+    wire  [2:0]     rvcpu_we_type    ;
+    wire  [2:0]     rvcpu_re_type    ;
 
     wire  [63:0]    uncache_arb_data ;
     wire  [63:0]    uncache_arb_addr ;
@@ -382,9 +384,11 @@ module ysyx_22040228 (
         .wmask               (rvcpu_wmask         ) ,
         .data_o              (rvcpu_data_o        ) ,
         .data_i              (d_cache_data_out    ) ,
+        .we_type_data        (rvcpu_we_type       ) ,
         .we                  (rvcpu_we            ) ,
+        .re_type_data        (rvcpu_re_type       ) ,
         .re                  (rvcpu_re            ) ,
-        .fence               (cache_fnece         ),
+        .fence               (cache_fnece         ) ,
         .mem_finish          (d_cache_mem_finish  ) ,
 
         .timer_intr          (interrupt_          )
@@ -401,7 +405,9 @@ module ysyx_22040228 (
         .core_data           (rvcpu_data_o        ) ,
         .core_mask           (rvcpu_wmask         ) ,
         .fence_in            (cache_fnece         ) ,
+        .core_we_type        (rvcpu_we_type       ) ,
         .core_we             (rvcpu_we            ) ,
+        .core_re_type        (rvcpu_re_type       ) ,
         .core_re             (rvcpu_re            ) ,
         .in_core_data        (d_cache_data_out    ) ,
         .in_core_finish      (d_cache_mem_finish  ) ,
