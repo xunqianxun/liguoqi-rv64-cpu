@@ -45,7 +45,7 @@ module data_cache (
     //type[3]---->  missw
     output        wire        [3:0]                           out_dcache_type        
 );
-    //----------------------------------fence-------------------------------------//
+    //----------------------------------fence-------------------------------------//    
     reg [6:0] counter    ;
     reg     fence_valid_req;
     reg     read_request ;
