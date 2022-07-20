@@ -533,7 +533,7 @@ module arbitratem (
                                                                              4'b0000          ;
     assign axi_ar_addr    = (arbitrate_state == `ysyx22040228_ARB_IREAD)  ? iread_ar_addr     :
                             (arbitrate_state == `ysyx22040228_ARB_DREAD)  ? dread_ar_addr     :
-                            (arbitrate_state == `ysyx22040228_ARB_DREADU) ? dread_ar_addr     :
+                            (arbitrate_state == `ysyx22040228_ARB_DREADU) ? dread_ar_addr_u   :
                                                                              64'h0            ;
     assign axi_ar_len     = (arbitrate_state == `ysyx22040228_ARB_IREAD)  ? iread_ar_len      :
                             (arbitrate_state == `ysyx22040228_ARB_DREAD)  ? dread_ar_len      :

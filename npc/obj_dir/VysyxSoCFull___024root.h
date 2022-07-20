@@ -5326,6 +5326,7 @@ VL_MODULE(VysyxSoCFull___024root) {
             QData/*63:0*/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__rvcpu_data_addr;
             QData/*63:0*/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__rvcpu_data_o;
             QData/*63:0*/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_arb_data;
+            QData/*63:0*/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_arb_addr;
             QData/*63:0*/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_arb_data_o;
             QData/*63:0*/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_dc_addr;
             QData/*63:0*/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__i_cache_addr;
@@ -5366,9 +5367,9 @@ VL_MODULE(VysyxSoCFull___024root) {
             QData/*63:0*/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__rvcpu1__DOT__ex5__DOT__mul_data;
             QData/*63:0*/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__rvcpu1__DOT__ex5__DOT__divrem_data;
             QData/*63:0*/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__rvcpu1__DOT__ex5__DOT__op1_divdata;
-            QData/*63:0*/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__rvcpu1__DOT__ex5__DOT__op2_divdata;
         };
         struct {
+            QData/*63:0*/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__rvcpu1__DOT__ex5__DOT__op2_divdata;
             QData/*63:0*/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__rvcpu1__DOT__ex5__DOT__read_csr_data;
             QData/*63:0*/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__rvcpu1__DOT__ex5__DOT__wbck_csr_data;
             QData/*63:0*/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__rvcpu1__DOT__ex5__DOT__trap_mcause_value;
@@ -5432,9 +5433,9 @@ VL_MODULE(VysyxSoCFull___024root) {
             QData/*58:0*/ ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract__DOT___GEN_10;
             QData/*63:0*/ ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC__DOT__q_address;
             QData/*63:0*/ ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC__DOT___io_c_bits_address_T_1;
-            QData/*32:0*/ ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceD__DOT__cam__DOT__free_sel;
         };
         struct {
+            QData/*32:0*/ ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceD__DOT__cam__DOT__free_sel;
             QData/*32:0*/ ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceD__DOT__cam__DOT___free_T_1;
             QData/*63:0*/ ysyxSoCFull__DOT__fpga__DOT__axi4buf__DOT__bundleIn_0_rdeq__DOT__ram_data_io_deq_bits_MPORT_data;
             QData/*63:0*/ ysyxSoCFull__DOT__fpga__DOT__atomics__DOT__cam_a_0_bits_data;
@@ -5498,9 +5499,9 @@ VL_MODULE(VysyxSoCFull___024root) {
             VlUnpacked<CData/*0:0*/, 4> ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi4yank__DOT__QueueCompatibility_3__DOT__ram_real_last;
             VlUnpacked<CData/*0:0*/, 1> ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi4frag__DOT__deq__DOT__ram_id;
             VlUnpacked<IData/*31:0*/, 1> ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi4frag__DOT__deq__DOT__ram_addr;
-            VlUnpacked<CData/*7:0*/, 1> ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi4frag__DOT__deq__DOT__ram_len;
         };
         struct {
+            VlUnpacked<CData/*7:0*/, 1> ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi4frag__DOT__deq__DOT__ram_len;
             VlUnpacked<CData/*2:0*/, 1> ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi4frag__DOT__deq__DOT__ram_size;
             VlUnpacked<CData/*1:0*/, 1> ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi4frag__DOT__deq__DOT__ram_burst;
             VlUnpacked<CData/*2:0*/, 1> ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi4frag__DOT__deq__DOT__ram_echo_extra_id;
@@ -5564,9 +5565,9 @@ VL_MODULE(VysyxSoCFull___024root) {
             VlUnpacked<SData/*15:0*/, 8> ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__cams_6__DOT__data;
             VlUnpacked<SData/*15:0*/, 8> ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__cams_7__DOT__data;
             VlUnpacked<SData/*15:0*/, 8> ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC__DOT__cam__DOT__data;
-            VlUnpacked<SData/*15:0*/, 32> ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceD__DOT__cam__DOT__data;
         };
         struct {
+            VlUnpacked<SData/*15:0*/, 32> ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceD__DOT__cam__DOT__data;
             VlUnpacked<QData/*63:0*/, 2> ysyxSoCFull__DOT__fpga__DOT__axi4buf__DOT__bundleOut_0_wdeq__DOT__ram_data;
             VlUnpacked<CData/*7:0*/, 2> ysyxSoCFull__DOT__fpga__DOT__axi4buf__DOT__bundleOut_0_wdeq__DOT__ram_strb;
             VlUnpacked<CData/*3:0*/, 2> ysyxSoCFull__DOT__fpga__DOT__axi4buf__DOT__bundleIn_0_bdeq__DOT__ram_id;
@@ -5630,9 +5631,9 @@ VL_MODULE(VysyxSoCFull___024root) {
             VlUnpacked<CData/*6:0*/, 17> ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_17__DOT__ram_tl_state_source;
             VlUnpacked<CData/*0:0*/, 17> ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_17__DOT__ram_extra_id;
             VlUnpacked<CData/*3:0*/, 17> ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_18__DOT__ram_tl_state_size;
-            VlUnpacked<CData/*6:0*/, 17> ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_18__DOT__ram_tl_state_source;
         };
         struct {
+            VlUnpacked<CData/*6:0*/, 17> ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_18__DOT__ram_tl_state_source;
             VlUnpacked<CData/*0:0*/, 17> ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_18__DOT__ram_extra_id;
             VlUnpacked<CData/*3:0*/, 17> ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_19__DOT__ram_tl_state_size;
             VlUnpacked<CData/*6:0*/, 17> ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_19__DOT__ram_tl_state_source;
@@ -5696,9 +5697,9 @@ VL_MODULE(VysyxSoCFull___024root) {
             VlUnpacked<CData/*0:0*/, 4> ysyxSoCFull__DOT__fpga__DOT__axi4yank_2__DOT__QueueCompatibility_3__DOT__ram_real_last;
             VlUnpacked<CData/*0:0*/, 1> ysyxSoCFull__DOT__fpga__DOT__axi4frag__DOT__deq__DOT__ram_id;
             VlUnpacked<IData/*31:0*/, 1> ysyxSoCFull__DOT__fpga__DOT__axi4frag__DOT__deq__DOT__ram_addr;
-            VlUnpacked<CData/*7:0*/, 1> ysyxSoCFull__DOT__fpga__DOT__axi4frag__DOT__deq__DOT__ram_len;
         };
         struct {
+            VlUnpacked<CData/*7:0*/, 1> ysyxSoCFull__DOT__fpga__DOT__axi4frag__DOT__deq__DOT__ram_len;
             VlUnpacked<CData/*2:0*/, 1> ysyxSoCFull__DOT__fpga__DOT__axi4frag__DOT__deq__DOT__ram_size;
             VlUnpacked<CData/*1:0*/, 1> ysyxSoCFull__DOT__fpga__DOT__axi4frag__DOT__deq__DOT__ram_burst;
             VlUnpacked<CData/*2:0*/, 1> ysyxSoCFull__DOT__fpga__DOT__axi4frag__DOT__deq__DOT__ram_echo_extra_id;
