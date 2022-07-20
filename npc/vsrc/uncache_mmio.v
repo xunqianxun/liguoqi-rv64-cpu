@@ -68,13 +68,13 @@ module uncache_mmio (
     assign      byte_size   = (core_we && (core_we_type == 3'b000)) || (core_re && (core_re_type == 3'b000)) ? `AXI_SIZE_BYTES_1 :
                               (core_we && (core_we_type == 3'b001)) || (core_re && (core_re_type == 3'b000)) ? `AXI_SIZE_BYTES_2 : 
                               (core_we && (core_we_type == 3'b010)) || (core_re && (core_re_type == 3'b000)) ? `AXI_SIZE_BYTES_4 :
-                              (core_we && (core_we_type == 3'1000)) || (core_re && (core_re_type == 3'b000)) ? `AXI_SIZE_BYTES_8 :
+                              (core_we && (core_we_type == 3'b100)) || (core_re && (core_re_type == 3'b000)) ? `AXI_SIZE_BYTES_8 :
                                                                                                                `AXI_SIZE_BYTES_1 ;
     wire [63:0] addr_outaxi ;
     assign      addr_outaxi = (core_we && (core_we_type == 3'b000)) || (core_re && (core_re_type == 3'b000)) ? core_addr                 :
                               (core_we && (core_we_type == 3'b001)) || (core_re && (core_re_type == 3'b000)) ? {core_addr[63:1], 1'b0}   : 
                               (core_we && (core_we_type == 3'b010)) || (core_re && (core_re_type == 3'b000)) ? {core_addr[63:2], 2'b00}  :
-                              (core_we && (core_we_type == 3'1000)) || (core_re && (core_re_type == 3'b000)) ? {core_addr[63:3], 3'b000} :
+                              (core_we && (core_we_type == 3'b100)) || (core_re && (core_re_type == 3'b000)) ? {core_addr[63:3], 3'b000} :
                                                                                                                core_addr                 ;                                                                                                          
 
     /*

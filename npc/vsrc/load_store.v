@@ -70,9 +70,9 @@ assign we_type_sel    = (rst == `ysyx22040228_RSTENA)                           
 
 assign re             = (rst == `ysyx22040228_RSTENA)                                            ? 1'b0 : inst_type_i[1]  ;
 assign re_type_sel    = (rst == `ysyx22040228_RSTENA)                                            ? 3'b111                 :
-                        ((inst_type_i[1]) && ((ls_sel_i == `LB_SEL) || (ls_sel_i == L`LBU_SEL))) ? 3'b000                 :
-                        ((inst_type_i[1]) && ((ls_sel_i == `LH_SEL) || (ls_sel_i == L`LHU_SEL))) ? 3'b001                 :
-                        ((inst_type_i[1]) && ((ls_sel_i == `LW_SEL) || (ls_sel_i == L`LWU_SEL))) ? 3'b010                 :
+                        ((inst_type_i[1]) && ((ls_sel_i == `LB_SEL) || (ls_sel_i == `LBU_SEL)))  ? 3'b000                 :
+                        ((inst_type_i[1]) && ((ls_sel_i == `LH_SEL) || (ls_sel_i == `LHU_SEL)))  ? 3'b001                 :
+                        ((inst_type_i[1]) && ((ls_sel_i == `LW_SEL) || (ls_sel_i == `LWU_SEL)))  ? 3'b010                 :
                         ((inst_type_i[1]) && (ls_sel_i == `LD_SEL))                              ? 3'b100                 :
                                                                                                    3'b111                 ;
 assign data_addr_o    = (rst == `ysyx22040228_RSTENA) ? `ysyx22040228_ZEROWORD : ls_addr_i ;

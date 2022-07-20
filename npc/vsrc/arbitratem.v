@@ -77,6 +77,7 @@ module arbitratem (
     input       wire       [63:0]                            uncache_data         ,
     input       wire                                         uncache_read_ena     ,
     input       wire                                         uncache_write_ena    ,
+    input       wire       [2:0]                             uncache_size_data    ,
     input       wire       [7:0]                             uncache_mask         ,
     output      reg        [63:0]                            uncahce_data_o       ,
     output      wire                                         uncahce_valid_       ,
@@ -297,9 +298,9 @@ module arbitratem (
         end 
         else if(arbitrate_state == `ysyx22040228_ARB_DREADU) begin
             dread_ar_id_u      <= 4'b0001             ;
-            dread_ar_addr_u    <= {uncache_addr[63:2], 2'b00};
+            dread_ar_addr_u    <= uncache_addr        ;
             dread_ar_len_u     <= 8'd0                ;
-            dread_ar_size_u    <= `AXI_SIZE_BYTES_4   ;
+            dread_ar_size_u    <= uncahce_arb_size    ;
             dread_ar_burst_u   <= `AXI_BURST_TYPE_INCR;
             dread_ar_cache_u   <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
             dread_ar_prot_u    <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
@@ -482,9 +483,9 @@ module arbitratem (
         end 
         else if(arbitrate_state == `ysyx22040228_ARB_DWRITEU) begin
             dwrite_aw_id_u        <= 4'b0001           ;
-            dwrite_aw_addr_u      <= {uncache_addr[63:2], 2'b00} ;
+            dwrite_aw_addr_u      <= uncache_addr      ;
             dwrite_aw_len_u       <= 8'd0              ;
-            dwrite_aw_size_u      <= `AXI_SIZE_BYTES_4 ;
+            dwrite_aw_size_u      <= uncahce_arb_size  ;
             dwrite_aw_burst_u     <= `AXI_BURST_TYPE_INCR;
             dwrite_aw_cache_u     <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
             dwrite_aw_port_u      <= `AXI_PROT_UNPRIVILEGED_ACCESS ;

@@ -88,6 +88,7 @@ module ysyx_22040228 (
     wire  [63:0]    uncache_arb_data_o;
     wire            uncache_arb_we   ;
     wire            uncache_arb_re   ;
+    wire  [2:0]     uncahce_arb_size ;
     wire            uncache_arb_finish;
     wire  [63:0]    uncache_dc_data ;
     wire  [63:0]    uncache_dc_addr ;
@@ -417,6 +418,7 @@ module ysyx_22040228 (
         .arb_mask            (uncache_arb_mask    ) ,
         .arb_we              (uncache_arb_we      ) ,
         .arb_re              (uncache_arb_re      ) ,
+        .arb_size_data       (uncahce_arb_size    ) ,
         .in_arb_data         (uncache_arb_data_o  ) ,
         .in_arb_finish       (uncache_arb_finish  ) ,
 
@@ -481,6 +483,7 @@ module ysyx_22040228 (
         .uncache_data        (uncache_arb_data   ) ,
         .uncache_read_ena    (uncache_arb_re     ) ,
         .uncache_write_ena   (uncache_arb_we     ) ,
+        .uncache_size_data   (uncahce_arb_size   ) ,
         .uncache_mask        (uncache_arb_mask   ) ,
         .uncahce_data_o      (uncache_arb_data_o ) ,
         .uncahce_valid_      (uncache_arb_finish ) ,
