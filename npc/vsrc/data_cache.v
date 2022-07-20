@@ -19,7 +19,7 @@ Function:write data cache
 
 `include "defines.v"
 `include "defines_axi4.v"
-`include "S011HD1P_X32Y2D128_BW.v"
+`include "S011HD1P_X32Y2D128_BWF.v"
 `include "TEG_CC.v"
 
 module data_cache (
