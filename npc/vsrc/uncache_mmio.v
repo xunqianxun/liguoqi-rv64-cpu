@@ -207,11 +207,11 @@ module uncache_mmio (
     always @(*) begin
         if((uncache && core_we) && (~in_arb_finish)) begin
             uncache_out_ena1   = `ysyx22040228_ABLE ;
-            uncahce_out_addr1  =  addr_outaxi       ;
+            uncache_out_addr1  =  addr_outaxi       ;
         end 
         else if((uncache) && (in_arb_finish) && (core_we)) begin
             uncache_out_ena1   = `ysyx22040228_ENABLE   ;
-            uncahce_out_addr1  = `ysyx22040228_ZEROWORD ;
+            uncache_out_addr1  = `ysyx22040228_ZEROWORD ;
             uncahche_write_finish = `ysyx22040228_ABLE  ;
         end 
         else begin
