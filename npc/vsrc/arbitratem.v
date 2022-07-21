@@ -432,7 +432,7 @@ module arbitratem (
             dwrite_aw_id        <= 4'b0001           ;
             dwrite_aw_addr      <= {d_cache_addr[63:3], 3'b000} ;
             dwrite_aw_len       <= 8'd0              ;
-            dwrite_aw_size      <= `AXI_SIZE_BYTES_8 ;
+            dwrite_aw_size      <= `AXI_SIZE_BYTES_4 ;
             dwrite_aw_burst     <= `AXI_BURST_TYPE_INCR;
             dwrite_aw_cache     <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
             dwrite_aw_port      <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
