@@ -400,7 +400,7 @@ module arbitratem (
     wire                                      dwrite_b_ready          ; 
     wire                                      dwrite_awshankhand      ;
     wire                                      dwrite_wshankhand       ;
-    wire                                      write_wshan             ;
+    reg                                       write_wshan             ;
     assign dwrite_b_ready = `ysyx22040228_ABLE                        ;
     assign dwrite_awshankhand = dwrite_aw_valid && axi_aw_ready ;
     assign dwrite_wshankhand  = dwrite_w_valid  && axi_w_ready  ;
