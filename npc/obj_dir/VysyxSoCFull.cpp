@@ -106,7 +106,7 @@ static void _eval_initial_loop(VysyxSoCFull__Syms* __restrict vlSymsp) {
             Verilated::debug(1);
             __Vchange = VysyxSoCFull___024root___change_request(&(vlSymsp->TOP));
             Verilated::debug(__Vsaved_debug);
-            VL_FATAL_MT("vsrc/ysyxSoCFull.v", 145744, "",
+            VL_FATAL_MT("vsrc/ysyxSoCFull.v", 145745, "",
                 "Verilated model didn't DC converge\n"
                 "- See https://verilator.org/warn/DIDNOTCONVERGE");
         } else {
@@ -137,7 +137,7 @@ void VysyxSoCFull::eval_step() {
             Verilated::debug(1);
             __Vchange = VysyxSoCFull___024root___change_request(&(vlSymsp->TOP));
             Verilated::debug(__Vsaved_debug);
-            VL_FATAL_MT("vsrc/ysyxSoCFull.v", 145744, "",
+            VL_FATAL_MT("vsrc/ysyxSoCFull.v", 145745, "",
                 "Verilated model didn't converge\n"
                 "- See https://verilator.org/warn/DIDNOTCONVERGE");
         } else {
