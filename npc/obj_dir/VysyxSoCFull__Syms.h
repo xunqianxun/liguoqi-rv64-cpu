@@ -133,7 +133,6 @@ class VysyxSoCFull__Syms final : public VerilatedSyms {
     VerilatedScope __Vscope_ysyxSoCFull__asic__chipMaster__xbar_1;
     VerilatedScope __Vscope_ysyxSoCFull__asic__chipMaster__xbar_1__monitor;
     VerilatedScope __Vscope_ysyxSoCFull__asic__chipMaster__xbar__monitor;
-    VerilatedScope __Vscope_ysyxSoCFull__asic__lspi__mspi;
     VerilatedScope __Vscope_ysyxSoCFull__fpga__atomics;
     VerilatedScope __Vscope_ysyxSoCFull__fpga__atomics__monitor;
     VerilatedScope __Vscope_ysyxSoCFull__fpga__axi42tl;
