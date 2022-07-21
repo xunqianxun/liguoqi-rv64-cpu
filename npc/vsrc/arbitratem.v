@@ -416,9 +416,9 @@ module arbitratem (
         else if(dwrite_ok) begin
             dwrite_ok          <= `ysyx22040228_ENABLE ;
         end  
-        else if(dwrite_awshankhand && dwrite_wshankhand)begin
+        else if(dwrite_awshankhand)begin
             dwrite_aw_valid     <= `ysyx22040228_ENABLE;
-            dwrite_w_valid      <= `ysyx22040228_ENABLE;
+            //dwrite_w_valid      <= `ysyx22040228_ENABLE;
         end 
         else if(arbitrate_state == `ysyx22040228_ARB_DWRITE) begin
             dwrite_aw_id        <= 4'b0001           ;
