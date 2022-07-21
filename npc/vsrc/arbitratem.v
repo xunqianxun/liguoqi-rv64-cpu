@@ -494,7 +494,7 @@ module arbitratem (
             dwrite_aw_valid_u     <= `ysyx22040228_ABLE;
             dwrite_w_data_u       <= uncache_data      ;
             dwrite_w_strb_u       <= uncache_mask      ;
-            dwrite_w_last_u       <= `ysyx22040228_ABLE;
+            dwrite_w_last_u       <= `ysyx22040228_ENABLE;
             dwrite_w_valid_u      <= `ysyx22040228_ABLE;
         end 
         else begin
