@@ -419,29 +419,32 @@ module arbitratem (
         end  
         else if(dwrite_awshankhand)begin
             dwrite_aw_valid     <= `ysyx22040228_ENABLE;
-            dwrite_w_valid      <= `ysyx22040228_ENABLE;
+            dwrite_w_valid      <= `ysyx22040228_ABLE;
             write_wshan         <= `ysyx22040228_ABLE  ;
+            dwrite_w_data       <= d_cache_data      ;
+            dwrite_w_strb       <= 8'b11111111       ;
+            dwrite_w_last       <= `ysyx22040228_ABLE;
         end 
         else if(write_wshan) begin
             if(dwrite_wshankhand)
                 write_wshan         <= `ysyx22040228_ENABLE;
             else 
+                dwrite_w_valid      <= `ysyx22040228_ENABLE;
                 write_wshan         <= `ysyx22040228_ABLE  ;
         end 
         else if(arbitrate_state == `ysyx22040228_ARB_DWRITE) begin
             dwrite_aw_id        <= 4'b0001           ;
             dwrite_aw_addr      <= {d_cache_addr[63:3], 3'b000} ;
             dwrite_aw_len       <= 8'd0              ;
-            dwrite_aw_size      <= `AXI_SIZE_BYTES_4 ;
+            dwrite_aw_size      <= `AXI_SIZE_BYTES_8 ;
             dwrite_aw_burst     <= `AXI_BURST_TYPE_INCR;
             dwrite_aw_cache     <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
             dwrite_aw_port      <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
             dwrite_aw_qos       <= 4'h0              ;
             dwrite_aw_valid     <= `ysyx22040228_ABLE;
-            dwrite_w_data       <= d_cache_data      ;
-            dwrite_w_strb       <= 8'b00000000       ;
-            //dwrite_w_last       <= `ysyx22040228_ABLE;
-            dwrite_w_valid      <= `ysyx22040228_ABLE;
+            // dwrite_w_data       <= d_cache_data      ;
+            // dwrite_w_strb       <= 8'b11111111       ;
+            // dwrite_w_last       <= `ysyx22040228_ABLE;
         end 
         else begin
             dwrite_w_last       <= `ysyx22040228_ENABLE;
