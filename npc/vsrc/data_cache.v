@@ -428,14 +428,14 @@ module data_cache (
             if((oteg_ata_o == dcache_tag) && (oteg_valid_o == `ysyx22040228_ABLE))begin
                 memw_hit_ok     = `ysyx22040228_ABLE   ;
                 hitw_data_strb  = {64'h0, strb_extection} ;
-                hitw_data_temp  = {64'h0, in_dcache_data} ;
+                hitw_data_temp  = {64'h0, mem_data_i} ;
                 hitw_data_ready = `ysyx22040228_ABLE   ;
                 hitw_data_ena   = `ysyx22040228_ABLE   ;
             end
             else if((tteg_ata_o == dcache_tag) && (tteg_valid_o == `ysyx22040228_ABLE))begin
                 memw_hit_ok     = `ysyx22040228_ABLE   ;
                 hitw_data_strb  = {strb_extection, 64'h0} ;
-                hitw_data_temp  = {in_dcache_data, 64'h0} ;
+                hitw_data_temp  = {mem_data_i, 64'h0} ;
                 hitw_data_ready = `ysyx22040228_ABLE   ;
                 hitw_data_ena   = `ysyx22040228_ABLE   ;
             end
