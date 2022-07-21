@@ -151,7 +151,7 @@
 // synopsys translate_off
 `timescale 1ns/1ns
 // synopsys translate_on
-/* verilator lint_off UNUSED */
+
 `include "uart_defines.v"
 
 module uart_transmitter (clk, wb_rst_i, lcr, tf_push, wb_dat_i, enable,

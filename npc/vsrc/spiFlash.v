@@ -2,9 +2,9 @@
 
 // Refer to the data sheet for the flash instructions at
 // https://www.winbond.com/hq/product/code-storage-flash-memory/serial-nor-flash/?__locale=zh
-/* verilator lint_off UNUSED */
+
 `define spi_cs_num 2
-/* verilator lint_off DECLFILENAME */
+
 module spiFlash (
   input                    clk,
   input  [`spi_cs_num-1:0] cs,

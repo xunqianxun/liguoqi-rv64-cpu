@@ -1,5 +1,4 @@
 `include "spi_defines.v"
-/* verilator lint_off UNUSED */
 module spi_top
 (
   // APB Signals

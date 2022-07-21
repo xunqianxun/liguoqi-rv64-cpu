@@ -69,7 +69,7 @@
 // synopsys translate_off
 `timescale 1ns/1ns
 // synopsys translate_on
-/* verilator lint_off UNUSED */
+
 module uart_sync_flops #(parameter width=1, parameter init_value=1'b0)
 (
   // internal signals
