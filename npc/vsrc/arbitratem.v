@@ -441,9 +441,6 @@ module arbitratem (
             dwrite_aw_port      <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
             dwrite_aw_qos       <= 4'h0              ;
             dwrite_aw_valid     <= `ysyx22040228_ABLE;
-            // dwrite_w_data       <= d_cache_data      ;
-            // dwrite_w_strb       <= 8'b11111111       ;
-            // dwrite_w_last       <= `ysyx22040228_ABLE;
         end 
         else begin
             dwrite_w_last       <= `ysyx22040228_ENABLE;
