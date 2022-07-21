@@ -597,7 +597,7 @@ module data_cache (
     wire   dirty2_ ;
     assign dirty1_ = dirty1[dcache_index];
     assign dirty2_ = dirty2[dcache_index];
-    assign dirty2[dcache_index] = ((state_dwrite == `ysyx22040228_HIT) && (tag_data2 == dcache_tag)) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE;
+    //assign dirty2[dcache_index] = ((state_dwrite == `ysyx22040228_HIT) && (tag_data2 == dcache_tag)) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE;
     integer j;
     always @(posedge clk) begin
         if(rst == `ysyx22040228_RSTENA) begin
