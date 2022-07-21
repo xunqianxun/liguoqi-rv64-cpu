@@ -423,14 +423,13 @@ module arbitratem (
             write_wshan         <= `ysyx22040228_ABLE;
             dwrite_w_data       <= 64'd12345678      ;
             dwrite_w_strb       <= 8'b11111111       ;
-            dwrite_w_last       <= `ysyx22040228_ABLE;
         end 
         else if(write_wshan) begin
             if(dwrite_wshankhand)
                 write_wshan         <= `ysyx22040228_ENABLE;
             else 
                 dwrite_w_valid      <= `ysyx22040228_ENABLE;
-                write_wshan         <= `ysyx22040228_ENABLE  ;
+                dwrite_w_last       <= `ysyx22040228_ABLE;
         end 
         else if(arbitrate_state == `ysyx22040228_ARB_DWRITE) begin
             dwrite_aw_id        <= 4'b0001           ;
