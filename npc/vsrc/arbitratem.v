@@ -400,10 +400,11 @@ module arbitratem (
     wire                                      dwrite_b_ready          ; 
     wire                                      dwrite_awshankhand      ;
     wire                                      dwrite_wshankhand       ;
+    wire                                      write_wshan             ;
     assign dwrite_b_ready = `ysyx22040228_ABLE                        ;
     assign dwrite_awshankhand = dwrite_aw_valid && axi_aw_ready ;
     assign dwrite_wshankhand  = dwrite_w_valid  && axi_w_ready  ;
-    reg    dwrite_success                                           ;
+    reg    dwrite_success                                             ;
     assign dwrite_success     = dwrite_b_ready && axi_b_valid && (axi_b_id == 4'b0001) && (axi_b_resp == 2'b00) ;
     reg    dwrite_ok                                                 ;
     always @(posedge clk) begin
@@ -418,7 +419,14 @@ module arbitratem (
         end  
         else if(dwrite_awshankhand)begin
             dwrite_aw_valid     <= `ysyx22040228_ENABLE;
-            //dwrite_w_valid      <= `ysyx22040228_ENABLE;
+            dwrite_w_valid      <= `ysyx22040228_ENABLE;
+            write_wshan         <= `ysyx22040228_ABLE  ;
+        end 
+        else if(write_wshan) begin
+            if(dwrite_wshankhand)
+                write_wshan         <= `ysyx22040228_ENABLE;
+            else 
+                write_wshan         <= `ysyx22040228_ABLE  ;
         end 
         else if(arbitrate_state == `ysyx22040228_ARB_DWRITE) begin
             dwrite_aw_id        <= 4'b0001           ;
