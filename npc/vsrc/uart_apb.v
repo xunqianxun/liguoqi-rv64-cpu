@@ -1,7 +1,7 @@
 // synopsys translate_off
 `timescale 1ns/1ns
 // synopsys translate_on
-
+/* verilator lint_off UNUSED */
 module uart_apb (
        input   wire        resetn
      , input   wire        clk

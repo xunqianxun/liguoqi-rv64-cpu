@@ -4738,9 +4738,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__46(VysyxSoCFull___024r
         VL_FWRITEF(0x80000002U,"Assertion failed: only support `03h` read command\n");
         __Vdly__ysyxSoCFull__DOT__spiFlash__DOT__state 
             = vlSelf->ysyxSoCFull__DOT__spiFlash__DOT__state;
-        VL_WRITEF("[%0t] %%Error: spiFlash.v:47: Assertion failed in %NysyxSoCFull.spiFlash\n",
+        VL_WRITEF("[%0t] %%Error: spiFlash.v:49: Assertion failed in %NysyxSoCFull.spiFlash\n",
                   64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc//spiFlash.v", 47, "");
+        VL_STOP_MT("vsrc//spiFlash.v", 49, "");
     }
     if (vlSelf->ysyxSoCFull__DOT__spiFlash__DOT__reset) {
         __Vdly__ysyxSoCFull__DOT__spiFlash__DOT__data = 0ULL;
