@@ -5,7 +5,7 @@
 
 `define spi_cs_num 2
 /* verilator lint_off DECLFILENAME */
-/* verilator lint_off UNUSE */
+/* verilator lint_off UNUSED */
 
 module spiFlash (
   input                    clk,
