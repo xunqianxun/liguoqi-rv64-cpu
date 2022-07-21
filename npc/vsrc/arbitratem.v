@@ -434,7 +434,7 @@ module arbitratem (
         end 
         else if(arbitrate_state == `ysyx22040228_ARB_DWRITE) begin
             dwrite_aw_id        <= 4'b0001           ;
-            dwrite_aw_addr      <= {d_cache_addr[63:3], 3'b000} ;
+            dwrite_aw_addr      <= {d_cache_addr[63:2], 2'b00} ;
             dwrite_aw_len       <= 8'd0              ;
             dwrite_aw_size      <= `AXI_SIZE_BYTES_8 ;
             dwrite_aw_burst     <= `AXI_BURST_TYPE_INCR;
