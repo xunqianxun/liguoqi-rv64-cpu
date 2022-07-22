@@ -72,9 +72,7 @@ module arbitratem (
     input       wire                                         clk                  ,
     input       wire                                         rst                  ,
     //-----------------------------d_cache---------------------------------------//
-    /* verilator lint_off UNUSED */
     input       wire       [63:0]                            d_cache_addr         ,
-    /* verilator lint_on UNUSED */
     input       wire       [63:0]                            d_cache_data         ,
     input       wire       [3:0]                             d_cache_type         ,
     //input       wire                                         d_cache_resp         ,
@@ -105,8 +103,9 @@ module arbitratem (
     output      wire       [`ysyx22040228_PROT_BUS]          axi_aw_port          ,
     output      wire       [`ysyx22040228_QOS_BUS]           axi_aw_qos           ,
     output      wire                                         axi_aw_valid         ,
+    /* verilator lint_off UNUSED */
     input       wire                                         axi_aw_ready         ,
-
+    /* verilator lint_on UNUSED */
     //----------------------write data channel-----------------------------------//
     output      wire       [`ysyx22040228_DATA_BUS]          axi_w_data           ,
     output      wire       [`ysyx22040228_STRB_BUS]          axi_w_strb           ,
@@ -392,6 +391,6 @@ module arbitratem (
     assign dread_ok_u  = sign_delay_unread   ;
     assign dwrite_ok_u = sign_delay_unwrite  ;
 
-    assign axi_shankhand = (axi_aw_ready & axi_w_ready) | axi_ar_ready ;
+    assign axi_shankhand = (axi_w_ready) | axi_ar_ready ;
 
 endmodule
