@@ -319,6 +319,7 @@ module arbitratem (
             dread_ok_u         <= `ysyx22040228_ENABLE   ;
             uncahce_data_o     <= `ysyx22040228_ZEROWORD ;
             dread_cache_valid_u<= `ysyx22040228_ENABLE   ;
+            dread_wetite_u     <= `ysyx22040228_ENABLE;
         end 
     end    
 
