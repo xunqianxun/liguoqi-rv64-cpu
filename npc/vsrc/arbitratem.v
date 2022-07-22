@@ -537,22 +537,50 @@ module arbitratem (
 
     assign i_cache_valid_ = iread_cache_valid ;
 
-    assign axi_aw_id      = (arbitrate_state == `ysyx22040228_ARB_DWRITE) ?  dwrite_aw_id     :  dwrite_aw_id_u     ;
-    assign axi_aw_addr    = (arbitrate_state == `ysyx22040228_ARB_DWRITE) ?  dwrite_aw_addr   :  dwrite_aw_addr_u   ;
-    assign axi_aw_len     = (arbitrate_state == `ysyx22040228_ARB_DWRITE) ?  dwrite_aw_len    :  dwrite_aw_len_u    ;
-    assign axi_aw_size    = (arbitrate_state == `ysyx22040228_ARB_DWRITE) ?  dwrite_aw_size   :  dwrite_aw_size_u   ;
-    assign axi_aw_burst   = (arbitrate_state == `ysyx22040228_ARB_DWRITE) ?  dwrite_aw_burst  :  dwrite_aw_burst_u  ;
-    assign axi_aw_cache   = (arbitrate_state == `ysyx22040228_ARB_DWRITE) ?  dwrite_aw_cache  :  dwrite_aw_cache_u  ;
-    assign axi_aw_port    = (arbitrate_state == `ysyx22040228_ARB_DWRITE) ?  dwrite_aw_port   :  dwrite_aw_port_u   ;
-    assign axi_aw_qos     = (arbitrate_state == `ysyx22040228_ARB_DWRITE) ?  dwrite_aw_qos    :  dwrite_aw_qos_u    ;
-    assign axi_aw_valid   = (arbitrate_state == `ysyx22040228_ARB_DWRITE) ?  dwrite_aw_valid  :  dwrite_aw_valid_u  ;
+    assign axi_aw_id      = (arbitrate_state == `ysyx22040228_ARB_DWRITE)  ?  dwrite_aw_id     : 
+                            (arbitrate_state == `ysyx22040228_ARB_DWRITEU) ?  dwrite_aw_id_u   :
+                                                                              4'b0000          ;
+    assign axi_aw_addr    = (arbitrate_state == `ysyx22040228_ARB_DWRITE)  ?  dwrite_aw_addr   : 
+                            (arbitrate_state == `ysyx22040228_ARB_DWRITEU) ?  dwrite_aw_addr_u :
+                                                                              64'h0            ;
+    assign axi_aw_len     = (arbitrate_state == `ysyx22040228_ARB_DWRITE)  ?  dwrite_aw_len    :
+                            (arbitrate_state == `ysyx22040228_ARB_DWRITEU) ?  dwrite_aw_len_u  :
+                                                                              8'b0             ;
+    assign axi_aw_size    = (arbitrate_state == `ysyx22040228_ARB_DWRITE)  ?  dwrite_aw_size   : 
+                            (arbitrate_state == `ysyx22040228_ARB_DWRITEU) ?  dwrite_aw_size_u :
+                                                                              3'b0             ;
+    assign axi_aw_burst   = (arbitrate_state == `ysyx22040228_ARB_DWRITE)  ?  dwrite_aw_burst  :
+                            (arbitrate_state == `ysyx22040228_ARB_DWRITEU) ?  dwrite_aw_burst_u:
+                                                                              2'b00            ;
+    assign axi_aw_cache   = (arbitrate_state == `ysyx22040228_ARB_DWRITE)  ?  dwrite_aw_cache  : 
+                            (arbitrate_state == `ysyx22040228_ARB_DWRITEU) ?  dwrite_aw_cache_u:
+                                                                              4'b0000          ;
+    assign axi_aw_port    = (arbitrate_state == `ysyx22040228_ARB_DWRITE)  ?  dwrite_aw_port   : 
+                            (arbitrate_state == `ysyx22040228_ARB_DWRITEU) ?  dwrite_aw_port_u :
+                                                                              3'b000           ;
+    assign axi_aw_qos     = (arbitrate_state == `ysyx22040228_ARB_DWRITE)  ?  dwrite_aw_qos    :
+                            (arbitrate_state == `ysyx22040228_ARB_DWRITEU) ?  dwrite_aw_qos_u  :
+                                                                              4'b0000          ;
+    assign axi_aw_valid   = (arbitrate_state == `ysyx22040228_ARB_DWRITE)  ?  dwrite_aw_valid  :
+                            (arbitrate_state == `ysyx22040228_ARB_DWRITEU) ?  dwrite_aw_valid_u:
+                                                                              1'b0             ;
 
-    assign axi_w_data     = (arbitrate_state == `ysyx22040228_ARB_DWRITE) ?  dwrite_w_data    :  dwrite_w_data_u    ;
-    assign axi_w_strb     = (arbitrate_state == `ysyx22040228_ARB_DWRITE) ?  dwrite_w_strb    :  dwrite_w_strb_u    ;
-    assign axi_w_last     = (arbitrate_state == `ysyx22040228_ARB_DWRITE) ?  dwrite_w_last    :  dwrite_w_last_u    ;
-    assign axi_w_valid    = (arbitrate_state == `ysyx22040228_ARB_DWRITE) ?  dwrite_w_valid   :  dwrite_w_valid_u   ;
+    assign axi_w_data     = (arbitrate_state == `ysyx22040228_ARB_DWRITE)  ?  dwrite_w_data    :
+                            (arbitrate_state == `ysyx22040228_ARB_DWRITEU) ?  dwrite_w_data_u  :
+                                                                              64'h0            ;
+    assign axi_w_strb     = (arbitrate_state == `ysyx22040228_ARB_DWRITE)  ?  dwrite_w_strb    : 
+                            (arbitrate_state == `ysyx22040228_ARB_DWRITEU) ?  dwrite_w_strb_u  :
+                                                                              8'b0             ;
+    assign axi_w_last     = (arbitrate_state == `ysyx22040228_ARB_DWRITE)  ?  dwrite_w_last    :
+                            (arbitrate_state == `ysyx22040228_ARB_DWRITEU) ?  dwrite_w_last_u  :
+                                                                              1'b0             ;
+    assign axi_w_valid    = (arbitrate_state == `ysyx22040228_ARB_DWRITE)  ?  dwrite_w_valid   :
+                            (arbitrate_state == `ysyx22040228_ARB_DWRITEU) ?  dwrite_w_valid_u :
+                                                                              1'b0             ;
 
-    assign axi_b_ready    = (arbitrate_state == `ysyx22040228_ARB_DWRITE) ?  dwrite_b_ready   :  dwrite_b_ready_u   ;
+    assign axi_b_ready    = (arbitrate_state == `ysyx22040228_ARB_DWRITE)  ?  dwrite_b_ready   :
+                            (arbitrate_state == `ysyx22040228_ARB_DWRITEU) ?  dwrite_b_ready_u :
+                                                                              1'b0             ;
 
     assign axi_ar_id      = (arbitrate_state == `ysyx22040228_ARB_IREAD)  ? iread_ar_id       :
                             (arbitrate_state == `ysyx22040228_ARB_DREAD)  ? dread_ar_id       :

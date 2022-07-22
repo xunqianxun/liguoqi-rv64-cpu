@@ -1483,9 +1483,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__21(VysyxSoCFull___024r
                       & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__apbxbar_auto_out_0_psel)) 
                      & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__axi42apb_auto_out_pwrite)))) {
         VL_FWRITEF(0x80000002U,"Assertion failed: only support flash reading. \n");
-        VL_WRITEF("[%0t] %%Error: spi.v:84: Assertion failed in %NysyxSoCFull.asic.lspi.mspi\n",
+        VL_WRITEF("[%0t] %%Error: spi.v:85: Assertion failed in %NysyxSoCFull.asic.lspi.mspi\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc//spi.v", 84, "");
+        VL_STOP_MT("vsrc//spi.v", 85, "");
     }
     if (vlSelf->ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__ren) {
         VysyxSoCFull___024unit____Vdpiimwrap_flash_read_TOP____024unit(
