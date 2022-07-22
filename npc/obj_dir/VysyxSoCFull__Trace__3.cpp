@@ -82,7 +82,7 @@ void VysyxSoCFull___024root__traceChgSub3(VysyxSoCFull___024root* vlSelf, Verila
     VlWide<4>/*127:0*/ __Vtemp8187;
     VlWide<4>/*127:0*/ __Vtemp8188;
     VlWide<4>/*127:0*/ __Vtemp8189;
-    vluint32_t* const oldp = tracep->oldp(vlSymsp->__Vm_baseCode + 16315);
+    vluint32_t* const oldp = tracep->oldp(vlSymsp->__Vm_baseCode + 16316);
     if (false && oldp) {}  // Prevent unused
     // Body
     {
