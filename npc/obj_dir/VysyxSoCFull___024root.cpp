@@ -36,8 +36,6 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__inst_cache2__DOT__TEG_ICACHEO__DOT__valid__v0 = 0U;
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHET__DOT__valid__v0 = 0U;
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__valid__v0 = 0U;
-    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__inst_cache2__DOT__TEG_ICACHET__DOT__ram__v0 = 0U;
-    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__inst_cache2__DOT__TEG_ICACHEO__DOT__ram__v0 = 0U;
     vlSelf->__Vdly__ysyxSoCFull__DOT__fpga__DOT__axi4buf__DOT__bundleOut_0_wdeq__DOT__value 
         = vlSelf->ysyxSoCFull__DOT__fpga__DOT__axi4buf__DOT__bundleOut_0_wdeq__DOT__value;
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_13__DOT__ram_tl_state_size__v0 = 0U;
@@ -93,8 +91,6 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_11__DOT__ram_extra_id__v0 = 0U;
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_12__DOT__ram_extra_id__v0 = 0U;
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__mem__DOT__axi4frag__DOT__deq_1__DOT__ram_size__v0 = 0U;
-    vlSelf->__Vdly__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__counter 
-        = vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__counter;
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_29__DOT__ram_extra_id__v0 = 0U;
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_30__DOT__ram_extra_id__v0 = 0U;
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_31__DOT__ram_extra_id__v0 = 0U;
@@ -143,8 +139,6 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__mem__DOT__srams__DOT__mem__DOT__mem_ext__DOT__ram__v5 = 0U;
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__mem__DOT__srams__DOT__mem__DOT__mem_ext__DOT__ram__v6 = 0U;
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__mem__DOT__srams__DOT__mem__DOT__mem_ext__DOT__ram__v7 = 0U;
-    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHET__DOT__ram__v0 = 0U;
-    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__ram__v0 = 0U;
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__mem__DOT__axi4frag__DOT__deq__DOT__ram_id__v0 = 0U;
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__mem__DOT__axi4buf__DOT__bundleOut_0_ardeq__DOT__ram_id__v0 = 0U;
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__mem__DOT__axi4frag__DOT__deq_1__DOT__ram_id__v0 = 0U;
@@ -179,71 +173,6 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sinkD__DOT__d__DOT__ram_source__v0 = 0U;
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sinkD__DOT__d__DOT__ram_opcode__v0 = 0U;
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sourceC__DOT__cam__DOT__data__v0 = 0U;
-}
-
-void VysyxSoCFull___024unit____Vdpiimwrap_flash_read_TOP____024unit(QData/*63:0*/ addr, QData/*63:0*/ &data);
-extern const VlWide<16>/*511:0*/ VysyxSoCFull__ConstPool__CONST_0b2d9f06_0;
-extern const VlWide<16>/*511:0*/ VysyxSoCFull__ConstPool__CONST_3ad9c2be_0;
-
-VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__21(VysyxSoCFull___024root* vlSelf) {
-    if (false && vlSelf) {}  // Prevent unused
-    VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+    VysyxSoCFull___024root___sequent__TOP__21\n"); );
-    // Variables
-    VlWide<4>/*127:0*/ __Vtemp1482;
-    VlWide<4>/*127:0*/ __Vtemp1483;
-    VlWide<4>/*127:0*/ __Vtemp1484;
-    VlWide<4>/*127:0*/ __Vtemp1485;
-    VlWide<16>/*511:0*/ __Vtemp1488;
-    VlWide<16>/*511:0*/ __Vtemp1489;
-    VlWide<16>/*511:0*/ __Vtemp1492;
-    VlWide<16>/*511:0*/ __Vtemp1493;
-    VlWide<16>/*511:0*/ __Vtemp1496;
-    VlWide<16>/*511:0*/ __Vtemp1497;
-    VlWide<16>/*511:0*/ __Vtemp1500;
-    VlWide<16>/*511:0*/ __Vtemp1501;
-    VlWide<16>/*511:0*/ __Vtemp1504;
-    VlWide<16>/*511:0*/ __Vtemp1505;
-    VlWide<16>/*511:0*/ __Vtemp1508;
-    VlWide<16>/*511:0*/ __Vtemp1509;
-    VlWide<16>/*511:0*/ __Vtemp1512;
-    VlWide<16>/*511:0*/ __Vtemp1513;
-    VlWide<16>/*511:0*/ __Vtemp1516;
-    VlWide<16>/*511:0*/ __Vtemp1517;
-    VlWide<16>/*511:0*/ __Vtemp1518;
-    VlWide<16>/*511:0*/ __Vtemp1521;
-    VlWide<16>/*511:0*/ __Vtemp1522;
-    VlWide<16>/*511:0*/ __Vtemp1523;
-    VlWide<16>/*511:0*/ __Vtemp1526;
-    VlWide<16>/*511:0*/ __Vtemp1527;
-    VlWide<4>/*127:0*/ __Vtemp1528;
-    VlWide<4>/*127:0*/ __Vtemp1529;
-    VlWide<4>/*127:0*/ __Vtemp1533;
-    VlWide<4>/*127:0*/ __Vtemp1534;
-    VlWide<4>/*127:0*/ __Vtemp1538;
-    VlWide<4>/*127:0*/ __Vtemp1539;
-    VlWide<4>/*127:0*/ __Vtemp1540;
-    VlWide<4>/*127:0*/ __Vtemp1541;
-    VlWide<16>/*511:0*/ __Vtemp1542;
-    VlWide<16>/*511:0*/ __Vtemp1545;
-    VlWide<16>/*511:0*/ __Vtemp1546;
-    VlWide<16>/*511:0*/ __Vtemp1547;
-    VlWide<16>/*511:0*/ __Vtemp1550;
-    VlWide<16>/*511:0*/ __Vtemp1551;
-    VlWide<4>/*127:0*/ __Vtemp1552;
-    VlWide<4>/*127:0*/ __Vtemp1553;
-    VlWide<4>/*127:0*/ __Vtemp1557;
-    VlWide<4>/*127:0*/ __Vtemp1558;
-    VlWide<4>/*127:0*/ __Vtemp1562;
-    VlWide<4>/*127:0*/ __Vtemp1563;
-    VlWide<4>/*127:0*/ __Vtemp1567;
-    VlWide<4>/*127:0*/ __Vtemp1568;
-    VlWide<4>/*127:0*/ __Vtemp1572;
-    VlWide<4>/*127:0*/ __Vtemp1573;
-    VlWide<4>/*127:0*/ __Vtemp1577;
-    VlWide<4>/*127:0*/ __Vtemp1578;
-    QData/*63:0*/ __Vtask_flash_read__1__data;
-    // Body
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC__DOT__cam__DOT__data__v0 = 0U;
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sinkA__DOT__inject_io_i_q__DOT__ram_param__v0 = 0U;
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sinkA__DOT__inject_io_i_q__DOT__ram_mask__v0 = 0U;
@@ -512,6 +441,71 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__21(VysyxSoCFull___024r
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
         VL_STOP_MT("vsrc/ysyxSoCFull.v", 16550, "");
     }
+}
+
+void VysyxSoCFull___024unit____Vdpiimwrap_flash_read_TOP____024unit(QData/*63:0*/ addr, QData/*63:0*/ &data);
+extern const VlWide<16>/*511:0*/ VysyxSoCFull__ConstPool__CONST_0b2d9f06_0;
+extern const VlWide<16>/*511:0*/ VysyxSoCFull__ConstPool__CONST_3ad9c2be_0;
+
+VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__21(VysyxSoCFull___024root* vlSelf) {
+    if (false && vlSelf) {}  // Prevent unused
+    VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    VL_DEBUG_IF(VL_DBG_MSGF("+    VysyxSoCFull___024root___sequent__TOP__21\n"); );
+    // Variables
+    VlWide<4>/*127:0*/ __Vtemp1482;
+    VlWide<4>/*127:0*/ __Vtemp1483;
+    VlWide<4>/*127:0*/ __Vtemp1484;
+    VlWide<4>/*127:0*/ __Vtemp1485;
+    VlWide<16>/*511:0*/ __Vtemp1488;
+    VlWide<16>/*511:0*/ __Vtemp1489;
+    VlWide<16>/*511:0*/ __Vtemp1492;
+    VlWide<16>/*511:0*/ __Vtemp1493;
+    VlWide<16>/*511:0*/ __Vtemp1496;
+    VlWide<16>/*511:0*/ __Vtemp1497;
+    VlWide<16>/*511:0*/ __Vtemp1500;
+    VlWide<16>/*511:0*/ __Vtemp1501;
+    VlWide<16>/*511:0*/ __Vtemp1504;
+    VlWide<16>/*511:0*/ __Vtemp1505;
+    VlWide<16>/*511:0*/ __Vtemp1508;
+    VlWide<16>/*511:0*/ __Vtemp1509;
+    VlWide<16>/*511:0*/ __Vtemp1512;
+    VlWide<16>/*511:0*/ __Vtemp1513;
+    VlWide<16>/*511:0*/ __Vtemp1516;
+    VlWide<16>/*511:0*/ __Vtemp1517;
+    VlWide<16>/*511:0*/ __Vtemp1518;
+    VlWide<16>/*511:0*/ __Vtemp1521;
+    VlWide<16>/*511:0*/ __Vtemp1522;
+    VlWide<16>/*511:0*/ __Vtemp1523;
+    VlWide<16>/*511:0*/ __Vtemp1526;
+    VlWide<16>/*511:0*/ __Vtemp1527;
+    VlWide<4>/*127:0*/ __Vtemp1528;
+    VlWide<4>/*127:0*/ __Vtemp1529;
+    VlWide<4>/*127:0*/ __Vtemp1533;
+    VlWide<4>/*127:0*/ __Vtemp1534;
+    VlWide<4>/*127:0*/ __Vtemp1538;
+    VlWide<4>/*127:0*/ __Vtemp1539;
+    VlWide<4>/*127:0*/ __Vtemp1540;
+    VlWide<4>/*127:0*/ __Vtemp1541;
+    VlWide<16>/*511:0*/ __Vtemp1542;
+    VlWide<16>/*511:0*/ __Vtemp1545;
+    VlWide<16>/*511:0*/ __Vtemp1546;
+    VlWide<16>/*511:0*/ __Vtemp1547;
+    VlWide<16>/*511:0*/ __Vtemp1550;
+    VlWide<16>/*511:0*/ __Vtemp1551;
+    VlWide<4>/*127:0*/ __Vtemp1552;
+    VlWide<4>/*127:0*/ __Vtemp1553;
+    VlWide<4>/*127:0*/ __Vtemp1557;
+    VlWide<4>/*127:0*/ __Vtemp1558;
+    VlWide<4>/*127:0*/ __Vtemp1562;
+    VlWide<4>/*127:0*/ __Vtemp1563;
+    VlWide<4>/*127:0*/ __Vtemp1567;
+    VlWide<4>/*127:0*/ __Vtemp1568;
+    VlWide<4>/*127:0*/ __Vtemp1572;
+    VlWide<4>/*127:0*/ __Vtemp1573;
+    VlWide<4>/*127:0*/ __Vtemp1577;
+    VlWide<4>/*127:0*/ __Vtemp1578;
+    QData/*63:0*/ __Vtask_flash_read__1__data;
+    // Body
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__mbypass__DOT__monitor_io_in_d_valid) 
                       & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode))) 
                      & (~ ((~ ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_1__DOT__repeated_repeater__DOT__full)
@@ -839,6 +833,10 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__21(VysyxSoCFull___024r
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sinkA__DOT__inject_io_i_q__DOT__ram_param__v0 = 0U;
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sinkA__DOT__inject_io_i_q__DOT__ram_mask__v0 = 0U;
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sinkA__DOT__inject_io_i_q__DOT__ram_data__v0 = 0U;
+    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi42tl__DOT__q_bdeq__DOT__ram_resp__v0 = 0U;
+    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi42tl__DOT__q_bdeq__DOT__ram_id__v0 = 0U;
+    vlSelf->__Vdly__ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeat_count 
+        = vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeat_count;
     if (VL_UNLIKELY((1U & (~ (((~ (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi42tl__DOT__deq_io_deq_valid)) 
                                | ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi42tl__DOT__deq_io_deq_bits_id)
                                    ? (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi4yank__DOT__QueueCompatibility_1_io_deq_valid)
@@ -871,13 +869,6 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__21(VysyxSoCFull___024r
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
         VL_STOP_MT("vsrc/ysyxSoCFull.v", 39990, "");
     }
-    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi42tl__DOT__q_bdeq__DOT__ram_resp__v0 = 0U;
-    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi42tl__DOT__q_bdeq__DOT__ram_id__v0 = 0U;
-    vlSelf->__Vdly__ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeat_count 
-        = vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeat_count;
-    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi42tl__DOT__deq__DOT__ram_data__v0 = 0U;
-    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi42tl__DOT__deq__DOT__ram_resp__v0 = 0U;
-    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi42tl__DOT__deq__DOT__ram_last__v0 = 0U;
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__tl2axi4_1__DOT__queue_arw_deq__DOT__ram_echo_tl_state_size__v0 = 0U;
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__tl2axi4_1__DOT__deq__DOT__ram_last__v0 = 0U;
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__tl2axi4_1__DOT__deq__DOT__ram_data__v0 = 0U;
@@ -1468,7 +1459,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__21(VysyxSoCFull___024r
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
         VL_STOP_MT("vsrc/ysyxSoCFull.v", 92015, "");
     }
-    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi42tl__DOT__deq__DOT__ram_id__v0 = 0U;
+    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi42tl__DOT__deq__DOT__ram_resp__v0 = 0U;
+    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi42tl__DOT__deq__DOT__ram_last__v0 = 0U;
+    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi42tl__DOT__deq__DOT__ram_data__v0 = 0U;
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sinkD__DOT__d__DOT__ram_sink__v0 = 0U;
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sinkD__DOT__d__DOT__ram_denied__v0 = 0U;
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sinkD__DOT__d__DOT__ram_param__v0 = 0U;
@@ -1476,9 +1469,26 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__21(VysyxSoCFull___024r
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sinkD__DOT__d__DOT__ram_size__v0 = 0U;
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sinkD__DOT__d__DOT__ram_source__v0 = 0U;
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sinkD__DOT__d__DOT__ram_opcode__v0 = 0U;
-    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi42tl__DOT__q_bdeq__DOT__ram_resp__v0 = 0U;
+    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi42tl__DOT__deq__DOT__ram_id__v0 = 0U;
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi42tl__DOT__deq__DOT__ram_last__v0 = 0U;
+    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi42tl__DOT__q_bdeq__DOT__ram_resp__v0 = 0U;
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi42tl__DOT__q_bdeq__DOT__ram_id__v0 = 0U;
+    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_29__DOT__ram_tl_state_source__v0 = 0U;
+    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_30__DOT__ram_tl_state_source__v0 = 0U;
+    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_31__DOT__ram_tl_state_source__v0 = 0U;
+    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_23__DOT__ram_tl_state_source__v0 = 0U;
+    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_24__DOT__ram_tl_state_source__v0 = 0U;
+    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_25__DOT__ram_tl_state_source__v0 = 0U;
+    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_26__DOT__ram_tl_state_source__v0 = 0U;
+    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_27__DOT__ram_tl_state_source__v0 = 0U;
+    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_28__DOT__ram_tl_state_source__v0 = 0U;
+    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_16__DOT__ram_tl_state_source__v0 = 0U;
+    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_17__DOT__ram_tl_state_source__v0 = 0U;
+    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_18__DOT__ram_tl_state_source__v0 = 0U;
+    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_19__DOT__ram_tl_state_source__v0 = 0U;
+    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_20__DOT__ram_tl_state_source__v0 = 0U;
+    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_21__DOT__ram_tl_state_source__v0 = 0U;
+    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_22__DOT__ram_tl_state_source__v0 = 0U;
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__apbxbar_auto_out_0_penable) 
                       & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__apbxbar_auto_out_0_psel)) 
                      & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__axi42apb_auto_out_pwrite)))) {
@@ -1497,26 +1507,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__21(VysyxSoCFull___024r
         vlSelf->ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__data 
             = __Vtask_flash_read__1__data;
     }
-    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver__DOT__fifo_rx__DOT__rfifo__DOT__ram__v0 = 0U;
-    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_29__DOT__ram_tl_state_source__v0 = 0U;
-    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_30__DOT__ram_tl_state_source__v0 = 0U;
-    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_31__DOT__ram_tl_state_source__v0 = 0U;
-    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_23__DOT__ram_tl_state_source__v0 = 0U;
-    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_24__DOT__ram_tl_state_source__v0 = 0U;
-    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_25__DOT__ram_tl_state_source__v0 = 0U;
-    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_26__DOT__ram_tl_state_source__v0 = 0U;
-    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_27__DOT__ram_tl_state_source__v0 = 0U;
-    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_28__DOT__ram_tl_state_source__v0 = 0U;
-    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_16__DOT__ram_tl_state_source__v0 = 0U;
-    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_17__DOT__ram_tl_state_source__v0 = 0U;
-    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_18__DOT__ram_tl_state_source__v0 = 0U;
-    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_19__DOT__ram_tl_state_source__v0 = 0U;
-    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_20__DOT__ram_tl_state_source__v0 = 0U;
-    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_21__DOT__ram_tl_state_source__v0 = 0U;
-    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_22__DOT__ram_tl_state_source__v0 = 0U;
-    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__transmitter__DOT__fifo_tx__DOT__tfifo__DOT__ram__v0 = 0U;
     vlSelf->__Vdly__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_2__DOT__count 
         = vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_2__DOT__count;
+    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver__DOT__fifo_rx__DOT__rfifo__DOT__ram__v0 = 0U;
     if (VL_UNLIKELY((1U & (~ (((~ (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_2_auto_in_d_valid)) 
                                | (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar__DOT__earlyWinner_1)) 
                               | (IData)(vlSelf->reset)))))) {
@@ -1537,6 +1530,7 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__21(VysyxSoCFull___024r
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
         VL_STOP_MT("vsrc/ysyxSoCFull.v", 4544, "");
     }
+    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__transmitter__DOT__fifo_tx__DOT__tfifo__DOT__ram__v0 = 0U;
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__tl2axi4_1__DOT__queue_arw_deq__DOT__ram_echo_tl_state_source__v0 = 0U;
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__tl2axi4_1__DOT__queue_arw_deq__DOT__ram_wen__v0 = 0U;
     if (VL_UNLIKELY((1U & (~ (((~ (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__axi4buf__DOT__bundleIn_0_rdeq__DOT__value_1)) 
@@ -7863,5 +7857,268 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__21(VysyxSoCFull___024r
                                             >> 4U)))) 
                            | (IData)(vlSelf->reset)))))) {
         VL_FWRITEF(0x80000002U,"Assertion failed: 'D' channel AccessAck carries invalid source ID (connected at ChipLinkBridge.scala:152:32)\n    at Monitor.scala:49 assert(cond, message)\n");
+    }
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_2__DOT__monitor_io_in_d_valid) 
+                      & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_opcode))) 
+                     & (~ (((((((((0U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                                >> 4U))) 
+                                  | (1U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                                  >> 4U)))) 
+                                 | (2U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                                 >> 4U)))) 
+                                | (3U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                                >> 4U)))) 
+                               | (4U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                               >> 4U)))) 
+                              | (5U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                              >> 4U)))) 
+                             | (6U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                             >> 4U)))) 
+                            | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                            >> 4U)))) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:76492: Assertion failed in %NysyxSoCFull.asic.chipMaster.widget_2.monitor\n",
+                  64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 76492, "");
+    }
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_2__DOT__monitor_io_in_d_valid) 
+                      & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_opcode))) 
+                     & (~ ((0U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_param)) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_FWRITEF(0x80000002U,"Assertion failed: 'D' channel AccessAck carries invalid param (connected at ChipLinkBridge.scala:152:32)\n    at Monitor.scala:49 assert(cond, message)\n");
+    }
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_2__DOT__monitor_io_in_d_valid) 
+                      & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_opcode))) 
+                     & (~ ((0U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_param)) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:76516: Assertion failed in %NysyxSoCFull.asic.chipMaster.widget_2.monitor\n",
+                  64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 76516, "");
+    }
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_2__DOT__monitor_io_in_d_valid) 
+                      & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_opcode))) 
+                     & (~ ((~ ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_corrupt) 
+                               | (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_2__DOT__corrupt_reg))) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_FWRITEF(0x80000002U,"Assertion failed: 'D' channel AccessAck is corrupt (connected at ChipLinkBridge.scala:152:32)\n    at Monitor.scala:49 assert(cond, message)\n");
+    }
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_2__DOT__monitor_io_in_d_valid) 
+                      & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_opcode))) 
+                     & (~ ((~ ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_corrupt) 
+                               | (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_2__DOT__corrupt_reg))) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:76540: Assertion failed in %NysyxSoCFull.asic.chipMaster.widget_2.monitor\n",
+                  64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 76540, "");
+    }
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_2__DOT__monitor_io_in_d_valid) 
+                      & (1U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_opcode))) 
+                     & (~ (((((((((0U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                                >> 4U))) 
+                                  | (1U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                                  >> 4U)))) 
+                                 | (2U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                                 >> 4U)))) 
+                                | (3U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                                >> 4U)))) 
+                               | (4U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                               >> 4U)))) 
+                              | (5U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                              >> 4U)))) 
+                             | (6U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                             >> 4U)))) 
+                            | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                            >> 4U)))) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_FWRITEF(0x80000002U,"Assertion failed: 'D' channel AccessAckData carries invalid source ID (connected at ChipLinkBridge.scala:152:32)\n    at Monitor.scala:49 assert(cond, message)\n");
+    }
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_2__DOT__monitor_io_in_d_valid) 
+                      & (1U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_opcode))) 
+                     & (~ (((((((((0U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                                >> 4U))) 
+                                  | (1U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                                  >> 4U)))) 
+                                 | (2U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                                 >> 4U)))) 
+                                | (3U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                                >> 4U)))) 
+                               | (4U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                               >> 4U)))) 
+                              | (5U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                              >> 4U)))) 
+                             | (6U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                             >> 4U)))) 
+                            | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                            >> 4U)))) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:76564: Assertion failed in %NysyxSoCFull.asic.chipMaster.widget_2.monitor\n",
+                  64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 76564, "");
+    }
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_2__DOT__monitor_io_in_d_valid) 
+                      & (1U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_opcode))) 
+                     & (~ ((0U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_param)) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_FWRITEF(0x80000002U,"Assertion failed: 'D' channel AccessAckData carries invalid param (connected at ChipLinkBridge.scala:152:32)\n    at Monitor.scala:49 assert(cond, message)\n");
+    }
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_2__DOT__monitor_io_in_d_valid) 
+                      & (1U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_opcode))) 
+                     & (~ ((0U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_param)) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:76588: Assertion failed in %NysyxSoCFull.asic.chipMaster.widget_2.monitor\n",
+                  64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 76588, "");
+    }
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_2__DOT__monitor_io_in_d_valid) 
+                      & (1U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_opcode))) 
+                     & (~ (((~ (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_denied)) 
+                            | ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_corrupt) 
+                               | (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_2__DOT__corrupt_reg))) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_FWRITEF(0x80000002U,"Assertion failed: 'D' channel AccessAckData is denied but not corrupt (connected at ChipLinkBridge.scala:152:32)\n    at Monitor.scala:49 assert(cond, message)\n");
+    }
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_2__DOT__monitor_io_in_d_valid) 
+                      & (1U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_opcode))) 
+                     & (~ (((~ (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_denied)) 
+                            | ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_corrupt) 
+                               | (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_2__DOT__corrupt_reg))) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:76612: Assertion failed in %NysyxSoCFull.asic.chipMaster.widget_2.monitor\n",
+                  64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 76612, "");
+    }
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_2__DOT__monitor_io_in_d_valid) 
+                      & (2U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_opcode))) 
+                     & (~ (((((((((0U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                                >> 4U))) 
+                                  | (1U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                                  >> 4U)))) 
+                                 | (2U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                                 >> 4U)))) 
+                                | (3U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                                >> 4U)))) 
+                               | (4U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                               >> 4U)))) 
+                              | (5U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                              >> 4U)))) 
+                             | (6U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                             >> 4U)))) 
+                            | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                            >> 4U)))) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_FWRITEF(0x80000002U,"Assertion failed: 'D' channel HintAck carries invalid source ID (connected at ChipLinkBridge.scala:152:32)\n    at Monitor.scala:49 assert(cond, message)\n");
+    }
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_2__DOT__monitor_io_in_d_valid) 
+                      & (2U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_opcode))) 
+                     & (~ (((((((((0U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                                >> 4U))) 
+                                  | (1U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                                  >> 4U)))) 
+                                 | (2U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                                 >> 4U)))) 
+                                | (3U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                                >> 4U)))) 
+                               | (4U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                               >> 4U)))) 
+                              | (5U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                              >> 4U)))) 
+                             | (6U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                             >> 4U)))) 
+                            | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_source) 
+                                            >> 4U)))) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:76636: Assertion failed in %NysyxSoCFull.asic.chipMaster.widget_2.monitor\n",
+                  64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 76636, "");
+    }
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_2__DOT__monitor_io_in_d_valid) 
+                      & (2U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_opcode))) 
+                     & (~ ((0U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_param)) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_FWRITEF(0x80000002U,"Assertion failed: 'D' channel HintAck carries invalid param (connected at ChipLinkBridge.scala:152:32)\n    at Monitor.scala:49 assert(cond, message)\n");
+    }
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_2__DOT__monitor_io_in_d_valid) 
+                      & (2U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_opcode))) 
+                     & (~ ((0U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_param)) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:76660: Assertion failed in %NysyxSoCFull.asic.chipMaster.widget_2.monitor\n",
+                  64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 76660, "");
+    }
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_2__DOT__monitor_io_in_d_valid) 
+                      & (2U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_opcode))) 
+                     & (~ ((~ ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_corrupt) 
+                               | (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_2__DOT__corrupt_reg))) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_FWRITEF(0x80000002U,"Assertion failed: 'D' channel HintAck is corrupt (connected at ChipLinkBridge.scala:152:32)\n    at Monitor.scala:49 assert(cond, message)\n");
+    }
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_2__DOT__monitor_io_in_d_valid) 
+                      & (2U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_opcode))) 
+                     & (~ ((~ ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__err_auto_in_d_bits_corrupt) 
+                               | (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_2__DOT__corrupt_reg))) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:76684: Assertion failed in %NysyxSoCFull.asic.chipMaster.widget_2.monitor\n",
+                  64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 76684, "");
+    }
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_1_auto_out_c_valid) 
+                      & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
+                     & (~ ((0U == (0x1000U & (0x1000U 
+                                              ^ vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__mbypass_auto_out_c_bits_address))) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_FWRITEF(0x80000002U,"Assertion failed: 'C' channel ProbeAck carries unmanaged address (connected at ChipLinkBridge.scala:152:32)\n    at Monitor.scala:42 assert(cond, message)\n");
+    }
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_1_auto_out_c_valid) 
+                      & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
+                     & (~ ((0U == (0x1000U & (0x1000U 
+                                              ^ vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__mbypass_auto_out_c_bits_address))) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:76708: Assertion failed in %NysyxSoCFull.asic.chipMaster.widget_2.monitor\n",
+                  64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 76708, "");
+    }
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_1_auto_out_c_valid) 
+                      & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
+                     & (~ (((((((((0U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__mbypass_auto_out_c_bits_source) 
+                                                >> 3U))) 
+                                  | (1U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__mbypass_auto_out_c_bits_source) 
+                                                  >> 3U)))) 
+                                 | (2U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__mbypass_auto_out_c_bits_source) 
+                                                 >> 3U)))) 
+                                | (3U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__mbypass_auto_out_c_bits_source) 
+                                                >> 3U)))) 
+                               | (4U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__mbypass_auto_out_c_bits_source) 
+                                               >> 3U)))) 
+                              | (5U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__mbypass_auto_out_c_bits_source) 
+                                              >> 3U)))) 
+                             | (6U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__mbypass_auto_out_c_bits_source) 
+                                             >> 3U)))) 
+                            | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__mbypass_auto_out_c_bits_source) 
+                                            >> 3U)))) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_FWRITEF(0x80000002U,"Assertion failed: 'C' channel ProbeAck carries invalid source ID (connected at ChipLinkBridge.scala:152:32)\n    at Monitor.scala:42 assert(cond, message)\n");
+    }
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_1_auto_out_c_valid) 
+                      & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
+                     & (~ (((((((((0U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__mbypass_auto_out_c_bits_source) 
+                                                >> 3U))) 
+                                  | (1U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__mbypass_auto_out_c_bits_source) 
+                                                  >> 3U)))) 
+                                 | (2U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__mbypass_auto_out_c_bits_source) 
+                                                 >> 3U)))) 
+                                | (3U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__mbypass_auto_out_c_bits_source) 
+                                                >> 3U)))) 
+                               | (4U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__mbypass_auto_out_c_bits_source) 
+                                               >> 3U)))) 
+                              | (5U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__mbypass_auto_out_c_bits_source) 
+                                              >> 3U)))) 
+                             | (6U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__mbypass_auto_out_c_bits_source) 
+                                             >> 3U)))) 
+                            | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__mbypass_auto_out_c_bits_source) 
+                                            >> 3U)))) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:76732: Assertion failed in %NysyxSoCFull.asic.chipMaster.widget_2.monitor\n",
+                  64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 76732, "");
     }
 }

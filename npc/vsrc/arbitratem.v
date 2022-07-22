@@ -245,10 +245,8 @@ module arbitratem (
                     axi_state_n = `ysyx22040228_AXI_IDLE;
             end
             `ysyx22040228_AXI_SEND: begin
-                if(success)
-                    axi_state_n = `ysyx22040228_AXI_OK  ;
-                else if(axi_shankhand)
-                    axi_state_n = `ysyx22040228_AXI_WRITE;
+                if(axi_shankhand)
+                    axi_state_n = `ysyx22040228_AXI_WRITE  ;
                 else 
                     axi_state_n = `ysyx22040228_AXI_SEND ;
             end 

@@ -1880,13 +1880,13 @@ VL_INLINE_OPT void VysyxSoCFull_TLWidthWidget___sequent__TOP__ysyxSoCFull__DOT__
         vlSelf->__PVT__repeated_repeater__DOT__saved_mask 
             = vlSymsp->TOP.ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi42tl_auto_out_a_bits_mask;
     }
-    vlSelf->__PVT__bundleIn_0_d_bits_data_rdata_written_once 
-        = ((~ (IData)(vlSymsp->TOP.reset)) & (IData)(vlSelf->__PVT___GEN_10));
     if (((IData)(vlSelf->__PVT__repeated_repeater__DOT___T) 
          & (~ (IData)(vlSelf->__PVT__repeat_last)))) {
         vlSelf->__PVT__repeated_repeater__DOT__saved_data 
             = vlSymsp->TOP.ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi42tl_auto_out_a_bits_data;
     }
+    vlSelf->__PVT__bundleIn_0_d_bits_data_rdata_written_once 
+        = ((~ (IData)(vlSymsp->TOP.reset)) & (IData)(vlSelf->__PVT___GEN_10));
     if (((IData)(vlSelf->__PVT___T) & (~ (IData)(vlSelf->__PVT__last)))) {
         if (vlSelf->__PVT__bundleIn_0_d_bits_data_masked_enable_0) {
             vlSelf->__PVT__bundleIn_0_d_bits_data_rdata_0 

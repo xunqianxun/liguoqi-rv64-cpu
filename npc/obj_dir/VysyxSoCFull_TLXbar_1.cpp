@@ -185,15 +185,10 @@ VL_INLINE_OPT void VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__asic__
                                                    & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_bits_denied)) 
                                                   | ((IData)(vlSelf->__PVT__muxStateEarly_1) 
                                                      & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__ferr.auto_in_d_bits_denied)));
-    if (vlSelf->__PVT__muxStateEarly_0) {
-        __PVT___T_33 = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar__DOT__bypass)
-                         ? 0U : (IData)(vlSymsp->TOP.ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sourceD_io_d_bits_sink));
-        vlSelf->auto_in_d_bits_data = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar__DOT__bypass)
-                                        ? 0U : vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sourceD_io_q_sink.__PVT__io_deq_bits_deq_bits_reg__DOT__cdc_reg);
-    } else {
-        __PVT___T_33 = 0U;
-        vlSelf->auto_in_d_bits_data = 0U;
-    }
+    __PVT___T_33 = ((IData)(vlSelf->__PVT__muxStateEarly_0)
+                     ? ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar__DOT__bypass)
+                         ? 0U : (IData)(vlSymsp->TOP.ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sourceD_io_d_bits_sink))
+                     : 0U);
     vlSelf->auto_in_d_bits_denied = (((IData)(vlSelf->__PVT__muxStateEarly_0) 
                                       & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_bits_denied)) 
                                      | ((IData)(vlSelf->__PVT__muxStateEarly_1) 
@@ -203,12 +198,15 @@ VL_INLINE_OPT void VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__asic__
                                       | ((IData)(vlSelf->__PVT__muxStateEarly_1) 
                                          & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__ferr.auto_in_d_bits_corrupt)));
     if (vlSelf->__PVT__muxStateEarly_0) {
+        vlSelf->auto_in_d_bits_data = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar__DOT__bypass)
+                                        ? 0U : vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sourceD_io_q_sink.__PVT__io_deq_bits_deq_bits_reg__DOT__cdc_reg);
         __PVT___T_36 = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar__DOT__bypass)
                          ? (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__error_auto_in_d_bits_source)
                          : (IData)(vlSymsp->TOP.ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sourceD_io_d_bits_source));
         __PVT___T_39 = vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_bits_size;
         __PVT___T_45 = vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_bits_opcode;
     } else {
+        vlSelf->auto_in_d_bits_data = 0U;
         __PVT___T_36 = 0U;
         __PVT___T_39 = 0U;
         __PVT___T_45 = 0U;
