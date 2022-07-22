@@ -395,4 +395,19 @@ module arbitratem (
 
     assign axi_shankhand = (axi_w_ready) | axi_ar_ready ;
 
+    reg     aw_enable ;
+    reg     aw_enable_n ;
+    always @(posedge clk) begin
+        if(rst == `ysyx22040228_RSTENA)
+            aw_enable <= `ysyx22040228_ENABLE;
+        else 
+            aw_enable <= aw_enable_n ;
+    end
+    always @(*) begin
+        if(axi_aw_ready)
+            aw_enable_n = 1'b1 ;
+        else 
+            aw_enable_n = 1'b0 ;
+    end
+
 endmodule
