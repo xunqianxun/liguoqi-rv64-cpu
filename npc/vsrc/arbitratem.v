@@ -392,6 +392,6 @@ module arbitratem (
     assign dread_ok_u  = sign_delay_unread   ;
     assign dwrite_ok_u = sign_delay_unwrite  ;
 
-    assign axi_shankhand = (axi_aw_ready | axi_w_ready) | axi_ar_ready ;
+    assign axi_shankhand = (axi_aw_ready & axi_w_ready) | axi_ar_ready ;
 
 endmodule
