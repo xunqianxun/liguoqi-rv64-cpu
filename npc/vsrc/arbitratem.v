@@ -243,6 +243,9 @@ module arbitratem (
             dread_cache_valid<= `ysyx22040228_ABLE  ;
             dread_weite      <= `ysyx22040228_ENABLE;
         end 
+        else if(dread_ok) begin
+            dread_ok         <= `ysyx22040228_ENABLE;
+        end 
         else if(dread_arshankhand | dread_weite) begin
             dread_ar_valid   <= `ysyx22040228_ENABLE ;
             dread_weite      <= `ysyx22040228_ABLE   ;
