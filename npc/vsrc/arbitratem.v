@@ -228,7 +228,7 @@ module arbitratem (
     reg     dread_success                                           ;
     assign dread_success = (axi_r_id == 4'b0001) && dread_r_ready && axi_r_valid && axi_r_last && (axi_r_resp == 2'b00) ;
     always @(posedge clk) begin
-        if(dread_success) begin
+        if(dread_success && (arbitrate_state == `ysyx22040228_ARB_DREAD)) begin
             dread_ar_id      <= 4'b0001             ;
             dread_ar_addr    <= `ysyx22040228_ZEROWORD ;
             dread_ar_len     <= 8'b0                ;
@@ -288,7 +288,7 @@ module arbitratem (
     reg    dread_success_u                                            ;
     assign dread_success_u = (axi_r_id == 4'b0001) && dread_r_ready_u && axi_r_valid && axi_r_last && (axi_r_resp == 2'b00) ;
     always @(posedge clk) begin
-        if(dread_success_u) begin
+        if(dread_success_u && (arbitrate_state == `ysyx22040228_ARB_DREADU)) begin
             dread_ar_id_u      <= 4'b0001             ;
             dread_ar_addr_u    <= `ysyx22040228_ZEROWORD ;
             dread_ar_len_u     <= 8'b0                ;
@@ -348,7 +348,7 @@ module arbitratem (
     reg    iread_success                                            ;
     assign iread_success = (axi_r_id == 4'b0000) && iread_r_ready && axi_r_valid && axi_r_last && (axi_r_resp == 2'b00) ;
     always @(posedge clk) begin
-        if((iread_success)) begin
+        if((iread_success) && (arbitrate_state == `ysyx22040228_ARB_IREAD)) begin
             iread_ar_id      <= 4'b0001             ;
             iread_ar_addr    <= `ysyx22040228_ZEROWORD ;
             iread_ar_len     <= 8'b0                ;
@@ -424,7 +424,7 @@ module arbitratem (
     assign dwrite_success     = dwrite_b_ready && axi_b_valid && (axi_b_id == 4'b0001) && (axi_b_resp == 2'b00) ;
     reg    dwrite_ok                                                 ;
     always @(posedge clk) begin
-        if(dwrite_success) begin
+        if(dwrite_success && (arbitrate_state == `ysyx22040228_ARB_DWRITE)) begin
             dwrite_aw_valid     <= `ysyx22040228_ENABLE;
             dwrite_w_valid      <= `ysyx22040228_ENABLE;
             dwrite_cache_valid  <= `ysyx22040228_ABLE  ;
@@ -478,6 +478,7 @@ module arbitratem (
     reg                                       dwrite_w_last_u           ;
     reg                                       dwrite_w_valid_u          ;
     reg                                       dwrite_cache_valid_u      ;
+    reg                                       dwrite_werite_u           ;
 
     wire                                      dwrite_b_ready_u          ; 
     wire                                      dwrite_awshankhand_u      ;
@@ -489,19 +490,21 @@ module arbitratem (
     assign dwrite_success_u   = dwrite_b_ready_u && axi_b_valid && (axi_b_id == 4'b0001) && (axi_b_resp == 2'b00) ;
     reg    dwrite_ok_u                                                ;
     always @(posedge clk) begin
-        if(dwrite_success_u) begin
+        if(dwrite_success_u && (arbitrate_state == `ysyx22040228_ARB_DWRITEU)) begin
             dwrite_aw_valid_u     <= `ysyx22040228_ENABLE;
             dwrite_w_valid_u      <= `ysyx22040228_ENABLE;
             dwrite_cache_valid_u  <= `ysyx22040228_ABLE  ;
             dwrite_ok_u           <= `ysyx22040228_ABLE  ;
             dwrite_w_last_u       <= `ysyx22040228_ENABLE;
+            dwrite_werite_u       <= `ysyx22040228_ENABLE;
         end
         else if(dwrite_ok_u) begin
             dwrite_ok_u          <= `ysyx22040228_ENABLE ;
         end  
-        else if(dwrite_awshankhand_u && dwrite_wshankhand_u)begin
+        else if((dwrite_awshankhand_u && dwrite_wshankhand_u) && (dwrite_werite_u))begin
             dwrite_aw_valid_u     <= `ysyx22040228_ENABLE;
             dwrite_w_valid_u      <= `ysyx22040228_ENABLE;
+            dwrite_werite_u       <= `ysyx22040228_ABLE  ;
         end 
         else if(arbitrate_state == `ysyx22040228_ARB_DWRITEU) begin
             dwrite_aw_id_u        <= 4'b0001           ;
