@@ -561,8 +561,8 @@ module arbitratem (
     assign axi_aw_qos     = (arbitrate_state == `ysyx22040228_ARB_DWRITE)  ?  dwrite_aw_qos    :
                             (arbitrate_state == `ysyx22040228_ARB_DWRITEU) ?  dwrite_aw_qos_u  :
                                                                               4'b0000          ;
-    assign axi_aw_valid   = (arbitrate_state == `ysyx22040228_ARB_DWRITE)  ?  dwrite_aw_valid  :
-                            (arbitrate_state == `ysyx22040228_ARB_DWRITEU) ?  dwrite_aw_valid_u:
+    assign axi_aw_valid   = (arbitrate_state == `ysyx22040228_ARB_DWRITE)  ?  dwrite_aw_valid && ~dwrite_awshankhand  :
+                            (arbitrate_state == `ysyx22040228_ARB_DWRITEU) ?  dwrite_aw_valid_u && ~dwrite_awshankhand_u:
                                                                               1'b0             ;
 
     assign axi_w_data     = (arbitrate_state == `ysyx22040228_ARB_DWRITE)  ?  dwrite_w_data    :
@@ -574,8 +574,8 @@ module arbitratem (
     assign axi_w_last     = (arbitrate_state == `ysyx22040228_ARB_DWRITE)  ?  dwrite_w_last    :
                             (arbitrate_state == `ysyx22040228_ARB_DWRITEU) ?  dwrite_w_last_u  :
                                                                               1'b0             ;
-    assign axi_w_valid    = (arbitrate_state == `ysyx22040228_ARB_DWRITE)  ?  dwrite_w_valid   :
-                            (arbitrate_state == `ysyx22040228_ARB_DWRITEU) ?  dwrite_w_valid_u :
+    assign axi_w_valid    = (arbitrate_state == `ysyx22040228_ARB_DWRITE)  ?  dwrite_w_valid && ~dwrite_wshankhand   :
+                            (arbitrate_state == `ysyx22040228_ARB_DWRITEU) ?  dwrite_w_valid_u && ~dwrite_wshankhand_u :
                                                                               1'b0             ;
 
     assign axi_b_ready    = (arbitrate_state == `ysyx22040228_ARB_DWRITE)  ?  dwrite_b_ready   :
@@ -614,9 +614,9 @@ module arbitratem (
                             (arbitrate_state == `ysyx22040228_ARB_DREAD)  ? dread_ar_qos      :
                             (arbitrate_state == `ysyx22040228_ARB_DREADU) ? dread_ar_qos_u    :
                                                                              4'b0000          ;
-    assign axi_ar_valid   = (arbitrate_state == `ysyx22040228_ARB_IREAD)  ? iread_ar_valid    :
-                            (arbitrate_state == `ysyx22040228_ARB_DREAD)  ? dread_ar_valid    :
-                            (arbitrate_state == `ysyx22040228_ARB_DREADU) ? dread_ar_valid_u  :
+    assign axi_ar_valid   = (arbitrate_state == `ysyx22040228_ARB_IREAD)  ? iread_ar_valid && ~iread_arshankhand  :
+                            (arbitrate_state == `ysyx22040228_ARB_DREAD)  ? dread_ar_valid && ~dread_arshankhand :
+                            (arbitrate_state == `ysyx22040228_ARB_DREADU) ? dread_ar_valid_u && ~dread_arshankhand_u  :
                                                                          `ysyx22040228_ENABLE ;
     assign axi_r_ready    = (arbitrate_state == `ysyx22040228_ARB_IREAD)  ? iread_r_ready     :
                             (arbitrate_state == `ysyx22040228_ARB_DREAD)  ? dread_r_ready     :
