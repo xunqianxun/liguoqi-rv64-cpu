@@ -300,8 +300,11 @@ module arbitratem (
             dread_cache_valid_u<= `ysyx22040228_ABLE  ;
             dread_wetite_u     <= `ysyx22040228_ENABLE;
         end 
+        else if(dread_ok_u) begin
+            dread_ok_u        <= `ysyx22040228_ENABLE ;
+        end 
         else if(dread_arshankhand_u | dread_wetite_u) begin
-            dread_ar_valid_u   <= `ysyx22040228_ENABLE ;
+            dread_ar_valid_u   <= `ysyx22040228_ENABLE;
             dread_wetite_u     <= `ysyx22040228_ABLE  ;
         end 
         else if(arbitrate_state == `ysyx22040228_ARB_DREADU) begin
@@ -311,7 +314,7 @@ module arbitratem (
             dread_ar_size_u    <= uncache_size_data   ;
             dread_ar_burst_u   <= `AXI_BURST_TYPE_INCR;
             dread_ar_cache_u   <= `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE ;
-            dread_ar_prot_u    <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
+            dread_ar_prot_u    <= `AXI_PROT_UNPRIVILEGED_ACCESS  ;
             dread_ar_qos_u     <= 4'h0                ;
             dread_ar_valid_u   <= `ysyx22040228_ABLE  ;
         end 
