@@ -233,7 +233,7 @@ module arbitratem (
     wire   success_uncahcewrite  ;
     wire   axi_shankhand         ;
     wire   shankhand  ;
-    assign shankhand = read_uncahce_shankhand | write_dcache_shankhand | read_icache_shankhand | read_uncahce_shankhand | write_uncahce_shankhand ;
+    assign shankhand = read_dcache_shankhand | write_dcache_shankhand | read_icache_shankhand | read_uncahce_shankhand | write_uncahce_shankhand ;
     wire   success    ;
     assign success   = sign_delay_dread | sign_delay_dwrite | sign_delay_iread | sign_delay_unread | sign_delay_unwrite ;
     always @(*) begin
