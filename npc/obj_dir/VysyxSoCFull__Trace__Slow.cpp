@@ -8583,8 +8583,6 @@ void VysyxSoCFull___024root__traceInitSub0(VysyxSoCFull___024root* vlSelf, Veril
         tracep->declQuad(c+3546,"ysyxSoCFull asic cpu cpu data_cache3 fence_data_out", false,-1, 63,0);
         tracep->declQuad(c+3548,"ysyxSoCFull asic cpu cpu data_cache3 fence_addr_out", false,-1, 63,0);
         tracep->declBus(c+3550,"ysyxSoCFull asic cpu cpu data_cache3 fence_type_out", false,-1, 3,0);
-        tracep->declQuad(c+20031,"ysyxSoCFull asic cpu cpu data_cache3 fence_addr_cache", false,-1, 63,0);
-        tracep->declBit(c+20033,"ysyxSoCFull asic cpu cpu data_cache3 check_two", false,-1);
         tracep->declBit(c+3551,"ysyxSoCFull asic cpu cpu data_cache3 delay_oclk", false,-1);
         tracep->declBit(c+15186,"ysyxSoCFull asic cpu cpu data_cache3 dcache_read_shankhand", false,-1);
         tracep->declBit(c+15187,"ysyxSoCFull asic cpu cpu data_cache3 dcache_write_shankhand", false,-1);
@@ -8988,7 +8986,7 @@ void VysyxSoCFull___024root__traceInitSub0(VysyxSoCFull___024root* vlSelf, Veril
         tracep->declBit(c+18448,"ysyxSoCFull asic luart muart_in_penable", false,-1);
         tracep->declBit(c+102,"ysyxSoCFull asic luart muart_in_pwrite", false,-1);
         tracep->declBus(c+18455,"ysyxSoCFull asic luart muart_in_paddr", false,-1, 31,0);
-        tracep->declBus(c+20034,"ysyxSoCFull asic luart muart_in_pprot", false,-1, 2,0);
+        tracep->declBus(c+20031,"ysyxSoCFull asic luart muart_in_pprot", false,-1, 2,0);
         tracep->declBus(c+103,"ysyxSoCFull asic luart muart_in_pwdata", false,-1, 31,0);
         tracep->declBus(c+104,"ysyxSoCFull asic luart muart_in_pstrb", false,-1, 3,0);
         tracep->declBit(c+18450,"ysyxSoCFull asic luart muart_in_pready", false,-1);
@@ -9000,7 +8998,7 @@ void VysyxSoCFull___024root__traceInitSub0(VysyxSoCFull___024root* vlSelf, Veril
         tracep->declBit(c+19962,"ysyxSoCFull asic luart muart clk", false,-1);
         tracep->declBit(c+18447,"ysyxSoCFull asic luart muart in_psel", false,-1);
         tracep->declBit(c+18448,"ysyxSoCFull asic luart muart in_penable", false,-1);
-        tracep->declBus(c+20034,"ysyxSoCFull asic luart muart in_pprot", false,-1, 2,0);
+        tracep->declBus(c+20031,"ysyxSoCFull asic luart muart in_pprot", false,-1, 2,0);
         tracep->declBit(c+18450,"ysyxSoCFull asic luart muart in_pready", false,-1);
         tracep->declBit(c+19996,"ysyxSoCFull asic luart muart in_pslverr", false,-1);
         tracep->declBus(c+18455,"ysyxSoCFull asic luart muart in_paddr", false,-1, 31,0);
@@ -9033,7 +9031,7 @@ void VysyxSoCFull___024root__traceInitSub0(VysyxSoCFull___024root* vlSelf, Veril
         tracep->declBit(c+18142,"ysyxSoCFull asic luart muart Uregs wb_re_i", false,-1);
         tracep->declBit(c+16476,"ysyxSoCFull asic luart muart Uregs stx_pad_o", false,-1);
         tracep->declBit(c+19996,"ysyxSoCFull asic luart muart Uregs srx_pad_i", false,-1);
-        tracep->declBus(c+20035,"ysyxSoCFull asic luart muart Uregs modem_inputs", false,-1, 3,0);
+        tracep->declBus(c+20032,"ysyxSoCFull asic luart muart Uregs modem_inputs", false,-1, 3,0);
         tracep->declBit(c+16506,"ysyxSoCFull asic luart muart Uregs rts_pad_o", false,-1);
         tracep->declBit(c+16504,"ysyxSoCFull asic luart muart Uregs dtr_pad_o", false,-1);
         tracep->declBit(c+16505,"ysyxSoCFull asic luart muart Uregs int_o", false,-1);
@@ -9158,15 +9156,15 @@ void VysyxSoCFull___024root__traceInitSub0(VysyxSoCFull___024root* vlSelf, Veril
         tracep->declBus(c+16598,"ysyxSoCFull asic luart muart Uregs transmitter tf_data_out", false,-1, 7,0);
         tracep->declBit(c+16599,"ysyxSoCFull asic luart muart Uregs transmitter tf_overrun", false,-1);
         tracep->declBus(c+20001,"ysyxSoCFull asic luart muart Uregs transmitter s_idle", false,-1, 2,0);
-        tracep->declBus(c+20034,"ysyxSoCFull asic luart muart Uregs transmitter s_send_start", false,-1, 2,0);
-        tracep->declBus(c+20036,"ysyxSoCFull asic luart muart Uregs transmitter s_send_byte", false,-1, 2,0);
-        tracep->declBus(c+20037,"ysyxSoCFull asic luart muart Uregs transmitter s_send_parity", false,-1, 2,0);
-        tracep->declBus(c+20038,"ysyxSoCFull asic luart muart Uregs transmitter s_send_stop", false,-1, 2,0);
-        tracep->declBus(c+20039,"ysyxSoCFull asic luart muart Uregs transmitter s_pop_byte", false,-1, 2,0);
-        tracep->declBus(c+20040,"ysyxSoCFull asic luart muart Uregs transmitter fifo_tx fifo_width", false,-1, 31,0);
-        tracep->declBus(c+20041,"ysyxSoCFull asic luart muart Uregs transmitter fifo_tx fifo_depth", false,-1, 31,0);
-        tracep->declBus(c+20042,"ysyxSoCFull asic luart muart Uregs transmitter fifo_tx fifo_pointer_w", false,-1, 31,0);
-        tracep->declBus(c+20043,"ysyxSoCFull asic luart muart Uregs transmitter fifo_tx fifo_counter_w", false,-1, 31,0);
+        tracep->declBus(c+20031,"ysyxSoCFull asic luart muart Uregs transmitter s_send_start", false,-1, 2,0);
+        tracep->declBus(c+20033,"ysyxSoCFull asic luart muart Uregs transmitter s_send_byte", false,-1, 2,0);
+        tracep->declBus(c+20034,"ysyxSoCFull asic luart muart Uregs transmitter s_send_parity", false,-1, 2,0);
+        tracep->declBus(c+20035,"ysyxSoCFull asic luart muart Uregs transmitter s_send_stop", false,-1, 2,0);
+        tracep->declBus(c+20036,"ysyxSoCFull asic luart muart Uregs transmitter s_pop_byte", false,-1, 2,0);
+        tracep->declBus(c+20037,"ysyxSoCFull asic luart muart Uregs transmitter fifo_tx fifo_width", false,-1, 31,0);
+        tracep->declBus(c+20038,"ysyxSoCFull asic luart muart Uregs transmitter fifo_tx fifo_depth", false,-1, 31,0);
+        tracep->declBus(c+20039,"ysyxSoCFull asic luart muart Uregs transmitter fifo_tx fifo_pointer_w", false,-1, 31,0);
+        tracep->declBus(c+20040,"ysyxSoCFull asic luart muart Uregs transmitter fifo_tx fifo_counter_w", false,-1, 31,0);
         tracep->declBit(c+19962,"ysyxSoCFull asic luart muart Uregs transmitter fifo_tx clk", false,-1);
         tracep->declBit(c+19963,"ysyxSoCFull asic luart muart Uregs transmitter fifo_tx wb_rst_i", false,-1);
         tracep->declBit(c+16552,"ysyxSoCFull asic luart muart Uregs transmitter fifo_tx push", false,-1);
@@ -9180,9 +9178,9 @@ void VysyxSoCFull___024root__traceInitSub0(VysyxSoCFull___024root* vlSelf, Veril
         tracep->declBus(c+16600,"ysyxSoCFull asic luart muart Uregs transmitter fifo_tx top", false,-1, 3,0);
         tracep->declBus(c+16601,"ysyxSoCFull asic luart muart Uregs transmitter fifo_tx bottom", false,-1, 3,0);
         tracep->declBus(c+16602,"ysyxSoCFull asic luart muart Uregs transmitter fifo_tx top_plus_1", false,-1, 3,0);
-        tracep->declBus(c+20042,"ysyxSoCFull asic luart muart Uregs transmitter fifo_tx tfifo addr_width", false,-1, 31,0);
-        tracep->declBus(c+20040,"ysyxSoCFull asic luart muart Uregs transmitter fifo_tx tfifo data_width", false,-1, 31,0);
-        tracep->declBus(c+20041,"ysyxSoCFull asic luart muart Uregs transmitter fifo_tx tfifo depth", false,-1, 31,0);
+        tracep->declBus(c+20039,"ysyxSoCFull asic luart muart Uregs transmitter fifo_tx tfifo addr_width", false,-1, 31,0);
+        tracep->declBus(c+20037,"ysyxSoCFull asic luart muart Uregs transmitter fifo_tx tfifo data_width", false,-1, 31,0);
+        tracep->declBus(c+20038,"ysyxSoCFull asic luart muart Uregs transmitter fifo_tx tfifo depth", false,-1, 31,0);
         tracep->declBit(c+19962,"ysyxSoCFull asic luart muart Uregs transmitter fifo_tx tfifo clk", false,-1);
         tracep->declBit(c+16552,"ysyxSoCFull asic luart muart Uregs transmitter fifo_tx tfifo we", false,-1);
         tracep->declBus(c+16600,"ysyxSoCFull asic luart muart Uregs transmitter fifo_tx tfifo a", false,-1, 3,0);
@@ -9191,9 +9189,9 @@ void VysyxSoCFull___024root__traceInitSub0(VysyxSoCFull___024root* vlSelf, Veril
         tracep->declBus(c+16598,"ysyxSoCFull asic luart muart Uregs transmitter fifo_tx tfifo dpo", false,-1, 7,0);
         {int i; for (i=0; i<16; i++) {
                 tracep->declBus(c+3658+i*1,"ysyxSoCFull asic luart muart Uregs transmitter fifo_tx tfifo ram", true,(i+0), 7,0);}}
-        tracep->declBus(c+20044,"ysyxSoCFull asic luart muart Uregs i_uart_sync_flops width", false,-1, 31,0);
-        tracep->declBus(c+20045,"ysyxSoCFull asic luart muart Uregs i_uart_sync_flops init_value", false,-1, 0,0);
-        tracep->declBus(c+20044,"ysyxSoCFull asic luart muart Uregs i_uart_sync_flops Tp", false,-1, 31,0);
+        tracep->declBus(c+20041,"ysyxSoCFull asic luart muart Uregs i_uart_sync_flops width", false,-1, 31,0);
+        tracep->declBus(c+20042,"ysyxSoCFull asic luart muart Uregs i_uart_sync_flops init_value", false,-1, 0,0);
+        tracep->declBus(c+20041,"ysyxSoCFull asic luart muart Uregs i_uart_sync_flops Tp", false,-1, 31,0);
         tracep->declBit(c+19963,"ysyxSoCFull asic luart muart Uregs i_uart_sync_flops rst_i", false,-1);
         tracep->declBit(c+19962,"ysyxSoCFull asic luart muart Uregs i_uart_sync_flops clk_i", false,-1);
         tracep->declBit(c+19996,"ysyxSoCFull asic luart muart Uregs i_uart_sync_flops stage1_rst_i", false,-1);
@@ -9234,22 +9232,22 @@ void VysyxSoCFull___024root__traceInitSub0(VysyxSoCFull___024root* vlSelf, Veril
         tracep->declBit(c+16619,"ysyxSoCFull asic luart muart Uregs receiver rcounter16_eq_1", false,-1);
         tracep->declBus(c+16620,"ysyxSoCFull asic luart muart Uregs receiver rcounter16_minus_1", false,-1, 3,0);
         tracep->declBus(c+20000,"ysyxSoCFull asic luart muart Uregs receiver sr_idle", false,-1, 3,0);
-        tracep->declBus(c+20046,"ysyxSoCFull asic luart muart Uregs receiver sr_rec_start", false,-1, 3,0);
-        tracep->declBus(c+20047,"ysyxSoCFull asic luart muart Uregs receiver sr_rec_bit", false,-1, 3,0);
-        tracep->declBus(c+20048,"ysyxSoCFull asic luart muart Uregs receiver sr_rec_parity", false,-1, 3,0);
-        tracep->declBus(c+20049,"ysyxSoCFull asic luart muart Uregs receiver sr_rec_stop", false,-1, 3,0);
-        tracep->declBus(c+20050,"ysyxSoCFull asic luart muart Uregs receiver sr_check_parity", false,-1, 3,0);
-        tracep->declBus(c+20051,"ysyxSoCFull asic luart muart Uregs receiver sr_rec_prepare", false,-1, 3,0);
-        tracep->declBus(c+20052,"ysyxSoCFull asic luart muart Uregs receiver sr_end_bit", false,-1, 3,0);
-        tracep->declBus(c+20035,"ysyxSoCFull asic luart muart Uregs receiver sr_ca_lc_parity", false,-1, 3,0);
-        tracep->declBus(c+20053,"ysyxSoCFull asic luart muart Uregs receiver sr_wait1", false,-1, 3,0);
-        tracep->declBus(c+20054,"ysyxSoCFull asic luart muart Uregs receiver sr_push", false,-1, 3,0);
+        tracep->declBus(c+20043,"ysyxSoCFull asic luart muart Uregs receiver sr_rec_start", false,-1, 3,0);
+        tracep->declBus(c+20044,"ysyxSoCFull asic luart muart Uregs receiver sr_rec_bit", false,-1, 3,0);
+        tracep->declBus(c+20045,"ysyxSoCFull asic luart muart Uregs receiver sr_rec_parity", false,-1, 3,0);
+        tracep->declBus(c+20046,"ysyxSoCFull asic luart muart Uregs receiver sr_rec_stop", false,-1, 3,0);
+        tracep->declBus(c+20047,"ysyxSoCFull asic luart muart Uregs receiver sr_check_parity", false,-1, 3,0);
+        tracep->declBus(c+20048,"ysyxSoCFull asic luart muart Uregs receiver sr_rec_prepare", false,-1, 3,0);
+        tracep->declBus(c+20049,"ysyxSoCFull asic luart muart Uregs receiver sr_end_bit", false,-1, 3,0);
+        tracep->declBus(c+20032,"ysyxSoCFull asic luart muart Uregs receiver sr_ca_lc_parity", false,-1, 3,0);
+        tracep->declBus(c+20050,"ysyxSoCFull asic luart muart Uregs receiver sr_wait1", false,-1, 3,0);
+        tracep->declBus(c+20051,"ysyxSoCFull asic luart muart Uregs receiver sr_push", false,-1, 3,0);
         tracep->declBus(c+16621,"ysyxSoCFull asic luart muart Uregs receiver toc_value", false,-1, 9,0);
         tracep->declBus(c+16622,"ysyxSoCFull asic luart muart Uregs receiver brc_value", false,-1, 7,0);
-        tracep->declBus(c+20055,"ysyxSoCFull asic luart muart Uregs receiver fifo_rx fifo_width", false,-1, 31,0);
-        tracep->declBus(c+20041,"ysyxSoCFull asic luart muart Uregs receiver fifo_rx fifo_depth", false,-1, 31,0);
-        tracep->declBus(c+20042,"ysyxSoCFull asic luart muart Uregs receiver fifo_rx fifo_pointer_w", false,-1, 31,0);
-        tracep->declBus(c+20043,"ysyxSoCFull asic luart muart Uregs receiver fifo_rx fifo_counter_w", false,-1, 31,0);
+        tracep->declBus(c+20052,"ysyxSoCFull asic luart muart Uregs receiver fifo_rx fifo_width", false,-1, 31,0);
+        tracep->declBus(c+20038,"ysyxSoCFull asic luart muart Uregs receiver fifo_rx fifo_depth", false,-1, 31,0);
+        tracep->declBus(c+20039,"ysyxSoCFull asic luart muart Uregs receiver fifo_rx fifo_pointer_w", false,-1, 31,0);
+        tracep->declBus(c+20040,"ysyxSoCFull asic luart muart Uregs receiver fifo_rx fifo_counter_w", false,-1, 31,0);
         tracep->declBit(c+19962,"ysyxSoCFull asic luart muart Uregs receiver fifo_rx clk", false,-1);
         tracep->declBit(c+19963,"ysyxSoCFull asic luart muart Uregs receiver fifo_rx wb_rst_i", false,-1);
         tracep->declBit(c+16556,"ysyxSoCFull asic luart muart Uregs receiver fifo_rx push", false,-1);
@@ -9283,9 +9281,9 @@ void VysyxSoCFull___024root__traceInitSub0(VysyxSoCFull___024root* vlSelf, Veril
         tracep->declBus(c+16655,"ysyxSoCFull asic luart muart Uregs receiver fifo_rx word13", false,-1, 2,0);
         tracep->declBus(c+16656,"ysyxSoCFull asic luart muart Uregs receiver fifo_rx word14", false,-1, 2,0);
         tracep->declBus(c+16657,"ysyxSoCFull asic luart muart Uregs receiver fifo_rx word15", false,-1, 2,0);
-        tracep->declBus(c+20042,"ysyxSoCFull asic luart muart Uregs receiver fifo_rx rfifo addr_width", false,-1, 31,0);
-        tracep->declBus(c+20040,"ysyxSoCFull asic luart muart Uregs receiver fifo_rx rfifo data_width", false,-1, 31,0);
-        tracep->declBus(c+20041,"ysyxSoCFull asic luart muart Uregs receiver fifo_rx rfifo depth", false,-1, 31,0);
+        tracep->declBus(c+20039,"ysyxSoCFull asic luart muart Uregs receiver fifo_rx rfifo addr_width", false,-1, 31,0);
+        tracep->declBus(c+20037,"ysyxSoCFull asic luart muart Uregs receiver fifo_rx rfifo data_width", false,-1, 31,0);
+        tracep->declBus(c+20038,"ysyxSoCFull asic luart muart Uregs receiver fifo_rx rfifo depth", false,-1, 31,0);
         tracep->declBit(c+19962,"ysyxSoCFull asic luart muart Uregs receiver fifo_rx rfifo clk", false,-1);
         tracep->declBit(c+16556,"ysyxSoCFull asic luart muart Uregs receiver fifo_rx rfifo we", false,-1);
         tracep->declBus(c+16639,"ysyxSoCFull asic luart muart Uregs receiver fifo_rx rfifo a", false,-1, 3,0);
@@ -9315,7 +9313,7 @@ void VysyxSoCFull___024root__traceInitSub0(VysyxSoCFull___024root* vlSelf, Veril
         tracep->declBit(c+18452,"ysyxSoCFull asic lspi mspi_in_penable", false,-1);
         tracep->declBit(c+102,"ysyxSoCFull asic lspi mspi_in_pwrite", false,-1);
         tracep->declBus(c+18459,"ysyxSoCFull asic lspi mspi_in_paddr", false,-1, 31,0);
-        tracep->declBus(c+20034,"ysyxSoCFull asic lspi mspi_in_pprot", false,-1, 2,0);
+        tracep->declBus(c+20031,"ysyxSoCFull asic lspi mspi_in_pprot", false,-1, 2,0);
         tracep->declBus(c+103,"ysyxSoCFull asic lspi mspi_in_pwdata", false,-1, 31,0);
         tracep->declBus(c+104,"ysyxSoCFull asic lspi mspi_in_pstrb", false,-1, 3,0);
         tracep->declBit(c+16477,"ysyxSoCFull asic lspi mspi_in_pready", false,-1);
@@ -9326,15 +9324,15 @@ void VysyxSoCFull___024root__traceInitSub0(VysyxSoCFull___024root* vlSelf, Veril
         tracep->declBit(c+18814,"ysyxSoCFull asic lspi mspi_spi_mosi", false,-1);
         tracep->declBit(c+18436,"ysyxSoCFull asic lspi mspi_spi_miso", false,-1);
         tracep->declBit(c+16659,"ysyxSoCFull asic lspi mspi_spi_irq_out", false,-1);
-        tracep->declBus(c+20056,"ysyxSoCFull asic lspi mspi flash_addr_start", false,-1, 31,0);
-        tracep->declBus(c+20057,"ysyxSoCFull asic lspi mspi flash_addr_end", false,-1, 31,0);
-        tracep->declBus(c+20058,"ysyxSoCFull asic lspi mspi spi_cs_num", false,-1, 31,0);
+        tracep->declBus(c+20053,"ysyxSoCFull asic lspi mspi flash_addr_start", false,-1, 31,0);
+        tracep->declBus(c+20054,"ysyxSoCFull asic lspi mspi flash_addr_end", false,-1, 31,0);
+        tracep->declBus(c+20055,"ysyxSoCFull asic lspi mspi spi_cs_num", false,-1, 31,0);
         tracep->declBit(c+19962,"ysyxSoCFull asic lspi mspi clk", false,-1);
         tracep->declBit(c+19975,"ysyxSoCFull asic lspi mspi resetn", false,-1);
         tracep->declBus(c+18459,"ysyxSoCFull asic lspi mspi in_paddr", false,-1, 31,0);
         tracep->declBit(c+18451,"ysyxSoCFull asic lspi mspi in_psel", false,-1);
         tracep->declBit(c+18452,"ysyxSoCFull asic lspi mspi in_penable", false,-1);
-        tracep->declBus(c+20034,"ysyxSoCFull asic lspi mspi in_pprot", false,-1, 2,0);
+        tracep->declBus(c+20031,"ysyxSoCFull asic lspi mspi in_pprot", false,-1, 2,0);
         tracep->declBit(c+102,"ysyxSoCFull asic lspi mspi in_pwrite", false,-1);
         tracep->declBus(c+103,"ysyxSoCFull asic lspi mspi in_pwdata", false,-1, 31,0);
         tracep->declBus(c+104,"ysyxSoCFull asic lspi mspi in_pstrb", false,-1, 3,0);
@@ -9364,12 +9362,12 @@ void VysyxSoCFull___024root__traceInitSub0(VysyxSoCFull___024root* vlSelf, Veril
         tracep->declBit(c+16668,"ysyxSoCFull asic lspi mspi spi_fire", false,-1);
         tracep->declBus(c+20009,"ysyxSoCFull asic lspi mspi spi_tx_data0", false,-1, 31,0);
         tracep->declBus(c+18829,"ysyxSoCFull asic lspi mspi spi_tx_data1", false,-1, 31,0);
-        tracep->declBus(c+20059,"ysyxSoCFull asic lspi mspi spi_ctl_data", false,-1, 31,0);
+        tracep->declBus(c+20056,"ysyxSoCFull asic lspi mspi spi_ctl_data", false,-1, 31,0);
         tracep->declBit(c+16669,"ysyxSoCFull asic lspi mspi spi_irq", false,-1);
         tracep->declBus(c+18460,"ysyxSoCFull asic lspi mspi paddr_align", false,-1, 31,0);
         tracep->declBit(c+16670,"ysyxSoCFull asic lspi mspi spi_apb_start", false,-1);
         tracep->declBus(c+16671,"ysyxSoCFull asic lspi mspi ss_pad_o", false,-1, 7,0);
-        tracep->declBus(c+20044,"ysyxSoCFull asic lspi mspi u0_spi_top Tp", false,-1, 31,0);
+        tracep->declBus(c+20041,"ysyxSoCFull asic lspi mspi u0_spi_top Tp", false,-1, 31,0);
         tracep->declBit(c+19962,"ysyxSoCFull asic lspi mspi u0_spi_top PCLK", false,-1);
         tracep->declBit(c+19975,"ysyxSoCFull asic lspi mspi u0_spi_top PRESETN", false,-1);
         tracep->declBus(c+18830,"ysyxSoCFull asic lspi mspi u0_spi_top PADDR", false,-1, 4,0);
@@ -9407,7 +9405,7 @@ void VysyxSoCFull___024root__traceInitSub0(VysyxSoCFull___024root* vlSelf, Veril
         tracep->declBit(c+16689,"ysyxSoCFull asic lspi mspi u0_spi_top pos_edge", false,-1);
         tracep->declBit(c+16690,"ysyxSoCFull asic lspi mspi u0_spi_top neg_edge", false,-1);
         tracep->declBit(c+16691,"ysyxSoCFull asic lspi mspi u0_spi_top last_bit", false,-1);
-        tracep->declBus(c+20044,"ysyxSoCFull asic lspi mspi u0_spi_top clgen Tp", false,-1, 31,0);
+        tracep->declBus(c+20041,"ysyxSoCFull asic lspi mspi u0_spi_top clgen Tp", false,-1, 31,0);
         tracep->declBit(c+19962,"ysyxSoCFull asic lspi mspi u0_spi_top clgen clk_in", false,-1);
         tracep->declBit(c+19963,"ysyxSoCFull asic lspi mspi u0_spi_top clgen rst", false,-1);
         tracep->declBit(c+16688,"ysyxSoCFull asic lspi mspi u0_spi_top clgen enable", false,-1);
@@ -9421,11 +9419,11 @@ void VysyxSoCFull___024root__traceInitSub0(VysyxSoCFull___024root* vlSelf, Veril
         tracep->declBus(c+16692,"ysyxSoCFull asic lspi mspi u0_spi_top clgen cnt", false,-1, 7,0);
         tracep->declBit(c+16693,"ysyxSoCFull asic lspi mspi u0_spi_top clgen cnt_zero", false,-1);
         tracep->declBit(c+16694,"ysyxSoCFull asic lspi mspi u0_spi_top clgen cnt_one", false,-1);
-        tracep->declBus(c+20044,"ysyxSoCFull asic lspi mspi u0_spi_top shift Tp", false,-1, 31,0);
+        tracep->declBus(c+20041,"ysyxSoCFull asic lspi mspi u0_spi_top shift Tp", false,-1, 31,0);
         tracep->declBit(c+19962,"ysyxSoCFull asic lspi mspi u0_spi_top shift clk", false,-1);
         tracep->declBit(c+19963,"ysyxSoCFull asic lspi mspi u0_spi_top shift rst", false,-1);
         tracep->declBus(c+18833,"ysyxSoCFull asic lspi mspi u0_spi_top shift latch", false,-1, 3,0);
-        tracep->declBus(c+20060,"ysyxSoCFull asic lspi mspi u0_spi_top shift byte_sel", false,-1, 3,0);
+        tracep->declBus(c+20057,"ysyxSoCFull asic lspi mspi u0_spi_top shift byte_sel", false,-1, 3,0);
         tracep->declBus(c+16682,"ysyxSoCFull asic lspi mspi u0_spi_top shift len", false,-1, 6,0);
         tracep->declBit(c+16684,"ysyxSoCFull asic lspi mspi u0_spi_top shift lsb", false,-1);
         tracep->declBit(c+16683,"ysyxSoCFull asic lspi mspi u0_spi_top shift go", false,-1);
@@ -9446,7 +9444,7 @@ void VysyxSoCFull___024root__traceInitSub0(VysyxSoCFull___024root* vlSelf, Veril
         tracep->declBus(c+16697,"ysyxSoCFull asic lspi mspi u0_spi_top shift rx_bit_pos", false,-1, 7,0);
         tracep->declBit(c+18149,"ysyxSoCFull asic lspi mspi u0_spi_top shift rx_clk", false,-1);
         tracep->declBit(c+16698,"ysyxSoCFull asic lspi mspi u0_spi_top shift tx_clk", false,-1);
-        tracep->declBus(c+20061,"ysyxSoCFull asic lspi mspi u0_spi_top shift tx_bit_pos_tmp", false,-1, 7,0);
+        tracep->declBus(c+20058,"ysyxSoCFull asic lspi mspi u0_spi_top shift tx_bit_pos_tmp", false,-1, 7,0);
         tracep->declBit(c+19962,"ysyxSoCFull asic axi42apb clock", false,-1);
         tracep->declBit(c+19963,"ysyxSoCFull asic axi42apb reset", false,-1);
         tracep->declBit(c+94,"ysyxSoCFull asic axi42apb auto_in_awready", false,-1);
@@ -10094,6 +10092,8 @@ void VysyxSoCFull___024root__traceInitSub0(VysyxSoCFull___024root* vlSelf, Veril
         tracep->declBus(c+19046,"ysyxSoCFull fpga axi4deint_auto_out_awid", false,-1, 3,0);
         tracep->declBus(c+19047,"ysyxSoCFull fpga axi4deint_auto_out_awecho_tl_state_size", false,-1, 3,0);
         tracep->declBus(c+19048,"ysyxSoCFull fpga axi4deint_auto_out_awecho_tl_state_source", false,-1, 6,0);
+        tracep->declBit(c+19049,"ysyxSoCFull fpga axi4deint_auto_out_awecho_extra_id", false,-1);
+        tracep->declBit(c+3803,"ysyxSoCFull fpga axi4deint_auto_out_wready", false,-1);
     }
 }
 
@@ -10104,8 +10104,6 @@ void VysyxSoCFull___024root__traceInitSub1(VysyxSoCFull___024root* vlSelf, Veril
     if (false && tracep && c) {}  // Prevent unused
     // Body
     {
-        tracep->declBit(c+19049,"ysyxSoCFull fpga axi4deint_auto_out_awecho_extra_id", false,-1);
-        tracep->declBit(c+3803,"ysyxSoCFull fpga axi4deint_auto_out_wready", false,-1);
         tracep->declBit(c+19043,"ysyxSoCFull fpga axi4deint_auto_out_wvalid", false,-1);
         tracep->declQuad(c+15732,"ysyxSoCFull fpga axi4deint_auto_out_wdata", false,-1, 63,0);
         tracep->declBus(c+15734,"ysyxSoCFull fpga axi4deint_auto_out_wstrb", false,-1, 7,0);
@@ -13296,7 +13294,7 @@ void VysyxSoCFull___024root__traceInitSub1(VysyxSoCFull___024root* vlSelf, Veril
         tracep->declBus(c+3806,"ysyxSoCFull fpga axi4buf bundleIn_0_bdeq io_deq_bits_id", false,-1, 3,0);
         tracep->declBus(c+3807,"ysyxSoCFull fpga axi4buf bundleIn_0_bdeq io_deq_bits_resp", false,-1, 1,0);
         {int i; for (i=0; i<2; i++) {
-                tracep->declBus(c+20062+i*1,"ysyxSoCFull fpga axi4buf bundleIn_0_bdeq ram_id", true,(i+0), 3,0);}}
+                tracep->declBus(c+20059+i*1,"ysyxSoCFull fpga axi4buf bundleIn_0_bdeq ram_id", true,(i+0), 3,0);}}
         tracep->declBus(c+3806,"ysyxSoCFull fpga axi4buf bundleIn_0_bdeq ram_id_io_deq_bits_MPORT_data", false,-1, 3,0);
         tracep->declBit(c+3805,"ysyxSoCFull fpga axi4buf bundleIn_0_bdeq ram_id_io_deq_bits_MPORT_addr", false,-1);
         tracep->declBus(c+20000,"ysyxSoCFull fpga axi4buf bundleIn_0_bdeq ram_id_MPORT_data", false,-1, 3,0);
@@ -13304,7 +13302,7 @@ void VysyxSoCFull___024root__traceInitSub1(VysyxSoCFull___024root* vlSelf, Veril
         tracep->declBit(c+20002,"ysyxSoCFull fpga axi4buf bundleIn_0_bdeq ram_id_MPORT_mask", false,-1);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4buf bundleIn_0_bdeq ram_id_MPORT_en", false,-1);
         {int i; for (i=0; i<2; i++) {
-                tracep->declBus(c+20064+i*1,"ysyxSoCFull fpga axi4buf bundleIn_0_bdeq ram_resp", true,(i+0), 1,0);}}
+                tracep->declBus(c+20061+i*1,"ysyxSoCFull fpga axi4buf bundleIn_0_bdeq ram_resp", true,(i+0), 1,0);}}
         tracep->declBus(c+3807,"ysyxSoCFull fpga axi4buf bundleIn_0_bdeq ram_resp_io_deq_bits_MPORT_data", false,-1, 1,0);
         tracep->declBit(c+3805,"ysyxSoCFull fpga axi4buf bundleIn_0_bdeq ram_resp_io_deq_bits_MPORT_addr", false,-1);
         tracep->declBus(c+19997,"ysyxSoCFull fpga axi4buf bundleIn_0_bdeq ram_resp_MPORT_data", false,-1, 1,0);
@@ -13332,7 +13330,7 @@ void VysyxSoCFull___024root__traceInitSub1(VysyxSoCFull___024root* vlSelf, Veril
         tracep->declBus(c+3814,"ysyxSoCFull fpga axi4buf bundleIn_0_rdeq io_deq_bits_resp", false,-1, 1,0);
         tracep->declBit(c+3815,"ysyxSoCFull fpga axi4buf bundleIn_0_rdeq io_deq_bits_last", false,-1);
         {int i; for (i=0; i<2; i++) {
-                tracep->declBus(c+20066+i*1,"ysyxSoCFull fpga axi4buf bundleIn_0_rdeq ram_id", true,(i+0), 3,0);}}
+                tracep->declBus(c+20063+i*1,"ysyxSoCFull fpga axi4buf bundleIn_0_rdeq ram_id", true,(i+0), 3,0);}}
         tracep->declBus(c+3811,"ysyxSoCFull fpga axi4buf bundleIn_0_rdeq ram_id_io_deq_bits_MPORT_data", false,-1, 3,0);
         tracep->declBit(c+3810,"ysyxSoCFull fpga axi4buf bundleIn_0_rdeq ram_id_io_deq_bits_MPORT_addr", false,-1);
         tracep->declBus(c+20000,"ysyxSoCFull fpga axi4buf bundleIn_0_rdeq ram_id_MPORT_data", false,-1, 3,0);
@@ -13340,7 +13338,7 @@ void VysyxSoCFull___024root__traceInitSub1(VysyxSoCFull___024root* vlSelf, Veril
         tracep->declBit(c+20002,"ysyxSoCFull fpga axi4buf bundleIn_0_rdeq ram_id_MPORT_mask", false,-1);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4buf bundleIn_0_rdeq ram_id_MPORT_en", false,-1);
         {int i; for (i=0; i<2; i++) {
-                tracep->declQuad(c+20068+i*2,"ysyxSoCFull fpga axi4buf bundleIn_0_rdeq ram_data", true,(i+0), 63,0);}}
+                tracep->declQuad(c+20065+i*2,"ysyxSoCFull fpga axi4buf bundleIn_0_rdeq ram_data", true,(i+0), 63,0);}}
         tracep->declQuad(c+3812,"ysyxSoCFull fpga axi4buf bundleIn_0_rdeq ram_data_io_deq_bits_MPORT_data", false,-1, 63,0);
         tracep->declBit(c+3810,"ysyxSoCFull fpga axi4buf bundleIn_0_rdeq ram_data_io_deq_bits_MPORT_addr", false,-1);
         tracep->declQuad(c+19998,"ysyxSoCFull fpga axi4buf bundleIn_0_rdeq ram_data_MPORT_data", false,-1, 63,0);
@@ -13348,7 +13346,7 @@ void VysyxSoCFull___024root__traceInitSub1(VysyxSoCFull___024root* vlSelf, Veril
         tracep->declBit(c+20002,"ysyxSoCFull fpga axi4buf bundleIn_0_rdeq ram_data_MPORT_mask", false,-1);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4buf bundleIn_0_rdeq ram_data_MPORT_en", false,-1);
         {int i; for (i=0; i<2; i++) {
-                tracep->declBus(c+20072+i*1,"ysyxSoCFull fpga axi4buf bundleIn_0_rdeq ram_resp", true,(i+0), 1,0);}}
+                tracep->declBus(c+20069+i*1,"ysyxSoCFull fpga axi4buf bundleIn_0_rdeq ram_resp", true,(i+0), 1,0);}}
         tracep->declBus(c+3814,"ysyxSoCFull fpga axi4buf bundleIn_0_rdeq ram_resp_io_deq_bits_MPORT_data", false,-1, 1,0);
         tracep->declBit(c+3810,"ysyxSoCFull fpga axi4buf bundleIn_0_rdeq ram_resp_io_deq_bits_MPORT_addr", false,-1);
         tracep->declBus(c+19997,"ysyxSoCFull fpga axi4buf bundleIn_0_rdeq ram_resp_MPORT_data", false,-1, 1,0);
@@ -13356,7 +13354,7 @@ void VysyxSoCFull___024root__traceInitSub1(VysyxSoCFull___024root* vlSelf, Veril
         tracep->declBit(c+20002,"ysyxSoCFull fpga axi4buf bundleIn_0_rdeq ram_resp_MPORT_mask", false,-1);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4buf bundleIn_0_rdeq ram_resp_MPORT_en", false,-1);
         {int i; for (i=0; i<2; i++) {
-                tracep->declBit(c+20074+i*1,"ysyxSoCFull fpga axi4buf bundleIn_0_rdeq ram_last", true,(i+0));}}
+                tracep->declBit(c+20071+i*1,"ysyxSoCFull fpga axi4buf bundleIn_0_rdeq ram_last", true,(i+0));}}
         tracep->declBit(c+3815,"ysyxSoCFull fpga axi4buf bundleIn_0_rdeq ram_last_io_deq_bits_MPORT_data", false,-1);
         tracep->declBit(c+3810,"ysyxSoCFull fpga axi4buf bundleIn_0_rdeq ram_last_io_deq_bits_MPORT_addr", false,-1);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4buf bundleIn_0_rdeq ram_last_MPORT_data", false,-1);
@@ -17113,48 +17111,48 @@ void VysyxSoCFull___024root__traceInitSub1(VysyxSoCFull___024root* vlSelf, Veril
         tracep->declBus(c+7065,"ysyxSoCFull fpga axi4frag deq io_deq_bits_burst", false,-1, 1,0);
         tracep->declBus(c+3860,"ysyxSoCFull fpga axi4frag deq io_deq_bits_echo_extra_id", false,-1, 2,0);
         {int i; for (i=0; i<1; i++) {
-                tracep->declBit(c+20076+i*1,"ysyxSoCFull fpga axi4frag deq ram_id", true,(i+0));}}
-        tracep->declBit(c+20077,"ysyxSoCFull fpga axi4frag deq ram_id_io_deq_bits_MPORT_data", false,-1);
+                tracep->declBit(c+20073+i*1,"ysyxSoCFull fpga axi4frag deq ram_id", true,(i+0));}}
+        tracep->declBit(c+20074,"ysyxSoCFull fpga axi4frag deq ram_id_io_deq_bits_MPORT_data", false,-1);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag deq ram_id_io_deq_bits_MPORT_addr", false,-1);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag deq ram_id_MPORT_data", false,-1);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag deq ram_id_MPORT_addr", false,-1);
         tracep->declBit(c+20002,"ysyxSoCFull fpga axi4frag deq ram_id_MPORT_mask", false,-1);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag deq ram_id_MPORT_en", false,-1);
         {int i; for (i=0; i<1; i++) {
-                tracep->declBus(c+20078+i*1,"ysyxSoCFull fpga axi4frag deq ram_addr", true,(i+0), 31,0);}}
-        tracep->declBus(c+20079,"ysyxSoCFull fpga axi4frag deq ram_addr_io_deq_bits_MPORT_data", false,-1, 31,0);
+                tracep->declBus(c+20075+i*1,"ysyxSoCFull fpga axi4frag deq ram_addr", true,(i+0), 31,0);}}
+        tracep->declBus(c+20076,"ysyxSoCFull fpga axi4frag deq ram_addr_io_deq_bits_MPORT_data", false,-1, 31,0);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag deq ram_addr_io_deq_bits_MPORT_addr", false,-1);
         tracep->declBus(c+20009,"ysyxSoCFull fpga axi4frag deq ram_addr_MPORT_data", false,-1, 31,0);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag deq ram_addr_MPORT_addr", false,-1);
         tracep->declBit(c+20002,"ysyxSoCFull fpga axi4frag deq ram_addr_MPORT_mask", false,-1);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag deq ram_addr_MPORT_en", false,-1);
         {int i; for (i=0; i<1; i++) {
-                tracep->declBus(c+20080+i*1,"ysyxSoCFull fpga axi4frag deq ram_len", true,(i+0), 7,0);}}
-        tracep->declBus(c+20081,"ysyxSoCFull fpga axi4frag deq ram_len_io_deq_bits_MPORT_data", false,-1, 7,0);
+                tracep->declBus(c+20077+i*1,"ysyxSoCFull fpga axi4frag deq ram_len", true,(i+0), 7,0);}}
+        tracep->declBus(c+20078,"ysyxSoCFull fpga axi4frag deq ram_len_io_deq_bits_MPORT_data", false,-1, 7,0);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag deq ram_len_io_deq_bits_MPORT_addr", false,-1);
         tracep->declBus(c+20011,"ysyxSoCFull fpga axi4frag deq ram_len_MPORT_data", false,-1, 7,0);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag deq ram_len_MPORT_addr", false,-1);
         tracep->declBit(c+20002,"ysyxSoCFull fpga axi4frag deq ram_len_MPORT_mask", false,-1);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag deq ram_len_MPORT_en", false,-1);
         {int i; for (i=0; i<1; i++) {
-                tracep->declBus(c+20082+i*1,"ysyxSoCFull fpga axi4frag deq ram_size", true,(i+0), 2,0);}}
-        tracep->declBus(c+20083,"ysyxSoCFull fpga axi4frag deq ram_size_io_deq_bits_MPORT_data", false,-1, 2,0);
+                tracep->declBus(c+20079+i*1,"ysyxSoCFull fpga axi4frag deq ram_size", true,(i+0), 2,0);}}
+        tracep->declBus(c+20080,"ysyxSoCFull fpga axi4frag deq ram_size_io_deq_bits_MPORT_data", false,-1, 2,0);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag deq ram_size_io_deq_bits_MPORT_addr", false,-1);
         tracep->declBus(c+20001,"ysyxSoCFull fpga axi4frag deq ram_size_MPORT_data", false,-1, 2,0);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag deq ram_size_MPORT_addr", false,-1);
         tracep->declBit(c+20002,"ysyxSoCFull fpga axi4frag deq ram_size_MPORT_mask", false,-1);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag deq ram_size_MPORT_en", false,-1);
         {int i; for (i=0; i<1; i++) {
-                tracep->declBus(c+20084+i*1,"ysyxSoCFull fpga axi4frag deq ram_burst", true,(i+0), 1,0);}}
-        tracep->declBus(c+20085,"ysyxSoCFull fpga axi4frag deq ram_burst_io_deq_bits_MPORT_data", false,-1, 1,0);
+                tracep->declBus(c+20081+i*1,"ysyxSoCFull fpga axi4frag deq ram_burst", true,(i+0), 1,0);}}
+        tracep->declBus(c+20082,"ysyxSoCFull fpga axi4frag deq ram_burst_io_deq_bits_MPORT_data", false,-1, 1,0);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag deq ram_burst_io_deq_bits_MPORT_addr", false,-1);
         tracep->declBus(c+19997,"ysyxSoCFull fpga axi4frag deq ram_burst_MPORT_data", false,-1, 1,0);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag deq ram_burst_MPORT_addr", false,-1);
         tracep->declBit(c+20002,"ysyxSoCFull fpga axi4frag deq ram_burst_MPORT_mask", false,-1);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag deq ram_burst_MPORT_en", false,-1);
         {int i; for (i=0; i<1; i++) {
-                tracep->declBus(c+20086+i*1,"ysyxSoCFull fpga axi4frag deq ram_echo_extra_id", true,(i+0), 2,0);}}
-        tracep->declBus(c+20087,"ysyxSoCFull fpga axi4frag deq ram_echo_extra_id_io_deq_bits_MPORT_data", false,-1, 2,0);
+                tracep->declBus(c+20083+i*1,"ysyxSoCFull fpga axi4frag deq ram_echo_extra_id", true,(i+0), 2,0);}}
+        tracep->declBus(c+20084,"ysyxSoCFull fpga axi4frag deq ram_echo_extra_id_io_deq_bits_MPORT_data", false,-1, 2,0);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag deq ram_echo_extra_id_io_deq_bits_MPORT_addr", false,-1);
         tracep->declBus(c+20001,"ysyxSoCFull fpga axi4frag deq ram_echo_extra_id_MPORT_data", false,-1, 2,0);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag deq ram_echo_extra_id_MPORT_addr", false,-1);
@@ -17183,48 +17181,48 @@ void VysyxSoCFull___024root__traceInitSub1(VysyxSoCFull___024root* vlSelf, Veril
         tracep->declBus(c+7069,"ysyxSoCFull fpga axi4frag deq_1 io_deq_bits_burst", false,-1, 1,0);
         tracep->declBus(c+3857,"ysyxSoCFull fpga axi4frag deq_1 io_deq_bits_echo_extra_id", false,-1, 2,0);
         {int i; for (i=0; i<1; i++) {
-                tracep->declBit(c+20088+i*1,"ysyxSoCFull fpga axi4frag deq_1 ram_id", true,(i+0));}}
-        tracep->declBit(c+20089,"ysyxSoCFull fpga axi4frag deq_1 ram_id_io_deq_bits_MPORT_data", false,-1);
+                tracep->declBit(c+20085+i*1,"ysyxSoCFull fpga axi4frag deq_1 ram_id", true,(i+0));}}
+        tracep->declBit(c+20086,"ysyxSoCFull fpga axi4frag deq_1 ram_id_io_deq_bits_MPORT_data", false,-1);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag deq_1 ram_id_io_deq_bits_MPORT_addr", false,-1);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag deq_1 ram_id_MPORT_data", false,-1);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag deq_1 ram_id_MPORT_addr", false,-1);
         tracep->declBit(c+20002,"ysyxSoCFull fpga axi4frag deq_1 ram_id_MPORT_mask", false,-1);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag deq_1 ram_id_MPORT_en", false,-1);
         {int i; for (i=0; i<1; i++) {
-                tracep->declBus(c+20090+i*1,"ysyxSoCFull fpga axi4frag deq_1 ram_addr", true,(i+0), 31,0);}}
-        tracep->declBus(c+20091,"ysyxSoCFull fpga axi4frag deq_1 ram_addr_io_deq_bits_MPORT_data", false,-1, 31,0);
+                tracep->declBus(c+20087+i*1,"ysyxSoCFull fpga axi4frag deq_1 ram_addr", true,(i+0), 31,0);}}
+        tracep->declBus(c+20088,"ysyxSoCFull fpga axi4frag deq_1 ram_addr_io_deq_bits_MPORT_data", false,-1, 31,0);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag deq_1 ram_addr_io_deq_bits_MPORT_addr", false,-1);
         tracep->declBus(c+20009,"ysyxSoCFull fpga axi4frag deq_1 ram_addr_MPORT_data", false,-1, 31,0);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag deq_1 ram_addr_MPORT_addr", false,-1);
         tracep->declBit(c+20002,"ysyxSoCFull fpga axi4frag deq_1 ram_addr_MPORT_mask", false,-1);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag deq_1 ram_addr_MPORT_en", false,-1);
         {int i; for (i=0; i<1; i++) {
-                tracep->declBus(c+20092+i*1,"ysyxSoCFull fpga axi4frag deq_1 ram_len", true,(i+0), 7,0);}}
-        tracep->declBus(c+20093,"ysyxSoCFull fpga axi4frag deq_1 ram_len_io_deq_bits_MPORT_data", false,-1, 7,0);
+                tracep->declBus(c+20089+i*1,"ysyxSoCFull fpga axi4frag deq_1 ram_len", true,(i+0), 7,0);}}
+        tracep->declBus(c+20090,"ysyxSoCFull fpga axi4frag deq_1 ram_len_io_deq_bits_MPORT_data", false,-1, 7,0);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag deq_1 ram_len_io_deq_bits_MPORT_addr", false,-1);
         tracep->declBus(c+20011,"ysyxSoCFull fpga axi4frag deq_1 ram_len_MPORT_data", false,-1, 7,0);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag deq_1 ram_len_MPORT_addr", false,-1);
         tracep->declBit(c+20002,"ysyxSoCFull fpga axi4frag deq_1 ram_len_MPORT_mask", false,-1);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag deq_1 ram_len_MPORT_en", false,-1);
         {int i; for (i=0; i<1; i++) {
-                tracep->declBus(c+20094+i*1,"ysyxSoCFull fpga axi4frag deq_1 ram_size", true,(i+0), 2,0);}}
-        tracep->declBus(c+20095,"ysyxSoCFull fpga axi4frag deq_1 ram_size_io_deq_bits_MPORT_data", false,-1, 2,0);
+                tracep->declBus(c+20091+i*1,"ysyxSoCFull fpga axi4frag deq_1 ram_size", true,(i+0), 2,0);}}
+        tracep->declBus(c+20092,"ysyxSoCFull fpga axi4frag deq_1 ram_size_io_deq_bits_MPORT_data", false,-1, 2,0);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag deq_1 ram_size_io_deq_bits_MPORT_addr", false,-1);
         tracep->declBus(c+20001,"ysyxSoCFull fpga axi4frag deq_1 ram_size_MPORT_data", false,-1, 2,0);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag deq_1 ram_size_MPORT_addr", false,-1);
         tracep->declBit(c+20002,"ysyxSoCFull fpga axi4frag deq_1 ram_size_MPORT_mask", false,-1);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag deq_1 ram_size_MPORT_en", false,-1);
         {int i; for (i=0; i<1; i++) {
-                tracep->declBus(c+20096+i*1,"ysyxSoCFull fpga axi4frag deq_1 ram_burst", true,(i+0), 1,0);}}
-        tracep->declBus(c+20097,"ysyxSoCFull fpga axi4frag deq_1 ram_burst_io_deq_bits_MPORT_data", false,-1, 1,0);
+                tracep->declBus(c+20093+i*1,"ysyxSoCFull fpga axi4frag deq_1 ram_burst", true,(i+0), 1,0);}}
+        tracep->declBus(c+20094,"ysyxSoCFull fpga axi4frag deq_1 ram_burst_io_deq_bits_MPORT_data", false,-1, 1,0);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag deq_1 ram_burst_io_deq_bits_MPORT_addr", false,-1);
         tracep->declBus(c+19997,"ysyxSoCFull fpga axi4frag deq_1 ram_burst_MPORT_data", false,-1, 1,0);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag deq_1 ram_burst_MPORT_addr", false,-1);
         tracep->declBit(c+20002,"ysyxSoCFull fpga axi4frag deq_1 ram_burst_MPORT_mask", false,-1);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag deq_1 ram_burst_MPORT_en", false,-1);
         {int i; for (i=0; i<1; i++) {
-                tracep->declBus(c+20098+i*1,"ysyxSoCFull fpga axi4frag deq_1 ram_echo_extra_id", true,(i+0), 2,0);}}
-        tracep->declBus(c+20099,"ysyxSoCFull fpga axi4frag deq_1 ram_echo_extra_id_io_deq_bits_MPORT_data", false,-1, 2,0);
+                tracep->declBus(c+20095+i*1,"ysyxSoCFull fpga axi4frag deq_1 ram_echo_extra_id", true,(i+0), 2,0);}}
+        tracep->declBus(c+20096,"ysyxSoCFull fpga axi4frag deq_1 ram_echo_extra_id_io_deq_bits_MPORT_data", false,-1, 2,0);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag deq_1 ram_echo_extra_id_io_deq_bits_MPORT_addr", false,-1);
         tracep->declBus(c+20001,"ysyxSoCFull fpga axi4frag deq_1 ram_echo_extra_id_MPORT_data", false,-1, 2,0);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag deq_1 ram_echo_extra_id_MPORT_addr", false,-1);
@@ -17247,24 +17245,24 @@ void VysyxSoCFull___024root__traceInitSub1(VysyxSoCFull___024root* vlSelf, Veril
         tracep->declBus(c+3849,"ysyxSoCFull fpga axi4frag in_wdeq io_deq_bits_strb", false,-1, 7,0);
         tracep->declBit(c+7071,"ysyxSoCFull fpga axi4frag in_wdeq io_deq_bits_last", false,-1);
         {int i; for (i=0; i<1; i++) {
-                tracep->declQuad(c+20100+i*2,"ysyxSoCFull fpga axi4frag in_wdeq ram_data", true,(i+0), 63,0);}}
-        tracep->declQuad(c+20102,"ysyxSoCFull fpga axi4frag in_wdeq ram_data_io_deq_bits_MPORT_data", false,-1, 63,0);
+                tracep->declQuad(c+20097+i*2,"ysyxSoCFull fpga axi4frag in_wdeq ram_data", true,(i+0), 63,0);}}
+        tracep->declQuad(c+20099,"ysyxSoCFull fpga axi4frag in_wdeq ram_data_io_deq_bits_MPORT_data", false,-1, 63,0);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag in_wdeq ram_data_io_deq_bits_MPORT_addr", false,-1);
         tracep->declQuad(c+19998,"ysyxSoCFull fpga axi4frag in_wdeq ram_data_MPORT_data", false,-1, 63,0);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag in_wdeq ram_data_MPORT_addr", false,-1);
         tracep->declBit(c+20002,"ysyxSoCFull fpga axi4frag in_wdeq ram_data_MPORT_mask", false,-1);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag in_wdeq ram_data_MPORT_en", false,-1);
         {int i; for (i=0; i<1; i++) {
-                tracep->declBus(c+20104+i*1,"ysyxSoCFull fpga axi4frag in_wdeq ram_strb", true,(i+0), 7,0);}}
-        tracep->declBus(c+20105,"ysyxSoCFull fpga axi4frag in_wdeq ram_strb_io_deq_bits_MPORT_data", false,-1, 7,0);
+                tracep->declBus(c+20101+i*1,"ysyxSoCFull fpga axi4frag in_wdeq ram_strb", true,(i+0), 7,0);}}
+        tracep->declBus(c+20102,"ysyxSoCFull fpga axi4frag in_wdeq ram_strb_io_deq_bits_MPORT_data", false,-1, 7,0);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag in_wdeq ram_strb_io_deq_bits_MPORT_addr", false,-1);
         tracep->declBus(c+20011,"ysyxSoCFull fpga axi4frag in_wdeq ram_strb_MPORT_data", false,-1, 7,0);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag in_wdeq ram_strb_MPORT_addr", false,-1);
         tracep->declBit(c+20002,"ysyxSoCFull fpga axi4frag in_wdeq ram_strb_MPORT_mask", false,-1);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag in_wdeq ram_strb_MPORT_en", false,-1);
         {int i; for (i=0; i<1; i++) {
-                tracep->declBit(c+20106+i*1,"ysyxSoCFull fpga axi4frag in_wdeq ram_last", true,(i+0));}}
-        tracep->declBit(c+20107,"ysyxSoCFull fpga axi4frag in_wdeq ram_last_io_deq_bits_MPORT_data", false,-1);
+                tracep->declBit(c+20103+i*1,"ysyxSoCFull fpga axi4frag in_wdeq ram_last", true,(i+0));}}
+        tracep->declBit(c+20104,"ysyxSoCFull fpga axi4frag in_wdeq ram_last_io_deq_bits_MPORT_data", false,-1);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag in_wdeq ram_last_io_deq_bits_MPORT_addr", false,-1);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag in_wdeq ram_last_MPORT_data", false,-1);
         tracep->declBit(c+19996,"ysyxSoCFull fpga axi4frag in_wdeq ram_last_MPORT_addr", false,-1);
@@ -20238,7 +20236,7 @@ void VysyxSoCFull___024root__traceInitSub1(VysyxSoCFull___024root* vlSelf, Veril
         tracep->declQuad(c+9235,"ysyxSoCFull mem srams mem mem_ext R0_data", false,-1, 63,0);
         tracep->declBit(c+9237,"ysyxSoCFull mem srams mem mem_ext reg_R0_ren", false,-1);
         tracep->declBus(c+9238,"ysyxSoCFull mem srams mem mem_ext reg_R0_addr", false,-1, 27,0);
-        tracep->declBus(c+20108,"ysyxSoCFull mem srams mem mem_ext i", false,-1, 31,0);
+        tracep->declBus(c+20105,"ysyxSoCFull mem srams mem mem_ext i", false,-1, 31,0);
         tracep->declBit(c+19962,"ysyxSoCFull mem axi4xbar clock", false,-1);
         tracep->declBit(c+19963,"ysyxSoCFull mem axi4xbar reset", false,-1);
         tracep->declBit(c+76,"ysyxSoCFull mem axi4xbar auto_in_awready", false,-1);
@@ -20276,5 +20274,7 @@ void VysyxSoCFull___024root__traceInitSub1(VysyxSoCFull___024root* vlSelf, Veril
         tracep->declBus(c+18988,"ysyxSoCFull mem axi4xbar auto_out_awaddr", false,-1, 31,0);
         tracep->declBus(c+18989,"ysyxSoCFull mem axi4xbar auto_out_awlen", false,-1, 7,0);
         tracep->declBus(c+18990,"ysyxSoCFull mem axi4xbar auto_out_awsize", false,-1, 2,0);
+        tracep->declBus(c+77,"ysyxSoCFull mem axi4xbar auto_out_awburst", false,-1, 1,0);
+        tracep->declBit(c+78,"ysyxSoCFull mem axi4xbar auto_out_wready", false,-1);
     }
 }

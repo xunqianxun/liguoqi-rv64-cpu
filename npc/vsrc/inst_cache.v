@@ -208,6 +208,7 @@ module inst_cache (
 
     reg   [1:0]     missr_counter ;
     reg   [1:0]     missr_counter_n;
+    /* verilator lint_off UNUSED */
     reg   [63:0]    temp_inst     ;
     reg   [127:0]   mism_data ;
     reg             mism_ena_l;
