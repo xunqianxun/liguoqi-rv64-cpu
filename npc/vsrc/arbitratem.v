@@ -279,8 +279,8 @@ module arbitratem (
     assign axi_aw_port    =   `AXI_PROT_UNPRIVILEGED_ACCESS                                                                        ;
     assign axi_aw_qos     =   4'h0                                                                                                 ;
     assign axi_aw_cache   =   `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE                                                     ;
-    assign axi_aw_valid   =   ((arbitrate_state == `ysyx22040228_ARB_DWRITE) && (axi_state == `ysyx22040228_AXI_SEND))   ? `ysyx22040228_ABLE   :
-                              ((arbitrate_state == `ysyx22040228_ARB_DWRITEU) && (axi_state == `ysyx22040228_AXI_SEND))  ? `ysyx22040228_ABLE   :
+    assign axi_aw_valid   =   ((arbitrate_state == `ysyx22040228_ARB_DWRITE) && (axi_state == `ysyx22040228_AXI_SEND))   ? (`ysyx22040228_ABLE & ~aw_enable)  :
+                              ((arbitrate_state == `ysyx22040228_ARB_DWRITEU) && (axi_state == `ysyx22040228_AXI_SEND))  ? (`ysyx22040228_ABLE & ~aw_enable)  :
                                                                                                                            `ysyx22040228_ENABLE ; 
 
     assign axi_w_data     =   ((arbitrate_state == `ysyx22040228_ARB_DWRITE) && (axi_state == `ysyx22040228_AXI_SEND))   ? d_cache_data :
