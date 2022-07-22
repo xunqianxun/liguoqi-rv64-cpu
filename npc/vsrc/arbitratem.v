@@ -355,6 +355,7 @@ module arbitratem (
         end 
         else if(success_dwrite) begin
             sign_delay_dwrite  <= `ysyx22040228_ABLE;
+            d_cache_valid_     <= `ysyx22040228_ABLE;
         end 
         else if(success_iread)begin
             sign_delay_iread   <= `ysyx22040228_ABLE;
@@ -369,6 +370,7 @@ module arbitratem (
         end 
         else if(success_uncahcewrite) begin
             sign_delay_unwrite <= `ysyx22040228_ABLE;
+            uncahce_valid_     <= `ysyx22040228_ABLE;
         end 
         else begin
             sign_delay_dread   <= `ysyx22040228_ENABLE;
