@@ -64,8 +64,51 @@ module ysyx_22040228 (
     input       wire       [`ysyx22040228_RESP_BUS]          out_axi_r_resp       ,
     input       wire                                         out_axi_r_last       ,
     input       wire                                         out_axi_r_valid      ,
-    output      wire                                         out_axi_r_ready          
+    output      wire                                         out_axi_r_ready      ,
+
+    output      wire                                         io_slave_awready,
+    input       wire                                         io_slave_awvalid,
+    input       wire       [`ysyx22040228_ID_BUS]            io_slave_awid,
+    input       wire       [31:0]                            io_slave_awaddr,
+    input       wire       [`ysyx22040228_LEN_BUS]           io_slave_awlen,
+    input       wire       [`ysyx22040228_SIZE_BUS]          io_slave_awsize,
+    input       wire       [`ysyx22040228_BURST_BUS]         io_slave_awburst,
+    output      wire                                         io_slave_wready,
+    input       wire                                         io_slave_wvalid,
+    input       wire       [`ysyx22040228_DATA_BUS]          io_slave_wdata,
+    input       wire       [`ysyx22040228_STRB_BUS]          io_slave_wstrb,
+    input       wire                                         io_slave_wlast,
+    input       wire                                         io_slave_bready,
+    output      wire                                         io_slave_bvalid, 
+    output      wire       [`ysyx22040228_ID_BUS]            io_slave_bid,
+    output      wire       [`ysyx22040228_RESP_BUS]          io_slave_bresp,
+    output      wire                                         io_slave_arready,
+    input       wire                                         io_slave_arvalid,
+    input       wire       [`ysyx22040228_ID_BUS]            io_slave_arid,
+    input       wire       [31:0]                            io_slave_araddr,
+    input       wire       [`ysyx22040228_LEN_BUS]           io_slave_arlen,
+    input       wire       [`ysyx22040228_SIZE_BUS]          io_slave_arsize,
+    input       wire       [`ysyx22040228_BURST_BUS]         io_slave_arburst,
+    input       wire                                         io_slave_rready,
+    output      wire                                         io_slave_rvalid,
+    output      wire       [`ysyx22040228_ID_BUS]            io_slave_rid,
+    output      wire       [`ysyx22040228_DATA_BUS]          io_slave_rdata,
+    output      wire       [`ysyx22040228_RESP_BUS]          io_slave_rresp,
+    output      wire                                         io_slave_rlast    
 );
+
+    assign io_slave_awready = 1'b0 ;
+    assign io_slave_wready  = 1'b0 ;
+    assign io_slave_bvalid  = 1'b0 ;
+    assign io_slave_bid     = 4'b0000;
+    assign io_slave_bresp   = 2'b00 ;
+    assign io_slave_arready = 1'b0 ;
+    assign io_slave_rvalid  = 1'b0 ;
+    assign io_slave_rid     = 4'b0000;
+    assign io_slave_rdata   = 64'h0 ;
+    assign io_slave_rresp   = 2'b00 ;
+    assign io_slave_rlast   = 1'b0  ;
+
     parameter SLAVE_NUM =  3 ;
     //-----------------------------wire about rvcpu------------------------------//
     wire aclk;

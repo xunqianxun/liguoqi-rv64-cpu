@@ -4,7 +4,6 @@
 // https://www.winbond.com/hq/product/code-storage-flash-memory/serial-nor-flash/?__locale=zh
 
 `define spi_cs_num 2
-/* verilator lint_off DECLFILENAME */
 /* verilator lint_off UNUSED */
 
 module spiFlash (

@@ -1,4 +1,5 @@
 `timescale 1ns/1ps
+
 /* verilator lint_off UNUSED */
 `include "spi_defines.v"
 module spi_shift (clk, rst, latch, byte_sel, len, lsb, go, 

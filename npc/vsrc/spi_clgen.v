@@ -1,7 +1,7 @@
 `timescale 1ns / 10ps
-/* verilator lint_off UNUSED */
-`include "spi_defines.v"
 
+`include "spi_defines.v"
+/* verilator lint_off UNUSED */
 module spi_clgen (clk_in, rst, go, enable, last_clk, divider, clk_out, pos_edge, neg_edge,cpol); 
 
   parameter Tp = 1;

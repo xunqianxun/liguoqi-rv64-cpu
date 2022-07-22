@@ -141,7 +141,7 @@
 // synopsys translate_off
 `timescale 1ns/1ns
 // synopsys translate_on
-/* verilator lint_off UNUSED */
+
 `include "uart_defines.v"
 
 module uart_tfifo (clk, 

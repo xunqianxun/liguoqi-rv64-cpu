@@ -66,7 +66,9 @@ module arbitratem (
     input       wire                                         clk                  ,
     input       wire                                         rst                  ,
     //-----------------------------d_cache---------------------------------------//
+    /* verilator lint_off UNUSED */
     input       wire       [63:0]                            d_cache_addr         ,
+    /* verilator lint_on UNUSED */
     input       wire       [63:0]                            d_cache_data         ,
     input       wire       [3:0]                             d_cache_type         ,
     //input       wire                                         d_cache_resp         ,
@@ -330,7 +332,6 @@ module arbitratem (
     wire                                      iread_arshankhand     ;
     assign iread_r_ready = `ysyx22040228_ABLE                       ;
     assign iread_arshankhand = iread_ar_valid && axi_ar_ready       ;
-    reg    [63:0]                             temp_iread            ;
     reg    iread_success                                            ;
     assign iread_success = (axi_r_id == 4'b0000) && iread_r_ready && axi_r_valid && axi_r_last && (axi_r_resp == 2'b00) ;
     always @(posedge clk) begin
@@ -400,7 +401,6 @@ module arbitratem (
     wire                                      dwrite_b_ready          ; 
     wire                                      dwrite_awshankhand      ;
     wire                                      dwrite_wshankhand       ;
-    reg                                       write_wshan             ;
     assign dwrite_b_ready = `ysyx22040228_ABLE                        ;
     assign dwrite_awshankhand = dwrite_aw_valid && axi_aw_ready ;
     assign dwrite_wshankhand  = dwrite_w_valid  && axi_w_ready  ;
@@ -417,19 +417,9 @@ module arbitratem (
         else if(dwrite_ok) begin
             dwrite_ok          <= `ysyx22040228_ENABLE ;
         end  
-        else if(dwrite_awshankhand)begin
+        else if(dwrite_awshankhand && dwrite_wshankhand)begin
             dwrite_aw_valid     <= `ysyx22040228_ENABLE;
-            dwrite_w_valid      <= `ysyx22040228_ABLE;
-            write_wshan         <= `ysyx22040228_ABLE;
-            dwrite_w_data       <= 64'd12345678      ;
-            dwrite_w_strb       <= 8'b11111111       ;
-        end 
-        else if(write_wshan) begin
-            if(dwrite_wshankhand)
-                write_wshan         <= `ysyx22040228_ENABLE;
-            else 
-                dwrite_w_valid      <= `ysyx22040228_ENABLE;
-                dwrite_w_last       <= `ysyx22040228_ABLE;
+            dwrite_w_valid      <= `ysyx22040228_ENABLE;
         end 
         else if(arbitrate_state == `ysyx22040228_ARB_DWRITE) begin
             dwrite_aw_id        <= 4'b0001           ;
@@ -441,6 +431,9 @@ module arbitratem (
             dwrite_aw_port      <= `AXI_PROT_UNPRIVILEGED_ACCESS ;
             dwrite_aw_qos       <= 4'h0              ;
             dwrite_aw_valid     <= `ysyx22040228_ABLE;
+            dwrite_w_valid      <= `ysyx22040228_ABLE;
+            dwrite_w_data       <= d_cache_data      ;
+            dwrite_w_strb       <= 8'b11111111       ;
         end 
         else begin
             dwrite_w_last       <= `ysyx22040228_ENABLE;
