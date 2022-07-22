@@ -421,6 +421,7 @@ module arbitratem (
             dwrite_aw_valid     <= `ysyx22040228_ENABLE;
             dwrite_w_valid      <= `ysyx22040228_ENABLE;
             dwrite_cache_valid  <= `ysyx22040228_ABLE  ;
+            dwrite_w_last       <= `ysyx22040228_ENABLE;
             dwrite_ok           <= `ysyx22040228_ABLE  ;
             dweitr_werite       <= `ysyx22040228_ENABLE;
         end
@@ -445,6 +446,7 @@ module arbitratem (
             dwrite_w_valid      <= `ysyx22040228_ABLE;
             dwrite_w_data       <= d_cache_data      ;
             dwrite_w_strb       <= 8'b11111111       ;
+            dwrite_w_last       <= `ysyx22040228_ABLE;
         end 
         else begin
             dwrite_w_last       <= `ysyx22040228_ENABLE;
