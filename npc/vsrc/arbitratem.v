@@ -363,12 +363,13 @@ module arbitratem (
             i_cache_valid_     <= `ysyx22040228_ABLE;
         end 
         else if(success_uncahceread) begin
-            sign_delay_unread  <= `ysyx22040228_ABLE;
+            sign_delay_unread  <= `ysyx22040228_ABLE;           
+            uncahce_data_o     <= axi_r_data        ;
+            uncahce_valid_     <= `ysyx22040228_ABLE;
+
         end 
         else if(success_uncahcewrite) begin
             sign_delay_unwrite <= `ysyx22040228_ABLE;
-            uncahce_data_o     <= axi_r_data        ;
-            uncahce_valid_     <= `ysyx22040228_ABLE;
         end 
         else begin
             sign_delay_dread   <= `ysyx22040228_ENABLE;
