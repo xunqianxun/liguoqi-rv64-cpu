@@ -79,7 +79,7 @@ module arbitratem (
     input       wire       [3:0]                             d_cache_type         ,
     //input       wire                                         d_cache_resp         ,
     output      reg        [63:0]                            d_cache_data_o       ,
-    output      wire                                         d_cache_valid_       ,
+    output      reg                                          d_cache_valid_       ,
     //----------------------------uncache----------------------------------------//
     input       wire       [63:0]                            uncache_addr         ,
     input       wire       [63:0]                            uncache_data         ,
@@ -88,13 +88,13 @@ module arbitratem (
     input       wire       [2:0]                             uncache_size_data    ,
     input       wire       [7:0]                             uncache_mask         ,
     output      reg        [63:0]                            uncahce_data_o       ,
-    output      wire                                         uncahce_valid_       ,
+    output      reg                                          uncahce_valid_       ,
     //----------------------------i_cache----------------------------------------//
     input       wire       [63:0]                            i_cache_addr         ,
     input       wire                                         i_cache_ena          ,
     //input       wire                                         i_cache_resp         ,
     output      reg        [63:0]                            i_cache_data         ,
-    output      wire                                         i_cache_valid_       ,
+    output      reg                                          i_cache_valid_       ,
     //----------------------write address cahnnel--------------------------------//
     output      wire       [`ysyx22040228_ID_BUS]            axi_aw_id            ,
     output      wire       [`ysyx22040228_ADDR_BUS]          axi_aw_addr          ,
@@ -235,7 +235,7 @@ module arbitratem (
     wire   shankhand  ;
     assign shankhand = read_uncahce_shankhand | write_dcache_shankhand | read_icache_shankhand | read_uncahce_shankhand | write_uncahce_shankhand ;
     wire   success    ;
-    assign success   = success_dread | success_dwrite | success_iread | success_uncahceread | success_uncahcewrite ;
+    assign success   = sign_delay_dread | sign_delay_dwrite | sign_delay_iread | sign_delay_unread | sign_delay_unwrite ;
     always @(*) begin
         case (axi_state)
             `ysyx22040228_AXI_IDLE: begin
@@ -252,12 +252,9 @@ module arbitratem (
             end 
             `ysyx22040228_AXI_WRITE: begin
                 if(success)
-                    axi_state_n = `ysyx22040228_AXI_OK ;
+                    axi_state_n = `ysyx22040228_AXI_IDLE ;
                 else 
                     axi_state_n = `ysyx22040228_AXI_WRITE;
-            end 
-            `ysyx22040228_AXI_OK : begin
-                    axi_state_n = `ysyx22040228_AXI_IDLE;
             end 
             default: axi_state_n = `ysyx22040228_AXI_IDLE;
         endcase
@@ -339,12 +336,12 @@ module arbitratem (
     assign success_uncahceread  = ((arbitrate_state == `ysyx22040228_ARB_DREADU)  && (axi_r_id == 4'b0010) && (axi_r_last == `ysyx22040228_ABLE) && (axi_r_valid == `ysyx22040228_ABLE) && (axi_r_resp == 2'b00));
     assign success_uncahcewrite = ((arbitrate_state == `ysyx22040228_ARB_DWRITEU) && (axi_b_id == 4'b0010) && (axi_b_resp == 2'b00             ) && (axi_b_valid == `ysyx22040228_ABLE));
 
-    assign d_cache_data_o   = success_dread       ?  axi_r_data           :   64'h0                ;
-    assign d_cache_valid_   = success_dread       ? `ysyx22040228_ABLE    :   `ysyx22040228_ENABLE ;
-    assign uncahce_data_o   = success_uncahceread ?  axi_r_data           :   64'h0                ; 
-    assign uncahce_valid_   = success_uncahceread ? `ysyx22040228_ABLE    :   `ysyx22040228_ENABLE ;
-    assign i_cache_data     = success_iread       ?  axi_r_data           :   64'h0                ;
-    assign i_cache_valid_   = success_iread       ? `ysyx22040228_ABLE    :   `ysyx22040228_ENABLE ; 
+    //assign d_cache_data_o   = success_dread       ?  axi_r_data           :   64'h0                ;
+    //assign d_cache_valid_   = success_dread       ? `ysyx22040228_ABLE    :   `ysyx22040228_ENABLE ;
+    //assign uncahce_data_o   = success_uncahceread ?  axi_r_data           :   64'h0                ; 
+    //assign uncahce_valid_   = success_uncahceread ? `ysyx22040228_ABLE    :   `ysyx22040228_ENABLE ;
+    //assign i_cache_data     = success_iread       ?  axi_r_data           :   64'h0                ;
+    //assign i_cache_valid_   = success_iread       ? `ysyx22040228_ABLE    :   `ysyx22040228_ENABLE ; 
 
     reg     sign_delay_dread  ;
     reg     sign_delay_dwrite ;
@@ -352,30 +349,47 @@ module arbitratem (
     reg     sign_delay_unread ;
     reg     sign_delay_unwrite;
     always @(posedge clk) begin
-        if(success_dread)
+        if(success_dread) begin
             sign_delay_dread   <= `ysyx22040228_ABLE;
-        else if(success_dwrite)
+            d_cache_data_o     <= axi_r_data        ;
+            d_cache_valid_     <= `ysyx22040228_ABLE;
+        end 
+        else if(success_dwrite) begin
             sign_delay_dwrite  <= `ysyx22040228_ABLE;
-        else if(success_iread)
+        end 
+        else if(success_iread)begin
             sign_delay_iread   <= `ysyx22040228_ABLE;
-        else if(success_uncahceread)
+            i_cache_data       <= axi_r_data        ;
+            i_cache_valid_     <= `ysyx22040228_ABLE;
+        end 
+        else if(success_uncahceread) begin
             sign_delay_unread  <= `ysyx22040228_ABLE;
-        else if(success_uncahcewrite)
+        end 
+        else if(success_uncahcewrite) begin
             sign_delay_unwrite <= `ysyx22040228_ABLE;
+            uncahce_data_o     <= axi_r_data        ;
+            uncahce_valid_     <= `ysyx22040228_ABLE;
+        end 
         else begin
             sign_delay_dread   <= `ysyx22040228_ENABLE;
             sign_delay_dwrite  <= `ysyx22040228_ENABLE;
             sign_delay_iread   <= `ysyx22040228_ENABLE;
             sign_delay_unread  <= `ysyx22040228_ENABLE;
             sign_delay_unwrite <= `ysyx22040228_ENABLE;
+            d_cache_data_o     <= 64'h0               ;
+            d_cache_valid_     <= `ysyx22040228_ENABLE;
+            i_cache_data       <= 64'h0               ;
+            i_cache_valid_     <= `ysyx22040228_ENABLE;
+            uncahce_data_o     <= 64'h0               ;
+            uncahce_valid_     <= `ysyx22040228_ENABLE;
         end 
     end
 
-    assign dread_ok    = sign_delay_dread   && (axi_state == `ysyx22040228_AXI_IDLE) ;
-    assign dwrite_ok   = sign_delay_dwrite  && (axi_state == `ysyx22040228_AXI_IDLE) ;
-    assign iread_ok    = sign_delay_iread   && (axi_state == `ysyx22040228_AXI_IDLE) ;
-    assign dread_ok_u  = sign_delay_unread  && (axi_state == `ysyx22040228_AXI_IDLE) ;
-    assign dwrite_ok_u = sign_delay_unwrite && (axi_state == `ysyx22040228_AXI_IDLE) ;
+    assign dread_ok    = sign_delay_dread    ;
+    assign dwrite_ok   = sign_delay_dwrite   ;
+    assign iread_ok    = sign_delay_iread    ;
+    assign dread_ok_u  = sign_delay_unread   ;
+    assign dwrite_ok_u = sign_delay_unwrite  ;
 
     assign axi_shankhand = (axi_aw_ready | axi_w_ready) | axi_ar_ready ;
 
