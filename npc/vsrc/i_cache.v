@@ -6,8 +6,7 @@ Function:write data cache
 /* verilator lint_off LATCH */
 `include "defines.v"
 `include "defines_axi4.v"
-`include "i_cache_data_ram.v"
-`include "i_cache_tag_ram.v"
+
 
 `define ysyx22040228_I_IDLE    6'b000001
 `define ysyx22040228_I_MISSR   6'b000010

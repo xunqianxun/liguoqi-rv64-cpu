@@ -21,7 +21,7 @@ Function:write data cache
 `include "defines_axi4.v"
 `include "S011HD1P_X32Y2D128_BWF.v"
 `include "TEG_CC.v"
-
+/* verilator lint_off UNUSED */
 module data_cache (
     input         wire                                        clk                ,
     input         wire                                        rst                ,
@@ -85,8 +85,8 @@ module data_cache (
     reg  [63:0]   fence_data_out ;
     reg  [63:0]   fence_addr_out ;
     reg  [3:0]    fence_type_out ;
-    reg  [63:0]   fence_addr_cache;
-    reg           check_two      ;
+    //reg  [63:0]   fence_addr_cache;
+    //reg           check_two      ;
     always @(*) begin
         if((write_request) && (oteg_valid_o == `ysyx22040228_ABLE)) begin
             if((~in_dcache_ready) && (dirty1[counter[5:0]] == `ysyx22040228_ABLE)) begin

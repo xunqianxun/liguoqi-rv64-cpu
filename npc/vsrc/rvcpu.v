@@ -16,6 +16,7 @@ Function:Core top level module
 `include "ctrl.v"
 `include "defines.v"
 `include "regfile.v"
+/* verilator lint_off UNUSED */
 module rvcpu (
     input           wire                                        clk            ,
     input           wire                                        rst            ,
