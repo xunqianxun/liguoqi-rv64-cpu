@@ -877,7 +877,7 @@ VL_INLINE_OPT void VysyxSoCFull_AXI4UserYanker_1___sequent__TOP__ysyxSoCFull__DO
                                                             (~ (IData)(vlSelf->__PVT__QueueCompatibility__DOT__empty)))))))))))))))))) 
                               | (IData)(vlSymsp->TOP.reset)))))) {
         VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:42956: Assertion failed in %NysyxSoCFull.fpga.axi4yank\n",
-                  64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name());
+                  64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
         VL_STOP_MT("vsrc/ysyxSoCFull.v", 42956, "");
     }
     if (VL_UNLIKELY((1U & (~ (((~ (IData)(vlSymsp->TOP.ysyxSoCFull__DOT__mem__DOT__axi4frag_auto_in_bvalid)) 
@@ -1007,7 +1007,7 @@ VL_INLINE_OPT void VysyxSoCFull_AXI4UserYanker_1___sequent__TOP__ysyxSoCFull__DO
                                                             (~ (IData)(vlSelf->__PVT__QueueCompatibility_16__DOT__empty)))))))))))))))))) 
                               | (IData)(vlSymsp->TOP.reset)))))) {
         VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:42980: Assertion failed in %NysyxSoCFull.fpga.axi4yank\n",
-                  64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name());
+                  64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
         VL_STOP_MT("vsrc/ysyxSoCFull.v", 42980, "");
     }
     if (vlSymsp->TOP.reset) {
