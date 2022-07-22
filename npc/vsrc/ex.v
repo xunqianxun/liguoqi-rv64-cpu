@@ -297,7 +297,7 @@ always @(*) begin
             end
             `INST_ECALL:              begin
                 ecall_trap_ena      = 1'b1           ;
-                wbck_csr_data       = pc_i         ;
+                wbck_csr_data       = pc_i           ;
                 trap_mcause_value   = 64'd11         ;
             end
             `INST_MRET:               begin
