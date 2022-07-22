@@ -217,6 +217,7 @@ module arbitratem (
     reg     [`ysyx22040228_PROT_BUS]          dread_ar_prot         ;
     reg     [`ysyx22040228_QOS_BUS]           dread_ar_qos          ;
     reg                                       dread_ar_valid        ;
+    reg                                       dread_weite           ;
 
     reg                                       dread_cache_valid     ;
     wire                                      dread_arshankhand     ;
@@ -240,9 +241,11 @@ module arbitratem (
             dread_ok         <=  `ysyx22040228_ABLE ;
             d_cache_data_o   <= axi_r_data          ;
             dread_cache_valid<= `ysyx22040228_ABLE  ;
+            dread_weite      <= `ysyx22040228_ENABLE;
         end 
-        else if(dread_arshankhand) begin
+        else if(dread_arshankhand | dread_weite) begin
             dread_ar_valid   <= `ysyx22040228_ENABLE ;
+            dread_weite      <= `ysyx22040228_ABLE   ;
         end 
         else if(arbitrate_state == `ysyx22040228_ARB_DREAD) begin
             dread_ar_id      <= 4'b0001             ;
@@ -271,6 +274,7 @@ module arbitratem (
     reg     [`ysyx22040228_PROT_BUS]          dread_ar_prot_u         ;
     reg     [`ysyx22040228_QOS_BUS]           dread_ar_qos_u          ;
     reg                                       dread_ar_valid_u        ;
+    reg                                       dread_wetite_u          ;
 
     reg                                       dread_cache_valid_u     ;
     wire                                      dread_arshankhand_u     ;
@@ -294,9 +298,11 @@ module arbitratem (
             dread_ok_u         <=  `ysyx22040228_ABLE ;
             uncahce_data_o     <= axi_r_data          ;
             dread_cache_valid_u<= `ysyx22040228_ABLE  ;
+            dread_wetite_u     <= `ysyx22040228_ENABLE;
         end 
-        else if(dread_arshankhand_u) begin
+        else if(dread_arshankhand_u | dread_wetite_u) begin
             dread_ar_valid_u   <= `ysyx22040228_ENABLE ;
+            dread_wetite_u     <= `ysyx22040228_ABLE  ;
         end 
         else if(arbitrate_state == `ysyx22040228_ARB_DREADU) begin
             dread_ar_id_u      <= 4'b0001             ;
@@ -325,7 +331,7 @@ module arbitratem (
     reg     [`ysyx22040228_PROT_BUS]          iread_ar_prot         ;
     reg     [`ysyx22040228_QOS_BUS]           iread_ar_qos          ;
     reg                                       iread_ar_valid        ;
-
+    reg                                       iread_write           ;
 
     reg                                       iread_cache_valid     ;
     wire                                      iread_r_ready         ;
@@ -347,9 +353,11 @@ module arbitratem (
             iread_ar_valid   <= `ysyx22040228_ENABLE ;
             iread_cache_valid<= `ysyx22040228_ABLE  ;
             i_cache_data     <= axi_r_data          ;
+            iread_write      <= `ysyx22040228_ENABLE;
         end 
-        else if(iread_arshankhand) begin
+        else if(iread_arshankhand | iread_write) begin
             iread_ar_valid   <= `ysyx22040228_ENABLE ;
+            iread_write      <= `ysyx22040228_ABLE  ;
         end 
         else if(arbitrate_state == `ysyx22040228_ARB_IREAD) begin
             if((i_cache_addr >= `ysyx22040228_APB_START) && (i_cache_addr <= `ysyx22040228_APB_END))  begin
@@ -397,6 +405,7 @@ module arbitratem (
     reg                                       dwrite_w_last           ;
     reg                                       dwrite_w_valid          ;
     reg                                       dwrite_cache_valid      ;
+    reg                                       dweitr_werite           ;
 
     wire                                      dwrite_b_ready          ; 
     wire                                      dwrite_awshankhand      ;
@@ -413,13 +422,15 @@ module arbitratem (
             dwrite_w_valid      <= `ysyx22040228_ENABLE;
             dwrite_cache_valid  <= `ysyx22040228_ABLE  ;
             dwrite_ok           <= `ysyx22040228_ABLE  ;
+            dweitr_werite       <= `ysyx22040228_ENABLE;
         end
         else if(dwrite_ok) begin
             dwrite_ok          <= `ysyx22040228_ENABLE ;
         end  
-        else if(dwrite_awshankhand && dwrite_wshankhand)begin
+        else if((dwrite_awshankhand && dwrite_wshankhand) || (dweitr_werite))begin
             dwrite_aw_valid     <= `ysyx22040228_ENABLE;
             dwrite_w_valid      <= `ysyx22040228_ENABLE;
+            dweitr_werite       <= `ysyx22040228_ABLE  ;
         end 
         else if(arbitrate_state == `ysyx22040228_ARB_DWRITE) begin
             dwrite_aw_id        <= 4'b0001           ;
