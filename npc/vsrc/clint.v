@@ -139,7 +139,7 @@ module clint (
     assign csr_mtime_h_nxt   = csr_mtime_h_w_ena ? ((wmask & time_axi_w_data) | (~wmask & (csr_mtime_h))) : csr_mtime_h      ;
     assign time_axi_aw_ready = time_axi_aw_valid && time_axi_w_valid && mode_right     ;
     assign time_axi_w_ready  = time_axi_aw_valid && time_axi_w_valid && time_axi_w_last;
-    assign time_interrupt    = (car_mtime_l >= csr_mtime_h) ? 1'b1 : 1'b0 ;
+    assign time_interrupt    = (car_mtime_l>= csr_mtime_h) ? 1'b1 : 1'b0 ;
 
     //---------------------write state check------------------------------//
     /* verilator lint_off UNOPTFLAT */
