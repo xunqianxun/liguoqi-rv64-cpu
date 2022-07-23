@@ -11,8 +11,8 @@
 `define AXI_SIZE_BYTES_64                                   3'b110
 `define AXI_SIZE_BYTES_128                                  3'b111
 module uncache_mmio (
-    input     wire                                         clk              ,
-    input     wire                                         rst              ,
+    //input     wire                                         clk              ,
+    //input     wire                                         rst              ,
     output    wire          [2:0]                          mmio_sign        ,
 
     input     wire          [63:0]                         core_addr        ,
@@ -77,113 +77,11 @@ module uncache_mmio (
                               (core_we && (core_we_type == 3'b100)) || (core_re && (core_re_type == 3'b100)) ? {core_addr[63:3], 3'b000} :
                                                                                                                core_addr                 ;                                                                                                          
 
-    /*
-    reg   [1:0]     out_counter ;
-    reg   [1:0]     out_counter_n ;
-    reg   [63:0]    uncache_temp ;
-    reg             uncahche_read_finish;
-
-    reg             uncache_out_ena  ;
-    reg   [63:0]    uncahce_out_addr ;
-
-    always @(posedge clk) begin
-        if(rst == `ysyx22040228_RSTENA)
-            out_counter <= 2'b00 ;
-        else begin
-            out_counter <= out_counter_n ;
-        end 
-    end
-
-    always @(*) begin
-        if((uncache && core_re) && (~in_arb_finish)) begin
-            if(out_counter <= 2'b01) begin
-                uncache_out_ena = `ysyx22040228_ABLE    ;
-                uncahce_out_addr = {core_addr[63:3], 1'b1, 2'b0};
-                out_counter_n  = 2'b01                 ;
-            end 
-            else if(out_counter == 2'b11) begin
-                uncache_out_ena = `ysyx22040228_ABLE    ;
-                uncahce_out_addr = {core_addr[63:3], 1'b0, 2'b0};
-            end 
-        end 
-        else if((uncache) && (in_arb_finish) && (out_counter  == 2'b01)) begin
-            uncache_out_ena = `ysyx22040228_ABLE    ;
-            // uncahce_out_addr = {core_addr[63:3], 1'b0, 2'b0};
-             out_counter_n  = 2'b11                 ;
-            uncache_temp      = {in_arb_data[31:0], 32'h0};
-        end 
-        else if((uncache) && (in_arb_finish) && (out_counter  == 2'b11)) begin
-            uncache_out_ena  = `ysyx22040228_ENABLE;
-            out_counter_n      = 2'b00               ;
-            uncache_temp      = {uncache_temp[63:32], in_arb_data[31:0]};
-            uncahche_read_finish = `ysyx22040228_ABLE;
-
-        end 
-        else begin
-            uncahche_read_finish = `ysyx22040228_ENABLE; 
-        end
-    end 
-
-    reg              uncache_out_ena1 ;
-    reg   [63:0]     uncache_out_addr1 ;
-    reg   [1:0]      out_counter1     ;
-    reg   [1:0]      out_counter1_n   ;
-    reg              uncahche_write_finish;
-    always @(posedge clk) begin
-        if(rst == `ysyx22040228_RSTENA)
-            out_counter1 <= 2'b00 ;
-        else 
-            out_counter1 <= out_counter1_n;
-    end
-
-    always @(*) begin
-        if((uncache && core_we) && (~in_arb_finish)) begin
-            if(out_counter1 <= 2'b01) begin
-                uncache_out_ena1 = `ysyx22040228_ABLE    ;
-                out_counter1_n    = 2'b01                ;
-                arb_data          = {32'h0, core_data[63:32]} ;
-                uncache_out_addr1 = {core_addr[63:3], 1'b1, 2'b0};
-            end 
-            else if(out_counter1 == 2'b11) begin
-                uncache_out_ena1 = `ysyx22040228_ABLE    ;
-                arb_data      = {32'h0, core_data[31:0]} ;
-                uncache_out_addr1 = {core_addr[63:3], 1'b0, 2'b0};
-            end 
-        end 
-        else if((uncache) && (in_arb_finish) && (out_counter1  == 2'b01)) begin
-            uncache_out_ena1     = `ysyx22040228_ABLE    ;
-            out_counter1_n       = 2'b11                 ;
-        end 
-        else if((uncache) && (in_arb_finish) && (out_counter1  == 2'b11)) begin
-            uncache_out_ena1 = `ysyx22040228_ENABLE;
-            out_counter1_n      = 2'b00               ;
-            uncahche_write_finish = `ysyx22040228_ABLE;
-        end 
-        else begin
-            uncahche_write_finish = `ysyx22040228_ENABLE;
-        end
-    end                                                                                                           
-
-    assign  arb_addr =  (uncache && core_re) ? uncahce_out_addr :
-                        (uncache && core_we) ? uncache_out_addr1:
-                                          `ysyx22040228_ZEROWORD; 
-    assign  arb_mask = uncache ? core_mask : 8'b00000000           ;
-    assign  arb_we   = uncache ? uncache_out_ena1   : `ysyx22040228_ENABLE  ;
-    assign  arb_re   = uncache ? uncache_out_ena    : `ysyx22040228_ENABLE  ;
-
-    assign  in_core_data    = uncache ? uncache_temp  : in_dcache_data   ;
-    
-    assign  in_core_finish  = (uncache && core_re) ? uncahche_read_finish :
-                              (uncache && core_we) ? uncahche_write_finish:
-                                                         in_dcache_finish ;    
-    */   
-
-
     reg   [63:0]    uncache_temp        ;
     reg             uncahche_read_finish;
     reg             uncache_out_ena  ;
     reg   [63:0]    uncahce_out_addr ;
-    reg   [2:0]     uncache_out_size ;
+    //reg   [2:0]     uncache_out_size ;
 
     always @(*) begin
         if((uncache && core_re) && (~in_arb_finish)) begin

@@ -332,7 +332,7 @@ module arbitratem (
     assign success_dread        = ((arbitrate_state == `ysyx22040228_ARB_DREAD)   && (axi_r_id == 4'b0001) && (axi_r_last == `ysyx22040228_ABLE) && (axi_r_valid == `ysyx22040228_ABLE) && (axi_r_resp == 2'b00));
     assign success_dwrite       = ((arbitrate_state == `ysyx22040228_ARB_DWRITE)  && (axi_b_id == 4'b0001) && (axi_b_resp == 2'b00             ) && (axi_b_valid == `ysyx22040228_ABLE));
     assign success_iread        = ((arbitrate_state == `ysyx22040228_ARB_IREAD)   && (axi_r_id == 4'b0100) && (axi_r_last == `ysyx22040228_ABLE) && (axi_r_valid == `ysyx22040228_ABLE) && (axi_r_resp == 2'b00));
-    assign success_uncahceread  = ((arbitrate_state == `ysyx22040228_ARB_DREADU)  && (axi_r_id == 4'b0010) && (axi_r_last == `ysyx22040228_ABLE) && (axi_r_valid == `ysyx22040228_ABLE) && (axi_r_resp == 2'b00));
+    assign success_uncahceread  = ((arbitrate_state == `ysyx22040228_ARB_DREADU)  && (axi_r_id != 4'b1111) && (axi_r_last == `ysyx22040228_ABLE) && (axi_r_valid == `ysyx22040228_ABLE) && (axi_r_resp == 2'b00));
     assign success_uncahcewrite = ((arbitrate_state == `ysyx22040228_ARB_DWRITEU) && (axi_b_id == 4'b0010) && (axi_b_resp == 2'b00             ) && (axi_b_valid == `ysyx22040228_ABLE));
 
     //assign d_cache_data_o   = success_dread       ?  axi_r_data           :   64'h0                ;
