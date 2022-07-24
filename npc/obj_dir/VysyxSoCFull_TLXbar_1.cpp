@@ -9,443 +9,10 @@
 
 //==========
 
-VL_INLINE_OPT void VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_1__5(VysyxSoCFull_TLXbar_1* vlSelf) {
+VL_INLINE_OPT void VysyxSoCFull_TLXbar_1___sequent__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_1__3(VysyxSoCFull_TLXbar_1* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_1__5\n"); );
-    // Body
-    vlSelf->__PVT__monitor__DOT___GEN_30 = ((5U == (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_opcode))
-                                             ? 2U : 
-                                            ((4U == (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_opcode))
-                                              ? 1U : 
-                                             ((3U == (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_opcode))
-                                               ? 1U
-                                               : ((2U 
-                                                   == (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_opcode))
-                                                   ? 1U
-                                                   : 0U))));
-    vlSelf->__PVT__monitor__DOT__source_ok = 1U;
-    vlSelf->__PVT__monitor__DOT___T_77 = ((6U >= (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_size)) 
-                                          & (0ULL == 
-                                             (0x1fffff000ULL 
-                                              & (QData)((IData)(
-                                                                (0x1000U 
-                                                                 ^ vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address))))));
-    vlSelf->__PVT__monitor__DOT__mask_acc = (1U & (
-                                                   (2U 
-                                                    <= (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_size)) 
-                                                   | (1U 
-                                                      & ((((IData)(1U) 
-                                                           << 
-                                                           (1U 
-                                                            & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_size))) 
-                                                          >> 1U) 
-                                                         & (~ 
-                                                            (vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address 
-                                                             >> 1U))))));
-    vlSelf->__PVT__monitor__DOT__mask_acc_1 = (1U & 
-                                               ((2U 
-                                                 <= (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_size)) 
-                                                | (1U 
-                                                   & ((((IData)(1U) 
-                                                        << 
-                                                        (1U 
-                                                         & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_size))) 
-                                                       >> 1U) 
-                                                      & (vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address 
-                                                         >> 1U)))));
-    vlSelf->__PVT__requestAIO_0_0 = ((0ULL == (0xc0000000ULL 
-                                               & (QData)((IData)(
-                                                                 (0x40000000U 
-                                                                  ^ vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address))))) 
-                                     | (0ULL == (0x80000000ULL 
-                                                 & (QData)((IData)(
-                                                                   (0x80000000U 
-                                                                    ^ vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address))))));
-    vlSelf->__PVT__monitor__DOT__mask = ((8U & (((IData)(vlSelf->__PVT__monitor__DOT__mask_acc_1) 
-                                                 << 3U) 
-                                                | (0xfffffff8U 
-                                                   & ((vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address 
-                                                       << 2U) 
-                                                      & (vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address 
-                                                         << 3U))))) 
-                                         | ((4U & (
-                                                   ((IData)(vlSelf->__PVT__monitor__DOT__mask_acc_1) 
-                                                    | (IData)(
-                                                              (2U 
-                                                               == 
-                                                               (3U 
-                                                                & vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address)))) 
-                                                   << 2U)) 
-                                            | ((2U 
-                                                & (((IData)(vlSelf->__PVT__monitor__DOT__mask_acc) 
-                                                    | (IData)(
-                                                              (1U 
-                                                               == 
-                                                               (3U 
-                                                                & vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address)))) 
-                                                   << 1U)) 
-                                               | (1U 
-                                                  & ((IData)(vlSelf->__PVT__monitor__DOT__mask_acc) 
-                                                     | (IData)(
-                                                               (0U 
-                                                                == 
-                                                                (3U 
-                                                                 & vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address))))))));
-}
-
-VL_INLINE_OPT void VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_1__7(VysyxSoCFull_TLXbar_1* vlSelf) {
-    if (false && vlSelf) {}  // Prevent unused
-    VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_1__7\n"); );
-    // Body
-    vlSelf->auto_out_1_a_valid = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__fixer.auto_out_a_valid) 
-                                  & (0ULL == (0xc0000000ULL 
-                                              & (QData)((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address)))));
-    vlSelf->auto_out_0_a_valid = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__fixer.auto_out_a_valid) 
-                                  & (IData)(vlSelf->__PVT__requestAIO_0_0));
-}
-
-VL_INLINE_OPT void VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_1__9(VysyxSoCFull_TLXbar_1* vlSelf) {
-    if (false && vlSelf) {}  // Prevent unused
-    VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_1__9\n"); );
-    // Variables
-    CData/*3:0*/ __PVT___T_36;
-    CData/*3:0*/ __PVT___T_37;
-    CData/*5:0*/ __PVT___T_33;
-    CData/*2:0*/ __PVT___T_39;
-    CData/*2:0*/ __PVT___T_40;
-    CData/*2:0*/ __PVT___T_45;
-    CData/*2:0*/ __PVT___T_46;
-    // Body
-    vlSelf->__PVT___T_10 = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_valid) 
-                            | (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__ferr.auto_in_d_valid));
-    vlSelf->__PVT___sink_ACancel_earlyValid_T_3 = (
-                                                   ((IData)(vlSelf->__PVT__state_0) 
-                                                    & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_valid)) 
-                                                   | ((IData)(vlSelf->__PVT__state_1) 
-                                                      & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__ferr.auto_in_d_valid)));
-    vlSelf->__PVT__readys_filter_lo = (((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__ferr.auto_in_d_valid) 
-                                        << 1U) | (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_valid));
-    if ((0U == (IData)(vlSelf->__PVT__beatsLeft))) {
-        vlSelf->__PVT__monitor_io_in_d_valid = vlSelf->__PVT___T_10;
-        vlSelf->auto_in_d_valid = vlSelf->__PVT___T_10;
-    } else {
-        vlSelf->__PVT__monitor_io_in_d_valid = vlSelf->__PVT___sink_ACancel_earlyValid_T_3;
-        vlSelf->auto_in_d_valid = vlSelf->__PVT___sink_ACancel_earlyValid_T_3;
-    }
-    vlSelf->__PVT__readys_filter = ((((IData)(vlSelf->__PVT__readys_filter_lo) 
-                                      & (~ (IData)(vlSelf->__PVT__readys_mask))) 
-                                     << 2U) | (((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__ferr.auto_in_d_valid) 
-                                                << 1U) 
-                                               | (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_valid)));
-    vlSelf->__PVT__readys_unready = ((7U & (((IData)(vlSelf->__PVT__readys_filter) 
-                                             >> 1U) 
-                                            | (3U & 
-                                               ((IData)(vlSelf->__PVT__readys_filter) 
-                                                >> 2U)))) 
-                                     | ((IData)(vlSelf->__PVT__readys_mask) 
-                                        << 2U));
-    vlSelf->__PVT___readys_readys_T_2 = (3U & (((IData)(vlSelf->__PVT__readys_unready) 
-                                                >> 2U) 
-                                               & (IData)(vlSelf->__PVT__readys_unready)));
-    vlSelf->__PVT___readys_mask_T = ((~ (IData)(vlSelf->__PVT___readys_readys_T_2)) 
-                                     & (IData)(vlSelf->__PVT__readys_filter_lo));
-    vlSelf->__PVT__earlyWinner_1 = ((~ ((IData)(vlSelf->__PVT___readys_readys_T_2) 
-                                        >> 1U)) & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__ferr.auto_in_d_valid));
-    vlSelf->__PVT__earlyWinner_0 = ((~ (IData)(vlSelf->__PVT___readys_readys_T_2)) 
-                                    & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_valid));
-    if ((0U == (IData)(vlSelf->__PVT__beatsLeft))) {
-        vlSelf->__PVT__muxStateEarly_1 = vlSelf->__PVT__earlyWinner_1;
-        vlSelf->__PVT__muxStateEarly_0 = vlSelf->__PVT__earlyWinner_0;
-    } else {
-        vlSelf->__PVT__muxStateEarly_1 = vlSelf->__PVT__state_1;
-        vlSelf->__PVT__muxStateEarly_0 = vlSelf->__PVT__state_0;
-    }
-    if (vlSelf->__PVT__muxStateEarly_1) {
-        __PVT___T_37 = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__ferr.__PVT__muxStateEarly_1)
-                         ? vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__ferr.__PVT__a__DOT__ram_source
-                        [0U] : 0U);
-        __PVT___T_40 = vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__ferr.auto_in_d_bits_size;
-        __PVT___T_46 = vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__ferr.auto_in_d_bits_opcode;
-    } else {
-        __PVT___T_37 = 0U;
-        __PVT___T_40 = 0U;
-        __PVT___T_46 = 0U;
-    }
-    if (vlSelf->__PVT__muxStateEarly_0) {
-        vlSelf->auto_in_d_bits_param = vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_bits_param;
-        vlSelf->__PVT__monitor_io_in_d_bits_param = vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_bits_param;
-    } else {
-        vlSelf->auto_in_d_bits_param = 0U;
-        vlSelf->__PVT__monitor_io_in_d_bits_param = 0U;
-    }
-    vlSelf->__PVT__monitor_io_in_d_bits_denied = (((IData)(vlSelf->__PVT__muxStateEarly_0) 
-                                                   & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_bits_denied)) 
-                                                  | ((IData)(vlSelf->__PVT__muxStateEarly_1) 
-                                                     & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__ferr.auto_in_d_bits_denied)));
-    if (vlSelf->__PVT__muxStateEarly_0) {
-        __PVT___T_33 = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar__DOT__bypass)
-                         ? 0U : (IData)(vlSymsp->TOP.ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sourceD_io_d_bits_sink));
-        vlSelf->auto_in_d_bits_data = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar__DOT__bypass)
-                                        ? 0U : vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sourceD_io_q_sink.__PVT__io_deq_bits_deq_bits_reg__DOT__cdc_reg);
-    } else {
-        __PVT___T_33 = 0U;
-        vlSelf->auto_in_d_bits_data = 0U;
-    }
-    vlSelf->auto_in_d_bits_denied = (((IData)(vlSelf->__PVT__muxStateEarly_0) 
-                                      & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_bits_denied)) 
-                                     | ((IData)(vlSelf->__PVT__muxStateEarly_1) 
-                                        & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__ferr.auto_in_d_bits_denied)));
-    vlSelf->auto_in_d_bits_corrupt = (((IData)(vlSelf->__PVT__muxStateEarly_0) 
-                                       & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_bits_corrupt)) 
-                                      | ((IData)(vlSelf->__PVT__muxStateEarly_1) 
-                                         & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__ferr.auto_in_d_bits_corrupt)));
-    if (vlSelf->__PVT__muxStateEarly_0) {
-        __PVT___T_36 = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar__DOT__bypass)
-                         ? (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__error_auto_in_d_bits_source)
-                         : (IData)(vlSymsp->TOP.ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sourceD_io_d_bits_source));
-        __PVT___T_39 = vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_bits_size;
-        __PVT___T_45 = vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_bits_opcode;
-    } else {
-        __PVT___T_36 = 0U;
-        __PVT___T_39 = 0U;
-        __PVT___T_45 = 0U;
-    }
-    vlSelf->auto_in_d_bits_sink = ((IData)(__PVT___T_33) 
-                                   | ((IData)(vlSelf->__PVT__muxStateEarly_1)
-                                       ? 0x20U : 0U));
-    vlSelf->__PVT__monitor_io_in_d_bits_sink = ((IData)(__PVT___T_33) 
-                                                | ((IData)(vlSelf->__PVT__muxStateEarly_1)
-                                                    ? 0x20U
-                                                    : 0U));
-    vlSelf->__PVT__monitor_io_in_d_bits_source = ((IData)(__PVT___T_36) 
-                                                  | (IData)(__PVT___T_37));
-    vlSelf->auto_in_d_bits_source = ((IData)(__PVT___T_36) 
-                                     | (IData)(__PVT___T_37));
-    vlSelf->__PVT__monitor_io_in_d_bits_size = ((IData)(__PVT___T_39) 
-                                                | (IData)(__PVT___T_40));
-    vlSelf->auto_in_d_bits_size = ((IData)(__PVT___T_39) 
-                                   | (IData)(__PVT___T_40));
-    vlSelf->__PVT__monitor_io_in_d_bits_opcode = ((IData)(__PVT___T_45) 
-                                                  | (IData)(__PVT___T_46));
-    vlSelf->auto_in_d_bits_opcode = ((IData)(__PVT___T_45) 
-                                     | (IData)(__PVT___T_46));
-    vlSelf->__PVT__monitor__DOT___a_opcode_lookup_T_1 
-        = ((0x3fU >= ((IData)(vlSelf->__PVT__monitor_io_in_d_bits_source) 
-                      << 2U)) ? (vlSelf->__PVT__monitor__DOT__inflight_opcodes 
-                                 >> ((IData)(vlSelf->__PVT__monitor_io_in_d_bits_source) 
-                                     << 2U)) : 0ULL);
-    vlSelf->__PVT__monitor__DOT___GEN_46 = ((5U == 
-                                             (7U & (IData)(
-                                                           (7ULL 
-                                                            & (vlSelf->__PVT__monitor__DOT___a_opcode_lookup_T_1 
-                                                               >> 1U)))))
-                                             ? 2U : 
-                                            ((4U == 
-                                              (7U & (IData)(
-                                                            (7ULL 
-                                                             & (vlSelf->__PVT__monitor__DOT___a_opcode_lookup_T_1 
-                                                                >> 1U)))))
-                                              ? 1U : 
-                                             ((3U == 
-                                               (7U 
-                                                & (IData)(
-                                                          (7ULL 
-                                                           & (vlSelf->__PVT__monitor__DOT___a_opcode_lookup_T_1 
-                                                              >> 1U)))))
-                                               ? 1U
-                                               : ((2U 
-                                                   == 
-                                                   (7U 
-                                                    & (IData)(
-                                                              (7ULL 
-                                                               & (vlSelf->__PVT__monitor__DOT___a_opcode_lookup_T_1 
-                                                                  >> 1U)))))
-                                                   ? 1U
-                                                   : 0U))));
-}
-
-VL_INLINE_OPT void VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_1__12(VysyxSoCFull_TLXbar_1* vlSelf) {
-    if (false && vlSelf) {}  // Prevent unused
-    VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_1__12\n"); );
-    // Variables
-    VlWide<5>/*159:0*/ __Vtemp4;
-    VlWide<5>/*159:0*/ __Vtemp5;
-    VlWide<5>/*159:0*/ __Vtemp11;
-    VlWide<5>/*159:0*/ __Vtemp12;
-    // Body
-    vlSelf->__PVT__latch = ((0U == (IData)(vlSelf->__PVT__beatsLeft)) 
-                            & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.auto_out_d_ready));
-    vlSelf->__PVT___beatsLeft_T_4 = (0xfU & ((IData)(vlSelf->__PVT__beatsLeft) 
-                                             - ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.auto_out_d_ready) 
-                                                & ((0U 
-                                                    == (IData)(vlSelf->__PVT__beatsLeft))
-                                                    ? (IData)(vlSelf->__PVT___T_10)
-                                                    : (IData)(vlSelf->__PVT___sink_ACancel_earlyValid_T_3)))));
-    vlSelf->__PVT__monitor__DOT___d_first_T = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.auto_out_d_ready) 
-                                               & (IData)(vlSelf->__PVT__monitor_io_in_d_valid));
-    vlSelf->auto_out_1_d_ready = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.auto_out_d_ready) 
-                                  & ((0U == (IData)(vlSelf->__PVT__beatsLeft))
-                                      ? (~ ((IData)(vlSelf->__PVT___readys_readys_T_2) 
-                                            >> 1U))
-                                      : (IData)(vlSelf->__PVT__state_1)));
-    vlSelf->auto_out_0_d_ready = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.auto_out_d_ready) 
-                                  & ((0U == (IData)(vlSelf->__PVT__beatsLeft))
-                                      ? (~ (IData)(vlSelf->__PVT___readys_readys_T_2))
-                                      : (IData)(vlSelf->__PVT__state_0)));
-    vlSelf->__PVT__monitor__DOT___inflight_T_5 = ((IData)(vlSelf->__PVT__monitor__DOT__inflight_1) 
-                                                  & (~ 
-                                                     ((((IData)(vlSelf->__PVT__monitor__DOT___d_first_T) 
-                                                        & (0U 
-                                                           == (IData)(vlSelf->__PVT__monitor__DOT__d_first_counter_2))) 
-                                                       & (6U 
-                                                          == (IData)(vlSelf->__PVT__monitor_io_in_d_bits_opcode)))
-                                                       ? 
-                                                      ((IData)(1U) 
-                                                       << (IData)(vlSelf->__PVT__monitor_io_in_d_bits_source))
-                                                       : 0U)));
-    __Vtemp4[0U] = 0xfU;
-    __Vtemp4[1U] = 0U;
-    __Vtemp4[2U] = 0U;
-    __Vtemp4[3U] = 0U;
-    __Vtemp4[4U] = 0U;
-    VL_SHIFTL_WWI(143,143,7, __Vtemp5, __Vtemp4, ((IData)(vlSelf->__PVT__monitor_io_in_d_bits_source) 
-                                                  << 2U));
-    vlSelf->__PVT__monitor__DOT___inflight_sizes_T_5 
-        = (vlSelf->__PVT__monitor__DOT__inflight_sizes_1 
-           & (~ (((QData)((IData)(((((IData)(vlSelf->__PVT__monitor__DOT___d_first_T) 
-                                     & (0U == (IData)(vlSelf->__PVT__monitor__DOT__d_first_counter_2))) 
-                                    & (6U == (IData)(vlSelf->__PVT__monitor_io_in_d_bits_opcode)))
-                                    ? __Vtemp5[1U] : 0U))) 
-                  << 0x20U) | (QData)((IData)(((((IData)(vlSelf->__PVT__monitor__DOT___d_first_T) 
-                                                 & (0U 
-                                                    == (IData)(vlSelf->__PVT__monitor__DOT__d_first_counter_2))) 
-                                                & (6U 
-                                                   == (IData)(vlSelf->__PVT__monitor_io_in_d_bits_opcode)))
-                                                ? __Vtemp5[0U]
-                                                : 0U))))));
-    __Vtemp11[0U] = 0xfU;
-    __Vtemp11[1U] = 0U;
-    __Vtemp11[2U] = 0U;
-    __Vtemp11[3U] = 0U;
-    __Vtemp11[4U] = 0U;
-    VL_SHIFTL_WWI(143,143,7, __Vtemp12, __Vtemp11, 
-                  ((IData)(vlSelf->__PVT__monitor_io_in_d_bits_source) 
-                   << 2U));
-    if ((((IData)(vlSelf->__PVT__monitor__DOT___d_first_T) 
-          & (0U == (IData)(vlSelf->__PVT__monitor__DOT__d_first_counter_1))) 
-         & (6U != (IData)(vlSelf->__PVT__monitor_io_in_d_bits_opcode)))) {
-        vlSelf->__PVT__monitor__DOT___GEN_23[0U] = 
-            __Vtemp12[0U];
-        vlSelf->__PVT__monitor__DOT___GEN_23[1U] = 
-            __Vtemp12[1U];
-        vlSelf->__PVT__monitor__DOT___GEN_23[2U] = 
-            __Vtemp12[2U];
-        vlSelf->__PVT__monitor__DOT___GEN_23[3U] = 
-            __Vtemp12[3U];
-        vlSelf->__PVT__monitor__DOT___GEN_23[4U] = 
-            (0x7fffU & __Vtemp12[4U]);
-    } else {
-        vlSelf->__PVT__monitor__DOT___GEN_23[0U] = 0U;
-        vlSelf->__PVT__monitor__DOT___GEN_23[1U] = 0U;
-        vlSelf->__PVT__monitor__DOT___GEN_23[2U] = 0U;
-        vlSelf->__PVT__monitor__DOT___GEN_23[3U] = 0U;
-        vlSelf->__PVT__monitor__DOT___GEN_23[4U] = 0U;
-    }
-}
-
-VL_INLINE_OPT void VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_1__14(VysyxSoCFull_TLXbar_1* vlSelf) {
-    if (false && vlSelf) {}  // Prevent unused
-    VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_1__14\n"); );
-    // Variables
-    VlWide<5>/*159:0*/ __Vtemp18;
-    VlWide<5>/*159:0*/ __Vtemp19;
-    VlWide<5>/*159:0*/ __Vtemp25;
-    VlWide<5>/*159:0*/ __Vtemp26;
-    // Body
-    vlSelf->__PVT__monitor_io_in_a_ready = (((IData)(vlSelf->__PVT__requestAIO_0_0) 
-                                             & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_a_ready)) 
-                                            | ((0ULL 
-                                                == 
-                                                (0xc0000000ULL 
-                                                 & (QData)((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address)))) 
-                                               & (~ (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__ferr.__PVT__a__DOT__maybe_full))));
-    vlSelf->auto_in_a_ready = (((IData)(vlSelf->__PVT__requestAIO_0_0) 
-                                & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_a_ready)) 
-                               | ((0ULL == (0xc0000000ULL 
-                                            & (QData)((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address)))) 
-                                  & (~ (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__ferr.__PVT__a__DOT__maybe_full))));
-    vlSelf->__PVT__monitor__DOT___a_first_T = ((IData)(vlSelf->__PVT__monitor_io_in_a_ready) 
-                                               & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__fixer.auto_out_a_valid));
-    VL_EXTEND_WI(131,4, __Vtemp18, (((IData)(vlSelf->__PVT__monitor__DOT___a_first_T) 
-                                     & (0U == (IData)(vlSelf->__PVT__monitor__DOT__a_first_counter_1)))
-                                     ? (1U | ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_opcode) 
-                                              << 1U))
-                                     : 0U));
-    VL_SHIFTL_WWI(131,131,7, __Vtemp19, __Vtemp18, 
-                  ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_source) 
-                   << 2U));
-    vlSelf->__PVT__monitor__DOT___inflight_opcodes_T_2 
-        = ((vlSelf->__PVT__monitor__DOT__inflight_opcodes 
-            | (((QData)((IData)((((IData)(vlSelf->__PVT__monitor__DOT___a_first_T) 
-                                  & (0U == (IData)(vlSelf->__PVT__monitor__DOT__a_first_counter_1)))
-                                  ? __Vtemp19[1U] : 0U))) 
-                << 0x20U) | (QData)((IData)((((IData)(vlSelf->__PVT__monitor__DOT___a_first_T) 
-                                              & (0U 
-                                                 == (IData)(vlSelf->__PVT__monitor__DOT__a_first_counter_1)))
-                                              ? __Vtemp19[0U]
-                                              : 0U))))) 
-           & (~ (((QData)((IData)(vlSelf->__PVT__monitor__DOT___GEN_23[1U])) 
-                  << 0x20U) | (QData)((IData)(vlSelf->__PVT__monitor__DOT___GEN_23[0U])))));
-    VL_EXTEND_WI(131,4, __Vtemp25, (((IData)(vlSelf->__PVT__monitor__DOT___a_first_T) 
-                                     & (0U == (IData)(vlSelf->__PVT__monitor__DOT__a_first_counter_1)))
-                                     ? (1U | ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_size) 
-                                              << 1U))
-                                     : 0U));
-    VL_SHIFTL_WWI(131,131,7, __Vtemp26, __Vtemp25, 
-                  ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_source) 
-                   << 2U));
-    vlSelf->__PVT__monitor__DOT___inflight_sizes_T_2 
-        = ((vlSelf->__PVT__monitor__DOT__inflight_sizes 
-            | (((QData)((IData)((((IData)(vlSelf->__PVT__monitor__DOT___a_first_T) 
-                                  & (0U == (IData)(vlSelf->__PVT__monitor__DOT__a_first_counter_1)))
-                                  ? __Vtemp26[1U] : 0U))) 
-                << 0x20U) | (QData)((IData)((((IData)(vlSelf->__PVT__monitor__DOT___a_first_T) 
-                                              & (0U 
-                                                 == (IData)(vlSelf->__PVT__monitor__DOT__a_first_counter_1)))
-                                              ? __Vtemp26[0U]
-                                              : 0U))))) 
-           & (~ (((QData)((IData)(vlSelf->__PVT__monitor__DOT___GEN_23[1U])) 
-                  << 0x20U) | (QData)((IData)(vlSelf->__PVT__monitor__DOT___GEN_23[0U])))));
-    vlSelf->__PVT__monitor__DOT___inflight_T_2 = (0xffffU 
-                                                  & (((IData)(vlSelf->__PVT__monitor__DOT__inflight) 
-                                                      | (((IData)(vlSelf->__PVT__monitor__DOT___a_first_T) 
-                                                          & (0U 
-                                                             == (IData)(vlSelf->__PVT__monitor__DOT__a_first_counter_1)))
-                                                          ? 
-                                                         ((IData)(1U) 
-                                                          << (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_source))
-                                                          : 0U)) 
-                                                     & (~ 
-                                                        ((((IData)(vlSelf->__PVT__monitor__DOT___d_first_T) 
-                                                           & (0U 
-                                                              == (IData)(vlSelf->__PVT__monitor__DOT__d_first_counter_1))) 
-                                                          & (6U 
-                                                             != (IData)(vlSelf->__PVT__monitor_io_in_d_bits_opcode)))
-                                                          ? 
-                                                         ((IData)(1U) 
-                                                          << (IData)(vlSelf->__PVT__monitor_io_in_d_bits_source))
-                                                          : 0U))));
-}
-
-VL_INLINE_OPT void VysyxSoCFull_TLXbar_1___sequent__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_1__15(VysyxSoCFull_TLXbar_1* vlSelf) {
-    if (false && vlSelf) {}  // Prevent unused
-    VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_TLXbar_1___sequent__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_1__15\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_TLXbar_1___sequent__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_1__3\n"); );
     // Body
     if (VL_UNLIKELY((1U & (~ (((~ (IData)(vlSelf->__PVT__earlyWinner_0)) 
                                | (~ (IData)(vlSelf->__PVT__earlyWinner_1))) 
@@ -2332,22 +1899,107 @@ VL_INLINE_OPT void VysyxSoCFull_TLXbar_1___sequent__TOP__ysyxSoCFull__DOT__asic_
     vlSelf->__PVT__monitor__DOT__a_first = (0U == (IData)(vlSelf->__PVT__monitor__DOT__a_first_counter));
 }
 
-VL_INLINE_OPT void VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__fpga__DOT__xbar_1__8(VysyxSoCFull_TLXbar_1* vlSelf) {
+VL_INLINE_OPT void VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_1__9(VysyxSoCFull_TLXbar_1* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__fpga__DOT__xbar_1__8\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_1__9\n"); );
     // Body
-    vlSelf->auto_out_1_a_valid = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__fixer.auto_out_a_valid) 
+    vlSelf->__PVT__monitor__DOT___GEN_30 = ((5U == (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_opcode))
+                                             ? 2U : 
+                                            ((4U == (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_opcode))
+                                              ? 1U : 
+                                             ((3U == (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_opcode))
+                                               ? 1U
+                                               : ((2U 
+                                                   == (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_opcode))
+                                                   ? 1U
+                                                   : 0U))));
+    vlSelf->__PVT__monitor__DOT__source_ok = 1U;
+    vlSelf->__PVT__monitor__DOT___T_77 = ((6U >= (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_size)) 
+                                          & (0ULL == 
+                                             (0x1fffff000ULL 
+                                              & (QData)((IData)(
+                                                                (0x1000U 
+                                                                 ^ vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address))))));
+    vlSelf->__PVT__monitor__DOT__mask_acc = (1U & (
+                                                   (2U 
+                                                    <= (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_size)) 
+                                                   | (1U 
+                                                      & ((((IData)(1U) 
+                                                           << 
+                                                           (1U 
+                                                            & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_size))) 
+                                                          >> 1U) 
+                                                         & (~ 
+                                                            (vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address 
+                                                             >> 1U))))));
+    vlSelf->__PVT__monitor__DOT__mask_acc_1 = (1U & 
+                                               ((2U 
+                                                 <= (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_size)) 
+                                                | (1U 
+                                                   & ((((IData)(1U) 
+                                                        << 
+                                                        (1U 
+                                                         & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_size))) 
+                                                       >> 1U) 
+                                                      & (vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address 
+                                                         >> 1U)))));
+    vlSelf->__PVT__requestAIO_0_0 = ((0ULL == (0xc0000000ULL 
+                                               & (QData)((IData)(
+                                                                 (0x40000000U 
+                                                                  ^ vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address))))) 
+                                     | (0ULL == (0x80000000ULL 
+                                                 & (QData)((IData)(
+                                                                   (0x80000000U 
+                                                                    ^ vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address))))));
+    vlSelf->__PVT__monitor__DOT__mask = ((8U & (((IData)(vlSelf->__PVT__monitor__DOT__mask_acc_1) 
+                                                 << 3U) 
+                                                | (0xfffffff8U 
+                                                   & ((vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address 
+                                                       << 2U) 
+                                                      & (vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address 
+                                                         << 3U))))) 
+                                         | ((4U & (
+                                                   ((IData)(vlSelf->__PVT__monitor__DOT__mask_acc_1) 
+                                                    | (IData)(
+                                                              (2U 
+                                                               == 
+                                                               (3U 
+                                                                & vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address)))) 
+                                                   << 2U)) 
+                                            | ((2U 
+                                                & (((IData)(vlSelf->__PVT__monitor__DOT__mask_acc) 
+                                                    | (IData)(
+                                                              (1U 
+                                                               == 
+                                                               (3U 
+                                                                & vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address)))) 
+                                                   << 1U)) 
+                                               | (1U 
+                                                  & ((IData)(vlSelf->__PVT__monitor__DOT__mask_acc) 
+                                                     | (IData)(
+                                                               (0U 
+                                                                == 
+                                                                (3U 
+                                                                 & vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address))))))));
+}
+
+VL_INLINE_OPT void VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_1__11(VysyxSoCFull_TLXbar_1* vlSelf) {
+    if (false && vlSelf) {}  // Prevent unused
+    VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_1__11\n"); );
+    // Body
+    vlSelf->auto_out_1_a_valid = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__fixer.auto_out_a_valid) 
                                   & (0ULL == (0xc0000000ULL 
-                                              & (QData)((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address)))));
-    vlSelf->auto_out_0_a_valid = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__fixer.auto_out_a_valid) 
+                                              & (QData)((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address)))));
+    vlSelf->auto_out_0_a_valid = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__fixer.auto_out_a_valid) 
                                   & (IData)(vlSelf->__PVT__requestAIO_0_0));
 }
 
-VL_INLINE_OPT void VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__fpga__DOT__xbar_1__10(VysyxSoCFull_TLXbar_1* vlSelf) {
+VL_INLINE_OPT void VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_1__13(VysyxSoCFull_TLXbar_1* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__fpga__DOT__xbar_1__10\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_1__13\n"); );
     // Variables
     CData/*3:0*/ __PVT___T_36;
     CData/*3:0*/ __PVT___T_37;
@@ -2357,15 +2009,15 @@ VL_INLINE_OPT void VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__fpga__
     CData/*2:0*/ __PVT___T_45;
     CData/*2:0*/ __PVT___T_46;
     // Body
-    vlSelf->__PVT___T_10 = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_valid) 
-                            | (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__ferr.auto_in_d_valid));
+    vlSelf->__PVT___T_10 = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_valid) 
+                            | (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__ferr.auto_in_d_valid));
     vlSelf->__PVT___sink_ACancel_earlyValid_T_3 = (
                                                    ((IData)(vlSelf->__PVT__state_0) 
-                                                    & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_valid)) 
+                                                    & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_valid)) 
                                                    | ((IData)(vlSelf->__PVT__state_1) 
-                                                      & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__ferr.auto_in_d_valid)));
-    vlSelf->__PVT__readys_filter_lo = (((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__ferr.auto_in_d_valid) 
-                                        << 1U) | (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_valid));
+                                                      & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__ferr.auto_in_d_valid)));
+    vlSelf->__PVT__readys_filter_lo = (((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__ferr.auto_in_d_valid) 
+                                        << 1U) | (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_valid));
     if ((0U == (IData)(vlSelf->__PVT__beatsLeft))) {
         vlSelf->__PVT__monitor_io_in_d_valid = vlSelf->__PVT___T_10;
         vlSelf->auto_in_d_valid = vlSelf->__PVT___T_10;
@@ -2375,9 +2027,9 @@ VL_INLINE_OPT void VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__fpga__
     }
     vlSelf->__PVT__readys_filter = ((((IData)(vlSelf->__PVT__readys_filter_lo) 
                                       & (~ (IData)(vlSelf->__PVT__readys_mask))) 
-                                     << 2U) | (((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__ferr.auto_in_d_valid) 
+                                     << 2U) | (((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__ferr.auto_in_d_valid) 
                                                 << 1U) 
-                                               | (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_valid)));
+                                               | (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_valid)));
     vlSelf->__PVT__readys_unready = ((7U & (((IData)(vlSelf->__PVT__readys_filter) 
                                              >> 1U) 
                                             | (3U & 
@@ -2391,9 +2043,9 @@ VL_INLINE_OPT void VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__fpga__
     vlSelf->__PVT___readys_mask_T = ((~ (IData)(vlSelf->__PVT___readys_readys_T_2)) 
                                      & (IData)(vlSelf->__PVT__readys_filter_lo));
     vlSelf->__PVT__earlyWinner_1 = ((~ ((IData)(vlSelf->__PVT___readys_readys_T_2) 
-                                        >> 1U)) & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__ferr.auto_in_d_valid));
+                                        >> 1U)) & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__ferr.auto_in_d_valid));
     vlSelf->__PVT__earlyWinner_0 = ((~ (IData)(vlSelf->__PVT___readys_readys_T_2)) 
-                                    & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_valid));
+                                    & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_valid));
     if ((0U == (IData)(vlSelf->__PVT__beatsLeft))) {
         vlSelf->__PVT__muxStateEarly_1 = vlSelf->__PVT__earlyWinner_1;
         vlSelf->__PVT__muxStateEarly_0 = vlSelf->__PVT__earlyWinner_0;
@@ -2402,50 +2054,50 @@ VL_INLINE_OPT void VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__fpga__
         vlSelf->__PVT__muxStateEarly_0 = vlSelf->__PVT__state_0;
     }
     if (vlSelf->__PVT__muxStateEarly_1) {
-        __PVT___T_37 = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__ferr.__PVT__muxStateEarly_1)
-                         ? vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__ferr.__PVT__a__DOT__ram_source
+        __PVT___T_37 = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__ferr.__PVT__muxStateEarly_1)
+                         ? vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__ferr.__PVT__a__DOT__ram_source
                         [0U] : 0U);
-        __PVT___T_40 = vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__ferr.auto_in_d_bits_size;
-        __PVT___T_46 = vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__ferr.auto_in_d_bits_opcode;
+        __PVT___T_40 = vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__ferr.auto_in_d_bits_size;
+        __PVT___T_46 = vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__ferr.auto_in_d_bits_opcode;
     } else {
         __PVT___T_37 = 0U;
         __PVT___T_40 = 0U;
         __PVT___T_46 = 0U;
     }
     if (vlSelf->__PVT__muxStateEarly_0) {
-        vlSelf->auto_in_d_bits_param = vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_bits_param;
-        vlSelf->__PVT__monitor_io_in_d_bits_param = vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_bits_param;
+        vlSelf->auto_in_d_bits_param = vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_bits_param;
+        vlSelf->__PVT__monitor_io_in_d_bits_param = vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_bits_param;
     } else {
         vlSelf->auto_in_d_bits_param = 0U;
         vlSelf->__PVT__monitor_io_in_d_bits_param = 0U;
     }
     vlSelf->__PVT__monitor_io_in_d_bits_denied = (((IData)(vlSelf->__PVT__muxStateEarly_0) 
-                                                   & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_bits_denied)) 
+                                                   & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_bits_denied)) 
                                                   | ((IData)(vlSelf->__PVT__muxStateEarly_1) 
-                                                     & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__ferr.auto_in_d_bits_denied)));
+                                                     & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__ferr.auto_in_d_bits_denied)));
     if (vlSelf->__PVT__muxStateEarly_0) {
-        vlSelf->auto_in_d_bits_data = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sbypass.__PVT__bar__DOT__bypass)
-                                        ? 0U : vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceD_io_q_sink.__PVT__io_deq_bits_deq_bits_reg__DOT__cdc_reg);
-        __PVT___T_33 = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sbypass.__PVT__bar__DOT__bypass)
-                         ? 0U : (IData)(vlSymsp->TOP.ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceD_io_d_bits_sink));
+        __PVT___T_33 = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar__DOT__bypass)
+                         ? 0U : (IData)(vlSymsp->TOP.ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sourceD_io_d_bits_sink));
+        vlSelf->auto_in_d_bits_data = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar__DOT__bypass)
+                                        ? 0U : vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sourceD_io_q_sink.__PVT__io_deq_bits_deq_bits_reg__DOT__cdc_reg);
     } else {
-        vlSelf->auto_in_d_bits_data = 0U;
         __PVT___T_33 = 0U;
+        vlSelf->auto_in_d_bits_data = 0U;
     }
     vlSelf->auto_in_d_bits_denied = (((IData)(vlSelf->__PVT__muxStateEarly_0) 
-                                      & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_bits_denied)) 
+                                      & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_bits_denied)) 
                                      | ((IData)(vlSelf->__PVT__muxStateEarly_1) 
-                                        & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__ferr.auto_in_d_bits_denied)));
+                                        & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__ferr.auto_in_d_bits_denied)));
     vlSelf->auto_in_d_bits_corrupt = (((IData)(vlSelf->__PVT__muxStateEarly_0) 
-                                       & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_bits_corrupt)) 
+                                       & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_bits_corrupt)) 
                                       | ((IData)(vlSelf->__PVT__muxStateEarly_1) 
-                                         & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__ferr.auto_in_d_bits_corrupt)));
+                                         & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__ferr.auto_in_d_bits_corrupt)));
     if (vlSelf->__PVT__muxStateEarly_0) {
-        __PVT___T_36 = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sbypass.__PVT__bar__DOT__bypass)
-                         ? (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sbypass.__PVT__error_auto_in_d_bits_source)
-                         : (IData)(vlSymsp->TOP.ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceD_io_d_bits_source));
-        __PVT___T_39 = vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_bits_size;
-        __PVT___T_45 = vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_bits_opcode;
+        __PVT___T_36 = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar__DOT__bypass)
+                         ? (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__error_auto_in_d_bits_source)
+                         : (IData)(vlSymsp->TOP.ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sourceD_io_d_bits_source));
+        __PVT___T_39 = vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_bits_size;
+        __PVT___T_45 = vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_bits_opcode;
     } else {
         __PVT___T_36 = 0U;
         __PVT___T_39 = 0U;
@@ -2505,32 +2157,32 @@ VL_INLINE_OPT void VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__fpga__
                                                    : 0U))));
 }
 
-VL_INLINE_OPT void VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__fpga__DOT__xbar_1__11(VysyxSoCFull_TLXbar_1* vlSelf) {
+VL_INLINE_OPT void VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_1__16(VysyxSoCFull_TLXbar_1* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__fpga__DOT__xbar_1__11\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_1__16\n"); );
     // Variables
-    VlWide<5>/*159:0*/ __Vtemp32;
-    VlWide<5>/*159:0*/ __Vtemp33;
-    VlWide<5>/*159:0*/ __Vtemp39;
-    VlWide<5>/*159:0*/ __Vtemp40;
+    VlWide<5>/*159:0*/ __Vtemp4;
+    VlWide<5>/*159:0*/ __Vtemp5;
+    VlWide<5>/*159:0*/ __Vtemp11;
+    VlWide<5>/*159:0*/ __Vtemp12;
     // Body
     vlSelf->__PVT__latch = ((0U == (IData)(vlSelf->__PVT__beatsLeft)) 
-                            & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__widget.auto_out_d_ready));
+                            & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.auto_out_d_ready));
     vlSelf->__PVT___beatsLeft_T_4 = (0xfU & ((IData)(vlSelf->__PVT__beatsLeft) 
-                                             - ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__widget.auto_out_d_ready) 
+                                             - ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.auto_out_d_ready) 
                                                 & ((0U 
                                                     == (IData)(vlSelf->__PVT__beatsLeft))
                                                     ? (IData)(vlSelf->__PVT___T_10)
                                                     : (IData)(vlSelf->__PVT___sink_ACancel_earlyValid_T_3)))));
-    vlSelf->__PVT__monitor__DOT___d_first_T = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__widget.auto_out_d_ready) 
+    vlSelf->__PVT__monitor__DOT___d_first_T = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.auto_out_d_ready) 
                                                & (IData)(vlSelf->__PVT__monitor_io_in_d_valid));
-    vlSelf->auto_out_1_d_ready = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__widget.auto_out_d_ready) 
+    vlSelf->auto_out_1_d_ready = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.auto_out_d_ready) 
                                   & ((0U == (IData)(vlSelf->__PVT__beatsLeft))
                                       ? (~ ((IData)(vlSelf->__PVT___readys_readys_T_2) 
                                             >> 1U))
                                       : (IData)(vlSelf->__PVT__state_1)));
-    vlSelf->auto_out_0_d_ready = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__widget.auto_out_d_ready) 
+    vlSelf->auto_out_0_d_ready = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.auto_out_d_ready) 
                                   & ((0U == (IData)(vlSelf->__PVT__beatsLeft))
                                       ? (~ (IData)(vlSelf->__PVT___readys_readys_T_2))
                                       : (IData)(vlSelf->__PVT__state_0)));
@@ -2545,47 +2197,47 @@ VL_INLINE_OPT void VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__fpga__
                                                       ((IData)(1U) 
                                                        << (IData)(vlSelf->__PVT__monitor_io_in_d_bits_source))
                                                        : 0U)));
-    __Vtemp32[0U] = 0xfU;
-    __Vtemp32[1U] = 0U;
-    __Vtemp32[2U] = 0U;
-    __Vtemp32[3U] = 0U;
-    __Vtemp32[4U] = 0U;
-    VL_SHIFTL_WWI(143,143,7, __Vtemp33, __Vtemp32, 
-                  ((IData)(vlSelf->__PVT__monitor_io_in_d_bits_source) 
-                   << 2U));
+    __Vtemp4[0U] = 0xfU;
+    __Vtemp4[1U] = 0U;
+    __Vtemp4[2U] = 0U;
+    __Vtemp4[3U] = 0U;
+    __Vtemp4[4U] = 0U;
+    VL_SHIFTL_WWI(143,143,7, __Vtemp5, __Vtemp4, ((IData)(vlSelf->__PVT__monitor_io_in_d_bits_source) 
+                                                  << 2U));
     vlSelf->__PVT__monitor__DOT___inflight_sizes_T_5 
         = (vlSelf->__PVT__monitor__DOT__inflight_sizes_1 
            & (~ (((QData)((IData)(((((IData)(vlSelf->__PVT__monitor__DOT___d_first_T) 
                                      & (0U == (IData)(vlSelf->__PVT__monitor__DOT__d_first_counter_2))) 
                                     & (6U == (IData)(vlSelf->__PVT__monitor_io_in_d_bits_opcode)))
-                                    ? __Vtemp33[1U]
-                                    : 0U))) << 0x20U) 
-                 | (QData)((IData)(((((IData)(vlSelf->__PVT__monitor__DOT___d_first_T) 
-                                      & (0U == (IData)(vlSelf->__PVT__monitor__DOT__d_first_counter_2))) 
-                                     & (6U == (IData)(vlSelf->__PVT__monitor_io_in_d_bits_opcode)))
-                                     ? __Vtemp33[0U]
-                                     : 0U))))));
-    __Vtemp39[0U] = 0xfU;
-    __Vtemp39[1U] = 0U;
-    __Vtemp39[2U] = 0U;
-    __Vtemp39[3U] = 0U;
-    __Vtemp39[4U] = 0U;
-    VL_SHIFTL_WWI(143,143,7, __Vtemp40, __Vtemp39, 
+                                    ? __Vtemp5[1U] : 0U))) 
+                  << 0x20U) | (QData)((IData)(((((IData)(vlSelf->__PVT__monitor__DOT___d_first_T) 
+                                                 & (0U 
+                                                    == (IData)(vlSelf->__PVT__monitor__DOT__d_first_counter_2))) 
+                                                & (6U 
+                                                   == (IData)(vlSelf->__PVT__monitor_io_in_d_bits_opcode)))
+                                                ? __Vtemp5[0U]
+                                                : 0U))))));
+    __Vtemp11[0U] = 0xfU;
+    __Vtemp11[1U] = 0U;
+    __Vtemp11[2U] = 0U;
+    __Vtemp11[3U] = 0U;
+    __Vtemp11[4U] = 0U;
+    VL_SHIFTL_WWI(143,143,7, __Vtemp12, __Vtemp11, 
                   ((IData)(vlSelf->__PVT__monitor_io_in_d_bits_source) 
                    << 2U));
     if ((((IData)(vlSelf->__PVT__monitor__DOT___d_first_T) 
           & (0U == (IData)(vlSelf->__PVT__monitor__DOT__d_first_counter_1))) 
          & (6U != (IData)(vlSelf->__PVT__monitor_io_in_d_bits_opcode)))) {
         vlSelf->__PVT__monitor__DOT___GEN_23[0U] = 
-            __Vtemp40[0U];
+            __Vtemp12[0U];
         vlSelf->__PVT__monitor__DOT___GEN_23[1U] = 
-            __Vtemp40[1U];
+            __Vtemp12[1U];
         vlSelf->__PVT__monitor__DOT___GEN_23[2U] = 
-            __Vtemp40[2U];
+            __Vtemp12[2U];
         vlSelf->__PVT__monitor__DOT___GEN_23[3U] = 
-            __Vtemp40[3U];
+            __Vtemp12[3U];
         vlSelf->__PVT__monitor__DOT___GEN_23[4U] = 
-            (0x7fffU & __Vtemp40[4U]);
+            (0x7fffU & __Vtemp12[4U]);
     } else {
         vlSelf->__PVT__monitor__DOT___GEN_23[0U] = 0U;
         vlSelf->__PVT__monitor__DOT___GEN_23[1U] = 0U;
@@ -2595,67 +2247,67 @@ VL_INLINE_OPT void VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__fpga__
     }
 }
 
-VL_INLINE_OPT void VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__fpga__DOT__xbar_1__13(VysyxSoCFull_TLXbar_1* vlSelf) {
+VL_INLINE_OPT void VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_1__18(VysyxSoCFull_TLXbar_1* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__fpga__DOT__xbar_1__13\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_1__18\n"); );
     // Variables
-    VlWide<5>/*159:0*/ __Vtemp46;
-    VlWide<5>/*159:0*/ __Vtemp47;
-    VlWide<5>/*159:0*/ __Vtemp53;
-    VlWide<5>/*159:0*/ __Vtemp54;
+    VlWide<5>/*159:0*/ __Vtemp18;
+    VlWide<5>/*159:0*/ __Vtemp19;
+    VlWide<5>/*159:0*/ __Vtemp25;
+    VlWide<5>/*159:0*/ __Vtemp26;
     // Body
     vlSelf->__PVT__monitor_io_in_a_ready = (((IData)(vlSelf->__PVT__requestAIO_0_0) 
-                                             & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_a_ready)) 
+                                             & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_a_ready)) 
                                             | ((0ULL 
                                                 == 
                                                 (0xc0000000ULL 
-                                                 & (QData)((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address)))) 
-                                               & (~ (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__ferr.__PVT__a__DOT__maybe_full))));
+                                                 & (QData)((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address)))) 
+                                               & (~ (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__ferr.__PVT__a__DOT__maybe_full))));
     vlSelf->auto_in_a_ready = (((IData)(vlSelf->__PVT__requestAIO_0_0) 
-                                & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_a_ready)) 
+                                & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_a_ready)) 
                                | ((0ULL == (0xc0000000ULL 
-                                            & (QData)((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address)))) 
-                                  & (~ (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__ferr.__PVT__a__DOT__maybe_full))));
+                                            & (QData)((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address)))) 
+                                  & (~ (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__ferr.__PVT__a__DOT__maybe_full))));
     vlSelf->__PVT__monitor__DOT___a_first_T = ((IData)(vlSelf->__PVT__monitor_io_in_a_ready) 
-                                               & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__fixer.auto_out_a_valid));
-    VL_EXTEND_WI(131,4, __Vtemp46, (((IData)(vlSelf->__PVT__monitor__DOT___a_first_T) 
+                                               & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__fixer.auto_out_a_valid));
+    VL_EXTEND_WI(131,4, __Vtemp18, (((IData)(vlSelf->__PVT__monitor__DOT___a_first_T) 
                                      & (0U == (IData)(vlSelf->__PVT__monitor__DOT__a_first_counter_1)))
-                                     ? (1U | ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__widget.__PVT__repeated_repeater_io_deq_bits_opcode) 
+                                     ? (1U | ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_opcode) 
                                               << 1U))
                                      : 0U));
-    VL_SHIFTL_WWI(131,131,7, __Vtemp47, __Vtemp46, 
-                  ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__widget.__PVT__repeated_repeater_io_deq_bits_source) 
+    VL_SHIFTL_WWI(131,131,7, __Vtemp19, __Vtemp18, 
+                  ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_source) 
                    << 2U));
     vlSelf->__PVT__monitor__DOT___inflight_opcodes_T_2 
         = ((vlSelf->__PVT__monitor__DOT__inflight_opcodes 
             | (((QData)((IData)((((IData)(vlSelf->__PVT__monitor__DOT___a_first_T) 
                                   & (0U == (IData)(vlSelf->__PVT__monitor__DOT__a_first_counter_1)))
-                                  ? __Vtemp47[1U] : 0U))) 
+                                  ? __Vtemp19[1U] : 0U))) 
                 << 0x20U) | (QData)((IData)((((IData)(vlSelf->__PVT__monitor__DOT___a_first_T) 
                                               & (0U 
                                                  == (IData)(vlSelf->__PVT__monitor__DOT__a_first_counter_1)))
-                                              ? __Vtemp47[0U]
+                                              ? __Vtemp19[0U]
                                               : 0U))))) 
            & (~ (((QData)((IData)(vlSelf->__PVT__monitor__DOT___GEN_23[1U])) 
                   << 0x20U) | (QData)((IData)(vlSelf->__PVT__monitor__DOT___GEN_23[0U])))));
-    VL_EXTEND_WI(131,4, __Vtemp53, (((IData)(vlSelf->__PVT__monitor__DOT___a_first_T) 
+    VL_EXTEND_WI(131,4, __Vtemp25, (((IData)(vlSelf->__PVT__monitor__DOT___a_first_T) 
                                      & (0U == (IData)(vlSelf->__PVT__monitor__DOT__a_first_counter_1)))
-                                     ? (1U | ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__widget.__PVT__repeated_repeater_io_deq_bits_size) 
+                                     ? (1U | ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_size) 
                                               << 1U))
                                      : 0U));
-    VL_SHIFTL_WWI(131,131,7, __Vtemp54, __Vtemp53, 
-                  ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__widget.__PVT__repeated_repeater_io_deq_bits_source) 
+    VL_SHIFTL_WWI(131,131,7, __Vtemp26, __Vtemp25, 
+                  ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_source) 
                    << 2U));
     vlSelf->__PVT__monitor__DOT___inflight_sizes_T_2 
         = ((vlSelf->__PVT__monitor__DOT__inflight_sizes 
             | (((QData)((IData)((((IData)(vlSelf->__PVT__monitor__DOT___a_first_T) 
                                   & (0U == (IData)(vlSelf->__PVT__monitor__DOT__a_first_counter_1)))
-                                  ? __Vtemp54[1U] : 0U))) 
+                                  ? __Vtemp26[1U] : 0U))) 
                 << 0x20U) | (QData)((IData)((((IData)(vlSelf->__PVT__monitor__DOT___a_first_T) 
                                               & (0U 
                                                  == (IData)(vlSelf->__PVT__monitor__DOT__a_first_counter_1)))
-                                              ? __Vtemp54[0U]
+                                              ? __Vtemp26[0U]
                                               : 0U))))) 
            & (~ (((QData)((IData)(vlSelf->__PVT__monitor__DOT___GEN_23[1U])) 
                   << 0x20U) | (QData)((IData)(vlSelf->__PVT__monitor__DOT___GEN_23[0U])))));
@@ -2666,7 +2318,7 @@ VL_INLINE_OPT void VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__fpga__
                                                              == (IData)(vlSelf->__PVT__monitor__DOT__a_first_counter_1)))
                                                           ? 
                                                          ((IData)(1U) 
-                                                          << (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__widget.__PVT__repeated_repeater_io_deq_bits_source))
+                                                          << (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_source))
                                                           : 0U)) 
                                                      & (~ 
                                                         ((((IData)(vlSelf->__PVT__monitor__DOT___d_first_T) 
@@ -2680,10 +2332,10 @@ VL_INLINE_OPT void VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__fpga__
                                                           : 0U))));
 }
 
-VL_INLINE_OPT void VysyxSoCFull_TLXbar_1___sequent__TOP__ysyxSoCFull__DOT__fpga__DOT__xbar_1__16(VysyxSoCFull_TLXbar_1* vlSelf) {
+VL_INLINE_OPT void VysyxSoCFull_TLXbar_1___sequent__TOP__ysyxSoCFull__DOT__fpga__DOT__xbar_1__4(VysyxSoCFull_TLXbar_1* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_TLXbar_1___sequent__TOP__ysyxSoCFull__DOT__fpga__DOT__xbar_1__16\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_TLXbar_1___sequent__TOP__ysyxSoCFull__DOT__fpga__DOT__xbar_1__4\n"); );
     // Body
     if (VL_UNLIKELY((1U & (~ (((~ (IData)(vlSelf->__PVT__earlyWinner_0)) 
                                | (~ (IData)(vlSelf->__PVT__earlyWinner_1))) 
@@ -4570,10 +4222,10 @@ VL_INLINE_OPT void VysyxSoCFull_TLXbar_1___sequent__TOP__ysyxSoCFull__DOT__fpga_
     vlSelf->__PVT__monitor__DOT__a_first = (0U == (IData)(vlSelf->__PVT__monitor__DOT__a_first_counter));
 }
 
-VL_INLINE_OPT void VysyxSoCFull_TLXbar_1___sequent__TOP__ysyxSoCFull__DOT__fpga__DOT__xbar_1__17(VysyxSoCFull_TLXbar_1* vlSelf) {
+VL_INLINE_OPT void VysyxSoCFull_TLXbar_1___sequent__TOP__ysyxSoCFull__DOT__fpga__DOT__xbar_1__5(VysyxSoCFull_TLXbar_1* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_TLXbar_1___sequent__TOP__ysyxSoCFull__DOT__fpga__DOT__xbar_1__17\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_TLXbar_1___sequent__TOP__ysyxSoCFull__DOT__fpga__DOT__xbar_1__5\n"); );
     // Body
     vlSelf->__PVT__monitor__DOT__source_ok = 1U;
     vlSelf->__PVT__requestAIO_0_0 = ((0ULL == (0xc0000000ULL 
@@ -4653,4 +4305,352 @@ VL_INLINE_OPT void VysyxSoCFull_TLXbar_1___sequent__TOP__ysyxSoCFull__DOT__fpga_
                                                                 == 
                                                                 (3U 
                                                                  & vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address))))))));
+}
+
+VL_INLINE_OPT void VysyxSoCFull_TLXbar_1___sequent__TOP__ysyxSoCFull__DOT__fpga__DOT__xbar_1__6(VysyxSoCFull_TLXbar_1* vlSelf) {
+    if (false && vlSelf) {}  // Prevent unused
+    VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_TLXbar_1___sequent__TOP__ysyxSoCFull__DOT__fpga__DOT__xbar_1__6\n"); );
+    // Body
+    vlSelf->auto_out_1_a_valid = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__fixer.auto_out_a_valid) 
+                                  & (0ULL == (0xc0000000ULL 
+                                              & (QData)((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address)))));
+    vlSelf->auto_out_0_a_valid = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__fixer.auto_out_a_valid) 
+                                  & (IData)(vlSelf->__PVT__requestAIO_0_0));
+}
+
+VL_INLINE_OPT void VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__fpga__DOT__xbar_1__14(VysyxSoCFull_TLXbar_1* vlSelf) {
+    if (false && vlSelf) {}  // Prevent unused
+    VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__fpga__DOT__xbar_1__14\n"); );
+    // Variables
+    CData/*3:0*/ __PVT___T_36;
+    CData/*3:0*/ __PVT___T_37;
+    CData/*5:0*/ __PVT___T_33;
+    CData/*2:0*/ __PVT___T_39;
+    CData/*2:0*/ __PVT___T_40;
+    CData/*2:0*/ __PVT___T_45;
+    CData/*2:0*/ __PVT___T_46;
+    // Body
+    vlSelf->__PVT___T_10 = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_valid) 
+                            | (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__ferr.auto_in_d_valid));
+    vlSelf->__PVT___sink_ACancel_earlyValid_T_3 = (
+                                                   ((IData)(vlSelf->__PVT__state_0) 
+                                                    & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_valid)) 
+                                                   | ((IData)(vlSelf->__PVT__state_1) 
+                                                      & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__ferr.auto_in_d_valid)));
+    vlSelf->__PVT__readys_filter_lo = (((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__ferr.auto_in_d_valid) 
+                                        << 1U) | (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_valid));
+    if ((0U == (IData)(vlSelf->__PVT__beatsLeft))) {
+        vlSelf->__PVT__monitor_io_in_d_valid = vlSelf->__PVT___T_10;
+        vlSelf->auto_in_d_valid = vlSelf->__PVT___T_10;
+    } else {
+        vlSelf->__PVT__monitor_io_in_d_valid = vlSelf->__PVT___sink_ACancel_earlyValid_T_3;
+        vlSelf->auto_in_d_valid = vlSelf->__PVT___sink_ACancel_earlyValid_T_3;
+    }
+    vlSelf->__PVT__readys_filter = ((((IData)(vlSelf->__PVT__readys_filter_lo) 
+                                      & (~ (IData)(vlSelf->__PVT__readys_mask))) 
+                                     << 2U) | (((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__ferr.auto_in_d_valid) 
+                                                << 1U) 
+                                               | (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_valid)));
+    vlSelf->__PVT__readys_unready = ((7U & (((IData)(vlSelf->__PVT__readys_filter) 
+                                             >> 1U) 
+                                            | (3U & 
+                                               ((IData)(vlSelf->__PVT__readys_filter) 
+                                                >> 2U)))) 
+                                     | ((IData)(vlSelf->__PVT__readys_mask) 
+                                        << 2U));
+    vlSelf->__PVT___readys_readys_T_2 = (3U & (((IData)(vlSelf->__PVT__readys_unready) 
+                                                >> 2U) 
+                                               & (IData)(vlSelf->__PVT__readys_unready)));
+    vlSelf->__PVT___readys_mask_T = ((~ (IData)(vlSelf->__PVT___readys_readys_T_2)) 
+                                     & (IData)(vlSelf->__PVT__readys_filter_lo));
+    vlSelf->__PVT__earlyWinner_1 = ((~ ((IData)(vlSelf->__PVT___readys_readys_T_2) 
+                                        >> 1U)) & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__ferr.auto_in_d_valid));
+    vlSelf->__PVT__earlyWinner_0 = ((~ (IData)(vlSelf->__PVT___readys_readys_T_2)) 
+                                    & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_valid));
+    if ((0U == (IData)(vlSelf->__PVT__beatsLeft))) {
+        vlSelf->__PVT__muxStateEarly_1 = vlSelf->__PVT__earlyWinner_1;
+        vlSelf->__PVT__muxStateEarly_0 = vlSelf->__PVT__earlyWinner_0;
+    } else {
+        vlSelf->__PVT__muxStateEarly_1 = vlSelf->__PVT__state_1;
+        vlSelf->__PVT__muxStateEarly_0 = vlSelf->__PVT__state_0;
+    }
+    if (vlSelf->__PVT__muxStateEarly_1) {
+        __PVT___T_37 = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__ferr.__PVT__muxStateEarly_1)
+                         ? vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__ferr.__PVT__a__DOT__ram_source
+                        [0U] : 0U);
+        __PVT___T_40 = vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__ferr.auto_in_d_bits_size;
+        __PVT___T_46 = vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__ferr.auto_in_d_bits_opcode;
+    } else {
+        __PVT___T_37 = 0U;
+        __PVT___T_40 = 0U;
+        __PVT___T_46 = 0U;
+    }
+    if (vlSelf->__PVT__muxStateEarly_0) {
+        vlSelf->auto_in_d_bits_param = vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_bits_param;
+        vlSelf->__PVT__monitor_io_in_d_bits_param = vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_bits_param;
+    } else {
+        vlSelf->auto_in_d_bits_param = 0U;
+        vlSelf->__PVT__monitor_io_in_d_bits_param = 0U;
+    }
+    vlSelf->__PVT__monitor_io_in_d_bits_denied = (((IData)(vlSelf->__PVT__muxStateEarly_0) 
+                                                   & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_bits_denied)) 
+                                                  | ((IData)(vlSelf->__PVT__muxStateEarly_1) 
+                                                     & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__ferr.auto_in_d_bits_denied)));
+    if (vlSelf->__PVT__muxStateEarly_0) {
+        vlSelf->auto_in_d_bits_data = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sbypass.__PVT__bar__DOT__bypass)
+                                        ? 0U : vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceD_io_q_sink.__PVT__io_deq_bits_deq_bits_reg__DOT__cdc_reg);
+        __PVT___T_33 = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sbypass.__PVT__bar__DOT__bypass)
+                         ? 0U : (IData)(vlSymsp->TOP.ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceD_io_d_bits_sink));
+    } else {
+        vlSelf->auto_in_d_bits_data = 0U;
+        __PVT___T_33 = 0U;
+    }
+    vlSelf->auto_in_d_bits_denied = (((IData)(vlSelf->__PVT__muxStateEarly_0) 
+                                      & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_bits_denied)) 
+                                     | ((IData)(vlSelf->__PVT__muxStateEarly_1) 
+                                        & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__ferr.auto_in_d_bits_denied)));
+    vlSelf->auto_in_d_bits_corrupt = (((IData)(vlSelf->__PVT__muxStateEarly_0) 
+                                       & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_bits_corrupt)) 
+                                      | ((IData)(vlSelf->__PVT__muxStateEarly_1) 
+                                         & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__ferr.auto_in_d_bits_corrupt)));
+    if (vlSelf->__PVT__muxStateEarly_0) {
+        __PVT___T_36 = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sbypass.__PVT__bar__DOT__bypass)
+                         ? (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sbypass.__PVT__error_auto_in_d_bits_source)
+                         : (IData)(vlSymsp->TOP.ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceD_io_d_bits_source));
+        __PVT___T_39 = vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_bits_size;
+        __PVT___T_45 = vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_d_bits_opcode;
+    } else {
+        __PVT___T_36 = 0U;
+        __PVT___T_39 = 0U;
+        __PVT___T_45 = 0U;
+    }
+    vlSelf->auto_in_d_bits_sink = ((IData)(__PVT___T_33) 
+                                   | ((IData)(vlSelf->__PVT__muxStateEarly_1)
+                                       ? 0x20U : 0U));
+    vlSelf->__PVT__monitor_io_in_d_bits_sink = ((IData)(__PVT___T_33) 
+                                                | ((IData)(vlSelf->__PVT__muxStateEarly_1)
+                                                    ? 0x20U
+                                                    : 0U));
+    vlSelf->__PVT__monitor_io_in_d_bits_source = ((IData)(__PVT___T_36) 
+                                                  | (IData)(__PVT___T_37));
+    vlSelf->auto_in_d_bits_source = ((IData)(__PVT___T_36) 
+                                     | (IData)(__PVT___T_37));
+    vlSelf->__PVT__monitor_io_in_d_bits_size = ((IData)(__PVT___T_39) 
+                                                | (IData)(__PVT___T_40));
+    vlSelf->auto_in_d_bits_size = ((IData)(__PVT___T_39) 
+                                   | (IData)(__PVT___T_40));
+    vlSelf->__PVT__monitor_io_in_d_bits_opcode = ((IData)(__PVT___T_45) 
+                                                  | (IData)(__PVT___T_46));
+    vlSelf->auto_in_d_bits_opcode = ((IData)(__PVT___T_45) 
+                                     | (IData)(__PVT___T_46));
+    vlSelf->__PVT__monitor__DOT___a_opcode_lookup_T_1 
+        = ((0x3fU >= ((IData)(vlSelf->__PVT__monitor_io_in_d_bits_source) 
+                      << 2U)) ? (vlSelf->__PVT__monitor__DOT__inflight_opcodes 
+                                 >> ((IData)(vlSelf->__PVT__monitor_io_in_d_bits_source) 
+                                     << 2U)) : 0ULL);
+    vlSelf->__PVT__monitor__DOT___GEN_46 = ((5U == 
+                                             (7U & (IData)(
+                                                           (7ULL 
+                                                            & (vlSelf->__PVT__monitor__DOT___a_opcode_lookup_T_1 
+                                                               >> 1U)))))
+                                             ? 2U : 
+                                            ((4U == 
+                                              (7U & (IData)(
+                                                            (7ULL 
+                                                             & (vlSelf->__PVT__monitor__DOT___a_opcode_lookup_T_1 
+                                                                >> 1U)))))
+                                              ? 1U : 
+                                             ((3U == 
+                                               (7U 
+                                                & (IData)(
+                                                          (7ULL 
+                                                           & (vlSelf->__PVT__monitor__DOT___a_opcode_lookup_T_1 
+                                                              >> 1U)))))
+                                               ? 1U
+                                               : ((2U 
+                                                   == 
+                                                   (7U 
+                                                    & (IData)(
+                                                              (7ULL 
+                                                               & (vlSelf->__PVT__monitor__DOT___a_opcode_lookup_T_1 
+                                                                  >> 1U)))))
+                                                   ? 1U
+                                                   : 0U))));
+}
+
+VL_INLINE_OPT void VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__fpga__DOT__xbar_1__15(VysyxSoCFull_TLXbar_1* vlSelf) {
+    if (false && vlSelf) {}  // Prevent unused
+    VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__fpga__DOT__xbar_1__15\n"); );
+    // Variables
+    VlWide<5>/*159:0*/ __Vtemp32;
+    VlWide<5>/*159:0*/ __Vtemp33;
+    VlWide<5>/*159:0*/ __Vtemp39;
+    VlWide<5>/*159:0*/ __Vtemp40;
+    // Body
+    vlSelf->__PVT__latch = ((0U == (IData)(vlSelf->__PVT__beatsLeft)) 
+                            & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__widget.auto_out_d_ready));
+    vlSelf->__PVT___beatsLeft_T_4 = (0xfU & ((IData)(vlSelf->__PVT__beatsLeft) 
+                                             - ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__widget.auto_out_d_ready) 
+                                                & ((0U 
+                                                    == (IData)(vlSelf->__PVT__beatsLeft))
+                                                    ? (IData)(vlSelf->__PVT___T_10)
+                                                    : (IData)(vlSelf->__PVT___sink_ACancel_earlyValid_T_3)))));
+    vlSelf->__PVT__monitor__DOT___d_first_T = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__widget.auto_out_d_ready) 
+                                               & (IData)(vlSelf->__PVT__monitor_io_in_d_valid));
+    vlSelf->auto_out_1_d_ready = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__widget.auto_out_d_ready) 
+                                  & ((0U == (IData)(vlSelf->__PVT__beatsLeft))
+                                      ? (~ ((IData)(vlSelf->__PVT___readys_readys_T_2) 
+                                            >> 1U))
+                                      : (IData)(vlSelf->__PVT__state_1)));
+    vlSelf->auto_out_0_d_ready = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__widget.auto_out_d_ready) 
+                                  & ((0U == (IData)(vlSelf->__PVT__beatsLeft))
+                                      ? (~ (IData)(vlSelf->__PVT___readys_readys_T_2))
+                                      : (IData)(vlSelf->__PVT__state_0)));
+    vlSelf->__PVT__monitor__DOT___inflight_T_5 = ((IData)(vlSelf->__PVT__monitor__DOT__inflight_1) 
+                                                  & (~ 
+                                                     ((((IData)(vlSelf->__PVT__monitor__DOT___d_first_T) 
+                                                        & (0U 
+                                                           == (IData)(vlSelf->__PVT__monitor__DOT__d_first_counter_2))) 
+                                                       & (6U 
+                                                          == (IData)(vlSelf->__PVT__monitor_io_in_d_bits_opcode)))
+                                                       ? 
+                                                      ((IData)(1U) 
+                                                       << (IData)(vlSelf->__PVT__monitor_io_in_d_bits_source))
+                                                       : 0U)));
+    __Vtemp32[0U] = 0xfU;
+    __Vtemp32[1U] = 0U;
+    __Vtemp32[2U] = 0U;
+    __Vtemp32[3U] = 0U;
+    __Vtemp32[4U] = 0U;
+    VL_SHIFTL_WWI(143,143,7, __Vtemp33, __Vtemp32, 
+                  ((IData)(vlSelf->__PVT__monitor_io_in_d_bits_source) 
+                   << 2U));
+    vlSelf->__PVT__monitor__DOT___inflight_sizes_T_5 
+        = (vlSelf->__PVT__monitor__DOT__inflight_sizes_1 
+           & (~ (((QData)((IData)(((((IData)(vlSelf->__PVT__monitor__DOT___d_first_T) 
+                                     & (0U == (IData)(vlSelf->__PVT__monitor__DOT__d_first_counter_2))) 
+                                    & (6U == (IData)(vlSelf->__PVT__monitor_io_in_d_bits_opcode)))
+                                    ? __Vtemp33[1U]
+                                    : 0U))) << 0x20U) 
+                 | (QData)((IData)(((((IData)(vlSelf->__PVT__monitor__DOT___d_first_T) 
+                                      & (0U == (IData)(vlSelf->__PVT__monitor__DOT__d_first_counter_2))) 
+                                     & (6U == (IData)(vlSelf->__PVT__monitor_io_in_d_bits_opcode)))
+                                     ? __Vtemp33[0U]
+                                     : 0U))))));
+    __Vtemp39[0U] = 0xfU;
+    __Vtemp39[1U] = 0U;
+    __Vtemp39[2U] = 0U;
+    __Vtemp39[3U] = 0U;
+    __Vtemp39[4U] = 0U;
+    VL_SHIFTL_WWI(143,143,7, __Vtemp40, __Vtemp39, 
+                  ((IData)(vlSelf->__PVT__monitor_io_in_d_bits_source) 
+                   << 2U));
+    if ((((IData)(vlSelf->__PVT__monitor__DOT___d_first_T) 
+          & (0U == (IData)(vlSelf->__PVT__monitor__DOT__d_first_counter_1))) 
+         & (6U != (IData)(vlSelf->__PVT__monitor_io_in_d_bits_opcode)))) {
+        vlSelf->__PVT__monitor__DOT___GEN_23[0U] = 
+            __Vtemp40[0U];
+        vlSelf->__PVT__monitor__DOT___GEN_23[1U] = 
+            __Vtemp40[1U];
+        vlSelf->__PVT__monitor__DOT___GEN_23[2U] = 
+            __Vtemp40[2U];
+        vlSelf->__PVT__monitor__DOT___GEN_23[3U] = 
+            __Vtemp40[3U];
+        vlSelf->__PVT__monitor__DOT___GEN_23[4U] = 
+            (0x7fffU & __Vtemp40[4U]);
+    } else {
+        vlSelf->__PVT__monitor__DOT___GEN_23[0U] = 0U;
+        vlSelf->__PVT__monitor__DOT___GEN_23[1U] = 0U;
+        vlSelf->__PVT__monitor__DOT___GEN_23[2U] = 0U;
+        vlSelf->__PVT__monitor__DOT___GEN_23[3U] = 0U;
+        vlSelf->__PVT__monitor__DOT___GEN_23[4U] = 0U;
+    }
+}
+
+VL_INLINE_OPT void VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__fpga__DOT__xbar_1__17(VysyxSoCFull_TLXbar_1* vlSelf) {
+    if (false && vlSelf) {}  // Prevent unused
+    VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_TLXbar_1___settle__TOP__ysyxSoCFull__DOT__fpga__DOT__xbar_1__17\n"); );
+    // Variables
+    VlWide<5>/*159:0*/ __Vtemp46;
+    VlWide<5>/*159:0*/ __Vtemp47;
+    VlWide<5>/*159:0*/ __Vtemp53;
+    VlWide<5>/*159:0*/ __Vtemp54;
+    // Body
+    vlSelf->__PVT__monitor_io_in_a_ready = (((IData)(vlSelf->__PVT__requestAIO_0_0) 
+                                             & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_a_ready)) 
+                                            | ((0ULL 
+                                                == 
+                                                (0xc0000000ULL 
+                                                 & (QData)((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address)))) 
+                                               & (~ (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__ferr.__PVT__a__DOT__maybe_full))));
+    vlSelf->auto_in_a_ready = (((IData)(vlSelf->__PVT__requestAIO_0_0) 
+                                & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sbypass.__PVT__bar_auto_in_a_ready)) 
+                               | ((0ULL == (0xc0000000ULL 
+                                            & (QData)((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address)))) 
+                                  & (~ (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__ferr.__PVT__a__DOT__maybe_full))));
+    vlSelf->__PVT__monitor__DOT___a_first_T = ((IData)(vlSelf->__PVT__monitor_io_in_a_ready) 
+                                               & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__fixer.auto_out_a_valid));
+    VL_EXTEND_WI(131,4, __Vtemp46, (((IData)(vlSelf->__PVT__monitor__DOT___a_first_T) 
+                                     & (0U == (IData)(vlSelf->__PVT__monitor__DOT__a_first_counter_1)))
+                                     ? (1U | ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__widget.__PVT__repeated_repeater_io_deq_bits_opcode) 
+                                              << 1U))
+                                     : 0U));
+    VL_SHIFTL_WWI(131,131,7, __Vtemp47, __Vtemp46, 
+                  ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__widget.__PVT__repeated_repeater_io_deq_bits_source) 
+                   << 2U));
+    vlSelf->__PVT__monitor__DOT___inflight_opcodes_T_2 
+        = ((vlSelf->__PVT__monitor__DOT__inflight_opcodes 
+            | (((QData)((IData)((((IData)(vlSelf->__PVT__monitor__DOT___a_first_T) 
+                                  & (0U == (IData)(vlSelf->__PVT__monitor__DOT__a_first_counter_1)))
+                                  ? __Vtemp47[1U] : 0U))) 
+                << 0x20U) | (QData)((IData)((((IData)(vlSelf->__PVT__monitor__DOT___a_first_T) 
+                                              & (0U 
+                                                 == (IData)(vlSelf->__PVT__monitor__DOT__a_first_counter_1)))
+                                              ? __Vtemp47[0U]
+                                              : 0U))))) 
+           & (~ (((QData)((IData)(vlSelf->__PVT__monitor__DOT___GEN_23[1U])) 
+                  << 0x20U) | (QData)((IData)(vlSelf->__PVT__monitor__DOT___GEN_23[0U])))));
+    VL_EXTEND_WI(131,4, __Vtemp53, (((IData)(vlSelf->__PVT__monitor__DOT___a_first_T) 
+                                     & (0U == (IData)(vlSelf->__PVT__monitor__DOT__a_first_counter_1)))
+                                     ? (1U | ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__widget.__PVT__repeated_repeater_io_deq_bits_size) 
+                                              << 1U))
+                                     : 0U));
+    VL_SHIFTL_WWI(131,131,7, __Vtemp54, __Vtemp53, 
+                  ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__widget.__PVT__repeated_repeater_io_deq_bits_source) 
+                   << 2U));
+    vlSelf->__PVT__monitor__DOT___inflight_sizes_T_2 
+        = ((vlSelf->__PVT__monitor__DOT__inflight_sizes 
+            | (((QData)((IData)((((IData)(vlSelf->__PVT__monitor__DOT___a_first_T) 
+                                  & (0U == (IData)(vlSelf->__PVT__monitor__DOT__a_first_counter_1)))
+                                  ? __Vtemp54[1U] : 0U))) 
+                << 0x20U) | (QData)((IData)((((IData)(vlSelf->__PVT__monitor__DOT___a_first_T) 
+                                              & (0U 
+                                                 == (IData)(vlSelf->__PVT__monitor__DOT__a_first_counter_1)))
+                                              ? __Vtemp54[0U]
+                                              : 0U))))) 
+           & (~ (((QData)((IData)(vlSelf->__PVT__monitor__DOT___GEN_23[1U])) 
+                  << 0x20U) | (QData)((IData)(vlSelf->__PVT__monitor__DOT___GEN_23[0U])))));
+    vlSelf->__PVT__monitor__DOT___inflight_T_2 = (0xffffU 
+                                                  & (((IData)(vlSelf->__PVT__monitor__DOT__inflight) 
+                                                      | (((IData)(vlSelf->__PVT__monitor__DOT___a_first_T) 
+                                                          & (0U 
+                                                             == (IData)(vlSelf->__PVT__monitor__DOT__a_first_counter_1)))
+                                                          ? 
+                                                         ((IData)(1U) 
+                                                          << (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__widget.__PVT__repeated_repeater_io_deq_bits_source))
+                                                          : 0U)) 
+                                                     & (~ 
+                                                        ((((IData)(vlSelf->__PVT__monitor__DOT___d_first_T) 
+                                                           & (0U 
+                                                              == (IData)(vlSelf->__PVT__monitor__DOT__d_first_counter_1))) 
+                                                          & (6U 
+                                                             != (IData)(vlSelf->__PVT__monitor_io_in_d_bits_opcode)))
+                                                          ? 
+                                                         ((IData)(1U) 
+                                                          << (IData)(vlSelf->__PVT__monitor_io_in_d_bits_source))
+                                                          : 0U))));
 }

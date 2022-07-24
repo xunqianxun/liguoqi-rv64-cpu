@@ -120,7 +120,7 @@ module clint (
     wire                     success_b                                            ;
     assign                   success_b   = time_axi_b_ready  && time_axi_b_valid  ;
     wire                     shankhand_successw                                      ;
-    assign                   shankhand_successw = success_aw | success_w             ;
+    assign                   shankhand_successw =  success_w                         ;
     wire                     shankhand_successr                                      ;
     assign                   shankhand_successr = success_ar                         ;
     wire                     resp_success                                            ;
@@ -191,7 +191,7 @@ module clint (
     end
 
     assign time_axi_aw_ready = 1'b1  ;
-    assign time_axi_w_ready  = 1'b1  ;
+    assign time_axi_w_ready  = 1'b1 && success_aw ;
 
 
     reg    [3:0 ]  timeraw_id_temp   ;
@@ -218,10 +218,10 @@ module clint (
     wire   csr_mtimecmp_readena                                                               ;
     assign csr_mtimecmp_readena = success_ar && (time_axi_ar_addr == `ysyx22040228_MTIMECMP)  ;
 
-    wire   csr_mtime_writeena                                                                              ;
-    assign csr_mtime_writeena     = success_aw && success_w && (time_axi_aw_addr == `ysyx22040228_MTIME)   ;
-    wire   csr_mtimecmp_writeena                                                                           ;
-    assign csr_mtimecmp_writeena  = success_aw && success_w && (time_axi_aw_addr == `ysyx22040228_MTIMECMP);
+    wire   csr_mtime_writeena                                                                ;
+    assign csr_mtime_writeena     = success_w && (time_axi_aw_addr == `ysyx22040228_MTIME)   ;
+    wire   csr_mtimecmp_writeena                                                             ;
+    assign csr_mtimecmp_writeena  =  success_w && (time_axi_aw_addr == `ysyx22040228_MTIMECMP);
 
     wire   [63:0] csr_mtime_temp    ;
     wire   [63:0] csr_mtimecmp_temp ;

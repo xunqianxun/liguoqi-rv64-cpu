@@ -27,10 +27,10 @@ void VysyxSoCFull_AXI4UserYanker_1::__Vconfigure(VysyxSoCFull__Syms* _vlSymsp, b
 VysyxSoCFull_AXI4UserYanker_1::~VysyxSoCFull_AXI4UserYanker_1() {
 }
 
-void VysyxSoCFull_AXI4UserYanker_1___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi4yank_1__2(VysyxSoCFull_AXI4UserYanker_1* vlSelf) {
+void VysyxSoCFull_AXI4UserYanker_1___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi4yank_1__6(VysyxSoCFull_AXI4UserYanker_1* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_AXI4UserYanker_1___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi4yank_1__2\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_AXI4UserYanker_1___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi4yank_1__6\n"); );
     // Body
     vlSelf->__PVT__QueueCompatibility__DOT__ptr_match 
         = ((IData)(vlSelf->__PVT__QueueCompatibility__DOT__enq_ptr_value) 
@@ -96,10 +96,10 @@ void VysyxSoCFull_AXI4UserYanker_1___settle__TOP__ysyxSoCFull__DOT__asic__DOT__c
             : 0U);
 }
 
-void VysyxSoCFull_AXI4UserYanker_1___settle__TOP__ysyxSoCFull__DOT__fpga__DOT__axi4yank__1(VysyxSoCFull_AXI4UserYanker_1* vlSelf) {
+void VysyxSoCFull_AXI4UserYanker_1___settle__TOP__ysyxSoCFull__DOT__fpga__DOT__axi4yank__5(VysyxSoCFull_AXI4UserYanker_1* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_AXI4UserYanker_1___settle__TOP__ysyxSoCFull__DOT__fpga__DOT__axi4yank__1\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_AXI4UserYanker_1___settle__TOP__ysyxSoCFull__DOT__fpga__DOT__axi4yank__5\n"); );
     // Variables
     CData/*6:0*/ __PVT___GEN_57;
     CData/*3:0*/ __PVT___GEN_73;
@@ -893,10 +893,10 @@ void VysyxSoCFull_AXI4UserYanker_1___settle__TOP__ysyxSoCFull__DOT__fpga__DOT__a
     }
 }
 
-void VysyxSoCFull_AXI4UserYanker_1___settle__TOP__ysyxSoCFull__DOT__fpga__DOT__axi4yank__4(VysyxSoCFull_AXI4UserYanker_1* vlSelf) {
+void VysyxSoCFull_AXI4UserYanker_1___settle__TOP__ysyxSoCFull__DOT__fpga__DOT__axi4yank__8(VysyxSoCFull_AXI4UserYanker_1* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_AXI4UserYanker_1___settle__TOP__ysyxSoCFull__DOT__fpga__DOT__axi4yank__4\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_AXI4UserYanker_1___settle__TOP__ysyxSoCFull__DOT__fpga__DOT__axi4yank__8\n"); );
     // Variables
     CData/*0:0*/ __PVT___GEN_12;
     CData/*0:0*/ __PVT___GEN_92;

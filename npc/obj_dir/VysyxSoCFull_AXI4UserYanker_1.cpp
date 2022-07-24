@@ -9,164 +9,10 @@
 
 //==========
 
-VL_INLINE_OPT void VysyxSoCFull_AXI4UserYanker_1___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi4yank_1__3(VysyxSoCFull_AXI4UserYanker_1* vlSelf) {
+VL_INLINE_OPT void VysyxSoCFull_AXI4UserYanker_1___sequent__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi4yank_1__1(VysyxSoCFull_AXI4UserYanker_1* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_AXI4UserYanker_1___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi4yank_1__3\n"); );
-    // Body
-    if ((0xaU == (0xfU & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__PVT__queue_arw_deq_io_deq_bits_id)))) {
-        vlSelf->__PVT___GEN_10 = (1U & (~ (IData)(vlSelf->__PVT__QueueCompatibility_10__DOT__maybe_full)));
-        vlSelf->__PVT___GEN_90 = (1U & (~ (IData)(vlSelf->__PVT__QueueCompatibility_26__DOT__maybe_full)));
-    } else {
-        vlSelf->__PVT___GEN_10 = (1U & ((9U == (0xfU 
-                                                & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__PVT__queue_arw_deq_io_deq_bits_id)))
-                                         ? (~ (IData)(vlSelf->__PVT__QueueCompatibility_9__DOT__maybe_full))
-                                         : ((8U == 
-                                             (0xfU 
-                                              & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__PVT__queue_arw_deq_io_deq_bits_id)))
-                                             ? (~ (IData)(vlSelf->__PVT__QueueCompatibility_8__DOT__maybe_full))
-                                             : ((7U 
-                                                 == 
-                                                 (0xfU 
-                                                  & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__PVT__queue_arw_deq_io_deq_bits_id)))
-                                                 ? 
-                                                (~ (IData)(vlSelf->__PVT__QueueCompatibility_7__DOT__maybe_full))
-                                                 : 
-                                                ((6U 
-                                                  == 
-                                                  (0xfU 
-                                                   & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__PVT__queue_arw_deq_io_deq_bits_id)))
-                                                  ? 
-                                                 (~ 
-                                                  ((IData)(vlSelf->__PVT__QueueCompatibility_6__DOT__ptr_match) 
-                                                   & (IData)(vlSelf->__PVT__QueueCompatibility_6__DOT__maybe_full)))
-                                                  : 
-                                                 ((5U 
-                                                   == 
-                                                   (0xfU 
-                                                    & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__PVT__queue_arw_deq_io_deq_bits_id)))
-                                                   ? 
-                                                  (~ 
-                                                   ((IData)(vlSelf->__PVT__QueueCompatibility_5__DOT__ptr_match) 
-                                                    & (IData)(vlSelf->__PVT__QueueCompatibility_5__DOT__maybe_full)))
-                                                   : 
-                                                  ((4U 
-                                                    == 
-                                                    (0xfU 
-                                                     & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__PVT__queue_arw_deq_io_deq_bits_id)))
-                                                    ? 
-                                                   (~ 
-                                                    ((IData)(vlSelf->__PVT__QueueCompatibility_4__DOT__ptr_match) 
-                                                     & (IData)(vlSelf->__PVT__QueueCompatibility_4__DOT__maybe_full)))
-                                                    : 
-                                                   ((3U 
-                                                     == 
-                                                     (0xfU 
-                                                      & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__PVT__queue_arw_deq_io_deq_bits_id)))
-                                                     ? 
-                                                    (~ 
-                                                     ((IData)(vlSelf->__PVT__QueueCompatibility_3__DOT__ptr_match) 
-                                                      & (IData)(vlSelf->__PVT__QueueCompatibility_3__DOT__maybe_full)))
-                                                     : 
-                                                    ((2U 
-                                                      == 
-                                                      (0xfU 
-                                                       & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__PVT__queue_arw_deq_io_deq_bits_id)))
-                                                      ? 
-                                                     (~ 
-                                                      ((IData)(vlSelf->__PVT__QueueCompatibility_2__DOT__ptr_match) 
-                                                       & (IData)(vlSelf->__PVT__QueueCompatibility_2__DOT__maybe_full)))
-                                                      : 
-                                                     ((1U 
-                                                       == 
-                                                       (0xfU 
-                                                        & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__PVT__queue_arw_deq_io_deq_bits_id)))
-                                                       ? 
-                                                      (~ 
-                                                       ((IData)(vlSelf->__PVT__QueueCompatibility_1__DOT__ptr_match) 
-                                                        & (IData)(vlSelf->__PVT__QueueCompatibility_1__DOT__maybe_full)))
-                                                       : 
-                                                      (~ 
-                                                       ((IData)(vlSelf->__PVT__QueueCompatibility__DOT__ptr_match) 
-                                                        & (IData)(vlSelf->__PVT__QueueCompatibility__DOT__maybe_full)))))))))))));
-        vlSelf->__PVT___GEN_90 = (1U & ((9U == (0xfU 
-                                                & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__PVT__queue_arw_deq_io_deq_bits_id)))
-                                         ? (~ (IData)(vlSelf->__PVT__QueueCompatibility_25__DOT__maybe_full))
-                                         : ((8U == 
-                                             (0xfU 
-                                              & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__PVT__queue_arw_deq_io_deq_bits_id)))
-                                             ? (~ (IData)(vlSelf->__PVT__QueueCompatibility_24__DOT__maybe_full))
-                                             : ((7U 
-                                                 == 
-                                                 (0xfU 
-                                                  & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__PVT__queue_arw_deq_io_deq_bits_id)))
-                                                 ? 
-                                                (~ (IData)(vlSelf->__PVT__QueueCompatibility_23__DOT__maybe_full))
-                                                 : 
-                                                ((6U 
-                                                  == 
-                                                  (0xfU 
-                                                   & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__PVT__queue_arw_deq_io_deq_bits_id)))
-                                                  ? 
-                                                 (~ 
-                                                  ((IData)(vlSelf->__PVT__QueueCompatibility_22__DOT__ptr_match) 
-                                                   & (IData)(vlSelf->__PVT__QueueCompatibility_22__DOT__maybe_full)))
-                                                  : 
-                                                 ((5U 
-                                                   == 
-                                                   (0xfU 
-                                                    & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__PVT__queue_arw_deq_io_deq_bits_id)))
-                                                   ? 
-                                                  (~ 
-                                                   ((IData)(vlSelf->__PVT__QueueCompatibility_21__DOT__ptr_match) 
-                                                    & (IData)(vlSelf->__PVT__QueueCompatibility_21__DOT__maybe_full)))
-                                                   : 
-                                                  ((4U 
-                                                    == 
-                                                    (0xfU 
-                                                     & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__PVT__queue_arw_deq_io_deq_bits_id)))
-                                                    ? 
-                                                   (~ 
-                                                    ((IData)(vlSelf->__PVT__QueueCompatibility_20__DOT__ptr_match) 
-                                                     & (IData)(vlSelf->__PVT__QueueCompatibility_20__DOT__maybe_full)))
-                                                    : 
-                                                   ((3U 
-                                                     == 
-                                                     (0xfU 
-                                                      & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__PVT__queue_arw_deq_io_deq_bits_id)))
-                                                     ? 
-                                                    (~ 
-                                                     ((IData)(vlSelf->__PVT__QueueCompatibility_19__DOT__ptr_match) 
-                                                      & (IData)(vlSelf->__PVT__QueueCompatibility_19__DOT__maybe_full)))
-                                                     : 
-                                                    ((2U 
-                                                      == 
-                                                      (0xfU 
-                                                       & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__PVT__queue_arw_deq_io_deq_bits_id)))
-                                                      ? 
-                                                     (~ 
-                                                      ((IData)(vlSelf->__PVT__QueueCompatibility_18__DOT__ptr_match) 
-                                                       & (IData)(vlSelf->__PVT__QueueCompatibility_18__DOT__maybe_full)))
-                                                      : 
-                                                     ((1U 
-                                                       == 
-                                                       (0xfU 
-                                                        & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__PVT__queue_arw_deq_io_deq_bits_id)))
-                                                       ? 
-                                                      (~ 
-                                                       ((IData)(vlSelf->__PVT__QueueCompatibility_17__DOT__ptr_match) 
-                                                        & (IData)(vlSelf->__PVT__QueueCompatibility_17__DOT__maybe_full)))
-                                                       : 
-                                                      (~ 
-                                                       ((IData)(vlSelf->__PVT__QueueCompatibility_16__DOT__ptr_match) 
-                                                        & (IData)(vlSelf->__PVT__QueueCompatibility_16__DOT__maybe_full)))))))))))));
-    }
-}
-
-VL_INLINE_OPT void VysyxSoCFull_AXI4UserYanker_1___sequent__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi4yank_1__5(VysyxSoCFull_AXI4UserYanker_1* vlSelf) {
-    if (false && vlSelf) {}  // Prevent unused
-    VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_AXI4UserYanker_1___sequent__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi4yank_1__5\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_AXI4UserYanker_1___sequent__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi4yank_1__1\n"); );
     // Body
     if (vlSymsp->TOP.reset) {
         vlSelf->__PVT__QueueCompatibility_11__DOT__maybe_full = 0U;
@@ -414,10 +260,164 @@ VL_INLINE_OPT void VysyxSoCFull_AXI4UserYanker_1___sequent__TOP__ysyxSoCFull__DO
     }
 }
 
-VL_INLINE_OPT void VysyxSoCFull_AXI4UserYanker_1___sequent__TOP__ysyxSoCFull__DOT__fpga__DOT__axi4yank__6(VysyxSoCFull_AXI4UserYanker_1* vlSelf) {
+VL_INLINE_OPT void VysyxSoCFull_AXI4UserYanker_1___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi4yank_1__7(VysyxSoCFull_AXI4UserYanker_1* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_AXI4UserYanker_1___sequent__TOP__ysyxSoCFull__DOT__fpga__DOT__axi4yank__6\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_AXI4UserYanker_1___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi4yank_1__7\n"); );
+    // Body
+    if ((0xaU == (0xfU & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__PVT__queue_arw_deq_io_deq_bits_id)))) {
+        vlSelf->__PVT___GEN_10 = (1U & (~ (IData)(vlSelf->__PVT__QueueCompatibility_10__DOT__maybe_full)));
+        vlSelf->__PVT___GEN_90 = (1U & (~ (IData)(vlSelf->__PVT__QueueCompatibility_26__DOT__maybe_full)));
+    } else {
+        vlSelf->__PVT___GEN_10 = (1U & ((9U == (0xfU 
+                                                & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__PVT__queue_arw_deq_io_deq_bits_id)))
+                                         ? (~ (IData)(vlSelf->__PVT__QueueCompatibility_9__DOT__maybe_full))
+                                         : ((8U == 
+                                             (0xfU 
+                                              & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__PVT__queue_arw_deq_io_deq_bits_id)))
+                                             ? (~ (IData)(vlSelf->__PVT__QueueCompatibility_8__DOT__maybe_full))
+                                             : ((7U 
+                                                 == 
+                                                 (0xfU 
+                                                  & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__PVT__queue_arw_deq_io_deq_bits_id)))
+                                                 ? 
+                                                (~ (IData)(vlSelf->__PVT__QueueCompatibility_7__DOT__maybe_full))
+                                                 : 
+                                                ((6U 
+                                                  == 
+                                                  (0xfU 
+                                                   & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__PVT__queue_arw_deq_io_deq_bits_id)))
+                                                  ? 
+                                                 (~ 
+                                                  ((IData)(vlSelf->__PVT__QueueCompatibility_6__DOT__ptr_match) 
+                                                   & (IData)(vlSelf->__PVT__QueueCompatibility_6__DOT__maybe_full)))
+                                                  : 
+                                                 ((5U 
+                                                   == 
+                                                   (0xfU 
+                                                    & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__PVT__queue_arw_deq_io_deq_bits_id)))
+                                                   ? 
+                                                  (~ 
+                                                   ((IData)(vlSelf->__PVT__QueueCompatibility_5__DOT__ptr_match) 
+                                                    & (IData)(vlSelf->__PVT__QueueCompatibility_5__DOT__maybe_full)))
+                                                   : 
+                                                  ((4U 
+                                                    == 
+                                                    (0xfU 
+                                                     & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__PVT__queue_arw_deq_io_deq_bits_id)))
+                                                    ? 
+                                                   (~ 
+                                                    ((IData)(vlSelf->__PVT__QueueCompatibility_4__DOT__ptr_match) 
+                                                     & (IData)(vlSelf->__PVT__QueueCompatibility_4__DOT__maybe_full)))
+                                                    : 
+                                                   ((3U 
+                                                     == 
+                                                     (0xfU 
+                                                      & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__PVT__queue_arw_deq_io_deq_bits_id)))
+                                                     ? 
+                                                    (~ 
+                                                     ((IData)(vlSelf->__PVT__QueueCompatibility_3__DOT__ptr_match) 
+                                                      & (IData)(vlSelf->__PVT__QueueCompatibility_3__DOT__maybe_full)))
+                                                     : 
+                                                    ((2U 
+                                                      == 
+                                                      (0xfU 
+                                                       & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__PVT__queue_arw_deq_io_deq_bits_id)))
+                                                      ? 
+                                                     (~ 
+                                                      ((IData)(vlSelf->__PVT__QueueCompatibility_2__DOT__ptr_match) 
+                                                       & (IData)(vlSelf->__PVT__QueueCompatibility_2__DOT__maybe_full)))
+                                                      : 
+                                                     ((1U 
+                                                       == 
+                                                       (0xfU 
+                                                        & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__PVT__queue_arw_deq_io_deq_bits_id)))
+                                                       ? 
+                                                      (~ 
+                                                       ((IData)(vlSelf->__PVT__QueueCompatibility_1__DOT__ptr_match) 
+                                                        & (IData)(vlSelf->__PVT__QueueCompatibility_1__DOT__maybe_full)))
+                                                       : 
+                                                      (~ 
+                                                       ((IData)(vlSelf->__PVT__QueueCompatibility__DOT__ptr_match) 
+                                                        & (IData)(vlSelf->__PVT__QueueCompatibility__DOT__maybe_full)))))))))))));
+        vlSelf->__PVT___GEN_90 = (1U & ((9U == (0xfU 
+                                                & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__PVT__queue_arw_deq_io_deq_bits_id)))
+                                         ? (~ (IData)(vlSelf->__PVT__QueueCompatibility_25__DOT__maybe_full))
+                                         : ((8U == 
+                                             (0xfU 
+                                              & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__PVT__queue_arw_deq_io_deq_bits_id)))
+                                             ? (~ (IData)(vlSelf->__PVT__QueueCompatibility_24__DOT__maybe_full))
+                                             : ((7U 
+                                                 == 
+                                                 (0xfU 
+                                                  & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__PVT__queue_arw_deq_io_deq_bits_id)))
+                                                 ? 
+                                                (~ (IData)(vlSelf->__PVT__QueueCompatibility_23__DOT__maybe_full))
+                                                 : 
+                                                ((6U 
+                                                  == 
+                                                  (0xfU 
+                                                   & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__PVT__queue_arw_deq_io_deq_bits_id)))
+                                                  ? 
+                                                 (~ 
+                                                  ((IData)(vlSelf->__PVT__QueueCompatibility_22__DOT__ptr_match) 
+                                                   & (IData)(vlSelf->__PVT__QueueCompatibility_22__DOT__maybe_full)))
+                                                  : 
+                                                 ((5U 
+                                                   == 
+                                                   (0xfU 
+                                                    & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__PVT__queue_arw_deq_io_deq_bits_id)))
+                                                   ? 
+                                                  (~ 
+                                                   ((IData)(vlSelf->__PVT__QueueCompatibility_21__DOT__ptr_match) 
+                                                    & (IData)(vlSelf->__PVT__QueueCompatibility_21__DOT__maybe_full)))
+                                                   : 
+                                                  ((4U 
+                                                    == 
+                                                    (0xfU 
+                                                     & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__PVT__queue_arw_deq_io_deq_bits_id)))
+                                                    ? 
+                                                   (~ 
+                                                    ((IData)(vlSelf->__PVT__QueueCompatibility_20__DOT__ptr_match) 
+                                                     & (IData)(vlSelf->__PVT__QueueCompatibility_20__DOT__maybe_full)))
+                                                    : 
+                                                   ((3U 
+                                                     == 
+                                                     (0xfU 
+                                                      & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__PVT__queue_arw_deq_io_deq_bits_id)))
+                                                     ? 
+                                                    (~ 
+                                                     ((IData)(vlSelf->__PVT__QueueCompatibility_19__DOT__ptr_match) 
+                                                      & (IData)(vlSelf->__PVT__QueueCompatibility_19__DOT__maybe_full)))
+                                                     : 
+                                                    ((2U 
+                                                      == 
+                                                      (0xfU 
+                                                       & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__PVT__queue_arw_deq_io_deq_bits_id)))
+                                                      ? 
+                                                     (~ 
+                                                      ((IData)(vlSelf->__PVT__QueueCompatibility_18__DOT__ptr_match) 
+                                                       & (IData)(vlSelf->__PVT__QueueCompatibility_18__DOT__maybe_full)))
+                                                      : 
+                                                     ((1U 
+                                                       == 
+                                                       (0xfU 
+                                                        & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__PVT__queue_arw_deq_io_deq_bits_id)))
+                                                       ? 
+                                                      (~ 
+                                                       ((IData)(vlSelf->__PVT__QueueCompatibility_17__DOT__ptr_match) 
+                                                        & (IData)(vlSelf->__PVT__QueueCompatibility_17__DOT__maybe_full)))
+                                                       : 
+                                                      (~ 
+                                                       ((IData)(vlSelf->__PVT__QueueCompatibility_16__DOT__ptr_match) 
+                                                        & (IData)(vlSelf->__PVT__QueueCompatibility_16__DOT__maybe_full)))))))))))));
+    }
+}
+
+VL_INLINE_OPT void VysyxSoCFull_AXI4UserYanker_1___sequent__TOP__ysyxSoCFull__DOT__fpga__DOT__axi4yank__2(VysyxSoCFull_AXI4UserYanker_1* vlSelf) {
+    if (false && vlSelf) {}  // Prevent unused
+    VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_AXI4UserYanker_1___sequent__TOP__ysyxSoCFull__DOT__fpga__DOT__axi4yank__2\n"); );
     // Variables
     CData/*4:0*/ __Vdlyvdim0__QueueCompatibility__DOT__ram_tl_state_size__v0;
     CData/*3:0*/ __Vdlyvval__QueueCompatibility__DOT__ram_tl_state_size__v0;
@@ -2914,10 +2914,10 @@ VL_INLINE_OPT void VysyxSoCFull_AXI4UserYanker_1___sequent__TOP__ysyxSoCFull__DO
            & (IData)(vlSelf->__PVT__QueueCompatibility_22__DOT__maybe_full));
 }
 
-VL_INLINE_OPT void VysyxSoCFull_AXI4UserYanker_1___sequent__TOP__ysyxSoCFull__DOT__fpga__DOT__axi4yank__7(VysyxSoCFull_AXI4UserYanker_1* vlSelf) {
+VL_INLINE_OPT void VysyxSoCFull_AXI4UserYanker_1___sequent__TOP__ysyxSoCFull__DOT__fpga__DOT__axi4yank__3(VysyxSoCFull_AXI4UserYanker_1* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_AXI4UserYanker_1___sequent__TOP__ysyxSoCFull__DOT__fpga__DOT__axi4yank__7\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_AXI4UserYanker_1___sequent__TOP__ysyxSoCFull__DOT__fpga__DOT__axi4yank__3\n"); );
     // Variables
     CData/*6:0*/ __PVT___GEN_57;
     CData/*3:0*/ __PVT___GEN_73;
@@ -3473,10 +3473,10 @@ VL_INLINE_OPT void VysyxSoCFull_AXI4UserYanker_1___sequent__TOP__ysyxSoCFull__DO
     }
 }
 
-VL_INLINE_OPT void VysyxSoCFull_AXI4UserYanker_1___sequent__TOP__ysyxSoCFull__DOT__fpga__DOT__axi4yank__8(VysyxSoCFull_AXI4UserYanker_1* vlSelf) {
+VL_INLINE_OPT void VysyxSoCFull_AXI4UserYanker_1___sequent__TOP__ysyxSoCFull__DOT__fpga__DOT__axi4yank__4(VysyxSoCFull_AXI4UserYanker_1* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_AXI4UserYanker_1___sequent__TOP__ysyxSoCFull__DOT__fpga__DOT__axi4yank__8\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_AXI4UserYanker_1___sequent__TOP__ysyxSoCFull__DOT__fpga__DOT__axi4yank__4\n"); );
     // Body
     vlSelf->__PVT__QueueCompatibility_16__DOT__do_deq 
         = (0xffffU & ((((IData)(vlSymsp->TOP.ysyxSoCFull__DOT__mem__DOT__axi4frag_auto_in_bvalid) 

@@ -9,10 +9,10 @@
 
 //==========
 
-VL_INLINE_OPT void VysyxSoCFull_RX___sequent__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__rx__5(VysyxSoCFull_RX* vlSelf) {
+VL_INLINE_OPT void VysyxSoCFull_RX___sequent__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__rx__1(VysyxSoCFull_RX* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+              VysyxSoCFull_RX___sequent__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__rx__5\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+              VysyxSoCFull_RX___sequent__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__rx__1\n"); );
     // Variables
     CData/*4:0*/ __Vdlyvdim0__hqa__DOT__fq__DOT__ram__DOT__ram_ext__DOT__ram__v0;
     CData/*0:0*/ __Vdlyvset__hqa__DOT__fq__DOT__ram__DOT__ram_ext__DOT__ram__v0;
@@ -470,10 +470,10 @@ VL_INLINE_OPT void VysyxSoCFull_RX___sequent__TOP__ysyxSoCFull__DOT__asic__DOT__
                             - (IData)(vlSelf->__PVT__hqe__DOT__fq__DOT__deq_ptr)))));
 }
 
-VL_INLINE_OPT void VysyxSoCFull_RX___sequent__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__rx__7(VysyxSoCFull_RX* vlSelf) {
+VL_INLINE_OPT void VysyxSoCFull_RX___sequent__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__rx__3(VysyxSoCFull_RX* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+              VysyxSoCFull_RX___sequent__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__rx__7\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+              VysyxSoCFull_RX___sequent__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__rx__3\n"); );
     // Body
     if (vlSelf->__PVT__io_rxc_source_io_enq_ready) {
         vlSelf->__PVT__io_rxc_source__DOT__mem_0_a 
@@ -931,10 +931,10 @@ VL_INLINE_OPT void VysyxSoCFull_RX___sequent__TOP__ysyxSoCFull__DOT__asic__DOT__
                                                  : (IData)(vlSelf->__PVT__hqe__DOT__fq__DOT__ram_out_valid));
 }
 
-VL_INLINE_OPT void VysyxSoCFull_RX___sequent__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__rx__9(VysyxSoCFull_RX* vlSelf) {
+VL_INLINE_OPT void VysyxSoCFull_RX___sequent__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__rx__5(VysyxSoCFull_RX* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+              VysyxSoCFull_RX___sequent__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__rx__9\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+              VysyxSoCFull_RX___sequent__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__rx__5\n"); );
     // Body
     if (vlSelf->__Vdlyvset__hqe__DOT__io_deq_q__DOT__ram__v0) {
         vlSelf->__PVT__hqe__DOT__io_deq_q__DOT__ram[0U] 
@@ -958,10 +958,10 @@ VL_INLINE_OPT void VysyxSoCFull_RX___sequent__TOP__ysyxSoCFull__DOT__asic__DOT__
     }
 }
 
-VL_INLINE_OPT void VysyxSoCFull_RX___sequent__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__rx__13(VysyxSoCFull_RX* vlSelf) {
+VL_INLINE_OPT void VysyxSoCFull_RX___sequent__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__rx__9(VysyxSoCFull_RX* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+              VysyxSoCFull_RX___sequent__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__rx__13\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+              VysyxSoCFull_RX___sequent__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__rx__9\n"); );
     // Variables
     CData/*0:0*/ __Vdly__io_txc_source__DOT__widx_widx_bin;
     CData/*0:0*/ __Vdly__io_rxc_source__DOT__widx_widx_bin;
@@ -1242,10 +1242,10 @@ VL_INLINE_OPT void VysyxSoCFull_RX___combo__TOP__ysyxSoCFull__DOT__asic__DOT__ch
            | (IData)(vlSymsp->TOP.reset));
 }
 
-VL_INLINE_OPT void VysyxSoCFull_RX___sequent__TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__rx__6(VysyxSoCFull_RX* vlSelf) {
+VL_INLINE_OPT void VysyxSoCFull_RX___sequent__TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__rx__2(VysyxSoCFull_RX* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+              VysyxSoCFull_RX___sequent__TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__rx__6\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+              VysyxSoCFull_RX___sequent__TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__rx__2\n"); );
     // Variables
     CData/*4:0*/ __Vdlyvdim0__hqa__DOT__fq__DOT__ram__DOT__ram_ext__DOT__ram__v0;
     CData/*0:0*/ __Vdlyvset__hqa__DOT__fq__DOT__ram__DOT__ram_ext__DOT__ram__v0;
@@ -1703,10 +1703,10 @@ VL_INLINE_OPT void VysyxSoCFull_RX___sequent__TOP__ysyxSoCFull__DOT__fpga__DOT__
                             - (IData)(vlSelf->__PVT__hqe__DOT__fq__DOT__deq_ptr)))));
 }
 
-VL_INLINE_OPT void VysyxSoCFull_RX___sequent__TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__rx__8(VysyxSoCFull_RX* vlSelf) {
+VL_INLINE_OPT void VysyxSoCFull_RX___sequent__TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__rx__4(VysyxSoCFull_RX* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+              VysyxSoCFull_RX___sequent__TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__rx__8\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+              VysyxSoCFull_RX___sequent__TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__rx__4\n"); );
     // Body
     if (vlSelf->__PVT__io_rxc_source_io_enq_ready) {
         vlSelf->__PVT__io_rxc_source__DOT__mem_0_a 
@@ -2164,10 +2164,10 @@ VL_INLINE_OPT void VysyxSoCFull_RX___sequent__TOP__ysyxSoCFull__DOT__fpga__DOT__
                                                  : (IData)(vlSelf->__PVT__hqe__DOT__fq__DOT__ram_out_valid));
 }
 
-VL_INLINE_OPT void VysyxSoCFull_RX___sequent__TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__rx__14(VysyxSoCFull_RX* vlSelf) {
+VL_INLINE_OPT void VysyxSoCFull_RX___sequent__TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__rx__10(VysyxSoCFull_RX* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+              VysyxSoCFull_RX___sequent__TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__rx__14\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+              VysyxSoCFull_RX___sequent__TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__rx__10\n"); );
     // Variables
     CData/*0:0*/ __Vdly__io_txc_source__DOT__widx_widx_bin;
     CData/*0:0*/ __Vdly__io_rxc_source__DOT__widx_widx_bin;

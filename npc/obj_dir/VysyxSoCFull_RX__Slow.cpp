@@ -27,10 +27,10 @@ void VysyxSoCFull_RX::__Vconfigure(VysyxSoCFull__Syms* _vlSymsp, bool first) {
 VysyxSoCFull_RX::~VysyxSoCFull_RX() {
 }
 
-void VysyxSoCFull_RX___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__rx__1(VysyxSoCFull_RX* vlSelf) {
+void VysyxSoCFull_RX___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__rx__11(VysyxSoCFull_RX* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+              VysyxSoCFull_RX___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__rx__1\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+              VysyxSoCFull_RX___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__rx__11\n"); );
     // Body
     vlSelf->__PVT__hqa__DOT__fq__DOT___enq_ptr_wrap_value_T_1 
         = (0x1fU & ((IData)(1U) + (IData)(vlSelf->__PVT__hqa__DOT__fq__DOT__enq_ptr)));
@@ -280,10 +280,10 @@ void VysyxSoCFull_RX___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT
                                                  : (IData)(vlSelf->__PVT__hqe__DOT__fq__DOT__ram_out_valid));
 }
 
-void VysyxSoCFull_RX___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__rx__3(VysyxSoCFull_RX* vlSelf) {
+void VysyxSoCFull_RX___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__rx__13(VysyxSoCFull_RX* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+              VysyxSoCFull_RX___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__rx__3\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+              VysyxSoCFull_RX___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__rx__13\n"); );
     // Body
     vlSelf->__PVT__hqa__DOT__io_deq_q__DOT__do_deq 
         = ((IData)(vlSelf->__PVT__io_a_source->__PVT__io_enq_ready) 
@@ -407,10 +407,10 @@ void VysyxSoCFull_RX___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT
                                                 & (~ (IData)(vlSelf->__PVT__hqe__DOT__fq__DOT__do_flow)));
 }
 
-void VysyxSoCFull_RX___settle__TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__rx__2(VysyxSoCFull_RX* vlSelf) {
+void VysyxSoCFull_RX___settle__TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__rx__12(VysyxSoCFull_RX* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+              VysyxSoCFull_RX___settle__TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__rx__2\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+              VysyxSoCFull_RX___settle__TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__rx__12\n"); );
     // Body
     vlSelf->__PVT__hqa__DOT__fq__DOT___enq_ptr_wrap_value_T_1 
         = (0x1fU & ((IData)(1U) + (IData)(vlSelf->__PVT__hqa__DOT__fq__DOT__enq_ptr)));
