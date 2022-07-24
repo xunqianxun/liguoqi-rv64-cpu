@@ -48,6 +48,11 @@
 `define AXI_SIZE_BYTES_64                                   3'b110
 `define AXI_SIZE_BYTES_128                                  3'b111
 
+`define ysyx22040228_TIMER_IDLE     2'b00 
+`define ysyx22040228_TIMER_HANDL    2'b01
+`define ysyx22040228_TIMER_RESPW    2'b10
+`define ysyx22040228_TIMER_RESPR    2'b11
+/* verilator lint_off UNUSED */
 module clint (
     input    wire                                      clk                ,
     input    wire                                      rst                ,
@@ -99,157 +104,175 @@ module clint (
     output   reg                                       time_axi_r_valid   ,
     input    wire                                      time_axi_r_ready   
 );
-    reg   [`ysyx22040228_REGBUS]   car_mtime_l;
-    reg   [`ysyx22040228_REGBUS]   csr_mtime_h;
-    wire  [`ysyx22040228_REGBUS]   csr_mtime_l_nxt   ;
-    wire  [`ysyx22040228_REGBUS]   csr_mtime_h_nxt   ;
-    wire                           csr_mtime_l_r_ena ;
-    wire                           csr_mtime_h_r_ena ;
-    wire                           csr_mtime_l_w_ena ;
-    wire                           csr_mtime_h_w_ena ;  
-    wire      [63:0]               wmask             ;
-    assign wmask = {{8{time_axi_w_strb[7]}}, {8{time_axi_w_strb[6]}}, {8{time_axi_w_strb[5]}}, {8{time_axi_w_strb[4]}}, {8{time_axi_w_strb[3]}},
-                    {8{time_axi_w_strb[2]}}, {8{time_axi_w_strb[1]}}, {8{time_axi_w_strb[0]}}};                      
 
+
+    reg     [63:0]           csr_mtime          ;
+    reg     [63:0]           csr_mtimecmp       ;
+    assign                   time_interrupt = (csr_mtime >= csr_mtimecmp)         ;
+    wire                     success_aw         ;
+    assign                   success_aw  = time_axi_aw_ready && time_axi_aw_valid ;
+    wire                     success_w                                            ;
+    assign                   success_w   = time_axi_w_ready  && time_axi_w_ready  ;
+    wire                     success_ar                                           ;
+    assign                   success_ar  = time_axi_ar_ready && time_axi_ar_valid ;
+    wire                     success_r                                            ;
+    assign                   success_r   = time_axi_r_ready  && time_axi_r_valid  ;
+    wire                     success_b                                            ;
+    assign                   success_b   = time_axi_b_ready  && time_axi_b_valid  ;
+    wire                     shankhand_successw                                      ;
+    assign                   shankhand_successw = success_aw | success_w             ;
+    wire                     shankhand_successr                                      ;
+    assign                   shankhand_successr = success_ar                         ;
+    wire                     resp_success                                            ;
+    assign                   resp_success      = success_r | success_b               ;
+
+    wire    [63:0]           wmask              ;
+    assign                   wmask     = {{8{time_axi_w_strb[7]}}, {8{time_axi_w_strb[6]}}, {8{time_axi_w_strb[5]}}, {8{time_axi_w_strb[4]}}, 
+                                         {8{time_axi_w_strb[3]}}, {8{time_axi_w_strb[2]}}, {8{time_axi_w_strb[1]}}, {8{time_axi_w_strb[0]}}};  
+
+    reg     [1:0]            timer_state        ;
+    reg     [1:0]            timer_state_n      ;
     always @(posedge clk) begin
-        if(rst == `ysyx22040228_RSTENA)begin
-            car_mtime_l <= `ysyx22040228_ZEROWORD ;
-            csr_mtime_h <= `ysyx22040228_ZEROWORD ;
-        end
-        else begin
-            car_mtime_l <= csr_mtime_l_nxt        ;
-            csr_mtime_h <= csr_mtime_h_nxt        ;
-        end 
-    end
-
-    //---------------------------shake hande------------------------------//
-    wire aw_shakehand ;
-    wire w_shakehand  ;
-    wire b_shankhand  ;
-    wire mode_right   ;
-    assign aw_shakehand = time_axi_aw_valid && time_axi_aw_ready  ;
-    assign w_shakehand  = time_axi_w_valid  && time_axi_w_ready   ;
-    assign b_shankhand  = time_axi_b_valid  && time_axi_b_ready   ;
-
-    //---------------------------signed check-----------------------------//
-    assign mode_right        = (time_axi_aw_len == 8'd0) && (time_axi_aw_size == `AXI_SIZE_BYTES_8) && (time_axi_aw_burst == `AXI_BURST_TYPE_INCR) && (time_axi_aw_cache == `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE) && (time_axi_aw_prot == `AXI_PROT_UNPRIVILEGED_ACCESS) && (time_axi_aw_qos == 4'b0000);
-    assign csr_mtime_l_w_ena = mode_right && w_shakehand && aw_shakehand && (time_axi_aw_addr == `ysyx22040228_MTIMECMP);
-    assign csr_mtime_h_w_ena = mode_right && w_shakehand && aw_shakehand && (time_axi_aw_addr == `ysyx22040228_MTIME   );
-    assign csr_mtime_l_nxt   = csr_mtime_l_w_ena ? ((wmask & time_axi_w_data) | (~wmask & (car_mtime_l))) : (car_mtime_l + 1);
-    assign csr_mtime_h_nxt   = csr_mtime_h_w_ena ? ((wmask & time_axi_w_data) | (~wmask & (csr_mtime_h))) : csr_mtime_h      ;
-    assign time_axi_aw_ready = time_axi_aw_valid && time_axi_w_valid && mode_right     ;
-    assign time_axi_w_ready  = time_axi_aw_valid && time_axi_w_valid && time_axi_w_last;
-    assign time_interrupt    = (car_mtime_l>= csr_mtime_h) ? 1'b1 : 1'b0 ;
-
-    //---------------------write state check------------------------------//
-    /* verilator lint_off UNOPTFLAT */
-    reg [1:0] state_time_m;
-    reg [1:0] state_time_m_nxt;
-    /* verilator lint_on UNOPTFLAT */
-    always @(posedge clk) begin
-        if(rst == `ysyx22040228_AXI_RSTENA) begin
-            state_time_m <= `ysyx22040228_TIME_WAITE; 
-        end 
-        else begin
-            state_time_m <= state_time_m_nxt        ;
-        end 
+        if(rst == `ysyx22040228_RSTENA)
+            timer_state <= `ysyx22040228_TIMER_IDLE;
+        else 
+            timer_state <= timer_state_n ;
     end
 
     always @(*) begin
-        case (state_time_m)
-            `ysyx22040228_TIME_WAITE: begin
-                if(w_shakehand && aw_shakehand) begin  state_time_m_nxt = `ysyx22040228_TIME_RESP; end 
-                else if(time_axi_w_valid | time_axi_aw_valid) begin state_time_m_nxt = `ysyx22040228_TIME_WRITE;end 
-                else                            begin  state_time_m_nxt = `ysyx22040228_TIME_WAITE; end 
+        case (timer_state)
+            `ysyx22040228_TIMER_IDLE: begin
+                if(shankhand_successr)
+                    timer_state_n = `ysyx22040228_TIMER_HANDL ;
+                else 
+                    timer_state_n = `ysyx22040228_TIMER_IDLE  ;
+            end  
+            `ysyx22040228_TIMER_HANDL: begin
+                timer_state_n = `ysyx22040228_TIMER_RESPR  ;
             end 
-            `ysyx22040228_TIME_WRITE: begin
-                if(w_shakehand && aw_shakehand) begin  state_time_m_nxt = `ysyx22040228_TIME_RESP ; end 
-                else                            begin  state_time_m_nxt = `ysyx22040228_TIME_WRITE; end
+            `ysyx22040228_TIMER_RESPR : begin
+                if(resp_success)
+                    timer_state_n = `ysyx22040228_TIMER_IDLE ;
+                else 
+                    timer_state_n = `ysyx22040228_TIMER_RESPR ;
             end 
-            `ysyx22040228_TIME_RESP : begin
-                if(b_shankhand)                 begin  state_time_m_nxt = `ysyx22040228_TIME_WAITE ; end 
-                else                            begin  state_time_m_nxt = `ysyx22040228_TIME_RESP  ; end
-            end 
-            default:                            begin  state_time_m_nxt = `ysyx22040228_TIME_WRITE ; end 
+            default: timer_state_n = `ysyx22040228_TIMER_IDLE ; 
         endcase
     end
 
-    //wire respon
-    reg [3:0] time_reg_id ;
-    reg [1:0] time_reg_resp ;
-
+    reg     [1:0]            timew_state        ;
+    reg     [1:0]            timew_state_n      ;
     always @(posedge clk) begin
-        if(rst == `ysyx22040228_RSTENA) begin 
-            time_reg_id <= 4'b0000;
-            time_reg_resp <= 2'b0 ;
-        end 
-        else begin
-            time_reg_id <= time_axi_aw_id ;
-            time_reg_resp <= 2'b00 ;
-        end 
-    end
-
-    assign time_axi_b_valid = (state_time_m != `ysyx22040228_TIME_WRITE) && (state_time_m != `ysyx22040228_TIME_WAITE) ;
-    assign time_axi_b_resp  = time_reg_resp ;
-    assign time_axi_b_id    = (state_time_m == `ysyx22040228_TIME_RESP) ? time_reg_id : 4'b00000 ;
-    //-------------------------read state channel------------------------//
-    wire mode_right_r;
-    wire ar_shakehand ;
-    wire r_shankhand  ;
-    wire [`ysyx22040228_REGBUS] time_csr_link;
-    assign ar_shakehand = time_axi_ar_valid && time_axi_ar_ready  ;
-    assign r_shankhand  = time_axi_r_valid  && time_axi_r_ready   ;
-    assign mode_right_r      = (time_axi_ar_len == 8'd0) && (time_axi_ar_size == `AXI_SIZE_BYTES_8) && (time_axi_ar_burst == `AXI_BURST_TYPE_INCR) && (time_axi_ar_cache == `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE) && (time_axi_ar_prot == `AXI_PROT_UNPRIVILEGED_ACCESS) && (time_axi_ar_qos == 4'b0000);
-    assign csr_mtime_l_r_ena = mode_right && ar_shakehand && (time_axi_ar_addr == `ysyx22040228_MTIMECMP);
-    assign csr_mtime_h_r_ena = mode_right && ar_shakehand && (time_axi_ar_addr == `ysyx22040228_MTIME   );
-    assign time_axi_ar_ready = time_axi_ar_valid && mode_right_r ;
-    assign time_csr_link     = csr_mtime_l_r_ena ? car_mtime_l :
-                               csr_mtime_h_r_ena ? csr_mtime_h :
-                                    `ysyx22040228_AXI_ZERO_WORD;
-
-    reg [1:0] state_time_r;
-    reg [1:0] state_time_r_nxt;
-        always @(posedge clk) begin
-        if(rst == `ysyx22040228_AXI_RSTENA) begin
-            state_time_r <= `ysyx22040228_TIME_WAITE; 
-        end 
-        else begin
-            state_time_r <= state_time_r_nxt        ;
-        end 
+        if(rst == `ysyx22040228_RSTENA)
+            timew_state <= `ysyx22040228_TIMER_IDLE;
+        else 
+            timew_state <= timew_state_n ;
     end
 
     always @(*) begin
-        case (state_time_r)
-            `ysyx22040228_TIME_WAITE: begin
-                if(ar_shakehand)                begin  state_time_r_nxt = `ysyx22040228_TIME_WIBK ; end 
-                else if(time_axi_ar_valid)      begin  state_time_r_nxt = `ysyx22040228_TIME_READ ; end  
-                else                            begin  state_time_r_nxt = `ysyx22040228_TIME_WAITE; end 
+        case (timew_state)
+            `ysyx22040228_TIMER_IDLE: begin
+                if(shankhand_successw)
+                    timew_state_n = `ysyx22040228_TIMER_HANDL ;
+                else 
+                    timew_state_n = `ysyx22040228_TIMER_IDLE  ;
+            end  
+            `ysyx22040228_TIMER_HANDL: begin
+                timew_state_n = `ysyx22040228_TIMER_RESPW  ;
             end 
-            `ysyx22040228_TIME_READ : begin
-                if(ar_shakehand)                begin  state_time_r_nxt = `ysyx22040228_TIME_WIBK ; end 
-                else                            begin  state_time_r_nxt = `ysyx22040228_TIME_READ ; end
+            `ysyx22040228_TIMER_RESPW : begin
+                if(resp_success)
+                    timew_state_n = `ysyx22040228_TIMER_IDLE ;
+                else 
+                    timew_state_n = `ysyx22040228_TIMER_RESPW ;
             end 
-            `ysyx22040228_TIME_WIBK : begin
-                if(r_shankhand)                begin  state_time_r_nxt = `ysyx22040228_TIME_WAITE; end 
-                else                            begin  state_time_r_nxt = `ysyx22040228_TIME_WIBK ; end
-            end 
-            default:                            begin  state_time_r_nxt = `ysyx22040228_TIME_WAITE; end 
+            default: timew_state_n = `ysyx22040228_TIMER_IDLE ; 
         endcase
     end
 
-    always @(*) begin
-        if(state_time_r == `ysyx22040228_TIME_WIBK) begin
-           time_axi_r_id = time_axi_ar_id;
-           time_axi_r_data = time_csr_link;
-           time_axi_r_last = 1'b1;
-           time_axi_r_resp = 2'b00;
+    assign time_axi_aw_ready = 1'b1  ;
+    assign time_axi_w_ready  = 1'b1  ;
+
+
+    reg    [3:0 ]  timeraw_id_temp   ;
+
+    always @(posedge clk) begin
+        if(success_aw) begin
+            timeraw_id_temp <= time_axi_aw_id ;
+        end 
+        else if(success_b) begin
+            timeraw_id_temp <= 4'b0000        ;
         end 
         else begin
-           time_axi_r_id = 4'b0000;
-           time_axi_r_data = `ysyx22040228_AXI_ZERO_WORD;
-           time_axi_r_last = 1'b0;
-           time_axi_r_resp = 2'b00;
+            timeraw_id_temp <= timeraw_id_temp;
         end 
     end
-    assign time_axi_r_valid = (state_time_r == `ysyx22040228_TIME_WIBK);
+
+    assign time_axi_b_id    = (timew_state == `ysyx22040228_TIMER_RESPW) ? timeraw_id_temp : 4'b0000 ;
+    assign time_axi_b_resp  = (timew_state == `ysyx22040228_TIMER_RESPW) ? 2'b00           : 2'b00   ; 
+    assign time_axi_b_valid = (timew_state == `ysyx22040228_TIMER_RESPW) ? 1'b1            : 1'b0    ;
+
+
+    wire   csr_mtime_readena                                                                  ;
+    assign csr_mtime_readena    = success_ar && (time_axi_ar_addr == `ysyx22040228_MTIME)     ;
+    wire   csr_mtimecmp_readena                                                               ;
+    assign csr_mtimecmp_readena = success_ar && (time_axi_ar_addr == `ysyx22040228_MTIMECMP)  ;
+
+    wire   csr_mtime_writeena                                                                              ;
+    assign csr_mtime_writeena     = success_aw && success_w && (time_axi_aw_addr == `ysyx22040228_MTIME)   ;
+    wire   csr_mtimecmp_writeena                                                                           ;
+    assign csr_mtimecmp_writeena  = success_aw && success_w && (time_axi_aw_addr == `ysyx22040228_MTIMECMP);
+
+    wire   [63:0] csr_mtime_temp    ;
+    wire   [63:0] csr_mtimecmp_temp ;
+    assign        csr_mtime_temp    = csr_mtime_writeena    ? ((wmask & time_axi_w_data) | (~wmask & (csr_mtime))) : (csr_mtime + 1);
+    assign        csr_mtimecmp_temp = csr_mtimecmp_writeena ? ((wmask & time_axi_w_data) | (~wmask & (csr_mtimecmp))) : csr_mtimecmp  ;
+
+    always @(posedge clk) begin
+        if(rst == `ysyx22040228_RSTENA) begin
+            csr_mtime         <= `ysyx22040228_ZEROWORD ;
+            csr_mtimecmp      <= `ysyx22040228_ZEROWORD ;
+        end 
+        else begin
+            csr_mtime         <= csr_mtime_temp         ;
+            csr_mtimecmp      <= csr_mtimecmp_temp      ;
+        end 
+    end
+
+    assign time_axi_ar_ready = 1'b1 ;
+
+    reg   [63:0] read_csrdata_temp ;
+    always @(posedge clk) begin
+        if(csr_mtime_readena)
+            read_csrdata_temp <= csr_mtime ;
+        else if(csr_mtimecmp_readena) 
+            read_csrdata_temp <= csr_mtimecmp;
+        else if(success_r) 
+            read_csrdata_temp <= 64'h0       ;
+        else 
+            read_csrdata_temp <= read_csrdata_temp;
+    end
+
+    
+    reg     [3:0]  timerar_id_temp ;
+
+    always @(posedge clk) begin
+        if(success_ar) begin
+            timerar_id_temp <= time_axi_ar_id ;
+        end           
+        else if(success_r) begin
+            timerar_id_temp <= 4'b0000        ;
+        end 
+        else begin
+            timerar_id_temp <= timerar_id_temp;
+        end 
+    end
+
+    assign time_axi_r_data = (timer_state == `ysyx22040228_TIMER_RESPR) ? read_csrdata_temp : 64'h0  ;
+    assign time_axi_r_id   = (timer_state == `ysyx22040228_TIMER_RESPR) ? timerar_id_temp   : 4'b0000;
+    assign time_axi_r_last = (timer_state == `ysyx22040228_TIMER_RESPR) ? 1'b1              : 1'b0   ;
+    assign time_axi_r_resp = (timer_state == `ysyx22040228_TIMER_RESPR) ? 2'b00             : 2'b00  ;
+    assign time_axi_r_valid= (timer_state == `ysyx22040228_TIMER_RESPR) ? 1'b1              : 1'b0   ;
+
 endmodule
+
