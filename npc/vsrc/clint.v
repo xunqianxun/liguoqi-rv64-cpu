@@ -190,7 +190,7 @@ module clint (
         endcase
     end
 
-    assign time_axi_aw_ready = 1'b1  ;
+    assign time_axi_aw_ready = 1'b1 && time_axi_aw_valid ;
     assign time_axi_w_ready  = 1'b1 && success_aw ;
 
 

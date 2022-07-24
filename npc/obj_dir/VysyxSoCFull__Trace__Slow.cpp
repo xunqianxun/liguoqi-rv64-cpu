@@ -7832,7 +7832,7 @@ void VysyxSoCFull___024root__traceInitSub0(VysyxSoCFull___024root* vlSelf, Veril
         tracep->declBus(c+17788,"ysyxSoCFull asic cpu cpu tim_axi_w_strb", false,-1, 7,0);
         tracep->declBit(c+17789,"ysyxSoCFull asic cpu cpu tim_axi_w_last", false,-1);
         tracep->declBit(c+17790,"ysyxSoCFull asic cpu cpu tim_axi_w_valid", false,-1);
-        tracep->declBit(c+19864,"ysyxSoCFull asic cpu cpu tim_axi_w_ready", false,-1);
+        tracep->declBit(c+17785,"ysyxSoCFull asic cpu cpu tim_axi_w_ready", false,-1);
         tracep->declBus(c+3171,"ysyxSoCFull asic cpu cpu tim_axi_b_id", false,-1, 3,0);
         tracep->declBus(c+19863,"ysyxSoCFull asic cpu cpu tim_axi_b_resp", false,-1, 1,0);
         tracep->declBit(c+3172,"ysyxSoCFull asic cpu cpu tim_axi_b_valid", false,-1);
@@ -8863,7 +8863,7 @@ void VysyxSoCFull___024root__traceInitSub0(VysyxSoCFull___024root* vlSelf, Veril
         tracep->declBus(c+17788,"ysyxSoCFull asic cpu cpu clint6 time_axi_w_strb", false,-1, 7,0);
         tracep->declBit(c+17789,"ysyxSoCFull asic cpu cpu clint6 time_axi_w_last", false,-1);
         tracep->declBit(c+17790,"ysyxSoCFull asic cpu cpu clint6 time_axi_w_valid", false,-1);
-        tracep->declBit(c+19864,"ysyxSoCFull asic cpu cpu clint6 time_axi_w_ready", false,-1);
+        tracep->declBit(c+17785,"ysyxSoCFull asic cpu cpu clint6 time_axi_w_ready", false,-1);
         tracep->declBus(c+3171,"ysyxSoCFull asic cpu cpu clint6 time_axi_b_id", false,-1, 3,0);
         tracep->declBus(c+19863,"ysyxSoCFull asic cpu cpu clint6 time_axi_b_resp", false,-1, 1,0);
         tracep->declBit(c+3172,"ysyxSoCFull asic cpu cpu clint6 time_axi_b_valid", false,-1);
@@ -8887,11 +8887,11 @@ void VysyxSoCFull___024root__traceInitSub0(VysyxSoCFull___024root* vlSelf, Veril
         tracep->declQuad(c+3572,"ysyxSoCFull asic cpu cpu clint6 csr_mtime", false,-1, 63,0);
         tracep->declQuad(c+3574,"ysyxSoCFull asic cpu cpu clint6 csr_mtimecmp", false,-1, 63,0);
         tracep->declBit(c+17785,"ysyxSoCFull asic cpu cpu clint6 success_aw", false,-1);
-        tracep->declBit(c+19864,"ysyxSoCFull asic cpu cpu clint6 success_w", false,-1);
+        tracep->declBit(c+17785,"ysyxSoCFull asic cpu cpu clint6 success_w", false,-1);
         tracep->declBit(c+17801,"ysyxSoCFull asic cpu cpu clint6 success_ar", false,-1);
         tracep->declBit(c+18015,"ysyxSoCFull asic cpu cpu clint6 success_r", false,-1);
         tracep->declBit(c+18016,"ysyxSoCFull asic cpu cpu clint6 success_b", false,-1);
-        tracep->declBit(c+19864,"ysyxSoCFull asic cpu cpu clint6 shankhand_successw", false,-1);
+        tracep->declBit(c+17785,"ysyxSoCFull asic cpu cpu clint6 shankhand_successw", false,-1);
         tracep->declBit(c+17801,"ysyxSoCFull asic cpu cpu clint6 shankhand_successr", false,-1);
         tracep->declBit(c+18017,"ysyxSoCFull asic cpu cpu clint6 resp_success", false,-1);
         tracep->declQuad(c+18018,"ysyxSoCFull asic cpu cpu clint6 wmask", false,-1, 63,0);
