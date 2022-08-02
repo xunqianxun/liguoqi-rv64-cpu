@@ -5236,6 +5236,7 @@ void VysyxSoCFull___024root___ctor_var_reset(VysyxSoCFull___024root* vlSelf) {
     vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitratem4__DOT__aw_enable = VL_RAND_RESET_I(1);
     vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__clint6__DOT__csr_mtime = VL_RAND_RESET_Q(64);
     vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__clint6__DOT__csr_mtimecmp = VL_RAND_RESET_Q(64);
+    vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__clint6__DOT__success_aw = VL_RAND_RESET_I(1);
     vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__clint6__DOT__success_r = VL_RAND_RESET_I(1);
     vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__clint6__DOT__success_b = VL_RAND_RESET_I(1);
     vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__clint6__DOT__resp_success = VL_RAND_RESET_I(1);

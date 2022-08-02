@@ -11548,14 +11548,13 @@ void VysyxSoCFull___024root__traceChgSub2(VysyxSoCFull___024root* vlSelf, Verila
                                                        ? 4U
                                                        : 1U)))))
                                                   : 1U)))),3);
-            tracep->chgQData(oldp+4877,(((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__add_axi_aw_valid) 
-                                           >> 1U) & 
-                                          (0x200bff8ULL 
-                                           == (((QData)((IData)(
-                                                                vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__add_axi_aw_addr[3U])) 
-                                                << 0x20U) 
-                                               | (QData)((IData)(
-                                                                 vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__add_axi_aw_addr[2U])))))
+            tracep->chgQData(oldp+4877,((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__clint6__DOT__success_aw) 
+                                          & (0x200bff8ULL 
+                                             == (((QData)((IData)(
+                                                                  vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__add_axi_aw_addr[3U])) 
+                                                  << 0x20U) 
+                                                 | (QData)((IData)(
+                                                                   vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__add_axi_aw_addr[2U])))))
                                           ? ((vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__clint6__DOT__wmask 
                                               & (((QData)((IData)(
                                                                   vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__add_axi_w_data[3U])) 
@@ -11565,14 +11564,13 @@ void VysyxSoCFull___024root__traceChgSub2(VysyxSoCFull___024root* vlSelf, Verila
                                              | ((~ vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__clint6__DOT__wmask) 
                                                 & vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__clint6__DOT__csr_mtime))
                                           : (1ULL + vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__clint6__DOT__csr_mtime))),64);
-            tracep->chgQData(oldp+4879,(((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__add_axi_aw_valid) 
-                                           >> 1U) & 
-                                          (0x2004000ULL 
-                                           == (((QData)((IData)(
-                                                                vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__add_axi_aw_addr[3U])) 
-                                                << 0x20U) 
-                                               | (QData)((IData)(
-                                                                 vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__add_axi_aw_addr[2U])))))
+            tracep->chgQData(oldp+4879,((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__clint6__DOT__success_aw) 
+                                          & (0x2004000ULL 
+                                             == (((QData)((IData)(
+                                                                  vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__add_axi_aw_addr[3U])) 
+                                                  << 0x20U) 
+                                                 | (QData)((IData)(
+                                                                   vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__add_axi_aw_addr[2U])))))
                                           ? ((vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__clint6__DOT__wmask 
                                               & (((QData)((IData)(
                                                                   vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__add_axi_w_data[3U])) 
