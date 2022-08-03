@@ -94,7 +94,7 @@ module decode_exe (
             alu1_rd_ena        <= alu1_rd_ena    ;
             alu1_rd_addr       <= alu1_rd_addr   ;     
         end 
-        else if((de_ex_chose1 == 3'b001) && (clean1_ena)) begin
+        else if((de_ex_chose1 == 3'b001) && (~clean1_ena)) begin
             alu1_inst          <= decode1_inst_data;
             alu1_pc            <= decode1_pc_data;
             alu1_inst_type     <= inst_type_d1   ;
@@ -105,7 +105,7 @@ module decode_exe (
             alu1_rd_addr       <= decode1_rd_addr;
             alu1_timer_init    <= timer_init     ;
         end 
-        else if((de_ex_chose2 == 3'b001) && (clean2_ena)) begin
+        else if((de_ex_chose2 == 3'b001) && (~clean2_ena)) begin
             alu1_inst          <= decode2_inst_data;
             alu1_pc            <= decode2_pc_data;
             alu1_inst_type     <= inst_type_d2   ;
@@ -149,7 +149,7 @@ module decode_exe (
             alu2_rd_ena        <= alu2_rd_ena    ;
             alu2_rd_addr       <= alu2_rd_addr   ;
         end
-        else if((de_ex_chose1 == 3'b010) && (clean1_ena)) begin
+        else if((de_ex_chose1 == 3'b010) && (~clean1_ena)) begin
             alu2_inst          <= decode1_inst_data;
             alu2_pc            <= decode1_pc_data;
             alu2_inst_type     <= inst_type_d1   ;
@@ -159,7 +159,7 @@ module decode_exe (
             alu2_rd_ena        <= decode1_rd_ena ;
             alu2_rd_addr       <= decode1_rd_addr;
         end  
-        else if((de_ex_chose2 == 3'b010) && (clean2_ena)) begin
+        else if((de_ex_chose2 == 3'b010) && (~clean2_ena)) begin
             alu2_inst          <= decode2_inst_data;
             alu2_pc            <= decode2_pc_data;
             alu2_inst_type     <= inst_type_d2   ;
@@ -202,7 +202,7 @@ module decode_exe (
             mem_offset         <= mem_offset     ;
             mem_sel            <= mem_sel        ;
         end 
-        else if((de_ex_chose1 == 3'b100) && (clean1_ena)) begin
+        else if((de_ex_chose1 == 3'b100) && (~clean1_ena)) begin
             mem_inst           <= decode1_inst_data;
             mem_pc             <= decode1_pc_data  ;
             mem_inst_type      <= inst_type_d1     ;
@@ -212,7 +212,7 @@ module decode_exe (
             mem_offset         <= decode1_memoffset;
             mem_sel            <= decode1_memsel   ;
         end
-        else if((de_ex_chose2 == 3'b100) && (clean2_ena)) begin
+        else if((de_ex_chose2 == 3'b100) && (~clean2_ena)) begin
             mem_inst           <= decode2_inst_data;
             mem_pc             <= decode2_pc_data  ;
             mem_inst_type      <= inst_type_d2     ;

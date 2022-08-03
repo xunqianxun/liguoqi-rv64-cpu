@@ -20,10 +20,12 @@ module inst_cache (
     input       wire                                         clk             ,
     input       wire                                         rst             ,
     input       wire          [63:0]                         inst_addr       ,
+    input       wire          [2:0]                          inst_counter    ,
     input       wire                                         inst_ready      ,
-    input       wire                                         core_stall      ,
+    input       wire                                         issu_canin      ,
     input       wire                                         inst_fence      ,
-    output      reg           [31:0]                         inst_data       ,
+    output      reg           [127:0]                        inst_data       ,
+    output      reg           [255:0]                        inst_pc         ,
     output      reg                                          inst_valid      ,
 
     output      reg                                          cache_read_ena  ,
@@ -35,8 +37,8 @@ module inst_cache (
     wire   icache_if_shankhand   ;
     assign icache_if_shankhand = inst_ready && ~inst_valid  ;
 
-    wire [`ysyx22040228_TEG_WITH]   icache_tag    =   inst_addr[31:9 ];
-    wire [`ysyx22040228_INDEX_WITH] icache_index  =   inst_addr[ 8:3 ];
+    wire [`ysyx22040228_TEG_WITH]   icache_tag    =   inst_addr[31:10 ];
+    wire [`ysyx22040228_INDEX_WITH] icache_index  =   inst_addr[ 9:4 ];
 
 
     reg  [5:0]  state_inst     ;
@@ -122,39 +124,55 @@ module inst_cache (
     reg         inst_hit_ok ;
     always @(*) begin
         if(state_inst == `ysyx22040228_I_HIT) begin
-            if(core_stall == `ysyx22040228_ABLE) begin
-                inst_data = 32'b0 ;
+            if(issu_canin == `ysyx22040228_ABLE) begin
+                inst_data = 128'b0 ;
                 inst_hit_ok = `ysyx22040228_ENABLE;
                 inst_valid  = `ysyx22040228_ENABLE;
             end 
             else if((oteg_ata_o == icache_tag) && (oteg_valid_o == `ysyx22040228_ABLE))begin
-                if(inst_addr[2] == `ysyx22040228_ABLE)   begin
-                    inst_data =    data_out[63:32]      ;
-                    inst_hit_ok  = `ysyx22040228_ABLE  ;
-                    inst_valid   = `ysyx22040228_ABLE;
+                inst_hit_ok  = `ysyx22040228_ABLE;
+                inst_valid   = `ysyx22040228_ABLE;
+                if(inst_counter == 3'd4)   begin
+                    inst_data    =    data_outo                                              ;
+                    inst_pc      = {(inst_addr+12), (inst_addr+8), (inst_addr+4), inst_addr} ;
                 end 
-                else if(inst_addr[2] == `ysyx22040228_ENABLE) begin
-                    inst_data =    data_out[31:0 ]      ;
-                    inst_hit_ok  = `ysyx22040228_ABLE  ;
-                    inst_valid   = `ysyx22040228_ABLE;
-                end
+                if(inst_counter == 3'd3)   begin
+                    inst_data    = {data_outo[127:32], 32'h0}                                ;
+                    inst_pc      = {(inst_addr+8), (inst_addr+4), inst_addr, 64'h0}          ;
+                end 
+                if(inst_counter == 3'd2)   begin
+                    inst_data    = {data_outo[127:64], 64'h0}                                ;
+                    inst_pc      = {(inst_addr+4), inst_addr, 64'h0, 64'h0}                  ;
+                end 
+                if(inst_counter == 3'd1)   begin
+                    inst_data    = {data_outo[127:96], 96'h0 }                               ;
+                    inst_pc      = {inst_addr, 64'h0, 64'h0, 64'h0}                          ;
+                end 
             end
             else if((tteg_ata_o == icache_tag) && (tteg_valid_o == `ysyx22040228_ABLE))begin
-                if(inst_addr[2] == `ysyx22040228_ABLE)   begin
-                    inst_data = data_out[127:96]      ;
-                    inst_hit_ok  = `ysyx22040228_ABLE  ;
-                    inst_valid   = `ysyx22040228_ABLE;
+                inst_hit_ok  = `ysyx22040228_ABLE  ;
+                inst_valid   = `ysyx22040228_ABLE;
+                if(inst_counter == 3'd4)   begin
+                    inst_data    =    data_outt                                              ;
+                    inst_pc      = {(inst_addr+12), (inst_addr+8), (inst_addr+4), inst_addr} ;
                 end 
-                else if(inst_addr[2] == `ysyx22040228_ENABLE) begin
-                    inst_data = data_out[95:64]      ;
-                    inst_hit_ok  = `ysyx22040228_ABLE  ;
-                    inst_valid   = `ysyx22040228_ABLE;
-                end
+                if(inst_counter == 3'd3)   begin
+                    inst_data    = {data_outt[127:32], 32'h0}                                ;
+                    inst_pc      = {(inst_addr+8), (inst_addr+4), inst_addr, 64'h0}          ;
+                end 
+                if(inst_counter == 3'd2)   begin
+                    inst_data    = {data_outt[127:64], 64'h0}                                ;
+                    inst_pc      = {(inst_addr+4), inst_addr, 64'h0, 64'h0}                  ;
+                end 
+                if(inst_counter == 3'd1)   begin
+                    inst_data    = {data_outt[127:96], 96'h0 }                               ;
+                    inst_pc      = {inst_addr, 64'h0, 64'h0, 64'h0}                          ;
+                end 
             end
             else begin
-                inst_data    = 32'b0                   ;
-                inst_hit_ok  = `ysyx22040228_ENABLE    ;
-                inst_valid   = `ysyx22040228_ENABLE    ;
+                inst_data    = 128'b0                   ;
+                inst_hit_ok  = `ysyx22040228_ENABLE     ;
+                inst_valid   = `ysyx22040228_ENABLE     ;
             end
         end 
         else begin  
@@ -164,121 +182,166 @@ module inst_cache (
     end
 
 
-    reg   [127:0]   miss_data ;
-    reg             miss_ena_l;
-    reg   [127:0]   miss_strb_l;
     reg             write_i_ok;  
-
     reg             cahce_miss_ena ;
     reg   [63:0]    cache_miss_addr ;
-    always @(*) begin
-        if((state_inst ==  `ysyx22040228_I_MISSRL) && (~cache_in_valid)) begin
-            cahce_miss_ena = `ysyx22040228_ABLE     ;
-            cache_miss_addr = {inst_addr[63:3],3'b0};
-        end 
-        else if((state_inst ==  `ysyx22040228_I_MISSRL) && (cache_in_valid)) begin
-            cahce_miss_ena = `ysyx22040228_ENABLE;
-            miss_data      = {cache_in_data, cache_in_data}  ;
-            write_i_ok     = `ysyx22040228_ABLE  ;
-            miss_ena_l     = `ysyx22040228_ABLE  ;
-            if(oteg_valid_o == `ysyx22040228_ENABLE) begin
-                miss_strb_l = `ysyx22040228_CACHE_STRBL;
-            end 
-            else if(tteg_valid_o == `ysyx22040228_ENABLE) begin
-                miss_strb_l = `ysyx22040228_CACHE_STRBH;
-            end 
-            else if(i_counter1[icache_index] >= i_counter2[icache_index])begin
-                miss_strb_l = `ysyx22040228_CACHE_STRBL;
-            end   
-            else if(i_counter1[icache_index] < i_counter2[icache_index]) begin
-                miss_strb_l = `ysyx22040228_CACHE_STRBH;
-            end
-            else begin
-                miss_strb_l = `ysyx22040228_CACHE_STRBZ;
-                miss_ena_l = `ysyx22040228_ENABLE ;
-            end  
-        end
-        else begin
-            miss_data      = `ysyx22040228_CACHE_STRBZ ;
-            miss_ena_l     = `ysyx22040228_ENABLE ;
-            miss_strb_l = `ysyx22040228_CACHE_STRBZ;
-            write_i_ok     = `ysyx22040228_ENABLE   ;
-        end 
-    end
-
-    reg   [1:0]     missr_counter ;
-    reg   [1:0]     missr_counter_n;
-    /* verilator lint_off UNUSED */
-    reg   [63:0]    temp_inst     ;
-    reg   [127:0]   mism_data ;
-    reg             mism_ena_l;
-    reg   [127:0]   mism_strb_l;
     reg             write_m_ok;  
-
     reg             cache_mism_ena ;
     reg   [63:0]    cahce_mism_addr ;
+
+    reg   [1:0]   counter_readl ;
+    reg   [1:0]   counter_readl_n ;
+
     always @(posedge clk) begin
-        if(rst == `ysyx22040228_RSTENA)
-            missr_counter <= 2'b00 ;
+        if(rst == `ysyx22040228_RSTENA) 
+            counter_readl <= 2'd1 ;
         else 
-            missr_counter <= missr_counter_n ;
+            counter_readl <= counter_readl_n ;
+    end
+    reg  [127:0]  temp_date       ;
+    reg           miss_strb_o     ;
+    reg           miss_strb_t     ;
+    always @(*) begin
+        if(state_inst ==  `ysyx22040228_I_MISSRL) begin
+            case (counter_readl)
+                2'd1 : begin
+                   if(cache_in_valid) begin
+                        temp_date[63:0] = cache_in_data       ;
+                        counter_readl_n = 2'd2                ;
+                   end 
+                   else begin 
+                        cahce_miss_ena  = `ysyx22040228_ABLE  ;
+                        cache_miss_addr = {inst_addr[63:4], 1'b0,3'b0}; 
+                   end 
+                end 
+                2'd2 : begin
+                   if(cache_in_valid) begin
+                        cahce_miss_ena  = `ysyx22040228_ENABLE  ;
+                        cache_miss_addr = `ysyx22040228_ZEROWORD;
+                        temp_date[127:64] = cache_in_data       ;
+                        counter_readl_n = 2'd2                  ;
+                        write_i_ok      = `ysyx22040228_ABLE    ;
+                        if(oteg_valid_o == `ysyx22040228_ENABLE) begin
+                            miss_strb_o = `ysyx22040228_ABLE    ;
+                        end 
+                        else if(tteg_valid_o == `ysyx22040228_ENABLE) begin
+                            miss_strb_t = `ysyx22040228_ABLE    ;
+                        end 
+                        else if(i_counter1[icache_index] >= i_counter2[icache_index])begin
+                            miss_strb_o = `ysyx22040228_ABLE    ;
+                        end   
+                        else if(i_counter1[icache_index] < i_counter2[icache_index]) begin
+                            miss_strb_t = `ysyx22040228_ABLE    ;
+                        end
+                   end 
+                   else begin 
+                        cahce_miss_ena  = `ysyx22040228_ABLE  ;
+                        cache_miss_addr = {inst_addr[63:4], 1'b1,3'b0}; 
+                   end
+                end  
+                default: counter_readl_n  = 2'd1  ;
+            endcase
+        end 
+        else begin
+             counter_readl_n  = 2'd1                 ;
+             miss_strb_o      = `ysyx22040228_ENABLE ;
+             miss_strb_t      = `ysyx22040228_ENABLE ;
+             write_i_ok       = `ysyx22040228_ENABLE ;
+        end 
     end
 
+
+    reg   [2:0]   counter_readh ;
+    reg   [2:0]   counter_readh_n ;
+
+    always @(posedge clk) begin
+        if(rst == `ysyx22040228_RSTENA)
+            counter_readh  <= 3'd1 ;
+        else 
+            counter_readh  <= counter_readh_n ;
+    end
+    reg  [127:0]  temp_data ; 
+    reg           mism_strb_o ;
+    reg           mism_strb_t ;
     always @(*) begin
-        if((state_inst ==  `ysyx22040228_I_MISSRH) && (~cache_in_valid)) begin
-            if(missr_counter <= 2'b01) begin
-                cache_mism_ena = `ysyx22040228_ABLE    ;
-                cahce_mism_addr = {inst_addr[63:3], 1'b1, 2'b0};
-                missr_counter_n  = 2'b01                 ;
-            end 
-            else begin
-                cache_mism_ena = `ysyx22040228_ABLE    ;
-                cahce_mism_addr = {inst_addr[63:3], 1'b0, 2'b0};
-                missr_counter_n  = 2'b11                 ;
-            end 
+        if(state_inst ==  `ysyx22040228_I_MISSRH)begin
+            case (counter_readh)
+               3'd1 : begin
+                   if(cache_in_valid) begin
+                        temp_data[31:0] = cache_in_data[31:0] ;
+                        counter_readh_n = 3'd2                ;
+                   end 
+                   else begin 
+                        cache_mism_ena  = `ysyx22040228_ABLE    ;
+                        cahce_mism_addr = {inst_addr[63:4], 1'b0, 1'b0, 2'b0}; 
+                   end 
+               end 
+               3'd2 : begin
+                   if(cache_in_valid) begin
+                        temp_data[63:32] = cache_in_data[63:32] ;
+                        counter_readh_n = 3'd3                    ;
+                   end 
+                   else begin 
+                        cache_mism_ena  = `ysyx22040228_ABLE    ;
+                        cahce_mism_addr = {inst_addr[63:4], 1'b0, 1'b1, 2'b0}; 
+                   end 
+               end 
+               3'd3 : begin
+                   if(cache_in_valid) begin
+                        temp_data[95:64] = cache_in_data[31:0] ;
+                        counter_readh_n = 3'd4                   ;
+                   end 
+                   else begin 
+                        cache_mism_ena  = `ysyx22040228_ABLE    ;
+                        cahce_mism_addr = {inst_addr[63:4], 1'b1, 1'b0, 2'b0}; 
+                   end 
+               end 
+               3'd4 : begin
+                   if(cache_in_valid) begin
+                        temp_data[127:96] = cache_in_data[63:32] ;
+                        counter_readh_n = 3'd4                     ;
+                        cache_mism_ena  = `ysyx22040228_ENABLE     ;
+                        cahce_mism_addr = `ysyx22040228_ZEROWORD   ;
+                        write_m_ok      = `ysyx22040228_ABLE       ;
+                        if(oteg_valid_o == `ysyx22040228_ENABLE) begin
+                            mism_strb_o = `ysyx22040228_ABLE       ;
+                        end 
+                        else if(tteg_valid_o == `ysyx22040228_ENABLE) begin
+                            mism_strb_t = `ysyx22040228_ABLE       ;
+                        end 
+                        else if(i_counter1[icache_index] >= i_counter2[icache_index])begin
+                            mism_strb_o = `ysyx22040228_ABLE       ;
+                        end   
+                        else if(i_counter1[icache_index] < i_counter2[icache_index]) begin
+                            mism_strb_t = `ysyx22040228_ABLE       ;
+                        end
+                   end 
+                   else begin 
+                        cache_mism_ena  = `ysyx22040228_ABLE      ;
+                        cahce_mism_addr = {inst_addr[63:4], 1'b1, 1'b1, 2'b0}; 
+                   end 
+               end 
+                default: counter_readh_n = 3'd1                     ;
+            endcase
         end 
-        else if((state_inst ==  `ysyx22040228_I_MISSRH) && (cache_in_valid) && (missr_counter  == 2'b01)) begin
-            cache_mism_ena = `ysyx22040228_ABLE    ;
-            cahce_mism_addr = {inst_addr[63:3], 1'b0, 2'b0};
-            missr_counter_n  = 2'b11                 ;
-            temp_inst      = {cache_in_data[31:0], 32'h0};
-        end 
-        else if((state_inst ==  `ysyx22040228_I_MISSRH) && (cache_in_valid) && (missr_counter  == 2'b11)) begin
-            missr_counter_n  = 2'b00               ;
-            mism_data      = {temp_inst[63:32], cache_in_data[31:0], temp_inst[63:32], cache_in_data[31:0]};
-            cache_mism_ena = `ysyx22040228_ENABLE;
-            write_m_ok     = `ysyx22040228_ABLE  ;
-            mism_ena_l     = `ysyx22040228_ABLE  ;
-            if(oteg_valid_o == `ysyx22040228_ENABLE) begin
-                mism_strb_l = `ysyx22040228_CACHE_STRBL;
-            end 
-            else if(tteg_valid_o == `ysyx22040228_ENABLE) begin
-                mism_strb_l = `ysyx22040228_CACHE_STRBH;
-            end 
-            else if(i_counter1[icache_index] >= i_counter2[icache_index])begin
-                mism_strb_l = `ysyx22040228_CACHE_STRBL;
-            end   
-            else if(i_counter1[icache_index] < i_counter2[icache_index]) begin
-                mism_strb_l = `ysyx22040228_CACHE_STRBH;
-            end 
-        end
         else begin
-            mism_data      = `ysyx22040228_CACHE_STRBZ ;
-            mism_ena_l     = `ysyx22040228_ENABLE ;
-            mism_strb_l = `ysyx22040228_CACHE_STRBZ;
-            write_m_ok     = `ysyx22040228_ENABLE   ;
-        end
+            write_m_ok  = `ysyx22040228_ENABLE ;
+            mism_strb_o = `ysyx22040228_ENABLE ;
+            mism_strb_t = `ysyx22040228_ENABLE ;
+            temp_data   = 128'h0               ;
+            counter_readh_n = 3'd1             ;
+        end 
     end
 
     wire                             oteg_ena_i    ;
-    assign                           oteg_ena_i  =  inst_fence                                                                                ? `ysyx22040228_ABLE : 
-                                                    ((state_inst ==  `ysyx22040228_I_MISSRL) && ((miss_strb_l == `ysyx22040228_CACHE_STRBL))) ? `ysyx22040228_ABLE :
-                                                    ((state_inst ==  `ysyx22040228_I_MISSRH) && ((mism_strb_l == `ysyx22040228_CACHE_STRBL))) ? `ysyx22040228_ABLE :
-                                                                                                                                              `ysyx22040228_ENABLE ;
+    assign                           oteg_ena_i  =  inst_fence                                                 ? `ysyx22040228_ABLE : 
+                                                    ((state_inst ==  `ysyx22040228_I_MISSRL) && (miss_strb_o)) ? `ysyx22040228_ABLE :
+                                                    ((state_inst ==  `ysyx22040228_I_MISSRH) && (mism_strb_o)) ? `ysyx22040228_ABLE :
+                                                                                                               `ysyx22040228_ENABLE ;
     wire                             oteg_valid_i  ;
     assign                           oteg_valid_i = inst_fence ? `ysyx22040228_ENABLE : `ysyx22040228_ABLE ;
-    wire         [22:0]              oteg_data_i   ;
-    assign                           oteg_data_i  = inst_fence ? 23'h0 : icache_tag ;
+    wire         [21:0]              oteg_data_i   ;
+    assign                           oteg_data_i  = inst_fence ? 22'h0 : icache_tag ;
     wire         [5:0]               oteg_addr_i   ; 
     assign                           oteg_addr_i  = inst_fence ? fence_counter[5:0] : icache_index ;    
     wire   [`ysyx22040228_TEG_WITH]  oteg_ata_o    ;
@@ -294,14 +357,14 @@ module inst_cache (
     );
 
     wire                             tteg_ena_i    ; 
-    assign                           tteg_ena_i  =  inst_fence                                                                                ? `ysyx22040228_ABLE : 
-                                                    ((state_inst ==  `ysyx22040228_I_MISSRL) && ((miss_strb_l == `ysyx22040228_CACHE_STRBH))) ? `ysyx22040228_ABLE :
-                                                    ((state_inst ==  `ysyx22040228_I_MISSRH) && ((mism_strb_l == `ysyx22040228_CACHE_STRBH))) ? `ysyx22040228_ABLE :
-                                                                                                                                              `ysyx22040228_ENABLE ;
+    assign                           tteg_ena_i  =  inst_fence                                                 ? `ysyx22040228_ABLE : 
+                                                    ((state_inst ==  `ysyx22040228_I_MISSRL) && (miss_strb_t)) ? `ysyx22040228_ABLE :
+                                                    ((state_inst ==  `ysyx22040228_I_MISSRH) && (mism_strb_t)) ? `ysyx22040228_ABLE :
+                                                                                                               `ysyx22040228_ENABLE ;
     wire                             tteg_valid_i  ;
     assign                           tteg_valid_i = inst_fence ? `ysyx22040228_ENABLE : `ysyx22040228_ABLE ;
-    wire         [22:0]              tteg_data_i   ;
-    assign                           tteg_data_i  = inst_fence ? 23'h0 : icache_tag ;
+    wire         [21:0]              tteg_data_i   ;
+    assign                           tteg_data_i  = inst_fence ? 22'h0 : icache_tag ;
     wire         [5:0]               tteg_addr_i   ; 
     assign                           tteg_addr_i  = inst_fence ? fence_counter[5:0] : icache_index ;
     wire   [`ysyx22040228_TEG_WITH]  tteg_ata_o    ;
@@ -309,7 +372,7 @@ module inst_cache (
     TEG_CC TEG_ICACHET(
         .clk         (clk          ),
         .addr_i      (tteg_addr_i  ),
-        .teg_i      (tteg_data_i  ),
+        .teg_i       (tteg_data_i  ),
         .teg_valid   (tteg_valid_i ),
         .teg_ena     (tteg_ena_i   ),
         .data_o      (tteg_ata_o   ),
@@ -317,30 +380,54 @@ module inst_cache (
     );
 
     //-------------------------------ram data---------------------------------//
-    wire  [127:0] data_out ;
-    wire          CE = 1'b0 ;
-    wire  [127:0] w_strb_ram;
-    assign        w_strb_ram = (state_inst ==  `ysyx22040228_I_MISSRL) ? miss_strb_l :
-                               (state_inst ==  `ysyx22040228_I_MISSRH) ? mism_strb_l :
-                                                          `ysyx22040228_CACHE_STRBZ  ;
-    wire  [127:0] w_data_ram;
-    assign        w_data_ram = (state_inst ==  `ysyx22040228_I_MISSRL) ? miss_data :
-                               (state_inst ==  `ysyx22040228_I_MISSRH) ? mism_data :
-                                                          `ysyx22040228_CACHE_STRBZ;
-    wire          w_data_ena;
-    assign        w_data_ena = (state_inst ==  `ysyx22040228_I_MISSRL) ? miss_ena_l :
-                               (state_inst ==  `ysyx22040228_I_MISSRH) ? mism_ena_l :
-                                                               `ysyx22040228_ENABLE ;
-    S011HD1P_X32Y2D128_BW REM_ICACHE (
-        .Q           (data_out     ) ,
+    wire  [127:0] data_outo ;
+    wire          CEO = 1'b0;
+    wire  [127:0] w_strb_ramo;
+    assign        w_strb_ramo = ((state_inst ==  `ysyx22040228_I_MISSRL) && (miss_strb_o)) ? `ysyx22040228_CACHE_STRBA :
+                               ((state_inst ==  `ysyx22040228_I_MISSRH) && (mism_strb_o)) ? `ysyx22040228_CACHE_STRBA :
+                                                                                           `ysyx22040228_CACHE_STRBZ  ;
+    wire  [127:0] w_data_ramo;
+    assign        w_data_ramo = ((state_inst ==  `ysyx22040228_I_MISSRL) && (miss_strb_o)) ? temp_date :
+                               ((state_inst ==  `ysyx22040228_I_MISSRH) && (mism_strb_o)) ? temp_data :
+                                                                             `ysyx22040228_CACHE_STRBZ;
+    wire          w_data_enao;
+    assign        w_data_enao = ((state_inst ==  `ysyx22040228_I_MISSRL) && (miss_strb_o)) ? `ysyx22040228_ABLE   :
+                               ((state_inst ==  `ysyx22040228_I_MISSRH) && (mism_strb_o)) ? `ysyx22040228_ABLE   :
+                                                                                            `ysyx22040228_ENABLE ;
+    S011HD1P_X32Y2D128_BW REM_ICACHEO (
+        .Q           (data_outo    ) ,
         .CLK         (clk          ) ,
-        .CEN         (CE           ) ,
-        .WEN         ( ~w_data_ena ) ,
-        .BWEN        ( ~w_strb_ram ) ,
+        .CEN         (CEO          ) ,
+        .WEN         ( ~w_data_enao) ,
+        .BWEN        ( ~w_strb_ramo) ,
         .A           (icache_index ) ,
-        .D           (w_data_ram   )
+        .D           (w_data_ramo  )
     );
 
+    wire  [127:0] data_outt;
+    wire          CET = 1'b0;
+    wire  [127:0] w_strb_ramt;
+    assign        w_strb_ramt = ((state_inst ==  `ysyx22040228_I_MISSRL) && (miss_strb_t)) ? `ysyx22040228_CACHE_STRBA :
+                               ((state_inst ==  `ysyx22040228_I_MISSRH) && (mism_strb_t)) ? `ysyx22040228_CACHE_STRBA :
+                                                                                           `ysyx22040228_CACHE_STRBZ  ;
+    wire  [127:0] w_data_ramt;
+    assign        w_data_ramt = ((state_inst ==  `ysyx22040228_I_MISSRL) && (miss_strb_t)) ? temp_date :
+                               ((state_inst ==  `ysyx22040228_I_MISSRH) && (mism_strb_t)) ? temp_data :
+                                                                             `ysyx22040228_CACHE_STRBZ;
+    wire          w_data_enat;
+    assign        w_data_enat = ((state_inst ==  `ysyx22040228_I_MISSRL) && (miss_strb_t)) ? `ysyx22040228_ABLE   :
+                               ((state_inst ==  `ysyx22040228_I_MISSRH) && (mism_strb_t)) ? `ysyx22040228_ABLE   :
+                                                                                            `ysyx22040228_ENABLE ;
+
+    S011HD1P_X32Y2D128_BW REM_ICACHET (
+        .Q           (data_outt    ) ,
+        .CLK         (clk          ) ,
+        .CEN         (CET          ) ,
+        .WEN         ( ~w_data_enat) ,
+        .BWEN        ( ~w_strb_ramt) ,
+        .A           (icache_index ) ,
+        .D           (w_data_ramt  )
+    );
 
     //--------------------------------------bit code---------------------------//
     reg  [2:0]  i_counter1 [`ysyx22040228_CACHE_DATA_W];
@@ -348,9 +435,9 @@ module inst_cache (
     integer i ;
 
     always @(posedge clk) begin
-        if(((state_inst == `ysyx22040228_I_HIT) && ((oteg_ata_o == icache_tag) && (oteg_valid_o == `ysyx22040228_ABLE))) || ((miss_strb_l == `ysyx22040228_CACHE_STRBL) | (mism_strb_l == `ysyx22040228_CACHE_STRBL)))
+        if(((state_inst == `ysyx22040228_I_HIT) && ((oteg_ata_o == icache_tag) && (oteg_valid_o == `ysyx22040228_ABLE))) || ((miss_strb_o) | (mism_strb_o)))
             i_counter1[icache_index] <= 3'b0 ;
-        if(((state_inst == `ysyx22040228_I_HIT) && ((tteg_ata_o == icache_tag) && (tteg_valid_o == `ysyx22040228_ABLE))) || ((miss_strb_l == `ysyx22040228_CACHE_STRBH) | (mism_strb_l == `ysyx22040228_CACHE_STRBH)))
+        if(((state_inst == `ysyx22040228_I_HIT) && ((tteg_ata_o == icache_tag) && (tteg_valid_o == `ysyx22040228_ABLE))) || ((miss_strb_t) | (mism_strb_t)))
             i_counter2[icache_index] <= 3'b0 ;
         if(icache_if_shankhand && inst_valid) begin
 		    for(i = 0;i<64;i=i+1) begin

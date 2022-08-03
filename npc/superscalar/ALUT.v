@@ -26,15 +26,12 @@ module ALUT (
     output        wire          [`ysyx22040228_PCBUS]         ex_pc_o           ,
     output        wire          [`ysyx22040228_INSTBUS]       ex_inst_o         ,
 
-    output        wire                                        fence_ready       ,
-
     output        wire                                        socreboard_alut    
     
 );
 
 assign ex_pc_o = (rst == `ysyx22040228_RSTENA) ? `ysyx22040228_ZEROWORD : pc_i ;
 assign ex_inst_o = (rst == `ysyx22040228_RSTENA) ? 32'b0 : id_ex_inst ;
-assign fence_ready = (inst_opcode_i == `INST_FENCE) ? 1'b1 : 1'b0 ;
 
 reg      [`ysyx22040228_REGBUS]       exe_res   ;
 

@@ -19,7 +19,6 @@ module MMU (
     output               wire          [ 7:0]                                wmask_o              ,
     input                wire          [`ysyx22040228_DATABUS]               data_i               ,
     output               wire          [`ysyx22040228_DATABUS]               data_o               ,
-    output               wire                                                fence                ,
     output               wire                                                we                   ,
     output               wire          [2:0]                                 we_type_sel          ,
     output               wire                                                re                   ,

@@ -16,9 +16,13 @@ module PHB (
     input       wire        [3:0]                                 decode2_read  ,
     output      wire                                              decode2_data  ,
 
-    input       wire        [3:0]                                 u_jum         ,
-    input       wire                                              u_ena         ,
-    input       wire                                              ujum_ft                     
+    input       wire        [3:0]                                 decode1_waddr ,
+    input       wire                                              decode1_wena  ,
+    input       wire                                              decode1_wdata ,
+
+    input       wire        [3:0]                                 decode2_waddr ,
+    input       wire                                              decode2_wena  ,
+    input       wire                                              deocde2_wdata               
 );
 
     `define ysyx22040228_JJJJ    4'b1111 
@@ -33,14 +37,20 @@ module PHB (
     reg   [3:0]  ramdata   [0:15] ;
 
     always @(posedge clk) begin
-        if(u_ena) begin
-            if(ujum_ft)
-                ramdata[u_jum] <= {ramdata[u_jum][3:1], 1'b1};
-            else 
-                ramdata[u_jum] <= {ramdata[u_jum][3:1], 1'b0};
+        if(decode1_wena) begin
+            if(decode1_wdata)
+                ramdata[decode1_waddr] <= {ramdata[decode1_waddr][3:1], 1'b1};
+            else
+                ramdata[decode1_waddr] <= {ramdata[decode1_waddr][3:1], 1'b0};
+        end 
+        else if(decode2_wena) begin
+            if(deocde2_wdata)
+                ramdata[decode2_waddr] <= {ramdata[decode2_waddr][3:1], 1'b1};
+            else
+                ramdata[decode2_waddr] <= {ramdata[decode2_waddr][3:1], 1'b0};
         end 
         else begin
-            ramdata[u_jum] <= ramdata[u_jum]                 ;
+            ramdata <= ramdata                 ;
         end 
     end
     wire [2:0]  phb_addo    ;

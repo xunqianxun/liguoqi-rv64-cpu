@@ -39,21 +39,15 @@ module decode2 (
     input       wire         [`ysyx22040228_REGADDRBUS]                        mem_rd_addr         ,
     input       wire                                                           mem_rd_ena          ,
 
-    input       wire         [`ysyx22040228_REGBUS]                            subm1_rd_data       ,
-    input       wire         [`ysyx22040228_REGADDRBUS]                        subm1_rd_addr       ,
-    input       wire                                                           subm1_rd_ena        ,
-
-    input       wire         [`ysyx22040228_REGBUS]                            subm2_rd_data       ,
-    input       wire         [`ysyx22040228_REGADDRBUS]                        subm2_rd_addr       ,
-    input       wire                                                           subm2_rd_ena        ,
     //regfile(wbm)
     input       wire                                                           wb1_rd_ena          ,
     input       wire         [`ysyx22040228_REGADDRBUS]                        wb1_rd_addr         ,
 
     input       wire                                                           wb2_rd_ena          ,
     input       wire         [`ysyx22040228_REGADDRBUS]                        wb2_rd_addr         ,
-    //ctrl
-    output      wire                                                           id_stall_req        ,
+
+    input       wire                                                           wb3_rd_ena          ,
+    input       wire         [`ysyx22040228_REGADDRBUS]                        wb3_rd_addr         ,
     //id_exe
     output      wire         [7:0]                                             inst_type           ,
     output      wire         [7:0]                                             inst_opcode         ,
@@ -72,8 +66,7 @@ module decode2 (
     output      wire         [2 :0]                                            mem_op_sel          , 
     // to pc and if_id
     output      wire                                                           jump_pc_ena         ,
-    output      wire         [`ysyx22040228_PCBUS]                             jump_pc             ,
-    output      wire                                                           decode1_flush
+    output      wire         [`ysyx22040228_PCBUS]                             jump_pc             
 );
 
 //I-Type
@@ -109,14 +102,14 @@ assign {b_imm[12] , b_imm[10:5] , b_imm[4:1] , b_imm[11]} = {inst_i[31:25] , ins
 
 
 //*****************decode************************
-assign inst_type[7]   =   (rst == `ysyx22040228_RSTENA) ? 0 : (opcode[6:2] == `ysyx22040228_SYS)       ;
-assign inst_type[6]   =   (rst == `ysyx22040228_RSTENA) ? 0 : (opcode[6:2] == `ysyx22040228_REGREGW)   ;
-assign inst_type[5]   =   (rst == `ysyx22040228_RSTENA) ? 0 : (opcode[6:2] == `ysyx22040228_REGIMMW) ;
-assign inst_type[4]   =   (rst == `ysyx22040228_RSTENA) ? 0 : (opcode[6:2] == `ysyx22040228_REGIMM)    ;
-assign inst_type[3]   =   (rst == `ysyx22040228_RSTENA) ? 0 : (opcode[6:2] == `ysyx22040228_REGREG)   ;
-assign inst_type[2]   =   (rst == `ysyx22040228_RSTENA) ? 0 : (opcode[6:2] == `ysyx22040228_BRANCH)        ;
+assign inst_type[7]   =   (rst == `ysyx22040228_RSTENA) ? 0 : ((opcode[6:2] == `ysyx22040228_SYS) | inst_fence_i)       ;
+assign inst_type[6]   =   (rst == `ysyx22040228_RSTENA) ? 0 : (opcode[6:2] == `ysyx22040228_REGREGW)                    ;
+assign inst_type[5]   =   (rst == `ysyx22040228_RSTENA) ? 0 : (opcode[6:2] == `ysyx22040228_REGIMMW)                    ;
+assign inst_type[4]   =   (rst == `ysyx22040228_RSTENA) ? 0 : (opcode[6:2] == `ysyx22040228_REGIMM)                     ;
+assign inst_type[3]   =   (rst == `ysyx22040228_RSTENA) ? 0 : (opcode[6:2] == `ysyx22040228_REGREG)                     ;
+assign inst_type[2]   =   (rst == `ysyx22040228_RSTENA) ? 0 : (opcode[6:2] == `ysyx22040228_BRANCH)                     ;
 assign inst_type[1]   =   (rst == `ysyx22040228_RSTENA) ? 0 : (opcode[6:2] == `ysyx22040228_LOAD) && (opcode[1:0] == 2'b11);
-assign inst_type[0]   =   (rst == `ysyx22040228_RSTENA) ? 0 : (opcode[6:2] == `ysyx22040228_STORE)         ;
+assign inst_type[0]   =   (rst == `ysyx22040228_RSTENA) ? 0 : (opcode[6:2] == `ysyx22040228_STORE)                      ;
 
 wire inst_lui      = (rst == `ysyx22040228_RSTENA) ? 0 : (opcode[6:2] == `ysyx22040228_LUI)    ;
 wire inst_auipc    = (rst == `ysyx22040228_RSTENA) ? 0 : (opcode[6:2] == `ysyx22040228_AUIPC)  ;
@@ -204,12 +197,6 @@ assign inst_opcode[7] = (rst == `ysyx22040228_RSTENA) ? 0 :              | inst_
 
 
 
-//output sign 
-wire op1_loda_relate ;
-wire op2_loda_relate ;
-assign op1_loda_relate = (rst == `ysyx22040228_RSTENA) ? 0 : op1_read_o  && (op1_addr_o == mem_rd_addr) ;
-assign op2_loda_relate = (rst == `ysyx22040228_RSTENA) ? 0 : op2_read_o  && (op2_addr_o == mem_rd_addr) ;
-assign id_stall_req = (rst == `ysyx22040228_RSTENA) ? 0 : op1_loda_relate | op2_loda_relate ;
 
 assign pc_o   = (rst == `ysyx22040228_RSTENA) ? `ysyx22040228_ZEROWORD : pc_i ;
 assign inst_o = (rst == `ysyx22040228_RSTENA) ? 32'b0 : inst_i ;
@@ -240,8 +227,6 @@ wire opselcet2;
 wire mem_op1  ; 
 wire mem_select1; 
 wire mem_select2;
-wire subm1_op1  ;
-wire subm2_op1  ;
 assign opselcet1 = (alu1_pc > alu2_pc) && (alu1_op1 && alu2_op1);
 assign opselcet2 = (alu1_pc < alu2_pc) && (alu1_op1 && alu2_op1);
 assign alu1_op1  = (alu1_rd_addr == op1_addr_o) && alu1_rd_ena  ;
@@ -249,8 +234,6 @@ assign alu2_op1  = (alu2_rd_addr == op1_addr_o) && alu2_rd_ena  ;
 assign mem_op1    = (mem_rd_addr == op1_addr_o) && mem_rd_ena      ;
 assign mem_select1= (mem_pc < alu1_pc) && (alu1_op1 && mem_op1)    ;
 assign mem_select2= (mem_pc < alu2_pc) && (alu2_op1 && mem_op1)    ;
-assign subm1_op1  = (subm1_rd_addr == op1_addr_o) && subm1_rd_ena  ;
-assign subm2_op1  = (subm2_rd_addr == op1_addr_o) && subm2_rd_ena  ;
 
 always @(*) begin
   if(rst == `ysyx22040228_RSTENA)      begin op1_o = `ysyx22040228_ZEROWORD; end 
@@ -261,8 +244,6 @@ always @(*) begin
     else if(alu1_op1 | mem_select1)    begin op1_o = alu1_rd_data   ;   end 
     else if(alu2_op1 | mem_select2)    begin op1_o = alu2_rd_data   ;   end     
     else if(mem_op1)                   begin op1_o = mem_rd_data    ;   end
-    else if(subm1_op1)                 begin op1_o = subm1_rd_data  ;   end 
-    else if(subm2_op1)                 begin op1_o = subm2_rd_data  ;   end 
     else                               begin op1_o = op1_data_i     ;   end 
   end
   else if(inst_auipc|inst_jal)         begin op1_o = pc_i             ;   end
@@ -277,8 +258,6 @@ wire opselcett;
 wire mem_op2  ; 
 wire mem_selecto; 
 wire mem_selectt;
-wire subm1_op2  ;
-wire subm2_op2  ;
 assign opselceto = (alu1_pc > alu2_pc) && (alu1_op2 && alu2_op2);
 assign opselcett = (alu1_pc < alu2_pc) && (alu1_op2 && alu2_op2);
 assign alu1_op2  = (alu1_rd_addr == op2_addr_o) && alu1_rd_ena  ;
@@ -286,8 +265,6 @@ assign alu2_op2  = (alu2_rd_addr == op2_addr_o) && alu2_rd_ena  ;
 assign mem_op2    = (mem_rd_addr == op2_addr_o) && mem_rd_ena      ;
 assign mem_selecto= (mem_pc < alu1_pc) && (alu1_op2 && mem_op2)    ;
 assign mem_selectt= (mem_pc < alu2_pc) && (alu2_op2 && mem_op2)    ;
-assign subm1_op2  = (subm1_rd_addr == op2_addr_o) && subm1_rd_ena  ;
-assign subm2_op2  = (subm2_rd_addr == op2_addr_o) && subm2_rd_ena  ;
 
 always @(*) begin
   if(rst == `ysyx22040228_RSTENA) begin op2_o = `ysyx22040228_ZEROWORD; end 
@@ -298,8 +275,6 @@ always @(*) begin
     else if(alu1_op2 | mem_selecto)    begin op2_o = alu1_rd_data   ;   end 
     else if(alu2_op2 | mem_selectt)    begin op2_o = alu2_rd_data   ;   end     
     else if(mem_op2)                   begin op2_o = mem_rd_data    ;   end
-    else if(subm1_op2)                 begin op2_o = subm1_rd_data  ;   end 
-    else if(subm2_op2)                 begin op2_o = subm2_rd_data  ;   end 
     else                               begin op2_o = op2_data_i     ;   end
   end
   else if(inst_type[4] |inst_type[5] |inst_type[7]) begin op2_o = {{52{imm[11]}},imm}     ; end
@@ -310,8 +285,10 @@ end
 
 wire wb1_op1 ;
 wire wb2_op1 ;
+wire wb3_op1 ;
 assign wb1_op1 = (wb1_rd_addr == op1_addr_o) && wb1_rd_ena ;
 assign wb2_op1 = (wb2_rd_addr == op1_addr_o) && wb2_rd_ena ;
+assign wb3_op1 = (wb3_rd_addr == op1_addr_o) && wb3_rd_ena ;
 assign decode1_addr = inst_i[5:2]                         ;
 reg                forcast_state                          ;
 reg                data_jf                                ;
@@ -341,14 +318,10 @@ assign branch_pc     = (forcast_state == 1'b0) ? (phb_data ? pc_i + 64'd4 : ({{5
                                                                                                    `ysyx22040228_ZEROWORD  ;
 
 wire [`ysyx22040228_PCBUS] jalr_pc_temp = {{52{imm[11]}} , imm} + op1_o ;
-wire predict_success = ~alu1_op1 & ~alu2_op1 & ~mem_op1 & ~subm1_op1 & ~subm2_op1 & ~wb1_op1 & ~wb2_op1;
+wire predict_success = ~alu1_op1 & ~alu2_op1 & ~mem_op1 & ~wb1_op1 & ~wb2_op1 & ~wb3_op1;
 
 assign jalr_pc_ena = (rst == `ysyx22040228_RSTENA) ? 0 : inst_jalr && ~predict_success ;
 assign jalr_pc     = inst_jalr ? {jalr_pc_temp[63:1] , 1'b0 & jalr_pc_temp[0]} : `ysyx22040228_ZEROWORD ;
-
-assign decode1_flush   =  branch_pc_ena ?  1'b1  :
-                          jalr_pc_ena   ?  1'b1  :
-                                           1'b0  ;
 
 assign jump_pc_ena     =  branch_pc_ena ?  1'b1  :
                           jalr_pc_ena   ?  1'b1  :

@@ -11,7 +11,7 @@ module issuequeue (
     input          wire    [255:0]                          pc             , 
     input          wire    [127:0]                          inst           ,
     input          wire                                     cache_data_in  ,
-    output         wire                                     temp_empty     ,
+    //output         wire                                     temp_empty     ,
 
     input          wire                                     decode1_j_bad  ,
     input          wire                                     decide2_j_bad  ,
@@ -34,7 +34,6 @@ module issuequeue (
     reg   [127:0]  inreg_inst  ;
     reg   [255:0]  temp_pc     ;
     reg   [127:0]  temp_inst   ;
-
     reg            clean_temp  ; 
     always @(posedge clk) begin
         if(decode1_j_bad | decide2_j_bad | interrupt_terp)
@@ -59,7 +58,7 @@ module issuequeue (
         else if(decode1_j_bad | decide2_j_bad | interrupt_terp) begin
             inreg_pc    <= 256'h0 ;
             inreg_inst  <= 128'h0 ;
-            accept_icache <= 1'b0 ;
+            accept_icache <= 1'b1 ;
         end 
         else begin 
             inreg_pc   <= inreg_pc   ;
@@ -133,7 +132,7 @@ module issuequeue (
         end 
     end 
 
-    assign temp_empty      = (inreg_pc[63:60] == 4'b0000)    ;
+    //assign temp_empty      = (inreg_pc[63:60] == 4'b0000)    ;
     assign should_updata = (temp_pc[63:60] == 4'b0000) && (temp_pc[127:124] == 4'b0000) && (temp_pc[191:188] == 4'b0000) && (temp_pc[255:252] == 4'b0000); 
     
 endmodule
