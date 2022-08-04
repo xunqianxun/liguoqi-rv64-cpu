@@ -104,26 +104,26 @@ module ysyx_22040228 (
      output      wire                                         out_rtc_read_   ,
      input       wire       [`ysyx22040228_DATABUS]           in_rtc_data_    ,
 
-     output      wire                                         read_ena_sign   ,
-     output      wire       [63:0]                            addr_oup_sign   ,
-     input       wire       [63:0]                            read_data_sign  ,
-     output      wire                                         write_ena_sign  ,
-     output      wire       [63:0]                            write_data_sign ,
-     output      wire       [63:0]                            write_addr_sign
+     output      wire                                         read_ena_sign_   ,
+     output      wire       [63:0]                            out_addr_outp   ,
+     input       wire       [63:0]                            read_data_sign_  ,
+     output      wire                                         out_write_ram_ena  ,
+     output      wire       [63:0]                            out_write_ram_data ,
+     output      wire       [63:0]                            out_write_ram_addr
 
 );
 
-    assign io_slave_awready = 1'b0 ;
-    assign io_slave_wready  = 1'b0 ;
-    assign io_slave_bvalid  = 1'b0 ;
-    assign io_slave_bid     = 4'b0000;
-    assign io_slave_bresp   = 2'b00 ;
-    assign io_slave_arready = 1'b0 ;
-    assign io_slave_rvalid  = 1'b0 ;
-    assign io_slave_rid     = 4'b0000;
-    assign io_slave_rdata   = 64'h0 ;
-    assign io_slave_rresp   = 2'b00 ;
-    assign io_slave_rlast   = 1'b0  ;
+    // assign io_slave_awready = 1'b0 ;
+    // assign io_slave_wready  = 1'b0 ;
+    // assign io_slave_bvalid  = 1'b0 ;
+    // assign io_slave_bid     = 4'b0000;
+    // assign io_slave_bresp   = 2'b00 ;
+    // assign io_slave_arready = 1'b0 ;
+    // assign io_slave_rvalid  = 1'b0 ;
+    // assign io_slave_rid     = 4'b0000;
+    // assign io_slave_rdata   = 64'h0 ;
+    // assign io_slave_rresp   = 2'b00 ;
+    // assign io_slave_rlast   = 1'b0  ;
 
     parameter SLAVE_NUM =  3 ;
     //-----------------------------wire about rvcpu------------------------------//
@@ -185,7 +185,7 @@ module ysyx_22040228 (
 
     wire   time_init_sign            ;
     wire   interrupt_                ;
-    assign interrupt_ = time_init_sign | io_interrput;
+    assign interrupt_ = time_init_sign ;
 
     wire   [`ysyx22040228_ID_BUS]    t_axi_aw_id    ;
     wire   [`ysyx22040228_ADDR_BUS]  t_axi_aw_addr  ;
