@@ -172,7 +172,7 @@ module PC (
 
     always @(posedge clk) begin
         if(rst == `ysyx22040228_RSTENA) begin
-            pc <= `ysyx22040228_START ;
+            pc <= 64'h0000000080000000 ;
         end 
         else begin
             if(cache_un_ready == 1'b1) begin
