@@ -107,7 +107,7 @@ int main(int argc , char** argv , char** env) {
 
 contextp = new VerilatedContext ;
 contextp->commandArgs(argc, argv) ;
-rvcpu = new VSocTop(contextp);
+rvcpu = new Vysyx_22040228(contextp);
 Verilated::traceEverOn(true) ; //out vcd need
 tfp = new VerilatedVcdC ; // out vcd need
 rvcpu->trace(tfp,0) ;
