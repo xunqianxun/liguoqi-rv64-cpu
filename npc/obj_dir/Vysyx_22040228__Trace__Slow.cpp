@@ -2459,7 +2459,7 @@ void Vysyx_22040228___024root__traceFullSub0(Vysyx_22040228___024root* vlSelf, V
         tracep->fullBit(oldp+534,((0x20U == (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__state_inst))));
         tracep->fullBit(oldp+535,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__read_ok));
         tracep->fullBit(oldp+536,(((4U == (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__state_inst)) 
-                                   & ((~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu_empty)) 
+                                   & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu_empty) 
                                       & (((vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__TEG_ICACHEO__DOT__out_data_r 
                                            == (0x3fffffU 
                                                & (IData)(

@@ -590,7 +590,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
             tracep->chgBit(oldp+533,((0x20U == (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__state_inst))));
             tracep->chgBit(oldp+534,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__read_ok));
             tracep->chgBit(oldp+535,(((4U == (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__state_inst)) 
-                                      & ((~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu_empty)) 
+                                      & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu_empty) 
                                          & (((vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__TEG_ICACHEO__DOT__out_data_r 
                                               == (0x3fffffU 
                                                   & (IData)(

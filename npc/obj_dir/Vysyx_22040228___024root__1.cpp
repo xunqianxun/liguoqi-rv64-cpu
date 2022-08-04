@@ -1048,7 +1048,7 @@ VL_INLINE_OPT void Vysyx_22040228___024root___combo__TOP__4(Vysyx_22040228___024
                                           ? 1U : ((
                                                    (4U 
                                                     == (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__state_inst)) 
-                                                   & ((~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu_empty)) 
+                                                   & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu_empty) 
                                                       & (((vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__TEG_ICACHEO__DOT__out_data_r 
                                                            == 
                                                            (0x3fffffU 
