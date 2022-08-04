@@ -1559,7 +1559,7 @@ VL_INLINE_OPT void Vysyx_22040228___024root___sequent__TOP__2(Vysyx_22040228___0
     vlSelf->ysyx_22040228__DOT__data_cache3__DOT__read_ok 
         = (2U == (IData)(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__state_dread));
     __Vdly__ysyx_22040228__DOT__rvcpu_inst_addr = ((IData)(vlSelf->rst)
-                                                    ? 0x30000000ULL
+                                                    ? 0x80000000ULL
                                                     : 
                                                    ((IData)(vlSelf->ysyx_22040228__DOT__i_cache_inst_valid)
                                                      ? vlSelf->ysyx_22040228__DOT__rvcpu_inst_addr

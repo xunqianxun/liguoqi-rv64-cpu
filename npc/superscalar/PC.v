@@ -169,29 +169,29 @@ module PC (
     wire  [`ysyx22040228_PCBUS]   pc_jnxtpc_temp ;
     assign      pc_jnxtpc_temp  =  jump_ena1 | jump_ena2 | jump_ena3 | jump_ena4 ? forc_jumppc : pc + {58'h0, pc_nextpc_temp} ;
 
-
+    wire cache_ready = ~cache_un_ready;
     always @(posedge clk) begin
         if(rst == `ysyx22040228_RSTENA) begin
             pc <= 64'h0000000080000000 ;
         end 
         else begin
-            if(cache_un_ready == 1'b1) begin
+            if(cache_ready == 1'b1) begin
                 pc <= pc              ;
             end 
-            else if((cache_un_ready == 1'b0) && (decode1_ena)) begin
+            else if((cache_ready == 1'b0) && (decode1_ena)) begin
                 pc         <= decode1_pc         ;
                 pc_counter <= pc_counter_temp    ;
             end 
-            else if((cache_un_ready == 1'b0) && (decode2_ena)) begin 
+            else if((cache_ready == 1'b0) && (decode2_ena)) begin 
                 pc         <= decode2_pc         ;
                 pc_counter <= pc_counter_temp    ;
             end    
-            else if((cache_un_ready == 1'b0) && (trap_ena)) begin
+            else if((cache_ready == 1'b0) && (trap_ena)) begin
                 pc         <= trap_pc            ;
                 pc_counter <= pc_counter_temp    ;
              
             end 
-            else if((cache_un_ready == 1'b0) && (pc_temp_ena)) begin 
+            else if((cache_ready == 1'b0) && (pc_temp_ena)) begin 
                 pc         <= pc_temp            ;
                 pc_counter <= pc_counter_temp    ;
             end 
@@ -209,19 +209,19 @@ module PC (
             pc_temp_ena <= 1'b0                  ;
             pc_temp     <= `ysyx22040228_ZEROWORD;
         end 
-        else if((cache_un_ready) && (decode1_ena))begin
+        else if((cache_ready) && (decode1_ena))begin
             pc_temp     <= decode1_pc            ;
             pc_temp_ena <= 1'b1                  ;
         end 
-        else if((cache_un_ready) && (decode2_ena))begin
+        else if((cache_ready) && (decode2_ena))begin
             pc_temp     <= decode2_pc            ;
             pc_temp_ena <= 1'b1                  ;
         end 
-        else if((cache_un_ready) && (trap_ena))begin
+        else if((cache_ready) && (trap_ena))begin
             pc_temp     <= trap_pc                ;
             pc_temp_ena <= 1'b1                  ;
         end 
-        else if(cache_un_ready == 1'b0) begin
+        else if(cache_ready == 1'b0) begin
             pc_temp     <= `ysyx22040228_ZEROWORD;
             pc_temp_ena <= 1'b0                  ;
         end 
