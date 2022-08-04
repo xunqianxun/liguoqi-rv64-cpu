@@ -11,7 +11,6 @@ module issuequeue (
     input          wire    [255:0]                          pc             , 
     input          wire    [127:0]                          inst           ,
     input          wire                                     cache_data_in  ,
-    //output         wire                                     temp_empty     ,
 
     input          wire                                     decode1_j_bad  ,
     input          wire                                     decide2_j_bad  ,

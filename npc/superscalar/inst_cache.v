@@ -27,6 +27,7 @@ module inst_cache (
     output      reg           [127:0]                        inst_data       ,
     output      reg           [255:0]                        inst_pc         ,
     output      reg                                          inst_valid      ,
+    output      reg                                          inst_readyout   ,
 
     output      reg                                          cache_read_ena  ,
     output      reg           [63:0]                         cache_addr      ,
@@ -128,6 +129,7 @@ module inst_cache (
                 inst_data = 128'b0 ;
                 inst_hit_ok = `ysyx22040228_ENABLE;
                 inst_valid  = `ysyx22040228_ENABLE;
+                inst_readyout = `ysyx22040228_ABLE;
             end 
             else if((oteg_ata_o == icache_tag) && (oteg_valid_o == `ysyx22040228_ABLE))begin
                 inst_hit_ok  = `ysyx22040228_ABLE;
@@ -173,11 +175,13 @@ module inst_cache (
                 inst_data    = 128'b0                   ;
                 inst_hit_ok  = `ysyx22040228_ENABLE     ;
                 inst_valid   = `ysyx22040228_ENABLE     ;
+                inst_readyout= `ysyx22040228_ENABLE     ;
             end
         end 
         else begin  
           inst_hit_ok  = `ysyx22040228_ENABLE          ; 
-          inst_valid   = `ysyx22040228_ENABLE          ;   
+          inst_valid   = `ysyx22040228_ENABLE          ;  
+          inst_readyout= `ysyx22040228_ENABLE          ; 
         end 
     end
 

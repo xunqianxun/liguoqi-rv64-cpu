@@ -16,4 +16,4 @@
 
    其中vsrc为五级流水线版本，superscalar文件夹为乱序双发射版本。
    下附乱序双发射架构图：
-   ![arch](/home/mulin/ysyx-workbench/arch.jpeg "title")
+   ![arch](/home/mulin/ysyx-workbench/arch.jpeg)
