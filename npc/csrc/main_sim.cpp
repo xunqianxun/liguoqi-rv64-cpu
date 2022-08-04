@@ -9,16 +9,16 @@
 
 #include <stdlib.h>
 #include <assert.h>
-#include "VSocTop.h"
+#include "Vysyx_22040228.h"
 #include <verilated.h>          
 #include <verilated_vcd_c.h>  
-#include <VSocTop__Dpi.h>
+#include <Vysyx_22040228__Dpi.h>
 #include "monitor.cpp"
 #include <svdpi.h>
 
 using namespace std;
 
-VSocTop* rvcpu ;
+Vysyx_22040228* rvcpu ;
 VerilatedVcdC* tfp;
 VerilatedContext* contextp;
 
@@ -111,7 +111,7 @@ rvcpu = new VSocTop(contextp);
 Verilated::traceEverOn(true) ; //out vcd need
 tfp = new VerilatedVcdC ; // out vcd need
 rvcpu->trace(tfp,0) ;
-tfp->open("obj_dir/SocTop.vcd") ; // open vcd
+tfp->open("obj_dir/ysyx_22040228.vcd") ; // open vcd
 rvcpu->rst = 1;
 init_monitor(argc, argv);
 

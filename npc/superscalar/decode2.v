@@ -5,6 +5,7 @@ Name:decode2.v
 Function:Decoding module it is used to parse the key information 
          of the instruction
 ************************************************************/
+/* verilator lint_off UNUSED */
 `include "defines.v"
 module decode2 (
     //系统输入

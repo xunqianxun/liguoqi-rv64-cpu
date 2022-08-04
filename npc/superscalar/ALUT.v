@@ -3,6 +3,7 @@ Author:LiGuoqi
 Name:ALUO.v
 Function:Instruction execution module and CSR is instantiated
 ************************************************************/
+/* verilator lint_off UNUSED */
 `include "csr.v"
 `include "divider.v"
 `include "multiplier.v"
@@ -119,7 +120,7 @@ assign mul_ready =  (inst_opcode_i == `INST_MUL   ) |
                     (inst_opcode_i == `INST_MULHU ) | 
                     (inst_opcode_i == `INST_MULW  ) ;
 
-multiplier decode1_multiplier (
+multiplier decode2_multiplier (
     .clk             (clk_in         ) ,
     .rst             (rst            ) ,
     .mult_ready      (mul_ready      ) ,
@@ -163,7 +164,7 @@ assign op2_divdata = (inst_opcode_i == `INST_DIV     ) ? op2_i         :
                      (inst_opcode_i == `INST_REMUW   ) ? {32'b0, op2_i[31:0]}   :    
                      (inst_opcode_i == `INST_REMW    ) ? (op2_i[32] ? {32'hffffffff, op2_i[31:0]} : {32'b0, op2_i[31:0]})   :
                                                 `ysyx22040228_ZEROWORD ;           
-divider decode1_divider (
+divider decode2_divider (
     .clk              (clk_in         ) ,
     .rst              (rst            ) ,
 

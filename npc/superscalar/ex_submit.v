@@ -33,6 +33,17 @@ module ex_submit (
     output       reg                                                mm_ena_out    
 );
 
+import "DPI-C" function void difftest_dut_pc(input longint pc_data, input longint exit_code, input bit endyn, input bit exe);
+import "DPI-C" function void difftest_dut_thepc(input longint thepc_data);
+
+always @(*) begin
+    difftest_dut_thepc(`ysyx22040228_ZEROWORD);
+end
+
+always@(*)begin
+difftest_dut_pc(`ysyx22040228_ZEROWORD, `ysyx22040228_ZEROWORD, 1'b0, 1'b0);    
+end 
+
     wire  [2:0]  gating    ;
     assign       gating[0] = (socreboard_pc < ao_pc_in) ? 1'b0 : 1'b1 ;
     assign       gating[1] = (socreboard_pc < at_pc_in) ? 1'b0 : 1'b1 ;

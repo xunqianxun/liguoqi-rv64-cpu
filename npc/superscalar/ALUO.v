@@ -3,6 +3,7 @@ Author:LiGuoqi
 Name:ALUO.v
 Function:Instruction execution module and CSR is instantiated
 ************************************************************/
+/* verilator lint_off UNUSED */
 `include "csr.v"
 `include "divider.v"
 `include "multiplier.v"

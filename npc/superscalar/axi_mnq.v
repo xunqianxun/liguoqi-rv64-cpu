@@ -1,5 +1,5 @@
-`include "./vsrc/defines.v"
-`include "./vsrc/defines_axi4.v"
+`include "defines.v"
+`include "defines_axi4.v"
 module axi_mnq (
     input       wire                                         clk                    ,
     input       wire                                         rst                    ,
