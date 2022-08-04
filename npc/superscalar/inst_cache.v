@@ -125,7 +125,7 @@ module inst_cache (
     reg         inst_hit_ok ;
     always @(*) begin
         if(state_inst == `ysyx22040228_I_HIT) begin
-            if(issu_canin == `ysyx22040228_ABLE) begin
+            if(issu_canin == `ysyx22040228_ENABLE) begin
                 inst_data = 128'b0 ;
                 inst_hit_ok = `ysyx22040228_ENABLE;
                 inst_valid  = `ysyx22040228_ENABLE;
