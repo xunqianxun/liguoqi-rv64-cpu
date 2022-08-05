@@ -115,7 +115,7 @@ module PC (
     wire  [`ysyx22040228_PCBUS] pc1 = pc     ;
     wire  [`ysyx22040228_PCBUS] pc2 = pc + 4 ;
     wire  [`ysyx22040228_PCBUS] pc3 = pc + 8 ;
-    wire  [`ysyx22040228_PCBUS] pc4 = pc + 16;
+    wire  [`ysyx22040228_PCBUS] pc4 = pc + 12;
     assign phb_addr = inst_bxx1 ? pc1[5:2]: 
                       inst_bxx2 ? pc2[5:2]: 
                       inst_bxx3 ? pc3[5:2]: 
@@ -127,7 +127,7 @@ module PC (
     assign operand1 = inst_jalr1 | inst_jalr2 | inst_jalr3 | inst_jalr4 ? jreg_data : (((inst_jal1)|(inst_bxx1)) ? pc   :
                                                                                        ((inst_jal2)|(inst_bxx2)) ? pc+4 : 
                                                                                        ((inst_jal3)|(inst_bxx3)) ? pc+8 :
-                                                                                       ((inst_jal4)|(inst_bxx4)) ? pc+16: pc);
+                                                                                       ((inst_jal4)|(inst_bxx4)) ? pc+12: pc);
     assign operand2 = inst_jal1                ? {{44{j_imm1[20]}} , j_imm1[20:1] << 1} :
                       inst_jal2                ? {{44{j_imm2[20]}} , j_imm2[20:1] << 1} :
                       inst_jal3                ? {{44{j_imm3[20]}} , j_imm3[20:1] << 1} :

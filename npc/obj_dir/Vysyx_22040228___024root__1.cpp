@@ -1099,7 +1099,19 @@ VL_INLINE_OPT void Vysyx_22040228___024root___combo__TOP__4(Vysyx_22040228___024
                                                      : 
                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs
                                                     [vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__pc_regsf_addr]))))
-             : vlSelf->ysyx_22040228__DOT__rvcpu_inst_addr) 
+             : (((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__inst_jal1) 
+                 | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__inst_bxx1))
+                 ? vlSelf->ysyx_22040228__DOT__rvcpu_inst_addr
+                 : (((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__inst_jal2) 
+                     | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__inst_bxx2))
+                     ? (4ULL + vlSelf->ysyx_22040228__DOT__rvcpu_inst_addr)
+                     : (((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__inst_jal3) 
+                         | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__inst_bxx3))
+                         ? (8ULL + vlSelf->ysyx_22040228__DOT__rvcpu_inst_addr)
+                         : (((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__inst_jal4) 
+                             | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__inst_bxx4))
+                             ? (0x10ULL + vlSelf->ysyx_22040228__DOT__rvcpu_inst_addr)
+                             : vlSelf->ysyx_22040228__DOT__rvcpu_inst_addr))))) 
            + vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__operand2);
     if (vlSelf->rst) {
         vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__alut__DOT__exe_res = 0ULL;
