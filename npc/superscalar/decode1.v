@@ -337,7 +337,7 @@ assign socreboard_aluo[1] = inst_type[0] | inst_type[1] ;
 assign socreboard_aluo[2] = inst_type[7]                ;
 assign socreboard_aluo[3] = inst_jump | inst_type[2]    ;
 assign socreboard_aluo[4] = inst_type[4] | inst_type[5] | inst_sraw | inst_srlw | inst_sllw | inst_subw | inst_addw | inst_and | inst_or | inst_sra | inst_srl | inst_xor | inst_sltu | 
-                            inst_slt     | inst_sll     | inst_sub  | inst_add  ;
+                            inst_slt     | inst_sll     | inst_sub  | inst_add  |inst_lui   | inst_auipc| inst_fence_i ;
 assign socreboard_aluo[5] = inst_ecall   | inst_mret    ;
 
 assign jump_addr  = pc_i[5:2]    ;
