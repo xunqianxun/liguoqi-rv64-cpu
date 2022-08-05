@@ -159,7 +159,7 @@ module PC (
                                   (pc[3:0] == 8)  || jump_ena2 ? 3'd2 :
                                   (pc[3:0] == 4)  || jump_ena3 ? 3'd3 :
                                   (pc[3:0] == 0)  || jump_ena4 ? 3'd4 :
-                                                                 3'b1 ; 
+                                                                 3'd4 ; 
     wire  [4:0] pc_nextpc_temp ;
     assign      pc_nextpc_temp  = (pc[3:0] == 0)  ? 5'd16 :
                                   (pc[3:0] == 4)  ? 5'd12 :
@@ -173,6 +173,7 @@ module PC (
     always @(posedge clk) begin
         if(rst == `ysyx22040228_RSTENA) begin
             pc <= 64'h0000000080000000 ;
+            pc_counter <= 3'd4         ;
         end 
         else begin
             if(cache_ready == 1'b1) begin
