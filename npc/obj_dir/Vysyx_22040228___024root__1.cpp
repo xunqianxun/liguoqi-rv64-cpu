@@ -5175,13 +5175,17 @@ VL_INLINE_OPT void Vysyx_22040228___024root___combo__TOP__4(Vysyx_22040228___024
                   & (((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_so_type) 
                       >> 5U) | ((IData)(vlSelf->ysyx_22040228__DOT__time_init_sign) 
                                 & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_ena)))))
-            ? 1U : ((((~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_isu_stop2)) 
-                      & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_so_type)) 
-                     & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
-                     [0U]) ? 2U : ((((~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_isu_stop2)) 
-                                     & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_so_type)) 
-                                    & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
-                                    [0U]) ? 1U : ((1U 
+            ? 1U : ((1U & (((~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_isu_stop2)) 
+                            & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_so_type)) 
+                           & (~ vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
+                              [1U]))) ? 2U : ((1U & 
+                                               (((~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_isu_stop2)) 
+                                                 & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_so_type)) 
+                                                & (~ 
+                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
+                                                   [0U])))
+                                               ? 1U
+                                               : ((1U 
                                                    & ((~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_isu_stop2)) 
                                                       & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_so_type) 
                                                          >> 1U)))
@@ -5193,32 +5197,40 @@ VL_INLINE_OPT void Vysyx_22040228___024root___combo__TOP__4(Vysyx_22040228___024
                                                           >> 2U)))
                                                     ? 1U
                                                     : 
-                                                   ((((~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_isu_stop2)) 
-                                                      & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_so_type) 
-                                                         >> 3U)) 
-                                                     & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
-                                                     [0U])
+                                                   ((1U 
+                                                     & (((~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_isu_stop2)) 
+                                                         & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_so_type) 
+                                                            >> 3U)) 
+                                                        & (~ 
+                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
+                                                           [1U])))
                                                      ? 2U
                                                      : 
-                                                    ((((~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_isu_stop2)) 
-                                                       & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_so_type) 
-                                                          >> 3U)) 
-                                                      & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
-                                                      [1U])
+                                                    ((1U 
+                                                      & (((~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_isu_stop2)) 
+                                                          & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_so_type) 
+                                                             >> 3U)) 
+                                                         & (~ 
+                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
+                                                            [0U])))
                                                       ? 1U
                                                       : 
-                                                     ((((~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_isu_stop2)) 
-                                                        & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_so_type) 
-                                                           >> 4U)) 
-                                                       & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
-                                                       [0U])
+                                                     ((1U 
+                                                       & (((~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_isu_stop2)) 
+                                                           & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_so_type) 
+                                                              >> 4U)) 
+                                                          & (~ 
+                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
+                                                             [1U])))
                                                        ? 2U
                                                        : 
-                                                      ((((~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_isu_stop2)) 
-                                                         & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_so_type) 
-                                                            >> 4U)) 
-                                                        & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
-                                                        [1U])
+                                                      ((1U 
+                                                        & (((~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_isu_stop2)) 
+                                                            & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_so_type) 
+                                                               >> 4U)) 
+                                                           & (~ 
+                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
+                                                              [0U])))
                                                         ? 1U
                                                         : 0U)))))))));
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__es__DOT__gating 
@@ -5243,13 +5255,17 @@ VL_INLINE_OPT void Vysyx_22040228___024root___combo__TOP__4(Vysyx_22040228___024
                   & (((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_so_type) 
                       >> 5U) | ((IData)(vlSelf->ysyx_22040228__DOT__time_init_sign) 
                                 & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_ena)))))
-            ? 1U : ((((~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_isu_stop1)) 
-                      & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_so_type)) 
-                     & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
-                     [1U]) ? 1U : ((((~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_isu_stop1)) 
-                                     & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_so_type)) 
-                                    & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
-                                    [0U]) ? 2U : ((1U 
+            ? 1U : ((1U & (((~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_isu_stop1)) 
+                            & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_so_type)) 
+                           & (~ vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
+                              [0U]))) ? 1U : ((1U & 
+                                               (((~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_isu_stop1)) 
+                                                 & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_so_type)) 
+                                                & (~ 
+                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
+                                                   [1U])))
+                                               ? 2U
+                                               : ((1U 
                                                    & ((~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_isu_stop1)) 
                                                       & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_so_type) 
                                                          >> 1U)))
@@ -5261,32 +5277,40 @@ VL_INLINE_OPT void Vysyx_22040228___024root___combo__TOP__4(Vysyx_22040228___024
                                                           >> 2U)))
                                                     ? 1U
                                                     : 
-                                                   ((((~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_isu_stop1)) 
-                                                      & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_so_type) 
-                                                         >> 3U)) 
-                                                     & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
-                                                     [1U])
+                                                   ((1U 
+                                                     & (((~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_isu_stop1)) 
+                                                         & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_so_type) 
+                                                            >> 3U)) 
+                                                        & (~ 
+                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
+                                                           [0U])))
                                                      ? 1U
                                                      : 
-                                                    ((((~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_isu_stop1)) 
-                                                       & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_so_type) 
-                                                          >> 3U)) 
-                                                      & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
-                                                      [0U])
+                                                    ((1U 
+                                                      & (((~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_isu_stop1)) 
+                                                          & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_so_type) 
+                                                             >> 3U)) 
+                                                         & (~ 
+                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
+                                                            [1U])))
                                                       ? 2U
                                                       : 
-                                                     ((((~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_isu_stop1)) 
-                                                        & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_so_type) 
-                                                           >> 4U)) 
-                                                       & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
-                                                       [1U])
+                                                     ((1U 
+                                                       & (((~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_isu_stop1)) 
+                                                           & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_so_type) 
+                                                              >> 4U)) 
+                                                          & (~ 
+                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
+                                                             [0U])))
                                                        ? 1U
                                                        : 
-                                                      ((((~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_isu_stop1)) 
-                                                         & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_so_type) 
-                                                            >> 4U)) 
-                                                        & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
-                                                        [0U])
+                                                      ((1U 
+                                                        & (((~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_isu_stop1)) 
+                                                            & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_so_type) 
+                                                               >> 4U)) 
+                                                           & (~ 
+                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
+                                                              [1U])))
                                                         ? 2U
                                                         : 0U)))))))));
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__jump1_ena 

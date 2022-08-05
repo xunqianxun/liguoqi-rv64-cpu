@@ -108,7 +108,7 @@ module clint (
 
     reg     [63:0]           csr_mtime          ;
     reg     [63:0]           csr_mtimecmp       ;
-    assign                   time_interrupt = (csr_mtime >= csr_mtimecmp)         ;
+    assign                   time_interrupt = 1'b0 ; //(csr_mtime >= csr_mtimecmp)         ;
     wire                     success_aw         ;
     assign                   success_aw  = time_axi_aw_ready && time_axi_aw_valid ;
     wire                     success_w                                            ;
