@@ -51,8 +51,8 @@ module issuequeue (
             accept_icache <= 1'b1 ;
         end 
         else if(inreg_pc[31:28] == 4'b0000) begin
-            inreg_pc    <= {(pc[255:192] & {64{check_cleanj[3]}}), (pc[191:128] & {64{check_cleanj[2]}}), (pc[127:64] & {64{check_cleanj[1]}}), (pc[63:0] & {64{check_cleanj[0]}})}    ;
-            inreg_inst  <= {(inst[127:96] & {32{check_cleanj[3]}}), (inst[95:64] & {32{check_cleanj[2]}}), (inst[63:32] & {32{check_cleanj[1]}}), (inst[31:0] & {32{check_cleanj[0]}})}  ;
+            inreg_pc    <= {(pc[255:192] & {64{~check_cleanj[3]}}), (pc[191:128] & {64{~check_cleanj[2]}}), (pc[127:64] & {64{~check_cleanj[1]}}), (pc[63:0] & {64{~check_cleanj[0]}})}    ;
+            inreg_inst  <= {(inst[127:96] & {32{~check_cleanj[3]}}), (inst[95:64] & {32{~check_cleanj[2]}}), (inst[63:32] & {32{~check_cleanj[1]}}), (inst[31:0] & {32{~check_cleanj[0]}})}  ;
             accept_icache <= 1'b1 ;
         end 
         else if(decode1_j_bad | decide2_j_bad | interrupt_terp) begin
