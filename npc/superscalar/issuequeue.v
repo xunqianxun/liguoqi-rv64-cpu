@@ -144,6 +144,6 @@ module issuequeue (
     end 
 
     //assign temp_empty      = (inreg_pc[63:60] == 4'b0000)    ;
-    assign should_updata = (temp_pc[63:60] == 4'b0000) && (temp_pc[127:124] == 4'b0000) && (temp_pc[191:188] == 4'b0000) && (temp_pc[255:252] == 4'b0000); 
+    assign should_updata = (temp_pc[31:28] == 4'b0000) && (temp_pc[95:92] == 4'b0000) && (temp_pc[159:156] == 4'b0000) && (temp_pc[222:219] == 4'b0000); 
     
 endmodule

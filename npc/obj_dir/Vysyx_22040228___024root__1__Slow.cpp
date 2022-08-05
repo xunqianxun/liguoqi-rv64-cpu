@@ -279,6 +279,7 @@ void Vysyx_22040228___024root___ctor_var_reset(Vysyx_22040228___024root* vlSelf)
     VL_RAND_RESET_W(256, vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__inst8__DOT__temp_pc);
     VL_RAND_RESET_W(128, vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__inst8__DOT__temp_inst);
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__inst8__DOT__clean_temp = VL_RAND_RESET_I(1);
+    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__inst8__DOT__inreg_clean = VL_RAND_RESET_I(1);
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__rs1 = VL_RAND_RESET_I(5);
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__b_imm = VL_RAND_RESET_I(12);
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_lui = VL_RAND_RESET_I(1);
