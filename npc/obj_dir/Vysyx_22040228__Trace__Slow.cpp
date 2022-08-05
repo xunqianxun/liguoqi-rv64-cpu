@@ -2103,7 +2103,7 @@ void Vysyx_22040228___024root__traceFullSub0(Vysyx_22040228___024root* vlSelf, V
         tracep->fullBit(oldp+162,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__inst_bxx4));
         tracep->fullQData(oldp+163,((4ULL + vlSelf->ysyx_22040228__DOT__rvcpu_inst_addr)),64);
         tracep->fullQData(oldp+165,((8ULL + vlSelf->ysyx_22040228__DOT__rvcpu_inst_addr)),64);
-        tracep->fullQData(oldp+167,((0x10ULL + vlSelf->ysyx_22040228__DOT__rvcpu_inst_addr)),64);
+        tracep->fullQData(oldp+167,((0xcULL + vlSelf->ysyx_22040228__DOT__rvcpu_inst_addr)),64);
         tracep->fullBit(oldp+169,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__jump_ena1));
         tracep->fullBit(oldp+170,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__jump_ena2));
         tracep->fullBit(oldp+171,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__jump_ena3));
@@ -4446,7 +4446,7 @@ void Vysyx_22040228___024root__traceFullSub0(Vysyx_22040228___024root* vlSelf, V
                                                   (((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__inst_jal4) 
                                                     | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__inst_bxx4))
                                                     ? 
-                                                   (0x10ULL 
+                                                   (0xcULL 
                                                     + vlSelf->ysyx_22040228__DOT__rvcpu_inst_addr)
                                                     : vlSelf->ysyx_22040228__DOT__rvcpu_inst_addr)))))),64);
         tracep->fullQData(oldp+1357,(((IData)(vlSelf->rst)

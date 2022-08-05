@@ -1110,7 +1110,7 @@ VL_INLINE_OPT void Vysyx_22040228___024root___combo__TOP__4(Vysyx_22040228___024
                          ? (8ULL + vlSelf->ysyx_22040228__DOT__rvcpu_inst_addr)
                          : (((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__inst_jal4) 
                              | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__inst_bxx4))
-                             ? (0x10ULL + vlSelf->ysyx_22040228__DOT__rvcpu_inst_addr)
+                             ? (0xcULL + vlSelf->ysyx_22040228__DOT__rvcpu_inst_addr)
                              : vlSelf->ysyx_22040228__DOT__rvcpu_inst_addr))))) 
            + vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__operand2);
     if (vlSelf->rst) {

@@ -139,7 +139,7 @@ module PC (
                       inst_jalr1               ? {{52{i_imm1[11]}} , i_imm1[11:0]}      :
                       inst_jalr2               ? {{52{i_imm2[11]}} , i_imm2[11:0]}      :
                       inst_jalr3               ? {{52{i_imm3[11]}} , i_imm3[11:0]}      :
-                      inst_jalr4               ? {{52{i_imm4[11]}} , i_imm4[11:0]}      :
+                      inst_jalr4               ? {{52{i_imm4[11]}} , i_imm4[11:0]}      :                    
                       (rst ===`ysyx22040228_RSTENA) ?               `ysyx22040228_THISPC:
                                                                     64'hf               ; 
     wire [`ysyx22040228_PCBUS] j_temp = operand1 + operand2 ;
@@ -158,11 +158,16 @@ module PC (
     assign jump_ena4 = inst_jal4 | (inst_bxx4 && phb_ena) | inst_jalr4 ;
 
     wire  [2:0] pc_counter_temp ;
-    assign      pc_counter_temp = (pc[3:0] == 12) || jump_ena1 ? 3'd1 :
-                                  (pc[3:0] == 8)  || jump_ena2 ? 3'd2 :
-                                  (pc[3:0] == 4)  || jump_ena3 ? 3'd3 :
-                                  (pc[3:0] == 0)  || jump_ena4 ? 3'd4 :
-                                                                 3'd4 ; 
+    assign      pc_counter_temp = (jump_ena1 | jump_ena2 | jump_ena3 | jump_ena4) ? ((forc_jumppc[3:0] == 0) ? 3'd4 :
+                                                                                     (forc_jumppc[3:0] == 4) ? 3'd3 :
+                                                                                     (forc_jumppc[3:0] == 8) ? 3'd2 :
+                                                                                     (forc_jumppc[3:0] == 12)? 3'd1 :
+                                                                                                               3'd4):
+                                  (pc[3:0] == 12) ? 3'd1 :
+                                  (pc[3:0] == 8)  ? 3'd2 :
+                                  (pc[3:0] == 4)  ? 3'd3 :
+                                  (pc[3:0] == 0)  ? 3'd4 :
+                                                    3'd4 ; 
     wire  [4:0] pc_nextpc_temp ;
     assign      pc_nextpc_temp  = (pc[3:0] == 0)  ? 5'd16 :
                                   (pc[3:0] == 4)  ? 5'd12 :

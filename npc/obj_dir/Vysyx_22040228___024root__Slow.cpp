@@ -5637,7 +5637,7 @@ void Vysyx_22040228___024root___settle__TOP__1(Vysyx_22040228___024root* vlSelf)
                                                           >> 2U))
                                                : ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__inst_bxx4)
                                                    ? (IData)(
-                                                             ((0x10ULL 
+                                                             ((0xcULL 
                                                                + vlSelf->ysyx_22040228__DOT__rvcpu_inst_addr) 
                                                               >> 2U))
                                                    : 0U)))));
@@ -7203,7 +7203,7 @@ void Vysyx_22040228___024root___settle__TOP__1(Vysyx_22040228___024root* vlSelf)
                          ? (8ULL + vlSelf->ysyx_22040228__DOT__rvcpu_inst_addr)
                          : (((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__inst_jal4) 
                              | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__inst_bxx4))
-                             ? (0x10ULL + vlSelf->ysyx_22040228__DOT__rvcpu_inst_addr)
+                             ? (0xcULL + vlSelf->ysyx_22040228__DOT__rvcpu_inst_addr)
                              : vlSelf->ysyx_22040228__DOT__rvcpu_inst_addr))))) 
            + vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__operand2);
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__op1_ls_op2 
