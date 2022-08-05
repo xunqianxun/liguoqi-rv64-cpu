@@ -124,7 +124,10 @@ module PC (
 
     wire [63:0] operand1;
     wire [63:0] operand2;
-    assign operand1 = inst_jalr1 | inst_jalr2 | inst_jalr3 | inst_jalr4 ? jreg_data : pc;
+    assign operand1 = inst_jalr1 | inst_jalr2 | inst_jalr3 | inst_jalr4 ? jreg_data : (((inst_jal1)|(inst_bxx1)) ? pc   :
+                                                                                       ((inst_jal2)|(inst_bxx2)) ? pc+4 : 
+                                                                                       ((inst_jal3)|(inst_bxx3)) ? pc+8 :
+                                                                                       ((inst_jal4)|(inst_bxx4)) ? pc+16: pc);
     assign operand2 = inst_jal1                ? {{44{j_imm1[20]}} , j_imm1[20:1] << 1} :
                       inst_jal2                ? {{44{j_imm2[20]}} , j_imm2[20:1] << 1} :
                       inst_jal3                ? {{44{j_imm3[20]}} , j_imm3[20:1] << 1} :

@@ -77,8 +77,6 @@ void Vysyx_22040228___024root___ctor_var_reset(Vysyx_22040228___024root* vlSelf)
     vlSelf->ysyx_22040228__DOT__i_cache_addr = VL_RAND_RESET_Q(64);
     vlSelf->ysyx_22040228__DOT__i_caceh_resp = VL_RAND_RESET_I(1);
     vlSelf->ysyx_22040228__DOT__i_cache_canin = VL_RAND_RESET_I(1);
-    vlSelf->ysyx_22040228__DOT__i_cache_readyout = VL_RAND_RESET_I(1);
-    VL_RAND_RESET_W(256, vlSelf->ysyx_22040228__DOT__i_cache_pc);
     vlSelf->ysyx_22040228__DOT__d_cache_data_out = VL_RAND_RESET_Q(64);
     vlSelf->ysyx_22040228__DOT__d_cache_out_addr = VL_RAND_RESET_Q(64);
     vlSelf->ysyx_22040228__DOT__d_cache_out_data = VL_RAND_RESET_Q(64);
@@ -540,6 +538,9 @@ void Vysyx_22040228___024root___ctor_var_reset(Vysyx_22040228___024root* vlSelf)
     vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__state_inst_nxt = VL_RAND_RESET_I(6);
     vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__fence_counter = VL_RAND_RESET_I(7);
     vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__read_ok = VL_RAND_RESET_I(1);
+    VL_RAND_RESET_W(256, vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__inst_pc_);
+    VL_RAND_RESET_W(128, vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__inst_data_);
+    vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__inst_readyout_ = VL_RAND_RESET_I(1);
     vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__write_i_ok = VL_RAND_RESET_I(1);
     vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__cahce_miss_ena = VL_RAND_RESET_I(1);
     vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__cache_miss_addr = VL_RAND_RESET_Q(64);
