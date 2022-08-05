@@ -10,7 +10,8 @@ module PC (
     input          wire                                     rst           ,
     input          wire      [127:0]                        inst_i        , 
     input          wire                                     cache_un_ready,
-    output         wire                                     pc_ready      ,    
+    output         wire                                     pc_ready      , 
+    output         wire      [3:0]                          if_thispcj    ,   
 
     input          wire                                     decode1_ena   ,
     input          wire      [`ysyx22040228_PCBUS]          decode1_pc    ,
@@ -156,6 +157,13 @@ module PC (
     assign jump_ena2 = inst_jal2 | (inst_bxx2 && phb_ena) | inst_jalr2 ;
     assign jump_ena3 = inst_jal3 | (inst_bxx3 && phb_ena) | inst_jalr3 ;
     assign jump_ena4 = inst_jal4 | (inst_bxx4 && phb_ena) | inst_jalr4 ;
+
+   // wire  [3:0]  if_thispcj ;
+    assign       if_thispcj = jump_ena1 ? 4'b0111 :
+                              jump_ena2 ? 4'b0011 :
+                              jump_ena3 ? 4'b0001 :
+                              jump_ena4 ? 4'b0000 :
+                                          4'b0000 ;
 
     wire  [2:0] pc_counter_temp ;
     assign      pc_counter_temp = (jump_ena1 | jump_ena2 | jump_ena3 | jump_ena4) ? ((forc_jumppc[3:0] == 0) ? 3'd4 :

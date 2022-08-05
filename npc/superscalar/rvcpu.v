@@ -41,7 +41,7 @@ module rvcpu (
     inout       wire                                   mem_finish_i   ,
 
     output      wire                                   inst_fence     ,
-    
+
     input       wire                                   timer_initin   
 );
     //about pc
@@ -52,13 +52,15 @@ module rvcpu (
     wire  [`ysyx22040228_REGADDRBUS]  pc_regsf_addr  ;
     wire                              pc_regsf_ena   ;
     wire  [`ysyx22040228_REGBUS]      regsf_pc_data  ;
+    wire  [3:0]                       check_pcif     ;
 
     PC instfact(
     .clk             (clk              ),
     .rst             (rst              ),
     .inst_i          (inst_data        ), 
     .cache_un_ready  (cache_unready    ),
-    .pc_ready        (inst_ready       ),    
+    .pc_ready        (inst_ready       ),
+    .if_thispcj      (check_pcif       ) ,
 
     .decode1_ena     (jump1_ena        ),
     .decode1_pc      (jump1_pc         ),
@@ -113,7 +115,7 @@ module rvcpu (
     .pc              (inst_pc         ),
     .inst            (inst_data       ),
     .cache_data_in   (cache_data_ok   ),
-    //.temp_empty      (issu_empty      ),
+    .check_cleanj    (check_pcif      ) ,
 
     .decode1_j_bad   (jump1_ena       ),
     .decide2_j_bad   (jump2_ena       ),
