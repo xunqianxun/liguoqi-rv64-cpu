@@ -79,10 +79,10 @@ module PC (
     assign opcode2    = inst2[6:0];
 
     wire [6:0] opcode3;
-    assign opcode3    = inst1[6:0];
+    assign opcode3    = inst3[6:0];
 
     wire [6:0] opcode4;
-    assign opcode4    = inst2[6:0];
+    assign opcode4    = inst4[6:0];
 
     wire inst_jal1  ;
     wire inst_jalr1 ;
