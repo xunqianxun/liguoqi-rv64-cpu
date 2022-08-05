@@ -141,25 +141,25 @@ module socreboard (
     assign decode2_launch   = shoudt_stop_waw | shoudt1_stop_war | shoudt2_stop_war | shoudt_stop_hard | shoudt_stop_ctrl | shoudt_stop_trap;
 
     assign chose_exu1       = (~decode1_launch & (type_needstop1[5] | (timer_intr && de1_wb_ena))) ?  3'b001 :
-                              (~decode1_launch & type_needstop1[0] & busy[1]) ?  3'b001 :
-                              (~decode1_launch & type_needstop1[0] & busy[0]) ?  3'b010 :
-                              (~decode1_launch & type_needstop1[1]          ) ?  3'b100 :
-                              (~decode1_launch & type_needstop1[2]          ) ?  3'b001 :
-                              (~decode1_launch & type_needstop1[3] & busy[1]) ?  3'b001 :
-                              (~decode1_launch & type_needstop1[3] & busy[0]) ?  3'b010 :
-                              (~decode1_launch & type_needstop1[4] & busy[1]) ?  3'b001 :
-                              (~decode1_launch & type_needstop1[4] & busy[0]) ?  3'b010 :
-                                                                                 3'b000 ;
+                              (~decode1_launch & type_needstop1[0] & ~busy[0]) ?  3'b001 :
+                              (~decode1_launch & type_needstop1[0] & ~busy[1]) ?  3'b010 :
+                              (~decode1_launch & type_needstop1[1]           ) ?  3'b100 :
+                              (~decode1_launch & type_needstop1[2]           ) ?  3'b001 :
+                              (~decode1_launch & type_needstop1[3] & ~busy[0]) ?  3'b001 :
+                              (~decode1_launch & type_needstop1[3] & ~busy[1]) ?  3'b010 :
+                              (~decode1_launch & type_needstop1[4] & ~busy[0]) ?  3'b001 :
+                              (~decode1_launch & type_needstop1[4] & ~busy[1]) ?  3'b010 :
+                                                                                  3'b000 ;
     assign chose_exu2       = (~decode2_launch & (type_needstop2[5] | (timer_intr && de2_wb_ena))) ?  3'b001 :
-                              (~decode2_launch & type_needstop2[0] & busy[0]) ?  3'b010 :
-                              (~decode2_launch & type_needstop2[0] & busy[0]) ?  3'b001 :
-                              (~decode2_launch & type_needstop2[1]          ) ?  3'b100 :
-                              (~decode2_launch & type_needstop2[2]          ) ?  3'b001 :
-                              (~decode2_launch & type_needstop2[3] & busy[0]) ?  3'b010 :
-                              (~decode2_launch & type_needstop2[3] & busy[1]) ?  3'b001 :
-                              (~decode2_launch & type_needstop2[4] & busy[0]) ?  3'b010 :
-                              (~decode2_launch & type_needstop2[4] & busy[1]) ?  3'b001 :
-                                                                                 3'b000 ;
+                              (~decode2_launch & type_needstop2[0] & ~busy[1]) ?  3'b010 :
+                              (~decode2_launch & type_needstop2[0] & ~busy[0]) ?  3'b001 :
+                              (~decode2_launch & type_needstop2[1]           ) ?  3'b100 :
+                              (~decode2_launch & type_needstop2[2]           ) ?  3'b001 :
+                              (~decode2_launch & type_needstop2[3] & ~busy[1]) ?  3'b010 :
+                              (~decode2_launch & type_needstop2[3] & ~busy[0]) ?  3'b001 :
+                              (~decode2_launch & type_needstop2[4] & ~busy[1]) ?  3'b010 :
+                              (~decode2_launch & type_needstop2[4] & ~busy[0]) ?  3'b001 :
+                                                                                  3'b000 ;
 
 
 endmodule
