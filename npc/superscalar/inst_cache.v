@@ -24,10 +24,10 @@ module inst_cache (
     input       wire                                         inst_ready      ,
     input       wire                                         issu_canin      ,
     input       wire                                         inst_fence      ,
-    output      reg           [127:0]                        inst_data       ,
-    output      reg           [255:0]                        inst_pc         ,
-    output      reg                                          inst_valid      ,
-    output      reg                                          inst_readyout   ,
+    output      wire          [127:0]                        inst_data       ,
+    output      wire          [255:0]                        inst_pc         ,
+    output      wire                                         inst_valid      ,
+    output      wire                                         inst_readyout   ,
 
     output      reg                                          cache_read_ena  ,
     output      reg           [63:0]                         cache_addr      ,
@@ -123,68 +123,74 @@ module inst_cache (
     end
 
     reg         inst_hit_ok ;
+    reg [255:0] inst_pc_    ;
+    reg [127:0] inst_data_  ;
+    reg         inst_readyout_;
+    reg         inst_valid_  ;
     always @(*) begin
         if(state_inst == `ysyx22040228_I_HIT) begin
             if(issu_canin == `ysyx22040228_ENABLE) begin
-                inst_data = 128'b0 ;
+                inst_data_ = 128'b0 ;
                 inst_hit_ok = `ysyx22040228_ENABLE;
-                inst_valid  = `ysyx22040228_ENABLE;
-                inst_readyout = `ysyx22040228_ABLE;
+                inst_valid_ = `ysyx22040228_ENABLE;
+                inst_readyout_ = `ysyx22040228_ABLE;
             end 
             else if((oteg_ata_o == icache_tag) && (oteg_valid_o == `ysyx22040228_ABLE))begin
                 inst_hit_ok  = `ysyx22040228_ABLE;
-                inst_valid   = `ysyx22040228_ABLE;
+                inst_valid_  = `ysyx22040228_ABLE;
                 if(inst_counter == 3'd4)   begin
-                    inst_data    =    data_outo                                              ;
-                    inst_pc      = {(inst_addr+12), (inst_addr+8), (inst_addr+4), inst_addr} ;
+                    inst_data_   =    data_outo                                              ;
+                    inst_pc_     = {(inst_addr+12), (inst_addr+8), (inst_addr+4), inst_addr} ;
                 end 
                 if(inst_counter == 3'd3)   begin
-                    inst_data    = {data_outo[127:32], 32'h0}                                ;
-                    inst_pc      = {(inst_addr+8), (inst_addr+4), inst_addr, 64'h0}          ;
+                    inst_data_   = {data_outo[127:32], 32'h0}                                ;
+                    inst_pc_     = {(inst_addr+8), (inst_addr+4), inst_addr, 64'h0}          ;
                 end 
                 if(inst_counter == 3'd2)   begin
-                    inst_data    = {data_outo[127:64], 64'h0}                                ;
-                    inst_pc      = {(inst_addr+4), inst_addr, 64'h0, 64'h0}                  ;
+                    inst_data_   = {data_outo[127:64], 64'h0}                                ;
+                    inst_pc_     = {(inst_addr+4), inst_addr, 64'h0, 64'h0}                  ;
                 end 
                 if(inst_counter == 3'd1)   begin
-                    inst_data    = {data_outo[127:96], 96'h0 }                               ;
-                    inst_pc      = {inst_addr, 64'h0, 64'h0, 64'h0}                          ;
+                    inst_data_   = {data_outo[127:96], 96'h0 }                               ;
+                    inst_pc_     = {inst_addr, 64'h0, 64'h0, 64'h0}                          ;
                 end 
             end
             else if((tteg_ata_o == icache_tag) && (tteg_valid_o == `ysyx22040228_ABLE))begin
                 inst_hit_ok  = `ysyx22040228_ABLE  ;
-                inst_valid   = `ysyx22040228_ABLE;
+                inst_valid_  = `ysyx22040228_ABLE;
                 if(inst_counter == 3'd4)   begin
-                    inst_data    =    data_outt                                              ;
-                    inst_pc      = {(inst_addr+12), (inst_addr+8), (inst_addr+4), inst_addr} ;
+                    inst_data_   =    data_outt                                              ;
+                    inst_pc_     = {(inst_addr+12), (inst_addr+8), (inst_addr+4), inst_addr} ;
                 end 
                 if(inst_counter == 3'd3)   begin
-                    inst_data    = {data_outt[127:32], 32'h0}                                ;
-                    inst_pc      = {(inst_addr+8), (inst_addr+4), inst_addr, 64'h0}          ;
+                    inst_data_   = {data_outt[127:32], 32'h0}                                ;
+                    inst_pc_     = {(inst_addr+8), (inst_addr+4), inst_addr, 64'h0}          ;
                 end 
                 if(inst_counter == 3'd2)   begin
-                    inst_data    = {data_outt[127:64], 64'h0}                                ;
-                    inst_pc      = {(inst_addr+4), inst_addr, 64'h0, 64'h0}                  ;
+                    inst_data_   = {data_outt[127:64], 64'h0}                                ;
+                    inst_pc_     = {(inst_addr+4), inst_addr, 64'h0, 64'h0}                  ;
                 end 
                 if(inst_counter == 3'd1)   begin
-                    inst_data    = {data_outt[127:96], 96'h0 }                               ;
-                    inst_pc      = {inst_addr, 64'h0, 64'h0, 64'h0}                          ;
+                    inst_data_   = {data_outt[127:96], 96'h0 }                               ;
+                    inst_pc_     = {inst_addr, 64'h0, 64'h0, 64'h0}                          ;
                 end 
             end
             else begin
-                inst_data    = 128'b0                   ;
                 inst_hit_ok  = `ysyx22040228_ENABLE     ;
-                inst_valid   = `ysyx22040228_ENABLE     ;
-                inst_readyout= `ysyx22040228_ENABLE     ;
+                inst_valid_  = `ysyx22040228_ENABLE     ;
+                inst_readyout_= `ysyx22040228_ENABLE     ;
             end
         end 
         else begin  
           inst_hit_ok  = `ysyx22040228_ENABLE          ; 
-          inst_valid   = `ysyx22040228_ENABLE          ;  
-          inst_readyout= `ysyx22040228_ENABLE          ; 
+          inst_valid_  = `ysyx22040228_ENABLE          ;  
+          inst_readyout_= `ysyx22040228_ENABLE          ; 
         end 
     end
-
+    assign inst_data = (state_inst == `ysyx22040228_I_HIT) ? inst_data_ : 128'h0 ;
+    assign inst_pc   = (state_inst == `ysyx22040228_I_HIT) ? inst_pc_   : 256'h0 ;
+    assign inst_valid     = (state_inst == `ysyx22040228_I_HIT) ? inst_valid_    : 1'b0 ;
+    assign inst_readyout  = (state_inst == `ysyx22040228_I_HIT) ? inst_readyout_ : 1'b0 ;
 
     reg             write_i_ok;  
     reg             cahce_miss_ena ;

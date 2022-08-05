@@ -93,6 +93,10 @@ module issuequeue (
                 temp_pc   <= inreg_pc   ;
                 temp_inst <= inreg_inst ;
                 inreg_clean <= 1'b1     ;
+                pc_decode1    <= `ysyx22040228_ZEROWORD ;
+                inst_decode1  <= 32'h0                  ;    
+                pc_decode2    <= `ysyx22040228_ZEROWORD ;
+                inst_decode2  <= 32'h0                  ;
             end 
             else if((stop1 != 1'b1) && (stop2 != 1'b1)) begin
                 pc_decode1    <= temp_pc[63:0]          ;
@@ -144,6 +148,6 @@ module issuequeue (
     end 
 
     //assign temp_empty      = (inreg_pc[63:60] == 4'b0000)    ;
-    assign should_updata = (temp_pc[31:28] == 4'b0000) && (temp_pc[95:92] == 4'b0000) && (temp_pc[159:156] == 4'b0000) && (temp_pc[222:219] == 4'b0000); 
+    assign should_updata = (temp_pc[31:28] == 4'b0000) && (temp_pc[95:92] == 4'b0000) && (temp_pc[159:156] == 4'b0000) && (temp_pc[222:219] == 4'b0000) && (stop1 != 1'b1) && (stop2 != 1'b1); 
     
 endmodule
