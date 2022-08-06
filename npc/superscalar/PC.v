@@ -130,16 +130,16 @@ module PC (
                                                                                        ((inst_jal3)|(inst_bxx3)) ? pc+8 :
                                                                                        ((inst_jal4)|(inst_bxx4)) ? pc+12: pc);
     assign operand2 = inst_jal1                ? {{44{j_imm1[20]}} , j_imm1[20:1] << 1} :
-                      inst_jal2                ? {{44{j_imm2[20]}} , j_imm2[20:1] << 1} :
-                      inst_jal3                ? {{44{j_imm3[20]}} , j_imm3[20:1] << 1} :
-                      inst_jal4                ? {{44{j_imm4[20]}} , j_imm4[20:1] << 1} :
                       (inst_bxx1 && phb_ena)   ? {{52{b_imm1[12]}} , b_imm1[12:1] << 1} :
-                      (inst_bxx2 && phb_ena)   ? {{52{b_imm2[12]}} , b_imm2[12:1] << 1} :
-                      (inst_bxx3 && phb_ena)   ? {{52{b_imm3[12]}} , b_imm3[12:1] << 1} :
-                      (inst_bxx4 && phb_ena)   ? {{52{b_imm4[12]}} , b_imm4[12:1] << 1} :
                       inst_jalr1               ? {{52{i_imm1[11]}} , i_imm1[11:0]}      :
+                      inst_jal2                ? {{44{j_imm2[20]}} , j_imm2[20:1] << 1} :
+                      (inst_bxx2 && phb_ena)   ? {{52{b_imm2[12]}} , b_imm2[12:1] << 1} :
                       inst_jalr2               ? {{52{i_imm2[11]}} , i_imm2[11:0]}      :
+                      inst_jal3                ? {{44{j_imm3[20]}} , j_imm3[20:1] << 1} :
+                      (inst_bxx3 && phb_ena)   ? {{52{b_imm3[12]}} , b_imm3[12:1] << 1} :
                       inst_jalr3               ? {{52{i_imm3[11]}} , i_imm3[11:0]}      :
+                      inst_jal4                ? {{44{j_imm4[20]}} , j_imm4[20:1] << 1} :
+                      (inst_bxx4 && phb_ena)   ? {{52{b_imm4[12]}} , b_imm4[12:1] << 1} :
                       inst_jalr4               ? {{52{i_imm4[11]}} , i_imm4[11:0]}      :                    
                       (rst ===`ysyx22040228_RSTENA) ?               `ysyx22040228_THISPC:
                                                                     64'hf               ; 
@@ -183,7 +183,7 @@ module PC (
                                   (pc[3:0] == 12) ? 5'd4  :
                                                     5'd0  ; 
     wire  [`ysyx22040228_PCBUS]   pc_jnxtpc_temp ;
-    assign      pc_jnxtpc_temp  =  jump_ena1 | jump_ena2 | jump_ena3 | jump_ena4 ? forc_jumppc : pc + {58'h0, pc_nextpc_temp} ;
+    assign      pc_jnxtpc_temp  =  (jump_ena1 | jump_ena2 | jump_ena3 | jump_ena4) ? forc_jumppc : pc + {58'h0, pc_nextpc_temp} ;
 
     wire cache_ready = ~cache_un_ready;
     always @(posedge clk) begin
