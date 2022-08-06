@@ -1224,7 +1224,7 @@ void Vysyx_22040228___024root__traceInitSub0(Vysyx_22040228___024root* vlSelf, V
         tracep->declQuad(c+1025,"ysyx_22040228 rvcpu1 es ao_data_in", false,-1, 63,0);
         tracep->declBus(c+90,"ysyx_22040228 rvcpu1 es ao_addr_in", false,-1, 4,0);
         tracep->declQuad(c+1023,"ysyx_22040228 rvcpu1 es ao_pc_in", false,-1, 63,0);
-        tracep->declBit(c+100,"ysyx_22040228 rvcpu1 es ao_ena_in", false,-1);
+        tracep->declBit(c+113,"ysyx_22040228 rvcpu1 es ao_ena_in", false,-1);
         tracep->declQuad(c+1029,"ysyx_22040228 rvcpu1 es at_data_in", false,-1, 63,0);
         tracep->declBus(c+101,"ysyx_22040228 rvcpu1 es at_addr_in", false,-1, 4,0);
         tracep->declQuad(c+1027,"ysyx_22040228 rvcpu1 es at_pc_in", false,-1, 63,0);
