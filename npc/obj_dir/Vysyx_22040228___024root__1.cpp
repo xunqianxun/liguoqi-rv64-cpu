@@ -2275,16 +2275,11 @@ VL_INLINE_OPT void Vysyx_22040228___024root___combo__TOP__4(Vysyx_22040228___024
                         | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_ebreak)) 
                        << 4U)));
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_ena 
-        = ((0U != (0x1fU & (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de2_inst 
-                            >> 7U))) & (((((IData)(
-                                                   (0U 
-                                                    != 
-                                                    (0xfaU 
-                                                     & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_type)))) 
-                                           | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_lui)) 
-                                          | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_auipc)) 
-                                         | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_jump)) 
-                                        | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_ebreak)));
+        = (1U & (((((IData)((0U != (0xfaU & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_type)))) 
+                    | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_lui)) 
+                   | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_auipc)) 
+                  | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_jump)) 
+                 | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_ebreak)));
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__rs1 
         = ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_ebreak)
             ? 0xbU : (0x1fU & (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de2_inst 
@@ -2619,16 +2614,11 @@ VL_INLINE_OPT void Vysyx_22040228___024root___combo__TOP__4(Vysyx_22040228___024
                         | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_ebreak)) 
                        << 4U)));
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_ena 
-        = ((0U != (0x1fU & (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de1_inst 
-                            >> 7U))) & (((((IData)(
-                                                   (0U 
-                                                    != 
-                                                    (0xfaU 
-                                                     & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_type)))) 
-                                           | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_lui)) 
-                                          | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_auipc)) 
-                                         | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_jump)) 
-                                        | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_ebreak)));
+        = (1U & (((((IData)((0U != (0xfaU & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_type)))) 
+                    | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_lui)) 
+                   | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_auipc)) 
+                  | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_jump)) 
+                 | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_ebreak)));
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__rs1 
         = ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_ebreak)
             ? 0xbU : (0x1fU & (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de1_inst 
