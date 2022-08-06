@@ -208,7 +208,7 @@ assign op1_addr_o = op1_read_o ? rs1 : 5'd0  ;
 assign op2_read_o = 1'b0 | inst_type[6] | inst_type[3] | inst_type[2] | inst_type[0] ;
 assign op2_addr_o = op2_read_o ? rs2 : 5'd0  ;
 
-assign rd_w_ena   = (rd != 5'b0) && (inst_type[7] |inst_type[6] | inst_type[5] | inst_type[4] | inst_type[3] | inst_type[1] | inst_lui | inst_auipc | inst_jump) ; 
+assign rd_w_ena   = (rd != 5'b0) && (inst_type[7] |inst_type[6] | inst_type[5] | inst_type[4] | inst_type[3] | inst_type[1] | inst_lui | inst_auipc | inst_jump | inst_ebreak) ; 
 assign rd_w_addr  = rd_w_ena ? ((inst_ebreak)? 5'b01011 : rd) : 5'd0     ; //difftest
 
 wire   [11:0] store_addr_offset ;
@@ -337,7 +337,7 @@ assign socreboard_aluo[1] = inst_type[0] | inst_type[1] ;
 assign socreboard_aluo[2] = inst_type[7]                ;
 assign socreboard_aluo[3] = inst_jump | inst_type[2]    ;
 assign socreboard_aluo[4] = inst_type[4] | inst_type[5] | inst_sraw | inst_srlw | inst_sllw | inst_subw | inst_addw | inst_and | inst_or | inst_sra | inst_srl | inst_xor | inst_sltu | 
-                            inst_slt     | inst_sll     | inst_sub  | inst_add  |inst_lui   | inst_auipc| inst_fence_i ;
+                            inst_slt     | inst_sll     | inst_sub  | inst_add  |inst_lui   | inst_auipc| inst_fence_i | inst_ebreak ;
 assign socreboard_aluo[5] = inst_ecall   | inst_mret    ;
 
 assign jump_addr  = pc_i[5:2]    ;
