@@ -569,6 +569,7 @@ VL_MODULE(Vysyx_22040228___024root) {
         QData/*63:0*/ ysyx_22040228__DOT__t_axi_ar_addr;
         QData/*63:0*/ ysyx_22040228__DOT__t_axi_r_data;
         QData/*63:0*/ ysyx_22040228__DOT__rvcpu1__DOT__aluo_de_pc;
+        QData/*63:0*/ ysyx_22040228__DOT__rvcpu1__DOT__regsf_pc_data;
         QData/*63:0*/ ysyx_22040228__DOT__rvcpu1__DOT__iss_de1_pc;
         QData/*63:0*/ ysyx_22040228__DOT__rvcpu1__DOT__iss_de2_pc;
         QData/*63:0*/ ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_op1;
@@ -627,9 +628,9 @@ VL_MODULE(Vysyx_22040228___024root) {
         QData/*63:0*/ ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__decode1_divider__DOT__yushu;
         QData/*63:0*/ ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__decode1_divider__DOT__shang;
         QData/*63:0*/ ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__csr0__DOT__csr_mcycle;
-        QData/*63:0*/ ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__csr0__DOT__csr_mstatus;
     };
     struct {
+        QData/*63:0*/ ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__csr0__DOT__csr_mstatus;
         QData/*61:0*/ ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__csr0__DOT__csr_mtvec_base;
         QData/*63:0*/ ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__csr0__DOT__csr_mepc;
         QData/*63:0*/ ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__csr0__DOT__csr_mcause_nxt;
@@ -693,9 +694,9 @@ VL_MODULE(Vysyx_22040228___024root) {
         VlUnpacked<CData/*0:0*/, 64> ysyx_22040228__DOT__data_cache3__DOT__dirty1;
         VlUnpacked<CData/*0:0*/, 64> ysyx_22040228__DOT__data_cache3__DOT__dirty2;
         VlUnpacked<IData/*22:0*/, 64> ysyx_22040228__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__ram;
-        VlUnpacked<CData/*0:0*/, 64> ysyx_22040228__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__valid;
     };
     struct {
+        VlUnpacked<CData/*0:0*/, 64> ysyx_22040228__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__valid;
         VlUnpacked<IData/*22:0*/, 64> ysyx_22040228__DOT__data_cache3__DOT__TEG_DCACHET__DOT__ram;
         VlUnpacked<CData/*0:0*/, 64> ysyx_22040228__DOT__data_cache3__DOT__TEG_DCACHET__DOT__valid;
         VlUnpacked<VlWide<4>/*127:0*/, 64> ysyx_22040228__DOT__data_cache3__DOT__REM_DCACHE__DOT__ram;

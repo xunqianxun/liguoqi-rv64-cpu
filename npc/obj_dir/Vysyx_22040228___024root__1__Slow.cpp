@@ -149,6 +149,7 @@ void Vysyx_22040228___024root___ctor_var_reset(Vysyx_22040228___024root* vlSelf)
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__pc_phb_addr = VL_RAND_RESET_I(4);
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__pc_regsf_addr = VL_RAND_RESET_I(5);
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__pc_regsf_ena = VL_RAND_RESET_I(1);
+    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf_pc_data = VL_RAND_RESET_Q(64);
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__check_pcif = VL_RAND_RESET_I(4);
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de1_pc = VL_RAND_RESET_Q(64);
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de1_inst = VL_RAND_RESET_I(32);
