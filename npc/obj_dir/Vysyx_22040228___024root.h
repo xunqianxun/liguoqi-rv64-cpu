@@ -1003,6 +1003,8 @@ VL_MODULE(Vysyx_22040228___024root) {
         CData/*2:0*/ __Vdlyvval__ysyx_22040228__DOT__data_cache3__DOT__counter2__v127;
         CData/*2:0*/ __Vdlyvval__ysyx_22040228__DOT__data_cache3__DOT__counter2__v128;
         CData/*2:0*/ __Vdlyvval__ysyx_22040228__DOT__data_cache3__DOT__counter2__v129;
+        CData/*5:0*/ __Vdlyvdim0__ysyx_22040228__DOT__data_cache3__DOT__dirty1__v64;
+        CData/*0:0*/ __Vdlyvset__ysyx_22040228__DOT__data_cache3__DOT__dirty1__v64;
         CData/*5:0*/ __Vdlyvdim0__ysyx_22040228__DOT__data_cache3__DOT__dirty1__v65;
         CData/*0:0*/ __Vdlyvset__ysyx_22040228__DOT__data_cache3__DOT__dirty1__v65;
         CData/*5:0*/ __Vdlyvdim0__ysyx_22040228__DOT__data_cache3__DOT__dirty1__v66;

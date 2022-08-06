@@ -171,10 +171,10 @@ module PC (
                                                                                      (forc_jumppc[3:0] == 8) ? 3'd2 :
                                                                                      (forc_jumppc[3:0] == 12)? 3'd1 :
                                                                                                                3'd4):
-                                  (pc[3:0] == 12) ? 3'd1 :
-                                  (pc[3:0] == 8)  ? 3'd2 :
-                                  (pc[3:0] == 4)  ? 3'd3 :
-                                  (pc[3:0] == 0)  ? 3'd4 :
+                                  (pc_jnxtpc_temp[3:0] == 12) ? 3'd1 :
+                                  (pc_jnxtpc_temp[3:0] == 8)  ? 3'd2 :
+                                  (pc_jnxtpc_temp[3:0] == 4)  ? 3'd3 :
+                                  (pc_jnxtpc_temp[3:0] == 0)  ? 3'd4 :
                                                     3'd4 ; 
     wire  [4:0] pc_nextpc_temp ;
     assign      pc_nextpc_temp  = (pc[3:0] == 0)  ? 5'd16 :

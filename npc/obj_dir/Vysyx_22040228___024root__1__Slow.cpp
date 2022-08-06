@@ -1035,6 +1035,8 @@ void Vysyx_22040228___024root___ctor_var_reset(Vysyx_22040228___024root* vlSelf)
     vlSelf->__Vdlyvval__ysyx_22040228__DOT__data_cache3__DOT__counter2__v127 = VL_RAND_RESET_I(3);
     vlSelf->__Vdlyvval__ysyx_22040228__DOT__data_cache3__DOT__counter2__v128 = VL_RAND_RESET_I(3);
     vlSelf->__Vdlyvval__ysyx_22040228__DOT__data_cache3__DOT__counter2__v129 = VL_RAND_RESET_I(3);
+    vlSelf->__Vdlyvdim0__ysyx_22040228__DOT__data_cache3__DOT__dirty1__v64 = 0;
+    vlSelf->__Vdlyvset__ysyx_22040228__DOT__data_cache3__DOT__dirty1__v64 = 0;
     vlSelf->__Vdlyvdim0__ysyx_22040228__DOT__data_cache3__DOT__dirty1__v65 = 0;
     vlSelf->__Vdlyvset__ysyx_22040228__DOT__data_cache3__DOT__dirty1__v65 = 0;
     vlSelf->__Vdlyvdim0__ysyx_22040228__DOT__data_cache3__DOT__dirty1__v66 = 0;

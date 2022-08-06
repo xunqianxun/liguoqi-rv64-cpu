@@ -147,7 +147,7 @@ module inst_cache (
                     inst_pc_     = {(inst_addr+8), (inst_addr+4), inst_addr, 64'h0}          ;
                 end 
                 if(inst_counter == 3'd2)   begin
-                    inst_data_   = {data_outo[127:64], 64'h0}                                ;
+                    inst_data_   = {data_outo[127:64], 64'h0}                                ;  
                     inst_pc_     = {(inst_addr+4), inst_addr, 64'h0, 64'h0}                  ;
                 end 
                 if(inst_counter == 3'd1)   begin
