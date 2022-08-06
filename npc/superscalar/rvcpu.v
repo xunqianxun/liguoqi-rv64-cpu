@@ -575,11 +575,13 @@ module rvcpu (
     .ao_data_in      (ao_su_data    ),
     .ao_addr_in      (ao_su_addr    ),
     .ao_pc_in        (ao_su_pc      ),
+    .ao_inst_in      (ao_su_inst    ),
     .ao_ena_in       (ao_su_ena     ),
 
     .at_data_in      (at_su_data    ),
     .at_addr_in      (at_su_addr    ),
     .at_pc_in        (at_su_pc      ),
+    .at_inst_in      (at_su_inst    ),
     .at_ena_in       (at_su_ena     ),
 
     .mm_data_in      (mm_su_data    ),
