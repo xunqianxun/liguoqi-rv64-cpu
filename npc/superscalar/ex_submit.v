@@ -8,11 +8,13 @@ module ex_submit (
     input        wire        [`ysyx22040228_REGBUS]                 ao_data_in    ,
     input        wire        [`ysyx22040228_REGADDRBUS]             ao_addr_in    ,
     input        wire        [`ysyx22040228_PCBUS]                  ao_pc_in      ,
+    input        wire        [`ysyx22040228_INSTBUS]                ao_inst_in    ,
     input        wire                                               ao_ena_in     ,
 
     input        wire        [`ysyx22040228_REGBUS]                 at_data_in    ,
     input        wire        [`ysyx22040228_REGADDRBUS]             at_addr_in    ,
     input        wire        [`ysyx22040228_PCBUS]                  at_pc_in      ,
+    input        wire        [`ysyx22040228_INSTBUS]                at_inst_in    ,
     input        wire                                               at_ena_in     ,
 
     input        wire        [`ysyx22040228_REGBUS]                 mm_data_in    ,
@@ -40,8 +42,13 @@ always @(*) begin
     difftest_dut_thepc(`ysyx22040228_ZEROWORD);
 end
 
-always@(*)begin
-difftest_dut_pc(`ysyx22040228_ZEROWORD, `ysyx22040228_ZEROWORD, 1'b0, 1'b0);    
+always@(posedge clk)begin
+    if(ao_inst_in == `EBREAK_TRAP) begin
+        difftest_dut_pc(ao_pc_in, ao_data_in, ao_ena_in, 1'b0);   
+    end 
+    else if(at_inst_in == `EBREAK_TRAP) begin
+        difftest_dut_pc(at_pc_in, at_data_in, at_ena_in, 1'b0);   
+    end   
 end 
 
     wire  [2:0]  gating    ;
