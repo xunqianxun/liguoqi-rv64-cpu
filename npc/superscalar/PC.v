@@ -159,9 +159,9 @@ module PC (
     assign jump_ena4 = inst_jal4 | (inst_bxx4 && phb_ena) | inst_jalr4 ;
 
    // wire  [3:0]  if_thispcj ;
-    assign       if_thispcj = jump_ena1 ? 4'b0111 :
-                              jump_ena2 ? 4'b0011 :
-                              jump_ena3 ? 4'b0001 :
+    assign       if_thispcj = jump_ena1 ? 4'b1110 :
+                              jump_ena2 ? 4'b1100 :
+                              jump_ena3 ? 4'b1000 :
                               jump_ena4 ? 4'b0000 :
                                           4'b0000 ;
 
