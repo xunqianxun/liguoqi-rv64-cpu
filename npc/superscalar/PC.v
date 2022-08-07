@@ -201,20 +201,20 @@ module PC (
             end 
             else if((cache_ready == 1'b0) && (decode1_ena)) begin
                 pc         <= decode1_pc         ;
-                pc_counter <= pc_counter_temp    ;
+                pc_counter <= pc_counter_jdeo    ;
             end 
             else if((cache_ready == 1'b0) && (decode2_ena)) begin 
                 pc         <= decode2_pc         ;
-                pc_counter <= pc_counter_temp    ;
+                pc_counter <= pc_counter_jdet    ;
             end    
             else if((cache_ready == 1'b0) && (trap_ena)) begin
                 pc         <= trap_pc            ;
-                pc_counter <= pc_counter_temp    ;
+                pc_counter <= pc_counter_jtap    ;
              
             end 
             else if((cache_ready == 1'b0) && (pc_temp_ena)) begin 
                 pc         <= pc_temp            ;
-                pc_counter <= pc_counter_temp    ;
+                pc_counter <= pc_counter_jtmp    ;
             end 
             else begin
                 pc         <= pc_jnxtpc_temp     ;
@@ -222,6 +222,34 @@ module PC (
             end 
         end 
     end
+
+    wire [2:0]  pc_counter_jdeo ;
+    assign      pc_counter_jdeo = (decode1_pc[3:0] == 12) ? 3'd1 :
+                                  (decode1_pc[3:0] == 8)  ? 3'd2 :
+                                  (decode1_pc[3:0] == 4)  ? 3'd3 :
+                                  (decode1_pc[3:0] == 0)  ? 3'd4 :
+                                                            3'd4 ; 
+
+    wire [2:0]  pc_counter_jdet ;
+    assign      pc_counter_jdet = (decode2_pc[3:0] == 12) ? 3'd1 :
+                                  (decode2_pc[3:0] == 8)  ? 3'd2 :
+                                  (decode2_pc[3:0] == 4)  ? 3'd3 :
+                                  (decode2_pc[3:0] == 0)  ? 3'd4 :
+                                                            3'd4 ; 
+
+    wire [2:0]  pc_counter_jtap ;
+    assign      pc_counter_jtap = (trap_pc[3:0] == 12) ? 3'd1 :
+                                  (trap_pc[3:0] == 8)  ? 3'd2 :
+                                  (trap_pc[3:0] == 4)  ? 3'd3 :
+                                  (trap_pc[3:0] == 0)  ? 3'd4 :
+                                                         3'd4 ; 
+
+    wire [2:0]  pc_counter_jtmp ;
+    assign      pc_counter_jtmp = (pc_temp[3:0] == 12) ? 3'd1 :
+                                  (pc_temp[3:0] == 8)  ? 3'd2 :
+                                  (pc_temp[3:0] == 4)  ? 3'd3 :
+                                  (pc_temp[3:0] == 0)  ? 3'd4 :
+                                                         3'd4 ; 
 
     reg  [63:0] pc_temp     ;
     reg         pc_temp_ena ;
