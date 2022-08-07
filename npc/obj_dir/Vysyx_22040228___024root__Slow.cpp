@@ -984,27 +984,6 @@ void Vysyx_22040228___024root___settle__TOP__1(Vysyx_22040228___024root* vlSelf)
     }
     if ((4U == (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__state_inst))) {
         if (vlSelf->ysyx_22040228__DOT__rvcpu_empty) {
-            if ((1U & (~ ((vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__TEG_ICACHEO__DOT__out_data_r 
-                           == (0x3fffffU & (IData)(
-                                                   (vlSelf->ysyx_22040228__DOT__rvcpu_inst_addr 
-                                                    >> 0xaU)))) 
-                          & (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__TEG_ICACHEO__DOT__out_valid_r))))) {
-                if ((1U & (~ ((vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__TEG_ICACHET__DOT__out_data_r 
-                               == (0x3fffffU & (IData)(
-                                                       (vlSelf->ysyx_22040228__DOT__rvcpu_inst_addr 
-                                                        >> 0xaU)))) 
-                              & (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__TEG_ICACHET__DOT__out_valid_r))))) {
-                    vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__inst_readyout_ = 0U;
-                }
-            }
-        } else {
-            vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__inst_readyout_ = 1U;
-        }
-    } else {
-        vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__inst_readyout_ = 0U;
-    }
-    if ((4U == (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__state_inst))) {
-        if (vlSelf->ysyx_22040228__DOT__rvcpu_empty) {
             if (((vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__TEG_ICACHEO__DOT__out_data_r 
                   == (0x3fffffU & (IData)((vlSelf->ysyx_22040228__DOT__rvcpu_inst_addr 
                                            >> 0xaU)))) 
