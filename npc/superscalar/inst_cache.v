@@ -138,6 +138,7 @@ module inst_cache (
             else if((oteg_ata_o == icache_tag) && (oteg_valid_o == `ysyx22040228_ABLE))begin
                 inst_hit_ok  = `ysyx22040228_ABLE;
                 inst_valid_  = `ysyx22040228_ABLE;
+                inst_readyout_ = `ysyx22040228_ABLE;
                 if(inst_counter == 3'd4)   begin
                     inst_data_   =    data_outo                                              ;
                     inst_pc_     = {(inst_addr+12), (inst_addr+8), (inst_addr+4), inst_addr} ;
@@ -157,7 +158,8 @@ module inst_cache (
             end
             else if((tteg_ata_o == icache_tag) && (tteg_valid_o == `ysyx22040228_ABLE))begin
                 inst_hit_ok  = `ysyx22040228_ABLE  ;
-                inst_valid_  = `ysyx22040228_ABLE;
+                inst_valid_  = `ysyx22040228_ABLE  ;
+                inst_readyout_ = `ysyx22040228_ABLE;
                 if(inst_counter == 3'd4)   begin
                     inst_data_   =    data_outt                                              ;
                     inst_pc_     = {(inst_addr+12), (inst_addr+8), (inst_addr+4), inst_addr} ;
