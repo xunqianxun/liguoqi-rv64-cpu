@@ -186,7 +186,8 @@ module PC (
                                   (pc[3:0] == 12) ? 5'd4  :
                                                     5'd0  ; 
     wire  [`ysyx22040228_PCBUS]   pc_jnxtpc_temp ;
-    assign      pc_jnxtpc_temp  =  (jump_ena1 | jump_ena2 | jump_ena3 | jump_ena4) ? forc_jumppc : pc + {58'h0, pc_nextpc_temp} ;
+    assign      pc_jnxtpc_temp  = ((inst_bxx1 && ~phb_ena) | (inst_bxx2 && ~phb_ena) | (inst_bxx3 && ~phb_ena) | (inst_bxx4 && ~phb_ena)) ? pc + {58'h0, pc_nextpc_temp}               :  
+                                  (jump_ena1 | jump_ena2 | jump_ena3 | jump_ena4)                                                         ? forc_jumppc : pc + {58'h0, pc_nextpc_temp} ;
 
     wire cache_ready = ~cache_un_ready;
     always @(posedge clk) begin

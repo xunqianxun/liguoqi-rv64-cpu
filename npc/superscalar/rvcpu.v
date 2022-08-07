@@ -163,6 +163,7 @@ module rvcpu (
     .pc_i            (iss_de1_pc      ),
 
     .socreboard_aluo (de1_so_type     ),
+    .socreboard_clean(so_idex_cleano  ),
     // regfile
     .op1_data_i      (regs11_out_data ),
     .op2_data_i      (regs12_out_data ),
@@ -248,6 +249,7 @@ module rvcpu (
     .pc_i            (iss_de2_pc       ),
 
     .socreboard_alut (de2_so_type      ),
+    .socreboard_clean(so_idex_cleant   ),
     // regfile
     .op1_data_i      (regs21_out_data  ),
     .op2_data_i      (regs22_out_data  ),

@@ -14,6 +14,7 @@ module decode1 (
     input       wire         [`ysyx22040228_PCBUS]                             pc_i                ,
 
     output      wire         [5:0]                                             socreboard_aluo     ,
+    input       wire                                                           socreboard_clean    ,
 
     // regfile
     input       wire         [`ysyx22040228_REGBUS]                            op1_data_i          ,
@@ -323,8 +324,8 @@ wire predict_success = ~alu1_op1 & ~alu2_op1 & ~mem_op1 & ~wb1_op1 & ~wb2_op1 & 
 assign jalr_pc_ena = (rst == `ysyx22040228_RSTENA) ? 0 : inst_jalr && ~predict_success ;
 assign jalr_pc     = inst_jalr ? {jalr_pc_temp[63:1] , 1'b0 & jalr_pc_temp[0]} : `ysyx22040228_ZEROWORD ;
 
-assign jump_pc_ena     =  branch_pc_ena ?  1'b1  :
-                          jalr_pc_ena   ?  1'b1  :
+assign jump_pc_ena     =  branch_pc_ena ?  socreboard_clean  :
+                          jalr_pc_ena   ?  socreboard_clean  :
                                            1'b0  ;
 
 assign jump_pc         =  branch_pc_ena ?  branch_pc :
