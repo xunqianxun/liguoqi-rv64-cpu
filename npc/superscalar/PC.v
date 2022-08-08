@@ -130,8 +130,10 @@ module PC (
                       ((inst_jal2)|(inst_bxx2)) ? pc+4      : 
                       inst_jalr2                ? jreg_data :
                       ((inst_jal3)|(inst_bxx3)) ? pc+8      :
+                      inst_jalr3                ? jreg_data :
+                      ((inst_jal4)|(inst_bxx4)) ? pc+12     :
                       inst_jalr4                ? jreg_data :
-                      ((inst_jal4)|(inst_bxx4)) ? pc+12 : pc;
+                                                  pc;
     assign operand2 = inst_jal1                ? {{44{j_imm1[20]}} , j_imm1[20:1] << 1} :
                       (inst_bxx1 && phb_ena)   ? {{52{b_imm1[12]}} , b_imm1[12:1] << 1} :
                       inst_jalr1               ? {{52{i_imm1[11]}} , i_imm1[11:0]}      :
@@ -143,7 +145,7 @@ module PC (
                       inst_jalr3               ? {{52{i_imm3[11]}} , i_imm3[11:0]}      :
                       inst_jal4                ? {{44{j_imm4[20]}} , j_imm4[20:1] << 1} :
                       (inst_bxx4 && phb_ena)   ? {{52{b_imm4[12]}} , b_imm4[12:1] << 1} :
-                      inst_jalr4               ? {{52{i_imm4[11]}} , i_imm4[11:0]}      :                    
+                      inst_jalr4               ? {{52{i_imm4[11]}} , i_imm4[11:0]}      :
                       (rst ===`ysyx22040228_RSTENA) ?               `ysyx22040228_THISPC:
                                                                     64'hf               ; 
     wire [`ysyx22040228_PCBUS] j_temp = operand1 + operand2 ;
