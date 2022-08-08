@@ -327,7 +327,7 @@ assign jalr_pc     = inst_jalr ? {jalr_pc_temp[63:1] , 1'b0 & jalr_pc_temp[0]} :
 
 assign jump_pc_ena     =  branch_pc_ena ?  ~socreboard_clean  :
                           jalr_pc_ena   ?  ~socreboard_clean  :
-                                           1'b0              ;
+                                           1'b0               ;
 
 assign jump_pc         =  branch_pc_ena ?  branch_pc :
                           jalr_pc_ena   ?  jalr_pc   :
