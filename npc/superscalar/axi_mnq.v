@@ -108,7 +108,7 @@ module axi_mnq (
     assign s_axi_aw_ready = (s_axi_aw_valid && s_axi_w_valid && (s_axi_aw_len == 8'b0) && (s_axi_aw_size == 3'b011) && (s_axi_aw_burst == 2'b01) && (s_axi_aw_cache == 4'b0010) && (s_axi_aw_port == 3'b000) && s_axi_aw_qos == 4'h0);
     assign s_axi_w_ready  = s_axi_aw_valid && s_axi_w_valid  && (s_axi_w_last) ;
 
-    assign s_axi_b_id     = s_axi_aw_id;
+    assign s_axi_b_id     = r_s_axi_aw_id;
     assign s_axi_b_resp   = 2'b00  ;
     assign s_axi_b_valid  = (s_write_state == `ysyx22040228_S_RESP) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE ;
 
@@ -155,16 +155,19 @@ module axi_mnq (
     reg  [63:0]  write_data_reg;
     reg  [63:0]  write_addr_reg;
     reg  [3:0]   r_s_axi_ar_id ;
+    reg  [3:0]   r_s_axi_aw_id ;
     always @(posedge clk) begin
         if(rst == `ysyx22040228_RSTENA)begin
             write_data_reg  <= `ysyx22040228_ZEROWORD;
             write_addr_reg  <= `ysyx22040228_ZEROWORD;
             r_s_axi_ar_id   <= 4'b0000               ;
+            r_s_axi_aw_id   <= 4'b0000               ;
         end
         else begin
             write_data_reg  <= s_axi_w_data ;
             write_addr_reg  <= s_axi_aw_addr;
             r_s_axi_ar_id   <= s_axi_ar_id  ;
+            r_s_axi_aw_id   <= s_axi_aw_id  ;
         end 
     end
 
