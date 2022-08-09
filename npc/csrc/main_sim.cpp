@@ -248,10 +248,8 @@ while(ddy){
     //printf("get_time = %d\n", rvcpu->in_rtc_data_);
   rvcpu->clk = 0;
       if(rvcpu->out_write_ram_ena == 1){
-      //if((rvcpu->out_write_ram_addr != 0) && (rvcpu->out_write_ram_addr != 0xa00003f8)){
       printf("writeaddr : %lx\n", rvcpu->out_write_ram_addr);
       vaddr_write(rvcpu->out_write_ram_addr, 8, rvcpu->out_write_ram_data);
-     // }
     }
   }
 
