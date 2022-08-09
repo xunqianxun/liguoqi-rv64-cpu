@@ -4579,8 +4579,8 @@ void Vysyx_22040228___024root___settle__TOP__1(Vysyx_22040228___024root* vlSelf)
         = ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_ebreak)
             ? 0xbU : (0x1fU & (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de1_inst 
                                >> 0xfU)));
-    vlSelf->ysyx_22040228__DOT__add_axi_b_id = ((0xf00U 
-                                                 & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_id)) 
+    vlSelf->ysyx_22040228__DOT__add_axi_b_id = (((IData)(vlSelf->ysyx_22040228__DOT__axi_mnq4__DOT__r_s_axi_aw_id) 
+                                                 << 8U) 
                                                 | ((((2U 
                                                       == (IData)(vlSelf->ysyx_22040228__DOT__clint6__DOT__timew_state))
                                                       ? (IData)(vlSelf->ysyx_22040228__DOT__clint6__DOT__timeraw_id_temp)

@@ -2646,8 +2646,8 @@ VL_INLINE_OPT void Vysyx_22040228___024root___combo__TOP__4(Vysyx_22040228___024
              >> 7U) & (7U != (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo_inst_opcode)))
             ? vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__read_csr_data
             : vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__exe_res);
-    vlSelf->ysyx_22040228__DOT__add_axi_b_id = ((0xf00U 
-                                                 & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_id)) 
+    vlSelf->ysyx_22040228__DOT__add_axi_b_id = (((IData)(vlSelf->ysyx_22040228__DOT__axi_mnq4__DOT__r_s_axi_aw_id) 
+                                                 << 8U) 
                                                 | ((((2U 
                                                       == (IData)(vlSelf->ysyx_22040228__DOT__clint6__DOT__timew_state))
                                                       ? (IData)(vlSelf->ysyx_22040228__DOT__clint6__DOT__timeraw_id_temp)
