@@ -83,28 +83,28 @@ module socreboard (
                               ((reg_exe_name[1] == decode11_addr) && decode11_ena && busy[1] ) ? 1'b1 :
                               ((reg_exe_name[2] == decode11_addr) && decode11_ena && busy[2] ) ? 1'b1 :
                               ((decode11_addr == de2_wb_addr) && decode11_ena && de2_wb_ena && (decode1_pc > decode2_pc)) ? 1'b1 : 
-                              ((de1_wb_addr == decode21_addr) && de1_wb_ena && (type_needstop2[0] || type_needstop2[1]))  ? 1'b1 :
+                              ((de1_wb_addr == decode21_addr) && de1_wb_ena && (type_needstop2[0] || type_needstop2[1]) && (decode1_pc > decode2_pc))  ? 1'b1 :
                                                                                                  1'b0 ;
     wire   shoudo2_stop_war ;
     assign shoudo2_stop_war = ((reg_exe_name[0] == decode12_addr) && decode12_ena && busy[0] ) ? 1'b1 :
                               ((reg_exe_name[1] == decode12_addr) && decode12_ena && busy[1] ) ? 1'b1 :
                               ((reg_exe_name[2] == decode12_addr) && decode12_ena && busy[2] ) ? 1'b1 :
                               ((decode12_addr == de2_wb_addr) && decode12_ena && de2_wb_ena && (decode1_pc > decode2_pc)) ? 1'b1 : 
-                              ((de1_wb_addr == decode22_addr) && de1_wb_ena && (type_needstop2[0] || type_needstop2[1]))  ? 1'b1 :
+                              ((de1_wb_addr == decode22_addr) && de1_wb_ena && (type_needstop2[0] || type_needstop2[1]) && (decode1_pc > decode2_pc))  ? 1'b1 :
                                                                                                  1'b0 ;
     wire   shoudt1_stop_war ;
     assign shoudt1_stop_war = ((reg_exe_name[0] == decode21_addr) && decode21_ena && busy[0] ) ? 1'b1 :
                               ((reg_exe_name[1] == decode21_addr) && decode21_ena && busy[1] ) ? 1'b1 :
                               ((reg_exe_name[2] == decode21_addr) && decode21_ena && busy[2] ) ? 1'b1 :
                               ((decode21_addr == de1_wb_addr) && decode21_ena && de1_wb_ena && (decode1_pc < decode2_pc)) ? 1'b1 :
-                              ((de2_wb_addr == decode11_addr) && de2_wb_ena && (type_needstop1[0] || type_needstop1[1]))  ? 1'b1 : 
+                              ((de2_wb_addr == decode11_addr) && de2_wb_ena && (type_needstop1[0] || type_needstop1[1]) && (decode1_pc < decode2_pc))  ? 1'b1 : 
                                                                                                  1'b0 ;
     wire   shoudt2_stop_war ;
     assign shoudt2_stop_war = ((reg_exe_name[0] == decode22_addr) && decode22_ena && busy[0] ) ? 1'b1 :
                               ((reg_exe_name[1] == decode22_addr) && decode22_ena && busy[1] ) ? 1'b1 :
                               ((reg_exe_name[2] == decode22_addr) && decode22_ena && busy[2] ) ? 1'b1 :
                               ((decode22_addr == de1_wb_addr) && decode22_ena && de1_wb_ena && (decode1_pc < decode2_pc)) ? 1'b1 :
-                              ((de2_wb_addr == decode12_addr) && de2_wb_ena && (type_needstop1[0] || type_needstop1[1]))  ? 1'b1 :
+                              ((de2_wb_addr == decode12_addr) && de2_wb_ena && (type_needstop1[0] || type_needstop1[1]) && (decode1_pc < decode2_pc))  ? 1'b1 :
                                                                                                  1'b0 ;
     wire   shoudo_stop_ctrl ; 
     assign shoudo_stop_ctrl = type_needstop2[3] && (shoudo_stop_waw | shoudo1_stop_war | shoudo2_stop_war | shoudo_stop_hard) ;
