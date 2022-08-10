@@ -315,7 +315,7 @@ wire                            branch_pc_ena                    ;
 wire  [`ysyx22040228_PCBUS]     branch_pc                        ;
 wire                            jalr_pc_ena                      ;
 wire  [`ysyx22040228_PCBUS]     jalr_pc                          ;
-assign branch_pc_ena = (forcast_state == 1'b1)                   ;
+assign branch_pc_ena = (forcast_state == 1'b1) ? 1'b1 : 1'b0     ;
 assign branch_pc     = (forcast_state == 1'b1) ? (phb_data ? pc_i + 64'd4 : ({{52{b_imm[12]}} , b_imm[12:1] << 1} + pc_i)) :
                                                                                                    `ysyx22040228_ZEROWORD  ;
 
