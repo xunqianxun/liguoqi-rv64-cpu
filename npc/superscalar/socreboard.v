@@ -120,12 +120,12 @@ module socreboard (
                                (type_needstop1[3] & (busy[0] & busy[1]))                       ? 1'b1 :
                                (type_needstop1[4] & (busy[0] & busy[1]))                       ? 1'b1 :
                                                                                                  1'b0 ;
-    wire   shoudt_stop_hard ; 
-    assign shoudt_stop_hard =  (type_needstop2[0] & ((busy[0] & busy[1]) || (((busy[0] | ~busy[1]) || (~busy[0] | busy[1])) && type_needstop1[0]))) ? 1'b1 :
+    wire   shoudt_stop_hard ;  
+    assign shoudt_stop_hard =  (type_needstop2[0] & ((busy[0] & busy[1]) || (((busy[0] | busy[1]) || (busy[0] | busy[1])) && type_needstop1[0])))   ? 1'b1 :
                                (type_needstop2[1] & (busy[2] | type_needstop1[1]))                                                                  ? 1'b1 :
                                (type_needstop2[2] & (busy[0] | type_needstop1[2]))                                                                  ? 1'b1 :
                                (type_needstop2[3] & (busy[0] & busy[1]))                                                                            ? 1'b1 :
-                               (type_needstop2[4] & ((busy[0] & busy[1]) || (((busy[0] | ~busy[1]) || (~busy[0] | busy[1])) && type_needstop1[3]))) ? 1'b1 :              
+                               (type_needstop2[4] & ((busy[0] & busy[1]) || (((busy[0] | busy[1]) || (busy[0] | busy[1])) && type_needstop1[4])))   ? 1'b1 :              
                                                                                                                                                       1'b0 ;
     wire   shoudo_stop_trap ;
     assign shoudo_stop_trap = ((type_needstop1[5] || (timer_intr & (shoudo_stop_waw | shoudo1_stop_war | shoudo2_stop_war | shoudo_stop_hard))) && (busy[0] | busy[1] | busy[2]) && de2_wb_ena) ? 1'b1 : 1'b0 ;
