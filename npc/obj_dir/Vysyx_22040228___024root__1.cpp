@@ -4739,14 +4739,10 @@ VL_INLINE_OPT void Vysyx_22040228___024root___combo__TOP__4(Vysyx_22040228___024
                   & ((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
                       [0U] & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
                       [1U]) | (((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
-                                 [0U] | (~ vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
-                                         [1U])) | (
-                                                   (~ 
-                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
-                                                    [0U]) 
-                                                   | vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
-                                                   [1U])) 
-                               & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_so_type)))) 
+                                 [0U] | vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
+                                 [1U]) | (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
+                                          [0U] | vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
+                                          [1U])) & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_so_type)))) 
                  | ((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_so_type) 
                       >> 1U) & (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
                                 [2U] | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_so_type) 
@@ -4766,16 +4762,14 @@ VL_INLINE_OPT void Vysyx_22040228___024root___combo__TOP__4(Vysyx_22040228___024
                                                 [1U]) 
                                                | (((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
                                                     [0U] 
-                                                    | (~ 
-                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
-                                                       [1U])) 
-                                                   | ((~ 
-                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
-                                                       [0U]) 
+                                                    | vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
+                                                    [1U]) 
+                                                   | (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
+                                                      [0U] 
                                                       | vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
                                                       [1U])) 
                                                   & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_so_type) 
-                                                     >> 3U)))))))));
+                                                     >> 4U)))))))));
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudt_stop_waw 
         = ((((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__reg_exe_name
               [0U] == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_addr)) 

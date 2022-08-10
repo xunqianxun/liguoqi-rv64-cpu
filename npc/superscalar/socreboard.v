@@ -107,10 +107,10 @@ module socreboard (
                               ((de2_wb_addr == decode12_addr) && de2_wb_ena && (type_needstop1[0] || type_needstop1[1]) && (decode1_pc < decode2_pc))  ? 1'b1 :
                                                                                                  1'b0 ;
     wire   shoudo_stop_ctrl ; 
-    assign shoudo_stop_ctrl = type_needstop2[3] && (shoudo_stop_waw | shoudo1_stop_war | shoudo2_stop_war | shoudo_stop_hard) ;
+    assign shoudo_stop_ctrl = type_needstop1[3] && (shoudo_stop_waw | shoudo1_stop_war | shoudo2_stop_war | shoudo_stop_hard) ;
 
     wire   shoudt_stop_ctrl ; 
-    assign shoudt_stop_ctrl = type_needstop1[3] && (shoudo_stop_waw | shoudo1_stop_war | shoudo2_stop_war | shoudo_stop_hard) ;  
+    assign shoudt_stop_ctrl = type_needstop2[3] && (shoudo_stop_waw | shoudo1_stop_war | shoudo2_stop_war | shoudo_stop_hard) ;  
             
                                                                                                 
     wire   shoudo_stop_hard ; 
