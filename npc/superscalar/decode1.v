@@ -296,7 +296,7 @@ reg                data_jf                                ;
 wire  [`ysyx22040228_REGBUS]  op1_sub_op2 = op1_o  + (~op2_o + 64'd1) ;
 wire     op1_ls_op2 = (op1_o[63] && ~op2_o[63]) || (~op1_o[63] && ~op2_o[63] && op1_sub_op2[63]) || (op1_o[63] && op2_o[63] && op1_sub_op2[63]) ;
 always @(*) begin
-    if(~inst_type[2])  begin forcast_state = 1'b1  ;    end
+    if(~inst_type[2])  begin forcast_state = 1'b0  ;    end
     else begin
         case (inst_opcode) 
              `INST_BEQ     : begin  forcast_state = ((op1_o == op2_o) ^ phb_data) ? 1'b1 : 1'b0 ; data_jf= (op1_o == op2_o);  end
@@ -305,7 +305,7 @@ always @(*) begin
              `INST_BGEU    : begin  forcast_state = ((op1_o >= op2_o) ^ phb_data) ? 1'b1 : 1'b0 ; data_jf= (op1_o >= op2_o);  end
              `INST_BLT     : begin  forcast_state = (( op1_ls_op2   ) ^ phb_data) ? 1'b1 : 1'b0 ; data_jf= ( op1_ls_op2   );  end
              `INST_BGE     : begin  forcast_state = ((~op1_ls_op2   ) ^ phb_data) ? 1'b1 : 1'b0 ; data_jf= (~op1_ls_op2   );  end
-             default:        begin  forcast_state = 1'b1                                        ; end 
+             default:        begin  forcast_state = 1'b0                                        ; end 
         endcase
     end
 end
@@ -314,8 +314,8 @@ wire                            branch_pc_ena                    ;
 wire  [`ysyx22040228_PCBUS]     branch_pc                        ;
 wire                            jalr_pc_ena                      ;
 wire  [`ysyx22040228_PCBUS]     jalr_pc                          ;
-assign branch_pc_ena = (forcast_state == 1'b0)                   ;
-assign branch_pc     = (forcast_state == 1'b0) ? (phb_data ? pc_i + 64'd4 : ({{52{b_imm[12]}} , b_imm[12:1] << 1} + pc_i)) :
+assign branch_pc_ena = (forcast_state == 1'b1) ? 1'b1 : 1'b0     ;
+assign branch_pc     = (forcast_state == 1'b1) ? (phb_data ? pc_i + 64'd4 : ({{52{b_imm[12]}} , b_imm[12:1] << 1} + pc_i)) :
                                                                                                    `ysyx22040228_ZEROWORD  ;
 
 wire [`ysyx22040228_PCBUS] jalr_pc_temp = {{52{imm[11]}} , imm} + op1_o ;
