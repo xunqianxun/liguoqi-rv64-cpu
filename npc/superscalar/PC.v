@@ -125,26 +125,34 @@ module PC (
 
     wire [63:0] operand1;
     wire [63:0] operand2;
-    assign operand1 = ((inst_jal1)|(inst_bxx1)) ? pc        :
+    assign operand1 = ((inst_jal1)|(inst_bxx1 && phb_ena)) ? pc        :
+                      (inst_bxx1 && ~phb_ena)   ? pc        :
                       inst_jalr1                ? jreg_data : 
-                      ((inst_jal2)|(inst_bxx2)) ? pc+4      : 
+                      ((inst_jal2)|(inst_bxx2 && phb_ena)) ? pc+4      : 
+                      (inst_bxx2 && ~phb_ena)   ? pc+4      :
                       inst_jalr2                ? jreg_data :
-                      ((inst_jal3)|(inst_bxx3)) ? pc+8      :
+                      ((inst_jal3)|(inst_bxx3 && phb_ena)) ? pc+8      :
+                      (inst_bxx3 && ~phb_ena)   ? pc+8      :
                       inst_jalr3                ? jreg_data :
-                      ((inst_jal4)|(inst_bxx4)) ? pc+12     :
+                      ((inst_jal4)|(inst_bxx4 && phb_ena)) ? pc+12     :
+                      (inst_bxx4 && ~phb_ena)   ? pc+12     :
                       inst_jalr4                ? jreg_data :
                                                   pc;
     assign operand2 = inst_jal1                ? {{44{j_imm1[20]}} , j_imm1[20:1] << 1} :
                       (inst_bxx1 && phb_ena)   ? {{52{b_imm1[12]}} , b_imm1[12:1] << 1} :
+                      (inst_bxx1 &&~phb_ena)   ? 64'd4                                  :
                       inst_jalr1               ? {{52{i_imm1[11]}} , i_imm1[11:0]}      :
                       inst_jal2                ? {{44{j_imm2[20]}} , j_imm2[20:1] << 1} :
                       (inst_bxx2 && phb_ena)   ? {{52{b_imm2[12]}} , b_imm2[12:1] << 1} :
+                      (inst_bxx2 &&~phb_ena)   ? 64'd4                                  :
                       inst_jalr2               ? {{52{i_imm2[11]}} , i_imm2[11:0]}      :
                       inst_jal3                ? {{44{j_imm3[20]}} , j_imm3[20:1] << 1} :
                       (inst_bxx3 && phb_ena)   ? {{52{b_imm3[12]}} , b_imm3[12:1] << 1} :
+                      (inst_bxx3 &&~phb_ena)   ? 64'd4                                  :
                       inst_jalr3               ? {{52{i_imm3[11]}} , i_imm3[11:0]}      :
                       inst_jal4                ? {{44{j_imm4[20]}} , j_imm4[20:1] << 1} :
                       (inst_bxx4 && phb_ena)   ? {{52{b_imm4[12]}} , b_imm4[12:1] << 1} :
+                      (inst_bxx4 &&~phb_ena)   ? 64'd4                                  :
                       inst_jalr4               ? {{52{i_imm4[11]}} , i_imm4[11:0]}      :
                       (rst ===`ysyx22040228_RSTENA) ?               `ysyx22040228_THISPC:
                                                                     64'hf               ; 
@@ -158,10 +166,10 @@ module PC (
     wire   jump_ena2 ;
     wire   jump_ena3 ;
     wire   jump_ena4 ;
-    assign jump_ena1 = inst_jal1 | (inst_bxx1 && phb_ena) | inst_jalr1 ;
-    assign jump_ena2 = inst_jal2 | (inst_bxx2 && phb_ena) | inst_jalr2 ;
-    assign jump_ena3 = inst_jal3 | (inst_bxx3 && phb_ena) | inst_jalr3 ;
-    assign jump_ena4 = inst_jal4 | (inst_bxx4 && phb_ena) | inst_jalr4 ;
+    assign jump_ena1 = inst_jal1 | (inst_bxx1) | inst_jalr1 ;
+    assign jump_ena2 = inst_jal2 | (inst_bxx2) | inst_jalr2 ;
+    assign jump_ena3 = inst_jal3 | (inst_bxx3) | inst_jalr3 ;
+    assign jump_ena4 = inst_jal4 | (inst_bxx4) | inst_jalr4 ;
 
    // wire  [3:0]  if_thispcj ;
     assign       if_thispcj = jump_ena1 ? 4'b1110 :
@@ -187,8 +195,9 @@ module PC (
                                   (pc[3:0] == 8)  ? 5'd8  :
                                   (pc[3:0] == 12) ? 5'd4  :
                                                     5'd0  ; 
-    wire  [`ysyx22040228_PCBUS]   pc_jnxtpc_temp ;
-    assign      pc_jnxtpc_temp  = ((inst_bxx1 && ~phb_ena) | (inst_bxx2 && ~phb_ena) | (inst_bxx3 && ~phb_ena) | (inst_bxx4 && ~phb_ena)) ? pc + {58'h0, pc_nextpc_temp}               :  
+
+    wire  [`ysyx22040228_PCBUS]   pc_jnxtpc_temp ; 
+    assign      pc_jnxtpc_temp  = ((inst_bxx1 && ~phb_ena) | (inst_bxx2 && ~phb_ena) | (inst_bxx3 && ~phb_ena) | (inst_bxx4 && ~phb_ena)) ? forc_jumppc                                :  
                                   (jump_ena1 | jump_ena2 | jump_ena3 | jump_ena4)                                                         ? forc_jumppc : pc + {58'h0, pc_nextpc_temp} ;
 
     wire cache_ready = ~cache_un_ready;

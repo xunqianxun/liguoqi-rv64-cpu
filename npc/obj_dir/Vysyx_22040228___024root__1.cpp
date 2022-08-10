@@ -4758,12 +4758,14 @@ VL_INLINE_OPT void Vysyx_22040228___024root___combo__TOP__4(Vysyx_22040228___024
                                            & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_ena)) 
                                           & (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_pc 
                                              < vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_pc)) 
-                                         | ((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_addr) 
-                                              == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_ref_op1addr)) 
-                                             & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_ena)) 
-                                            & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_so_type) 
-                                               | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_so_type) 
-                                                  >> 1U)))))));
+                                         | (((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_addr) 
+                                               == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_ref_op1addr)) 
+                                              & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_ena)) 
+                                             & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_so_type) 
+                                                | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_so_type) 
+                                                   >> 1U))) 
+                                            & (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_pc 
+                                               < vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_pc))))));
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudt2_stop_war 
         = ((((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__reg_exe_name
               [0U] == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_ref_op2addr)) 
@@ -4783,12 +4785,14 @@ VL_INLINE_OPT void Vysyx_22040228___024root___combo__TOP__4(Vysyx_22040228___024
                                            & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_ena)) 
                                           & (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_pc 
                                              < vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_pc)) 
-                                         | ((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_addr) 
-                                              == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_ref_op2addr)) 
-                                             & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_ena)) 
-                                            & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_so_type) 
-                                               | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_so_type) 
-                                                  >> 1U)))))));
+                                         | (((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_addr) 
+                                               == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_ref_op2addr)) 
+                                              & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_ena)) 
+                                             & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_so_type) 
+                                                | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_so_type) 
+                                                   >> 1U))) 
+                                            & (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_pc 
+                                               < vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_pc))))));
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo_stop_trap 
         = ((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_so_type) 
              >> 5U) & ((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy
@@ -4859,12 +4863,14 @@ VL_INLINE_OPT void Vysyx_22040228___024root___combo__TOP__4(Vysyx_22040228___024
                                            & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_ena)) 
                                           & (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_pc 
                                              > vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_pc)) 
-                                         | ((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_addr) 
-                                              == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_ref_op1addr)) 
-                                             & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_ena)) 
-                                            & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_so_type) 
-                                               | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_so_type) 
-                                                  >> 1U)))))));
+                                         | (((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_addr) 
+                                               == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_ref_op1addr)) 
+                                              & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_ena)) 
+                                             & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_so_type) 
+                                                | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_so_type) 
+                                                   >> 1U))) 
+                                            & (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_pc 
+                                               > vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_pc))))));
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo2_stop_war 
         = ((((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__reg_exe_name
               [0U] == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_ref_op2addr)) 
@@ -4884,12 +4890,14 @@ VL_INLINE_OPT void Vysyx_22040228___024root___combo__TOP__4(Vysyx_22040228___024
                                            & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_ena)) 
                                           & (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_pc 
                                              > vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_pc)) 
-                                         | ((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_addr) 
-                                              == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_ref_op2addr)) 
-                                             & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_ena)) 
-                                            & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_so_type) 
-                                               | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_so_type) 
-                                                  >> 1U)))))));
+                                         | (((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_addr) 
+                                               == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_ref_op2addr)) 
+                                              & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_ena)) 
+                                             & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_so_type) 
+                                                | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_so_type) 
+                                                   >> 1U))) 
+                                            & (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_pc 
+                                               > vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_pc))))));
     vlSelf->out_addr_outp = ((IData)(vlSelf->ysyx_22040228__DOT__axi_mnq4__DOT__ar_shankhand)
                               ? (((QData)((IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_addr[5U])) 
                                   << 0x20U) | (QData)((IData)(

@@ -139,11 +139,9 @@ module socreboard (
     assign shoud_nop_de1   = shoudt_stop_trap ;
     assign shoud_nop_de2   = shoudo_stop_trap ;
 
-    assign de_ex_cleano     = type_needstop1[3] && type_needstop2[3] && (decode1_pc > decode2_pc) ? 1'b1        :
-                              type_needstop1[3] && (decode1_pc < decode2_pc)                      ? 1'b1 : 1'b0 ;
+    assign de_ex_cleano     = (type_needstop1[3] && (decode1_pc < decode2_pc))                      ? 1'b1 : 1'b0 ;
 
-    assign de_ex_cleant     = type_needstop2[3] && type_needstop1[3] && (decode1_pc < decode2_pc) ? 1'b1        :
-                              type_needstop2[3] && (decode1_pc > decode2_pc)                      ? 1'b1 : 1'b0 ;
+    assign de_ex_cleant     = (type_needstop2[3] && (decode1_pc > decode2_pc))                      ? 1'b1 : 1'b0 ;
 
     assign decode1_launch   = shoudo_stop_waw | shoudo1_stop_war | shoudo2_stop_war | shoudo_stop_hard | shoudo_stop_ctrl | shoudo_stop_trap;
     assign decode2_launch   = shoudt_stop_waw | shoudt1_stop_war | shoudt2_stop_war | shoudt_stop_hard | shoudt_stop_ctrl | shoudt_stop_trap;
