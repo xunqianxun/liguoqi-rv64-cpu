@@ -78,13 +78,13 @@ end
 
 always@(posedge clk)begin
     if(commit_inst1 == `EBREAK_TRAP) begin
-        difftest_dut_pc(commit_pc1, commit_data1, 1'b1,diff_ena );   
+        difftest_dut_pc(commit_pc1, commit_data1, 1'b1, diff_ena );   
     end 
     else if(commit_inst2 == `EBREAK_TRAP) begin
-        difftest_dut_pc(commit_pc2, commit_data2, 1'b1,diff_ena );   
+        difftest_dut_pc(commit_pc2, commit_data2, 1'b1, diff_ena );   
     end   
     else begin
-        difftest_dut_pc(`ysyx22040228_ZEROWORD, `ysyx22040228_ZEROWORD, 1'b0,diff_ena ); 
+        difftest_dut_pc(old_ready[63:0], `ysyx22040228_ZEROWORD, 1'b0, diff_ena ); 
     end 
 end 
 
