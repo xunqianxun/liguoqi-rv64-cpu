@@ -6030,8 +6030,8 @@ VL_INLINE_OPT void Vysyx_22040228___024root___combo__TOP__4(Vysyx_22040228___024
     }
 }
 
+void Vysyx_22040228___024root___sequent__TOP__1(Vysyx_22040228___024root* vlSelf);
 void Vysyx_22040228___024root___sequent__TOP__2(Vysyx_22040228___024root* vlSelf);
-void Vysyx_22040228___024root___sequent__TOP__3(Vysyx_22040228___024root* vlSelf);
 
 void Vysyx_22040228___024root___eval(Vysyx_22040228___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
@@ -6039,9 +6039,9 @@ void Vysyx_22040228___024root___eval(Vysyx_22040228___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vysyx_22040228___024root___eval\n"); );
     // Body
     if (((IData)(vlSelf->clk) & (~ (IData)(vlSelf->__Vclklast__TOP__clk)))) {
-        Vysyx_22040228___024root___sequent__TOP__2(vlSelf);
+        Vysyx_22040228___024root___sequent__TOP__1(vlSelf);
         vlSelf->__Vm_traceActivity[1U] = 1U;
-        Vysyx_22040228___024root___sequent__TOP__3(vlSelf);
+        Vysyx_22040228___024root___sequent__TOP__2(vlSelf);
     }
     Vysyx_22040228___024root___combo__TOP__4(vlSelf);
     vlSelf->__Vm_traceActivity[2U] = 1U;
