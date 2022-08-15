@@ -324,7 +324,12 @@ end
     reg [63+3:0] old_ready ;
     reg          diff_ena  ;
     always @(*) begin
-        if((commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD) && (commit_validbuff[7]))  begin
+        if(rst == `ysyx22040228_RSTENA) begin
+            old_ready = 67'h0            ;
+            clean_submcont = 8'b00000000 ;
+            diff_ena       = 1'b0        ;
+        end 
+        else if((commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD) && (commit_validbuff[7]))  begin
             old_ready = commit_pcbuff[7] ;
             clean_submcont = 8'b00000001 ;
             diff_ena  = 1'b1             ;
