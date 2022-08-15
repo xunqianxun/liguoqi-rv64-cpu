@@ -45,12 +45,47 @@ module decode1 (
     //regfile(wbm)
     input       wire                                                           wb1_rd_ena          ,
     input       wire         [`ysyx22040228_REGADDRBUS]                        wb1_rd_addr         ,
+    input       wire         [`ysyx22040228_DATABUS]                           wb1_rd_data         ,
 
     input       wire                                                           wb2_rd_ena          ,
     input       wire         [`ysyx22040228_REGADDRBUS]                        wb2_rd_addr         ,
+    input       wire         [`ysyx22040228_DATABUS]                           wb2_rd_data         ,
 
     input       wire                                                           wb3_rd_ena          ,
     input       wire         [`ysyx22040228_REGADDRBUS]                        wb3_rd_addr         ,
+    input       wire         [`ysyx22040228_DATABUS]                           wb3_rd_data         ,
+
+    input       wire                                                           commit1_ena         ,
+    input       wire         [`ysyx22040228_REGADDRBUS]                        commit1_addr        ,
+    input       wire         [`ysyx22040228_DATABUS]                           commit1_data        ,
+
+    input       wire                                                           commit2_ena         ,
+    input       wire         [`ysyx22040228_REGADDRBUS]                        commit2_addr        ,
+    input       wire         [`ysyx22040228_DATABUS]                           commit2_data        ,
+
+    input       wire                                                           commit3_ena         ,
+    input       wire         [`ysyx22040228_REGADDRBUS]                        commit3_addr        ,
+    input       wire         [`ysyx22040228_DATABUS]                           commit3_data        ,
+
+    input       wire                                                           commit4_ena         ,
+    input       wire         [`ysyx22040228_REGADDRBUS]                        commit4_addr        ,
+    input       wire         [`ysyx22040228_DATABUS]                           commit4_data        ,    
+
+    input       wire                                                           commit5_ena         ,
+    input       wire         [`ysyx22040228_REGADDRBUS]                        commit5_addr        ,
+    input       wire         [`ysyx22040228_DATABUS]                           commit5_data        ,
+
+    input       wire                                                           commit6_ena         ,
+    input       wire         [`ysyx22040228_REGADDRBUS]                        commit6_addr        ,
+    input       wire         [`ysyx22040228_DATABUS]                           commit6_data        ,
+
+    input       wire                                                           commit7_ena         ,
+    input       wire         [`ysyx22040228_REGADDRBUS]                        commit7_addr        ,
+    input       wire         [`ysyx22040228_DATABUS]                           commit7_data        ,
+
+    input       wire                                                           commit8_ena         ,
+    input       wire         [`ysyx22040228_REGADDRBUS]                        commit8_addr        ,
+    input       wire         [`ysyx22040228_DATABUS]                           commit8_data        , 
     //id_exe
     output      wire         [7:0]                                             inst_type           ,
     output      wire         [7:0]                                             inst_opcode         ,
@@ -223,6 +258,17 @@ assign mem_op_sel = (rst == `ysyx22040228_RSTENA) ? 3'b000 : funct3 ;
 //data hazard
 wire alu1_op1 ;
 wire alu2_op1 ;
+wire com1_op1 ;
+wire com2_op1 ;
+wire com3_op1 ;
+wire com4_op1 ;
+wire com5_op1 ;
+wire com6_op1 ;
+wire com7_op1 ;
+wire com8_op1 ;
+wire wb1_op1  ;
+wire wb2_op1  ;
+wire wb3_op1  ;
 wire opselcet1;
 wire opselcet2;
 wire mem_op1  ; 
@@ -231,10 +277,21 @@ wire mem_select2;
 assign opselcet1 = (alu1_pc > alu2_pc) && (alu1_op1 && alu2_op1);
 assign opselcet2 = (alu1_pc < alu2_pc) && (alu1_op1 && alu2_op1);
 assign alu1_op1  = (alu1_rd_addr == op1_addr_o) && alu1_rd_ena  ;
-assign alu2_op1  = (alu2_rd_addr == op1_addr_o) && alu2_rd_ena  ; 
-assign mem_op1    = (mem_rd_addr == op1_addr_o) && mem_rd_ena      ;
-assign mem_select1= (mem_pc < alu1_pc) && (alu1_op1 && mem_op1)    ;
-assign mem_select2= (mem_pc < alu2_pc) && (alu2_op1 && mem_op1)    ;
+assign alu2_op1  = (alu2_rd_addr == op1_addr_o) && alu2_rd_ena  ;
+assign com1_op1  = (commit1_addr == op1_addr_o) && commit1_ena  ;
+assign com2_op1  = (commit2_addr == op1_addr_o) && commit2_ena  ;
+assign com3_op1  = (commit3_addr == op1_addr_o) && commit3_ena  ;
+assign com4_op1  = (commit4_addr == op1_addr_o) && commit4_ena  ;
+assign com5_op1  = (commit5_addr == op1_addr_o) && commit5_ena  ;
+assign com6_op1  = (commit6_addr == op1_addr_o) && commit6_ena  ;
+assign com7_op1  = (commit7_addr == op1_addr_o) && commit7_ena  ;
+assign com8_op1  = (commit8_addr == op1_addr_o) && commit8_ena  ;
+assign wb1_op1   = (wb1_rd_addr  == op1_addr_o) && wb1_rd_ena   ;
+assign wb2_op1   = (wb2_rd_addr  == op1_addr_o) && wb2_rd_ena   ;
+assign wb3_op1   = (wb3_rd_addr  == op1_addr_o) && wb3_rd_ena   ;
+assign mem_op1    = (mem_rd_addr == op1_addr_o) && mem_rd_ena   ;
+assign mem_select1= (mem_pc < alu1_pc) && (alu1_op1 && mem_op1) ;
+assign mem_select2= (mem_pc < alu2_pc) && (alu2_op1 && mem_op1) ;
 
 always @(*) begin
   if(rst == `ysyx22040228_RSTENA)      begin op1_o = `ysyx22040228_ZEROWORD; end 
@@ -245,6 +302,17 @@ always @(*) begin
     else if(alu1_op1 | mem_select1)    begin op1_o = alu1_rd_data   ;   end 
     else if(alu2_op1 | mem_select2)    begin op1_o = alu2_rd_data   ;   end     
     else if(mem_op1)                   begin op1_o = mem_rd_data    ;   end
+    else if(wb1_op1)                   begin op1_o = wb1_rd_data    ;   end 
+    else if(wb2_op1)                   begin op1_o = wb2_rd_data    ;   end 
+    else if(wb3_op1)                   begin op1_o = wb3_rd_data    ;   end 
+    else if(com8_op1)                  begin op1_o = commit8_data   ;   end 
+    else if(com7_op1)                  begin op1_o = commit7_data   ;   end 
+    else if(com6_op1)                  begin op1_o = commit6_data   ;   end 
+    else if(com5_op1)                  begin op1_o = commit5_data   ;   end 
+    else if(com4_op1)                  begin op1_o = commit4_data   ;   end 
+    else if(com3_op1)                  begin op1_o = commit3_data   ;   end 
+    else if(com2_op1)                  begin op1_o = commit2_data   ;   end 
+    else if(com1_op1)                  begin op1_o = commit1_data   ;   end 
     else                               begin op1_o = op1_data_i     ;   end 
   end
   else if(inst_auipc|inst_jal)         begin op1_o = pc_i             ;   end
@@ -254,6 +322,17 @@ end
 
 wire alu1_op2 ;
 wire alu2_op2 ;
+wire com1_op2 ;
+wire com2_op2 ;
+wire com3_op2 ;
+wire com4_op2 ;
+wire com5_op2 ;
+wire com6_op2 ;
+wire com7_op2 ;
+wire com8_op2 ;
+wire wb1_op2  ;
+wire wb2_op2  ;
+wire wb3_op2  ;
 wire opselceto;
 wire opselcett;
 wire mem_op2  ; 
@@ -263,9 +342,20 @@ assign opselceto = (alu1_pc > alu2_pc) && (alu1_op2 && alu2_op2);
 assign opselcett = (alu1_pc < alu2_pc) && (alu1_op2 && alu2_op2);
 assign alu1_op2  = (alu1_rd_addr == op2_addr_o) && alu1_rd_ena  ;
 assign alu2_op2  = (alu2_rd_addr == op2_addr_o) && alu2_rd_ena  ; 
-assign mem_op2    = (mem_rd_addr == op2_addr_o) && mem_rd_ena      ;
-assign mem_selecto= (mem_pc < alu1_pc) && (alu1_op2 && mem_op2)    ;
-assign mem_selectt= (mem_pc < alu2_pc) && (alu2_op2 && mem_op2)    ;
+assign com1_op2  = (commit1_addr == op2_addr_o) && commit1_ena  ;
+assign com2_op2  = (commit2_addr == op2_addr_o) && commit2_ena  ;
+assign com3_op2  = (commit3_addr == op2_addr_o) && commit3_ena  ;
+assign com4_op2  = (commit4_addr == op2_addr_o) && commit4_ena  ;
+assign com5_op2  = (commit5_addr == op2_addr_o) && commit5_ena  ;
+assign com6_op2  = (commit6_addr == op2_addr_o) && commit6_ena  ;
+assign com7_op2  = (commit7_addr == op2_addr_o) && commit7_ena  ;
+assign com8_op2  = (commit8_addr == op2_addr_o) && commit8_ena  ;
+assign wb1_op2   = (wb1_rd_addr  == op2_addr_o) && wb1_rd_ena   ;
+assign wb2_op2   = (wb2_rd_addr  == op2_addr_o) && wb2_rd_ena   ;
+assign wb3_op2   = (wb3_rd_addr  == op2_addr_o) && wb3_rd_ena   ;
+assign mem_op2    = (mem_rd_addr == op2_addr_o) && mem_rd_ena   ;
+assign mem_selecto= (mem_pc < alu1_pc) && (alu1_op2 && mem_op2) ;
+assign mem_selectt= (mem_pc < alu2_pc) && (alu2_op2 && mem_op2) ;
 
 always @(*) begin
   if(rst == `ysyx22040228_RSTENA) begin op2_o = `ysyx22040228_ZEROWORD; end 
@@ -276,6 +366,17 @@ always @(*) begin
     else if(alu1_op2 | mem_selecto)    begin op2_o = alu1_rd_data   ;   end 
     else if(alu2_op2 | mem_selectt)    begin op2_o = alu2_rd_data   ;   end     
     else if(mem_op2)                   begin op2_o = mem_rd_data    ;   end
+    else if(wb1_op2)                   begin op2_o = wb1_rd_data    ;   end 
+    else if(wb2_op2)                   begin op2_o = wb1_rd_data    ;   end 
+    else if(wb2_op2)                   begin op2_o = wb1_rd_data    ;   end 
+    else if(com8_op2)                  begin op2_o = commit8_data   ;   end 
+    else if(com7_op2)                  begin op2_o = commit7_data   ;   end 
+    else if(com6_op2)                  begin op2_o = commit6_data   ;   end 
+    else if(com5_op2)                  begin op2_o = commit5_data   ;   end 
+    else if(com4_op2)                  begin op2_o = commit4_data   ;   end 
+    else if(com3_op2)                  begin op2_o = commit3_data   ;   end 
+    else if(com2_op2)                  begin op2_o = commit2_data   ;   end 
+    else if(com1_op2)                  begin op2_o = commit1_data   ;   end 
     else                               begin op2_o = op2_data_i     ;   end
   end
   else if(inst_type[4] |inst_type[5] |inst_type[7]) begin op2_o = {{52{imm[11]}},imm}     ; end
@@ -284,12 +385,6 @@ always @(*) begin
   else                                              begin op2_o = `ysyx22040228_ZEROWORD  ; end    
 end
 
-wire wb1_op1 ;
-wire wb2_op1 ;
-wire wb3_op1 ;
-assign wb1_op1 = (wb1_rd_addr == op1_addr_o) && wb1_rd_ena ;
-assign wb2_op1 = (wb2_rd_addr == op1_addr_o) && wb2_rd_ena ;
-assign wb3_op1 = (wb3_rd_addr == op1_addr_o) && wb3_rd_ena ;
 assign decode1_addr = inst_i[5:2]                         ;
 reg                forcast_state                          ;
 reg                data_jf                                ;
@@ -319,7 +414,7 @@ assign branch_pc     = (forcast_state == 1'b1) ? (phb_data ? pc_i + 64'd4 : ({{5
                                                                                                    `ysyx22040228_ZEROWORD  ;
 
 wire [`ysyx22040228_PCBUS] jalr_pc_temp = {{52{imm[11]}} , imm} + op1_o ;
-wire predict_success = ~alu1_op1 & ~alu2_op1 & ~mem_op1 & ~wb1_op1 & ~wb2_op1 & ~wb3_op1;
+wire predict_success = ~alu1_op1 & ~alu2_op1 & ~mem_op1 & ~wb1_op1 & ~wb2_op1 & ~wb3_op1 & ~com1_op1 & ~com2_op1 & ~com3_op1 & ~com4_op1 & ~com5_op1 & ~com6_op1 & ~com7_op1 & ~com8_op1;
 
 assign jalr_pc_ena = (rst == `ysyx22040228_RSTENA) ? 0 : inst_jalr && ~predict_success ;
 assign jalr_pc     = inst_jalr ? {jalr_pc_temp[63:1] , 1'b0 & jalr_pc_temp[0]} : `ysyx22040228_ZEROWORD ;

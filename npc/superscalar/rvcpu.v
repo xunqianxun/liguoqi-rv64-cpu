@@ -192,12 +192,47 @@ module rvcpu (
     //regfile(wbm)
     .wb1_rd_ena      (s_r_ao_ena      ),
     .wb1_rd_addr     (s_r_ao_addr     ),
+    .wb1_rd_data     (s_r_ao_dara     ),
 
     .wb2_rd_ena      (s_r_at_ena      ),
     .wb2_rd_addr     (s_r_at_addr     ),
+    .wb2_rd_data     (s_r_at_dara     ),
 
     .wb3_rd_ena      (s_r_mm_ena      ),
     .wb3_rd_addr     (s_r_mm_addr     ),
+    .wb3_rd_data     (s_r_mm_dara     ),
+
+    .commit1_ena     (comt_de_ena0    ),
+    .commit1_addr    (comt_de_addr0   ),
+    .commit1_data    (comt_de_data0   ),
+
+    .commit2_ena     (comt_de_ena1    ),
+    .commit2_addr    (comt_de_addr1   ),
+    .commit2_data    (comt_de_data1   ),
+
+    .commit3_ena     (comt_de_ena2    ),
+    .commit3_addr    (comt_de_addr2   ),
+    .commit3_data    (comt_de_data2   ),
+
+    .commit4_ena     (comt_de_ena3    ),
+    .commit4_addr    (comt_de_addr3   ),
+    .commit4_data    (comt_de_data3   ), 
+
+    .commit5_ena     (comt_de_ena4    ),
+    .commit5_addr    (comt_de_addr4   ),
+    .commit5_data    (comt_de_data4   ),
+
+    .commit6_ena     (comt_de_ena5   ),
+    .commit6_addr    (comt_de_addr5  ),
+    .commit6_data    (comt_de_data5  ),
+
+    .commit7_ena     (comt_de_ena6   ),
+    .commit7_addr    (comt_de_addr6  ),
+    .commit7_data    (comt_de_data6  ),
+
+    .commit8_ena     (comt_de_ena7   ),
+    .commit8_addr    (comt_de_addr7  ),
+    .commit8_data    (comt_de_data7  ),
 
     //id_exe
     .inst_type       (de1_deex_type   ),
@@ -278,12 +313,47 @@ module rvcpu (
     //regfile(wbm)
     .wb1_rd_ena      (s_r_ao_ena      ),
     .wb1_rd_addr     (s_r_ao_addr     ),
+    .wb1_rd_data     (s_r_ao_dara     ),
 
     .wb2_rd_ena      (s_r_at_ena      ),
     .wb2_rd_addr     (s_r_at_addr     ),
+    .wb2_rd_data     (s_r_at_dara     ),
 
     .wb3_rd_ena      (s_r_mm_ena      ),
     .wb3_rd_addr     (s_r_mm_addr     ),
+    .wb3_rd_data     (s_r_mm_dara     ),
+
+    .commit1_ena     (comt_de_ena0    ),
+    .commit1_addr    (comt_de_addr0   ),
+    .commit1_data    (comt_de_data0   ),
+
+    .commit2_ena     (comt_de_ena1    ),
+    .commit2_addr    (comt_de_addr1   ),
+    .commit2_data    (comt_de_data1   ),
+
+    .commit3_ena     (comt_de_ena2    ),
+    .commit3_addr    (comt_de_addr2   ),
+    .commit3_data    (comt_de_data2   ),
+
+    .commit4_ena     (comt_de_ena3    ),
+    .commit4_addr    (comt_de_addr3   ),
+    .commit4_data    (comt_de_data3   ), 
+
+    .commit5_ena     (comt_de_ena4    ),
+    .commit5_addr    (comt_de_addr4   ),
+    .commit5_data    (comt_de_data4   ),
+
+    .commit6_ena     (comt_de_ena5   ),
+    .commit6_addr    (comt_de_addr5  ),
+    .commit6_data    (comt_de_data5  ),
+
+    .commit7_ena     (comt_de_ena6   ),
+    .commit7_addr    (comt_de_addr6  ),
+    .commit7_data    (comt_de_data6  ),
+
+    .commit8_ena     (comt_de_ena7   ),
+    .commit8_addr    (comt_de_addr7  ),
+    .commit8_data    (comt_de_data7  ),
     //id_exe
     .inst_type       (de2_deex_type   ),
     .inst_opcode     (de2_deex_opcode ),
@@ -302,8 +372,8 @@ module rvcpu (
     .jump_ena        (de2_phb_ena     ),
 
     // to pc and if_id
-    .jump_pc_ena     (jump2_ena      ),
-    .jump_pc         (jump2_pc       )
+    .jump_pc_ena     (jump2_ena       ),
+    .jump_pc         (jump2_pc        )
     );
 
     //about socreboard
@@ -559,18 +629,23 @@ module rvcpu (
     );
 
     //about ex_submint
+    wire    [`ysyx22040228_PCBUS]      s_r_ao_pc     ;
     wire    [`ysyx22040228_REGBUS]     s_r_ao_dara   ;
     wire    [`ysyx22040228_REGADDRBUS] s_r_ao_addr   ;
+    wire    [`ysyx22040228_INSTBUS]    s_r_ao_inst   ;
     wire                               s_r_ao_ena    ;
+    wire    [`ysyx22040228_PCBUS]      s_r_at_pc     ;
     wire    [`ysyx22040228_REGBUS]     s_r_at_dara   ;
     wire    [`ysyx22040228_REGADDRBUS] s_r_at_addr   ;
+    wire    [`ysyx22040228_INSTBUS]    s_r_at_inst   ;
     wire                               s_r_at_ena    ;
+    wire    [`ysyx22040228_PCBUS]      s_r_mm_pc     ;
     wire    [`ysyx22040228_REGBUS]     s_r_mm_dara   ;
     wire    [`ysyx22040228_REGADDRBUS] s_r_mm_addr   ;
     wire                               s_r_mm_ena    ;
     ex_submit es(
-    .clk             (clk            ),
-    .rst             (rst            ),
+    .clk             (clk           ),
+    .rst             (rst           ),
      
     .socreboard_pc   (so_submit_pc  ),
 
@@ -590,18 +665,118 @@ module rvcpu (
     .mm_addr_in      (mm_su_addr    ),
     .mm_pc_in        (mm_su_pc      ),
     .mm_ena_in       (mm_su_ena     ),
-
+ 
+    .ao_pc_out       (s_r_ao_pc     ),
     .ao_data_out     (s_r_ao_dara   ),
     .ao_addr_out     (s_r_ao_addr   ),
+    .ao_inst_out     (s_r_ao_inst   ),
     .ao_ena_out      (s_r_ao_ena    ),
 
+    .at_pc_out       (s_r_at_pc     ),
     .at_data_out     (s_r_at_dara   ),
     .at_addr_out     (s_r_at_addr   ),
+    .at_inst_out     (s_r_at_inst   ),
     .at_ena_out      (s_r_at_ena    ),
 
+    .mm_pc_out       (s_r_mm_pc     ),
     .mm_data_out     (s_r_mm_dara   ),
     .mm_addr_out     (s_r_mm_addr   ),
     .mm_ena_out      (s_r_mm_ena    )
+    );
+
+    //about commit
+    wire  [`ysyx22040228_DATABUS]    comt_de_data0 ;
+    wire  [`ysyx22040228_REGADDRBUS] comt_de_addr0 ;
+    wire                             comt_de_ena0  ;
+    wire  [`ysyx22040228_DATABUS]    comt_de_data1 ;
+    wire  [`ysyx22040228_REGADDRBUS] comt_de_addr1 ;
+    wire                             comt_de_ena1  ;
+    wire  [`ysyx22040228_DATABUS]    comt_de_data2 ;
+    wire  [`ysyx22040228_REGADDRBUS] comt_de_addr2 ;
+    wire                             comt_de_ena2  ;    
+    wire  [`ysyx22040228_DATABUS]    comt_de_data3 ;
+    wire  [`ysyx22040228_REGADDRBUS] comt_de_addr3 ;
+    wire                             comt_de_ena3  ;
+    wire  [`ysyx22040228_DATABUS]    comt_de_data4 ;
+    wire  [`ysyx22040228_REGADDRBUS] comt_de_addr4 ;
+    wire                             comt_de_ena4  ;
+    wire  [`ysyx22040228_DATABUS]    comt_de_data5 ;
+    wire  [`ysyx22040228_REGADDRBUS] comt_de_addr5 ;
+    wire                             comt_de_ena5  ;
+    wire  [`ysyx22040228_DATABUS]    comt_de_data6 ;
+    wire  [`ysyx22040228_REGADDRBUS] comt_de_addr6 ;
+    wire                             comt_de_ena6  ;
+    wire  [`ysyx22040228_DATABUS]    comt_de_data7 ;
+    wire  [`ysyx22040228_REGADDRBUS] comt_de_addr7 ;
+    wire                             comt_de_ena7  ;
+
+    wire  [`ysyx22040228_DATABUS]    comt_de_datag ;
+    wire  [`ysyx22040228_REGADDRBUS] comt_de_addrg ;
+    wire                             comt_de_enag  ;
+
+
+    commit commit_u(
+    .clk              (clk          ),
+    .rst              (rst          ),
+    .decode1_counter  (so_idex_chose1),
+    .decode1_clean    (so_idex_cleano),
+    .decode1_pc       (de1_deex_pc  ),
+    .decode2_counter  (so_idex_chose2),
+    .decode2_clean    (so_idex_cleant),
+    .decode2_pc       (de2_deex_pc  ),
+
+    .commit_pc1       (s_r_ao_pc   ),
+    .commit_inst1     (s_r_ao_inst ),
+    .commit_addr1     (s_r_ao_addr ),
+    .commit_data1     (s_r_ao_dara ),
+    .commit_ena1      (s_r_ao_ena  ),
+
+    .commit_pc2       (s_r_at_pc   ),
+    .commit_inst2     (s_r_at_inst ),
+    .commit_addr2     (s_r_at_addr ), 
+    .commit_data2     (s_r_at_dara ),
+    .commit_ena2      (s_r_at_ena  ),
+
+    .commit_pc3       (s_r_mm_pc   ),
+    .commit_addr3     (s_r_mm_addr ),
+    .commit_data3     (s_r_mm_dara ),
+    .commit_ena3      (s_r_mm_ena  ),
+
+    .subm_wbena       (comt_de_enag ),
+    .subm_wbaddr      (comt_de_addrg),
+    .subm_wbdata      (comt_de_datag),
+
+    .comt_addr0       (comt_de_addr0),
+    .comt_data0       (comt_de_data0),
+    .comt_ena0        (comt_de_ena0 ),
+
+    .comt_addr1       (comt_de_addr1),
+    .comt_data1       (comt_de_data1),
+    .comt_ena1        (comt_de_ena1 ),
+
+    .comt_addr2       (comt_de_addr2),
+    .comt_data2       (comt_de_data2),
+    .comt_ena2        (comt_de_ena2 ),
+
+    .comt_addr3       (comt_de_addr3),
+    .comt_data3       (comt_de_data3),
+    .comt_ena3        (comt_de_ena3 ),
+
+    .comt_addr4       (comt_de_addr4),
+    .comt_data4       (comt_de_data4),
+    .comt_ena4        (comt_de_ena4 ),
+
+    .comt_addr5       (comt_de_addr5),
+    .comt_data5       (comt_de_data5),
+    .comt_ena5        (comt_de_ena5 ),
+
+    .comt_addr6       (comt_de_addr6),
+    .comt_data6       (comt_de_data6),
+    .comt_ena6        (comt_de_ena6 ),
+
+    .comt_addr7       (comt_de_addr7),
+    .comt_data7       (comt_de_data7),
+    .comt_ena7        (comt_de_ena7 ) 
     );
 
     //about regsfilr 
@@ -614,17 +789,9 @@ module rvcpu (
 	.clk             (clk           ),
 	.rst             (rst           ),
 
-	.waddr1          (s_r_ao_addr   ),
-	.wdata1          (s_r_ao_dara   ),
-	.we1             (s_r_ao_ena    ),
-
-	.waddr2          (s_r_at_addr   ),
-	.wdata2          (s_r_at_dara   ),
-	.we2             (s_r_at_ena    ),  
-
-	.waddr3          (s_r_mm_addr   ),
-	.wdata3          (s_r_mm_dara   ),
-	.we3             (s_r_mm_ena    ),  
+	.waddr           (comt_de_addrg ),
+	.wdata           (comt_de_datag ),
+	.we              (comt_de_enag  ), 
 
 	.raddr1_1        (de1_ref_op1addr),
 	.rdata1_1        (regs11_out_data),
