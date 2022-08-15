@@ -83,6 +83,9 @@ always@(posedge clk)begin
     else if(commit_inst2 == `EBREAK_TRAP) begin
         difftest_dut_pc(commit_pc2, commit_data2, 1'b1,diff_ena );   
     end   
+    else begin
+        difftest_dut_pc(`ysyx22040228_ZEROWORD, `ysyx22040228_ZEROWORD, 1'b0,diff_ena ); 
+    end 
 end 
 
     reg  [63+3:0]                   commit_pcbuff    [7:0] ;
@@ -167,157 +170,175 @@ end
     end
 
     always @(posedge clk) begin
-        commit_validbuff [0] <= ~clean_submcont[0] & commit_validbuff [0] ; 
-        commit_validbuff [1] <= ~clean_submcont[1] & commit_validbuff [1] ; 
-        commit_validbuff [2] <= ~clean_submcont[2] & commit_validbuff [2] ; 
-        commit_validbuff [3] <= ~clean_submcont[3] & commit_validbuff [3] ; 
-        commit_validbuff [4] <= ~clean_submcont[4] & commit_validbuff [4] ; 
-        commit_validbuff [5] <= ~clean_submcont[5] & commit_validbuff [5] ; 
-        commit_validbuff [6] <= ~clean_submcont[6] & commit_validbuff [6] ; 
-        commit_validbuff [7] <= ~clean_submcont[7] & commit_validbuff [7] ; 
-        if(commit_pc1 == commit_pcbuff[0][63:0]) begin
-            commit_validbuff[0] <= 1'b1         ;
-            commit_enabuff  [0] <= commit_ena1  ;
-            commit_databuff [0] <= commit_data1 ;
-            commit_addrbuff [0] <= commit_addr1 ;
+        if(rst == `ysyx22040228_RSTENA) begin
+            commit_validbuff [0] <= 1'b0 ; 
+            commit_validbuff [1] <= 1'b0 ; 
+            commit_validbuff [2] <= 1'b0 ; 
+            commit_validbuff [3] <= 1'b0 ; 
+            commit_validbuff [4] <= 1'b0 ; 
+            commit_validbuff [5] <= 1'b0 ; 
+            commit_validbuff [6] <= 1'b0 ; 
+            commit_validbuff [7] <= 1'b0 ;
         end 
-        if(commit_pc1 == commit_pcbuff[1][63:0]) begin
-            commit_validbuff[1] <= 1'b1         ;
-            commit_enabuff  [1] <= commit_ena1  ;
-            commit_databuff [1] <= commit_data1 ;
-            commit_addrbuff [1] <= commit_addr1 ;
-        end 
-        if(commit_pc1 == commit_pcbuff[2][63:0]) begin
-            commit_validbuff[2] <= 1'b1         ;
-            commit_enabuff  [2] <= commit_ena1  ;
-            commit_databuff [2] <= commit_data1 ;
-            commit_addrbuff [2] <= commit_addr1 ;
-        end 
-        if(commit_pc1 == commit_pcbuff[3][63:0]) begin
-            commit_validbuff[3] <= 1'b1         ;
-            commit_enabuff  [3] <= commit_ena1  ;
-            commit_databuff [3] <= commit_data1 ;
-            commit_addrbuff [3] <= commit_addr1 ;
-        end 
-        if(commit_pc1 == commit_pcbuff[4][63:0]) begin
-            commit_validbuff[4] <= 1'b1         ;
-            commit_enabuff  [4] <= commit_ena1  ;
-            commit_databuff [4] <= commit_data1 ;
-            commit_addrbuff [4] <= commit_addr1 ;
-        end 
-        if(commit_pc1 == commit_pcbuff[5][63:0]) begin
-            commit_validbuff[5] <= 1'b1         ;
-            commit_enabuff  [5] <= commit_ena1  ;
-            commit_databuff [5] <= commit_data1 ;
-            commit_addrbuff [5] <= commit_addr1 ;
-        end 
-        if(commit_pc1 == commit_pcbuff[6][63:0]) begin
-            commit_validbuff[6] <= 1'b1         ;
-            commit_enabuff  [6] <= commit_ena1  ;
-            commit_databuff [6] <= commit_data1 ;
-            commit_addrbuff [6] <= commit_addr1 ;
-        end 
-        if(commit_pc1 == commit_pcbuff[7][63:0]) begin
-            commit_validbuff[7] <= 1'b1         ;
-            commit_enabuff  [7] <= commit_ena1  ;
-            commit_databuff [7] <= commit_data1 ;
-            commit_addrbuff [7] <= commit_addr1 ;
-        end 
-        if(commit_pc2 == commit_pcbuff[0][63:0]) begin
-            commit_validbuff[0] <= 1'b1         ;
-            commit_enabuff  [0] <= commit_ena2  ;
-            commit_databuff [0] <= commit_data2 ;
-            commit_addrbuff [0] <= commit_addr2 ;
-        end 
-        if(commit_pc2 == commit_pcbuff[1][63:0]) begin
-            commit_validbuff[1] <= 1'b1         ;
-            commit_enabuff  [1] <= commit_ena2  ;
-            commit_databuff [1] <= commit_data2 ;
-            commit_addrbuff [1] <= commit_addr2 ;
-        end 
-        if(commit_pc2 == commit_pcbuff[2][63:0]) begin
-            commit_validbuff[2] <= 1'b1         ;
-            commit_enabuff  [2] <= commit_ena2  ;
-            commit_databuff [2] <= commit_data2 ;
-            commit_addrbuff [2] <= commit_addr2 ;
-        end 
-        if(commit_pc2 == commit_pcbuff[3][63:0]) begin
-            commit_validbuff[3] <= 1'b1         ;
-            commit_enabuff  [3] <= commit_ena2  ;
-            commit_databuff [3] <= commit_data2 ;
-            commit_addrbuff [3] <= commit_addr2 ;
-        end 
-        if(commit_pc2 == commit_pcbuff[4][63:0]) begin
-            commit_validbuff[4] <= 1'b1         ;
-            commit_enabuff  [4] <= commit_ena2  ;
-            commit_databuff [4] <= commit_data2 ;
-            commit_addrbuff [4] <= commit_addr2 ;
-        end 
-        if(commit_pc2 == commit_pcbuff[5][63:0]) begin
-            commit_validbuff[5] <= 1'b1         ;
-            commit_enabuff  [5] <= commit_ena2  ;
-            commit_databuff [5] <= commit_data2 ;
-            commit_addrbuff [5] <= commit_addr2 ;
-        end 
-        if(commit_pc2 == commit_pcbuff[6][63:0]) begin
-            commit_validbuff[6] <= 1'b1         ;
-            commit_enabuff  [6] <= commit_ena2  ;
-            commit_databuff [6] <= commit_data2 ;
-            commit_addrbuff [6] <= commit_addr2 ;
-        end 
-        if(commit_pc2 == commit_pcbuff[7][63:0]) begin
-            commit_validbuff[7] <= 1'b1         ;
-            commit_enabuff  [7] <= commit_ena2  ;
-            commit_databuff [7] <= commit_data2 ;
-            commit_addrbuff [7] <= commit_addr2 ;
-        end 
-        if(commit_pc3 == commit_pcbuff[0][63:0]) begin
-            commit_validbuff[0] <= 1'b1         ;
-            commit_enabuff  [0] <= commit_ena3  ;
-            commit_databuff [0] <= commit_data3 ;
-            commit_addrbuff [0] <= commit_addr3 ;
-        end 
-        if(commit_pc3 == commit_pcbuff[1][63:0]) begin
-            commit_validbuff[1] <= 1'b1         ;
-            commit_enabuff  [1] <= commit_ena3  ;
-            commit_databuff [1] <= commit_data3 ;
-            commit_addrbuff [1] <= commit_addr3 ;
-        end 
-        if(commit_pc3 == commit_pcbuff[2][63:0]) begin
-            commit_validbuff[2] <= 1'b1         ;
-            commit_enabuff  [2] <= commit_ena3  ;
-            commit_databuff [2] <= commit_data3 ;
-            commit_addrbuff [2] <= commit_addr3 ;
-        end 
-        if(commit_pc3 == commit_pcbuff[3][63:0]) begin
-            commit_validbuff[3] <= 1'b1         ;
-            commit_enabuff  [3] <= commit_ena3  ;
-            commit_databuff [3] <= commit_data3 ;
-            commit_addrbuff [3] <= commit_addr3 ;
-        end 
-        if(commit_pc3 == commit_pcbuff[4][63:0]) begin
-            commit_validbuff[4] <= 1'b1         ;
-            commit_enabuff  [4] <= commit_ena3  ;
-            commit_databuff [4] <= commit_data3 ;
-            commit_addrbuff [4] <= commit_addr3 ;
-        end 
-        if(commit_pc3 == commit_pcbuff[5][63:0]) begin
-            commit_validbuff[5] <= 1'b1         ;
-            commit_enabuff  [5] <= commit_ena3  ;
-            commit_databuff [5] <= commit_data3 ;
-            commit_addrbuff [5] <= commit_addr3 ;
-        end 
-        if(commit_pc3 == commit_pcbuff[6][63:0]) begin
-            commit_validbuff[6] <= 1'b1         ;
-            commit_enabuff  [6] <= commit_ena3  ;
-            commit_databuff [6] <= commit_data3 ;
-            commit_addrbuff [6] <= commit_addr3 ;
-        end 
-        if(commit_pc3 == commit_pcbuff[7][63:0]) begin
-            commit_validbuff[7] <= 1'b1         ;
-            commit_enabuff  [7] <= commit_ena3  ;
-            commit_databuff [7] <= commit_data3 ;
-            commit_addrbuff [7] <= commit_addr3 ;
+        else begin 
+            commit_validbuff [0] <= ~clean_submcont[0] & commit_validbuff [0] ; 
+            commit_validbuff [1] <= ~clean_submcont[1] & commit_validbuff [1] ; 
+            commit_validbuff [2] <= ~clean_submcont[2] & commit_validbuff [2] ; 
+            commit_validbuff [3] <= ~clean_submcont[3] & commit_validbuff [3] ; 
+            commit_validbuff [4] <= ~clean_submcont[4] & commit_validbuff [4] ; 
+            commit_validbuff [5] <= ~clean_submcont[5] & commit_validbuff [5] ; 
+            commit_validbuff [6] <= ~clean_submcont[6] & commit_validbuff [6] ; 
+            commit_validbuff [7] <= ~clean_submcont[7] & commit_validbuff [7] ; 
+            if(commit_pc1 != `ysyx22040228_ZEROWORD) begin 
+                if(commit_pc1 == commit_pcbuff[0][63:0]) begin
+                    commit_validbuff[0] <= 1'b1         ;
+                    commit_enabuff  [0] <= commit_ena1  ;
+                    commit_databuff [0] <= commit_data1 ;
+                    commit_addrbuff [0] <= commit_addr1 ;
+                end 
+                if(commit_pc1 == commit_pcbuff[1][63:0]) begin
+                    commit_validbuff[1] <= 1'b1         ;
+                    commit_enabuff  [1] <= commit_ena1  ;
+                    commit_databuff [1] <= commit_data1 ;
+                    commit_addrbuff [1] <= commit_addr1 ;
+                end 
+                if(commit_pc1 == commit_pcbuff[2][63:0]) begin
+                    commit_validbuff[2] <= 1'b1         ;
+                    commit_enabuff  [2] <= commit_ena1  ;
+                    commit_databuff [2] <= commit_data1 ;
+                    commit_addrbuff [2] <= commit_addr1 ;
+                end 
+                if(commit_pc1 == commit_pcbuff[3][63:0]) begin
+                    commit_validbuff[3] <= 1'b1         ;
+                    commit_enabuff  [3] <= commit_ena1  ;
+                    commit_databuff [3] <= commit_data1 ;
+                    commit_addrbuff [3] <= commit_addr1 ;
+                end 
+                if(commit_pc1 == commit_pcbuff[4][63:0]) begin
+                    commit_validbuff[4] <= 1'b1         ;
+                    commit_enabuff  [4] <= commit_ena1  ;
+                    commit_databuff [4] <= commit_data1 ;
+                    commit_addrbuff [4] <= commit_addr1 ;
+                end 
+                if(commit_pc1 == commit_pcbuff[5][63:0]) begin
+                    commit_validbuff[5] <= 1'b1         ;
+                    commit_enabuff  [5] <= commit_ena1  ;
+                    commit_databuff [5] <= commit_data1 ;
+                    commit_addrbuff [5] <= commit_addr1 ;
+                end 
+                if(commit_pc1 == commit_pcbuff[6][63:0]) begin
+                    commit_validbuff[6] <= 1'b1         ;
+                    commit_enabuff  [6] <= commit_ena1  ;
+                    commit_databuff [6] <= commit_data1 ;
+                    commit_addrbuff [6] <= commit_addr1 ;
+                end 
+                if(commit_pc1 == commit_pcbuff[7][63:0]) begin
+                    commit_validbuff[7] <= 1'b1         ;
+                    commit_enabuff  [7] <= commit_ena1  ;
+                    commit_databuff [7] <= commit_data1 ;
+                    commit_addrbuff [7] <= commit_addr1 ;
+                end 
+            end 
+            if(commit_pc2 != `ysyx22040228_ZEROWORD) begin 
+                if(commit_pc2 == commit_pcbuff[0][63:0]) begin
+                    commit_validbuff[0] <= 1'b1         ;
+                    commit_enabuff  [0] <= commit_ena2  ;
+                    commit_databuff [0] <= commit_data2 ;
+                    commit_addrbuff [0] <= commit_addr2 ;
+                end 
+                if(commit_pc2 == commit_pcbuff[1][63:0]) begin
+                    commit_validbuff[1] <= 1'b1         ;
+                    commit_enabuff  [1] <= commit_ena2  ;
+                    commit_databuff [1] <= commit_data2 ;
+                    commit_addrbuff [1] <= commit_addr2 ;
+                end 
+                if(commit_pc2 == commit_pcbuff[2][63:0]) begin
+                    commit_validbuff[2] <= 1'b1         ;
+                    commit_enabuff  [2] <= commit_ena2  ;
+                    commit_databuff [2] <= commit_data2 ;
+                    commit_addrbuff [2] <= commit_addr2 ;
+                end 
+                if(commit_pc2 == commit_pcbuff[3][63:0]) begin
+                    commit_validbuff[3] <= 1'b1         ;
+                    commit_enabuff  [3] <= commit_ena2  ;
+                    commit_databuff [3] <= commit_data2 ;
+                    commit_addrbuff [3] <= commit_addr2 ;
+                end 
+                if(commit_pc2 == commit_pcbuff[4][63:0]) begin
+                    commit_validbuff[4] <= 1'b1         ;
+                    commit_enabuff  [4] <= commit_ena2  ;
+                    commit_databuff [4] <= commit_data2 ;
+                    commit_addrbuff [4] <= commit_addr2 ;
+                end 
+                if(commit_pc2 == commit_pcbuff[5][63:0]) begin
+                    commit_validbuff[5] <= 1'b1         ;
+                    commit_enabuff  [5] <= commit_ena2  ;
+                    commit_databuff [5] <= commit_data2 ;
+                    commit_addrbuff [5] <= commit_addr2 ;
+                end 
+                if(commit_pc2 == commit_pcbuff[6][63:0]) begin
+                    commit_validbuff[6] <= 1'b1         ;
+                    commit_enabuff  [6] <= commit_ena2  ;
+                    commit_databuff [6] <= commit_data2 ;
+                    commit_addrbuff [6] <= commit_addr2 ;
+                end 
+                if(commit_pc2 == commit_pcbuff[7][63:0]) begin
+                    commit_validbuff[7] <= 1'b1         ;
+                    commit_enabuff  [7] <= commit_ena2  ;
+                    commit_databuff [7] <= commit_data2 ;
+                    commit_addrbuff [7] <= commit_addr2 ;
+                end 
+            end 
+            if(commit_pc3 != `ysyx22040228_ZEROWORD) begin 
+                if(commit_pc3 == commit_pcbuff[0][63:0]) begin
+                    commit_validbuff[0] <= 1'b1         ;
+                    commit_enabuff  [0] <= commit_ena3  ;
+                    commit_databuff [0] <= commit_data3 ;
+                    commit_addrbuff [0] <= commit_addr3 ;
+                end 
+                if(commit_pc3 == commit_pcbuff[1][63:0]) begin
+                    commit_validbuff[1] <= 1'b1         ;
+                    commit_enabuff  [1] <= commit_ena3  ;
+                    commit_databuff [1] <= commit_data3 ;
+                    commit_addrbuff [1] <= commit_addr3 ;
+                end 
+                if(commit_pc3 == commit_pcbuff[2][63:0]) begin
+                    commit_validbuff[2] <= 1'b1         ;
+                    commit_enabuff  [2] <= commit_ena3  ;
+                    commit_databuff [2] <= commit_data3 ;
+                    commit_addrbuff [2] <= commit_addr3 ;
+                end 
+                if(commit_pc3 == commit_pcbuff[3][63:0]) begin
+                    commit_validbuff[3] <= 1'b1         ;
+                    commit_enabuff  [3] <= commit_ena3  ;
+                    commit_databuff [3] <= commit_data3 ;
+                    commit_addrbuff [3] <= commit_addr3 ;
+                end 
+                if(commit_pc3 == commit_pcbuff[4][63:0]) begin
+                    commit_validbuff[4] <= 1'b1         ;
+                    commit_enabuff  [4] <= commit_ena3  ;
+                    commit_databuff [4] <= commit_data3 ;
+                    commit_addrbuff [4] <= commit_addr3 ;
+                end 
+                if(commit_pc3 == commit_pcbuff[5][63:0]) begin
+                    commit_validbuff[5] <= 1'b1         ;
+                    commit_enabuff  [5] <= commit_ena3  ;
+                    commit_databuff [5] <= commit_data3 ;
+                    commit_addrbuff [5] <= commit_addr3 ;
+                end 
+                if(commit_pc3 == commit_pcbuff[6][63:0]) begin
+                    commit_validbuff[6] <= 1'b1         ;
+                    commit_enabuff  [6] <= commit_ena3  ;
+                    commit_databuff [6] <= commit_data3 ;
+                    commit_addrbuff [6] <= commit_addr3 ;
+                end 
+                if(commit_pc3 == commit_pcbuff[7][63:0]) begin
+                    commit_validbuff[7] <= 1'b1         ;
+                    commit_enabuff  [7] <= commit_ena3  ;
+                    commit_databuff [7] <= commit_data3 ;
+                    commit_addrbuff [7] <= commit_addr3 ;
+                end 
+            end 
         end 
     end
 /* verilator lint_off UNUSED */
