@@ -701,7 +701,12 @@ VL_INLINE_OPT void Vysyx_22040228___024root___sequent__TOP__2(Vysyx_22040228___0
     } else if ((0x100073U == vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__s_r_at_inst)) {
         Vysyx_22040228___024root____Vdpiimwrap_ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__difftest_dut_pc_TOP(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__s_r_at_pc, vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__s_r_at_dara, 1U, (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__diff_ena));
     } else {
-        Vysyx_22040228___024root____Vdpiimwrap_ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__difftest_dut_pc_TOP(0ULL, 0ULL, 0U, (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__diff_ena));
+        Vysyx_22040228___024root____Vdpiimwrap_ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__difftest_dut_pc_TOP(
+                                                                                (((QData)((IData)(
+                                                                                vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__old_ready[1U])) 
+                                                                                << 0x20U) 
+                                                                                | (QData)((IData)(
+                                                                                vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__old_ready[0U]))), 0ULL, 0U, (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__diff_ena));
     }
     vlSelf->__Vdlyvset__ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_validbuff__v0 = 0U;
     vlSelf->__Vdlyvset__ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_validbuff__v8 = 0U;

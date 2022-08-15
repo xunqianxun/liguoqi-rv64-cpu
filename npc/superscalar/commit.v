@@ -73,18 +73,18 @@ import "DPI-C" function void difftest_dut_pc(input longint pc_data, input longin
 import "DPI-C" function void difftest_dut_thepc(input longint thepc_data);
 
 always @(*) begin
-    difftest_dut_thepc(`ysyx22040228_ZEROWORD);
+    difftest_dut_thepc(difftest_pc);
 end
 
 always@(posedge clk)begin
     if(commit_inst1 == `EBREAK_TRAP) begin
-        difftest_dut_pc(commit_pc1, commit_data1, 1'b1, diff_ena );   
+        difftest_dut_pc(commit_pc1, commit_data1, 1'b1, difftest_ena );   
     end 
     else if(commit_inst2 == `EBREAK_TRAP) begin
-        difftest_dut_pc(commit_pc2, commit_data2, 1'b1, diff_ena );   
+        difftest_dut_pc(commit_pc2, commit_data2, 1'b1, difftest_ena );   
     end   
     else begin
-        difftest_dut_pc(old_ready[63:0], `ysyx22040228_ZEROWORD, 1'b0, diff_ena ); 
+        difftest_dut_pc(difftest_pc, `ysyx22040228_ZEROWORD, 1'b0, difftest_ena ); 
     end 
 end 
 
@@ -408,6 +408,13 @@ end
             subm_wbaddr     = 5'd0                                 ;
             subm_wbdata     = 64'h0                                ;
         end 
+    end
+
+    reg  difftest_ena ;
+    reg [`ysyx22040228_PCBUS] difftest_pc  ;
+    always @(posedge clk) begin
+        difftest_pc  <= old_ready[63:0] ;
+        difftest_ena <= diff_ena        ;
     end
     
 endmodule
