@@ -666,50 +666,52 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
             tracep->chgBit(oldp+571,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_validbuff[7]));
             tracep->chgBit(oldp+572,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__difftest_ena));
             tracep->chgQData(oldp+573,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__difftest_pc),64);
-            tracep->chgQData(oldp+575,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[0]),64);
-            tracep->chgQData(oldp+577,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[1]),64);
-            tracep->chgQData(oldp+579,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[2]),64);
-            tracep->chgQData(oldp+581,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[3]),64);
-            tracep->chgQData(oldp+583,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[4]),64);
-            tracep->chgQData(oldp+585,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[5]),64);
-            tracep->chgQData(oldp+587,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[6]),64);
-            tracep->chgQData(oldp+589,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[7]),64);
-            tracep->chgQData(oldp+591,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[8]),64);
-            tracep->chgQData(oldp+593,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[9]),64);
-            tracep->chgQData(oldp+595,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[10]),64);
-            tracep->chgQData(oldp+597,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[11]),64);
-            tracep->chgQData(oldp+599,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[12]),64);
-            tracep->chgQData(oldp+601,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[13]),64);
-            tracep->chgQData(oldp+603,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[14]),64);
-            tracep->chgQData(oldp+605,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[15]),64);
-            tracep->chgQData(oldp+607,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[16]),64);
-            tracep->chgQData(oldp+609,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[17]),64);
-            tracep->chgQData(oldp+611,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[18]),64);
-            tracep->chgQData(oldp+613,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[19]),64);
-            tracep->chgQData(oldp+615,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[20]),64);
-            tracep->chgQData(oldp+617,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[21]),64);
-            tracep->chgQData(oldp+619,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[22]),64);
-            tracep->chgQData(oldp+621,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[23]),64);
-            tracep->chgQData(oldp+623,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[24]),64);
-            tracep->chgQData(oldp+625,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[25]),64);
-            tracep->chgQData(oldp+627,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[26]),64);
-            tracep->chgQData(oldp+629,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[27]),64);
-            tracep->chgQData(oldp+631,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[28]),64);
-            tracep->chgQData(oldp+633,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[29]),64);
-            tracep->chgQData(oldp+635,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[30]),64);
-            tracep->chgQData(oldp+637,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[31]),64);
-            tracep->chgIData(oldp+639,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__i),32);
-            tracep->chgIData(oldp+640,((0x3fffffU & (IData)(
+            tracep->chgBit(oldp+575,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__difftest_ena_));
+            tracep->chgQData(oldp+576,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__difftest_pc_),64);
+            tracep->chgQData(oldp+578,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[0]),64);
+            tracep->chgQData(oldp+580,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[1]),64);
+            tracep->chgQData(oldp+582,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[2]),64);
+            tracep->chgQData(oldp+584,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[3]),64);
+            tracep->chgQData(oldp+586,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[4]),64);
+            tracep->chgQData(oldp+588,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[5]),64);
+            tracep->chgQData(oldp+590,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[6]),64);
+            tracep->chgQData(oldp+592,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[7]),64);
+            tracep->chgQData(oldp+594,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[8]),64);
+            tracep->chgQData(oldp+596,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[9]),64);
+            tracep->chgQData(oldp+598,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[10]),64);
+            tracep->chgQData(oldp+600,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[11]),64);
+            tracep->chgQData(oldp+602,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[12]),64);
+            tracep->chgQData(oldp+604,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[13]),64);
+            tracep->chgQData(oldp+606,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[14]),64);
+            tracep->chgQData(oldp+608,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[15]),64);
+            tracep->chgQData(oldp+610,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[16]),64);
+            tracep->chgQData(oldp+612,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[17]),64);
+            tracep->chgQData(oldp+614,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[18]),64);
+            tracep->chgQData(oldp+616,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[19]),64);
+            tracep->chgQData(oldp+618,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[20]),64);
+            tracep->chgQData(oldp+620,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[21]),64);
+            tracep->chgQData(oldp+622,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[22]),64);
+            tracep->chgQData(oldp+624,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[23]),64);
+            tracep->chgQData(oldp+626,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[24]),64);
+            tracep->chgQData(oldp+628,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[25]),64);
+            tracep->chgQData(oldp+630,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[26]),64);
+            tracep->chgQData(oldp+632,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[27]),64);
+            tracep->chgQData(oldp+634,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[28]),64);
+            tracep->chgQData(oldp+636,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[29]),64);
+            tracep->chgQData(oldp+638,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[30]),64);
+            tracep->chgQData(oldp+640,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs[31]),64);
+            tracep->chgIData(oldp+642,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__i),32);
+            tracep->chgIData(oldp+643,((0x3fffffU & (IData)(
                                                             (vlSelf->ysyx_22040228__DOT__rvcpu_inst_addr 
                                                              >> 0xaU)))),22);
-            tracep->chgCData(oldp+641,((0x3fU & (IData)(
+            tracep->chgCData(oldp+644,((0x3fU & (IData)(
                                                         (vlSelf->ysyx_22040228__DOT__rvcpu_inst_addr 
                                                          >> 4U)))),6);
-            tracep->chgCData(oldp+642,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__state_inst),6);
-            tracep->chgCData(oldp+643,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__fence_counter),7);
-            tracep->chgBit(oldp+644,((0x20U == (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__state_inst))));
-            tracep->chgBit(oldp+645,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__read_ok));
-            tracep->chgBit(oldp+646,(((4U == (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__state_inst)) 
+            tracep->chgCData(oldp+645,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__state_inst),6);
+            tracep->chgCData(oldp+646,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__fence_counter),7);
+            tracep->chgBit(oldp+647,((0x20U == (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__state_inst))));
+            tracep->chgBit(oldp+648,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__read_ok));
+            tracep->chgBit(oldp+649,(((4U == (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__state_inst)) 
                                       & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu_empty) 
                                          & (((vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__TEG_ICACHEO__DOT__out_data_r 
                                               == (0x3fffffU 
@@ -724,9 +726,9 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                            (vlSelf->ysyx_22040228__DOT__rvcpu_inst_addr 
                                                             >> 0xaU)))) 
                                                & (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__TEG_ICACHET__DOT__out_valid_r)))))));
-            tracep->chgWData(oldp+647,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__inst_pc_),256);
-            tracep->chgWData(oldp+655,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__inst_data_),128);
-            tracep->chgBit(oldp+659,(((4U == (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__state_inst)) 
+            tracep->chgWData(oldp+650,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__inst_pc_),256);
+            tracep->chgWData(oldp+658,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__inst_data_),128);
+            tracep->chgBit(oldp+662,(((4U == (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__state_inst)) 
                                       & ((~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu_empty)) 
                                          | (((vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__TEG_ICACHEO__DOT__out_data_r 
                                               == (0x3fffffU 
@@ -741,36 +743,36 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                            (vlSelf->ysyx_22040228__DOT__rvcpu_inst_addr 
                                                             >> 0xaU)))) 
                                                & (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__TEG_ICACHET__DOT__out_valid_r)))))));
-            tracep->chgBit(oldp+660,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__write_i_ok));
-            tracep->chgBit(oldp+661,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__cahce_miss_ena));
-            tracep->chgQData(oldp+662,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__cache_miss_addr),64);
-            tracep->chgBit(oldp+664,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__write_m_ok));
-            tracep->chgBit(oldp+665,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__cache_mism_ena));
-            tracep->chgQData(oldp+666,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__cahce_mism_addr),64);
-            tracep->chgCData(oldp+668,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__counter_readl),2);
-            tracep->chgCData(oldp+669,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__counter_readl_n),2);
-            tracep->chgWData(oldp+670,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__temp_date),128);
-            tracep->chgBit(oldp+674,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__miss_strb_o));
-            tracep->chgBit(oldp+675,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__miss_strb_t));
-            tracep->chgCData(oldp+676,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__counter_readh),3);
-            tracep->chgCData(oldp+677,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__counter_readh_n),3);
-            tracep->chgWData(oldp+678,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__temp_data),128);
-            tracep->chgBit(oldp+682,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__mism_strb_o));
-            tracep->chgBit(oldp+683,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__mism_strb_t));
-            tracep->chgBit(oldp+684,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__oteg_ena_i));
-            tracep->chgBit(oldp+685,((0xa8U != (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo_inst_opcode))));
-            tracep->chgIData(oldp+686,(((0xa8U == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo_inst_opcode))
+            tracep->chgBit(oldp+663,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__write_i_ok));
+            tracep->chgBit(oldp+664,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__cahce_miss_ena));
+            tracep->chgQData(oldp+665,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__cache_miss_addr),64);
+            tracep->chgBit(oldp+667,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__write_m_ok));
+            tracep->chgBit(oldp+668,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__cache_mism_ena));
+            tracep->chgQData(oldp+669,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__cahce_mism_addr),64);
+            tracep->chgCData(oldp+671,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__counter_readl),2);
+            tracep->chgCData(oldp+672,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__counter_readl_n),2);
+            tracep->chgWData(oldp+673,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__temp_date),128);
+            tracep->chgBit(oldp+677,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__miss_strb_o));
+            tracep->chgBit(oldp+678,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__miss_strb_t));
+            tracep->chgCData(oldp+679,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__counter_readh),3);
+            tracep->chgCData(oldp+680,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__counter_readh_n),3);
+            tracep->chgWData(oldp+681,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__temp_data),128);
+            tracep->chgBit(oldp+685,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__mism_strb_o));
+            tracep->chgBit(oldp+686,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__mism_strb_t));
+            tracep->chgBit(oldp+687,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__oteg_ena_i));
+            tracep->chgBit(oldp+688,((0xa8U != (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo_inst_opcode))));
+            tracep->chgIData(oldp+689,(((0xa8U == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo_inst_opcode))
                                          ? 0U : (0x3fffffU 
                                                  & (IData)(
                                                            (vlSelf->ysyx_22040228__DOT__rvcpu_inst_addr 
                                                             >> 0xaU))))),22);
-            tracep->chgCData(oldp+687,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__oteg_addr_i),6);
-            tracep->chgIData(oldp+688,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__TEG_ICACHEO__DOT__out_data_r),22);
-            tracep->chgBit(oldp+689,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__TEG_ICACHEO__DOT__out_valid_r));
-            tracep->chgBit(oldp+690,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__tteg_ena_i));
-            tracep->chgIData(oldp+691,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__TEG_ICACHET__DOT__out_data_r),22);
-            tracep->chgBit(oldp+692,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__TEG_ICACHET__DOT__out_valid_r));
-            tracep->chgWData(oldp+693,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__data_outo),128);
+            tracep->chgCData(oldp+690,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__oteg_addr_i),6);
+            tracep->chgIData(oldp+691,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__TEG_ICACHEO__DOT__out_data_r),22);
+            tracep->chgBit(oldp+692,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__TEG_ICACHEO__DOT__out_valid_r));
+            tracep->chgBit(oldp+693,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__tteg_ena_i));
+            tracep->chgIData(oldp+694,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__TEG_ICACHET__DOT__out_data_r),22);
+            tracep->chgBit(oldp+695,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__TEG_ICACHET__DOT__out_valid_r));
+            tracep->chgWData(oldp+696,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__data_outo),128);
             if (((2U == (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__state_inst)) 
                  & (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__miss_strb_o))) {
                 __Vtemp667[0U] = 0xffffffffU;
@@ -791,7 +793,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                    & (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__mism_strb_o))
                                    ? 0xffffffffU : 0U);
             }
-            tracep->chgWData(oldp+697,(__Vtemp667),128);
+            tracep->chgWData(oldp+700,(__Vtemp667),128);
             if (((2U == (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__state_inst)) 
                  & (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__miss_strb_o))) {
                 __Vtemp672[0U] = vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__temp_date[0U];
@@ -816,12 +818,12 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                    ? vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__temp_data[3U]
                                    : 0U);
             }
-            tracep->chgWData(oldp+701,(__Vtemp672),128);
-            tracep->chgBit(oldp+705,((((2U == (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__state_inst)) 
+            tracep->chgWData(oldp+704,(__Vtemp672),128);
+            tracep->chgBit(oldp+708,((((2U == (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__state_inst)) 
                                        & (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__miss_strb_o)) 
                                       | ((8U == (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__state_inst)) 
                                          & (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__mism_strb_o)))));
-            tracep->chgWData(oldp+706,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__data_outt),128);
+            tracep->chgWData(oldp+709,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__data_outt),128);
             if (((2U == (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__state_inst)) 
                  & (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__miss_strb_t))) {
                 __Vtemp679[0U] = 0xffffffffU;
@@ -842,7 +844,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                    & (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__mism_strb_t))
                                    ? 0xffffffffU : 0U);
             }
-            tracep->chgWData(oldp+710,(__Vtemp679),128);
+            tracep->chgWData(oldp+713,(__Vtemp679),128);
             if (((2U == (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__state_inst)) 
                  & (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__miss_strb_t))) {
                 __Vtemp684[0U] = vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__temp_date[0U];
@@ -867,13 +869,13 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                    ? vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__temp_data[3U]
                                    : 0U);
             }
-            tracep->chgWData(oldp+714,(__Vtemp684),128);
-            tracep->chgBit(oldp+718,((((2U == (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__state_inst)) 
+            tracep->chgWData(oldp+717,(__Vtemp684),128);
+            tracep->chgBit(oldp+721,((((2U == (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__state_inst)) 
                                        & (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__miss_strb_t)) 
                                       | ((8U == (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__state_inst)) 
                                          & (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__mism_strb_t)))));
-            tracep->chgIData(oldp+719,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__i),32);
-            tracep->chgBit(oldp+720,((1U & (~ (((2U 
+            tracep->chgIData(oldp+722,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__i),32);
+            tracep->chgBit(oldp+723,((1U & (~ (((2U 
                                                  == (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__state_inst)) 
                                                 & (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__miss_strb_o)) 
                                                | ((8U 
@@ -911,8 +913,8 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                     & (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__mism_strb_o))
                                                     ? 0xffffffffU
                                                     : 0U)));
-            tracep->chgWData(oldp+721,(__Vtemp692),128);
-            tracep->chgBit(oldp+725,((1U & (~ (((2U 
+            tracep->chgWData(oldp+724,(__Vtemp692),128);
+            tracep->chgBit(oldp+728,((1U & (~ (((2U 
                                                  == (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__state_inst)) 
                                                 & (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__miss_strb_t)) 
                                                | ((8U 
@@ -950,79 +952,79 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                     & (IData)(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__mism_strb_t))
                                                     ? 0xffffffffU
                                                     : 0U)));
-            tracep->chgWData(oldp+726,(__Vtemp700),128);
-            tracep->chgCData(oldp+730,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__counter),7);
-            tracep->chgBit(oldp+731,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__fence_valid_req));
-            tracep->chgBit(oldp+732,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__read_request));
-            tracep->chgBit(oldp+733,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__read_request));
-            tracep->chgBit(oldp+734,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__write_request));
-            tracep->chgBit(oldp+735,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__write_success));
-            tracep->chgBit(oldp+736,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__fence_write_valid1));
-            tracep->chgBit(oldp+737,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__fence_write_valid2));
-            tracep->chgQData(oldp+738,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__fence_data_out),64);
-            tracep->chgQData(oldp+740,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__fence_addr_out),64);
-            tracep->chgCData(oldp+742,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__fence_type_out),4);
-            tracep->chgBit(oldp+743,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__delay_oclk));
-            tracep->chgBit(oldp+744,((1U == (IData)(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__state_dread))));
-            tracep->chgBit(oldp+745,((1U == (IData)(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__state_dwrite))));
-            tracep->chgCData(oldp+746,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__state_dread),6);
-            tracep->chgBit(oldp+747,((2U == (IData)(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__state_dread))));
-            tracep->chgBit(oldp+748,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__read_ok));
-            tracep->chgBit(oldp+749,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__dirty_ok));
-            tracep->chgCData(oldp+750,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missr_out_type),4);
-            tracep->chgBit(oldp+751,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missr_data_ena));
-            tracep->chgBit(oldp+752,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__write_regr));
-            tracep->chgBit(oldp+753,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__write_regr_));
-            tracep->chgCData(oldp+754,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__state_dwrite),6);
-            tracep->chgBit(oldp+755,((2U == (IData)(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__state_dwrite))));
-            tracep->chgBit(oldp+756,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__read_w_ok));
-            tracep->chgBit(oldp+757,((4U == (IData)(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__state_dwrite))));
-            tracep->chgBit(oldp+758,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__dirtyw_ok));
-            tracep->chgCData(oldp+759,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missw_out_type),4);
-            tracep->chgBit(oldp+760,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missw_data_ena));
-            tracep->chgBit(oldp+761,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__write_regw));
-            tracep->chgBit(oldp+762,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__write_regw_));
-            tracep->chgIData(oldp+763,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__i),32);
-            tracep->chgIData(oldp+764,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__j),32);
-            tracep->chgIData(oldp+765,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__out_data_r),23);
-            tracep->chgBit(oldp+766,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__out_valid_r));
-            tracep->chgIData(oldp+767,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__TEG_DCACHET__DOT__out_data_r),23);
-            tracep->chgBit(oldp+768,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__TEG_DCACHET__DOT__out_valid_r));
-            tracep->chgWData(oldp+769,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__data_out),128);
-            tracep->chgCData(oldp+773,(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__arbitrate_state),3);
-            tracep->chgBit(oldp+774,(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__sign_delay_dread));
-            tracep->chgBit(oldp+775,(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__sign_delay_unread));
-            tracep->chgBit(oldp+776,(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__sign_delay_dwrite));
-            tracep->chgBit(oldp+777,(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__sign_delay_unwrite));
-            tracep->chgBit(oldp+778,(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__sign_delay_iread));
-            tracep->chgCData(oldp+779,(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__axi_state),3);
-            tracep->chgBit(oldp+780,((((((IData)(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__sign_delay_dread) 
+            tracep->chgWData(oldp+729,(__Vtemp700),128);
+            tracep->chgCData(oldp+733,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__counter),7);
+            tracep->chgBit(oldp+734,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__fence_valid_req));
+            tracep->chgBit(oldp+735,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__read_request));
+            tracep->chgBit(oldp+736,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__read_request));
+            tracep->chgBit(oldp+737,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__write_request));
+            tracep->chgBit(oldp+738,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__write_success));
+            tracep->chgBit(oldp+739,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__fence_write_valid1));
+            tracep->chgBit(oldp+740,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__fence_write_valid2));
+            tracep->chgQData(oldp+741,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__fence_data_out),64);
+            tracep->chgQData(oldp+743,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__fence_addr_out),64);
+            tracep->chgCData(oldp+745,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__fence_type_out),4);
+            tracep->chgBit(oldp+746,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__delay_oclk));
+            tracep->chgBit(oldp+747,((1U == (IData)(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__state_dread))));
+            tracep->chgBit(oldp+748,((1U == (IData)(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__state_dwrite))));
+            tracep->chgCData(oldp+749,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__state_dread),6);
+            tracep->chgBit(oldp+750,((2U == (IData)(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__state_dread))));
+            tracep->chgBit(oldp+751,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__read_ok));
+            tracep->chgBit(oldp+752,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__dirty_ok));
+            tracep->chgCData(oldp+753,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missr_out_type),4);
+            tracep->chgBit(oldp+754,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missr_data_ena));
+            tracep->chgBit(oldp+755,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__write_regr));
+            tracep->chgBit(oldp+756,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__write_regr_));
+            tracep->chgCData(oldp+757,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__state_dwrite),6);
+            tracep->chgBit(oldp+758,((2U == (IData)(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__state_dwrite))));
+            tracep->chgBit(oldp+759,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__read_w_ok));
+            tracep->chgBit(oldp+760,((4U == (IData)(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__state_dwrite))));
+            tracep->chgBit(oldp+761,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__dirtyw_ok));
+            tracep->chgCData(oldp+762,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missw_out_type),4);
+            tracep->chgBit(oldp+763,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missw_data_ena));
+            tracep->chgBit(oldp+764,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__write_regw));
+            tracep->chgBit(oldp+765,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__write_regw_));
+            tracep->chgIData(oldp+766,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__i),32);
+            tracep->chgIData(oldp+767,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__j),32);
+            tracep->chgIData(oldp+768,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__out_data_r),23);
+            tracep->chgBit(oldp+769,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__out_valid_r));
+            tracep->chgIData(oldp+770,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__TEG_DCACHET__DOT__out_data_r),23);
+            tracep->chgBit(oldp+771,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__TEG_DCACHET__DOT__out_valid_r));
+            tracep->chgWData(oldp+772,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__data_out),128);
+            tracep->chgCData(oldp+776,(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__arbitrate_state),3);
+            tracep->chgBit(oldp+777,(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__sign_delay_dread));
+            tracep->chgBit(oldp+778,(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__sign_delay_unread));
+            tracep->chgBit(oldp+779,(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__sign_delay_dwrite));
+            tracep->chgBit(oldp+780,(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__sign_delay_unwrite));
+            tracep->chgBit(oldp+781,(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__sign_delay_iread));
+            tracep->chgCData(oldp+782,(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__axi_state),3);
+            tracep->chgBit(oldp+783,((((((IData)(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__sign_delay_dread) 
                                          | (IData)(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__sign_delay_dwrite)) 
                                         | (IData)(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__sign_delay_iread)) 
                                        | (IData)(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__sign_delay_unread)) 
                                       | (IData)(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__sign_delay_unwrite))));
-            tracep->chgBit(oldp+781,(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__aw_enable));
-            tracep->chgCData(oldp+782,(vlSelf->ysyx_22040228__DOT__axi_mnq4__DOT__s_write_state),2);
-            tracep->chgCData(oldp+783,(vlSelf->ysyx_22040228__DOT__axi_mnq4__DOT__s_read_state),2);
-            tracep->chgQData(oldp+784,(vlSelf->ysyx_22040228__DOT__axi_mnq4__DOT__write_data_reg),64);
-            tracep->chgQData(oldp+786,(vlSelf->ysyx_22040228__DOT__axi_mnq4__DOT__write_addr_reg),64);
-            tracep->chgCData(oldp+788,(vlSelf->ysyx_22040228__DOT__axi_mnq4__DOT__r_s_axi_ar_id),4);
-            tracep->chgQData(oldp+789,(vlSelf->ysyx_22040228__DOT__clint6__DOT__csr_mtime),64);
-            tracep->chgQData(oldp+791,(vlSelf->ysyx_22040228__DOT__clint6__DOT__csr_mtimecmp),64);
-            tracep->chgCData(oldp+793,(vlSelf->ysyx_22040228__DOT__clint6__DOT__timer_state),2);
-            tracep->chgCData(oldp+794,(vlSelf->ysyx_22040228__DOT__clint6__DOT__timew_state),2);
-            tracep->chgCData(oldp+795,(vlSelf->ysyx_22040228__DOT__clint6__DOT__timeraw_id_temp),4);
-            tracep->chgQData(oldp+796,(vlSelf->ysyx_22040228__DOT__clint6__DOT__read_csrdata_temp),64);
-            tracep->chgCData(oldp+798,(vlSelf->ysyx_22040228__DOT__clint6__DOT__timerar_id_temp),4);
-            tracep->chgCData(oldp+799,(vlSelf->ysyx_22040228__DOT__io_slave_axi9__DOT__s_write_state),2);
-            tracep->chgCData(oldp+800,(vlSelf->ysyx_22040228__DOT__io_slave_axi9__DOT__s_read_state),2);
-            tracep->chgQData(oldp+801,(vlSelf->ysyx_22040228__DOT__io_slave_axi9__DOT__write_data_reg),64);
-            tracep->chgQData(oldp+803,(vlSelf->ysyx_22040228__DOT__io_slave_axi9__DOT__write_addr_reg),64);
+            tracep->chgBit(oldp+784,(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__aw_enable));
+            tracep->chgCData(oldp+785,(vlSelf->ysyx_22040228__DOT__axi_mnq4__DOT__s_write_state),2);
+            tracep->chgCData(oldp+786,(vlSelf->ysyx_22040228__DOT__axi_mnq4__DOT__s_read_state),2);
+            tracep->chgQData(oldp+787,(vlSelf->ysyx_22040228__DOT__axi_mnq4__DOT__write_data_reg),64);
+            tracep->chgQData(oldp+789,(vlSelf->ysyx_22040228__DOT__axi_mnq4__DOT__write_addr_reg),64);
+            tracep->chgCData(oldp+791,(vlSelf->ysyx_22040228__DOT__axi_mnq4__DOT__r_s_axi_ar_id),4);
+            tracep->chgQData(oldp+792,(vlSelf->ysyx_22040228__DOT__clint6__DOT__csr_mtime),64);
+            tracep->chgQData(oldp+794,(vlSelf->ysyx_22040228__DOT__clint6__DOT__csr_mtimecmp),64);
+            tracep->chgCData(oldp+796,(vlSelf->ysyx_22040228__DOT__clint6__DOT__timer_state),2);
+            tracep->chgCData(oldp+797,(vlSelf->ysyx_22040228__DOT__clint6__DOT__timew_state),2);
+            tracep->chgCData(oldp+798,(vlSelf->ysyx_22040228__DOT__clint6__DOT__timeraw_id_temp),4);
+            tracep->chgQData(oldp+799,(vlSelf->ysyx_22040228__DOT__clint6__DOT__read_csrdata_temp),64);
+            tracep->chgCData(oldp+801,(vlSelf->ysyx_22040228__DOT__clint6__DOT__timerar_id_temp),4);
+            tracep->chgCData(oldp+802,(vlSelf->ysyx_22040228__DOT__io_slave_axi9__DOT__s_write_state),2);
+            tracep->chgCData(oldp+803,(vlSelf->ysyx_22040228__DOT__io_slave_axi9__DOT__s_read_state),2);
+            tracep->chgQData(oldp+804,(vlSelf->ysyx_22040228__DOT__io_slave_axi9__DOT__write_data_reg),64);
+            tracep->chgQData(oldp+806,(vlSelf->ysyx_22040228__DOT__io_slave_axi9__DOT__write_addr_reg),64);
         }
         if (VL_UNLIKELY((vlSelf->__Vm_traceActivity
                          [1U] | vlSelf->__Vm_traceActivity
                          [2U]))) {
-            tracep->chgQData(oldp+805,(((4U == (IData)(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__state_dread))
+            tracep->chgQData(oldp+808,(((4U == (IData)(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__state_dread))
                                          ? (((vlSelf->ysyx_22040228__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__out_data_r 
                                               == (0x7fffffU 
                                                   & (IData)(
@@ -1049,13 +1051,13 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                                    vlSelf->ysyx_22040228__DOT__data_cache3__DOT__data_out[2U])))
                                                  : 0ULL))
                                          : 0ULL)),64);
-            tracep->chgBit(oldp+807,(((IData)(vlSelf->ysyx_22040228__DOT__uncache_mmio7__DOT__uncache)
+            tracep->chgBit(oldp+810,(((IData)(vlSelf->ysyx_22040228__DOT__uncache_mmio7__DOT__uncache)
                                        ? (IData)(vlSelf->ysyx_22040228__DOT__uncache_arb_finish)
                                        : (IData)(vlSelf->ysyx_22040228__DOT__uncache_dc_finish))));
-            tracep->chgCData(oldp+808,(((2U == (IData)(vlSelf->ysyx_22040228__DOT__io_slave_axi9__DOT__s_read_state))
+            tracep->chgCData(oldp+811,(((2U == (IData)(vlSelf->ysyx_22040228__DOT__io_slave_axi9__DOT__s_read_state))
                                          ? (0xfU & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_id))
                                          : 0U)),4);
-            tracep->chgQData(oldp+809,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__inst_jal1) 
+            tracep->chgQData(oldp+812,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__inst_jal1) 
                                          | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__inst_bxx1) 
                                             & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__forecast__DOT__history_jdata1)))
                                          ? vlSelf->ysyx_22040228__DOT__rvcpu_inst_addr
@@ -1113,7 +1115,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                         ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__inst_jalr4)
                                                           ? vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf_pc_data
                                                           : vlSelf->ysyx_22040228__DOT__rvcpu_inst_addr))))))))))))),64);
-            tracep->chgCData(oldp+811,((((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__jump_ena1) 
+            tracep->chgCData(oldp+814,((((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__jump_ena1) 
                                            | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__jump_ena2)) 
                                           | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__jump_ena3)) 
                                          | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__jump_ena4))
@@ -1148,39 +1150,12 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                 & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__pc_jnxtpc_temp)))
                                                ? 3U
                                                : 4U))))),3);
-            tracep->chgBit(oldp+812,((1U & (IData)(
-                                                   ((0x10U 
-                                                     == 
-                                                     (0x10U 
-                                                      & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_type))) 
-                                                    & (0U 
-                                                       == 
-                                                       (0x7000U 
-                                                        & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de1_inst)))))));
-            tracep->chgBit(oldp+813,((1U & (IData)(
-                                                   ((0x10U 
-                                                     == 
-                                                     (0x10U 
-                                                      & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_type))) 
-                                                    & (0x2000U 
-                                                       == 
-                                                       (0x7000U 
-                                                        & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de1_inst)))))));
-            tracep->chgBit(oldp+814,((1U & (IData)(
-                                                   ((0x10U 
-                                                     == 
-                                                     (0x10U 
-                                                      & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_type))) 
-                                                    & (0x3000U 
-                                                       == 
-                                                       (0x7000U 
-                                                        & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de1_inst)))))));
             tracep->chgBit(oldp+815,((1U & (IData)(
                                                    ((0x10U 
                                                      == 
                                                      (0x10U 
                                                       & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_type))) 
-                                                    & (0x4000U 
+                                                    & (0U 
                                                        == 
                                                        (0x7000U 
                                                         & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de1_inst)))))));
@@ -1189,7 +1164,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                      == 
                                                      (0x10U 
                                                       & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_type))) 
-                                                    & (0x6000U 
+                                                    & (0x2000U 
                                                        == 
                                                        (0x7000U 
                                                         & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de1_inst)))))));
@@ -1198,7 +1173,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                      == 
                                                      (0x10U 
                                                       & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_type))) 
-                                                    & (0x7000U 
+                                                    & (0x3000U 
                                                        == 
                                                        (0x7000U 
                                                         & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de1_inst)))))));
@@ -1207,7 +1182,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                      == 
                                                      (0x10U 
                                                       & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_type))) 
-                                                    & (0x1000U 
+                                                    & (0x4000U 
                                                        == 
                                                        (0x7000U 
                                                         & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de1_inst)))))));
@@ -1216,11 +1191,38 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                      == 
                                                      (0x10U 
                                                       & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_type))) 
+                                                    & (0x6000U 
+                                                       == 
+                                                       (0x7000U 
+                                                        & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de1_inst)))))));
+            tracep->chgBit(oldp+820,((1U & (IData)(
+                                                   ((0x10U 
+                                                     == 
+                                                     (0x10U 
+                                                      & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_type))) 
+                                                    & (0x7000U 
+                                                       == 
+                                                       (0x7000U 
+                                                        & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de1_inst)))))));
+            tracep->chgBit(oldp+821,((1U & (IData)(
+                                                   ((0x10U 
+                                                     == 
+                                                     (0x10U 
+                                                      & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_type))) 
+                                                    & (0x1000U 
+                                                       == 
+                                                       (0x7000U 
+                                                        & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de1_inst)))))));
+            tracep->chgBit(oldp+822,((1U & (IData)(
+                                                   ((0x10U 
+                                                     == 
+                                                     (0x10U 
+                                                      & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_type))) 
                                                     & (0x5000U 
                                                        == 
                                                        (0x40007000U 
                                                         & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de1_inst)))))));
-            tracep->chgBit(oldp+820,((1U & (IData)(
+            tracep->chgBit(oldp+823,((1U & (IData)(
                                                    ((4U 
                                                      == 
                                                      (4U 
@@ -1229,7 +1231,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                        == 
                                                        (0x7000U 
                                                         & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de1_inst)))))));
-            tracep->chgBit(oldp+821,((1U & (IData)(
+            tracep->chgBit(oldp+824,((1U & (IData)(
                                                    ((4U 
                                                      == 
                                                      (4U 
@@ -1238,7 +1240,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                        == 
                                                        (0x7000U 
                                                         & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de1_inst)))))));
-            tracep->chgBit(oldp+822,((1U & (IData)(
+            tracep->chgBit(oldp+825,((1U & (IData)(
                                                    ((4U 
                                                      == 
                                                      (4U 
@@ -1247,7 +1249,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                        == 
                                                        (0x7000U 
                                                         & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de1_inst)))))));
-            tracep->chgBit(oldp+823,((1U & (IData)(
+            tracep->chgBit(oldp+826,((1U & (IData)(
                                                    ((4U 
                                                      == 
                                                      (4U 
@@ -1256,7 +1258,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                        == 
                                                        (0x7000U 
                                                         & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de1_inst)))))));
-            tracep->chgBit(oldp+824,((1U & (IData)(
+            tracep->chgBit(oldp+827,((1U & (IData)(
                                                    ((4U 
                                                      == 
                                                      (4U 
@@ -1265,7 +1267,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                        == 
                                                        (0x7000U 
                                                         & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de1_inst)))))));
-            tracep->chgBit(oldp+825,((1U & (IData)(
+            tracep->chgBit(oldp+828,((1U & (IData)(
                                                    ((4U 
                                                      == 
                                                      (4U 
@@ -1274,37 +1276,37 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                        == 
                                                        (0x7000U 
                                                         & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de1_inst)))))));
-            tracep->chgBit(oldp+826,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addr0) 
+            tracep->chgBit(oldp+829,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addr0) 
                                        == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_ref_op2addr)) 
                                       & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_ena0))));
-            tracep->chgBit(oldp+827,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addr1) 
+            tracep->chgBit(oldp+830,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addr1) 
                                        == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_ref_op2addr)) 
                                       & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_ena1))));
-            tracep->chgBit(oldp+828,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addr2) 
+            tracep->chgBit(oldp+831,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addr2) 
                                        == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_ref_op2addr)) 
                                       & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_ena2))));
-            tracep->chgBit(oldp+829,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addr3) 
+            tracep->chgBit(oldp+832,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addr3) 
                                        == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_ref_op2addr)) 
                                       & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_ena3))));
-            tracep->chgBit(oldp+830,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addr4) 
+            tracep->chgBit(oldp+833,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addr4) 
                                        == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_ref_op2addr)) 
                                       & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_ena4))));
-            tracep->chgBit(oldp+831,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addr5) 
+            tracep->chgBit(oldp+834,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addr5) 
                                        == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_ref_op2addr)) 
                                       & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_ena5))));
-            tracep->chgBit(oldp+832,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addr6) 
+            tracep->chgBit(oldp+835,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addr6) 
                                        == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_ref_op2addr)) 
                                       & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_ena6))));
-            tracep->chgBit(oldp+833,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addr7) 
+            tracep->chgBit(oldp+836,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addr7) 
                                        == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_ref_op2addr)) 
                                       & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_ena7))));
-            tracep->chgBit(oldp+834,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__s_r_ao_addr) 
+            tracep->chgBit(oldp+837,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__s_r_ao_addr) 
                                        == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_ref_op2addr)) 
                                       & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__s_r_ao_ena))));
-            tracep->chgBit(oldp+835,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__s_r_mm_addr) 
+            tracep->chgBit(oldp+838,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__s_r_mm_addr) 
                                        == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_ref_op2addr)) 
                                       & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__s_r_mm_ena))));
-            tracep->chgQData(oldp+836,(((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__forcast_state)
+            tracep->chgQData(oldp+839,(((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__forcast_state)
                                          ? ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__forecast__DOT__history_jread1)
                                              ? (4ULL 
                                                 + vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de1_pc)
@@ -1319,7 +1321,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                                        << 1U))))) 
                                                 + vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de1_pc))
                                          : 0ULL)),64);
-            tracep->chgQData(oldp+838,(((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_jalr)
+            tracep->chgQData(oldp+841,(((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_jalr)
                                          ? (0xfffffffffffffffeULL 
                                             & ((((- (QData)((IData)(
                                                                     (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de1_inst 
@@ -1330,7 +1332,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                                    >> 0x14U)))) 
                                                + vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_op1))
                                          : 0ULL)),64);
-            tracep->chgQData(oldp+840,(((((- (QData)((IData)(
+            tracep->chgQData(oldp+843,(((((- (QData)((IData)(
                                                              (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de1_inst 
                                                               >> 0x1fU)))) 
                                           << 0xcU) 
@@ -1338,39 +1340,12 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                            (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de1_inst 
                                                             >> 0x14U)))) 
                                         + vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_op1)),64);
-            tracep->chgBit(oldp+842,((1U & (IData)(
-                                                   ((0x10U 
-                                                     == 
-                                                     (0x10U 
-                                                      & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_type))) 
-                                                    & (0U 
-                                                       == 
-                                                       (0x7000U 
-                                                        & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de2_inst)))))));
-            tracep->chgBit(oldp+843,((1U & (IData)(
-                                                   ((0x10U 
-                                                     == 
-                                                     (0x10U 
-                                                      & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_type))) 
-                                                    & (0x2000U 
-                                                       == 
-                                                       (0x7000U 
-                                                        & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de2_inst)))))));
-            tracep->chgBit(oldp+844,((1U & (IData)(
-                                                   ((0x10U 
-                                                     == 
-                                                     (0x10U 
-                                                      & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_type))) 
-                                                    & (0x3000U 
-                                                       == 
-                                                       (0x7000U 
-                                                        & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de2_inst)))))));
             tracep->chgBit(oldp+845,((1U & (IData)(
                                                    ((0x10U 
                                                      == 
                                                      (0x10U 
                                                       & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_type))) 
-                                                    & (0x4000U 
+                                                    & (0U 
                                                        == 
                                                        (0x7000U 
                                                         & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de2_inst)))))));
@@ -1379,7 +1354,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                      == 
                                                      (0x10U 
                                                       & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_type))) 
-                                                    & (0x6000U 
+                                                    & (0x2000U 
                                                        == 
                                                        (0x7000U 
                                                         & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de2_inst)))))));
@@ -1388,7 +1363,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                      == 
                                                      (0x10U 
                                                       & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_type))) 
-                                                    & (0x7000U 
+                                                    & (0x3000U 
                                                        == 
                                                        (0x7000U 
                                                         & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de2_inst)))))));
@@ -1397,7 +1372,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                      == 
                                                      (0x10U 
                                                       & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_type))) 
-                                                    & (0x1000U 
+                                                    & (0x4000U 
                                                        == 
                                                        (0x7000U 
                                                         & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de2_inst)))))));
@@ -1406,11 +1381,38 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                      == 
                                                      (0x10U 
                                                       & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_type))) 
+                                                    & (0x6000U 
+                                                       == 
+                                                       (0x7000U 
+                                                        & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de2_inst)))))));
+            tracep->chgBit(oldp+850,((1U & (IData)(
+                                                   ((0x10U 
+                                                     == 
+                                                     (0x10U 
+                                                      & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_type))) 
+                                                    & (0x7000U 
+                                                       == 
+                                                       (0x7000U 
+                                                        & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de2_inst)))))));
+            tracep->chgBit(oldp+851,((1U & (IData)(
+                                                   ((0x10U 
+                                                     == 
+                                                     (0x10U 
+                                                      & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_type))) 
+                                                    & (0x1000U 
+                                                       == 
+                                                       (0x7000U 
+                                                        & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de2_inst)))))));
+            tracep->chgBit(oldp+852,((1U & (IData)(
+                                                   ((0x10U 
+                                                     == 
+                                                     (0x10U 
+                                                      & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_type))) 
                                                     & (0x5000U 
                                                        == 
                                                        (0x40007000U 
                                                         & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de2_inst)))))));
-            tracep->chgBit(oldp+850,((1U & (IData)(
+            tracep->chgBit(oldp+853,((1U & (IData)(
                                                    ((4U 
                                                      == 
                                                      (4U 
@@ -1419,7 +1421,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                        == 
                                                        (0x7000U 
                                                         & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de2_inst)))))));
-            tracep->chgBit(oldp+851,((1U & (IData)(
+            tracep->chgBit(oldp+854,((1U & (IData)(
                                                    ((4U 
                                                      == 
                                                      (4U 
@@ -1428,7 +1430,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                        == 
                                                        (0x7000U 
                                                         & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de2_inst)))))));
-            tracep->chgBit(oldp+852,((1U & (IData)(
+            tracep->chgBit(oldp+855,((1U & (IData)(
                                                    ((4U 
                                                      == 
                                                      (4U 
@@ -1437,7 +1439,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                        == 
                                                        (0x7000U 
                                                         & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de2_inst)))))));
-            tracep->chgBit(oldp+853,((1U & (IData)(
+            tracep->chgBit(oldp+856,((1U & (IData)(
                                                    ((4U 
                                                      == 
                                                      (4U 
@@ -1446,7 +1448,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                        == 
                                                        (0x7000U 
                                                         & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de2_inst)))))));
-            tracep->chgBit(oldp+854,((1U & (IData)(
+            tracep->chgBit(oldp+857,((1U & (IData)(
                                                    ((4U 
                                                      == 
                                                      (4U 
@@ -1455,7 +1457,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                        == 
                                                        (0x7000U 
                                                         & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de2_inst)))))));
-            tracep->chgBit(oldp+855,((1U & (IData)(
+            tracep->chgBit(oldp+858,((1U & (IData)(
                                                    ((4U 
                                                      == 
                                                      (4U 
@@ -1464,37 +1466,37 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                        == 
                                                        (0x7000U 
                                                         & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de2_inst)))))));
-            tracep->chgBit(oldp+856,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addr0) 
+            tracep->chgBit(oldp+859,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addr0) 
                                        == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_ref_op2addr)) 
                                       & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_ena0))));
-            tracep->chgBit(oldp+857,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addr1) 
+            tracep->chgBit(oldp+860,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addr1) 
                                        == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_ref_op2addr)) 
                                       & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_ena1))));
-            tracep->chgBit(oldp+858,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addr2) 
+            tracep->chgBit(oldp+861,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addr2) 
                                        == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_ref_op2addr)) 
                                       & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_ena2))));
-            tracep->chgBit(oldp+859,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addr3) 
+            tracep->chgBit(oldp+862,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addr3) 
                                        == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_ref_op2addr)) 
                                       & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_ena3))));
-            tracep->chgBit(oldp+860,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addr4) 
+            tracep->chgBit(oldp+863,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addr4) 
                                        == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_ref_op2addr)) 
                                       & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_ena4))));
-            tracep->chgBit(oldp+861,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addr5) 
+            tracep->chgBit(oldp+864,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addr5) 
                                        == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_ref_op2addr)) 
                                       & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_ena5))));
-            tracep->chgBit(oldp+862,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addr6) 
+            tracep->chgBit(oldp+865,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addr6) 
                                        == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_ref_op2addr)) 
                                       & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_ena6))));
-            tracep->chgBit(oldp+863,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addr7) 
+            tracep->chgBit(oldp+866,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addr7) 
                                        == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_ref_op2addr)) 
                                       & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_ena7))));
-            tracep->chgBit(oldp+864,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__s_r_ao_addr) 
+            tracep->chgBit(oldp+867,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__s_r_ao_addr) 
                                        == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_ref_op2addr)) 
                                       & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__s_r_ao_ena))));
-            tracep->chgBit(oldp+865,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__s_r_mm_addr) 
+            tracep->chgBit(oldp+868,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__s_r_mm_addr) 
                                        == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_ref_op2addr)) 
                                       & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__s_r_mm_ena))));
-            tracep->chgQData(oldp+866,(((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__forcast_state)
+            tracep->chgQData(oldp+869,(((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__forcast_state)
                                          ? ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__forecast__DOT__history_jread2)
                                              ? (4ULL 
                                                 + vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de2_pc)
@@ -1509,7 +1511,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                                        << 1U))))) 
                                                 + vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de2_pc))
                                          : 0ULL)),64);
-            tracep->chgQData(oldp+868,(((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_jalr)
+            tracep->chgQData(oldp+871,(((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_jalr)
                                          ? (0xfffffffffffffffeULL 
                                             & ((((- (QData)((IData)(
                                                                     (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de2_inst 
@@ -1520,7 +1522,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                                    >> 0x14U)))) 
                                                + vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_op1))
                                          : 0ULL)),64);
-            tracep->chgQData(oldp+870,(((((- (QData)((IData)(
+            tracep->chgQData(oldp+873,(((((- (QData)((IData)(
                                                              (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de2_inst 
                                                               >> 0x1fU)))) 
                                           << 0xcU) 
@@ -1528,14 +1530,14 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                            (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de2_inst 
                                                             >> 0x14U)))) 
                                         + vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_op1)),64);
-            tracep->chgBit(oldp+872,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy[0]));
-            tracep->chgBit(oldp+873,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy[1]));
-            tracep->chgBit(oldp+874,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy[2]));
-            tracep->chgBit(oldp+875,(((IData)(vlSelf->ysyx_22040228__DOT__uncache_dc_re) 
+            tracep->chgBit(oldp+875,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy[0]));
+            tracep->chgBit(oldp+876,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy[1]));
+            tracep->chgBit(oldp+877,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__busy[2]));
+            tracep->chgBit(oldp+878,(((IData)(vlSelf->ysyx_22040228__DOT__uncache_dc_re) 
                                       & (1U == (IData)(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__state_dread)))));
-            tracep->chgBit(oldp+876,(((IData)(vlSelf->ysyx_22040228__DOT__uncache_dc_we) 
+            tracep->chgBit(oldp+879,(((IData)(vlSelf->ysyx_22040228__DOT__uncache_dc_we) 
                                       & (1U == (IData)(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__state_dwrite)))));
-            tracep->chgBit(oldp+877,(((4U == (IData)(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__state_dread)) 
+            tracep->chgBit(oldp+880,(((4U == (IData)(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__state_dread)) 
                                       & (((vlSelf->ysyx_22040228__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__out_data_r 
                                            == (0x7fffffU 
                                                & (IData)(
@@ -1599,8 +1601,8 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                 __Vtemp710[2U] = 0U;
                 __Vtemp710[3U] = 0U;
             }
-            tracep->chgWData(oldp+878,(__Vtemp710),128);
-            tracep->chgBit(oldp+882,(((4U == (IData)(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__state_dwrite)) 
+            tracep->chgWData(oldp+881,(__Vtemp710),128);
+            tracep->chgBit(oldp+885,(((4U == (IData)(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__state_dwrite)) 
                                       & (((vlSelf->ysyx_22040228__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__out_data_r 
                                            == (0x7fffffU 
                                                & (IData)(
@@ -1613,15 +1615,15 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                            (vlSelf->ysyx_22040228__DOT__uncache_dc_addr 
                                                             >> 9U)))) 
                                             & (IData)(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__TEG_DCACHET__DOT__out_valid_r))))));
-            tracep->chgBit(oldp+883,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__dirty1
+            tracep->chgBit(oldp+886,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__dirty1
                                      [(0x3fU & (IData)(
                                                        (vlSelf->ysyx_22040228__DOT__uncache_dc_addr 
                                                         >> 3U)))]));
-            tracep->chgBit(oldp+884,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__dirty2
+            tracep->chgBit(oldp+887,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__dirty2
                                      [(0x3fU & (IData)(
                                                        (vlSelf->ysyx_22040228__DOT__uncache_dc_addr 
                                                         >> 3U)))]));
-            tracep->chgIData(oldp+885,(((0xa8U == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo_inst_opcode))
+            tracep->chgIData(oldp+888,(((0xa8U == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo_inst_opcode))
                                          ? 0U : (0x7fffffU 
                                                  & (IData)(
                                                            (vlSelf->ysyx_22040228__DOT__uncache_dc_addr 
@@ -1708,7 +1710,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                 vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missw_data_strb[3U]
                                                  : 0U));
             }
-            tracep->chgWData(oldp+886,(__Vtemp727),128);
+            tracep->chgWData(oldp+889,(__Vtemp727),128);
             if ((0x10U == (IData)(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__state_dread))) {
                 __Vtemp734[0U] = vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missr_data_temp[0U];
                 __Vtemp734[1U] = vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missr_data_temp[1U];
@@ -1736,8 +1738,8 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                        ? vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missw_data_temp[3U]
                                        : 0U));
             }
-            tracep->chgWData(oldp+890,(__Vtemp734),128);
-            tracep->chgBit(oldp+894,(((0x10U == (IData)(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__state_dread))
+            tracep->chgWData(oldp+893,(__Vtemp734),128);
+            tracep->chgBit(oldp+897,(((0x10U == (IData)(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__state_dread))
                                        ? (IData)(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missr_data_ena)
                                        : ((4U == (IData)(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__state_dwrite))
                                            ? ((4U == (IData)(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__state_dwrite)) 
@@ -1758,7 +1760,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                            : ((0x10U 
                                                == (IData)(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__state_dwrite)) 
                                               & (IData)(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missw_data_ena))))));
-            tracep->chgBit(oldp+895,((1U & (~ ((0x10U 
+            tracep->chgBit(oldp+898,((1U & (~ ((0x10U 
                                                 == (IData)(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__state_dread))
                                                 ? (IData)(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missr_data_ena)
                                                 : (
@@ -1876,8 +1878,8 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                     ? 
                                                    vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missw_data_strb[3U]
                                                     : 0U))));
-            tracep->chgWData(oldp+896,(__Vtemp752),128);
-            tracep->chgCData(oldp+900,(((4U & (IData)(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__arbitrate_state))
+            tracep->chgWData(oldp+899,(__Vtemp752),128);
+            tracep->chgCData(oldp+903,(((4U & (IData)(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__arbitrate_state))
                                          ? ((2U & (IData)(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__arbitrate_state))
                                              ? ((1U 
                                                  & (IData)(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__arbitrate_state))
@@ -1926,13 +1928,13 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                       ? 4U
                                                       : 1U)))))
                                                  : 1U)))),3);
-            tracep->chgBit(oldp+901,(((2U == (IData)(vlSelf->ysyx_22040228__DOT__axi_mnq4__DOT__s_write_state)) 
+            tracep->chgBit(oldp+904,(((2U == (IData)(vlSelf->ysyx_22040228__DOT__axi_mnq4__DOT__s_write_state)) 
                                       & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_b_ready) 
                                          >> 2U))));
-            tracep->chgBit(oldp+902,((((IData)(vlSelf->ysyx_22040228__DOT__add_axi_r_ready) 
+            tracep->chgBit(oldp+905,((((IData)(vlSelf->ysyx_22040228__DOT__add_axi_r_ready) 
                                        >> 2U) & (2U 
                                                  == (IData)(vlSelf->ysyx_22040228__DOT__axi_mnq4__DOT__s_read_state)))));
-            tracep->chgQData(oldp+903,((((IData)(vlSelf->ysyx_22040228__DOT__clint6__DOT__success_aw) 
+            tracep->chgQData(oldp+906,((((IData)(vlSelf->ysyx_22040228__DOT__clint6__DOT__success_aw) 
                                          & (0x200bff8ULL 
                                             == (((QData)((IData)(
                                                                  vlSelf->ysyx_22040228__DOT__add_axi_aw_addr[3U])) 
@@ -1948,7 +1950,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                             | ((~ vlSelf->ysyx_22040228__DOT__clint6__DOT__wmask) 
                                                & vlSelf->ysyx_22040228__DOT__clint6__DOT__csr_mtime))
                                          : (1ULL + vlSelf->ysyx_22040228__DOT__clint6__DOT__csr_mtime))),64);
-            tracep->chgQData(oldp+905,((((IData)(vlSelf->ysyx_22040228__DOT__clint6__DOT__success_aw) 
+            tracep->chgQData(oldp+908,((((IData)(vlSelf->ysyx_22040228__DOT__clint6__DOT__success_aw) 
                                          & (0x2004000ULL 
                                             == (((QData)((IData)(
                                                                  vlSelf->ysyx_22040228__DOT__add_axi_aw_addr[3U])) 
@@ -1964,251 +1966,251 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                             | ((~ vlSelf->ysyx_22040228__DOT__clint6__DOT__wmask) 
                                                & vlSelf->ysyx_22040228__DOT__clint6__DOT__csr_mtimecmp))
                                          : vlSelf->ysyx_22040228__DOT__clint6__DOT__csr_mtimecmp)),64);
-            tracep->chgBit(oldp+907,(((2U == (IData)(vlSelf->ysyx_22040228__DOT__io_slave_axi9__DOT__s_write_state)) 
+            tracep->chgBit(oldp+910,(((2U == (IData)(vlSelf->ysyx_22040228__DOT__io_slave_axi9__DOT__s_write_state)) 
                                       & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_b_ready))));
-            tracep->chgBit(oldp+908,(((IData)(vlSelf->ysyx_22040228__DOT__add_axi_r_ready) 
+            tracep->chgBit(oldp+911,(((IData)(vlSelf->ysyx_22040228__DOT__add_axi_r_ready) 
                                       & (2U == (IData)(vlSelf->ysyx_22040228__DOT__io_slave_axi9__DOT__s_read_state)))));
         }
         if (VL_UNLIKELY(vlSelf->__Vm_traceActivity[2U])) {
-            tracep->chgQData(oldp+909,(vlSelf->ysyx_22040228__DOT__rvcpu_data_addr),64);
-            tracep->chgCData(oldp+911,(vlSelf->ysyx_22040228__DOT__rvcpu_wmask),8);
-            tracep->chgQData(oldp+912,(vlSelf->ysyx_22040228__DOT__rvcpu_data_o),64);
-            tracep->chgBit(oldp+914,(vlSelf->ysyx_22040228__DOT__rvcpu_we));
-            tracep->chgBit(oldp+915,(vlSelf->ysyx_22040228__DOT__rvcpu_re));
-            tracep->chgQData(oldp+916,(vlSelf->ysyx_22040228__DOT__uncache_arb_data),64);
-            tracep->chgQData(oldp+918,(vlSelf->ysyx_22040228__DOT__uncache_arb_addr),64);
-            tracep->chgCData(oldp+920,(((IData)(vlSelf->ysyx_22040228__DOT__uncache_mmio7__DOT__uncache)
+            tracep->chgQData(oldp+912,(vlSelf->ysyx_22040228__DOT__rvcpu_data_addr),64);
+            tracep->chgCData(oldp+914,(vlSelf->ysyx_22040228__DOT__rvcpu_wmask),8);
+            tracep->chgQData(oldp+915,(vlSelf->ysyx_22040228__DOT__rvcpu_data_o),64);
+            tracep->chgBit(oldp+917,(vlSelf->ysyx_22040228__DOT__rvcpu_we));
+            tracep->chgBit(oldp+918,(vlSelf->ysyx_22040228__DOT__rvcpu_re));
+            tracep->chgQData(oldp+919,(vlSelf->ysyx_22040228__DOT__uncache_arb_data),64);
+            tracep->chgQData(oldp+921,(vlSelf->ysyx_22040228__DOT__uncache_arb_addr),64);
+            tracep->chgCData(oldp+923,(((IData)(vlSelf->ysyx_22040228__DOT__uncache_mmio7__DOT__uncache)
                                          ? (IData)(vlSelf->ysyx_22040228__DOT__rvcpu_wmask)
                                          : 0U)),8);
-            tracep->chgBit(oldp+921,(vlSelf->ysyx_22040228__DOT__uncache_arb_we));
-            tracep->chgBit(oldp+922,(vlSelf->ysyx_22040228__DOT__uncache_arb_re));
-            tracep->chgQData(oldp+923,(vlSelf->ysyx_22040228__DOT__uncache_dc_data),64);
-            tracep->chgQData(oldp+925,(vlSelf->ysyx_22040228__DOT__uncache_dc_addr),64);
-            tracep->chgCData(oldp+927,(vlSelf->ysyx_22040228__DOT__uncache_dc_mask),8);
-            tracep->chgBit(oldp+928,(vlSelf->ysyx_22040228__DOT__uncache_dc_we));
-            tracep->chgBit(oldp+929,(vlSelf->ysyx_22040228__DOT__uncache_dc_re));
-            tracep->chgBit(oldp+930,(vlSelf->ysyx_22040228__DOT__uncache_dc_finish));
-            tracep->chgQData(oldp+931,(vlSelf->ysyx_22040228__DOT__d_cache_data_out),64);
-            tracep->chgQData(oldp+933,(vlSelf->ysyx_22040228__DOT__d_cache_out_addr),64);
-            tracep->chgQData(oldp+935,(vlSelf->ysyx_22040228__DOT__d_cache_out_data),64);
-            tracep->chgCData(oldp+937,(vlSelf->ysyx_22040228__DOT__d_cache_out_type),4);
-            tracep->chgQData(oldp+938,(vlSelf->ysyx_22040228__DOT__t_axi_aw_addr),64);
-            tracep->chgQData(oldp+940,(vlSelf->ysyx_22040228__DOT__t_axi_w_data),64);
-            tracep->chgCData(oldp+942,(vlSelf->ysyx_22040228__DOT__t_axi_w_strb),8);
-            tracep->chgCData(oldp+943,(vlSelf->ysyx_22040228__DOT__t_axi_b_id),4);
-            tracep->chgBit(oldp+944,(vlSelf->ysyx_22040228__DOT__t_axi_b_valid));
-            tracep->chgQData(oldp+945,(vlSelf->ysyx_22040228__DOT__t_axi_ar_addr),64);
-            tracep->chgCData(oldp+947,(vlSelf->ysyx_22040228__DOT__t_axi_r_id),4);
-            tracep->chgQData(oldp+948,(vlSelf->ysyx_22040228__DOT__t_axi_r_data),64);
-            tracep->chgBit(oldp+950,(vlSelf->ysyx_22040228__DOT__t_axi_r_last));
-            tracep->chgBit(oldp+951,(vlSelf->ysyx_22040228__DOT__t_axi_r_valid));
-            tracep->chgSData(oldp+952,(vlSelf->ysyx_22040228__DOT__add_axi_aw_id),12);
-            tracep->chgWData(oldp+953,(vlSelf->ysyx_22040228__DOT__add_axi_aw_addr),192);
-            tracep->chgIData(oldp+959,(vlSelf->ysyx_22040228__DOT__add_axi_aw_len),24);
-            tracep->chgSData(oldp+960,(vlSelf->ysyx_22040228__DOT__add_axi_aw_size),9);
-            tracep->chgCData(oldp+961,(vlSelf->ysyx_22040228__DOT__add_axi_aw_burst),6);
-            tracep->chgSData(oldp+962,(vlSelf->ysyx_22040228__DOT__add_axi_aw_cache),12);
-            tracep->chgSData(oldp+963,(vlSelf->ysyx_22040228__DOT__add_axi_aw_prot),9);
-            tracep->chgSData(oldp+964,(vlSelf->ysyx_22040228__DOT__add_axi_aw_qos),12);
-            tracep->chgCData(oldp+965,(vlSelf->ysyx_22040228__DOT__add_axi_aw_valid),3);
-            tracep->chgCData(oldp+966,(vlSelf->ysyx_22040228__DOT__add_axi_aw_ready),3);
-            tracep->chgWData(oldp+967,(vlSelf->ysyx_22040228__DOT__add_axi_w_data),192);
-            tracep->chgIData(oldp+973,(vlSelf->ysyx_22040228__DOT__add_axi_w_strb),24);
-            tracep->chgCData(oldp+974,(vlSelf->ysyx_22040228__DOT__add_axi_w_last),3);
-            tracep->chgCData(oldp+975,(vlSelf->ysyx_22040228__DOT__add_axi_w_valid),3);
-            tracep->chgCData(oldp+976,(vlSelf->ysyx_22040228__DOT__add_axi_w_ready),3);
-            tracep->chgSData(oldp+977,(vlSelf->ysyx_22040228__DOT__add_axi_b_id),12);
-            tracep->chgCData(oldp+978,(vlSelf->ysyx_22040228__DOT__add_axi_b_ready),3);
-            tracep->chgSData(oldp+979,(vlSelf->ysyx_22040228__DOT__add_axi_ar_id),12);
-            tracep->chgWData(oldp+980,(vlSelf->ysyx_22040228__DOT__add_axi_ar_addr),192);
-            tracep->chgIData(oldp+986,(vlSelf->ysyx_22040228__DOT__add_axi_ar_len),24);
-            tracep->chgSData(oldp+987,(vlSelf->ysyx_22040228__DOT__add_axi_ar_size),9);
-            tracep->chgCData(oldp+988,(vlSelf->ysyx_22040228__DOT__add_axi_ar_burst),6);
-            tracep->chgSData(oldp+989,(vlSelf->ysyx_22040228__DOT__add_axi_ar_cache),12);
-            tracep->chgSData(oldp+990,(vlSelf->ysyx_22040228__DOT__add_axi_ar_prot),9);
-            tracep->chgSData(oldp+991,(vlSelf->ysyx_22040228__DOT__add_axi_ar_qos),12);
-            tracep->chgCData(oldp+992,(vlSelf->ysyx_22040228__DOT__add_axi_ar_valid),3);
-            tracep->chgSData(oldp+993,(vlSelf->ysyx_22040228__DOT__add_axi_r_id),12);
-            tracep->chgWData(oldp+994,(vlSelf->ysyx_22040228__DOT__add_axi_r_data),192);
-            tracep->chgCData(oldp+1000,(vlSelf->ysyx_22040228__DOT__add_axi_r_ready),3);
-            tracep->chgCData(oldp+1001,((0xfU & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_id) 
+            tracep->chgBit(oldp+924,(vlSelf->ysyx_22040228__DOT__uncache_arb_we));
+            tracep->chgBit(oldp+925,(vlSelf->ysyx_22040228__DOT__uncache_arb_re));
+            tracep->chgQData(oldp+926,(vlSelf->ysyx_22040228__DOT__uncache_dc_data),64);
+            tracep->chgQData(oldp+928,(vlSelf->ysyx_22040228__DOT__uncache_dc_addr),64);
+            tracep->chgCData(oldp+930,(vlSelf->ysyx_22040228__DOT__uncache_dc_mask),8);
+            tracep->chgBit(oldp+931,(vlSelf->ysyx_22040228__DOT__uncache_dc_we));
+            tracep->chgBit(oldp+932,(vlSelf->ysyx_22040228__DOT__uncache_dc_re));
+            tracep->chgBit(oldp+933,(vlSelf->ysyx_22040228__DOT__uncache_dc_finish));
+            tracep->chgQData(oldp+934,(vlSelf->ysyx_22040228__DOT__d_cache_data_out),64);
+            tracep->chgQData(oldp+936,(vlSelf->ysyx_22040228__DOT__d_cache_out_addr),64);
+            tracep->chgQData(oldp+938,(vlSelf->ysyx_22040228__DOT__d_cache_out_data),64);
+            tracep->chgCData(oldp+940,(vlSelf->ysyx_22040228__DOT__d_cache_out_type),4);
+            tracep->chgQData(oldp+941,(vlSelf->ysyx_22040228__DOT__t_axi_aw_addr),64);
+            tracep->chgQData(oldp+943,(vlSelf->ysyx_22040228__DOT__t_axi_w_data),64);
+            tracep->chgCData(oldp+945,(vlSelf->ysyx_22040228__DOT__t_axi_w_strb),8);
+            tracep->chgCData(oldp+946,(vlSelf->ysyx_22040228__DOT__t_axi_b_id),4);
+            tracep->chgBit(oldp+947,(vlSelf->ysyx_22040228__DOT__t_axi_b_valid));
+            tracep->chgQData(oldp+948,(vlSelf->ysyx_22040228__DOT__t_axi_ar_addr),64);
+            tracep->chgCData(oldp+950,(vlSelf->ysyx_22040228__DOT__t_axi_r_id),4);
+            tracep->chgQData(oldp+951,(vlSelf->ysyx_22040228__DOT__t_axi_r_data),64);
+            tracep->chgBit(oldp+953,(vlSelf->ysyx_22040228__DOT__t_axi_r_last));
+            tracep->chgBit(oldp+954,(vlSelf->ysyx_22040228__DOT__t_axi_r_valid));
+            tracep->chgSData(oldp+955,(vlSelf->ysyx_22040228__DOT__add_axi_aw_id),12);
+            tracep->chgWData(oldp+956,(vlSelf->ysyx_22040228__DOT__add_axi_aw_addr),192);
+            tracep->chgIData(oldp+962,(vlSelf->ysyx_22040228__DOT__add_axi_aw_len),24);
+            tracep->chgSData(oldp+963,(vlSelf->ysyx_22040228__DOT__add_axi_aw_size),9);
+            tracep->chgCData(oldp+964,(vlSelf->ysyx_22040228__DOT__add_axi_aw_burst),6);
+            tracep->chgSData(oldp+965,(vlSelf->ysyx_22040228__DOT__add_axi_aw_cache),12);
+            tracep->chgSData(oldp+966,(vlSelf->ysyx_22040228__DOT__add_axi_aw_prot),9);
+            tracep->chgSData(oldp+967,(vlSelf->ysyx_22040228__DOT__add_axi_aw_qos),12);
+            tracep->chgCData(oldp+968,(vlSelf->ysyx_22040228__DOT__add_axi_aw_valid),3);
+            tracep->chgCData(oldp+969,(vlSelf->ysyx_22040228__DOT__add_axi_aw_ready),3);
+            tracep->chgWData(oldp+970,(vlSelf->ysyx_22040228__DOT__add_axi_w_data),192);
+            tracep->chgIData(oldp+976,(vlSelf->ysyx_22040228__DOT__add_axi_w_strb),24);
+            tracep->chgCData(oldp+977,(vlSelf->ysyx_22040228__DOT__add_axi_w_last),3);
+            tracep->chgCData(oldp+978,(vlSelf->ysyx_22040228__DOT__add_axi_w_valid),3);
+            tracep->chgCData(oldp+979,(vlSelf->ysyx_22040228__DOT__add_axi_w_ready),3);
+            tracep->chgSData(oldp+980,(vlSelf->ysyx_22040228__DOT__add_axi_b_id),12);
+            tracep->chgCData(oldp+981,(vlSelf->ysyx_22040228__DOT__add_axi_b_ready),3);
+            tracep->chgSData(oldp+982,(vlSelf->ysyx_22040228__DOT__add_axi_ar_id),12);
+            tracep->chgWData(oldp+983,(vlSelf->ysyx_22040228__DOT__add_axi_ar_addr),192);
+            tracep->chgIData(oldp+989,(vlSelf->ysyx_22040228__DOT__add_axi_ar_len),24);
+            tracep->chgSData(oldp+990,(vlSelf->ysyx_22040228__DOT__add_axi_ar_size),9);
+            tracep->chgCData(oldp+991,(vlSelf->ysyx_22040228__DOT__add_axi_ar_burst),6);
+            tracep->chgSData(oldp+992,(vlSelf->ysyx_22040228__DOT__add_axi_ar_cache),12);
+            tracep->chgSData(oldp+993,(vlSelf->ysyx_22040228__DOT__add_axi_ar_prot),9);
+            tracep->chgSData(oldp+994,(vlSelf->ysyx_22040228__DOT__add_axi_ar_qos),12);
+            tracep->chgCData(oldp+995,(vlSelf->ysyx_22040228__DOT__add_axi_ar_valid),3);
+            tracep->chgSData(oldp+996,(vlSelf->ysyx_22040228__DOT__add_axi_r_id),12);
+            tracep->chgWData(oldp+997,(vlSelf->ysyx_22040228__DOT__add_axi_r_data),192);
+            tracep->chgCData(oldp+1003,(vlSelf->ysyx_22040228__DOT__add_axi_r_ready),3);
+            tracep->chgCData(oldp+1004,((0xfU & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_id) 
                                                  >> 8U))),4);
-            tracep->chgQData(oldp+1002,((((QData)((IData)(
+            tracep->chgQData(oldp+1005,((((QData)((IData)(
                                                           vlSelf->ysyx_22040228__DOT__add_axi_aw_addr[5U])) 
                                           << 0x20U) 
                                          | (QData)((IData)(
                                                            vlSelf->ysyx_22040228__DOT__add_axi_aw_addr[4U])))),64);
-            tracep->chgCData(oldp+1004,((0xffU & (vlSelf->ysyx_22040228__DOT__add_axi_aw_len 
+            tracep->chgCData(oldp+1007,((0xffU & (vlSelf->ysyx_22040228__DOT__add_axi_aw_len 
                                                   >> 0x10U))),8);
-            tracep->chgCData(oldp+1005,((7U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_size) 
+            tracep->chgCData(oldp+1008,((7U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_size) 
                                                >> 6U))),3);
-            tracep->chgCData(oldp+1006,((3U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_burst) 
+            tracep->chgCData(oldp+1009,((3U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_burst) 
                                                >> 4U))),2);
-            tracep->chgCData(oldp+1007,((0xfU & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_cache) 
+            tracep->chgCData(oldp+1010,((0xfU & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_cache) 
                                                  >> 8U))),4);
-            tracep->chgCData(oldp+1008,((7U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_prot) 
+            tracep->chgCData(oldp+1011,((7U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_prot) 
                                                >> 6U))),3);
-            tracep->chgCData(oldp+1009,((0xfU & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_qos) 
+            tracep->chgCData(oldp+1012,((0xfU & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_qos) 
                                                  >> 8U))),4);
-            tracep->chgBit(oldp+1010,(vlSelf->ysyx_22040228__DOT__soc_axi_aw_ready));
-            tracep->chgBit(oldp+1011,((1U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_valid) 
+            tracep->chgBit(oldp+1013,(vlSelf->ysyx_22040228__DOT__soc_axi_aw_ready));
+            tracep->chgBit(oldp+1014,((1U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_valid) 
                                              >> 2U))));
-            tracep->chgQData(oldp+1012,((((QData)((IData)(
+            tracep->chgQData(oldp+1015,((((QData)((IData)(
                                                           vlSelf->ysyx_22040228__DOT__add_axi_w_data[5U])) 
                                           << 0x20U) 
                                          | (QData)((IData)(
                                                            vlSelf->ysyx_22040228__DOT__add_axi_w_data[4U])))),64);
-            tracep->chgCData(oldp+1014,((0xffU & (vlSelf->ysyx_22040228__DOT__add_axi_w_strb 
+            tracep->chgCData(oldp+1017,((0xffU & (vlSelf->ysyx_22040228__DOT__add_axi_w_strb 
                                                   >> 0x10U))),8);
-            tracep->chgBit(oldp+1015,((1U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_w_last) 
+            tracep->chgBit(oldp+1018,((1U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_w_last) 
                                              >> 2U))));
-            tracep->chgBit(oldp+1016,((1U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_w_valid) 
+            tracep->chgBit(oldp+1019,((1U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_w_valid) 
                                              >> 2U))));
-            tracep->chgBit(oldp+1017,(vlSelf->ysyx_22040228__DOT__soc_axi_w_ready));
-            tracep->chgBit(oldp+1018,((1U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_b_ready) 
+            tracep->chgBit(oldp+1020,(vlSelf->ysyx_22040228__DOT__soc_axi_w_ready));
+            tracep->chgBit(oldp+1021,((1U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_b_ready) 
                                              >> 2U))));
-            tracep->chgCData(oldp+1019,((0xfU & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_id) 
+            tracep->chgCData(oldp+1022,((0xfU & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_id) 
                                                  >> 8U))),4);
-            tracep->chgQData(oldp+1020,((((QData)((IData)(
+            tracep->chgQData(oldp+1023,((((QData)((IData)(
                                                           vlSelf->ysyx_22040228__DOT__add_axi_ar_addr[5U])) 
                                           << 0x20U) 
                                          | (QData)((IData)(
                                                            vlSelf->ysyx_22040228__DOT__add_axi_ar_addr[4U])))),64);
-            tracep->chgCData(oldp+1022,((0xffU & (vlSelf->ysyx_22040228__DOT__add_axi_ar_len 
+            tracep->chgCData(oldp+1025,((0xffU & (vlSelf->ysyx_22040228__DOT__add_axi_ar_len 
                                                   >> 0x10U))),8);
-            tracep->chgCData(oldp+1023,((7U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_size) 
+            tracep->chgCData(oldp+1026,((7U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_size) 
                                                >> 6U))),3);
-            tracep->chgCData(oldp+1024,((3U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_burst) 
+            tracep->chgCData(oldp+1027,((3U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_burst) 
                                                >> 4U))),2);
-            tracep->chgCData(oldp+1025,((0xfU & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_cache) 
+            tracep->chgCData(oldp+1028,((0xfU & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_cache) 
                                                  >> 8U))),4);
-            tracep->chgCData(oldp+1026,((7U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_prot) 
+            tracep->chgCData(oldp+1029,((7U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_prot) 
                                                >> 6U))),3);
-            tracep->chgCData(oldp+1027,((0xfU & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_qos) 
+            tracep->chgCData(oldp+1030,((0xfU & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_qos) 
                                                  >> 8U))),4);
-            tracep->chgBit(oldp+1028,((1U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_valid) 
+            tracep->chgBit(oldp+1031,((1U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_valid) 
                                              >> 2U))));
-            tracep->chgBit(oldp+1029,((1U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_r_ready) 
+            tracep->chgBit(oldp+1032,((1U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_r_ready) 
                                              >> 2U))));
-            tracep->chgCData(oldp+1030,((0xfU & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_id) 
+            tracep->chgCData(oldp+1033,((0xfU & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_id) 
                                                  >> 4U))),4);
-            tracep->chgQData(oldp+1031,((((QData)((IData)(
+            tracep->chgQData(oldp+1034,((((QData)((IData)(
                                                           vlSelf->ysyx_22040228__DOT__add_axi_aw_addr[3U])) 
                                           << 0x20U) 
                                          | (QData)((IData)(
                                                            vlSelf->ysyx_22040228__DOT__add_axi_aw_addr[2U])))),64);
-            tracep->chgCData(oldp+1033,((0xffU & (vlSelf->ysyx_22040228__DOT__add_axi_aw_len 
+            tracep->chgCData(oldp+1036,((0xffU & (vlSelf->ysyx_22040228__DOT__add_axi_aw_len 
                                                   >> 8U))),8);
-            tracep->chgCData(oldp+1034,((7U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_size) 
+            tracep->chgCData(oldp+1037,((7U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_size) 
                                                >> 3U))),3);
-            tracep->chgCData(oldp+1035,((3U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_burst) 
+            tracep->chgCData(oldp+1038,((3U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_burst) 
                                                >> 2U))),2);
-            tracep->chgCData(oldp+1036,((0xfU & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_cache) 
+            tracep->chgCData(oldp+1039,((0xfU & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_cache) 
                                                  >> 4U))),4);
-            tracep->chgCData(oldp+1037,((7U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_prot) 
+            tracep->chgCData(oldp+1040,((7U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_prot) 
                                                >> 3U))),3);
-            tracep->chgCData(oldp+1038,((0xfU & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_qos) 
+            tracep->chgCData(oldp+1041,((0xfU & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_qos) 
                                                  >> 4U))),4);
-            tracep->chgBit(oldp+1039,((1U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_valid) 
+            tracep->chgBit(oldp+1042,((1U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_valid) 
                                              >> 1U))));
-            tracep->chgQData(oldp+1040,((((QData)((IData)(
+            tracep->chgQData(oldp+1043,((((QData)((IData)(
                                                           vlSelf->ysyx_22040228__DOT__add_axi_w_data[3U])) 
                                           << 0x20U) 
                                          | (QData)((IData)(
                                                            vlSelf->ysyx_22040228__DOT__add_axi_w_data[2U])))),64);
-            tracep->chgCData(oldp+1042,((0xffU & (vlSelf->ysyx_22040228__DOT__add_axi_w_strb 
+            tracep->chgCData(oldp+1045,((0xffU & (vlSelf->ysyx_22040228__DOT__add_axi_w_strb 
                                                   >> 8U))),8);
-            tracep->chgBit(oldp+1043,((1U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_w_last) 
+            tracep->chgBit(oldp+1046,((1U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_w_last) 
                                              >> 1U))));
-            tracep->chgBit(oldp+1044,((1U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_w_valid) 
+            tracep->chgBit(oldp+1047,((1U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_w_valid) 
                                              >> 1U))));
-            tracep->chgBit(oldp+1045,(vlSelf->ysyx_22040228__DOT__clint6__DOT__success_aw));
-            tracep->chgBit(oldp+1046,((1U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_b_ready) 
+            tracep->chgBit(oldp+1048,(vlSelf->ysyx_22040228__DOT__clint6__DOT__success_aw));
+            tracep->chgBit(oldp+1049,((1U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_b_ready) 
                                              >> 1U))));
-            tracep->chgCData(oldp+1047,((0xfU & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_id) 
+            tracep->chgCData(oldp+1050,((0xfU & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_id) 
                                                  >> 4U))),4);
-            tracep->chgQData(oldp+1048,((((QData)((IData)(
+            tracep->chgQData(oldp+1051,((((QData)((IData)(
                                                           vlSelf->ysyx_22040228__DOT__add_axi_ar_addr[3U])) 
                                           << 0x20U) 
                                          | (QData)((IData)(
                                                            vlSelf->ysyx_22040228__DOT__add_axi_ar_addr[2U])))),64);
-            tracep->chgCData(oldp+1050,((0xffU & (vlSelf->ysyx_22040228__DOT__add_axi_ar_len 
+            tracep->chgCData(oldp+1053,((0xffU & (vlSelf->ysyx_22040228__DOT__add_axi_ar_len 
                                                   >> 8U))),8);
-            tracep->chgCData(oldp+1051,((7U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_size) 
+            tracep->chgCData(oldp+1054,((7U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_size) 
                                                >> 3U))),3);
-            tracep->chgCData(oldp+1052,((3U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_burst) 
+            tracep->chgCData(oldp+1055,((3U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_burst) 
                                                >> 2U))),2);
-            tracep->chgCData(oldp+1053,((0xfU & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_cache) 
+            tracep->chgCData(oldp+1056,((0xfU & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_cache) 
                                                  >> 4U))),4);
-            tracep->chgCData(oldp+1054,((7U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_prot) 
+            tracep->chgCData(oldp+1057,((7U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_prot) 
                                                >> 3U))),3);
-            tracep->chgCData(oldp+1055,((0xfU & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_qos) 
+            tracep->chgCData(oldp+1058,((0xfU & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_qos) 
                                                  >> 4U))),4);
-            tracep->chgBit(oldp+1056,((1U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_valid) 
+            tracep->chgBit(oldp+1059,((1U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_valid) 
                                              >> 1U))));
-            tracep->chgBit(oldp+1057,((1U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_r_ready) 
+            tracep->chgBit(oldp+1060,((1U & ((IData)(vlSelf->ysyx_22040228__DOT__add_axi_r_ready) 
                                              >> 1U))));
-            tracep->chgCData(oldp+1058,((0xfU & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_id))),4);
-            tracep->chgQData(oldp+1059,((((QData)((IData)(
+            tracep->chgCData(oldp+1061,((0xfU & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_id))),4);
+            tracep->chgQData(oldp+1062,((((QData)((IData)(
                                                           vlSelf->ysyx_22040228__DOT__add_axi_aw_addr[1U])) 
                                           << 0x20U) 
                                          | (QData)((IData)(
                                                            vlSelf->ysyx_22040228__DOT__add_axi_aw_addr[0U])))),64);
-            tracep->chgCData(oldp+1061,((0xffU & vlSelf->ysyx_22040228__DOT__add_axi_aw_len)),8);
-            tracep->chgCData(oldp+1062,((7U & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_size))),3);
-            tracep->chgCData(oldp+1063,((3U & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_burst))),2);
-            tracep->chgCData(oldp+1064,((0xfU & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_cache))),4);
-            tracep->chgCData(oldp+1065,((7U & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_prot))),3);
-            tracep->chgCData(oldp+1066,((0xfU & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_qos))),4);
-            tracep->chgBit(oldp+1067,(vlSelf->ysyx_22040228__DOT__io_axi_aw_ready));
-            tracep->chgBit(oldp+1068,((1U & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_valid))));
-            tracep->chgQData(oldp+1069,((((QData)((IData)(
+            tracep->chgCData(oldp+1064,((0xffU & vlSelf->ysyx_22040228__DOT__add_axi_aw_len)),8);
+            tracep->chgCData(oldp+1065,((7U & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_size))),3);
+            tracep->chgCData(oldp+1066,((3U & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_burst))),2);
+            tracep->chgCData(oldp+1067,((0xfU & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_cache))),4);
+            tracep->chgCData(oldp+1068,((7U & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_prot))),3);
+            tracep->chgCData(oldp+1069,((0xfU & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_qos))),4);
+            tracep->chgBit(oldp+1070,(vlSelf->ysyx_22040228__DOT__io_axi_aw_ready));
+            tracep->chgBit(oldp+1071,((1U & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_valid))));
+            tracep->chgQData(oldp+1072,((((QData)((IData)(
                                                           vlSelf->ysyx_22040228__DOT__add_axi_w_data[1U])) 
                                           << 0x20U) 
                                          | (QData)((IData)(
                                                            vlSelf->ysyx_22040228__DOT__add_axi_w_data[0U])))),64);
-            tracep->chgCData(oldp+1071,((0xffU & vlSelf->ysyx_22040228__DOT__add_axi_w_strb)),8);
-            tracep->chgBit(oldp+1072,((1U & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_w_last))));
-            tracep->chgBit(oldp+1073,((1U & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_w_valid))));
-            tracep->chgBit(oldp+1074,(vlSelf->ysyx_22040228__DOT__io_axi_w_ready));
-            tracep->chgBit(oldp+1075,((1U & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_b_ready))));
-            tracep->chgCData(oldp+1076,((0xfU & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_id))),4);
-            tracep->chgQData(oldp+1077,((((QData)((IData)(
+            tracep->chgCData(oldp+1074,((0xffU & vlSelf->ysyx_22040228__DOT__add_axi_w_strb)),8);
+            tracep->chgBit(oldp+1075,((1U & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_w_last))));
+            tracep->chgBit(oldp+1076,((1U & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_w_valid))));
+            tracep->chgBit(oldp+1077,(vlSelf->ysyx_22040228__DOT__io_axi_w_ready));
+            tracep->chgBit(oldp+1078,((1U & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_b_ready))));
+            tracep->chgCData(oldp+1079,((0xfU & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_id))),4);
+            tracep->chgQData(oldp+1080,((((QData)((IData)(
                                                           vlSelf->ysyx_22040228__DOT__add_axi_ar_addr[1U])) 
                                           << 0x20U) 
                                          | (QData)((IData)(
                                                            vlSelf->ysyx_22040228__DOT__add_axi_ar_addr[0U])))),64);
-            tracep->chgCData(oldp+1079,((0xffU & vlSelf->ysyx_22040228__DOT__add_axi_ar_len)),8);
-            tracep->chgCData(oldp+1080,((7U & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_size))),3);
-            tracep->chgCData(oldp+1081,((3U & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_burst))),2);
-            tracep->chgCData(oldp+1082,((0xfU & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_cache))),4);
-            tracep->chgCData(oldp+1083,((7U & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_prot))),3);
-            tracep->chgCData(oldp+1084,((0xfU & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_qos))),4);
-            tracep->chgBit(oldp+1085,((1U & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_valid))));
-            tracep->chgBit(oldp+1086,((1U & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_r_ready))));
-            tracep->chgCData(oldp+1087,(vlSelf->ysyx_22040228__DOT__mmio_thing),3);
-            tracep->chgBit(oldp+1088,(vlSelf->ysyx_22040228__DOT__axi_mnq4__DOT__ar_shankhand));
-            tracep->chgQData(oldp+1089,(((IData)(vlSelf->ysyx_22040228__DOT__axi_mnq4__DOT__ar_shankhand)
+            tracep->chgCData(oldp+1082,((0xffU & vlSelf->ysyx_22040228__DOT__add_axi_ar_len)),8);
+            tracep->chgCData(oldp+1083,((7U & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_size))),3);
+            tracep->chgCData(oldp+1084,((3U & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_burst))),2);
+            tracep->chgCData(oldp+1085,((0xfU & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_cache))),4);
+            tracep->chgCData(oldp+1086,((7U & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_prot))),3);
+            tracep->chgCData(oldp+1087,((0xfU & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_qos))),4);
+            tracep->chgBit(oldp+1088,((1U & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_valid))));
+            tracep->chgBit(oldp+1089,((1U & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_r_ready))));
+            tracep->chgCData(oldp+1090,(vlSelf->ysyx_22040228__DOT__mmio_thing),3);
+            tracep->chgBit(oldp+1091,(vlSelf->ysyx_22040228__DOT__axi_mnq4__DOT__ar_shankhand));
+            tracep->chgQData(oldp+1092,(((IData)(vlSelf->ysyx_22040228__DOT__axi_mnq4__DOT__ar_shankhand)
                                           ? (((QData)((IData)(
                                                               vlSelf->ysyx_22040228__DOT__add_axi_ar_addr[5U])) 
                                               << 0x20U) 
                                              | (QData)((IData)(
                                                                vlSelf->ysyx_22040228__DOT__add_axi_ar_addr[4U])))
                                           : 0ULL)),64);
-            tracep->chgQData(oldp+1091,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf_pc_data),64);
-            tracep->chgCData(oldp+1093,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_ref_op1addr),5);
-            tracep->chgCData(oldp+1094,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_ref_op2addr),5);
-            tracep->chgBit(oldp+1095,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_ref_op1ena));
-            tracep->chgBit(oldp+1096,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_ref_op2ena));
-            tracep->chgCData(oldp+1097,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_type),8);
-            tracep->chgCData(oldp+1098,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_opcode),8);
-            tracep->chgQData(oldp+1099,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_op1),64);
-            tracep->chgQData(oldp+1101,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_op2),64);
-            tracep->chgBit(oldp+1103,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_ena));
-            tracep->chgCData(oldp+1104,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_addr),5);
-            tracep->chgQData(oldp+1105,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_pc),64);
-            tracep->chgIData(oldp+1107,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_inst),32);
-            tracep->chgQData(oldp+1108,(((IData)((0U 
+            tracep->chgQData(oldp+1094,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf_pc_data),64);
+            tracep->chgCData(oldp+1096,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_ref_op1addr),5);
+            tracep->chgCData(oldp+1097,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_ref_op2addr),5);
+            tracep->chgBit(oldp+1098,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_ref_op1ena));
+            tracep->chgBit(oldp+1099,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_ref_op2ena));
+            tracep->chgCData(oldp+1100,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_type),8);
+            tracep->chgCData(oldp+1101,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_opcode),8);
+            tracep->chgQData(oldp+1102,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_op1),64);
+            tracep->chgQData(oldp+1104,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_op2),64);
+            tracep->chgBit(oldp+1106,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_ena));
+            tracep->chgCData(oldp+1107,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_addr),5);
+            tracep->chgQData(oldp+1108,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_pc),64);
+            tracep->chgIData(oldp+1110,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_inst),32);
+            tracep->chgQData(oldp+1111,(((IData)((0U 
                                                   != 
                                                   (3U 
                                                    & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_type))))
@@ -2220,25 +2222,25 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                  << 0xcU) 
                                                 | (QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__store_addr_offset))))
                                           : 0ULL)),64);
-            tracep->chgQData(oldp+1110,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__jump1_pc),64);
-            tracep->chgBit(oldp+1112,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__jump1_ena));
-            tracep->chgCData(oldp+1113,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_so_type),6);
-            tracep->chgBit(oldp+1114,((1U & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_type) 
+            tracep->chgQData(oldp+1113,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__jump1_pc),64);
+            tracep->chgBit(oldp+1115,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__jump1_ena));
+            tracep->chgCData(oldp+1116,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_so_type),6);
+            tracep->chgBit(oldp+1117,((1U & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_type) 
                                              >> 2U))));
-            tracep->chgBit(oldp+1115,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__data_jf));
-            tracep->chgCData(oldp+1116,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_ref_op1addr),5);
-            tracep->chgCData(oldp+1117,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_ref_op2addr),5);
-            tracep->chgBit(oldp+1118,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_ref_op1ena));
-            tracep->chgBit(oldp+1119,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_ref_op2ena));
-            tracep->chgCData(oldp+1120,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_type),8);
-            tracep->chgCData(oldp+1121,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_opcode),8);
-            tracep->chgQData(oldp+1122,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_op1),64);
-            tracep->chgQData(oldp+1124,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_op2),64);
-            tracep->chgBit(oldp+1126,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_ena));
-            tracep->chgCData(oldp+1127,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_addr),5);
-            tracep->chgQData(oldp+1128,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_pc),64);
-            tracep->chgIData(oldp+1130,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_inst),32);
-            tracep->chgQData(oldp+1131,(((IData)((0U 
+            tracep->chgBit(oldp+1118,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__data_jf));
+            tracep->chgCData(oldp+1119,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_ref_op1addr),5);
+            tracep->chgCData(oldp+1120,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_ref_op2addr),5);
+            tracep->chgBit(oldp+1121,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_ref_op1ena));
+            tracep->chgBit(oldp+1122,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_ref_op2ena));
+            tracep->chgCData(oldp+1123,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_type),8);
+            tracep->chgCData(oldp+1124,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_opcode),8);
+            tracep->chgQData(oldp+1125,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_op1),64);
+            tracep->chgQData(oldp+1127,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_op2),64);
+            tracep->chgBit(oldp+1129,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_ena));
+            tracep->chgCData(oldp+1130,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_addr),5);
+            tracep->chgQData(oldp+1131,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_pc),64);
+            tracep->chgIData(oldp+1133,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_inst),32);
+            tracep->chgQData(oldp+1134,(((IData)((0U 
                                                   != 
                                                   (3U 
                                                    & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_type))))
@@ -2250,36 +2252,36 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                  << 0xcU) 
                                                 | (QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__store_addr_offset))))
                                           : 0ULL)),64);
-            tracep->chgBit(oldp+1133,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__data_jf));
-            tracep->chgBit(oldp+1134,((1U & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_type) 
+            tracep->chgBit(oldp+1136,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__data_jf));
+            tracep->chgBit(oldp+1137,((1U & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_type) 
                                              >> 2U))));
-            tracep->chgQData(oldp+1135,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__jump2_pc),64);
-            tracep->chgBit(oldp+1137,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__jump2_ena));
-            tracep->chgCData(oldp+1138,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_so_type),6);
-            tracep->chgCData(oldp+1139,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_idex_chose1),3);
-            tracep->chgCData(oldp+1140,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_idex_chose2),3);
-            tracep->chgBit(oldp+1141,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_isu_stop1));
-            tracep->chgBit(oldp+1142,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_isu_stop2));
-            tracep->chgBit(oldp+1143,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_idex_cleano));
-            tracep->chgBit(oldp+1144,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_idex_cleant));
-            tracep->chgBit(oldp+1145,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudt_stop_trap));
-            tracep->chgBit(oldp+1146,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo_stop_trap));
-            tracep->chgQData(oldp+1147,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_submit_pc),64);
-            tracep->chgQData(oldp+1149,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__ao_su_pc),64);
-            tracep->chgQData(oldp+1151,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__ao_su_data),64);
-            tracep->chgQData(oldp+1153,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__at_su_pc),64);
-            tracep->chgQData(oldp+1155,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__at_su_data),64);
-            tracep->chgQData(oldp+1157,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mm_su_pc),64);
-            tracep->chgQData(oldp+1159,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mmu__DOT__load_data),64);
-            tracep->chgBit(oldp+1161,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mm_so_busy));
-            tracep->chgQData(oldp+1162,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_datag),64);
-            tracep->chgCData(oldp+1164,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addrg),5);
-            tracep->chgBit(oldp+1165,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_enag));
-            tracep->chgQData(oldp+1166,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__operand2),64);
-            tracep->chgQData(oldp+1168,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__j_temp),64);
-            tracep->chgQData(oldp+1170,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__forc_jumppc),64);
-            tracep->chgQData(oldp+1172,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__pc_jnxtpc_temp),64);
-            tracep->chgCData(oldp+1174,(((0xcU == (0xfU 
+            tracep->chgQData(oldp+1138,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__jump2_pc),64);
+            tracep->chgBit(oldp+1140,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__jump2_ena));
+            tracep->chgCData(oldp+1141,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_so_type),6);
+            tracep->chgCData(oldp+1142,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_idex_chose1),3);
+            tracep->chgCData(oldp+1143,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_idex_chose2),3);
+            tracep->chgBit(oldp+1144,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_isu_stop1));
+            tracep->chgBit(oldp+1145,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_isu_stop2));
+            tracep->chgBit(oldp+1146,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_idex_cleano));
+            tracep->chgBit(oldp+1147,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_idex_cleant));
+            tracep->chgBit(oldp+1148,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudt_stop_trap));
+            tracep->chgBit(oldp+1149,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo_stop_trap));
+            tracep->chgQData(oldp+1150,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_submit_pc),64);
+            tracep->chgQData(oldp+1152,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__ao_su_pc),64);
+            tracep->chgQData(oldp+1154,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__ao_su_data),64);
+            tracep->chgQData(oldp+1156,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__at_su_pc),64);
+            tracep->chgQData(oldp+1158,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__at_su_data),64);
+            tracep->chgQData(oldp+1160,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mm_su_pc),64);
+            tracep->chgQData(oldp+1162,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mmu__DOT__load_data),64);
+            tracep->chgBit(oldp+1164,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mm_so_busy));
+            tracep->chgQData(oldp+1165,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_datag),64);
+            tracep->chgCData(oldp+1167,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addrg),5);
+            tracep->chgBit(oldp+1168,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_enag));
+            tracep->chgQData(oldp+1169,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__operand2),64);
+            tracep->chgQData(oldp+1171,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__j_temp),64);
+            tracep->chgQData(oldp+1173,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__forc_jumppc),64);
+            tracep->chgQData(oldp+1175,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__instfact__DOT__pc_jnxtpc_temp),64);
+            tracep->chgCData(oldp+1177,(((0xcU == (0xfU 
                                                    & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__jump1_pc)))
                                           ? 1U : ((8U 
                                                    == 
@@ -2293,7 +2295,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                      & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__jump1_pc)))
                                                     ? 3U
                                                     : 4U)))),3);
-            tracep->chgCData(oldp+1175,(((0xcU == (0xfU 
+            tracep->chgCData(oldp+1178,(((0xcU == (0xfU 
                                                    & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__jump2_pc)))
                                           ? 1U : ((8U 
                                                    == 
@@ -2307,118 +2309,118 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                      & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__jump2_pc)))
                                                     ? 3U
                                                     : 4U)))),3);
-            tracep->chgBit(oldp+1176,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__inst8__DOT__should_updata));
-            tracep->chgCData(oldp+1177,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__rs1),5);
-            tracep->chgBit(oldp+1178,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_lui));
-            tracep->chgBit(oldp+1179,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_auipc));
-            tracep->chgBit(oldp+1180,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_jal));
-            tracep->chgBit(oldp+1181,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_jalr));
-            tracep->chgBit(oldp+1182,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_jump));
-            tracep->chgBit(oldp+1183,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_srai));
-            tracep->chgBit(oldp+1184,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_addiw));
-            tracep->chgBit(oldp+1185,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_slliw));
-            tracep->chgBit(oldp+1186,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_srliw));
-            tracep->chgBit(oldp+1187,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_sraiw));
-            tracep->chgBit(oldp+1188,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_add));
-            tracep->chgBit(oldp+1189,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_sub));
-            tracep->chgBit(oldp+1190,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_sll));
-            tracep->chgBit(oldp+1191,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_slt));
-            tracep->chgBit(oldp+1192,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_sltu));
-            tracep->chgBit(oldp+1193,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_xor));
-            tracep->chgBit(oldp+1194,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_srl));
-            tracep->chgBit(oldp+1195,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_sra));
-            tracep->chgBit(oldp+1196,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_or));
-            tracep->chgBit(oldp+1197,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_and));
-            tracep->chgBit(oldp+1198,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_div));
-            tracep->chgBit(oldp+1199,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_divu));
-            tracep->chgBit(oldp+1200,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_mul));
-            tracep->chgBit(oldp+1201,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_mulh));
-            tracep->chgBit(oldp+1202,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_mulhsu));
-            tracep->chgBit(oldp+1203,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_mulhu));
-            tracep->chgBit(oldp+1204,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_rem));
-            tracep->chgBit(oldp+1205,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_remu));
-            tracep->chgBit(oldp+1206,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_addw));
-            tracep->chgBit(oldp+1207,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_subw));
-            tracep->chgBit(oldp+1208,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_sllw));
-            tracep->chgBit(oldp+1209,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_srlw));
-            tracep->chgBit(oldp+1210,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_sraw));
-            tracep->chgBit(oldp+1211,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_divuw));
-            tracep->chgBit(oldp+1212,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_divw));
-            tracep->chgBit(oldp+1213,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_mulw));
-            tracep->chgBit(oldp+1214,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_remuw));
-            tracep->chgBit(oldp+1215,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_remw));
-            tracep->chgBit(oldp+1216,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_csrrw));
-            tracep->chgBit(oldp+1217,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_csrrs));
-            tracep->chgBit(oldp+1218,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_csrrc));
-            tracep->chgBit(oldp+1219,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_csrrwi));
-            tracep->chgBit(oldp+1220,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_csrrsi));
-            tracep->chgBit(oldp+1221,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_csrrci));
-            tracep->chgBit(oldp+1222,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_csrrw) 
+            tracep->chgBit(oldp+1179,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__inst8__DOT__should_updata));
+            tracep->chgCData(oldp+1180,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__rs1),5);
+            tracep->chgBit(oldp+1181,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_lui));
+            tracep->chgBit(oldp+1182,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_auipc));
+            tracep->chgBit(oldp+1183,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_jal));
+            tracep->chgBit(oldp+1184,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_jalr));
+            tracep->chgBit(oldp+1185,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_jump));
+            tracep->chgBit(oldp+1186,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_srai));
+            tracep->chgBit(oldp+1187,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_addiw));
+            tracep->chgBit(oldp+1188,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_slliw));
+            tracep->chgBit(oldp+1189,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_srliw));
+            tracep->chgBit(oldp+1190,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_sraiw));
+            tracep->chgBit(oldp+1191,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_add));
+            tracep->chgBit(oldp+1192,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_sub));
+            tracep->chgBit(oldp+1193,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_sll));
+            tracep->chgBit(oldp+1194,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_slt));
+            tracep->chgBit(oldp+1195,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_sltu));
+            tracep->chgBit(oldp+1196,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_xor));
+            tracep->chgBit(oldp+1197,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_srl));
+            tracep->chgBit(oldp+1198,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_sra));
+            tracep->chgBit(oldp+1199,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_or));
+            tracep->chgBit(oldp+1200,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_and));
+            tracep->chgBit(oldp+1201,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_div));
+            tracep->chgBit(oldp+1202,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_divu));
+            tracep->chgBit(oldp+1203,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_mul));
+            tracep->chgBit(oldp+1204,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_mulh));
+            tracep->chgBit(oldp+1205,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_mulhsu));
+            tracep->chgBit(oldp+1206,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_mulhu));
+            tracep->chgBit(oldp+1207,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_rem));
+            tracep->chgBit(oldp+1208,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_remu));
+            tracep->chgBit(oldp+1209,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_addw));
+            tracep->chgBit(oldp+1210,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_subw));
+            tracep->chgBit(oldp+1211,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_sllw));
+            tracep->chgBit(oldp+1212,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_srlw));
+            tracep->chgBit(oldp+1213,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_sraw));
+            tracep->chgBit(oldp+1214,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_divuw));
+            tracep->chgBit(oldp+1215,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_divw));
+            tracep->chgBit(oldp+1216,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_mulw));
+            tracep->chgBit(oldp+1217,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_remuw));
+            tracep->chgBit(oldp+1218,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_remw));
+            tracep->chgBit(oldp+1219,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_csrrw));
+            tracep->chgBit(oldp+1220,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_csrrs));
+            tracep->chgBit(oldp+1221,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_csrrc));
+            tracep->chgBit(oldp+1222,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_csrrwi));
+            tracep->chgBit(oldp+1223,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_csrrsi));
+            tracep->chgBit(oldp+1224,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_csrrci));
+            tracep->chgBit(oldp+1225,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_csrrw) 
                                         | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_csrrs)) 
                                        | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_csrrc))));
-            tracep->chgBit(oldp+1223,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_csrrwi) 
+            tracep->chgBit(oldp+1226,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_csrrwi) 
                                         | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_csrrsi)) 
                                        | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_csrrci))));
-            tracep->chgBit(oldp+1224,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_ecall));
-            tracep->chgBit(oldp+1225,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_ebreak));
-            tracep->chgBit(oldp+1226,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_mret));
-            tracep->chgSData(oldp+1227,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__store_addr_offset),12);
-            tracep->chgBit(oldp+1228,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__alu1_op1));
-            tracep->chgBit(oldp+1229,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__alu2_op1));
-            tracep->chgBit(oldp+1230,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__com1_op1));
-            tracep->chgBit(oldp+1231,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__com2_op1));
-            tracep->chgBit(oldp+1232,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__com3_op1));
-            tracep->chgBit(oldp+1233,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__com4_op1));
-            tracep->chgBit(oldp+1234,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__com5_op1));
-            tracep->chgBit(oldp+1235,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__com6_op1));
-            tracep->chgBit(oldp+1236,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__com7_op1));
-            tracep->chgBit(oldp+1237,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__com8_op1));
-            tracep->chgBit(oldp+1238,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__wb1_op1));
-            tracep->chgBit(oldp+1239,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__wb2_op1));
-            tracep->chgBit(oldp+1240,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__wb3_op1));
-            tracep->chgBit(oldp+1241,(((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__ao_su_pc 
+            tracep->chgBit(oldp+1227,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_ecall));
+            tracep->chgBit(oldp+1228,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_ebreak));
+            tracep->chgBit(oldp+1229,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_mret));
+            tracep->chgSData(oldp+1230,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__store_addr_offset),12);
+            tracep->chgBit(oldp+1231,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__alu1_op1));
+            tracep->chgBit(oldp+1232,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__alu2_op1));
+            tracep->chgBit(oldp+1233,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__com1_op1));
+            tracep->chgBit(oldp+1234,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__com2_op1));
+            tracep->chgBit(oldp+1235,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__com3_op1));
+            tracep->chgBit(oldp+1236,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__com4_op1));
+            tracep->chgBit(oldp+1237,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__com5_op1));
+            tracep->chgBit(oldp+1238,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__com6_op1));
+            tracep->chgBit(oldp+1239,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__com7_op1));
+            tracep->chgBit(oldp+1240,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__com8_op1));
+            tracep->chgBit(oldp+1241,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__wb1_op1));
+            tracep->chgBit(oldp+1242,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__wb2_op1));
+            tracep->chgBit(oldp+1243,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__wb3_op1));
+            tracep->chgBit(oldp+1244,(((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__ao_su_pc 
                                         > vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__at_su_pc) 
                                        & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__alu1_op1) 
                                           & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__alu2_op1)))));
-            tracep->chgBit(oldp+1242,(((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__ao_su_pc 
+            tracep->chgBit(oldp+1245,(((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__ao_su_pc 
                                         < vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__at_su_pc) 
                                        & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__alu1_op1) 
                                           & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__alu2_op1)))));
-            tracep->chgBit(oldp+1243,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__mem_op1));
-            tracep->chgBit(oldp+1244,(((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mm_su_pc 
+            tracep->chgBit(oldp+1246,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__mem_op1));
+            tracep->chgBit(oldp+1247,(((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mm_su_pc 
                                         < vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__ao_su_pc) 
                                        & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__alu1_op1) 
                                           & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__mem_op1)))));
-            tracep->chgBit(oldp+1245,(((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mm_su_pc 
+            tracep->chgBit(oldp+1248,(((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mm_su_pc 
                                         < vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__at_su_pc) 
                                        & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__alu2_op1) 
                                           & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__mem_op1)))));
-            tracep->chgBit(oldp+1246,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__alu1_op2));
-            tracep->chgBit(oldp+1247,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__alu2_op2));
-            tracep->chgBit(oldp+1248,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__wb2_op2));
-            tracep->chgBit(oldp+1249,(((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__ao_su_pc 
+            tracep->chgBit(oldp+1249,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__alu1_op2));
+            tracep->chgBit(oldp+1250,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__alu2_op2));
+            tracep->chgBit(oldp+1251,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__wb2_op2));
+            tracep->chgBit(oldp+1252,(((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__ao_su_pc 
                                         > vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__at_su_pc) 
                                        & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__alu1_op2) 
                                           & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__alu2_op2)))));
-            tracep->chgBit(oldp+1250,(((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__ao_su_pc 
+            tracep->chgBit(oldp+1253,(((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__ao_su_pc 
                                         < vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__at_su_pc) 
                                        & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__alu1_op2) 
                                           & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__alu2_op2)))));
-            tracep->chgBit(oldp+1251,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__mem_op2));
-            tracep->chgBit(oldp+1252,(((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mm_su_pc 
+            tracep->chgBit(oldp+1254,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__mem_op2));
+            tracep->chgBit(oldp+1255,(((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mm_su_pc 
                                         < vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__ao_su_pc) 
                                        & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__alu1_op2) 
                                           & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__mem_op2)))));
-            tracep->chgBit(oldp+1253,(((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mm_su_pc 
+            tracep->chgBit(oldp+1256,(((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mm_su_pc 
                                         < vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__at_su_pc) 
                                        & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__alu2_op2) 
                                           & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__mem_op2)))));
-            tracep->chgBit(oldp+1254,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__forcast_state));
-            tracep->chgQData(oldp+1255,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__op1_sub_op2),64);
-            tracep->chgBit(oldp+1257,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__op1_ls_op2));
-            tracep->chgBit(oldp+1258,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__forcast_state));
-            tracep->chgBit(oldp+1259,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__jalr_pc_ena));
-            tracep->chgBit(oldp+1260,((1U & (((((((
+            tracep->chgBit(oldp+1257,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__forcast_state));
+            tracep->chgQData(oldp+1258,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__op1_sub_op2),64);
+            tracep->chgBit(oldp+1260,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__op1_ls_op2));
+            tracep->chgBit(oldp+1261,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__forcast_state));
+            tracep->chgBit(oldp+1262,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__jalr_pc_ena));
+            tracep->chgBit(oldp+1263,((1U & (((((((
                                                    (((((((~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__alu1_op1)) 
                                                          & (~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__alu2_op1))) 
                                                         & (~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__mem_op1))) 
@@ -2433,117 +2435,117 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                & (~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__com6_op1))) 
                                               & (~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__com7_op1))) 
                                              & (~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__com8_op1))))));
-            tracep->chgCData(oldp+1261,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__rs1),5);
-            tracep->chgBit(oldp+1262,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_lui));
-            tracep->chgBit(oldp+1263,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_auipc));
-            tracep->chgBit(oldp+1264,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_jal));
-            tracep->chgBit(oldp+1265,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_jalr));
-            tracep->chgBit(oldp+1266,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_jump));
-            tracep->chgBit(oldp+1267,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_srai));
-            tracep->chgBit(oldp+1268,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_addiw));
-            tracep->chgBit(oldp+1269,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_slliw));
-            tracep->chgBit(oldp+1270,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_srliw));
-            tracep->chgBit(oldp+1271,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_sraiw));
-            tracep->chgBit(oldp+1272,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_add));
-            tracep->chgBit(oldp+1273,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_sub));
-            tracep->chgBit(oldp+1274,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_sll));
-            tracep->chgBit(oldp+1275,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_slt));
-            tracep->chgBit(oldp+1276,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_sltu));
-            tracep->chgBit(oldp+1277,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_xor));
-            tracep->chgBit(oldp+1278,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_srl));
-            tracep->chgBit(oldp+1279,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_sra));
-            tracep->chgBit(oldp+1280,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_or));
-            tracep->chgBit(oldp+1281,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_and));
-            tracep->chgBit(oldp+1282,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_div));
-            tracep->chgBit(oldp+1283,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_divu));
-            tracep->chgBit(oldp+1284,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_mul));
-            tracep->chgBit(oldp+1285,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_mulh));
-            tracep->chgBit(oldp+1286,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_mulhsu));
-            tracep->chgBit(oldp+1287,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_mulhu));
-            tracep->chgBit(oldp+1288,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_rem));
-            tracep->chgBit(oldp+1289,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_remu));
-            tracep->chgBit(oldp+1290,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_addw));
-            tracep->chgBit(oldp+1291,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_subw));
-            tracep->chgBit(oldp+1292,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_sllw));
-            tracep->chgBit(oldp+1293,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_srlw));
-            tracep->chgBit(oldp+1294,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_sraw));
-            tracep->chgBit(oldp+1295,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_divuw));
-            tracep->chgBit(oldp+1296,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_divw));
-            tracep->chgBit(oldp+1297,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_mulw));
-            tracep->chgBit(oldp+1298,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_remuw));
-            tracep->chgBit(oldp+1299,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_remw));
-            tracep->chgBit(oldp+1300,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_csrrw));
-            tracep->chgBit(oldp+1301,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_csrrs));
-            tracep->chgBit(oldp+1302,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_csrrc));
-            tracep->chgBit(oldp+1303,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_csrrwi));
-            tracep->chgBit(oldp+1304,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_csrrsi));
-            tracep->chgBit(oldp+1305,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_csrrci));
-            tracep->chgBit(oldp+1306,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_csrrw) 
+            tracep->chgCData(oldp+1264,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__rs1),5);
+            tracep->chgBit(oldp+1265,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_lui));
+            tracep->chgBit(oldp+1266,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_auipc));
+            tracep->chgBit(oldp+1267,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_jal));
+            tracep->chgBit(oldp+1268,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_jalr));
+            tracep->chgBit(oldp+1269,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_jump));
+            tracep->chgBit(oldp+1270,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_srai));
+            tracep->chgBit(oldp+1271,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_addiw));
+            tracep->chgBit(oldp+1272,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_slliw));
+            tracep->chgBit(oldp+1273,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_srliw));
+            tracep->chgBit(oldp+1274,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_sraiw));
+            tracep->chgBit(oldp+1275,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_add));
+            tracep->chgBit(oldp+1276,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_sub));
+            tracep->chgBit(oldp+1277,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_sll));
+            tracep->chgBit(oldp+1278,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_slt));
+            tracep->chgBit(oldp+1279,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_sltu));
+            tracep->chgBit(oldp+1280,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_xor));
+            tracep->chgBit(oldp+1281,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_srl));
+            tracep->chgBit(oldp+1282,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_sra));
+            tracep->chgBit(oldp+1283,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_or));
+            tracep->chgBit(oldp+1284,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_and));
+            tracep->chgBit(oldp+1285,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_div));
+            tracep->chgBit(oldp+1286,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_divu));
+            tracep->chgBit(oldp+1287,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_mul));
+            tracep->chgBit(oldp+1288,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_mulh));
+            tracep->chgBit(oldp+1289,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_mulhsu));
+            tracep->chgBit(oldp+1290,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_mulhu));
+            tracep->chgBit(oldp+1291,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_rem));
+            tracep->chgBit(oldp+1292,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_remu));
+            tracep->chgBit(oldp+1293,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_addw));
+            tracep->chgBit(oldp+1294,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_subw));
+            tracep->chgBit(oldp+1295,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_sllw));
+            tracep->chgBit(oldp+1296,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_srlw));
+            tracep->chgBit(oldp+1297,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_sraw));
+            tracep->chgBit(oldp+1298,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_divuw));
+            tracep->chgBit(oldp+1299,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_divw));
+            tracep->chgBit(oldp+1300,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_mulw));
+            tracep->chgBit(oldp+1301,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_remuw));
+            tracep->chgBit(oldp+1302,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_remw));
+            tracep->chgBit(oldp+1303,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_csrrw));
+            tracep->chgBit(oldp+1304,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_csrrs));
+            tracep->chgBit(oldp+1305,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_csrrc));
+            tracep->chgBit(oldp+1306,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_csrrwi));
+            tracep->chgBit(oldp+1307,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_csrrsi));
+            tracep->chgBit(oldp+1308,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_csrrci));
+            tracep->chgBit(oldp+1309,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_csrrw) 
                                         | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_csrrs)) 
                                        | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_csrrc))));
-            tracep->chgBit(oldp+1307,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_csrrwi) 
+            tracep->chgBit(oldp+1310,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_csrrwi) 
                                         | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_csrrsi)) 
                                        | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_csrrci))));
-            tracep->chgBit(oldp+1308,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_ecall));
-            tracep->chgBit(oldp+1309,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_ebreak));
-            tracep->chgBit(oldp+1310,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_mret));
-            tracep->chgSData(oldp+1311,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__store_addr_offset),12);
-            tracep->chgBit(oldp+1312,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__alu1_op1));
-            tracep->chgBit(oldp+1313,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__alu2_op1));
-            tracep->chgBit(oldp+1314,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__com1_op1));
-            tracep->chgBit(oldp+1315,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__com2_op1));
-            tracep->chgBit(oldp+1316,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__com3_op1));
-            tracep->chgBit(oldp+1317,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__com4_op1));
-            tracep->chgBit(oldp+1318,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__com5_op1));
-            tracep->chgBit(oldp+1319,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__com6_op1));
-            tracep->chgBit(oldp+1320,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__com7_op1));
-            tracep->chgBit(oldp+1321,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__com8_op1));
-            tracep->chgBit(oldp+1322,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__wb1_op1));
-            tracep->chgBit(oldp+1323,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__wb2_op1));
-            tracep->chgBit(oldp+1324,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__wb3_op1));
-            tracep->chgBit(oldp+1325,(((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__ao_su_pc 
+            tracep->chgBit(oldp+1311,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_ecall));
+            tracep->chgBit(oldp+1312,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_ebreak));
+            tracep->chgBit(oldp+1313,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_mret));
+            tracep->chgSData(oldp+1314,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__store_addr_offset),12);
+            tracep->chgBit(oldp+1315,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__alu1_op1));
+            tracep->chgBit(oldp+1316,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__alu2_op1));
+            tracep->chgBit(oldp+1317,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__com1_op1));
+            tracep->chgBit(oldp+1318,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__com2_op1));
+            tracep->chgBit(oldp+1319,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__com3_op1));
+            tracep->chgBit(oldp+1320,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__com4_op1));
+            tracep->chgBit(oldp+1321,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__com5_op1));
+            tracep->chgBit(oldp+1322,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__com6_op1));
+            tracep->chgBit(oldp+1323,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__com7_op1));
+            tracep->chgBit(oldp+1324,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__com8_op1));
+            tracep->chgBit(oldp+1325,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__wb1_op1));
+            tracep->chgBit(oldp+1326,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__wb2_op1));
+            tracep->chgBit(oldp+1327,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__wb3_op1));
+            tracep->chgBit(oldp+1328,(((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__ao_su_pc 
                                         > vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__at_su_pc) 
                                        & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__alu1_op1) 
                                           & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__alu2_op1)))));
-            tracep->chgBit(oldp+1326,(((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__ao_su_pc 
+            tracep->chgBit(oldp+1329,(((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__ao_su_pc 
                                         < vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__at_su_pc) 
                                        & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__alu1_op1) 
                                           & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__alu2_op1)))));
-            tracep->chgBit(oldp+1327,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__mem_op1));
-            tracep->chgBit(oldp+1328,(((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mm_su_pc 
+            tracep->chgBit(oldp+1330,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__mem_op1));
+            tracep->chgBit(oldp+1331,(((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mm_su_pc 
                                         < vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__ao_su_pc) 
                                        & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__alu1_op1) 
                                           & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__mem_op1)))));
-            tracep->chgBit(oldp+1329,(((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mm_su_pc 
+            tracep->chgBit(oldp+1332,(((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mm_su_pc 
                                         < vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__at_su_pc) 
                                        & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__alu2_op1) 
                                           & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__mem_op1)))));
-            tracep->chgBit(oldp+1330,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__alu1_op2));
-            tracep->chgBit(oldp+1331,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__alu2_op2));
-            tracep->chgBit(oldp+1332,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__wb2_op2));
-            tracep->chgBit(oldp+1333,(((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__ao_su_pc 
+            tracep->chgBit(oldp+1333,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__alu1_op2));
+            tracep->chgBit(oldp+1334,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__alu2_op2));
+            tracep->chgBit(oldp+1335,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__wb2_op2));
+            tracep->chgBit(oldp+1336,(((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__ao_su_pc 
                                         > vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__at_su_pc) 
                                        & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__alu1_op2) 
                                           & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__alu2_op2)))));
-            tracep->chgBit(oldp+1334,(((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__ao_su_pc 
+            tracep->chgBit(oldp+1337,(((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__ao_su_pc 
                                         < vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__at_su_pc) 
                                        & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__alu1_op2) 
                                           & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__alu2_op2)))));
-            tracep->chgBit(oldp+1335,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__mem_op2));
-            tracep->chgBit(oldp+1336,(((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mm_su_pc 
+            tracep->chgBit(oldp+1338,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__mem_op2));
+            tracep->chgBit(oldp+1339,(((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mm_su_pc 
                                         < vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__ao_su_pc) 
                                        & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__alu1_op2) 
                                           & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__mem_op2)))));
-            tracep->chgBit(oldp+1337,(((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mm_su_pc 
+            tracep->chgBit(oldp+1340,(((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mm_su_pc 
                                         < vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__at_su_pc) 
                                        & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__alu2_op2) 
                                           & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__mem_op2)))));
-            tracep->chgBit(oldp+1338,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__forcast_state));
-            tracep->chgQData(oldp+1339,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__op1_sub_op2),64);
-            tracep->chgBit(oldp+1341,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__op1_ls_op2));
-            tracep->chgBit(oldp+1342,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__forcast_state));
-            tracep->chgBit(oldp+1343,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__jalr_pc_ena));
-            tracep->chgBit(oldp+1344,((1U & (((((((
+            tracep->chgBit(oldp+1341,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__forcast_state));
+            tracep->chgQData(oldp+1342,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__op1_sub_op2),64);
+            tracep->chgBit(oldp+1344,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__op1_ls_op2));
+            tracep->chgBit(oldp+1345,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__forcast_state));
+            tracep->chgBit(oldp+1346,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__jalr_pc_ena));
+            tracep->chgBit(oldp+1347,((1U & (((((((
                                                    (((((((~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__alu1_op1)) 
                                                          & (~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__alu2_op1))) 
                                                         & (~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__mem_op1))) 
@@ -2558,118 +2560,118 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                & (~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__com6_op1))) 
                                               & (~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__com7_op1))) 
                                              & (~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__com8_op1))))));
-            tracep->chgBit(oldp+1345,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo_stop_waw));
-            tracep->chgBit(oldp+1346,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudt_stop_waw));
-            tracep->chgBit(oldp+1347,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo1_stop_war));
-            tracep->chgBit(oldp+1348,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo2_stop_war));
-            tracep->chgBit(oldp+1349,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudt1_stop_war));
-            tracep->chgBit(oldp+1350,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudt2_stop_war));
-            tracep->chgBit(oldp+1351,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_so_type) 
+            tracep->chgBit(oldp+1348,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo_stop_waw));
+            tracep->chgBit(oldp+1349,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudt_stop_waw));
+            tracep->chgBit(oldp+1350,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo1_stop_war));
+            tracep->chgBit(oldp+1351,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo2_stop_war));
+            tracep->chgBit(oldp+1352,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudt1_stop_war));
+            tracep->chgBit(oldp+1353,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudt2_stop_war));
+            tracep->chgBit(oldp+1354,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_so_type) 
                                         >> 3U) & ((
                                                    ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo_stop_waw) 
                                                     | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo1_stop_war)) 
                                                    | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo2_stop_war)) 
                                                   | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo_stop_hard)))));
-            tracep->chgBit(oldp+1352,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_so_type) 
+            tracep->chgBit(oldp+1355,((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_so_type) 
                                         >> 3U) & ((
                                                    ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo_stop_waw) 
                                                     | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo1_stop_war)) 
                                                    | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo2_stop_war)) 
                                                   | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo_stop_hard)))));
-            tracep->chgBit(oldp+1353,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo_stop_hard));
-            tracep->chgBit(oldp+1354,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudt_stop_hard));
-            tracep->chgQData(oldp+1355,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__exe_res),64);
-            tracep->chgQData(oldp+1357,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__divrem_data),64);
-            tracep->chgQData(oldp+1359,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__decode1_divider__DOT__yushu),64);
-            tracep->chgQData(oldp+1361,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__decode1_divider__DOT__shang),64);
-            tracep->chgQData(oldp+1363,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__alut__DOT__exe_res),64);
-            tracep->chgQData(oldp+1365,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__alut__DOT__divrem_data),64);
-            tracep->chgQData(oldp+1367,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__alut__DOT__decode2_divider__DOT__yushu),64);
-            tracep->chgQData(oldp+1369,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__alut__DOT__decode2_divider__DOT__shang),64);
-            tracep->chgCData(oldp+1371,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mmu__DOT__data_byte),8);
-            tracep->chgSData(oldp+1372,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mmu__DOT__data_half_byte),16);
-            tracep->chgIData(oldp+1373,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mmu__DOT__data_word),32);
-            tracep->chgQData(oldp+1374,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mmu__DOT__store_data),64);
-            tracep->chgCData(oldp+1376,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mmu__DOT__store_mask),8);
-            tracep->chgCData(oldp+1377,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__es__DOT__gating),3);
-            tracep->chgBit(oldp+1378,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__decode1_ena));
-            tracep->chgBit(oldp+1379,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__decode2_ena));
-            tracep->chgWData(oldp+1380,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__old_ready),67);
-            tracep->chgBit(oldp+1383,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__diff_ena));
-            tracep->chgCData(oldp+1384,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__clean_submcont),8);
-            tracep->chgBit(oldp+1385,(((IData)(vlSelf->ysyx_22040228__DOT__rvcpu_we) 
+            tracep->chgBit(oldp+1356,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo_stop_hard));
+            tracep->chgBit(oldp+1357,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudt_stop_hard));
+            tracep->chgQData(oldp+1358,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__exe_res),64);
+            tracep->chgQData(oldp+1360,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__divrem_data),64);
+            tracep->chgQData(oldp+1362,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__decode1_divider__DOT__yushu),64);
+            tracep->chgQData(oldp+1364,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__decode1_divider__DOT__shang),64);
+            tracep->chgQData(oldp+1366,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__alut__DOT__exe_res),64);
+            tracep->chgQData(oldp+1368,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__alut__DOT__divrem_data),64);
+            tracep->chgQData(oldp+1370,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__alut__DOT__decode2_divider__DOT__yushu),64);
+            tracep->chgQData(oldp+1372,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__alut__DOT__decode2_divider__DOT__shang),64);
+            tracep->chgCData(oldp+1374,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mmu__DOT__data_byte),8);
+            tracep->chgSData(oldp+1375,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mmu__DOT__data_half_byte),16);
+            tracep->chgIData(oldp+1376,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mmu__DOT__data_word),32);
+            tracep->chgQData(oldp+1377,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mmu__DOT__store_data),64);
+            tracep->chgCData(oldp+1379,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mmu__DOT__store_mask),8);
+            tracep->chgCData(oldp+1380,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__es__DOT__gating),3);
+            tracep->chgBit(oldp+1381,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__decode1_ena));
+            tracep->chgBit(oldp+1382,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__decode2_ena));
+            tracep->chgWData(oldp+1383,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__old_ready),67);
+            tracep->chgBit(oldp+1386,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__diff_ena));
+            tracep->chgCData(oldp+1387,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__clean_submcont),8);
+            tracep->chgBit(oldp+1388,(((IData)(vlSelf->ysyx_22040228__DOT__rvcpu_we) 
                                        | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu_re))));
-            tracep->chgBit(oldp+1386,(vlSelf->ysyx_22040228__DOT__uncache_mmio7__DOT__uncache));
-            tracep->chgBit(oldp+1387,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__icache_if_shankhand));
-            tracep->chgCData(oldp+1388,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__state_inst_nxt),6);
-            tracep->chgIData(oldp+1389,((0x7fffffU 
+            tracep->chgBit(oldp+1389,(vlSelf->ysyx_22040228__DOT__uncache_mmio7__DOT__uncache));
+            tracep->chgBit(oldp+1390,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__icache_if_shankhand));
+            tracep->chgCData(oldp+1391,(vlSelf->ysyx_22040228__DOT__inst_cache2__DOT__state_inst_nxt),6);
+            tracep->chgIData(oldp+1392,((0x7fffffU 
                                          & (IData)(
                                                    (vlSelf->ysyx_22040228__DOT__uncache_dc_addr 
                                                     >> 9U)))),23);
-            tracep->chgCData(oldp+1390,((0x3fU & (IData)(
+            tracep->chgCData(oldp+1393,((0x3fU & (IData)(
                                                          (vlSelf->ysyx_22040228__DOT__uncache_dc_addr 
                                                           >> 3U)))),6);
-            tracep->chgCData(oldp+1391,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__state_dread_nxt),6);
-            tracep->chgBit(oldp+1392,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__mem_hit_ok));
-            tracep->chgQData(oldp+1393,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__dirty_out_addr),64);
-            tracep->chgQData(oldp+1395,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__dirty_out_data),64);
-            tracep->chgCData(oldp+1397,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__dirty_out_type),4);
-            tracep->chgBit(oldp+1398,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__dirty_clean_o));
-            tracep->chgBit(oldp+1399,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__dirty_clean_t));
-            tracep->chgBit(oldp+1400,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missr_i_ok));
-            tracep->chgQData(oldp+1401,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missr_out_addr),64);
-            tracep->chgWData(oldp+1403,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missr_data_strb),128);
-            tracep->chgBit(oldp+1407,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missr_tag_ena1));
-            tracep->chgWData(oldp+1408,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missr_data_temp),128);
-            tracep->chgBit(oldp+1412,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missr_tag_ena2));
-            tracep->chgCData(oldp+1413,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__state_dwrite_nxt),6);
-            tracep->chgWData(oldp+1414,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__hitw_data_temp),128);
-            tracep->chgQData(oldp+1418,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__strb_extection),64);
-            tracep->chgQData(oldp+1420,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__dirtyw_out_addr),64);
-            tracep->chgQData(oldp+1422,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__dirtyw_out_data),64);
-            tracep->chgCData(oldp+1424,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__dirtyw_out_type),4);
-            tracep->chgBit(oldp+1425,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__dirtyw_clean_o));
-            tracep->chgBit(oldp+1426,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__dirtyw_clean_t));
-            tracep->chgBit(oldp+1427,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missw_i_ok));
-            tracep->chgQData(oldp+1428,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missw_out_addr),64);
-            tracep->chgWData(oldp+1430,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missw_data_strb),128);
-            tracep->chgBit(oldp+1434,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missw_tag_ena1));
-            tracep->chgWData(oldp+1435,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missw_data_temp),128);
-            tracep->chgBit(oldp+1439,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missw_tag_ena2));
-            tracep->chgBit(oldp+1440,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__oteg_ena_i));
-            tracep->chgCData(oldp+1441,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__oteg_addr_i),6);
-            tracep->chgBit(oldp+1442,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__tteg_ena_i));
-            tracep->chgCData(oldp+1443,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__tteg_addr_i),6);
-            tracep->chgBit(oldp+1444,(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__read_dcache_shankhand));
-            tracep->chgBit(oldp+1445,(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__write_dcache_shankhand));
-            tracep->chgBit(oldp+1446,(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__read_icache_shankhand));
-            tracep->chgBit(oldp+1447,(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__read_uncahce_shankhand));
-            tracep->chgBit(oldp+1448,(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__write_uncahce_shankhand));
-            tracep->chgCData(oldp+1449,(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__axi_state_n),3);
-            tracep->chgBit(oldp+1450,(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__success_dread));
-            tracep->chgBit(oldp+1451,(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__success_dwrite));
-            tracep->chgBit(oldp+1452,(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__success_iread));
-            tracep->chgBit(oldp+1453,(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__success_uncahceread));
-            tracep->chgBit(oldp+1454,(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__success_uncahcewrite));
-            tracep->chgBit(oldp+1455,((((((IData)(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__read_dcache_shankhand) 
+            tracep->chgCData(oldp+1394,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__state_dread_nxt),6);
+            tracep->chgBit(oldp+1395,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__mem_hit_ok));
+            tracep->chgQData(oldp+1396,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__dirty_out_addr),64);
+            tracep->chgQData(oldp+1398,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__dirty_out_data),64);
+            tracep->chgCData(oldp+1400,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__dirty_out_type),4);
+            tracep->chgBit(oldp+1401,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__dirty_clean_o));
+            tracep->chgBit(oldp+1402,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__dirty_clean_t));
+            tracep->chgBit(oldp+1403,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missr_i_ok));
+            tracep->chgQData(oldp+1404,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missr_out_addr),64);
+            tracep->chgWData(oldp+1406,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missr_data_strb),128);
+            tracep->chgBit(oldp+1410,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missr_tag_ena1));
+            tracep->chgWData(oldp+1411,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missr_data_temp),128);
+            tracep->chgBit(oldp+1415,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missr_tag_ena2));
+            tracep->chgCData(oldp+1416,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__state_dwrite_nxt),6);
+            tracep->chgWData(oldp+1417,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__hitw_data_temp),128);
+            tracep->chgQData(oldp+1421,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__strb_extection),64);
+            tracep->chgQData(oldp+1423,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__dirtyw_out_addr),64);
+            tracep->chgQData(oldp+1425,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__dirtyw_out_data),64);
+            tracep->chgCData(oldp+1427,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__dirtyw_out_type),4);
+            tracep->chgBit(oldp+1428,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__dirtyw_clean_o));
+            tracep->chgBit(oldp+1429,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__dirtyw_clean_t));
+            tracep->chgBit(oldp+1430,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missw_i_ok));
+            tracep->chgQData(oldp+1431,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missw_out_addr),64);
+            tracep->chgWData(oldp+1433,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missw_data_strb),128);
+            tracep->chgBit(oldp+1437,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missw_tag_ena1));
+            tracep->chgWData(oldp+1438,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missw_data_temp),128);
+            tracep->chgBit(oldp+1442,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__missw_tag_ena2));
+            tracep->chgBit(oldp+1443,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__oteg_ena_i));
+            tracep->chgCData(oldp+1444,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__oteg_addr_i),6);
+            tracep->chgBit(oldp+1445,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__tteg_ena_i));
+            tracep->chgCData(oldp+1446,(vlSelf->ysyx_22040228__DOT__data_cache3__DOT__tteg_addr_i),6);
+            tracep->chgBit(oldp+1447,(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__read_dcache_shankhand));
+            tracep->chgBit(oldp+1448,(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__write_dcache_shankhand));
+            tracep->chgBit(oldp+1449,(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__read_icache_shankhand));
+            tracep->chgBit(oldp+1450,(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__read_uncahce_shankhand));
+            tracep->chgBit(oldp+1451,(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__write_uncahce_shankhand));
+            tracep->chgCData(oldp+1452,(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__axi_state_n),3);
+            tracep->chgBit(oldp+1453,(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__success_dread));
+            tracep->chgBit(oldp+1454,(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__success_dwrite));
+            tracep->chgBit(oldp+1455,(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__success_iread));
+            tracep->chgBit(oldp+1456,(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__success_uncahceread));
+            tracep->chgBit(oldp+1457,(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__success_uncahcewrite));
+            tracep->chgBit(oldp+1458,((((((IData)(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__read_dcache_shankhand) 
                                           | (IData)(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__write_dcache_shankhand)) 
                                          | (IData)(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__read_icache_shankhand)) 
                                         | (IData)(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__read_uncahce_shankhand)) 
                                        | (IData)(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__write_uncahce_shankhand))));
-            tracep->chgBit(oldp+1456,((((IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_valid) 
+            tracep->chgBit(oldp+1459,((((IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_valid) 
                                         >> 2U) & (IData)(vlSelf->ysyx_22040228__DOT__soc_axi_aw_ready))));
-            tracep->chgBit(oldp+1457,((((IData)(vlSelf->ysyx_22040228__DOT__add_axi_w_valid) 
+            tracep->chgBit(oldp+1460,((((IData)(vlSelf->ysyx_22040228__DOT__add_axi_w_valid) 
                                         >> 2U) & (IData)(vlSelf->ysyx_22040228__DOT__soc_axi_w_ready))));
-            tracep->chgCData(oldp+1458,(vlSelf->ysyx_22040228__DOT__axi_mnq4__DOT__s_write_state_nxt),2);
-            tracep->chgBit(oldp+1459,(vlSelf->ysyx_22040228__DOT__axi_mnq4__DOT__ar_shankhand));
-            tracep->chgCData(oldp+1460,(vlSelf->ysyx_22040228__DOT__axi_mnq4__DOT__s_read_state_nxt),2);
-            tracep->chgBit(oldp+1461,(vlSelf->ysyx_22040228__DOT__clint6__DOT__success_r));
-            tracep->chgBit(oldp+1462,(vlSelf->ysyx_22040228__DOT__clint6__DOT__success_b));
-            tracep->chgBit(oldp+1463,(vlSelf->ysyx_22040228__DOT__clint6__DOT__resp_success));
-            tracep->chgQData(oldp+1464,(vlSelf->ysyx_22040228__DOT__clint6__DOT__wmask),64);
-            tracep->chgCData(oldp+1466,(vlSelf->ysyx_22040228__DOT__clint6__DOT__timer_state_n),2);
-            tracep->chgCData(oldp+1467,(vlSelf->ysyx_22040228__DOT__clint6__DOT__timew_state_n),2);
-            tracep->chgBit(oldp+1468,((((IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_valid) 
+            tracep->chgCData(oldp+1461,(vlSelf->ysyx_22040228__DOT__axi_mnq4__DOT__s_write_state_nxt),2);
+            tracep->chgBit(oldp+1462,(vlSelf->ysyx_22040228__DOT__axi_mnq4__DOT__ar_shankhand));
+            tracep->chgCData(oldp+1463,(vlSelf->ysyx_22040228__DOT__axi_mnq4__DOT__s_read_state_nxt),2);
+            tracep->chgBit(oldp+1464,(vlSelf->ysyx_22040228__DOT__clint6__DOT__success_r));
+            tracep->chgBit(oldp+1465,(vlSelf->ysyx_22040228__DOT__clint6__DOT__success_b));
+            tracep->chgBit(oldp+1466,(vlSelf->ysyx_22040228__DOT__clint6__DOT__resp_success));
+            tracep->chgQData(oldp+1467,(vlSelf->ysyx_22040228__DOT__clint6__DOT__wmask),64);
+            tracep->chgCData(oldp+1469,(vlSelf->ysyx_22040228__DOT__clint6__DOT__timer_state_n),2);
+            tracep->chgCData(oldp+1470,(vlSelf->ysyx_22040228__DOT__clint6__DOT__timew_state_n),2);
+            tracep->chgBit(oldp+1471,((((IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_valid) 
                                         >> 1U) & (0x200bff8ULL 
                                                   == 
                                                   (((QData)((IData)(
@@ -2677,7 +2679,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                     << 0x20U) 
                                                    | (QData)((IData)(
                                                                      vlSelf->ysyx_22040228__DOT__add_axi_ar_addr[2U])))))));
-            tracep->chgBit(oldp+1469,((((IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_valid) 
+            tracep->chgBit(oldp+1472,((((IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_valid) 
                                         >> 1U) & (0x2004000ULL 
                                                   == 
                                                   (((QData)((IData)(
@@ -2685,41 +2687,41 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                     << 0x20U) 
                                                    | (QData)((IData)(
                                                                      vlSelf->ysyx_22040228__DOT__add_axi_ar_addr[2U])))))));
-            tracep->chgBit(oldp+1470,(((IData)(vlSelf->ysyx_22040228__DOT__clint6__DOT__success_aw) 
+            tracep->chgBit(oldp+1473,(((IData)(vlSelf->ysyx_22040228__DOT__clint6__DOT__success_aw) 
                                        & (0x200bff8ULL 
                                           == (((QData)((IData)(
                                                                vlSelf->ysyx_22040228__DOT__add_axi_aw_addr[3U])) 
                                                << 0x20U) 
                                               | (QData)((IData)(
                                                                 vlSelf->ysyx_22040228__DOT__add_axi_aw_addr[2U])))))));
-            tracep->chgBit(oldp+1471,(((IData)(vlSelf->ysyx_22040228__DOT__clint6__DOT__success_aw) 
+            tracep->chgBit(oldp+1474,(((IData)(vlSelf->ysyx_22040228__DOT__clint6__DOT__success_aw) 
                                        & (0x2004000ULL 
                                           == (((QData)((IData)(
                                                                vlSelf->ysyx_22040228__DOT__add_axi_aw_addr[3U])) 
                                                << 0x20U) 
                                               | (QData)((IData)(
                                                                 vlSelf->ysyx_22040228__DOT__add_axi_aw_addr[2U])))))));
-            tracep->chgBit(oldp+1472,(vlSelf->ysyx_22040228__DOT__io_slave_axi9__DOT__aw_shankhand));
-            tracep->chgBit(oldp+1473,(((IData)(vlSelf->ysyx_22040228__DOT__add_axi_w_valid) 
+            tracep->chgBit(oldp+1475,(vlSelf->ysyx_22040228__DOT__io_slave_axi9__DOT__aw_shankhand));
+            tracep->chgBit(oldp+1476,(((IData)(vlSelf->ysyx_22040228__DOT__add_axi_w_valid) 
                                        & (IData)(vlSelf->ysyx_22040228__DOT__io_axi_w_ready))));
-            tracep->chgCData(oldp+1474,(vlSelf->ysyx_22040228__DOT__io_slave_axi9__DOT__s_write_state_nxt),2);
-            tracep->chgBit(oldp+1475,(vlSelf->ysyx_22040228__DOT__io_slave_axi9__DOT__ar_shankhand));
-            tracep->chgCData(oldp+1476,(vlSelf->ysyx_22040228__DOT__io_slave_axi9__DOT__s_read_state_nxt),2);
+            tracep->chgCData(oldp+1477,(vlSelf->ysyx_22040228__DOT__io_slave_axi9__DOT__s_write_state_nxt),2);
+            tracep->chgBit(oldp+1478,(vlSelf->ysyx_22040228__DOT__io_slave_axi9__DOT__ar_shankhand));
+            tracep->chgCData(oldp+1479,(vlSelf->ysyx_22040228__DOT__io_slave_axi9__DOT__s_read_state_nxt),2);
         }
-        tracep->chgBit(oldp+1477,(vlSelf->clk));
-        tracep->chgBit(oldp+1478,(vlSelf->rst));
-        tracep->chgQData(oldp+1479,(vlSelf->out_slave_addr_),64);
-        tracep->chgQData(oldp+1481,(vlSelf->out_serial_data_),64);
-        tracep->chgBit(oldp+1483,(vlSelf->out_serial_write_));
-        tracep->chgBit(oldp+1484,(vlSelf->out_rtc_read_));
-        tracep->chgQData(oldp+1485,(vlSelf->in_rtc_data_),64);
-        tracep->chgBit(oldp+1487,(vlSelf->read_ena_sign_));
-        tracep->chgQData(oldp+1488,(vlSelf->out_addr_outp),64);
-        tracep->chgQData(oldp+1490,(vlSelf->read_data_sign_),64);
-        tracep->chgBit(oldp+1492,(vlSelf->out_write_ram_ena));
-        tracep->chgQData(oldp+1493,(vlSelf->out_write_ram_data),64);
-        tracep->chgQData(oldp+1495,(vlSelf->out_write_ram_addr),64);
-        tracep->chgCData(oldp+1497,(((IData)(vlSelf->rst)
+        tracep->chgBit(oldp+1480,(vlSelf->clk));
+        tracep->chgBit(oldp+1481,(vlSelf->rst));
+        tracep->chgQData(oldp+1482,(vlSelf->out_slave_addr_),64);
+        tracep->chgQData(oldp+1484,(vlSelf->out_serial_data_),64);
+        tracep->chgBit(oldp+1486,(vlSelf->out_serial_write_));
+        tracep->chgBit(oldp+1487,(vlSelf->out_rtc_read_));
+        tracep->chgQData(oldp+1488,(vlSelf->in_rtc_data_),64);
+        tracep->chgBit(oldp+1490,(vlSelf->read_ena_sign_));
+        tracep->chgQData(oldp+1491,(vlSelf->out_addr_outp),64);
+        tracep->chgQData(oldp+1493,(vlSelf->read_data_sign_),64);
+        tracep->chgBit(oldp+1495,(vlSelf->out_write_ram_ena));
+        tracep->chgQData(oldp+1496,(vlSelf->out_write_ram_data),64);
+        tracep->chgQData(oldp+1498,(vlSelf->out_write_ram_addr),64);
+        tracep->chgCData(oldp+1500,(((IData)(vlSelf->rst)
                                       ? 7U : (((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mmu_inst_type) 
                                                & (0U 
                                                   == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mmu_sel)))
@@ -2739,7 +2741,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                         == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mmu_sel)))
                                                      ? 4U
                                                      : 7U)))))),3);
-        tracep->chgCData(oldp+1498,(((IData)(vlSelf->rst)
+        tracep->chgCData(oldp+1501,(((IData)(vlSelf->rst)
                                       ? 7U : ((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mmu_inst_type) 
                                                 >> 1U) 
                                                & ((0U 
@@ -2770,8 +2772,8 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                         == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mmu_sel)))
                                                      ? 4U
                                                      : 7U)))))),3);
-        tracep->chgBit(oldp+1499,((1U & (~ (IData)(vlSelf->rst)))));
-        tracep->chgBit(oldp+1500,((1U & ((~ (IData)(vlSelf->rst)) 
+        tracep->chgBit(oldp+1502,((1U & (~ (IData)(vlSelf->rst)))));
+        tracep->chgBit(oldp+1503,((1U & ((~ (IData)(vlSelf->rst)) 
                                          & ((1U & (IData)(vlSelf->ysyx_22040228__DOT__mmio_thing))
                                              ? (IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_ready)
                                              : ((2U 
@@ -2783,7 +2785,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                 (((IData)(vlSelf->ysyx_22040228__DOT__mmio_thing) 
                                                   & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_ready)) 
                                                  >> 2U)))))));
-        tracep->chgBit(oldp+1501,((1U & ((~ (IData)(vlSelf->rst)) 
+        tracep->chgBit(oldp+1504,((1U & ((~ (IData)(vlSelf->rst)) 
                                          & ((1U & (IData)(vlSelf->ysyx_22040228__DOT__mmio_thing))
                                              ? (IData)(vlSelf->ysyx_22040228__DOT__add_axi_w_ready)
                                              : ((2U 
@@ -2795,7 +2797,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                 (((IData)(vlSelf->ysyx_22040228__DOT__mmio_thing) 
                                                   & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_w_ready)) 
                                                  >> 2U)))))));
-        tracep->chgBit(oldp+1502,((1U & ((~ (IData)(vlSelf->rst)) 
+        tracep->chgBit(oldp+1505,((1U & ((~ (IData)(vlSelf->rst)) 
                                          & ((1U & (IData)(vlSelf->ysyx_22040228__DOT__mmio_thing))
                                              ? (IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_ready)
                                              : ((2U 
@@ -2807,27 +2809,27 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                 (((IData)(vlSelf->ysyx_22040228__DOT__mmio_thing) 
                                                   & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_ready)) 
                                                  >> 2U)))))));
-        tracep->chgQData(oldp+1503,(((2U == (IData)(vlSelf->ysyx_22040228__DOT__axi_mnq4__DOT__s_read_state))
+        tracep->chgQData(oldp+1506,(((2U == (IData)(vlSelf->ysyx_22040228__DOT__axi_mnq4__DOT__s_read_state))
                                       ? vlSelf->read_data_sign_
                                       : 0ULL)),64);
-        tracep->chgQData(oldp+1505,(((2U == (IData)(vlSelf->ysyx_22040228__DOT__io_slave_axi9__DOT__s_read_state))
+        tracep->chgQData(oldp+1508,(((2U == (IData)(vlSelf->ysyx_22040228__DOT__io_slave_axi9__DOT__s_read_state))
                                       ? vlSelf->in_rtc_data_
                                       : 0ULL)),64);
-        tracep->chgCData(oldp+1507,(((IData)(vlSelf->rst)
+        tracep->chgCData(oldp+1510,(((IData)(vlSelf->rst)
                                       ? 0U : (7U & 
                                               (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de1_inst 
                                                >> 0xcU)))),3);
-        tracep->chgCData(oldp+1508,(((IData)(vlSelf->rst)
+        tracep->chgCData(oldp+1511,(((IData)(vlSelf->rst)
                                       ? 0U : (7U & 
                                               (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de2_inst 
                                                >> 0xcU)))),3);
-        tracep->chgIData(oldp+1509,(((IData)(vlSelf->rst)
+        tracep->chgIData(oldp+1512,(((IData)(vlSelf->rst)
                                       ? 0U : vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo_inst)),32);
-        tracep->chgIData(oldp+1510,(((IData)(vlSelf->rst)
+        tracep->chgIData(oldp+1513,(((IData)(vlSelf->rst)
                                       ? 0U : vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__alut_inst)),32);
-        tracep->chgIData(oldp+1511,(((IData)(vlSelf->rst)
+        tracep->chgIData(oldp+1514,(((IData)(vlSelf->rst)
                                       ? 0U : vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mmu_inst)),32);
-        tracep->chgQData(oldp+1512,(((IData)(vlSelf->rst)
+        tracep->chgQData(oldp+1515,(((IData)(vlSelf->rst)
                                       ? 0ULL : ((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_ref_op1ena) 
                                                   & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addrg) 
                                                      == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_ref_op1addr))) 
@@ -2836,7 +2838,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                  : 
                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs
                                                 [vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_ref_op1addr]))),64);
-        tracep->chgQData(oldp+1514,(((IData)(vlSelf->rst)
+        tracep->chgQData(oldp+1517,(((IData)(vlSelf->rst)
                                       ? 0ULL : ((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_ref_op2ena) 
                                                   & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addrg) 
                                                      == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_ref_op2addr))) 
@@ -2845,7 +2847,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                  : 
                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs
                                                 [vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_ref_op2addr]))),64);
-        tracep->chgQData(oldp+1516,(((IData)(vlSelf->rst)
+        tracep->chgQData(oldp+1519,(((IData)(vlSelf->rst)
                                       ? 0ULL : ((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_ref_op1ena) 
                                                   & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addrg) 
                                                      == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_ref_op1addr))) 
@@ -2854,7 +2856,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                  : 
                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs
                                                 [vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_ref_op1addr]))),64);
-        tracep->chgQData(oldp+1518,(((IData)(vlSelf->rst)
+        tracep->chgQData(oldp+1521,(((IData)(vlSelf->rst)
                                       ? 0ULL : ((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_ref_op2ena) 
                                                   & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addrg) 
                                                      == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_ref_op2addr))) 
@@ -2863,7 +2865,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                  : 
                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__regsf__DOT__regs
                                                 [vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_ref_op2addr]))),64);
-        tracep->chgQData(oldp+1520,(((IData)(vlSelf->rst)
+        tracep->chgQData(oldp+1523,(((IData)(vlSelf->rst)
                                       ? 0ULL : ((1U 
                                                  & (IData)(
                                                            (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mmu_offset 
@@ -2928,7 +2930,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                    : (QData)((IData)(
                                                                      (0xffU 
                                                                       & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mmu_op2_data))))))))),64);
-        tracep->chgQData(oldp+1522,(((IData)(vlSelf->rst)
+        tracep->chgQData(oldp+1525,(((IData)(vlSelf->rst)
                                       ? 0ULL : ((0U 
                                                  == 
                                                  (3U 
@@ -2967,7 +2969,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                                    (0xffffU 
                                                                     & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mmu_op2_data)))) 
                                                    << 0x30U)))))),64);
-        tracep->chgQData(oldp+1524,(((IData)(vlSelf->rst)
+        tracep->chgQData(oldp+1527,(((IData)(vlSelf->rst)
                                       ? 0ULL : ((1U 
                                                  & (IData)(
                                                            (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mmu_offset 
@@ -2976,7 +2978,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                 ((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mmu_op2_data)) 
                                                  << 0x20U)
                                                  : (QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mmu_op2_data))))),64);
-        tracep->chgCData(oldp+1526,(((IData)(vlSelf->rst)
+        tracep->chgCData(oldp+1529,(((IData)(vlSelf->rst)
                                       ? 0U : ((1U & (IData)(
                                                             (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mmu_offset 
                                                              >> 2U)))
@@ -3008,7 +3010,7 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                     & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mmu_offset))
                                                     ? 2U
                                                     : 1U))))),8);
-        tracep->chgCData(oldp+1527,(((IData)(vlSelf->rst)
+        tracep->chgCData(oldp+1530,(((IData)(vlSelf->rst)
                                       ? 0U : ((0U == 
                                                (3U 
                                                 & (IData)(
@@ -3031,13 +3033,13 @@ void Vysyx_22040228___024root__traceChgSub0(Vysyx_22040228___024root* vlSelf, Ve
                                                                 >> 1U))))
                                                     ? 0x30U
                                                     : 0xc0U))))),8);
-        tracep->chgCData(oldp+1528,(((IData)(vlSelf->rst)
+        tracep->chgCData(oldp+1531,(((IData)(vlSelf->rst)
                                       ? 0U : ((1U & (IData)(
                                                             (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mmu_offset 
                                                              >> 2U)))
                                                ? 0xf0U
                                                : 0xfU))),8);
-        tracep->chgBit(oldp+1529,((1U & (((~ (IData)(vlSelf->rst)) 
+        tracep->chgBit(oldp+1532,((1U & (((~ (IData)(vlSelf->rst)) 
                                           & ((1U & (IData)(vlSelf->ysyx_22040228__DOT__mmio_thing))
                                               ? (IData)(vlSelf->ysyx_22040228__DOT__add_axi_w_ready)
                                               : ((2U 

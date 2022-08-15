@@ -73,7 +73,7 @@ import "DPI-C" function void difftest_dut_pc(input longint pc_data, input longin
 import "DPI-C" function void difftest_dut_thepc(input longint thepc_data);
 
 always @(*) begin
-    difftest_dut_thepc(difftest_pc_);
+    difftest_dut_thepc(difftest_pc);
 end
 
 always@(posedge clk)begin
@@ -84,7 +84,7 @@ always@(posedge clk)begin
         difftest_dut_pc(commit_pc2, commit_data2, 1'b1, difftest_ena_ );   
     end   
     else begin
-        difftest_dut_pc(difftest_pc_, `ysyx22040228_ZEROWORD, 1'b0, difftest_ena_ ); 
+        difftest_dut_pc(difftest_pc, `ysyx22040228_ZEROWORD, 1'b0, difftest_ena_ ); 
     end 
 end 
 
