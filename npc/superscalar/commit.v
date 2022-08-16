@@ -78,13 +78,13 @@ end
 
 always@(posedge clk)begin
     if(commit_inst1 == `EBREAK_TRAP) begin
-        difftest_dut_pc(commit_pc1, commit_data1, 1'b1, difftest_ena );   
+        difftest_dut_pc(commit_pc1, commit_data1, 1'b1, diff_ena );   
     end 
     else if(commit_inst2 == `EBREAK_TRAP) begin
-        difftest_dut_pc(commit_pc2, commit_data2, 1'b1, difftest_ena );   
+        difftest_dut_pc(commit_pc2, commit_data2, 1'b1, diff_ena );   
     end   
     else begin
-        difftest_dut_pc(difftest_pc, `ysyx22040228_ZEROWORD, 1'b0, difftest_ena ); 
+        difftest_dut_pc(old_ready[63:0], `ysyx22040228_ZEROWORD, 1'b0, diff_ena ); 
     end 
 end 
 
@@ -189,6 +189,42 @@ end
             commit_pcbuff[7][63:0]  <= commit_pcbuff[5][63:0] & {64{~clean_submcont[5]}} ;
             commit_pcbuff[7][67]    <= (commit_pcbuff[5][67] || able_buff6) & ~clean_submcont[5] ;
         end  
+        else if(decode1_pc > decode2_pc)  begin
+            commit_pcbuff[0][63:0]  <= decode1_pc & {64{decode1_ena}} ;
+            commit_pcbuff[0][67]    <= 1'b0                           ;
+            commit_pcbuff[1][63:0]  <= decode2_pc & {64{decode2_ena}} ;
+            commit_pcbuff[1][67]    <= 1'b0                           ;
+            commit_pcbuff[2][63:0]  <= commit_pcbuff[0][63:0] & {64{~clean_submcont[0]}} ;
+            commit_pcbuff[2][67]    <= (commit_pcbuff[0][67] || able_buff1) & ~clean_submcont[0] ;
+            commit_pcbuff[3][63:0]  <= commit_pcbuff[1][63:0] & {64{~clean_submcont[1]}} ;
+            commit_pcbuff[3][67]    <= (commit_pcbuff[1][67] || able_buff2) & ~clean_submcont[1] ;
+            commit_pcbuff[4][63:0]  <= commit_pcbuff[2][63:0] & {64{~clean_submcont[2]}} ;
+            commit_pcbuff[4][67]    <= (commit_pcbuff[2][67] || able_buff3) & ~clean_submcont[2] ;
+            commit_pcbuff[5][63:0]  <= commit_pcbuff[3][63:0] & {64{~clean_submcont[3]}} ;
+            commit_pcbuff[5][67]    <= (commit_pcbuff[3][67] || able_buff4) & ~clean_submcont[3] ;
+            commit_pcbuff[6][63:0]  <= commit_pcbuff[4][63:0] & {64{~clean_submcont[4]}} ;
+            commit_pcbuff[6][67]    <= (commit_pcbuff[4][67] || able_buff5) & ~clean_submcont[4] ;
+            commit_pcbuff[7][63:0]  <= commit_pcbuff[5][63:0] & {64{~clean_submcont[5]}} ;
+            commit_pcbuff[7][67]    <= (commit_pcbuff[5][67] || able_buff6) & ~clean_submcont[5] ;
+        end 
+        else if(decode1_pc < decode2_pc) begin
+            commit_pcbuff[0][63:0]  <= decode2_pc & {64{decode2_ena}} ;
+            commit_pcbuff[0][67]    <= 1'b0                           ;
+            commit_pcbuff[1][63:0]  <= decode1_pc & {64{decode1_ena}} ;
+            commit_pcbuff[1][67]    <= 1'b0                           ;
+            commit_pcbuff[2][63:0]  <= commit_pcbuff[0][63:0] & {64{~clean_submcont[0]}} ;
+            commit_pcbuff[2][67]    <= (commit_pcbuff[0][67] || able_buff1) & ~clean_submcont[0] ;
+            commit_pcbuff[3][63:0]  <= commit_pcbuff[1][63:0] & {64{~clean_submcont[1]}} ;
+            commit_pcbuff[3][67]    <= (commit_pcbuff[1][67] || able_buff2) & ~clean_submcont[1] ;
+            commit_pcbuff[4][63:0]  <= commit_pcbuff[2][63:0] & {64{~clean_submcont[2]}} ;
+            commit_pcbuff[4][67]    <= (commit_pcbuff[2][67] || able_buff3) & ~clean_submcont[2] ;
+            commit_pcbuff[5][63:0]  <= commit_pcbuff[3][63:0] & {64{~clean_submcont[3]}} ;
+            commit_pcbuff[5][67]    <= (commit_pcbuff[3][67] || able_buff4) & ~clean_submcont[3] ;
+            commit_pcbuff[6][63:0]  <= commit_pcbuff[4][63:0] & {64{~clean_submcont[4]}} ;
+            commit_pcbuff[6][67]    <= (commit_pcbuff[4][67] || able_buff5) & ~clean_submcont[4] ;
+            commit_pcbuff[7][63:0]  <= commit_pcbuff[5][63:0] & {64{~clean_submcont[5]}} ;
+            commit_pcbuff[7][67]    <= (commit_pcbuff[5][67] || able_buff6) & ~clean_submcont[5] ;
+        end 
         else begin
             commit_pcbuff[0][63:0]  <= commit_pcbuff[0][63:0] & {64{~clean_submcont[0]}} ;
             commit_pcbuff[0][67]    <= (commit_pcbuff[0][67] || able_buff1) & ~clean_submcont[0]       ;
