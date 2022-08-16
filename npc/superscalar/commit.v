@@ -153,41 +153,41 @@ end
             commit_pcbuff[6]  <= {1'b0, 3'd6, 64'b0} ;
             commit_pcbuff[7]  <= {1'b0, 3'd7, 64'b0} ;
         end 
-        else if(decode1_pc > decode2_pc)  begin
+        else if((decode1_pc > decode2_pc) && (decode2_pc == `ysyx22040228_ZEROWORD))  begin
             commit_pcbuff[0][63:0]  <= decode1_pc & {64{decode1_ena}} ;
             commit_pcbuff[0][67]    <= 1'b0                           ;
-            commit_pcbuff[1][63:0]  <= decode2_pc & {64{decode2_ena}} ;
-            commit_pcbuff[1][67]    <= 1'b0                           ;
-            commit_pcbuff[2][63:0]  <= commit_pcbuff[0][63:0] & {64{~clean_submcont[0]}} ;
-            commit_pcbuff[2][67]    <= (commit_pcbuff[0][67] || able_buff1) & ~clean_submcont[0] ;
-            commit_pcbuff[3][63:0]  <= commit_pcbuff[1][63:0] & {64{~clean_submcont[1]}} ;
-            commit_pcbuff[3][67]    <= (commit_pcbuff[1][67] || able_buff2) & ~clean_submcont[1] ;
-            commit_pcbuff[4][63:0]  <= commit_pcbuff[2][63:0] & {64{~clean_submcont[2]}} ;
-            commit_pcbuff[4][67]    <= (commit_pcbuff[2][67] || able_buff3) & ~clean_submcont[2] ;
-            commit_pcbuff[5][63:0]  <= commit_pcbuff[3][63:0] & {64{~clean_submcont[3]}} ;
-            commit_pcbuff[5][67]    <= (commit_pcbuff[3][67] || able_buff4) & ~clean_submcont[3] ;
-            commit_pcbuff[6][63:0]  <= commit_pcbuff[4][63:0] & {64{~clean_submcont[4]}} ;
-            commit_pcbuff[6][67]    <= (commit_pcbuff[4][67] || able_buff5) & ~clean_submcont[4] ;
-            commit_pcbuff[7][63:0]  <= commit_pcbuff[5][63:0] & {64{~clean_submcont[5]}} ;
-            commit_pcbuff[7][67]    <= (commit_pcbuff[5][67] || able_buff6) & ~clean_submcont[5] ;
+            commit_pcbuff[1][63:0]  <= commit_pcbuff[0][63:0] & {64{~clean_submcont[0]}} ;
+            commit_pcbuff[1][67]    <= (commit_pcbuff[0][67] || able_buff1) & ~clean_submcont[0] ;
+            commit_pcbuff[2][63:0]  <= commit_pcbuff[1][63:0] & {64{~clean_submcont[1]}} ;
+            commit_pcbuff[2][67]    <= (commit_pcbuff[1][67] || able_buff1) & ~clean_submcont[1] ;
+            commit_pcbuff[3][63:0]  <= commit_pcbuff[2][63:0] & {64{~clean_submcont[2]}} ;
+            commit_pcbuff[3][67]    <= (commit_pcbuff[2][67] || able_buff2) & ~clean_submcont[2] ;
+            commit_pcbuff[4][63:0]  <= commit_pcbuff[3][63:0] & {64{~clean_submcont[3]}} ;
+            commit_pcbuff[4][67]    <= (commit_pcbuff[3][67] || able_buff3) & ~clean_submcont[3] ;
+            commit_pcbuff[5][63:0]  <= commit_pcbuff[4][63:0] & {64{~clean_submcont[4]}} ;
+            commit_pcbuff[5][67]    <= (commit_pcbuff[4][67] || able_buff4) & ~clean_submcont[4] ;
+            commit_pcbuff[6][63:0]  <= commit_pcbuff[5][63:0] & {64{~clean_submcont[5]}} ;
+            commit_pcbuff[6][67]    <= (commit_pcbuff[5][67] || able_buff5) & ~clean_submcont[5] ;
+            commit_pcbuff[7][63:0]  <= commit_pcbuff[6][63:0] & {64{~clean_submcont[6]}} ;
+            commit_pcbuff[7][67]    <= (commit_pcbuff[6][67] || able_buff6) & ~clean_submcont[6] ;
         end 
-        else if(decode1_pc < decode2_pc) begin
+        else if((decode1_pc < decode2_pc) && (decode2_pc == `ysyx22040228_ZEROWORD)) begin
             commit_pcbuff[0][63:0]  <= decode2_pc & {64{decode2_ena}} ;
             commit_pcbuff[0][67]    <= 1'b0                           ;
-            commit_pcbuff[1][63:0]  <= decode1_pc & {64{decode1_ena}} ;
-            commit_pcbuff[1][67]    <= 1'b0                           ;
-            commit_pcbuff[2][63:0]  <= commit_pcbuff[0][63:0] & {64{~clean_submcont[0]}} ;
-            commit_pcbuff[2][67]    <= (commit_pcbuff[0][67] || able_buff1) & ~clean_submcont[0] ;
-            commit_pcbuff[3][63:0]  <= commit_pcbuff[1][63:0] & {64{~clean_submcont[1]}} ;
-            commit_pcbuff[3][67]    <= (commit_pcbuff[1][67] || able_buff2) & ~clean_submcont[1] ;
-            commit_pcbuff[4][63:0]  <= commit_pcbuff[2][63:0] & {64{~clean_submcont[2]}} ;
-            commit_pcbuff[4][67]    <= (commit_pcbuff[2][67] || able_buff3) & ~clean_submcont[2] ;
-            commit_pcbuff[5][63:0]  <= commit_pcbuff[3][63:0] & {64{~clean_submcont[3]}} ;
-            commit_pcbuff[5][67]    <= (commit_pcbuff[3][67] || able_buff4) & ~clean_submcont[3] ;
-            commit_pcbuff[6][63:0]  <= commit_pcbuff[4][63:0] & {64{~clean_submcont[4]}} ;
-            commit_pcbuff[6][67]    <= (commit_pcbuff[4][67] || able_buff5) & ~clean_submcont[4] ;
-            commit_pcbuff[7][63:0]  <= commit_pcbuff[5][63:0] & {64{~clean_submcont[5]}} ;
-            commit_pcbuff[7][67]    <= (commit_pcbuff[5][67] || able_buff6) & ~clean_submcont[5] ;
+            commit_pcbuff[1][63:0]  <= commit_pcbuff[0][63:0] & {64{~clean_submcont[0]}} ;
+            commit_pcbuff[1][67]    <= (commit_pcbuff[0][67] || able_buff1) & ~clean_submcont[0] ;
+            commit_pcbuff[2][63:0]  <= commit_pcbuff[1][63:0] & {64{~clean_submcont[1]}} ;
+            commit_pcbuff[2][67]    <= (commit_pcbuff[1][67] || able_buff1) & ~clean_submcont[1] ;
+            commit_pcbuff[3][63:0]  <= commit_pcbuff[2][63:0] & {64{~clean_submcont[2]}} ;
+            commit_pcbuff[3][67]    <= (commit_pcbuff[2][67] || able_buff2) & ~clean_submcont[2] ;
+            commit_pcbuff[4][63:0]  <= commit_pcbuff[3][63:0] & {64{~clean_submcont[3]}} ;
+            commit_pcbuff[4][67]    <= (commit_pcbuff[3][67] || able_buff3) & ~clean_submcont[3] ;
+            commit_pcbuff[5][63:0]  <= commit_pcbuff[4][63:0] & {64{~clean_submcont[4]}} ;
+            commit_pcbuff[5][67]    <= (commit_pcbuff[4][67] || able_buff4) & ~clean_submcont[4] ;
+            commit_pcbuff[6][63:0]  <= commit_pcbuff[5][63:0] & {64{~clean_submcont[5]}} ;
+            commit_pcbuff[6][67]    <= (commit_pcbuff[5][67] || able_buff5) & ~clean_submcont[5] ;
+            commit_pcbuff[7][63:0]  <= commit_pcbuff[6][63:0] & {64{~clean_submcont[6]}} ;
+            commit_pcbuff[7][67]    <= (commit_pcbuff[6][67] || able_buff6) & ~clean_submcont[6] ;
         end  
         else if(decode1_pc > decode2_pc)  begin
             commit_pcbuff[0][63:0]  <= decode1_pc & {64{decode1_ena}} ;

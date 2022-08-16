@@ -844,6 +844,8 @@ void Vysyx_22040228___024root___ctor_var_reset(Vysyx_22040228___024root* vlSelf)
     vlSelf->__Vdlyvset__ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff__v8 = 0;
     vlSelf->__Vdlyvset__ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff__v24 = 0;
     vlSelf->__Vdlyvset__ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff__v40 = 0;
+    vlSelf->__Vdlyvset__ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff__v56 = 0;
+    vlSelf->__Vdlyvset__ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff__v72 = 0;
     vlSelf->__Vdlyvset__ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_databuff__v0 = 0;
     vlSelf->__Vdlyvset__ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_databuff__v1 = 0;
     vlSelf->__Vdlyvset__ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_databuff__v2 = 0;
