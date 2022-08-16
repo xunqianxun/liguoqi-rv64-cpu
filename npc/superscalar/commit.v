@@ -340,6 +340,7 @@ end
 /* verilator lint_off UNUSED */
     reg [63+3:0] old_ready ;
     reg          diff_ena  ;
+
     always @(*) begin
         if(rst == `ysyx22040228_RSTENA) begin
             old_ready = 67'h0            ;
@@ -348,42 +349,42 @@ end
         end 
         else if((commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD) && (commit_pcbuff[7][67]))  begin
             old_ready = commit_pcbuff[7][66:0] ;
-            clean_submcont = 8'b00000001 ;
+            clean_submcont = 8'b10000000 ;
             diff_ena  = 1'b1             ;
         end 
         else if((commit_pcbuff[6][63:0] != `ysyx22040228_ZEROWORD) && (commit_pcbuff[6][67]))  begin
             old_ready = commit_pcbuff[6][66:0] ;
-            clean_submcont = 8'b00000010 ;
+            clean_submcont = 8'b01000000 ;
             diff_ena  = 1'b1             ;
         end
         else if((commit_pcbuff[5][63:0] != `ysyx22040228_ZEROWORD) && (commit_pcbuff[5][67]))  begin
             old_ready = commit_pcbuff[5][66:0] ;
-            clean_submcont = 8'b00000100 ;
+            clean_submcont = 8'b00100000 ;
             diff_ena  = 1'b1             ;
         end
         else if((commit_pcbuff[4][63:0] != `ysyx22040228_ZEROWORD) && (commit_pcbuff[4][67]))  begin
             old_ready = commit_pcbuff[4][66:0] ;
-            clean_submcont = 8'b00001000 ;
+            clean_submcont = 8'b00010000 ;
             diff_ena  = 1'b1             ;
         end
         else if((commit_pcbuff[3][63:0] != `ysyx22040228_ZEROWORD) && (commit_pcbuff[3][67]))  begin
             old_ready = commit_pcbuff[3][66:0] ;
-            clean_submcont = 8'b00010000 ;
+            clean_submcont = 8'b00001000 ;
             diff_ena  = 1'b1             ;
         end
         else if((commit_pcbuff[2][63:0] != `ysyx22040228_ZEROWORD) && (commit_pcbuff[2][67]))  begin
             old_ready = commit_pcbuff[2][66:0] ;
-            clean_submcont = 8'b00100000 ;
+            clean_submcont = 8'b00000100 ;
             diff_ena  = 1'b1             ;
         end
         else if((commit_pcbuff[1][63:0] != `ysyx22040228_ZEROWORD) && (commit_pcbuff[1][67]))  begin
             old_ready = commit_pcbuff[1][66:0] ;
-            clean_submcont = 8'b01000000 ;
+            clean_submcont = 8'b00000010 ;
             diff_ena  = 1'b1             ;
         end
         else if((commit_pcbuff[0][63:0] != `ysyx22040228_ZEROWORD) && (commit_pcbuff[0][67]))  begin
             old_ready = commit_pcbuff[0][66:0] ;
-            clean_submcont = 8'b10000000 ;
+            clean_submcont = 8'b00000001 ;
             diff_ena  = 1'b1             ;
         end
         else begin
