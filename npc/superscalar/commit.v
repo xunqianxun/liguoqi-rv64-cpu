@@ -575,7 +575,7 @@ end
             diff_ena  = 1'b0             ;
         end 
     end
-
+    /* verilator lint_off BLKSEQ */
     always @(posedge clk) begin
         if(rst == `ysyx22040228_RSTENA) begin
             shouldstop = 1'b0   ;
