@@ -1,5 +1,7 @@
 `include "defines.v"
 module socreboard (
+    input         wire                                         clk           ,
+    input         wire                                         rst           ,
     //----------------------------need stop type-----------------------------//
     //                type_needstop1[0] ---->  div and multiplier            //
     //                type_needstop1[1] ---->  load and store                //
@@ -43,6 +45,10 @@ module socreboard (
     //                chose_exu1[1] ----> ALU2                              //
     //                chose_exu1[2] ----> MMU                               //
     //----------------------------------------------------------------------//
+
+    output        wire                                         caninissu1    ,
+    output        wire                                         caninissu2    ,                       
+
     output        wire    [2:0]                                chose_exu1    ,
     output        wire    [2:0]                                chose_exu2    ,
     output        wire                                         decode1_launch,
@@ -166,6 +172,42 @@ module socreboard (
                               (~decode2_launch & type_needstop2[4] & ~busy[1]) ?  3'b010 :
                               (~decode2_launch & type_needstop2[4] & ~busy[0]) ?  3'b001 :
                                                                                   3'b000 ;
+    reg  can1 ;
+    always @(posedge clk) begin
+        if(rst == `ysyx22040228_RSTENA) begin
+            can1 <= 1'b0      ;
+        end 
+        else if((de_ex_cleano == 1'b0) && (decode1_launch) && (caa1 == 1'b0)) begin
+            can1 <= 1'b1      ;
+        end 
+    end
+    reg  caa1 ;
+    always @(posedge clk) begin
+        if(rst == `ysyx22040228_RSTENA) begin
+            caa1 <= 1'b0     ;
+        end 
+        else if((de_ex_cleano == 1'b0) && (decode1_launch))
+            caa1 <= 1'b1     ;
+    end
+    assign caninissu1 = can1 ;
 
+    reg  can2 ;
+    always @(posedge clk) begin
+        if(rst == `ysyx22040228_RSTENA) begin
+            can2 <= 1'b0      ;
+        end 
+        else if((de_ex_cleant == 1'b0) && (decode2_launch) && (caa2 == 1'b0)) begin
+            can2 <= 1'b1      ;
+        end 
+    end
+    reg  caa2 ;
+    always @(posedge clk) begin
+        if(rst == `ysyx22040228_RSTENA) begin
+            caa2 <= 1'b0     ;
+        end 
+        else if((de_ex_cleant == 1'b0) && (decode2_launch))
+            caa2 <= 1'b1     ;
+    end
+    assign caninissu2 = can2 ;
 
 endmodule

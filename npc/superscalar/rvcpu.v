@@ -386,8 +386,12 @@ module rvcpu (
     wire                         so_isu_nop1ena ;
     wire                         so_isu_nop2ena ;
     wire  [`ysyx22040228_PCBUS]  so_submit_pc   ;
+    wire                         cansign1       ;
+    wire                         cansign2       ;
 
     socreboard socreboard_u(
+    .clk             (clk            ),
+    .rst             (rst            ),
     .decode1_pc      (de1_deex_pc    ),
     .type_needstop1  (de1_so_type    ),
     .decode11_addr   (de1_ref_op1addr),
@@ -416,7 +420,10 @@ module rvcpu (
     .alut_busy       (at_so_busy     ),
     .mmu_busy        (mm_so_busy     ),
 
-    .timer_intr      (timer_initin    ),
+    .timer_intr      (timer_initin   ),
+
+    .caninissu1      (cansign1       ),
+    .caninissu2      (cansign2       ),  
 
     .chose_exu1      (so_idex_chose1  ),
     .chose_exu2      (so_idex_chose2  ),
@@ -724,6 +731,9 @@ module rvcpu (
     .decode2_counter  (so_idex_chose2),
     .decode2_clean    (so_idex_cleant),
     .decode2_pc       (de2_deex_pc  ),
+
+    .decode1_caninis  (cansign1     ),
+    .decode2_caninis  (cansign2     ),
 
     .commit_pc1       (s_r_ao_pc   ),
     .commit_inst1     (s_r_ao_inst ),

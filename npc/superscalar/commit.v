@@ -14,6 +14,9 @@ module commit (
     input         wire                                          decode2_clean    ,
     input         wire   [`ysyx22040228_PCBUS]                  decode2_pc       ,
 
+    input         wire                                          decode1_caninis  ,
+    input         wire                                          decode2_caninis  ,
+
     input         wire   [`ysyx22040228_PCBUS]                  commit_pc1       ,
     input         wire   [`ysyx22040228_INSTBUS]                commit_inst1     ,
     input         wire   [`ysyx22040228_REGADDRBUS]             commit_addr1     ,
@@ -199,6 +202,12 @@ end
     wire   able_buff8  ;
     assign able_buff8  = able_buff8_pc1 || able_buff8_pc2 || able_buff8_pc3 ; 
 
+    wire   [`ysyx22040228_PCBUS]  depcbf1 ;
+    assign depcbf1 = (decode1_ena | decode1_caninis) ?  decode1_pc : `ysyx22040228_ZEROWORD ;
+
+    wire   [`ysyx22040228_PCBUS]  depcbf2 ;
+    assign depcbf2 = (decode2_ena | decode2_caninis) ?  decode2_pc : `ysyx22040228_ZEROWORD ;
+
     always @(posedge clk) begin
         if(rst == `ysyx22040228_RSTENA) begin
             commit_pcbuff[0]  <= {1'b0, 3'd0, 64'b0} ;
@@ -210,7 +219,7 @@ end
             commit_pcbuff[6]  <= {1'b0, 3'd6, 64'b0} ;
             commit_pcbuff[7]  <= {1'b0, 3'd7, 64'b0} ;
         end 
-        else if((decode1_pc > decode2_pc) && (decode2_pc == `ysyx22040228_ZEROWORD))  begin
+        else if((depcbf1 > depcbf2) && (depcbf1 == `ysyx22040228_ZEROWORD))  begin
             commit_pcbuff[0][63:0]  <= decode1_pc & {64{decode1_ena}} ;
             commit_pcbuff[0][67]    <= 1'b0                           ;
             commit_enabuff[0]       <= 1'b0                           ;
@@ -252,7 +261,7 @@ end
             commit_addrbuff[7]      <= ({5{able_buff7_pc1}} & commit_addr1) | ({5{able_buff7_pc2}} & commit_addr2) | ({5{able_buff7_pc3}} & commit_addr3) | commit_addrbuff[6];
             commit_databuff [7]     <= ({64{able_buff7_pc1}} & commit_data1) | ({64{able_buff7_pc2}} & commit_data2) | ({64{able_buff7_pc3}} & commit_data3) | commit_databuff[6];
         end 
-        else if((decode1_pc < decode2_pc) && (decode2_pc == `ysyx22040228_ZEROWORD)) begin
+        else if((depcbf1 < depcbf2) && (depcbf2 == `ysyx22040228_ZEROWORD)) begin
             commit_pcbuff[0][63:0]  <= decode2_pc & {64{decode2_ena}} ;
             commit_pcbuff[0][67]    <= 1'b0                           ;
             commit_enabuff[0]       <= 1'b0                           ;
@@ -294,7 +303,7 @@ end
             commit_addrbuff[7]      <= ({5{able_buff7_pc1}} & commit_addr1) | ({5{able_buff7_pc2}} & commit_addr2) | ({5{able_buff7_pc3}} & commit_addr3) | commit_addrbuff[6];
             commit_databuff [7]     <= ({64{able_buff7_pc1}} & commit_data1) | ({64{able_buff7_pc2}} & commit_data2) | ({64{able_buff7_pc3}} & commit_data3) | commit_databuff[6];
         end  
-        else if(decode1_pc > decode2_pc)  begin
+        else if(depcbf1 > depcbf2)  begin
             commit_pcbuff[0][63:0]  <= decode1_pc & {64{decode1_ena}} ;
             commit_pcbuff[0][67]    <= 1'b0                           ;
             commit_enabuff[0]       <= 1'b0                           ;
@@ -336,7 +345,7 @@ end
             commit_addrbuff[7]      <= ({5{able_buff6_pc1}} & commit_addr1) | ({5{able_buff6_pc2}} & commit_addr2) | ({5{able_buff6_pc3}} & commit_addr3) | commit_addrbuff[5];
             commit_databuff [7]     <= ({64{able_buff6_pc1}} & commit_data1) | ({64{able_buff6_pc2}} & commit_data2) | ({64{able_buff6_pc3}} & commit_data3) | commit_databuff[5];
         end 
-        else if(decode1_pc < decode2_pc) begin
+        else if(depcbf1 < depcbf2) begin
             commit_pcbuff[0][63:0]  <= decode2_pc & {64{decode2_ena}} ;
             commit_pcbuff[0][67]    <= 1'b0                           ;
             commit_enabuff[0]       <= 1'b0                           ;
