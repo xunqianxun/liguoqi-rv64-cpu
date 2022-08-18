@@ -34,6 +34,8 @@ module commit (
     input         wire   [`ysyx22040228_DATABUS]                commit_data3     ,
     input         wire                                          commit_ena3      ,
 
+    output        reg                                           shouldstop       ,
+
     output        reg                                           subm_wbena       ,
     output        reg    [`ysyx22040228_REGADDRBUS]             subm_wbaddr      ,
     output        reg    [`ysyx22040228_REGBUS]                 subm_wbdata      ,
@@ -456,44 +458,6 @@ end
     reg [63+3:0] old_ready ;
     reg          diff_ena  ;
 
-    // reg [4:0] chose_state  ;
-    // always @(*) begin
-    //     if(rst == `ysyx22040228_RSTENA) begin
-    //         chose_state = 5'b00000   ;
-    //     end 
-    //     else begin 
-    //         case (chose_state)
-    //             5'b00000 : begin
-    //                 chose_state = 5'b00001   ;
-    //                 if((commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD) && (commit_pcbuff[6][63:0] != `ysyx22040228_ZEROWORD) && (commit_pcbuff[7][63:0] < (commit_pcbuff[6][63:0])))
-    //                     old_ready = commit_pcbuff[7][66:0]  ;
-    //                 else if((commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD) && (commit_pcbuff[6][63:0] != `ysyx22040228_ZEROWORD) && (commit_pcbuff[7][63:0] > (commit_pcbuff[6][63:0])))
-    //                     old_ready = commit_pcbuff[6][66:0]  ;
-    //                 else if((commit_pcbuff[7][63:0] == `ysyx22040228_ZEROWORD) && (commit_pcbuff[6][63:0] != `ysyx22040228_ZEROWORD))
-    //                     old_ready = commit_pcbuff[6][66:0]  ;
-    //                 else if((commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD) && (commit_pcbuff[6][63:0] == `ysyx22040228_ZEROWORD))
-    //                     old_ready = commit_pcbuff[7][66:0]  ;
-    //                 else if((commit_pcbuff[7][63:0] == `ysyx22040228_ZEROWORD) && (commit_pcbuff[6][63:0] == `ysyx22040228_ZEROWORD))
-    //                     old_ready = 67'h0                   ;
-    //             end  
-    //             5'b00001 : begin
-    //                 chose_state = 5'b00010   ;
-    //                 if((commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD) && (commit_pcbuff[6][63:0] != `ysyx22040228_ZEROWORD) && (commit_pcbuff[7][63:0] < (commit_pcbuff[6][63:0])))
-    //                     old_ready = commit_pcbuff[7][66:0]  ;
-    //                 else if((commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD) && (commit_pcbuff[6][63:0] != `ysyx22040228_ZEROWORD) && (commit_pcbuff[7][63:0] > (commit_pcbuff[6][63:0])))
-    //                     old_ready = commit_pcbuff[6][66:0]  ;
-    //                 else if((commit_pcbuff[7][63:0] == `ysyx22040228_ZEROWORD) && (commit_pcbuff[6][63:0] != `ysyx22040228_ZEROWORD))
-    //                     old_ready = commit_pcbuff[6][66:0]  ;
-    //                 else if((commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD) && (commit_pcbuff[6][63:0] == `ysyx22040228_ZEROWORD))
-    //                     old_ready = commit_pcbuff[7][66:0]  ;
-    //                 else if((commit_pcbuff[7][63:0] == `ysyx22040228_ZEROWORD) && (commit_pcbuff[6][63:0] == `ysyx22040228_ZEROWORD))
-    //                     old_ready = 67'h0                   ;
-    //             end  
-    //             default: chose_state = 5'b00000   ;
-    //         endcase
-    //     end 
-    // end
-
     wire   chose_pc7 ;
     assign chose_pc7 = (commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD) && ((((commit_pcbuff[7][63:0] < (commit_pcbuff[6][63:0])) && (commit_pcbuff[6][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[6][63:0] == `ysyx22040228_ZEROWORD)) &&
                         (((commit_pcbuff[7][63:0] < (commit_pcbuff[5][63:0])) && (commit_pcbuff[5][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[5][63:0] == `ysyx22040228_ZEROWORD)) &&
@@ -611,6 +575,19 @@ end
             diff_ena  = 1'b0             ;
         end 
     end
+
+    always @(posedge clk) begin
+        if(rst == `ysyx22040228_RSTENA) begin
+            shouldstop <= 1'b0   ;
+        end 
+        else if((commit_pcbuff[6][63:0] != `ysyx22040228_ZEROWORD) && (commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD)) 
+            shouldstop <= 1'b1   ;
+        else begin
+            shouldstop <= 1'b0   ;
+        end 
+    end
+
+
     reg [7:0] clean_submcont ;
     always @(*) begin
         if(diff_ena  == 1'b1) begin 

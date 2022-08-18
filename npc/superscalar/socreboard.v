@@ -38,6 +38,8 @@ module socreboard (
     input         wire                                         alut_busy     ,
     input         wire                                         mmu_busy      ,
 
+    input         wire                                         commit_stop   ,
+
     input         wire                                         timer_intr    ,
 
     //---------------------------exe_chose----------------------------------//
@@ -149,8 +151,8 @@ module socreboard (
 
     assign de_ex_cleant     = (type_needstop2[3] && (decode1_pc > decode2_pc))                      ? 1'b1 : 1'b0 ;
 
-    assign decode1_launch   = shoudo_stop_waw | shoudo1_stop_war | shoudo2_stop_war | shoudo_stop_hard | shoudo_stop_ctrl | shoudo_stop_trap;
-    assign decode2_launch   = shoudt_stop_waw | shoudt1_stop_war | shoudt2_stop_war | shoudt_stop_hard | shoudt_stop_ctrl | shoudt_stop_trap;
+    assign decode1_launch   = shoudo_stop_waw | shoudo1_stop_war | shoudo2_stop_war | shoudo_stop_hard | shoudo_stop_ctrl | shoudo_stop_trap | commit_stop;
+    assign decode2_launch   = shoudt_stop_waw | shoudt1_stop_war | shoudt2_stop_war | shoudt_stop_hard | shoudt_stop_ctrl | shoudt_stop_trap | commit_stop;
 
     assign chose_exu1       = (~decode1_launch & (type_needstop1[5] | (timer_intr && de1_wb_ena))) ?  3'b001 :
                               (~decode1_launch & type_needstop1[0] & ~busy[0]) ?  3'b001 :
@@ -177,7 +179,7 @@ module socreboard (
         if(rst == `ysyx22040228_RSTENA) begin
             can1 <= 1'b0      ;
         end 
-        else if((de_ex_cleano == 1'b0) && (decode1_launch) && (caa1 == 1'b0)) begin
+        else if((de_ex_cleano == 1'b0) && (decode1_launch) && (~commit_stop) && (caa1 == 1'b0)) begin
             can1 <= 1'b1      ;
         end 
         else begin
@@ -203,7 +205,7 @@ module socreboard (
         if(rst == `ysyx22040228_RSTENA) begin
             can2 <= 1'b0      ;
         end 
-        else if((de_ex_cleant == 1'b0) && (decode2_launch) && (caa2 == 1'b0)) begin
+        else if((de_ex_cleant == 1'b0) && (decode2_launch) && (~commit_stop) && (caa2 == 1'b0)) begin
             can2 <= 1'b1      ;
         end 
         else begin
