@@ -630,6 +630,7 @@ void Vysyx_22040228___024root___ctor_var_reset(Vysyx_22040228___024root* vlSelf)
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__able_buff4 = VL_RAND_RESET_I(1);
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__able_buff5 = VL_RAND_RESET_I(1);
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__able_buff6 = VL_RAND_RESET_I(1);
+    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__able_buff7 = VL_RAND_RESET_I(1);
     VL_RAND_RESET_W(67, vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__old_ready);
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__diff_ena = VL_RAND_RESET_I(1);
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__clean_submcont = VL_RAND_RESET_I(8);

@@ -426,48 +426,151 @@ end
     reg [63+3:0] old_ready ;
     reg          diff_ena  ;
 
+    // reg [4:0] chose_state  ;
+    // always @(*) begin
+    //     if(rst == `ysyx22040228_RSTENA) begin
+    //         chose_state = 5'b00000   ;
+    //     end 
+    //     else begin 
+    //         case (chose_state)
+    //             5'b00000 : begin
+    //                 chose_state = 5'b00001   ;
+    //                 if((commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD) && (commit_pcbuff[6][63:0] != `ysyx22040228_ZEROWORD) && (commit_pcbuff[7][63:0] < (commit_pcbuff[6][63:0])))
+    //                     old_ready = commit_pcbuff[7][66:0]  ;
+    //                 else if((commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD) && (commit_pcbuff[6][63:0] != `ysyx22040228_ZEROWORD) && (commit_pcbuff[7][63:0] > (commit_pcbuff[6][63:0])))
+    //                     old_ready = commit_pcbuff[6][66:0]  ;
+    //                 else if((commit_pcbuff[7][63:0] == `ysyx22040228_ZEROWORD) && (commit_pcbuff[6][63:0] != `ysyx22040228_ZEROWORD))
+    //                     old_ready = commit_pcbuff[6][66:0]  ;
+    //                 else if((commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD) && (commit_pcbuff[6][63:0] == `ysyx22040228_ZEROWORD))
+    //                     old_ready = commit_pcbuff[7][66:0]  ;
+    //                 else if((commit_pcbuff[7][63:0] == `ysyx22040228_ZEROWORD) && (commit_pcbuff[6][63:0] == `ysyx22040228_ZEROWORD))
+    //                     old_ready = 67'h0                   ;
+    //             end  
+    //             5'b00001 : begin
+    //                 chose_state = 5'b00010   ;
+    //                 if((commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD) && (commit_pcbuff[6][63:0] != `ysyx22040228_ZEROWORD) && (commit_pcbuff[7][63:0] < (commit_pcbuff[6][63:0])))
+    //                     old_ready = commit_pcbuff[7][66:0]  ;
+    //                 else if((commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD) && (commit_pcbuff[6][63:0] != `ysyx22040228_ZEROWORD) && (commit_pcbuff[7][63:0] > (commit_pcbuff[6][63:0])))
+    //                     old_ready = commit_pcbuff[6][66:0]  ;
+    //                 else if((commit_pcbuff[7][63:0] == `ysyx22040228_ZEROWORD) && (commit_pcbuff[6][63:0] != `ysyx22040228_ZEROWORD))
+    //                     old_ready = commit_pcbuff[6][66:0]  ;
+    //                 else if((commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD) && (commit_pcbuff[6][63:0] == `ysyx22040228_ZEROWORD))
+    //                     old_ready = commit_pcbuff[7][66:0]  ;
+    //                 else if((commit_pcbuff[7][63:0] == `ysyx22040228_ZEROWORD) && (commit_pcbuff[6][63:0] == `ysyx22040228_ZEROWORD))
+    //                     old_ready = 67'h0                   ;
+    //             end  
+    //             default: chose_state = 5'b00000   ;
+    //         endcase
+    //     end 
+    // end
+
+    wire   chose_pc7 ;
+    assign chose_pc7 = (commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD) && ((((commit_pcbuff[7][63:0] < (commit_pcbuff[6][63:0])) && (commit_pcbuff[6][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[6][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[7][63:0] < (commit_pcbuff[5][63:0])) && (commit_pcbuff[5][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[5][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[7][63:0] < (commit_pcbuff[4][63:0])) && (commit_pcbuff[4][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[4][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[7][63:0] < (commit_pcbuff[3][63:0])) && (commit_pcbuff[3][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[3][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[7][63:0] < (commit_pcbuff[2][63:0])) && (commit_pcbuff[2][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[2][63:0] == `ysyx22040228_ZEROWORD)) && 
+                        (((commit_pcbuff[7][63:0] < (commit_pcbuff[1][63:0])) && (commit_pcbuff[1][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[1][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[7][63:0] < (commit_pcbuff[0][63:0])) && (commit_pcbuff[0][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[0][63:0] == `ysyx22040228_ZEROWORD)) ) ;
+    wire   chose_pc6 ;
+    assign chose_pc6 = (commit_pcbuff[6][63:0] != `ysyx22040228_ZEROWORD) && ((((commit_pcbuff[6][63:0] < (commit_pcbuff[7][63:0])) && (commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[7][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[6][63:0] < (commit_pcbuff[5][63:0])) && (commit_pcbuff[5][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[5][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[6][63:0] < (commit_pcbuff[4][63:0])) && (commit_pcbuff[4][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[4][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[6][63:0] < (commit_pcbuff[3][63:0])) && (commit_pcbuff[3][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[3][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[6][63:0] < (commit_pcbuff[2][63:0])) && (commit_pcbuff[2][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[2][63:0] == `ysyx22040228_ZEROWORD)) && 
+                        (((commit_pcbuff[6][63:0] < (commit_pcbuff[1][63:0])) && (commit_pcbuff[1][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[1][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[6][63:0] < (commit_pcbuff[0][63:0])) && (commit_pcbuff[0][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[0][63:0] == `ysyx22040228_ZEROWORD)) ) ;
+    wire   chose_pc5 ;
+    assign chose_pc5 = (commit_pcbuff[5][63:0] != `ysyx22040228_ZEROWORD) && ((((commit_pcbuff[5][63:0] < (commit_pcbuff[7][63:0])) && (commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[7][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[5][63:0] < (commit_pcbuff[6][63:0])) && (commit_pcbuff[6][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[5][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[5][63:0] < (commit_pcbuff[4][63:0])) && (commit_pcbuff[4][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[4][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[5][63:0] < (commit_pcbuff[3][63:0])) && (commit_pcbuff[3][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[3][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[5][63:0] < (commit_pcbuff[2][63:0])) && (commit_pcbuff[2][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[2][63:0] == `ysyx22040228_ZEROWORD)) && 
+                        (((commit_pcbuff[5][63:0] < (commit_pcbuff[1][63:0])) && (commit_pcbuff[1][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[1][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[5][63:0] < (commit_pcbuff[0][63:0])) && (commit_pcbuff[0][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[0][63:0] == `ysyx22040228_ZEROWORD)) ) ;
+    wire   chose_pc4 ;
+    assign chose_pc4 = (commit_pcbuff[4][63:0] != `ysyx22040228_ZEROWORD) && ((((commit_pcbuff[4][63:0] < (commit_pcbuff[7][63:0])) && (commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[7][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[4][63:0] < (commit_pcbuff[6][63:0])) && (commit_pcbuff[6][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[6][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[4][63:0] < (commit_pcbuff[5][63:0])) && (commit_pcbuff[5][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[5][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[4][63:0] < (commit_pcbuff[3][63:0])) && (commit_pcbuff[3][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[3][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[4][63:0] < (commit_pcbuff[2][63:0])) && (commit_pcbuff[2][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[2][63:0] == `ysyx22040228_ZEROWORD)) && 
+                        (((commit_pcbuff[4][63:0] < (commit_pcbuff[1][63:0])) && (commit_pcbuff[1][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[1][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[4][63:0] < (commit_pcbuff[0][63:0])) && (commit_pcbuff[0][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[0][63:0] == `ysyx22040228_ZEROWORD)) ) ;
+    wire   chose_pc3 ;
+    assign chose_pc3 = (commit_pcbuff[3][63:0] != `ysyx22040228_ZEROWORD) && ((((commit_pcbuff[3][63:0] < (commit_pcbuff[7][63:0])) && (commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[7][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[3][63:0] < (commit_pcbuff[6][63:0])) && (commit_pcbuff[6][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[6][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[3][63:0] < (commit_pcbuff[5][63:0])) && (commit_pcbuff[5][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[5][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[3][63:0] < (commit_pcbuff[4][63:0])) && (commit_pcbuff[4][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[4][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[3][63:0] < (commit_pcbuff[2][63:0])) && (commit_pcbuff[2][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[2][63:0] == `ysyx22040228_ZEROWORD)) && 
+                        (((commit_pcbuff[3][63:0] < (commit_pcbuff[1][63:0])) && (commit_pcbuff[1][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[1][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[3][63:0] < (commit_pcbuff[0][63:0])) && (commit_pcbuff[0][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[0][63:0] == `ysyx22040228_ZEROWORD)) ) ;
+    wire   chose_pc2 ;
+    assign chose_pc2 = (commit_pcbuff[2][63:0] != `ysyx22040228_ZEROWORD) && ((((commit_pcbuff[2][63:0] < (commit_pcbuff[7][63:0])) && (commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[7][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[2][63:0] < (commit_pcbuff[6][63:0])) && (commit_pcbuff[6][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[6][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[2][63:0] < (commit_pcbuff[5][63:0])) && (commit_pcbuff[5][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[5][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[2][63:0] < (commit_pcbuff[4][63:0])) && (commit_pcbuff[4][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[4][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[2][63:0] < (commit_pcbuff[3][63:0])) && (commit_pcbuff[3][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[3][63:0] == `ysyx22040228_ZEROWORD)) && 
+                        (((commit_pcbuff[2][63:0] < (commit_pcbuff[1][63:0])) && (commit_pcbuff[1][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[1][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[2][63:0] < (commit_pcbuff[0][63:0])) && (commit_pcbuff[0][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[0][63:0] == `ysyx22040228_ZEROWORD)) ) ;
+    wire   chose_pc1 ;
+    assign chose_pc1 = (commit_pcbuff[1][63:0] != `ysyx22040228_ZEROWORD) && ((((commit_pcbuff[1][63:0] < (commit_pcbuff[7][63:0])) && (commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[7][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[1][63:0] < (commit_pcbuff[6][63:0])) && (commit_pcbuff[6][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[6][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[1][63:0] < (commit_pcbuff[5][63:0])) && (commit_pcbuff[5][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[5][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[1][63:0] < (commit_pcbuff[4][63:0])) && (commit_pcbuff[4][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[4][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[1][63:0] < (commit_pcbuff[3][63:0])) && (commit_pcbuff[3][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[3][63:0] == `ysyx22040228_ZEROWORD)) && 
+                        (((commit_pcbuff[1][63:0] < (commit_pcbuff[2][63:0])) && (commit_pcbuff[2][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[2][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[1][63:0] < (commit_pcbuff[0][63:0])) && (commit_pcbuff[0][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[0][63:0] == `ysyx22040228_ZEROWORD)) ) ;
+    wire   chose_pc0 ;
+    assign chose_pc0 = (commit_pcbuff[0][63:0] != `ysyx22040228_ZEROWORD) && ((((commit_pcbuff[0][63:0] < (commit_pcbuff[7][63:0])) && (commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[7][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[0][63:0] < (commit_pcbuff[6][63:0])) && (commit_pcbuff[6][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[6][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[0][63:0] < (commit_pcbuff[5][63:0])) && (commit_pcbuff[5][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[5][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[0][63:0] < (commit_pcbuff[4][63:0])) && (commit_pcbuff[4][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[4][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[0][63:0] < (commit_pcbuff[3][63:0])) && (commit_pcbuff[3][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[3][63:0] == `ysyx22040228_ZEROWORD)) && 
+                        (((commit_pcbuff[0][63:0] < (commit_pcbuff[2][63:0])) && (commit_pcbuff[2][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[2][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[0][63:0] < (commit_pcbuff[1][63:0])) && (commit_pcbuff[1][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[1][63:0] == `ysyx22040228_ZEROWORD)) ) ;
+
     always @(*) begin
         if(rst == `ysyx22040228_RSTENA) begin
             old_ready = 67'h0            ;
             clean_submcont = 8'b00000000 ;
             diff_ena       = 1'b0        ;
         end 
-        else if((commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD) && (commit_pcbuff[7][67]))  begin
+        else if(chose_pc7)  begin
             old_ready = commit_pcbuff[7][66:0] ;
             clean_submcont = 8'b10000000 ;
             diff_ena  = 1'b1             ;
         end 
-        else if((commit_pcbuff[6][63:0] != `ysyx22040228_ZEROWORD) && (commit_pcbuff[6][67]))  begin
+        else if(chose_pc6)  begin
             old_ready = commit_pcbuff[6][66:0] ;
             clean_submcont = 8'b01000000 ;
             diff_ena  = 1'b1             ;
         end
-        else if((commit_pcbuff[5][63:0] != `ysyx22040228_ZEROWORD) && (commit_pcbuff[5][67]))  begin
+        else if(chose_pc5)  begin
             old_ready = commit_pcbuff[5][66:0] ;
             clean_submcont = 8'b00100000 ;
             diff_ena  = 1'b1             ;
         end
-        else if((commit_pcbuff[4][63:0] != `ysyx22040228_ZEROWORD) && (commit_pcbuff[4][67]))  begin
+        else if(chose_pc4)  begin
             old_ready = commit_pcbuff[4][66:0] ;
             clean_submcont = 8'b00010000 ;
             diff_ena  = 1'b1             ;
         end
-        else if((commit_pcbuff[3][63:0] != `ysyx22040228_ZEROWORD) && (commit_pcbuff[3][67]))  begin
+        else if(chose_pc3)  begin
             old_ready = commit_pcbuff[3][66:0] ;
             clean_submcont = 8'b00001000 ;
             diff_ena  = 1'b1             ;
         end
-        else if((commit_pcbuff[2][63:0] != `ysyx22040228_ZEROWORD) && (commit_pcbuff[2][67]))  begin
+        else if(chose_pc2)  begin
             old_ready = commit_pcbuff[2][66:0] ;
             clean_submcont = 8'b00000100 ;
             diff_ena  = 1'b1             ;
         end
-        else if((commit_pcbuff[1][63:0] != `ysyx22040228_ZEROWORD) && (commit_pcbuff[1][67]))  begin
+        else if(chose_pc1)  begin
             old_ready = commit_pcbuff[1][66:0] ;
             clean_submcont = 8'b00000010 ;
             diff_ena  = 1'b1             ;
         end
-        else if((commit_pcbuff[0][63:0] != `ysyx22040228_ZEROWORD) && (commit_pcbuff[0][67]))  begin
+        else if(chose_pc0)  begin
             old_ready = commit_pcbuff[0][66:0] ;
             clean_submcont = 8'b00000001 ;
             diff_ena  = 1'b1             ;
