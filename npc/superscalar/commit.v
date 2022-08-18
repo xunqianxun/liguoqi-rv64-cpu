@@ -576,7 +576,7 @@ end
         end 
     end
     /* verilator lint_off BLKSEQ */
-    always @(posedge clk) begin
+    always @(*) begin
         if(rst == `ysyx22040228_RSTENA) begin
             shouldstop = 1'b0   ;
         end 
