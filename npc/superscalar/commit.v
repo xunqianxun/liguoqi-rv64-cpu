@@ -578,12 +578,12 @@ end
 
     always @(posedge clk) begin
         if(rst == `ysyx22040228_RSTENA) begin
-            shouldstop <= 1'b0   ;
+            shouldstop = 1'b0   ;
         end 
         else if((commit_pcbuff[6][63:0] != `ysyx22040228_ZEROWORD) && (commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD)) 
-            shouldstop <= 1'b1   ;
+            shouldstop = 1'b1   ;
         else begin
-            shouldstop <= 1'b0   ;
+            shouldstop = 1'b0   ;
         end 
     end
 
