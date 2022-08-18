@@ -180,14 +180,21 @@ module socreboard (
         else if((de_ex_cleano == 1'b0) && (decode1_launch) && (caa1 == 1'b0)) begin
             can1 <= 1'b1      ;
         end 
+        else begin
+            can1 <= 1'b0      ;
+        end 
     end
     reg  caa1 ;
     always @(posedge clk) begin
         if(rst == `ysyx22040228_RSTENA) begin
             caa1 <= 1'b0     ;
         end 
-        else if((de_ex_cleano == 1'b0) && (decode1_launch))
+        else if((de_ex_cleano == 1'b0) && (decode1_launch))begin
             caa1 <= 1'b1     ;
+        end 
+        else begin
+            caa1 <= 1'b0     ; 
+        end
     end
     assign caninissu1 = can1 ;
 
@@ -199,14 +206,21 @@ module socreboard (
         else if((de_ex_cleant == 1'b0) && (decode2_launch) && (caa2 == 1'b0)) begin
             can2 <= 1'b1      ;
         end 
+        else begin
+            can2 <= 1'b0      ;
+        end 
     end
     reg  caa2 ;
     always @(posedge clk) begin
         if(rst == `ysyx22040228_RSTENA) begin
             caa2 <= 1'b0     ;
         end 
-        else if((de_ex_cleant == 1'b0) && (decode2_launch))
+        else if((de_ex_cleant == 1'b0) && (decode2_launch)) begin
             caa2 <= 1'b1     ;
+        end 
+        else begin
+            caa2 <= 1'b0     ; 
+        end 
     end
     assign caninissu2 = can2 ;
 

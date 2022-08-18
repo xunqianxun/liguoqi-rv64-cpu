@@ -15,11 +15,11 @@ extern "C" {
     // DPI IMPORTS
     // DPI import at superscalar//csr.v:27:30
     extern void difftest_dut_csrs(long long mcycle_val, long long mstatus_val, long long mtvec_val, long long mepc_val, long long mcause_val, long long mie_val, long long mip_val, long long mscratch_val);
-    // DPI import at superscalar//commit.v:72:30
+    // DPI import at superscalar//commit.v:75:30
     extern void difftest_dut_pc(long long pc_data, long long exit_code, svBit endyn, svBit exe);
     // DPI import at superscalar//regsfile.v:36:30
     extern void difftest_dut_regs(long long Z0, long long ra, long long sp, long long gp, long long tp, long long t0, long long t1, long long t2, long long fp, long long s1, long long a0, long long a1, long long a2, long long a3, long long a4, long long a5, long long a6, long long a7, long long s2, long long s3, long long s4, long long s5, long long s6, long long s7, long long s8, long long s9, long long s10, long long a11, long long t3, long long t4, long long t5, long long t6);
-    // DPI import at superscalar//commit.v:73:30
+    // DPI import at superscalar//commit.v:76:30
     extern void difftest_dut_thepc(long long thepc_data);
 
 #ifdef __cplusplus
