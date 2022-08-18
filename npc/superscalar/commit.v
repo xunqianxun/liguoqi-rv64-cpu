@@ -220,7 +220,7 @@ end
             commit_pcbuff[7]  <= {1'b0, 3'd7, 64'b0} ;
         end 
         else if((depcbf1 > depcbf2) && (depcbf1 == `ysyx22040228_ZEROWORD))  begin
-            commit_pcbuff[0][63:0]  <= decode1_pc & {64{decode1_ena}} ;
+            commit_pcbuff[0][63:0]  <= depcbf1                        ;
             commit_pcbuff[0][67]    <= 1'b0                           ;
             commit_enabuff[0]       <= 1'b0                           ;
             commit_addrbuff[0]      <= 5'd0                           ;
@@ -262,7 +262,7 @@ end
             commit_databuff [7]     <= ({64{able_buff7_pc1}} & commit_data1) | ({64{able_buff7_pc2}} & commit_data2) | ({64{able_buff7_pc3}} & commit_data3) | commit_databuff[6];
         end 
         else if((depcbf1 < depcbf2) && (depcbf2 == `ysyx22040228_ZEROWORD)) begin
-            commit_pcbuff[0][63:0]  <= decode2_pc & {64{decode2_ena}} ;
+            commit_pcbuff[0][63:0]  <= depcbf2                        ;
             commit_pcbuff[0][67]    <= 1'b0                           ;
             commit_enabuff[0]       <= 1'b0                           ;
             commit_addrbuff[0]      <= 5'd0                           ;
@@ -304,12 +304,12 @@ end
             commit_databuff [7]     <= ({64{able_buff7_pc1}} & commit_data1) | ({64{able_buff7_pc2}} & commit_data2) | ({64{able_buff7_pc3}} & commit_data3) | commit_databuff[6];
         end  
         else if(depcbf1 > depcbf2)  begin
-            commit_pcbuff[0][63:0]  <= decode1_pc & {64{decode1_ena}} ;
+            commit_pcbuff[0][63:0]  <= depcbf1                        ;
             commit_pcbuff[0][67]    <= 1'b0                           ;
             commit_enabuff[0]       <= 1'b0                           ;
             commit_addrbuff[0]      <= 5'd0                           ;
             commit_databuff [0]     <= 64'h0                          ;
-            commit_pcbuff[1][63:0]  <= decode2_pc & {64{decode2_ena}} ;
+            commit_pcbuff[1][63:0]  <= depcbf2                        ;
             commit_pcbuff[1][67]    <= 1'b0                           ;
             commit_enabuff[1]       <= 1'b0                           ;
             commit_addrbuff[1]      <= 5'd0                           ;
@@ -346,12 +346,12 @@ end
             commit_databuff [7]     <= ({64{able_buff6_pc1}} & commit_data1) | ({64{able_buff6_pc2}} & commit_data2) | ({64{able_buff6_pc3}} & commit_data3) | commit_databuff[5];
         end 
         else if(depcbf1 < depcbf2) begin
-            commit_pcbuff[0][63:0]  <= decode2_pc & {64{decode2_ena}} ;
+            commit_pcbuff[0][63:0]  <= depcbf2                        ;
             commit_pcbuff[0][67]    <= 1'b0                           ;
             commit_enabuff[0]       <= 1'b0                           ;
             commit_addrbuff[0]      <= 5'd0                           ;
             commit_databuff [0]     <= 64'h0                          ;
-            commit_pcbuff[1][63:0]  <= decode1_pc & {64{decode1_ena}} ;
+            commit_pcbuff[1][63:0]  <= depcbf1                        ;
             commit_pcbuff[1][67]    <= 1'b0                           ;
             commit_enabuff[1]       <= 1'b0                           ;
             commit_addrbuff[1]      <= 5'd0                           ;

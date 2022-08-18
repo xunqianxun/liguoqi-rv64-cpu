@@ -13,30 +13,6 @@ VL_INLINE_OPT void Vysyx_22040228___024root___sequent__TOP__3(Vysyx_22040228___0
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vysyx_22040228___024root___sequent__TOP__3\n"); );
     // Body
     if (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__tmr_trap_ena) {
-        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__trap_mcause_value = 0x8000000000000007ULL;
-    }
-    if ((0x80U & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo_inst_type))) {
-        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__csr_wr_en = 0U;
-        if (((0x40U == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo_inst_opcode)) 
-             | (2U == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo_inst_opcode)))) {
-            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__csr_wr_en = 1U;
-        } else if (((0x80U == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo_inst_opcode)) 
-                    | (4U == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo_inst_opcode)))) {
-            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__csr_wr_en 
-                = (0ULL != vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo_op1_data);
-        } else if (((1U == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo_inst_opcode)) 
-                    | (8U == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo_inst_opcode)))) {
-            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__csr_wr_en 
-                = (0ULL != vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo_op1_data);
-        } else if ((0x10U != (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo_inst_opcode))) {
-            if ((0x20U != (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo_inst_opcode))) {
-                vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__csr_wr_en = 0U;
-            }
-        }
-    } else {
-        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__csr_wr_en = 0U;
-    }
-    if (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__tmr_trap_ena) {
         vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__csr_wr_en = 0U;
     }
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__mul_ready 
