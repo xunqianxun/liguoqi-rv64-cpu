@@ -203,10 +203,31 @@ end
     assign able_buff8  = able_buff8_pc1 || able_buff8_pc2 || able_buff8_pc3 ; 
 
     wire   [`ysyx22040228_PCBUS]  depcbf1 ;
-    assign depcbf1 = (decode1_ena | decode1_caninis) ?  decode1_pc : `ysyx22040228_ZEROWORD ;
+    assign depcbf1 = (decode1_ena | decode1_caninis) && (forc_inpco != decode1_pc) ?  decode1_pc : `ysyx22040228_ZEROWORD ;
 
     wire   [`ysyx22040228_PCBUS]  depcbf2 ;
-    assign depcbf2 = (decode2_ena | decode2_caninis) ?  decode2_pc : `ysyx22040228_ZEROWORD ;
+    assign depcbf2 = (decode2_ena | decode2_caninis) && (forc_inpct != decode2_pc) ?  decode2_pc : `ysyx22040228_ZEROWORD ;
+
+    reg [`ysyx22040228_PCBUS] forc_inpco ;
+    reg [`ysyx22040228_PCBUS] forc_inpct ;
+
+    always @(posedge clk) begin
+        if(rst == `ysyx22040228_RSTENA)
+            forc_inpco <= `ysyx22040228_ZEROWORD ;
+        else if(decode1_caninis)
+            forc_inpco <= decode1_pc             ;
+        else if((decode1_pc == forc_inpco) && (decode1_ena))
+            forc_inpco <= `ysyx22040228_ZEROWORD ;
+    end
+
+    always @(posedge clk) begin
+        if(rst == `ysyx22040228_RSTENA)
+            forc_inpct <= `ysyx22040228_ZEROWORD ;
+        else if(decode2_caninis)
+            forc_inpct <= decode2_pc             ;
+        else if((decode2_pc == forc_inpct) && (decode2_ena))
+            forc_inpct <= `ysyx22040228_ZEROWORD ;
+    end
 
     always @(posedge clk) begin
         if(rst == `ysyx22040228_RSTENA) begin

@@ -4657,8 +4657,10 @@ void Vysyx_22040228___024root__traceFullSub0(Vysyx_22040228___024root* vlSelf, V
         tracep->fullQData(oldp+1411,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mmu__DOT__store_data),64);
         tracep->fullCData(oldp+1413,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mmu__DOT__store_mask),8);
         tracep->fullCData(oldp+1414,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__es__DOT__gating),3);
-        tracep->fullBit(oldp+1415,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__decode1_ena));
-        tracep->fullBit(oldp+1416,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__decode2_ena));
+        tracep->fullBit(oldp+1415,(((0U != (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_idex_chose1)) 
+                                    & (~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_idex_cleano)))));
+        tracep->fullBit(oldp+1416,(((0U != (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_idex_chose2)) 
+                                    & (~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_idex_cleant)))));
         tracep->fullQData(oldp+1417,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__depcbf1),64);
         tracep->fullQData(oldp+1419,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__depcbf2),64);
         tracep->fullWData(oldp+1421,(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__old_ready),67);
