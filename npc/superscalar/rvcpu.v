@@ -420,6 +420,8 @@ module rvcpu (
     .alut_busy       (at_so_busy     ),
     .mmu_busy        (mm_so_busy     ),
 
+    .commit_stop     (should_stop    ),
+
     .timer_intr      (timer_initin   ),
 
     .caninissu1      (cansign1       ),
@@ -720,6 +722,7 @@ module rvcpu (
     wire  [`ysyx22040228_DATABUS]    comt_de_datag ;
     wire  [`ysyx22040228_REGADDRBUS] comt_de_addrg ;
     wire                             comt_de_enag  ;
+    wire                             should_stop   ;
 
 
     commit commit_u(
@@ -751,6 +754,8 @@ module rvcpu (
     .commit_addr3     (s_r_mm_addr ),
     .commit_data3     (s_r_mm_dara ),
     .commit_ena3      (s_r_mm_ena  ),
+
+    .shouldstop       (should_stop  ),
 
     .subm_wbena       (comt_de_enag ),
     .subm_wbaddr      (comt_de_addrg),

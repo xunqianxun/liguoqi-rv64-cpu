@@ -357,27 +357,29 @@ void Vysyx_22040228___024root___settle__TOP__5(Vysyx_22040228___024root* vlSelf)
                 ? vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_deex_pc
                 : 0xffffffffffffffffULL));
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_isu_stop1 
-        = ((((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo_stop_waw) 
-               | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo1_stop_war)) 
-              | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo2_stop_war)) 
-             | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo_stop_hard)) 
-            | (((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_so_type) 
-                >> 3U) & ((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo_stop_waw) 
-                            | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo1_stop_war)) 
-                           | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo2_stop_war)) 
-                          | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo_stop_hard)))) 
-           | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo_stop_trap));
+        = (((((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo_stop_waw) 
+                | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo1_stop_war)) 
+               | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo2_stop_war)) 
+              | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo_stop_hard)) 
+             | (((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_so_type) 
+                 >> 3U) & ((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo_stop_waw) 
+                             | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo1_stop_war)) 
+                            | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo2_stop_war)) 
+                           | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo_stop_hard)))) 
+            | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo_stop_trap)) 
+           | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__commit_stop));
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__so_isu_stop2 
-        = ((((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudt_stop_waw) 
-               | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudt1_stop_war)) 
-              | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudt2_stop_war)) 
-             | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudt_stop_hard)) 
-            | (((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_so_type) 
-                >> 3U) & ((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo_stop_waw) 
-                            | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo1_stop_war)) 
-                           | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo2_stop_war)) 
-                          | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo_stop_hard)))) 
-           | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudt_stop_trap));
+        = (((((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudt_stop_waw) 
+                | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudt1_stop_war)) 
+               | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudt2_stop_war)) 
+              | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudt_stop_hard)) 
+             | (((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_so_type) 
+                 >> 3U) & ((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo_stop_waw) 
+                             | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo1_stop_war)) 
+                            | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo2_stop_war)) 
+                           | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudo_stop_hard)))) 
+            | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__shoudt_stop_trap)) 
+           | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__commit_stop));
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__op1_sub_op2 
         = (1ULL + (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_op1 
                    + (~ vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_deex_op2)));
@@ -1292,6 +1294,7 @@ void Vysyx_22040228___024root___ctor_var_reset(Vysyx_22040228___024root* vlSelf)
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__op1_sub_op2 = VL_RAND_RESET_Q(64);
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__op1_ls_op2 = VL_RAND_RESET_I(1);
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__jalr_pc_ena = VL_RAND_RESET_I(1);
+    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__commit_stop = VL_RAND_RESET_I(1);
     for (int __Vi0=0; __Vi0<3; ++__Vi0) {
         vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__reg_exe_name[__Vi0] = VL_RAND_RESET_I(5);
     }
@@ -1422,6 +1425,7 @@ void Vysyx_22040228___024root___ctor_var_reset(Vysyx_22040228___024root* vlSelf)
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mmu__DOT__store_data = VL_RAND_RESET_Q(64);
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mmu__DOT__store_mask = VL_RAND_RESET_I(8);
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__es__DOT__gating = VL_RAND_RESET_I(3);
+    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__shouldstop = VL_RAND_RESET_I(1);
     for (int __Vi0=0; __Vi0<8; ++__Vi0) {
         VL_RAND_RESET_W(68, vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff[__Vi0]);
     }
