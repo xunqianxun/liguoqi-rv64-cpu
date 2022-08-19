@@ -972,1214 +972,6 @@ void Vysyx_22040228___024root___settle__TOP__4(Vysyx_22040228___024root* vlSelf)
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__op1_sub_op2 
         = (1ULL + (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo_op1_data 
                    + (~ vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo_op2_data)));
-    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc7 
-        = (((0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                       [7U][1U])) << 0x20U) 
-                      | (QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                        [7U][0U])))) 
-            & ((((((((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                         [7U][1U])) 
-                         << 0x20U) | (QData)((IData)(
-                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                     [7U][0U]))) 
-                       < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                           [6U][1U])) 
-                           << 0x20U) | (QData)((IData)(
-                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                       [6U][0U])))) 
-                      & (0ULL != (((QData)((IData)(
-                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                   [6U][1U])) 
-                                   << 0x20U) | (QData)((IData)(
-                                                               vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                               [6U][0U]))))) 
-                     | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                  [6U][1U])) 
-                                  << 0x20U) | (QData)((IData)(
-                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                              [6U][0U]))))) 
-                    & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                           [7U][1U])) 
-                           << 0x20U) | (QData)((IData)(
-                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                       [7U][0U]))) 
-                         < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                             [5U][1U])) 
-                             << 0x20U) | (QData)((IData)(
-                                                         vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                         [5U][0U])))) 
-                        & (0ULL != (((QData)((IData)(
-                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                     [5U][1U])) 
-                                     << 0x20U) | (QData)((IData)(
-                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                                 [5U][0U]))))) 
-                       | (0ULL == (((QData)((IData)(
-                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                    [5U][1U])) 
-                                    << 0x20U) | (QData)((IData)(
-                                                                vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                                [5U][0U])))))) 
-                   & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                          [7U][1U])) 
-                          << 0x20U) | (QData)((IData)(
-                                                      vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                      [7U][0U]))) 
-                        < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                            [4U][1U])) 
-                            << 0x20U) | (QData)((IData)(
-                                                        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                        [4U][0U])))) 
-                       & (0ULL != (((QData)((IData)(
-                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                    [4U][1U])) 
-                                    << 0x20U) | (QData)((IData)(
-                                                                vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                                [4U][0U]))))) 
-                      | (0ULL == (((QData)((IData)(
-                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                   [4U][1U])) 
-                                   << 0x20U) | (QData)((IData)(
-                                                               vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                               [4U][0U])))))) 
-                  & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                         [7U][1U])) 
-                         << 0x20U) | (QData)((IData)(
-                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                     [7U][0U]))) 
-                       < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                           [3U][1U])) 
-                           << 0x20U) | (QData)((IData)(
-                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                       [3U][0U])))) 
-                      & (0ULL != (((QData)((IData)(
-                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                   [3U][1U])) 
-                                   << 0x20U) | (QData)((IData)(
-                                                               vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                               [3U][0U]))))) 
-                     | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                  [3U][1U])) 
-                                  << 0x20U) | (QData)((IData)(
-                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                              [3U][0U])))))) 
-                 & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                        [7U][1U])) 
-                        << 0x20U) | (QData)((IData)(
-                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                    [7U][0U]))) 
-                      < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                          [2U][1U])) 
-                          << 0x20U) | (QData)((IData)(
-                                                      vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                      [2U][0U])))) 
-                     & (0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                  [2U][1U])) 
-                                  << 0x20U) | (QData)((IData)(
-                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                              [2U][0U]))))) 
-                    | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                 [2U][1U])) 
-                                 << 0x20U) | (QData)((IData)(
-                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                             [2U][0U])))))) 
-                & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                       [7U][1U])) << 0x20U) 
-                      | (QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                        [7U][0U]))) 
-                     < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                         [1U][1U])) 
-                         << 0x20U) | (QData)((IData)(
-                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                     [1U][0U])))) 
-                    & (0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                 [1U][1U])) 
-                                 << 0x20U) | (QData)((IData)(
-                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                             [1U][0U]))))) 
-                   | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                [1U][1U])) 
-                                << 0x20U) | (QData)((IData)(
-                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                            [1U][0U])))))) 
-               & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                      [7U][1U])) << 0x20U) 
-                     | (QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                       [7U][0U]))) 
-                    < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                        [0U][1U])) 
-                        << 0x20U) | (QData)((IData)(
-                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                    [0U][0U])))) 
-                   & (0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                [0U][1U])) 
-                                << 0x20U) | (QData)((IData)(
-                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                            [0U][0U]))))) 
-                  | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                               [0U][1U])) 
-                               << 0x20U) | (QData)((IData)(
-                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                           [0U][0U]))))))) 
-           & (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-              [7U][2U] >> 3U));
-    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc6 
-        = (((0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                       [6U][1U])) << 0x20U) 
-                      | (QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                        [6U][0U])))) 
-            & ((((((((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                         [6U][1U])) 
-                         << 0x20U) | (QData)((IData)(
-                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                     [6U][0U]))) 
-                       < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                           [7U][1U])) 
-                           << 0x20U) | (QData)((IData)(
-                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                       [7U][0U])))) 
-                      & (0ULL != (((QData)((IData)(
-                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                   [7U][1U])) 
-                                   << 0x20U) | (QData)((IData)(
-                                                               vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                               [7U][0U]))))) 
-                     | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                  [7U][1U])) 
-                                  << 0x20U) | (QData)((IData)(
-                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                              [7U][0U]))))) 
-                    & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                           [6U][1U])) 
-                           << 0x20U) | (QData)((IData)(
-                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                       [6U][0U]))) 
-                         < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                             [5U][1U])) 
-                             << 0x20U) | (QData)((IData)(
-                                                         vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                         [5U][0U])))) 
-                        & (0ULL != (((QData)((IData)(
-                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                     [5U][1U])) 
-                                     << 0x20U) | (QData)((IData)(
-                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                                 [5U][0U]))))) 
-                       | (0ULL == (((QData)((IData)(
-                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                    [5U][1U])) 
-                                    << 0x20U) | (QData)((IData)(
-                                                                vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                                [5U][0U])))))) 
-                   & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                          [6U][1U])) 
-                          << 0x20U) | (QData)((IData)(
-                                                      vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                      [6U][0U]))) 
-                        < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                            [4U][1U])) 
-                            << 0x20U) | (QData)((IData)(
-                                                        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                        [4U][0U])))) 
-                       & (0ULL != (((QData)((IData)(
-                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                    [4U][1U])) 
-                                    << 0x20U) | (QData)((IData)(
-                                                                vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                                [4U][0U]))))) 
-                      | (0ULL == (((QData)((IData)(
-                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                   [4U][1U])) 
-                                   << 0x20U) | (QData)((IData)(
-                                                               vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                               [4U][0U])))))) 
-                  & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                         [6U][1U])) 
-                         << 0x20U) | (QData)((IData)(
-                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                     [6U][0U]))) 
-                       < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                           [3U][1U])) 
-                           << 0x20U) | (QData)((IData)(
-                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                       [3U][0U])))) 
-                      & (0ULL != (((QData)((IData)(
-                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                   [3U][1U])) 
-                                   << 0x20U) | (QData)((IData)(
-                                                               vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                               [3U][0U]))))) 
-                     | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                  [3U][1U])) 
-                                  << 0x20U) | (QData)((IData)(
-                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                              [3U][0U])))))) 
-                 & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                        [6U][1U])) 
-                        << 0x20U) | (QData)((IData)(
-                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                    [6U][0U]))) 
-                      < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                          [2U][1U])) 
-                          << 0x20U) | (QData)((IData)(
-                                                      vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                      [2U][0U])))) 
-                     & (0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                  [2U][1U])) 
-                                  << 0x20U) | (QData)((IData)(
-                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                              [2U][0U]))))) 
-                    | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                 [2U][1U])) 
-                                 << 0x20U) | (QData)((IData)(
-                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                             [2U][0U])))))) 
-                & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                       [6U][1U])) << 0x20U) 
-                      | (QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                        [6U][0U]))) 
-                     < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                         [1U][1U])) 
-                         << 0x20U) | (QData)((IData)(
-                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                     [1U][0U])))) 
-                    & (0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                 [1U][1U])) 
-                                 << 0x20U) | (QData)((IData)(
-                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                             [1U][0U]))))) 
-                   | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                [1U][1U])) 
-                                << 0x20U) | (QData)((IData)(
-                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                            [1U][0U])))))) 
-               & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                      [6U][1U])) << 0x20U) 
-                     | (QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                       [6U][0U]))) 
-                    < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                        [0U][1U])) 
-                        << 0x20U) | (QData)((IData)(
-                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                    [0U][0U])))) 
-                   & (0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                [0U][1U])) 
-                                << 0x20U) | (QData)((IData)(
-                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                            [0U][0U]))))) 
-                  | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                               [0U][1U])) 
-                               << 0x20U) | (QData)((IData)(
-                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                           [0U][0U]))))))) 
-           & (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-              [6U][2U] >> 3U));
-    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc5 
-        = (((0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                       [5U][1U])) << 0x20U) 
-                      | (QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                        [5U][0U])))) 
-            & ((((((((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                         [5U][1U])) 
-                         << 0x20U) | (QData)((IData)(
-                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                     [5U][0U]))) 
-                       < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                           [7U][1U])) 
-                           << 0x20U) | (QData)((IData)(
-                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                       [7U][0U])))) 
-                      & (0ULL != (((QData)((IData)(
-                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                   [7U][1U])) 
-                                   << 0x20U) | (QData)((IData)(
-                                                               vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                               [7U][0U]))))) 
-                     | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                  [7U][1U])) 
-                                  << 0x20U) | (QData)((IData)(
-                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                              [7U][0U]))))) 
-                    & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                           [5U][1U])) 
-                           << 0x20U) | (QData)((IData)(
-                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                       [5U][0U]))) 
-                         < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                             [6U][1U])) 
-                             << 0x20U) | (QData)((IData)(
-                                                         vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                         [6U][0U])))) 
-                        & (0ULL != (((QData)((IData)(
-                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                     [6U][1U])) 
-                                     << 0x20U) | (QData)((IData)(
-                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                                 [6U][0U]))))) 
-                       | (0ULL == (((QData)((IData)(
-                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                    [5U][1U])) 
-                                    << 0x20U) | (QData)((IData)(
-                                                                vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                                [5U][0U])))))) 
-                   & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                          [5U][1U])) 
-                          << 0x20U) | (QData)((IData)(
-                                                      vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                      [5U][0U]))) 
-                        < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                            [4U][1U])) 
-                            << 0x20U) | (QData)((IData)(
-                                                        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                        [4U][0U])))) 
-                       & (0ULL != (((QData)((IData)(
-                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                    [4U][1U])) 
-                                    << 0x20U) | (QData)((IData)(
-                                                                vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                                [4U][0U]))))) 
-                      | (0ULL == (((QData)((IData)(
-                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                   [4U][1U])) 
-                                   << 0x20U) | (QData)((IData)(
-                                                               vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                               [4U][0U])))))) 
-                  & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                         [5U][1U])) 
-                         << 0x20U) | (QData)((IData)(
-                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                     [5U][0U]))) 
-                       < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                           [3U][1U])) 
-                           << 0x20U) | (QData)((IData)(
-                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                       [3U][0U])))) 
-                      & (0ULL != (((QData)((IData)(
-                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                   [3U][1U])) 
-                                   << 0x20U) | (QData)((IData)(
-                                                               vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                               [3U][0U]))))) 
-                     | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                  [3U][1U])) 
-                                  << 0x20U) | (QData)((IData)(
-                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                              [3U][0U])))))) 
-                 & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                        [5U][1U])) 
-                        << 0x20U) | (QData)((IData)(
-                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                    [5U][0U]))) 
-                      < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                          [2U][1U])) 
-                          << 0x20U) | (QData)((IData)(
-                                                      vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                      [2U][0U])))) 
-                     & (0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                  [2U][1U])) 
-                                  << 0x20U) | (QData)((IData)(
-                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                              [2U][0U]))))) 
-                    | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                 [2U][1U])) 
-                                 << 0x20U) | (QData)((IData)(
-                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                             [2U][0U])))))) 
-                & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                       [5U][1U])) << 0x20U) 
-                      | (QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                        [5U][0U]))) 
-                     < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                         [1U][1U])) 
-                         << 0x20U) | (QData)((IData)(
-                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                     [1U][0U])))) 
-                    & (0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                 [1U][1U])) 
-                                 << 0x20U) | (QData)((IData)(
-                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                             [1U][0U]))))) 
-                   | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                [1U][1U])) 
-                                << 0x20U) | (QData)((IData)(
-                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                            [1U][0U])))))) 
-               & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                      [5U][1U])) << 0x20U) 
-                     | (QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                       [5U][0U]))) 
-                    < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                        [0U][1U])) 
-                        << 0x20U) | (QData)((IData)(
-                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                    [0U][0U])))) 
-                   & (0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                [0U][1U])) 
-                                << 0x20U) | (QData)((IData)(
-                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                            [0U][0U]))))) 
-                  | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                               [0U][1U])) 
-                               << 0x20U) | (QData)((IData)(
-                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                           [0U][0U]))))))) 
-           & (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-              [5U][2U] >> 3U));
-    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc4 
-        = (((0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                       [4U][1U])) << 0x20U) 
-                      | (QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                        [4U][0U])))) 
-            & ((((((((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                         [4U][1U])) 
-                         << 0x20U) | (QData)((IData)(
-                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                     [4U][0U]))) 
-                       < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                           [7U][1U])) 
-                           << 0x20U) | (QData)((IData)(
-                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                       [7U][0U])))) 
-                      & (0ULL != (((QData)((IData)(
-                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                   [7U][1U])) 
-                                   << 0x20U) | (QData)((IData)(
-                                                               vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                               [7U][0U]))))) 
-                     | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                  [7U][1U])) 
-                                  << 0x20U) | (QData)((IData)(
-                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                              [7U][0U]))))) 
-                    & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                           [4U][1U])) 
-                           << 0x20U) | (QData)((IData)(
-                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                       [4U][0U]))) 
-                         < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                             [6U][1U])) 
-                             << 0x20U) | (QData)((IData)(
-                                                         vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                         [6U][0U])))) 
-                        & (0ULL != (((QData)((IData)(
-                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                     [6U][1U])) 
-                                     << 0x20U) | (QData)((IData)(
-                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                                 [6U][0U]))))) 
-                       | (0ULL == (((QData)((IData)(
-                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                    [6U][1U])) 
-                                    << 0x20U) | (QData)((IData)(
-                                                                vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                                [6U][0U])))))) 
-                   & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                          [4U][1U])) 
-                          << 0x20U) | (QData)((IData)(
-                                                      vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                      [4U][0U]))) 
-                        < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                            [5U][1U])) 
-                            << 0x20U) | (QData)((IData)(
-                                                        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                        [5U][0U])))) 
-                       & (0ULL != (((QData)((IData)(
-                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                    [5U][1U])) 
-                                    << 0x20U) | (QData)((IData)(
-                                                                vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                                [5U][0U]))))) 
-                      | (0ULL == (((QData)((IData)(
-                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                   [5U][1U])) 
-                                   << 0x20U) | (QData)((IData)(
-                                                               vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                               [5U][0U])))))) 
-                  & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                         [4U][1U])) 
-                         << 0x20U) | (QData)((IData)(
-                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                     [4U][0U]))) 
-                       < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                           [3U][1U])) 
-                           << 0x20U) | (QData)((IData)(
-                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                       [3U][0U])))) 
-                      & (0ULL != (((QData)((IData)(
-                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                   [3U][1U])) 
-                                   << 0x20U) | (QData)((IData)(
-                                                               vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                               [3U][0U]))))) 
-                     | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                  [3U][1U])) 
-                                  << 0x20U) | (QData)((IData)(
-                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                              [3U][0U])))))) 
-                 & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                        [4U][1U])) 
-                        << 0x20U) | (QData)((IData)(
-                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                    [4U][0U]))) 
-                      < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                          [2U][1U])) 
-                          << 0x20U) | (QData)((IData)(
-                                                      vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                      [2U][0U])))) 
-                     & (0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                  [2U][1U])) 
-                                  << 0x20U) | (QData)((IData)(
-                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                              [2U][0U]))))) 
-                    | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                 [2U][1U])) 
-                                 << 0x20U) | (QData)((IData)(
-                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                             [2U][0U])))))) 
-                & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                       [4U][1U])) << 0x20U) 
-                      | (QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                        [4U][0U]))) 
-                     < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                         [1U][1U])) 
-                         << 0x20U) | (QData)((IData)(
-                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                     [1U][0U])))) 
-                    & (0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                 [1U][1U])) 
-                                 << 0x20U) | (QData)((IData)(
-                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                             [1U][0U]))))) 
-                   | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                [1U][1U])) 
-                                << 0x20U) | (QData)((IData)(
-                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                            [1U][0U])))))) 
-               & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                      [4U][1U])) << 0x20U) 
-                     | (QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                       [4U][0U]))) 
-                    < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                        [0U][1U])) 
-                        << 0x20U) | (QData)((IData)(
-                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                    [0U][0U])))) 
-                   & (0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                [0U][1U])) 
-                                << 0x20U) | (QData)((IData)(
-                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                            [0U][0U]))))) 
-                  | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                               [0U][1U])) 
-                               << 0x20U) | (QData)((IData)(
-                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                           [0U][0U]))))))) 
-           & (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-              [4U][2U] >> 3U));
-    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc3 
-        = (((0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                       [3U][1U])) << 0x20U) 
-                      | (QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                        [3U][0U])))) 
-            & ((((((((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                         [3U][1U])) 
-                         << 0x20U) | (QData)((IData)(
-                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                     [3U][0U]))) 
-                       < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                           [7U][1U])) 
-                           << 0x20U) | (QData)((IData)(
-                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                       [7U][0U])))) 
-                      & (0ULL != (((QData)((IData)(
-                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                   [7U][1U])) 
-                                   << 0x20U) | (QData)((IData)(
-                                                               vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                               [7U][0U]))))) 
-                     | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                  [7U][1U])) 
-                                  << 0x20U) | (QData)((IData)(
-                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                              [7U][0U]))))) 
-                    & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                           [3U][1U])) 
-                           << 0x20U) | (QData)((IData)(
-                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                       [3U][0U]))) 
-                         < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                             [6U][1U])) 
-                             << 0x20U) | (QData)((IData)(
-                                                         vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                         [6U][0U])))) 
-                        & (0ULL != (((QData)((IData)(
-                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                     [6U][1U])) 
-                                     << 0x20U) | (QData)((IData)(
-                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                                 [6U][0U]))))) 
-                       | (0ULL == (((QData)((IData)(
-                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                    [6U][1U])) 
-                                    << 0x20U) | (QData)((IData)(
-                                                                vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                                [6U][0U])))))) 
-                   & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                          [3U][1U])) 
-                          << 0x20U) | (QData)((IData)(
-                                                      vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                      [3U][0U]))) 
-                        < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                            [5U][1U])) 
-                            << 0x20U) | (QData)((IData)(
-                                                        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                        [5U][0U])))) 
-                       & (0ULL != (((QData)((IData)(
-                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                    [5U][1U])) 
-                                    << 0x20U) | (QData)((IData)(
-                                                                vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                                [5U][0U]))))) 
-                      | (0ULL == (((QData)((IData)(
-                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                   [5U][1U])) 
-                                   << 0x20U) | (QData)((IData)(
-                                                               vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                               [5U][0U])))))) 
-                  & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                         [3U][1U])) 
-                         << 0x20U) | (QData)((IData)(
-                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                     [3U][0U]))) 
-                       < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                           [4U][1U])) 
-                           << 0x20U) | (QData)((IData)(
-                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                       [4U][0U])))) 
-                      & (0ULL != (((QData)((IData)(
-                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                   [4U][1U])) 
-                                   << 0x20U) | (QData)((IData)(
-                                                               vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                               [4U][0U]))))) 
-                     | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                  [4U][1U])) 
-                                  << 0x20U) | (QData)((IData)(
-                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                              [4U][0U])))))) 
-                 & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                        [3U][1U])) 
-                        << 0x20U) | (QData)((IData)(
-                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                    [3U][0U]))) 
-                      < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                          [2U][1U])) 
-                          << 0x20U) | (QData)((IData)(
-                                                      vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                      [2U][0U])))) 
-                     & (0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                  [2U][1U])) 
-                                  << 0x20U) | (QData)((IData)(
-                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                              [2U][0U]))))) 
-                    | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                 [2U][1U])) 
-                                 << 0x20U) | (QData)((IData)(
-                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                             [2U][0U])))))) 
-                & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                       [3U][1U])) << 0x20U) 
-                      | (QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                        [3U][0U]))) 
-                     < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                         [1U][1U])) 
-                         << 0x20U) | (QData)((IData)(
-                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                     [1U][0U])))) 
-                    & (0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                 [1U][1U])) 
-                                 << 0x20U) | (QData)((IData)(
-                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                             [1U][0U]))))) 
-                   | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                [1U][1U])) 
-                                << 0x20U) | (QData)((IData)(
-                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                            [1U][0U])))))) 
-               & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                      [3U][1U])) << 0x20U) 
-                     | (QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                       [3U][0U]))) 
-                    < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                        [0U][1U])) 
-                        << 0x20U) | (QData)((IData)(
-                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                    [0U][0U])))) 
-                   & (0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                [0U][1U])) 
-                                << 0x20U) | (QData)((IData)(
-                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                            [0U][0U]))))) 
-                  | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                               [0U][1U])) 
-                               << 0x20U) | (QData)((IData)(
-                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                           [0U][0U]))))))) 
-           & (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-              [3U][2U] >> 3U));
-    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc2 
-        = (((0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                       [2U][1U])) << 0x20U) 
-                      | (QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                        [2U][0U])))) 
-            & ((((((((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                         [2U][1U])) 
-                         << 0x20U) | (QData)((IData)(
-                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                     [2U][0U]))) 
-                       < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                           [7U][1U])) 
-                           << 0x20U) | (QData)((IData)(
-                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                       [7U][0U])))) 
-                      & (0ULL != (((QData)((IData)(
-                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                   [7U][1U])) 
-                                   << 0x20U) | (QData)((IData)(
-                                                               vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                               [7U][0U]))))) 
-                     | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                  [7U][1U])) 
-                                  << 0x20U) | (QData)((IData)(
-                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                              [7U][0U]))))) 
-                    & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                           [2U][1U])) 
-                           << 0x20U) | (QData)((IData)(
-                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                       [2U][0U]))) 
-                         < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                             [6U][1U])) 
-                             << 0x20U) | (QData)((IData)(
-                                                         vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                         [6U][0U])))) 
-                        & (0ULL != (((QData)((IData)(
-                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                     [6U][1U])) 
-                                     << 0x20U) | (QData)((IData)(
-                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                                 [6U][0U]))))) 
-                       | (0ULL == (((QData)((IData)(
-                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                    [6U][1U])) 
-                                    << 0x20U) | (QData)((IData)(
-                                                                vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                                [6U][0U])))))) 
-                   & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                          [2U][1U])) 
-                          << 0x20U) | (QData)((IData)(
-                                                      vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                      [2U][0U]))) 
-                        < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                            [5U][1U])) 
-                            << 0x20U) | (QData)((IData)(
-                                                        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                        [5U][0U])))) 
-                       & (0ULL != (((QData)((IData)(
-                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                    [5U][1U])) 
-                                    << 0x20U) | (QData)((IData)(
-                                                                vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                                [5U][0U]))))) 
-                      | (0ULL == (((QData)((IData)(
-                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                   [5U][1U])) 
-                                   << 0x20U) | (QData)((IData)(
-                                                               vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                               [5U][0U])))))) 
-                  & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                         [2U][1U])) 
-                         << 0x20U) | (QData)((IData)(
-                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                     [2U][0U]))) 
-                       < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                           [4U][1U])) 
-                           << 0x20U) | (QData)((IData)(
-                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                       [4U][0U])))) 
-                      & (0ULL != (((QData)((IData)(
-                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                   [4U][1U])) 
-                                   << 0x20U) | (QData)((IData)(
-                                                               vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                               [4U][0U]))))) 
-                     | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                  [4U][1U])) 
-                                  << 0x20U) | (QData)((IData)(
-                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                              [4U][0U])))))) 
-                 & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                        [2U][1U])) 
-                        << 0x20U) | (QData)((IData)(
-                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                    [2U][0U]))) 
-                      < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                          [3U][1U])) 
-                          << 0x20U) | (QData)((IData)(
-                                                      vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                      [3U][0U])))) 
-                     & (0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                  [3U][1U])) 
-                                  << 0x20U) | (QData)((IData)(
-                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                              [3U][0U]))))) 
-                    | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                 [3U][1U])) 
-                                 << 0x20U) | (QData)((IData)(
-                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                             [3U][0U])))))) 
-                & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                       [2U][1U])) << 0x20U) 
-                      | (QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                        [2U][0U]))) 
-                     < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                         [1U][1U])) 
-                         << 0x20U) | (QData)((IData)(
-                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                     [1U][0U])))) 
-                    & (0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                 [1U][1U])) 
-                                 << 0x20U) | (QData)((IData)(
-                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                             [1U][0U]))))) 
-                   | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                [1U][1U])) 
-                                << 0x20U) | (QData)((IData)(
-                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                            [1U][0U])))))) 
-               & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                      [2U][1U])) << 0x20U) 
-                     | (QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                       [2U][0U]))) 
-                    < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                        [0U][1U])) 
-                        << 0x20U) | (QData)((IData)(
-                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                    [0U][0U])))) 
-                   & (0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                [0U][1U])) 
-                                << 0x20U) | (QData)((IData)(
-                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                            [0U][0U]))))) 
-                  | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                               [0U][1U])) 
-                               << 0x20U) | (QData)((IData)(
-                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                           [0U][0U]))))))) 
-           & (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-              [2U][2U] >> 3U));
-    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc1 
-        = (((0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                       [1U][1U])) << 0x20U) 
-                      | (QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                        [1U][0U])))) 
-            & ((((((((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                         [1U][1U])) 
-                         << 0x20U) | (QData)((IData)(
-                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                     [1U][0U]))) 
-                       < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                           [7U][1U])) 
-                           << 0x20U) | (QData)((IData)(
-                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                       [7U][0U])))) 
-                      & (0ULL != (((QData)((IData)(
-                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                   [7U][1U])) 
-                                   << 0x20U) | (QData)((IData)(
-                                                               vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                               [7U][0U]))))) 
-                     | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                  [7U][1U])) 
-                                  << 0x20U) | (QData)((IData)(
-                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                              [7U][0U]))))) 
-                    & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                           [1U][1U])) 
-                           << 0x20U) | (QData)((IData)(
-                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                       [1U][0U]))) 
-                         < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                             [6U][1U])) 
-                             << 0x20U) | (QData)((IData)(
-                                                         vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                         [6U][0U])))) 
-                        & (0ULL != (((QData)((IData)(
-                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                     [6U][1U])) 
-                                     << 0x20U) | (QData)((IData)(
-                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                                 [6U][0U]))))) 
-                       | (0ULL == (((QData)((IData)(
-                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                    [6U][1U])) 
-                                    << 0x20U) | (QData)((IData)(
-                                                                vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                                [6U][0U])))))) 
-                   & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                          [1U][1U])) 
-                          << 0x20U) | (QData)((IData)(
-                                                      vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                      [1U][0U]))) 
-                        < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                            [5U][1U])) 
-                            << 0x20U) | (QData)((IData)(
-                                                        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                        [5U][0U])))) 
-                       & (0ULL != (((QData)((IData)(
-                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                    [5U][1U])) 
-                                    << 0x20U) | (QData)((IData)(
-                                                                vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                                [5U][0U]))))) 
-                      | (0ULL == (((QData)((IData)(
-                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                   [5U][1U])) 
-                                   << 0x20U) | (QData)((IData)(
-                                                               vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                               [5U][0U])))))) 
-                  & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                         [1U][1U])) 
-                         << 0x20U) | (QData)((IData)(
-                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                     [1U][0U]))) 
-                       < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                           [4U][1U])) 
-                           << 0x20U) | (QData)((IData)(
-                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                       [4U][0U])))) 
-                      & (0ULL != (((QData)((IData)(
-                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                   [4U][1U])) 
-                                   << 0x20U) | (QData)((IData)(
-                                                               vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                               [4U][0U]))))) 
-                     | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                  [4U][1U])) 
-                                  << 0x20U) | (QData)((IData)(
-                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                              [4U][0U])))))) 
-                 & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                        [1U][1U])) 
-                        << 0x20U) | (QData)((IData)(
-                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                    [1U][0U]))) 
-                      < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                          [3U][1U])) 
-                          << 0x20U) | (QData)((IData)(
-                                                      vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                      [3U][0U])))) 
-                     & (0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                  [3U][1U])) 
-                                  << 0x20U) | (QData)((IData)(
-                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                              [3U][0U]))))) 
-                    | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                 [3U][1U])) 
-                                 << 0x20U) | (QData)((IData)(
-                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                             [3U][0U])))))) 
-                & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                       [1U][1U])) << 0x20U) 
-                      | (QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                        [1U][0U]))) 
-                     < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                         [2U][1U])) 
-                         << 0x20U) | (QData)((IData)(
-                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                     [2U][0U])))) 
-                    & (0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                 [2U][1U])) 
-                                 << 0x20U) | (QData)((IData)(
-                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                             [2U][0U]))))) 
-                   | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                [2U][1U])) 
-                                << 0x20U) | (QData)((IData)(
-                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                            [2U][0U])))))) 
-               & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                      [1U][1U])) << 0x20U) 
-                     | (QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                       [1U][0U]))) 
-                    < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                        [0U][1U])) 
-                        << 0x20U) | (QData)((IData)(
-                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                    [0U][0U])))) 
-                   & (0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                [0U][1U])) 
-                                << 0x20U) | (QData)((IData)(
-                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                            [0U][0U]))))) 
-                  | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                               [0U][1U])) 
-                               << 0x20U) | (QData)((IData)(
-                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                           [0U][0U]))))))) 
-           & (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-              [1U][2U] >> 3U));
-    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc0 
-        = (((0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                       [0U][1U])) << 0x20U) 
-                      | (QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                        [0U][0U])))) 
-            & ((((((((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                         [0U][1U])) 
-                         << 0x20U) | (QData)((IData)(
-                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                     [0U][0U]))) 
-                       < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                           [7U][1U])) 
-                           << 0x20U) | (QData)((IData)(
-                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                       [7U][0U])))) 
-                      & (0ULL != (((QData)((IData)(
-                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                   [7U][1U])) 
-                                   << 0x20U) | (QData)((IData)(
-                                                               vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                               [7U][0U]))))) 
-                     | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                  [7U][1U])) 
-                                  << 0x20U) | (QData)((IData)(
-                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                              [7U][0U]))))) 
-                    & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                           [0U][1U])) 
-                           << 0x20U) | (QData)((IData)(
-                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                       [0U][0U]))) 
-                         < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                             [6U][1U])) 
-                             << 0x20U) | (QData)((IData)(
-                                                         vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                         [6U][0U])))) 
-                        & (0ULL != (((QData)((IData)(
-                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                     [6U][1U])) 
-                                     << 0x20U) | (QData)((IData)(
-                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                                 [6U][0U]))))) 
-                       | (0ULL == (((QData)((IData)(
-                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                    [6U][1U])) 
-                                    << 0x20U) | (QData)((IData)(
-                                                                vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                                [6U][0U])))))) 
-                   & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                          [0U][1U])) 
-                          << 0x20U) | (QData)((IData)(
-                                                      vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                      [0U][0U]))) 
-                        < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                            [5U][1U])) 
-                            << 0x20U) | (QData)((IData)(
-                                                        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                        [5U][0U])))) 
-                       & (0ULL != (((QData)((IData)(
-                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                    [5U][1U])) 
-                                    << 0x20U) | (QData)((IData)(
-                                                                vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                                [5U][0U]))))) 
-                      | (0ULL == (((QData)((IData)(
-                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                   [5U][1U])) 
-                                   << 0x20U) | (QData)((IData)(
-                                                               vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                               [5U][0U])))))) 
-                  & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                         [0U][1U])) 
-                         << 0x20U) | (QData)((IData)(
-                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                     [0U][0U]))) 
-                       < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                           [4U][1U])) 
-                           << 0x20U) | (QData)((IData)(
-                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                       [4U][0U])))) 
-                      & (0ULL != (((QData)((IData)(
-                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                   [4U][1U])) 
-                                   << 0x20U) | (QData)((IData)(
-                                                               vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                               [4U][0U]))))) 
-                     | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                  [4U][1U])) 
-                                  << 0x20U) | (QData)((IData)(
-                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                              [4U][0U])))))) 
-                 & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                        [0U][1U])) 
-                        << 0x20U) | (QData)((IData)(
-                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                    [0U][0U]))) 
-                      < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                          [3U][1U])) 
-                          << 0x20U) | (QData)((IData)(
-                                                      vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                      [3U][0U])))) 
-                     & (0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                  [3U][1U])) 
-                                  << 0x20U) | (QData)((IData)(
-                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                              [3U][0U]))))) 
-                    | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                 [3U][1U])) 
-                                 << 0x20U) | (QData)((IData)(
-                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                             [3U][0U])))))) 
-                & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                       [0U][1U])) << 0x20U) 
-                      | (QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                        [0U][0U]))) 
-                     < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                         [2U][1U])) 
-                         << 0x20U) | (QData)((IData)(
-                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                     [2U][0U])))) 
-                    & (0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                 [2U][1U])) 
-                                 << 0x20U) | (QData)((IData)(
-                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                             [2U][0U]))))) 
-                   | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                [2U][1U])) 
-                                << 0x20U) | (QData)((IData)(
-                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                            [2U][0U])))))) 
-               & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                      [0U][1U])) << 0x20U) 
-                     | (QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                       [0U][0U]))) 
-                    < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                        [1U][1U])) 
-                        << 0x20U) | (QData)((IData)(
-                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                    [1U][0U])))) 
-                   & (0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                [1U][1U])) 
-                                << 0x20U) | (QData)((IData)(
-                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                            [1U][0U]))))) 
-                  | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                               [1U][1U])) 
-                               << 0x20U) | (QData)((IData)(
-                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                           [1U][0U]))))))) 
-           & (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-              [0U][2U] >> 3U));
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__tmr_trap_ena 
         = ((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__csr0__DOT__csr_mip_mtip) 
              & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__csr0__DOT__csr_mstatus_mie)) 
@@ -2188,7 +980,6 @@ void Vysyx_22040228___024root___settle__TOP__4(Vysyx_22040228___024root* vlSelf)
     if (vlSelf->rst) {
         vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_jalr = 0U;
         vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_jalr = 0U;
-        vlSelf->ysyx_22040228__DOT__rvcpu_data_addr = 0ULL;
     } else {
         vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_jalr 
             = (IData)((0x19U == (0x1fU & (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de1_inst 
@@ -2196,9 +987,34 @@ void Vysyx_22040228___024root___settle__TOP__4(Vysyx_22040228___024root* vlSelf)
         vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_jalr 
             = (IData)((0x19U == (0x1fU & (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de2_inst 
                                           >> 2U))));
-        vlSelf->ysyx_22040228__DOT__rvcpu_data_addr 
-            = vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mmu_offset;
     }
+    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__jump_counter 
+        = (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_jumpbuff
+           [0U] ? 0U : (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_jumpbuff
+                        [1U] ? 1U : (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_jumpbuff
+                                     [2U] ? 3U : (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_jumpbuff
+                                                  [3U]
+                                                   ? 7U
+                                                   : 
+                                                  (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_jumpbuff
+                                                   [4U]
+                                                    ? 0xfU
+                                                    : 
+                                                   (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_jumpbuff
+                                                    [5U]
+                                                     ? 0x1fU
+                                                     : 
+                                                    (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_jumpbuff
+                                                     [6U]
+                                                      ? 0x3fU
+                                                      : 
+                                                     (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_jumpbuff
+                                                      [7U]
+                                                       ? 0x7fU
+                                                       : 0U))))))));
+    vlSelf->ysyx_22040228__DOT__rvcpu_data_addr = ((IData)(vlSelf->rst)
+                                                    ? 0ULL
+                                                    : vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__mmu_offset);
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_uo__DOT__inst_fence_i 
         = (IData)((0x1007U == (0x707fU & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__iss_de1_inst)));
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_fence_i 
@@ -3530,138 +2346,6 @@ void Vysyx_22040228___024root___settle__TOP__4(Vysyx_22040228___024root* vlSelf)
                                                 & (IData)(
                                                           (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__op1_sub_op2 
                                                            >> 0x3fU)))));
-    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__clean_submcont 
-        = ((IData)(vlSelf->rst) ? 0U : ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc7)
-                                         ? 0x80U : 
-                                        ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc6)
-                                          ? 0x40U : 
-                                         ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc5)
-                                           ? 0x20U : 
-                                          ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc4)
-                                            ? 0x10U
-                                            : ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc3)
-                                                ? 8U
-                                                : ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc2)
-                                                    ? 4U
-                                                    : 
-                                                   ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc1)
-                                                     ? 2U
-                                                     : 
-                                                    ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc0)
-                                                      ? 1U
-                                                      : 0U)))))))));
-    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__diff_ena 
-        = ((~ (IData)(vlSelf->rst)) & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc7) 
-                                       | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc6) 
-                                          | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc5) 
-                                             | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc4) 
-                                                | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc3) 
-                                                   | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc2) 
-                                                      | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc1) 
-                                                         | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc0)))))))));
-    if (vlSelf->rst) {
-        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__old_ready[0U] = 0U;
-        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__old_ready[1U] = 0U;
-        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__old_ready[2U] = 0U;
-    } else {
-        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__old_ready[0U] 
-            = ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc7)
-                ? vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-               [7U][0U] : ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc6)
-                            ? vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                           [6U][0U] : ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc5)
-                                        ? vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                       [5U][0U] : ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc4)
-                                                    ? 
-                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                   [4U][0U]
-                                                    : 
-                                                   ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc3)
-                                                     ? 
-                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                    [3U][0U]
-                                                     : 
-                                                    ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc2)
-                                                      ? 
-                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                     [2U][0U]
-                                                      : 
-                                                     ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc1)
-                                                       ? 
-                                                      vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                      [1U][0U]
-                                                       : 
-                                                      ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc0)
-                                                        ? 
-                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                       [0U][0U]
-                                                        : 0U))))))));
-        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__old_ready[1U] 
-            = ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc7)
-                ? vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-               [7U][1U] : ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc6)
-                            ? vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                           [6U][1U] : ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc5)
-                                        ? vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                       [5U][1U] : ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc4)
-                                                    ? 
-                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                   [4U][1U]
-                                                    : 
-                                                   ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc3)
-                                                     ? 
-                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                    [3U][1U]
-                                                     : 
-                                                    ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc2)
-                                                      ? 
-                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                     [2U][1U]
-                                                      : 
-                                                     ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc1)
-                                                       ? 
-                                                      vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                      [1U][1U]
-                                                       : 
-                                                      ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc0)
-                                                        ? 
-                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                       [0U][1U]
-                                                        : 0U))))))));
-        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__old_ready[2U] 
-            = (7U & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc7)
-                      ? vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                     [7U][2U] : ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc6)
-                                  ? vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                 [6U][2U] : ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc5)
-                                              ? vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                             [5U][2U]
-                                              : ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc4)
-                                                  ? 
-                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                 [4U][2U]
-                                                  : 
-                                                 ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc3)
-                                                   ? 
-                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                  [3U][2U]
-                                                   : 
-                                                  ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc2)
-                                                    ? 
-                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                   [2U][2U]
-                                                    : 
-                                                   ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc1)
-                                                     ? 
-                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                    [1U][2U]
-                                                     : 
-                                                    ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc0)
-                                                      ? 
-                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
-                                                     [0U][2U]
-                                                      : 0U)))))))));
-    }
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__ao_su_ena 
         = ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo_rd_ena) 
            & (~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__tmr_trap_ena)));
@@ -3781,6 +2465,1639 @@ void Vysyx_22040228___024root___settle__TOP__4(Vysyx_22040228___024root* vlSelf)
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_jump 
         = ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_jal) 
            | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__decode_ut__DOT__inst_jalr));
+    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc7 
+        = ((((0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                        [7U][1U])) 
+                        << 0x20U) | (QData)((IData)(
+                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                    [7U][0U])))) 
+             & (~ ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__jump_counter) 
+                   >> 7U))) & ((((((((((((QData)((IData)(
+                                                         vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                         [7U][1U])) 
+                                         << 0x20U) 
+                                        | (QData)((IData)(
+                                                          vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                          [7U][0U]))) 
+                                       < (((QData)((IData)(
+                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                           [6U][1U])) 
+                                           << 0x20U) 
+                                          | (QData)((IData)(
+                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                            [6U][0U])))) 
+                                      & (0ULL != (((QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [6U][1U])) 
+                                                   << 0x20U) 
+                                                  | (QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [6U][0U]))))) 
+                                     | ((0ULL == (((QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [6U][1U])) 
+                                                   << 0x20U) 
+                                                  | (QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [6U][0U])))) 
+                                        | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__jump_counter) 
+                                           >> 6U))) 
+                                    & ((((((QData)((IData)(
+                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                           [7U][1U])) 
+                                           << 0x20U) 
+                                          | (QData)((IData)(
+                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                            [7U][0U]))) 
+                                         < (((QData)((IData)(
+                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                             [5U][1U])) 
+                                             << 0x20U) 
+                                            | (QData)((IData)(
+                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                              [5U][0U])))) 
+                                        & (0ULL != 
+                                           (((QData)((IData)(
+                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                             [5U][1U])) 
+                                             << 0x20U) 
+                                            | (QData)((IData)(
+                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                              [5U][0U]))))) 
+                                       | ((0ULL == 
+                                           (((QData)((IData)(
+                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                             [5U][1U])) 
+                                             << 0x20U) 
+                                            | (QData)((IData)(
+                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                              [5U][0U])))) 
+                                          | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__jump_counter) 
+                                             >> 5U)))) 
+                                   & ((((((QData)((IData)(
+                                                          vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                          [7U][1U])) 
+                                          << 0x20U) 
+                                         | (QData)((IData)(
+                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                           [7U][0U]))) 
+                                        < (((QData)((IData)(
+                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                            [4U][1U])) 
+                                            << 0x20U) 
+                                           | (QData)((IData)(
+                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                             [4U][0U])))) 
+                                       & (0ULL != (
+                                                   ((QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [4U][1U])) 
+                                                    << 0x20U) 
+                                                   | (QData)((IData)(
+                                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                     [4U][0U]))))) 
+                                      | ((0ULL == (
+                                                   ((QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [4U][1U])) 
+                                                    << 0x20U) 
+                                                   | (QData)((IData)(
+                                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                     [4U][0U])))) 
+                                         | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__jump_counter) 
+                                            >> 4U)))) 
+                                  & ((((((QData)((IData)(
+                                                         vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                         [7U][1U])) 
+                                         << 0x20U) 
+                                        | (QData)((IData)(
+                                                          vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                          [7U][0U]))) 
+                                       < (((QData)((IData)(
+                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                           [3U][1U])) 
+                                           << 0x20U) 
+                                          | (QData)((IData)(
+                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                            [3U][0U])))) 
+                                      & (0ULL != (((QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [3U][1U])) 
+                                                   << 0x20U) 
+                                                  | (QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [3U][0U]))))) 
+                                     | ((0ULL == (((QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [3U][1U])) 
+                                                   << 0x20U) 
+                                                  | (QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [3U][0U])))) 
+                                        | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__jump_counter) 
+                                           >> 3U)))) 
+                                 & ((((((QData)((IData)(
+                                                        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                        [7U][1U])) 
+                                        << 0x20U) | (QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [7U][0U]))) 
+                                      < (((QData)((IData)(
+                                                          vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                          [2U][1U])) 
+                                          << 0x20U) 
+                                         | (QData)((IData)(
+                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                           [2U][0U])))) 
+                                     & (0ULL != (((QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [2U][1U])) 
+                                                  << 0x20U) 
+                                                 | (QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [2U][0U]))))) 
+                                    | ((0ULL == (((QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [2U][1U])) 
+                                                  << 0x20U) 
+                                                 | (QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [2U][0U])))) 
+                                       | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__jump_counter) 
+                                          >> 2U)))) 
+                                & ((((((QData)((IData)(
+                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                       [7U][1U])) 
+                                       << 0x20U) | (QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [7U][0U]))) 
+                                     < (((QData)((IData)(
+                                                         vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                         [1U][1U])) 
+                                         << 0x20U) 
+                                        | (QData)((IData)(
+                                                          vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                          [1U][0U])))) 
+                                    & (0ULL != (((QData)((IData)(
+                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                 [1U][1U])) 
+                                                 << 0x20U) 
+                                                | (QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [1U][0U]))))) 
+                                   | ((0ULL == (((QData)((IData)(
+                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                 [1U][1U])) 
+                                                 << 0x20U) 
+                                                | (QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [1U][0U])))) 
+                                      | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__jump_counter) 
+                                         >> 1U)))) 
+                               & ((((((QData)((IData)(
+                                                      vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                      [7U][1U])) 
+                                      << 0x20U) | (QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [7U][0U]))) 
+                                    < (((QData)((IData)(
+                                                        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                        [0U][1U])) 
+                                        << 0x20U) | (QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [0U][0U])))) 
+                                   & (0ULL != (((QData)((IData)(
+                                                                vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                [0U][1U])) 
+                                                << 0x20U) 
+                                               | (QData)((IData)(
+                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                 [0U][0U]))))) 
+                                  | ((0ULL == (((QData)((IData)(
+                                                                vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                [0U][1U])) 
+                                                << 0x20U) 
+                                               | (QData)((IData)(
+                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                 [0U][0U])))) 
+                                     | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__jump_counter))))) 
+           & (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+              [7U][2U] >> 3U));
+    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc6 
+        = ((((0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                        [6U][1U])) 
+                        << 0x20U) | (QData)((IData)(
+                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                    [6U][0U])))) 
+             & (~ ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__jump_counter) 
+                   >> 6U))) & ((((((((((((QData)((IData)(
+                                                         vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                         [6U][1U])) 
+                                         << 0x20U) 
+                                        | (QData)((IData)(
+                                                          vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                          [6U][0U]))) 
+                                       < (((QData)((IData)(
+                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                           [7U][1U])) 
+                                           << 0x20U) 
+                                          | (QData)((IData)(
+                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                            [7U][0U])))) 
+                                      & (0ULL != (((QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [7U][1U])) 
+                                                   << 0x20U) 
+                                                  | (QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [7U][0U]))))) 
+                                     | (0ULL == (((QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [7U][1U])) 
+                                                  << 0x20U) 
+                                                 | (QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [7U][0U]))))) 
+                                    & ((((((QData)((IData)(
+                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                           [6U][1U])) 
+                                           << 0x20U) 
+                                          | (QData)((IData)(
+                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                            [6U][0U]))) 
+                                         < (((QData)((IData)(
+                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                             [5U][1U])) 
+                                             << 0x20U) 
+                                            | (QData)((IData)(
+                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                              [5U][0U])))) 
+                                        & (0ULL != 
+                                           (((QData)((IData)(
+                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                             [5U][1U])) 
+                                             << 0x20U) 
+                                            | (QData)((IData)(
+                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                              [5U][0U]))))) 
+                                       | ((0ULL == 
+                                           (((QData)((IData)(
+                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                             [5U][1U])) 
+                                             << 0x20U) 
+                                            | (QData)((IData)(
+                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                              [5U][0U])))) 
+                                          | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__jump_counter) 
+                                             >> 5U)))) 
+                                   & ((((((QData)((IData)(
+                                                          vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                          [6U][1U])) 
+                                          << 0x20U) 
+                                         | (QData)((IData)(
+                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                           [6U][0U]))) 
+                                        < (((QData)((IData)(
+                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                            [4U][1U])) 
+                                            << 0x20U) 
+                                           | (QData)((IData)(
+                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                             [4U][0U])))) 
+                                       & (0ULL != (
+                                                   ((QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [4U][1U])) 
+                                                    << 0x20U) 
+                                                   | (QData)((IData)(
+                                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                     [4U][0U]))))) 
+                                      | ((0ULL == (
+                                                   ((QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [4U][1U])) 
+                                                    << 0x20U) 
+                                                   | (QData)((IData)(
+                                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                     [4U][0U])))) 
+                                         | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__jump_counter) 
+                                            >> 4U)))) 
+                                  & ((((((QData)((IData)(
+                                                         vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                         [6U][1U])) 
+                                         << 0x20U) 
+                                        | (QData)((IData)(
+                                                          vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                          [6U][0U]))) 
+                                       < (((QData)((IData)(
+                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                           [3U][1U])) 
+                                           << 0x20U) 
+                                          | (QData)((IData)(
+                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                            [3U][0U])))) 
+                                      & (0ULL != (((QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [3U][1U])) 
+                                                   << 0x20U) 
+                                                  | (QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [3U][0U]))))) 
+                                     | ((0ULL == (((QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [3U][1U])) 
+                                                   << 0x20U) 
+                                                  | (QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [3U][0U])))) 
+                                        | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__jump_counter) 
+                                           >> 3U)))) 
+                                 & ((((((QData)((IData)(
+                                                        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                        [6U][1U])) 
+                                        << 0x20U) | (QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [6U][0U]))) 
+                                      < (((QData)((IData)(
+                                                          vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                          [2U][1U])) 
+                                          << 0x20U) 
+                                         | (QData)((IData)(
+                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                           [2U][0U])))) 
+                                     & (0ULL != (((QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [2U][1U])) 
+                                                  << 0x20U) 
+                                                 | (QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [2U][0U]))))) 
+                                    | ((0ULL == (((QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [2U][1U])) 
+                                                  << 0x20U) 
+                                                 | (QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [2U][0U])))) 
+                                       | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__jump_counter) 
+                                          >> 2U)))) 
+                                & ((((((QData)((IData)(
+                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                       [6U][1U])) 
+                                       << 0x20U) | (QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [6U][0U]))) 
+                                     < (((QData)((IData)(
+                                                         vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                         [1U][1U])) 
+                                         << 0x20U) 
+                                        | (QData)((IData)(
+                                                          vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                          [1U][0U])))) 
+                                    & (0ULL != (((QData)((IData)(
+                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                 [1U][1U])) 
+                                                 << 0x20U) 
+                                                | (QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [1U][0U]))))) 
+                                   | ((0ULL == (((QData)((IData)(
+                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                 [1U][1U])) 
+                                                 << 0x20U) 
+                                                | (QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [1U][0U])))) 
+                                      | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__jump_counter) 
+                                         >> 1U)))) 
+                               & ((((((QData)((IData)(
+                                                      vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                      [6U][1U])) 
+                                      << 0x20U) | (QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [6U][0U]))) 
+                                    < (((QData)((IData)(
+                                                        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                        [0U][1U])) 
+                                        << 0x20U) | (QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [0U][0U])))) 
+                                   & (0ULL != (((QData)((IData)(
+                                                                vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                [0U][1U])) 
+                                                << 0x20U) 
+                                               | (QData)((IData)(
+                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                 [0U][0U]))))) 
+                                  | ((0ULL == (((QData)((IData)(
+                                                                vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                [0U][1U])) 
+                                                << 0x20U) 
+                                               | (QData)((IData)(
+                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                 [0U][0U])))) 
+                                     | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__jump_counter))))) 
+           & (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+              [6U][2U] >> 3U));
+    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc5 
+        = ((((0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                        [5U][1U])) 
+                        << 0x20U) | (QData)((IData)(
+                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                    [5U][0U])))) 
+             & (~ ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__jump_counter) 
+                   >> 5U))) & ((((((((((((QData)((IData)(
+                                                         vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                         [5U][1U])) 
+                                         << 0x20U) 
+                                        | (QData)((IData)(
+                                                          vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                          [5U][0U]))) 
+                                       < (((QData)((IData)(
+                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                           [7U][1U])) 
+                                           << 0x20U) 
+                                          | (QData)((IData)(
+                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                            [7U][0U])))) 
+                                      & (0ULL != (((QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [7U][1U])) 
+                                                   << 0x20U) 
+                                                  | (QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [7U][0U]))))) 
+                                     | (0ULL == (((QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [7U][1U])) 
+                                                  << 0x20U) 
+                                                 | (QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [7U][0U]))))) 
+                                    & ((((((QData)((IData)(
+                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                           [5U][1U])) 
+                                           << 0x20U) 
+                                          | (QData)((IData)(
+                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                            [5U][0U]))) 
+                                         < (((QData)((IData)(
+                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                             [6U][1U])) 
+                                             << 0x20U) 
+                                            | (QData)((IData)(
+                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                              [6U][0U])))) 
+                                        & (0ULL != 
+                                           (((QData)((IData)(
+                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                             [6U][1U])) 
+                                             << 0x20U) 
+                                            | (QData)((IData)(
+                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                              [6U][0U]))))) 
+                                       | (0ULL == (
+                                                   ((QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [6U][1U])) 
+                                                    << 0x20U) 
+                                                   | (QData)((IData)(
+                                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                     [6U][0U])))))) 
+                                   & ((((((QData)((IData)(
+                                                          vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                          [5U][1U])) 
+                                          << 0x20U) 
+                                         | (QData)((IData)(
+                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                           [5U][0U]))) 
+                                        < (((QData)((IData)(
+                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                            [4U][1U])) 
+                                            << 0x20U) 
+                                           | (QData)((IData)(
+                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                             [4U][0U])))) 
+                                       & (0ULL != (
+                                                   ((QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [4U][1U])) 
+                                                    << 0x20U) 
+                                                   | (QData)((IData)(
+                                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                     [4U][0U]))))) 
+                                      | ((0ULL == (
+                                                   ((QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [4U][1U])) 
+                                                    << 0x20U) 
+                                                   | (QData)((IData)(
+                                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                     [4U][0U])))) 
+                                         | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__jump_counter) 
+                                            >> 4U)))) 
+                                  & ((((((QData)((IData)(
+                                                         vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                         [5U][1U])) 
+                                         << 0x20U) 
+                                        | (QData)((IData)(
+                                                          vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                          [5U][0U]))) 
+                                       < (((QData)((IData)(
+                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                           [3U][1U])) 
+                                           << 0x20U) 
+                                          | (QData)((IData)(
+                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                            [3U][0U])))) 
+                                      & (0ULL != (((QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [3U][1U])) 
+                                                   << 0x20U) 
+                                                  | (QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [3U][0U]))))) 
+                                     | ((0ULL == (((QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [3U][1U])) 
+                                                   << 0x20U) 
+                                                  | (QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [3U][0U])))) 
+                                        | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__jump_counter) 
+                                           >> 3U)))) 
+                                 & ((((((QData)((IData)(
+                                                        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                        [5U][1U])) 
+                                        << 0x20U) | (QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [5U][0U]))) 
+                                      < (((QData)((IData)(
+                                                          vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                          [2U][1U])) 
+                                          << 0x20U) 
+                                         | (QData)((IData)(
+                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                           [2U][0U])))) 
+                                     & (0ULL != (((QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [2U][1U])) 
+                                                  << 0x20U) 
+                                                 | (QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [2U][0U]))))) 
+                                    | ((0ULL == (((QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [2U][1U])) 
+                                                  << 0x20U) 
+                                                 | (QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [2U][0U])))) 
+                                       | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__jump_counter) 
+                                          >> 2U)))) 
+                                & ((((((QData)((IData)(
+                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                       [5U][1U])) 
+                                       << 0x20U) | (QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [5U][0U]))) 
+                                     < (((QData)((IData)(
+                                                         vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                         [1U][1U])) 
+                                         << 0x20U) 
+                                        | (QData)((IData)(
+                                                          vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                          [1U][0U])))) 
+                                    & (0ULL != (((QData)((IData)(
+                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                 [1U][1U])) 
+                                                 << 0x20U) 
+                                                | (QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [1U][0U]))))) 
+                                   | ((0ULL == (((QData)((IData)(
+                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                 [1U][1U])) 
+                                                 << 0x20U) 
+                                                | (QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [1U][0U])))) 
+                                      | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__jump_counter) 
+                                         >> 1U)))) 
+                               & ((((((QData)((IData)(
+                                                      vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                      [5U][1U])) 
+                                      << 0x20U) | (QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [5U][0U]))) 
+                                    < (((QData)((IData)(
+                                                        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                        [0U][1U])) 
+                                        << 0x20U) | (QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [0U][0U])))) 
+                                   & (0ULL != (((QData)((IData)(
+                                                                vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                [0U][1U])) 
+                                                << 0x20U) 
+                                               | (QData)((IData)(
+                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                 [0U][0U]))))) 
+                                  | ((0ULL == (((QData)((IData)(
+                                                                vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                [0U][1U])) 
+                                                << 0x20U) 
+                                               | (QData)((IData)(
+                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                 [0U][0U])))) 
+                                     | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__jump_counter))))) 
+           & (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+              [5U][2U] >> 3U));
+    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc4 
+        = ((((0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                        [4U][1U])) 
+                        << 0x20U) | (QData)((IData)(
+                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                    [4U][0U])))) 
+             & (~ ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__jump_counter) 
+                   >> 4U))) & ((((((((((((QData)((IData)(
+                                                         vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                         [4U][1U])) 
+                                         << 0x20U) 
+                                        | (QData)((IData)(
+                                                          vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                          [4U][0U]))) 
+                                       < (((QData)((IData)(
+                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                           [7U][1U])) 
+                                           << 0x20U) 
+                                          | (QData)((IData)(
+                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                            [7U][0U])))) 
+                                      & (0ULL != (((QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [7U][1U])) 
+                                                   << 0x20U) 
+                                                  | (QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [7U][0U]))))) 
+                                     | (0ULL == (((QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [7U][1U])) 
+                                                  << 0x20U) 
+                                                 | (QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [7U][0U]))))) 
+                                    & ((((((QData)((IData)(
+                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                           [4U][1U])) 
+                                           << 0x20U) 
+                                          | (QData)((IData)(
+                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                            [4U][0U]))) 
+                                         < (((QData)((IData)(
+                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                             [6U][1U])) 
+                                             << 0x20U) 
+                                            | (QData)((IData)(
+                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                              [6U][0U])))) 
+                                        & (0ULL != 
+                                           (((QData)((IData)(
+                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                             [6U][1U])) 
+                                             << 0x20U) 
+                                            | (QData)((IData)(
+                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                              [6U][0U]))))) 
+                                       | (0ULL == (
+                                                   ((QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [6U][1U])) 
+                                                    << 0x20U) 
+                                                   | (QData)((IData)(
+                                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                     [6U][0U])))))) 
+                                   & ((((((QData)((IData)(
+                                                          vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                          [4U][1U])) 
+                                          << 0x20U) 
+                                         | (QData)((IData)(
+                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                           [4U][0U]))) 
+                                        < (((QData)((IData)(
+                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                            [5U][1U])) 
+                                            << 0x20U) 
+                                           | (QData)((IData)(
+                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                             [5U][0U])))) 
+                                       & (0ULL != (
+                                                   ((QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [5U][1U])) 
+                                                    << 0x20U) 
+                                                   | (QData)((IData)(
+                                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                     [5U][0U]))))) 
+                                      | (0ULL == (((QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [5U][1U])) 
+                                                   << 0x20U) 
+                                                  | (QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [5U][0U])))))) 
+                                  & ((((((QData)((IData)(
+                                                         vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                         [4U][1U])) 
+                                         << 0x20U) 
+                                        | (QData)((IData)(
+                                                          vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                          [4U][0U]))) 
+                                       < (((QData)((IData)(
+                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                           [3U][1U])) 
+                                           << 0x20U) 
+                                          | (QData)((IData)(
+                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                            [3U][0U])))) 
+                                      & (0ULL != (((QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [3U][1U])) 
+                                                   << 0x20U) 
+                                                  | (QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [3U][0U]))))) 
+                                     | ((0ULL == (((QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [3U][1U])) 
+                                                   << 0x20U) 
+                                                  | (QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [3U][0U])))) 
+                                        | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__jump_counter) 
+                                           >> 3U)))) 
+                                 & ((((((QData)((IData)(
+                                                        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                        [4U][1U])) 
+                                        << 0x20U) | (QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [4U][0U]))) 
+                                      < (((QData)((IData)(
+                                                          vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                          [2U][1U])) 
+                                          << 0x20U) 
+                                         | (QData)((IData)(
+                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                           [2U][0U])))) 
+                                     & (0ULL != (((QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [2U][1U])) 
+                                                  << 0x20U) 
+                                                 | (QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [2U][0U]))))) 
+                                    | ((0ULL == (((QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [2U][1U])) 
+                                                  << 0x20U) 
+                                                 | (QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [2U][0U])))) 
+                                       | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__jump_counter) 
+                                          >> 2U)))) 
+                                & ((((((QData)((IData)(
+                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                       [4U][1U])) 
+                                       << 0x20U) | (QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [4U][0U]))) 
+                                     < (((QData)((IData)(
+                                                         vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                         [1U][1U])) 
+                                         << 0x20U) 
+                                        | (QData)((IData)(
+                                                          vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                          [1U][0U])))) 
+                                    & (0ULL != (((QData)((IData)(
+                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                 [1U][1U])) 
+                                                 << 0x20U) 
+                                                | (QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [1U][0U]))))) 
+                                   | ((0ULL == (((QData)((IData)(
+                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                 [1U][1U])) 
+                                                 << 0x20U) 
+                                                | (QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [1U][0U])))) 
+                                      | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__jump_counter) 
+                                         >> 1U)))) 
+                               & ((((((QData)((IData)(
+                                                      vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                      [4U][1U])) 
+                                      << 0x20U) | (QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [4U][0U]))) 
+                                    < (((QData)((IData)(
+                                                        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                        [0U][1U])) 
+                                        << 0x20U) | (QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [0U][0U])))) 
+                                   & (0ULL != (((QData)((IData)(
+                                                                vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                [0U][1U])) 
+                                                << 0x20U) 
+                                               | (QData)((IData)(
+                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                 [0U][0U]))))) 
+                                  | ((0ULL == (((QData)((IData)(
+                                                                vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                [0U][1U])) 
+                                                << 0x20U) 
+                                               | (QData)((IData)(
+                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                 [0U][0U])))) 
+                                     | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__jump_counter))))) 
+           & (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+              [4U][2U] >> 3U));
+    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc3 
+        = ((((0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                        [3U][1U])) 
+                        << 0x20U) | (QData)((IData)(
+                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                    [3U][0U])))) 
+             & (~ ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__jump_counter) 
+                   >> 3U))) & ((((((((((((QData)((IData)(
+                                                         vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                         [3U][1U])) 
+                                         << 0x20U) 
+                                        | (QData)((IData)(
+                                                          vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                          [3U][0U]))) 
+                                       < (((QData)((IData)(
+                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                           [7U][1U])) 
+                                           << 0x20U) 
+                                          | (QData)((IData)(
+                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                            [7U][0U])))) 
+                                      & (0ULL != (((QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [7U][1U])) 
+                                                   << 0x20U) 
+                                                  | (QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [7U][0U]))))) 
+                                     | (0ULL == (((QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [7U][1U])) 
+                                                  << 0x20U) 
+                                                 | (QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [7U][0U]))))) 
+                                    & ((((((QData)((IData)(
+                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                           [3U][1U])) 
+                                           << 0x20U) 
+                                          | (QData)((IData)(
+                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                            [3U][0U]))) 
+                                         < (((QData)((IData)(
+                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                             [6U][1U])) 
+                                             << 0x20U) 
+                                            | (QData)((IData)(
+                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                              [6U][0U])))) 
+                                        & (0ULL != 
+                                           (((QData)((IData)(
+                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                             [6U][1U])) 
+                                             << 0x20U) 
+                                            | (QData)((IData)(
+                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                              [6U][0U]))))) 
+                                       | (0ULL == (
+                                                   ((QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [6U][1U])) 
+                                                    << 0x20U) 
+                                                   | (QData)((IData)(
+                                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                     [6U][0U])))))) 
+                                   & ((((((QData)((IData)(
+                                                          vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                          [3U][1U])) 
+                                          << 0x20U) 
+                                         | (QData)((IData)(
+                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                           [3U][0U]))) 
+                                        < (((QData)((IData)(
+                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                            [5U][1U])) 
+                                            << 0x20U) 
+                                           | (QData)((IData)(
+                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                             [5U][0U])))) 
+                                       & (0ULL != (
+                                                   ((QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [5U][1U])) 
+                                                    << 0x20U) 
+                                                   | (QData)((IData)(
+                                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                     [5U][0U]))))) 
+                                      | (0ULL == (((QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [5U][1U])) 
+                                                   << 0x20U) 
+                                                  | (QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [5U][0U])))))) 
+                                  & ((((((QData)((IData)(
+                                                         vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                         [3U][1U])) 
+                                         << 0x20U) 
+                                        | (QData)((IData)(
+                                                          vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                          [3U][0U]))) 
+                                       < (((QData)((IData)(
+                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                           [4U][1U])) 
+                                           << 0x20U) 
+                                          | (QData)((IData)(
+                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                            [4U][0U])))) 
+                                      & (0ULL != (((QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [4U][1U])) 
+                                                   << 0x20U) 
+                                                  | (QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [4U][0U]))))) 
+                                     | (0ULL == (((QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [4U][1U])) 
+                                                  << 0x20U) 
+                                                 | (QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [4U][0U])))))) 
+                                 & ((((((QData)((IData)(
+                                                        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                        [3U][1U])) 
+                                        << 0x20U) | (QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [3U][0U]))) 
+                                      < (((QData)((IData)(
+                                                          vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                          [2U][1U])) 
+                                          << 0x20U) 
+                                         | (QData)((IData)(
+                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                           [2U][0U])))) 
+                                     & (0ULL != (((QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [2U][1U])) 
+                                                  << 0x20U) 
+                                                 | (QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [2U][0U]))))) 
+                                    | ((0ULL == (((QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [2U][1U])) 
+                                                  << 0x20U) 
+                                                 | (QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [2U][0U])))) 
+                                       | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__jump_counter) 
+                                          >> 2U)))) 
+                                & ((((((QData)((IData)(
+                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                       [3U][1U])) 
+                                       << 0x20U) | (QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [3U][0U]))) 
+                                     < (((QData)((IData)(
+                                                         vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                         [1U][1U])) 
+                                         << 0x20U) 
+                                        | (QData)((IData)(
+                                                          vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                          [1U][0U])))) 
+                                    & (0ULL != (((QData)((IData)(
+                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                 [1U][1U])) 
+                                                 << 0x20U) 
+                                                | (QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [1U][0U]))))) 
+                                   | ((0ULL == (((QData)((IData)(
+                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                 [1U][1U])) 
+                                                 << 0x20U) 
+                                                | (QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [1U][0U])))) 
+                                      | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__jump_counter) 
+                                         >> 1U)))) 
+                               & ((((((QData)((IData)(
+                                                      vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                      [3U][1U])) 
+                                      << 0x20U) | (QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [3U][0U]))) 
+                                    < (((QData)((IData)(
+                                                        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                        [0U][1U])) 
+                                        << 0x20U) | (QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [0U][0U])))) 
+                                   & (0ULL != (((QData)((IData)(
+                                                                vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                [0U][1U])) 
+                                                << 0x20U) 
+                                               | (QData)((IData)(
+                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                 [0U][0U]))))) 
+                                  | ((0ULL == (((QData)((IData)(
+                                                                vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                [0U][1U])) 
+                                                << 0x20U) 
+                                               | (QData)((IData)(
+                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                 [0U][0U])))) 
+                                     | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__jump_counter))))) 
+           & (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+              [3U][2U] >> 3U));
+    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc2 
+        = ((((0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                        [2U][1U])) 
+                        << 0x20U) | (QData)((IData)(
+                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                    [2U][0U])))) 
+             & (~ ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__jump_counter) 
+                   >> 2U))) & ((((((((((((QData)((IData)(
+                                                         vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                         [2U][1U])) 
+                                         << 0x20U) 
+                                        | (QData)((IData)(
+                                                          vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                          [2U][0U]))) 
+                                       < (((QData)((IData)(
+                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                           [7U][1U])) 
+                                           << 0x20U) 
+                                          | (QData)((IData)(
+                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                            [7U][0U])))) 
+                                      & (0ULL != (((QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [7U][1U])) 
+                                                   << 0x20U) 
+                                                  | (QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [7U][0U]))))) 
+                                     | (0ULL == (((QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [7U][1U])) 
+                                                  << 0x20U) 
+                                                 | (QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [7U][0U]))))) 
+                                    & ((((((QData)((IData)(
+                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                           [2U][1U])) 
+                                           << 0x20U) 
+                                          | (QData)((IData)(
+                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                            [2U][0U]))) 
+                                         < (((QData)((IData)(
+                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                             [6U][1U])) 
+                                             << 0x20U) 
+                                            | (QData)((IData)(
+                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                              [6U][0U])))) 
+                                        & (0ULL != 
+                                           (((QData)((IData)(
+                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                             [6U][1U])) 
+                                             << 0x20U) 
+                                            | (QData)((IData)(
+                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                              [6U][0U]))))) 
+                                       | (0ULL == (
+                                                   ((QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [6U][1U])) 
+                                                    << 0x20U) 
+                                                   | (QData)((IData)(
+                                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                     [6U][0U])))))) 
+                                   & ((((((QData)((IData)(
+                                                          vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                          [2U][1U])) 
+                                          << 0x20U) 
+                                         | (QData)((IData)(
+                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                           [2U][0U]))) 
+                                        < (((QData)((IData)(
+                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                            [5U][1U])) 
+                                            << 0x20U) 
+                                           | (QData)((IData)(
+                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                             [5U][0U])))) 
+                                       & (0ULL != (
+                                                   ((QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [5U][1U])) 
+                                                    << 0x20U) 
+                                                   | (QData)((IData)(
+                                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                     [5U][0U]))))) 
+                                      | (0ULL == (((QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [5U][1U])) 
+                                                   << 0x20U) 
+                                                  | (QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [5U][0U])))))) 
+                                  & ((((((QData)((IData)(
+                                                         vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                         [2U][1U])) 
+                                         << 0x20U) 
+                                        | (QData)((IData)(
+                                                          vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                          [2U][0U]))) 
+                                       < (((QData)((IData)(
+                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                           [4U][1U])) 
+                                           << 0x20U) 
+                                          | (QData)((IData)(
+                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                            [4U][0U])))) 
+                                      & (0ULL != (((QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [4U][1U])) 
+                                                   << 0x20U) 
+                                                  | (QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [4U][0U]))))) 
+                                     | (0ULL == (((QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [4U][1U])) 
+                                                  << 0x20U) 
+                                                 | (QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [4U][0U])))))) 
+                                 & ((((((QData)((IData)(
+                                                        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                        [2U][1U])) 
+                                        << 0x20U) | (QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [2U][0U]))) 
+                                      < (((QData)((IData)(
+                                                          vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                          [3U][1U])) 
+                                          << 0x20U) 
+                                         | (QData)((IData)(
+                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                           [3U][0U])))) 
+                                     & (0ULL != (((QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [3U][1U])) 
+                                                  << 0x20U) 
+                                                 | (QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [3U][0U]))))) 
+                                    | (0ULL == (((QData)((IData)(
+                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                 [3U][1U])) 
+                                                 << 0x20U) 
+                                                | (QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [3U][0U])))))) 
+                                & ((((((QData)((IData)(
+                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                       [2U][1U])) 
+                                       << 0x20U) | (QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [2U][0U]))) 
+                                     < (((QData)((IData)(
+                                                         vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                         [1U][1U])) 
+                                         << 0x20U) 
+                                        | (QData)((IData)(
+                                                          vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                          [1U][0U])))) 
+                                    & (0ULL != (((QData)((IData)(
+                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                 [1U][1U])) 
+                                                 << 0x20U) 
+                                                | (QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [1U][0U]))))) 
+                                   | ((0ULL == (((QData)((IData)(
+                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                 [1U][1U])) 
+                                                 << 0x20U) 
+                                                | (QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [1U][0U])))) 
+                                      | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__jump_counter) 
+                                         >> 1U)))) 
+                               & ((((((QData)((IData)(
+                                                      vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                      [2U][1U])) 
+                                      << 0x20U) | (QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [2U][0U]))) 
+                                    < (((QData)((IData)(
+                                                        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                        [0U][1U])) 
+                                        << 0x20U) | (QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [0U][0U])))) 
+                                   & (0ULL != (((QData)((IData)(
+                                                                vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                [0U][1U])) 
+                                                << 0x20U) 
+                                               | (QData)((IData)(
+                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                 [0U][0U]))))) 
+                                  | ((0ULL == (((QData)((IData)(
+                                                                vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                [0U][1U])) 
+                                                << 0x20U) 
+                                               | (QData)((IData)(
+                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                 [0U][0U])))) 
+                                     | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__jump_counter))))) 
+           & (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+              [2U][2U] >> 3U));
+    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc1 
+        = ((((0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                        [1U][1U])) 
+                        << 0x20U) | (QData)((IData)(
+                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                    [1U][0U])))) 
+             & (~ ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__jump_counter) 
+                   >> 1U))) & ((((((((((((QData)((IData)(
+                                                         vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                         [1U][1U])) 
+                                         << 0x20U) 
+                                        | (QData)((IData)(
+                                                          vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                          [1U][0U]))) 
+                                       < (((QData)((IData)(
+                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                           [7U][1U])) 
+                                           << 0x20U) 
+                                          | (QData)((IData)(
+                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                            [7U][0U])))) 
+                                      & (0ULL != (((QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [7U][1U])) 
+                                                   << 0x20U) 
+                                                  | (QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [7U][0U]))))) 
+                                     | (0ULL == (((QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [7U][1U])) 
+                                                  << 0x20U) 
+                                                 | (QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [7U][0U]))))) 
+                                    & ((((((QData)((IData)(
+                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                           [1U][1U])) 
+                                           << 0x20U) 
+                                          | (QData)((IData)(
+                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                            [1U][0U]))) 
+                                         < (((QData)((IData)(
+                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                             [6U][1U])) 
+                                             << 0x20U) 
+                                            | (QData)((IData)(
+                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                              [6U][0U])))) 
+                                        & (0ULL != 
+                                           (((QData)((IData)(
+                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                             [6U][1U])) 
+                                             << 0x20U) 
+                                            | (QData)((IData)(
+                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                              [6U][0U]))))) 
+                                       | (0ULL == (
+                                                   ((QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [6U][1U])) 
+                                                    << 0x20U) 
+                                                   | (QData)((IData)(
+                                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                     [6U][0U])))))) 
+                                   & ((((((QData)((IData)(
+                                                          vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                          [1U][1U])) 
+                                          << 0x20U) 
+                                         | (QData)((IData)(
+                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                           [1U][0U]))) 
+                                        < (((QData)((IData)(
+                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                            [5U][1U])) 
+                                            << 0x20U) 
+                                           | (QData)((IData)(
+                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                             [5U][0U])))) 
+                                       & (0ULL != (
+                                                   ((QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [5U][1U])) 
+                                                    << 0x20U) 
+                                                   | (QData)((IData)(
+                                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                     [5U][0U]))))) 
+                                      | (0ULL == (((QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [5U][1U])) 
+                                                   << 0x20U) 
+                                                  | (QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [5U][0U])))))) 
+                                  & ((((((QData)((IData)(
+                                                         vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                         [1U][1U])) 
+                                         << 0x20U) 
+                                        | (QData)((IData)(
+                                                          vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                          [1U][0U]))) 
+                                       < (((QData)((IData)(
+                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                           [4U][1U])) 
+                                           << 0x20U) 
+                                          | (QData)((IData)(
+                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                            [4U][0U])))) 
+                                      & (0ULL != (((QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [4U][1U])) 
+                                                   << 0x20U) 
+                                                  | (QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [4U][0U]))))) 
+                                     | (0ULL == (((QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [4U][1U])) 
+                                                  << 0x20U) 
+                                                 | (QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [4U][0U])))))) 
+                                 & ((((((QData)((IData)(
+                                                        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                        [1U][1U])) 
+                                        << 0x20U) | (QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [1U][0U]))) 
+                                      < (((QData)((IData)(
+                                                          vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                          [3U][1U])) 
+                                          << 0x20U) 
+                                         | (QData)((IData)(
+                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                           [3U][0U])))) 
+                                     & (0ULL != (((QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [3U][1U])) 
+                                                  << 0x20U) 
+                                                 | (QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [3U][0U]))))) 
+                                    | (0ULL == (((QData)((IData)(
+                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                 [3U][1U])) 
+                                                 << 0x20U) 
+                                                | (QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [3U][0U])))))) 
+                                & ((((((QData)((IData)(
+                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                       [1U][1U])) 
+                                       << 0x20U) | (QData)((IData)(
+                                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                   [1U][0U]))) 
+                                     < (((QData)((IData)(
+                                                         vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                         [2U][1U])) 
+                                         << 0x20U) 
+                                        | (QData)((IData)(
+                                                          vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                          [2U][0U])))) 
+                                    & (0ULL != (((QData)((IData)(
+                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                 [2U][1U])) 
+                                                 << 0x20U) 
+                                                | (QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [2U][0U]))))) 
+                                   | (0ULL == (((QData)((IData)(
+                                                                vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                [2U][1U])) 
+                                                << 0x20U) 
+                                               | (QData)((IData)(
+                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                 [2U][0U])))))) 
+                               & ((((((QData)((IData)(
+                                                      vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                      [1U][1U])) 
+                                      << 0x20U) | (QData)((IData)(
+                                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                  [1U][0U]))) 
+                                    < (((QData)((IData)(
+                                                        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                        [0U][1U])) 
+                                        << 0x20U) | (QData)((IData)(
+                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                    [0U][0U])))) 
+                                   & (0ULL != (((QData)((IData)(
+                                                                vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                [0U][1U])) 
+                                                << 0x20U) 
+                                               | (QData)((IData)(
+                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                 [0U][0U]))))) 
+                                  | ((0ULL == (((QData)((IData)(
+                                                                vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                [0U][1U])) 
+                                                << 0x20U) 
+                                               | (QData)((IData)(
+                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                 [0U][0U])))) 
+                                     | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__jump_counter))))) 
+           & (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+              [1U][2U] >> 3U));
+    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc0 
+        = ((((0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                        [0U][1U])) 
+                        << 0x20U) | (QData)((IData)(
+                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                    [0U][0U])))) 
+             & (~ (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__jump_counter))) 
+            & ((((((((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                         [0U][1U])) 
+                         << 0x20U) | (QData)((IData)(
+                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                     [0U][0U]))) 
+                       < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                           [7U][1U])) 
+                           << 0x20U) | (QData)((IData)(
+                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                       [7U][0U])))) 
+                      & (0ULL != (((QData)((IData)(
+                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                   [7U][1U])) 
+                                   << 0x20U) | (QData)((IData)(
+                                                               vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                               [7U][0U]))))) 
+                     | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                  [7U][1U])) 
+                                  << 0x20U) | (QData)((IData)(
+                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                              [7U][0U]))))) 
+                    & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                           [0U][1U])) 
+                           << 0x20U) | (QData)((IData)(
+                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                       [0U][0U]))) 
+                         < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                             [6U][1U])) 
+                             << 0x20U) | (QData)((IData)(
+                                                         vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                         [6U][0U])))) 
+                        & (0ULL != (((QData)((IData)(
+                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                     [6U][1U])) 
+                                     << 0x20U) | (QData)((IData)(
+                                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                 [6U][0U]))))) 
+                       | (0ULL == (((QData)((IData)(
+                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                    [6U][1U])) 
+                                    << 0x20U) | (QData)((IData)(
+                                                                vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                [6U][0U])))))) 
+                   & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                          [0U][1U])) 
+                          << 0x20U) | (QData)((IData)(
+                                                      vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                      [0U][0U]))) 
+                        < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                            [5U][1U])) 
+                            << 0x20U) | (QData)((IData)(
+                                                        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                        [5U][0U])))) 
+                       & (0ULL != (((QData)((IData)(
+                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                    [5U][1U])) 
+                                    << 0x20U) | (QData)((IData)(
+                                                                vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                                [5U][0U]))))) 
+                      | (0ULL == (((QData)((IData)(
+                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                   [5U][1U])) 
+                                   << 0x20U) | (QData)((IData)(
+                                                               vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                               [5U][0U])))))) 
+                  & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                         [0U][1U])) 
+                         << 0x20U) | (QData)((IData)(
+                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                     [0U][0U]))) 
+                       < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                           [4U][1U])) 
+                           << 0x20U) | (QData)((IData)(
+                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                       [4U][0U])))) 
+                      & (0ULL != (((QData)((IData)(
+                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                   [4U][1U])) 
+                                   << 0x20U) | (QData)((IData)(
+                                                               vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                               [4U][0U]))))) 
+                     | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                  [4U][1U])) 
+                                  << 0x20U) | (QData)((IData)(
+                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                              [4U][0U])))))) 
+                 & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                        [0U][1U])) 
+                        << 0x20U) | (QData)((IData)(
+                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                    [0U][0U]))) 
+                      < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                          [3U][1U])) 
+                          << 0x20U) | (QData)((IData)(
+                                                      vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                      [3U][0U])))) 
+                     & (0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                  [3U][1U])) 
+                                  << 0x20U) | (QData)((IData)(
+                                                              vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                              [3U][0U]))))) 
+                    | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                 [3U][1U])) 
+                                 << 0x20U) | (QData)((IData)(
+                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                             [3U][0U])))))) 
+                & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                       [0U][1U])) << 0x20U) 
+                      | (QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                        [0U][0U]))) 
+                     < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                         [2U][1U])) 
+                         << 0x20U) | (QData)((IData)(
+                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                     [2U][0U])))) 
+                    & (0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                 [2U][1U])) 
+                                 << 0x20U) | (QData)((IData)(
+                                                             vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                             [2U][0U]))))) 
+                   | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                [2U][1U])) 
+                                << 0x20U) | (QData)((IData)(
+                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                            [2U][0U])))))) 
+               & ((((((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                      [0U][1U])) << 0x20U) 
+                     | (QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                       [0U][0U]))) 
+                    < (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                        [1U][1U])) 
+                        << 0x20U) | (QData)((IData)(
+                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                    [1U][0U])))) 
+                   & (0ULL != (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                [1U][1U])) 
+                                << 0x20U) | (QData)((IData)(
+                                                            vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                            [1U][0U]))))) 
+                  | (0ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                               [1U][1U])) 
+                               << 0x20U) | (QData)((IData)(
+                                                           vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                           [1U][0U]))))))) 
+           & (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+              [0U][2U] >> 3U));
     vlSelf->ysyx_22040228__DOT__mmio_thing = ((((IData)(vlSelf->ysyx_22040228__DOT__rvcpu_we) 
                                                 | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu_re)) 
                                                & ((0xa00003f8ULL 
@@ -4535,21 +4852,6 @@ void Vysyx_22040228___024root___settle__TOP__4(Vysyx_22040228___024root* vlSelf)
                                             ? vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__op1_add_op2
                                             : 0ULL))))))));
     }
-    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_enag 
-        = ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__diff_ena) 
-           & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_enabuff
-           [(7U & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__old_ready[2U])]);
-    if (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__diff_ena) {
-        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addrg 
-            = vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_addrbuff
-            [(7U & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__old_ready[2U])];
-        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_datag 
-            = vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_databuff
-            [(7U & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__old_ready[2U])];
-    } else {
-        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addrg = 0U;
-        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_datag = 0ULL;
-    }
     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__socreboard_u__DOT__reg_exe_name[0U] 
         = ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__ao_su_ena)
             ? (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo_rd_addr)
@@ -4599,12 +4901,141 @@ void Vysyx_22040228___024root___settle__TOP__4(Vysyx_22040228___024root* vlSelf)
            | (0x43593231ULL & (- (QData)((IData)(((0xf11U 
                                                    == (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__csr_idx)) 
                                                   & (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__csr_rd_en)))))));
+    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__clean_submcont 
+        = ((IData)(vlSelf->rst) ? 0U : ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc7)
+                                         ? 0x80U : 
+                                        ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc6)
+                                          ? 0x40U : 
+                                         ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc5)
+                                           ? 0x20U : 
+                                          ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc4)
+                                            ? 0x10U
+                                            : ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc3)
+                                                ? 8U
+                                                : ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc2)
+                                                    ? 4U
+                                                    : 
+                                                   ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc1)
+                                                     ? 2U
+                                                     : 
+                                                    ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc0)
+                                                      ? 1U
+                                                      : 0U)))))))));
+    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__diff_ena 
+        = ((~ (IData)(vlSelf->rst)) & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc7) 
+                                       | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc6) 
+                                          | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc5) 
+                                             | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc4) 
+                                                | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc3) 
+                                                   | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc2) 
+                                                      | ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc1) 
+                                                         | (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc0)))))))));
     if (vlSelf->rst) {
+        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__old_ready[0U] = 0U;
+        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__old_ready[1U] = 0U;
+        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__old_ready[2U] = 0U;
         vlSelf->ysyx_22040228__DOT__add_axi_ar_qos = 0U;
         vlSelf->ysyx_22040228__DOT__add_axi_ar_prot = 0U;
         vlSelf->ysyx_22040228__DOT__add_axi_ar_cache = 0U;
         vlSelf->ysyx_22040228__DOT__t_axi_r_data = 0ULL;
     } else {
+        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__old_ready[0U] 
+            = ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc7)
+                ? vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+               [7U][0U] : ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc6)
+                            ? vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                           [6U][0U] : ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc5)
+                                        ? vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                       [5U][0U] : ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc4)
+                                                    ? 
+                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                   [4U][0U]
+                                                    : 
+                                                   ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc3)
+                                                     ? 
+                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                    [3U][0U]
+                                                     : 
+                                                    ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc2)
+                                                      ? 
+                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                     [2U][0U]
+                                                      : 
+                                                     ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc1)
+                                                       ? 
+                                                      vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                      [1U][0U]
+                                                       : 
+                                                      ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc0)
+                                                        ? 
+                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                       [0U][0U]
+                                                        : 0U))))))));
+        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__old_ready[1U] 
+            = ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc7)
+                ? vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+               [7U][1U] : ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc6)
+                            ? vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                           [6U][1U] : ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc5)
+                                        ? vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                       [5U][1U] : ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc4)
+                                                    ? 
+                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                   [4U][1U]
+                                                    : 
+                                                   ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc3)
+                                                     ? 
+                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                    [3U][1U]
+                                                     : 
+                                                    ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc2)
+                                                      ? 
+                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                     [2U][1U]
+                                                      : 
+                                                     ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc1)
+                                                       ? 
+                                                      vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                      [1U][1U]
+                                                       : 
+                                                      ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc0)
+                                                        ? 
+                                                       vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                       [0U][1U]
+                                                        : 0U))))))));
+        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__old_ready[2U] 
+            = (7U & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc7)
+                      ? vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                     [7U][2U] : ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc6)
+                                  ? vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                 [6U][2U] : ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc5)
+                                              ? vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                             [5U][2U]
+                                              : ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc4)
+                                                  ? 
+                                                 vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                 [4U][2U]
+                                                  : 
+                                                 ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc3)
+                                                   ? 
+                                                  vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                  [3U][2U]
+                                                   : 
+                                                  ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc2)
+                                                    ? 
+                                                   vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                   [2U][2U]
+                                                    : 
+                                                   ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc1)
+                                                     ? 
+                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                    [1U][2U]
+                                                     : 
+                                                    ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__chose_pc0)
+                                                      ? 
+                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
+                                                     [0U][2U]
+                                                      : 0U)))))))));
         vlSelf->ysyx_22040228__DOT__add_axi_ar_qos 
             = ((1U & (IData)(vlSelf->ysyx_22040228__DOT__mmio_thing))
                 ? (0xff0U & (IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_qos))
@@ -5563,6 +5994,21 @@ void Vysyx_22040228___024root___settle__TOP__4(Vysyx_22040228___024root* vlSelf)
              >> 7U) & (7U != (IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo_inst_opcode)))
             ? vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__read_csr_data
             : vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__aluo__DOT__exe_res);
+    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_enag 
+        = ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__diff_ena) 
+           & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_enabuff
+           [(7U & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__old_ready[2U])]);
+    if (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__diff_ena) {
+        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addrg 
+            = vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_addrbuff
+            [(7U & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__old_ready[2U])];
+        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_datag 
+            = vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_databuff
+            [(7U & vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__old_ready[2U])];
+    } else {
+        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_addrg = 0U;
+        vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__comt_de_datag = 0ULL;
+    }
     vlSelf->ysyx_22040228__DOT__add_axi_b_id = (((IData)(vlSelf->ysyx_22040228__DOT__axi_mnq4__DOT__r_s_axi_aw_id) 
                                                  << 8U) 
                                                 | ((((2U 
@@ -8787,66 +9233,4 @@ void Vysyx_22040228___024root___settle__TOP__4(Vysyx_22040228___024root* vlSelf)
                                                          ((IData)(vlSelf->rst)
                                                            ? 0ULL
                                                            : 0xfULL)))))))))))))))));
-    vlSelf->out_addr_outp = ((IData)(vlSelf->ysyx_22040228__DOT__axi_mnq4__DOT__ar_shankhand)
-                              ? (((QData)((IData)(vlSelf->ysyx_22040228__DOT__add_axi_ar_addr[5U])) 
-                                  << 0x20U) | (QData)((IData)(
-                                                              vlSelf->ysyx_22040228__DOT__add_axi_ar_addr[4U])))
-                              : 0ULL);
-    vlSelf->out_slave_addr_ = ((2U == (IData)(vlSelf->ysyx_22040228__DOT__io_slave_axi9__DOT__s_write_state))
-                                ? vlSelf->ysyx_22040228__DOT__io_slave_axi9__DOT__write_addr_reg
-                                : ((IData)(vlSelf->ysyx_22040228__DOT__io_slave_axi9__DOT__ar_shankhand)
-                                    ? (((QData)((IData)(
-                                                        vlSelf->ysyx_22040228__DOT__add_axi_ar_addr[1U])) 
-                                        << 0x20U) | (QData)((IData)(
-                                                                    vlSelf->ysyx_22040228__DOT__add_axi_ar_addr[0U])))
-                                    : 0ULL));
-    vlSelf->ysyx_22040228__DOT__clint6__DOT__csr_mtime_temp 
-        = (((IData)(vlSelf->ysyx_22040228__DOT__clint6__DOT__success_aw) 
-            & (0x200bff8ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_addr[3U])) 
-                                 << 0x20U) | (QData)((IData)(
-                                                             vlSelf->ysyx_22040228__DOT__add_axi_aw_addr[2U])))))
-            ? ((vlSelf->ysyx_22040228__DOT__clint6__DOT__wmask 
-                & (((QData)((IData)(vlSelf->ysyx_22040228__DOT__add_axi_w_data[3U])) 
-                    << 0x20U) | (QData)((IData)(vlSelf->ysyx_22040228__DOT__add_axi_w_data[2U])))) 
-               | ((~ vlSelf->ysyx_22040228__DOT__clint6__DOT__wmask) 
-                  & vlSelf->ysyx_22040228__DOT__clint6__DOT__csr_mtime))
-            : (1ULL + vlSelf->ysyx_22040228__DOT__clint6__DOT__csr_mtime));
-    vlSelf->ysyx_22040228__DOT__clint6__DOT__csr_mtimecmp_temp 
-        = (((IData)(vlSelf->ysyx_22040228__DOT__clint6__DOT__success_aw) 
-            & (0x2004000ULL == (((QData)((IData)(vlSelf->ysyx_22040228__DOT__add_axi_aw_addr[3U])) 
-                                 << 0x20U) | (QData)((IData)(
-                                                             vlSelf->ysyx_22040228__DOT__add_axi_aw_addr[2U])))))
-            ? ((vlSelf->ysyx_22040228__DOT__clint6__DOT__wmask 
-                & (((QData)((IData)(vlSelf->ysyx_22040228__DOT__add_axi_w_data[3U])) 
-                    << 0x20U) | (QData)((IData)(vlSelf->ysyx_22040228__DOT__add_axi_w_data[2U])))) 
-               | ((~ vlSelf->ysyx_22040228__DOT__clint6__DOT__wmask) 
-                  & vlSelf->ysyx_22040228__DOT__clint6__DOT__csr_mtimecmp))
-            : vlSelf->ysyx_22040228__DOT__clint6__DOT__csr_mtimecmp);
-    vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__arbitrate_state_nxt 
-        = ((4U & (IData)(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__arbitrate_state))
-            ? ((2U & (IData)(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__arbitrate_state))
-                ? ((1U & (IData)(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__arbitrate_state))
-                    ? 1U : ((IData)(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__sign_delay_unread)
-                             ? 1U : 6U)) : ((1U & (IData)(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__arbitrate_state))
-                                             ? ((IData)(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__sign_delay_dread)
-                                                 ? 1U
-                                                 : 5U)
-                                             : ((IData)(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__sign_delay_iread)
-                                                 ? 1U
-                                                 : 4U)))
-            : ((2U & (IData)(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__arbitrate_state))
-                ? ((1U & (IData)(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__arbitrate_state))
-                    ? ((IData)(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__sign_delay_unwrite)
-                        ? 1U : 3U) : ((IData)(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__sign_delay_dwrite)
-                                       ? 1U : 2U)) : 
-               ((1U & (IData)(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__arbitrate_state))
-                 ? ((IData)(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__read_dcache_shankhand)
-                     ? 5U : ((IData)(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__read_uncahce_shankhand)
-                              ? 6U : ((IData)(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__write_dcache_shankhand)
-                                       ? 2U : ((IData)(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__write_uncahce_shankhand)
-                                                ? 3U
-                                                : ((IData)(vlSelf->ysyx_22040228__DOT__arbitratem4__DOT__read_icache_shankhand)
-                                                    ? 4U
-                                                    : 1U)))))
-                 : 1U)));
 }
