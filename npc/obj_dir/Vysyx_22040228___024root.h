@@ -820,6 +820,7 @@ VL_MODULE(Vysyx_22040228___024root) {
     // LOCAL VARIABLES
     // Anonymous structures to workaround compiler member-count bugs
     struct {
+        CData/*0:0*/ ysyx_22040228__DOT__d_cache_mem_finish__out9;
         CData/*0:0*/ __Vdlyvset__ysyx_22040228__DOT__rvcpu1__DOT__forecast__DOT__ramdata__v0;
         CData/*0:0*/ __Vdlyvset__ysyx_22040228__DOT__rvcpu1__DOT__forecast__DOT__ramdata__v1;
         CData/*0:0*/ __Vdlyvset__ysyx_22040228__DOT__rvcpu1__DOT__forecast__DOT__ramdata__v2;
@@ -883,9 +884,9 @@ VL_MODULE(Vysyx_22040228___024root) {
         CData/*0:0*/ __Vdlyvset__ysyx_22040228__DOT__data_cache3__DOT__dirty1__v0;
         CData/*0:0*/ __Vdlyvset__ysyx_22040228__DOT__data_cache3__DOT__dirty1__v64;
         CData/*0:0*/ __Vdlyvset__ysyx_22040228__DOT__data_cache3__DOT__dirty2__v64;
-        CData/*0:0*/ __Vdlyvset__ysyx_22040228__DOT__data_cache3__DOT__dirty1__v65;
     };
     struct {
+        CData/*0:0*/ __Vdlyvset__ysyx_22040228__DOT__data_cache3__DOT__dirty1__v65;
         CData/*0:0*/ __Vdlyvset__ysyx_22040228__DOT__data_cache3__DOT__dirty2__v65;
         CData/*0:0*/ __Vdlyvset__ysyx_22040228__DOT__data_cache3__DOT__dirty1__v66;
         CData/*0:0*/ __Vdlyvset__ysyx_22040228__DOT__data_cache3__DOT__dirty2__v66;

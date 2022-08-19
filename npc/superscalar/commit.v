@@ -10,9 +10,11 @@ module commit (
     input         wire   [2:0]                                  decode1_counter  ,
     input         wire                                          decode1_clean    ,
     input         wire   [`ysyx22040228_PCBUS]                  decode1_pc       ,
+    input         wire                                          decode1_jtype    , 
     input         wire   [2:0]                                  decode2_counter  ,
     input         wire                                          decode2_clean    ,
     input         wire   [`ysyx22040228_PCBUS]                  decode2_pc       ,
+    input         wire                                          decode2_jtype    ,
 
     input         wire                                          decode1_caninis  ,
     input         wire                                          decode2_caninis  ,
@@ -97,6 +99,7 @@ end
     reg  [`ysyx22040228_REGADDRBUS] commit_addrbuff  [7:0] ;
     reg  [`ysyx22040228_DATABUS]    commit_databuff  [7:0] ;
     reg                             commit_enabuff   [7:0] ;
+    reg                             commit_jumpbuff  [7:0] ;
 
     always @(*) begin
         comt_addr0 = {5{commit_pcbuff[0][67]}}  & commit_addrbuff[0] ;
@@ -246,41 +249,49 @@ end
             commit_pcbuff[0][63:0]  <= depcbf1                        ;
             commit_pcbuff[0][67]    <= 1'b0                           ;
             commit_enabuff[0]       <= 1'b0                           ;
+            commit_jumpbuff[0]      <= decode1_jtype                  ;
             commit_addrbuff[0]      <= 5'd0                           ;
             commit_databuff [0]     <= 64'h0                          ;
             commit_pcbuff[1][63:0]  <= commit_pcbuff[0][63:0] & {64{~clean_submcont[0]}} ;
             commit_pcbuff[1][67]    <= (commit_pcbuff[0][67] || able_buff1) & ~clean_submcont[0] ;
             commit_enabuff[1]       <= (able_buff1_pc1 & commit_ena1) | (able_buff1_pc2 & commit_ena2) | (able_buff1_pc3 & commit_ena3) | commit_enabuff[0] ;
+            commit_jumpbuff[1]      <= (commit_jumpbuff[0]) & ~clean_submcont[0] ;
             commit_addrbuff[1]      <= ({5{able_buff1_pc1}} & commit_addr1) | ({5{able_buff1_pc2}} & commit_addr2) | ({5{able_buff1_pc3}} & commit_addr3) | commit_addrbuff[0];
             commit_databuff [1]     <= ({64{able_buff1_pc1}} & commit_data1) | ({64{able_buff1_pc2}} & commit_data2) | ({64{able_buff1_pc3}} & commit_data3) | commit_databuff[0];
             commit_pcbuff[2][63:0]  <= commit_pcbuff[1][63:0] & {64{~clean_submcont[1]}} ;
             commit_pcbuff[2][67]    <= (commit_pcbuff[1][67] || able_buff2) & ~clean_submcont[1] ;
             commit_enabuff[2]       <= (able_buff2_pc1 & commit_ena1) | (able_buff2_pc2 & commit_ena2) | (able_buff2_pc3 & commit_ena3) | commit_enabuff[1] ;
+            commit_jumpbuff[2]      <= (commit_jumpbuff[1]) & ~clean_submcont[1] ;
             commit_addrbuff[2]      <= ({5{able_buff2_pc1}} & commit_addr1) | ({5{able_buff2_pc2}} & commit_addr2) | ({5{able_buff2_pc3}} & commit_addr3) | commit_addrbuff[1];
             commit_databuff [2]     <= ({64{able_buff2_pc1}} & commit_data1) | ({64{able_buff2_pc2}} & commit_data2) | ({64{able_buff2_pc3}} & commit_data3) | commit_databuff[1];
             commit_pcbuff[3][63:0]  <= commit_pcbuff[2][63:0] & {64{~clean_submcont[2]}} ;
             commit_pcbuff[3][67]    <= (commit_pcbuff[2][67] || able_buff3) & ~clean_submcont[2] ;
             commit_enabuff[3]       <= (able_buff3_pc1 & commit_ena1) | (able_buff3_pc2 & commit_ena2) | (able_buff3_pc3 & commit_ena3) | commit_enabuff[2] ;
+            commit_jumpbuff[3]      <= (commit_jumpbuff[2]) & ~clean_submcont[2] ;
             commit_addrbuff[3]      <= ({5{able_buff3_pc1}} & commit_addr1) | ({5{able_buff3_pc2}} & commit_addr2) | ({5{able_buff3_pc3}} & commit_addr3) | commit_addrbuff[2];
             commit_databuff [3]     <= ({64{able_buff3_pc1}} & commit_data1) | ({64{able_buff3_pc2}} & commit_data2) | ({64{able_buff3_pc3}} & commit_data3) | commit_databuff[2];
             commit_pcbuff[4][63:0]  <= commit_pcbuff[3][63:0] & {64{~clean_submcont[3]}} ;
             commit_pcbuff[4][67]    <= (commit_pcbuff[3][67] || able_buff4) & ~clean_submcont[3] ;
             commit_enabuff[4]       <= (able_buff4_pc1 & commit_ena1) | (able_buff4_pc2 & commit_ena2) | (able_buff4_pc3 & commit_ena3) | commit_enabuff[3] ;
+            commit_jumpbuff[3]      <= (commit_jumpbuff[3]) & ~clean_submcont[3] ;
             commit_addrbuff[4]      <= ({5{able_buff4_pc1}} & commit_addr1) | ({5{able_buff4_pc2}} & commit_addr2) | ({5{able_buff4_pc3}} & commit_addr3) | commit_addrbuff[3];
             commit_databuff [4]     <= ({64{able_buff4_pc1}} & commit_data1) | ({64{able_buff4_pc2}} & commit_data2) | ({64{able_buff4_pc3}} & commit_data3) | commit_databuff[3];
             commit_pcbuff[5][63:0]  <= commit_pcbuff[4][63:0] & {64{~clean_submcont[4]}} ;
             commit_pcbuff[5][67]    <= (commit_pcbuff[4][67] || able_buff5) & ~clean_submcont[4] ;
             commit_enabuff[5]       <= (able_buff5_pc1 & commit_ena1) | (able_buff5_pc2 & commit_ena2) | (able_buff5_pc3 & commit_ena3) | commit_enabuff[4] ;
+            commit_jumpbuff[5]      <= (commit_jumpbuff[4]) & ~clean_submcont[4] ;
             commit_addrbuff[5]      <= ({5{able_buff5_pc1}} & commit_addr1) | ({5{able_buff5_pc2}} & commit_addr2) | ({5{able_buff5_pc3}} & commit_addr3) | commit_addrbuff[4];
             commit_databuff [5]     <= ({64{able_buff5_pc1}} & commit_data1) | ({64{able_buff5_pc2}} & commit_data2) | ({64{able_buff5_pc3}} & commit_data3) | commit_databuff[4];
             commit_pcbuff[6][63:0]  <= commit_pcbuff[5][63:0] & {64{~clean_submcont[5]}} ;
             commit_pcbuff[6][67]    <= (commit_pcbuff[5][67] || able_buff6) & ~clean_submcont[5] ;
             commit_enabuff[6]       <= (able_buff6_pc1 & commit_ena1) | (able_buff6_pc2 & commit_ena2) | (able_buff6_pc3 & commit_ena3) | commit_enabuff[5] ;
+            commit_jumpbuff[6]      <= (commit_jumpbuff[5]) & ~clean_submcont[5] ;
             commit_addrbuff[6]      <= ({5{able_buff6_pc1}} & commit_addr1) | ({5{able_buff6_pc2}} & commit_addr2) | ({5{able_buff6_pc3}} & commit_addr3) | commit_addrbuff[5];
             commit_databuff [6]     <= ({64{able_buff6_pc1}} & commit_data1) | ({64{able_buff6_pc2}} & commit_data2) | ({64{able_buff6_pc3}} & commit_data3) | commit_databuff[5];
             commit_pcbuff[7][63:0]  <= commit_pcbuff[6][63:0] & {64{~clean_submcont[6]}} ;
             commit_pcbuff[7][67]    <= (commit_pcbuff[6][67] || able_buff7) & ~clean_submcont[6] ;
             commit_enabuff[7]       <= (able_buff7_pc1 & commit_ena1) | (able_buff7_pc2 & commit_ena2) | (able_buff7_pc3 & commit_ena3) | commit_enabuff[6] ;
+            commit_jumpbuff[7]      <= (commit_jumpbuff[6]) & ~clean_submcont[6] ;
             commit_addrbuff[7]      <= ({5{able_buff7_pc1}} & commit_addr1) | ({5{able_buff7_pc2}} & commit_addr2) | ({5{able_buff7_pc3}} & commit_addr3) | commit_addrbuff[6];
             commit_databuff [7]     <= ({64{able_buff7_pc1}} & commit_data1) | ({64{able_buff7_pc2}} & commit_data2) | ({64{able_buff7_pc3}} & commit_data3) | commit_databuff[6];
         end 
@@ -288,41 +299,49 @@ end
             commit_pcbuff[0][63:0]  <= depcbf2                        ;
             commit_pcbuff[0][67]    <= 1'b0                           ;
             commit_enabuff[0]       <= 1'b0                           ;
+            commit_jumpbuff[0]      <= decode2_jtype                  ;
             commit_addrbuff[0]      <= 5'd0                           ;
             commit_databuff [0]     <= 64'h0                          ;
             commit_pcbuff[1][63:0]  <= commit_pcbuff[0][63:0] & {64{~clean_submcont[0]}} ;
             commit_pcbuff[1][67]    <= (commit_pcbuff[0][67] || able_buff1) & ~clean_submcont[0] ;
             commit_enabuff[1]       <= (able_buff1_pc1 & commit_ena1) | (able_buff1_pc2 & commit_ena2) | (able_buff1_pc3 & commit_ena3) | commit_enabuff[0] ;
+            commit_jumpbuff[1]      <= (commit_jumpbuff[0]) & ~clean_submcont[0] ;
             commit_addrbuff[1]      <= ({5{able_buff1_pc1}} & commit_addr1) | ({5{able_buff1_pc2}} & commit_addr2) | ({5{able_buff1_pc3}} & commit_addr3) | commit_addrbuff[0];
             commit_databuff [1]     <= ({64{able_buff1_pc1}} & commit_data1) | ({64{able_buff1_pc2}} & commit_data2) | ({64{able_buff1_pc3}} & commit_data3) | commit_databuff[0];
             commit_pcbuff[2][63:0]  <= commit_pcbuff[1][63:0] & {64{~clean_submcont[1]}} ;
             commit_pcbuff[2][67]    <= (commit_pcbuff[1][67] || able_buff2) & ~clean_submcont[1] ;
             commit_enabuff[2]       <= (able_buff2_pc1 & commit_ena1) | (able_buff2_pc2 & commit_ena2) | (able_buff2_pc3 & commit_ena3) | commit_enabuff[1] ;
+            commit_jumpbuff[2]      <= (commit_jumpbuff[1]) & ~clean_submcont[1] ;
             commit_addrbuff[2]      <= ({5{able_buff2_pc1}} & commit_addr1) | ({5{able_buff2_pc2}} & commit_addr2) | ({5{able_buff2_pc3}} & commit_addr3) | commit_addrbuff[1];
             commit_databuff [2]     <= ({64{able_buff2_pc1}} & commit_data1) | ({64{able_buff2_pc2}} & commit_data2) | ({64{able_buff2_pc3}} & commit_data3) | commit_databuff[1];
             commit_pcbuff[3][63:0]  <= commit_pcbuff[2][63:0] & {64{~clean_submcont[2]}} ;
             commit_pcbuff[3][67]    <= (commit_pcbuff[2][67] || able_buff3) & ~clean_submcont[2] ;
             commit_enabuff[3]       <= (able_buff3_pc1 & commit_ena1) | (able_buff3_pc2 & commit_ena2) | (able_buff3_pc3 & commit_ena3) | commit_enabuff[2] ;
+            commit_jumpbuff[3]      <= (commit_jumpbuff[2]) & ~clean_submcont[2] ;
             commit_addrbuff[3]      <= ({5{able_buff3_pc1}} & commit_addr1) | ({5{able_buff3_pc2}} & commit_addr2) | ({5{able_buff3_pc3}} & commit_addr3) | commit_addrbuff[2];
             commit_databuff [3]     <= ({64{able_buff3_pc1}} & commit_data1) | ({64{able_buff3_pc2}} & commit_data2) | ({64{able_buff3_pc3}} & commit_data3) | commit_databuff[2];
             commit_pcbuff[4][63:0]  <= commit_pcbuff[3][63:0] & {64{~clean_submcont[3]}} ;
             commit_pcbuff[4][67]    <= (commit_pcbuff[3][67] || able_buff4) & ~clean_submcont[3] ;
             commit_enabuff[4]       <= (able_buff4_pc1 & commit_ena1) | (able_buff4_pc2 & commit_ena2) | (able_buff4_pc3 & commit_ena3) | commit_enabuff[3] ;
+            commit_jumpbuff[3]      <= (commit_jumpbuff[3]) & ~clean_submcont[3] ;
             commit_addrbuff[4]      <= ({5{able_buff4_pc1}} & commit_addr1) | ({5{able_buff4_pc2}} & commit_addr2) | ({5{able_buff4_pc3}} & commit_addr3) | commit_addrbuff[3];
             commit_databuff [4]     <= ({64{able_buff4_pc1}} & commit_data1) | ({64{able_buff4_pc2}} & commit_data2) | ({64{able_buff4_pc3}} & commit_data3) | commit_databuff[3];
             commit_pcbuff[5][63:0]  <= commit_pcbuff[4][63:0] & {64{~clean_submcont[4]}} ;
             commit_pcbuff[5][67]    <= (commit_pcbuff[4][67] || able_buff5) & ~clean_submcont[4] ;
             commit_enabuff[5]       <= (able_buff5_pc1 & commit_ena1) | (able_buff5_pc2 & commit_ena2) | (able_buff5_pc3 & commit_ena3) | commit_enabuff[4] ;
+            commit_jumpbuff[5]      <= (commit_jumpbuff[4]) & ~clean_submcont[4] ;
             commit_addrbuff[5]      <= ({5{able_buff5_pc1}} & commit_addr1) | ({5{able_buff5_pc2}} & commit_addr2) | ({5{able_buff5_pc3}} & commit_addr3) | commit_addrbuff[4];
             commit_databuff [5]     <= ({64{able_buff5_pc1}} & commit_data1) | ({64{able_buff5_pc2}} & commit_data2) | ({64{able_buff5_pc3}} & commit_data3) | commit_databuff[4];
             commit_pcbuff[6][63:0]  <= commit_pcbuff[5][63:0] & {64{~clean_submcont[5]}} ;
             commit_pcbuff[6][67]    <= (commit_pcbuff[5][67] || able_buff6) & ~clean_submcont[5] ;
             commit_enabuff[6]       <= (able_buff6_pc1 & commit_ena1) | (able_buff6_pc2 & commit_ena2) | (able_buff6_pc3 & commit_ena3) | commit_enabuff[5] ;
+            commit_jumpbuff[6]      <= (commit_jumpbuff[5]) & ~clean_submcont[5] ;
             commit_addrbuff[6]      <= ({5{able_buff6_pc1}} & commit_addr1) | ({5{able_buff6_pc2}} & commit_addr2) | ({5{able_buff6_pc3}} & commit_addr3) | commit_addrbuff[5];
             commit_databuff [6]     <= ({64{able_buff6_pc1}} & commit_data1) | ({64{able_buff6_pc2}} & commit_data2) | ({64{able_buff6_pc3}} & commit_data3) | commit_databuff[5];
             commit_pcbuff[7][63:0]  <= commit_pcbuff[6][63:0] & {64{~clean_submcont[6]}} ;
             commit_pcbuff[7][67]    <= (commit_pcbuff[6][67] || able_buff7) & ~clean_submcont[6] ;
             commit_enabuff[7]       <= (able_buff7_pc1 & commit_ena1) | (able_buff7_pc2 & commit_ena2) | (able_buff7_pc3 & commit_ena3) | commit_enabuff[6] ;
+            commit_jumpbuff[7]      <= (commit_jumpbuff[6]) & ~clean_submcont[6] ;
             commit_addrbuff[7]      <= ({5{able_buff7_pc1}} & commit_addr1) | ({5{able_buff7_pc2}} & commit_addr2) | ({5{able_buff7_pc3}} & commit_addr3) | commit_addrbuff[6];
             commit_databuff [7]     <= ({64{able_buff7_pc1}} & commit_data1) | ({64{able_buff7_pc2}} & commit_data2) | ({64{able_buff7_pc3}} & commit_data3) | commit_databuff[6];
         end  
@@ -330,41 +349,49 @@ end
             commit_pcbuff[0][63:0]  <= depcbf1                        ;
             commit_pcbuff[0][67]    <= 1'b0                           ;
             commit_enabuff[0]       <= 1'b0                           ;
+            commit_jumpbuff[0]      <= decode1_jtype                  ;
             commit_addrbuff[0]      <= 5'd0                           ;
             commit_databuff [0]     <= 64'h0                          ;
             commit_pcbuff[1][63:0]  <= depcbf2                        ;
             commit_pcbuff[1][67]    <= 1'b0                           ;
             commit_enabuff[1]       <= 1'b0                           ;
+            commit_jumpbuff[1]      <= decode2_jtype                  ;
             commit_addrbuff[1]      <= 5'd0                           ;
             commit_databuff [1]     <= 64'h0                          ;
             commit_pcbuff[2][63:0]  <= commit_pcbuff[0][63:0] & {64{~clean_submcont[0]}} ;
             commit_pcbuff[2][67]    <= (commit_pcbuff[0][67] || able_buff1) & ~clean_submcont[0] ;
             commit_enabuff[2]       <= (able_buff1_pc1 & commit_ena1) | (able_buff1_pc2 & commit_ena2) | (able_buff1_pc3 & commit_ena3) | commit_enabuff[0] ;
+            commit_jumpbuff[2]      <= (commit_jumpbuff[0]) & ~clean_submcont[0] ;
             commit_addrbuff[2]      <= ({5{able_buff1_pc1}} & commit_addr1) | ({5{able_buff1_pc2}} & commit_addr2) | ({5{able_buff1_pc3}} & commit_addr3) | commit_addrbuff[0];
             commit_databuff [2]     <= ({64{able_buff1_pc1}} & commit_data1) | ({64{able_buff1_pc2}} & commit_data2) | ({64{able_buff1_pc3}} & commit_data3) | commit_databuff[0];
             commit_pcbuff[3][63:0]  <= commit_pcbuff[1][63:0] & {64{~clean_submcont[1]}} ;
             commit_pcbuff[3][67]    <= (commit_pcbuff[1][67] || able_buff2) & ~clean_submcont[1] ;
             commit_enabuff[3]       <= (able_buff2_pc1 & commit_ena1) | (able_buff2_pc2 & commit_ena2) | (able_buff2_pc3 & commit_ena3) | commit_enabuff[1] ;
+            commit_jumpbuff[3]      <= (commit_jumpbuff[1]) & ~clean_submcont[1] ;
             commit_addrbuff[3]      <= ({5{able_buff2_pc1}} & commit_addr1) | ({5{able_buff2_pc2}} & commit_addr2) | ({5{able_buff2_pc3}} & commit_addr3) | commit_addrbuff[1];
             commit_databuff [3]     <= ({64{able_buff2_pc1}} & commit_data1) | ({64{able_buff2_pc2}} & commit_data2) | ({64{able_buff2_pc3}} & commit_data3) | commit_databuff[1];
             commit_pcbuff[4][63:0]  <= commit_pcbuff[2][63:0] & {64{~clean_submcont[2]}} ;
             commit_pcbuff[4][67]    <= (commit_pcbuff[2][67] || able_buff3) & ~clean_submcont[2] ;
             commit_enabuff[4]       <= (able_buff3_pc1 & commit_ena1) | (able_buff3_pc2 & commit_ena2) | (able_buff3_pc3 & commit_ena3) | commit_enabuff[2] ;
+            commit_jumpbuff[4]      <= (commit_jumpbuff[2]) & ~clean_submcont[2] ;
             commit_addrbuff[4]      <= ({5{able_buff3_pc1}} & commit_addr1) | ({5{able_buff3_pc2}} & commit_addr2) | ({5{able_buff3_pc3}} & commit_addr3) | commit_addrbuff[2];
             commit_databuff [4]     <= ({64{able_buff3_pc1}} & commit_data1) | ({64{able_buff3_pc2}} & commit_data2) | ({64{able_buff3_pc3}} & commit_data3) | commit_databuff[2];
             commit_pcbuff[5][63:0]  <= commit_pcbuff[3][63:0] & {64{~clean_submcont[3]}} ;
             commit_pcbuff[5][67]    <= (commit_pcbuff[3][67] || able_buff4) & ~clean_submcont[3] ;
             commit_enabuff[5]       <= (able_buff4_pc1 & commit_ena1) | (able_buff4_pc2 & commit_ena2) | (able_buff4_pc3 & commit_ena3) | commit_enabuff[3] ;
+            commit_jumpbuff[5]      <= (commit_jumpbuff[3]) & ~clean_submcont[3] ;
             commit_addrbuff[5]      <= ({5{able_buff4_pc1}} & commit_addr1) | ({5{able_buff4_pc2}} & commit_addr2) | ({5{able_buff4_pc3}} & commit_addr3) | commit_addrbuff[3];
             commit_databuff [5]     <= ({64{able_buff4_pc1}} & commit_data1) | ({64{able_buff4_pc2}} & commit_data2) | ({64{able_buff4_pc3}} & commit_data3) | commit_databuff[3];
             commit_pcbuff[6][63:0]  <= commit_pcbuff[4][63:0] & {64{~clean_submcont[4]}} ;
             commit_pcbuff[6][67]    <= (commit_pcbuff[4][67] || able_buff5) & ~clean_submcont[4] ;
             commit_enabuff[6]       <= (able_buff5_pc1 & commit_ena1) | (able_buff5_pc2 & commit_ena2) | (able_buff5_pc3 & commit_ena3) | commit_enabuff[4] ;
+            commit_jumpbuff[6]      <= (commit_jumpbuff[4]) & ~clean_submcont[4] ;
             commit_addrbuff[6]      <= ({5{able_buff5_pc1}} & commit_addr1) | ({5{able_buff5_pc2}} & commit_addr2) | ({5{able_buff5_pc3}} & commit_addr3) | commit_addrbuff[4];
             commit_databuff [6]     <= ({64{able_buff5_pc1}} & commit_data1) | ({64{able_buff5_pc2}} & commit_data2) | ({64{able_buff5_pc3}} & commit_data3) | commit_databuff[4];
             commit_pcbuff[7][63:0]  <= commit_pcbuff[5][63:0] & {64{~clean_submcont[5]}} ;
             commit_pcbuff[7][67]    <= (commit_pcbuff[5][67] || able_buff6) & ~clean_submcont[5] ;
             commit_enabuff[7]       <= (able_buff6_pc1 & commit_ena1) | (able_buff6_pc2 & commit_ena2) | (able_buff6_pc3 & commit_ena3) | commit_enabuff[5] ;
+            commit_jumpbuff[7]      <= (commit_jumpbuff[5]) & ~clean_submcont[5] ;
             commit_addrbuff[7]      <= ({5{able_buff6_pc1}} & commit_addr1) | ({5{able_buff6_pc2}} & commit_addr2) | ({5{able_buff6_pc3}} & commit_addr3) | commit_addrbuff[5];
             commit_databuff [7]     <= ({64{able_buff6_pc1}} & commit_data1) | ({64{able_buff6_pc2}} & commit_data2) | ({64{able_buff6_pc3}} & commit_data3) | commit_databuff[5];
         end 
@@ -372,41 +399,49 @@ end
             commit_pcbuff[0][63:0]  <= depcbf2                        ;
             commit_pcbuff[0][67]    <= 1'b0                           ;
             commit_enabuff[0]       <= 1'b0                           ;
+            commit_jumpbuff[0]      <= decode1_jtype                  ;
             commit_addrbuff[0]      <= 5'd0                           ;
             commit_databuff [0]     <= 64'h0                          ;
             commit_pcbuff[1][63:0]  <= depcbf1                        ;
             commit_pcbuff[1][67]    <= 1'b0                           ;
             commit_enabuff[1]       <= 1'b0                           ;
+            commit_jumpbuff[1]      <= decode2_jtype                  ;
             commit_addrbuff[1]      <= 5'd0                           ;
             commit_databuff [1]     <= 64'h0                          ;
             commit_pcbuff[2][63:0]  <= commit_pcbuff[0][63:0] & {64{~clean_submcont[0]}} ;
             commit_pcbuff[2][67]    <= (commit_pcbuff[0][67] || able_buff1) & ~clean_submcont[0] ;
             commit_enabuff[2]       <= (able_buff1_pc1 & commit_ena1) | (able_buff1_pc2 & commit_ena2) | (able_buff1_pc3 & commit_ena3) | commit_enabuff[0] ;
+            commit_jumpbuff[2]      <= (commit_jumpbuff[0]) & ~clean_submcont[0] ;
             commit_addrbuff[2]      <= ({5{able_buff1_pc1}} & commit_addr1) | ({5{able_buff1_pc2}} & commit_addr2) | ({5{able_buff1_pc3}} & commit_addr3) | commit_addrbuff[0];
             commit_databuff [2]     <= ({64{able_buff1_pc1}} & commit_data1) | ({64{able_buff1_pc2}} & commit_data2) | ({64{able_buff1_pc3}} & commit_data3) | commit_databuff[0];
             commit_pcbuff[3][63:0]  <= commit_pcbuff[1][63:0] & {64{~clean_submcont[1]}} ;
             commit_pcbuff[3][67]    <= (commit_pcbuff[1][67] || able_buff2) & ~clean_submcont[1] ;
             commit_enabuff[3]       <= (able_buff2_pc1 & commit_ena1) | (able_buff2_pc2 & commit_ena2) | (able_buff2_pc3 & commit_ena3) | commit_enabuff[1] ;
+            commit_jumpbuff[3]      <= (commit_jumpbuff[1]) & ~clean_submcont[1] ;
             commit_addrbuff[3]      <= ({5{able_buff2_pc1}} & commit_addr1) | ({5{able_buff2_pc2}} & commit_addr2) | ({5{able_buff2_pc3}} & commit_addr3) | commit_addrbuff[1];
             commit_databuff [3]     <= ({64{able_buff2_pc1}} & commit_data1) | ({64{able_buff2_pc2}} & commit_data2) | ({64{able_buff2_pc3}} & commit_data3) | commit_databuff[1];
             commit_pcbuff[4][63:0]  <= commit_pcbuff[2][63:0] & {64{~clean_submcont[2]}} ;
             commit_pcbuff[4][67]    <= (commit_pcbuff[2][67] || able_buff3) & ~clean_submcont[2] ;
             commit_enabuff[4]       <= (able_buff3_pc1 & commit_ena1) | (able_buff3_pc2 & commit_ena2) | (able_buff3_pc3 & commit_ena3) | commit_enabuff[2] ;
+            commit_jumpbuff[4]      <= (commit_jumpbuff[2]) & ~clean_submcont[2] ;
             commit_addrbuff[4]      <= ({5{able_buff3_pc1}} & commit_addr1) | ({5{able_buff3_pc2}} & commit_addr2) | ({5{able_buff3_pc3}} & commit_addr3) | commit_addrbuff[2];
             commit_databuff [4]     <= ({64{able_buff3_pc1}} & commit_data1) | ({64{able_buff3_pc2}} & commit_data2) | ({64{able_buff3_pc3}} & commit_data3) | commit_databuff[2];
             commit_pcbuff[5][63:0]  <= commit_pcbuff[3][63:0] & {64{~clean_submcont[3]}} ;
             commit_pcbuff[5][67]    <= (commit_pcbuff[3][67] || able_buff4) & ~clean_submcont[3] ;
             commit_enabuff[5]       <= (able_buff4_pc1 & commit_ena1) | (able_buff4_pc2 & commit_ena2) | (able_buff4_pc3 & commit_ena3) | commit_enabuff[3] ;
+            commit_jumpbuff[5]      <= (commit_jumpbuff[3]) & ~clean_submcont[3] ;
             commit_addrbuff[5]      <= ({5{able_buff4_pc1}} & commit_addr1) | ({5{able_buff4_pc2}} & commit_addr2) | ({5{able_buff4_pc3}} & commit_addr3) | commit_addrbuff[3];
             commit_databuff [5]     <= ({64{able_buff4_pc1}} & commit_data1) | ({64{able_buff4_pc2}} & commit_data2) | ({64{able_buff4_pc3}} & commit_data3) | commit_databuff[3];
             commit_pcbuff[6][63:0]  <= commit_pcbuff[4][63:0] & {64{~clean_submcont[4]}} ;
             commit_pcbuff[6][67]    <= (commit_pcbuff[4][67] || able_buff5) & ~clean_submcont[4] ;
             commit_enabuff[6]       <= (able_buff5_pc1 & commit_ena1) | (able_buff5_pc2 & commit_ena2) | (able_buff5_pc3 & commit_ena3) | commit_enabuff[4] ;
+            commit_jumpbuff[6]      <= (commit_jumpbuff[4]) & ~clean_submcont[4] ;
             commit_addrbuff[6]      <= ({5{able_buff5_pc1}} & commit_addr1) | ({5{able_buff5_pc2}} & commit_addr2) | ({5{able_buff5_pc3}} & commit_addr3) | commit_addrbuff[4];
             commit_databuff [6]     <= ({64{able_buff5_pc1}} & commit_data1) | ({64{able_buff5_pc2}} & commit_data2) | ({64{able_buff5_pc3}} & commit_data3) | commit_databuff[4];
             commit_pcbuff[7][63:0]  <= commit_pcbuff[5][63:0] & {64{~clean_submcont[5]}} ;
             commit_pcbuff[7][67]    <= (commit_pcbuff[5][67] || able_buff6) & ~clean_submcont[5] ;
             commit_enabuff[7]       <= (able_buff6_pc1 & commit_ena1) | (able_buff6_pc2 & commit_ena2) | (able_buff6_pc3 & commit_ena3) | commit_enabuff[5] ;
+            commit_jumpbuff[7]      <= (commit_jumpbuff[5]) & ~clean_submcont[5] ;
             commit_addrbuff[7]      <= ({5{able_buff6_pc1}} & commit_addr1) | ({5{able_buff6_pc2}} & commit_addr2) | ({5{able_buff6_pc3}} & commit_addr3) | commit_addrbuff[5];
             commit_databuff [7]     <= ({64{able_buff6_pc1}} & commit_data1) | ({64{able_buff6_pc2}} & commit_data2) | ({64{able_buff6_pc3}} & commit_data3) | commit_databuff[5];
         end 
@@ -414,108 +449,127 @@ end
             commit_pcbuff[0][63:0]  <= commit_pcbuff[0][63:0] & {64{~clean_submcont[0]}} ;
             commit_pcbuff[0][67]    <= (commit_pcbuff[0][67] || able_buff1) & ~clean_submcont[0]       ;
             commit_enabuff[0]       <= (able_buff1_pc1 & commit_ena1) | (able_buff1_pc2 & commit_ena2) | (able_buff1_pc3 & commit_ena3) | commit_enabuff[0] ;
+            commit_jumpbuff[0]      <= (commit_jumpbuff[0]) & ~clean_submcont[0] ;
             commit_addrbuff[0]      <= ({5{able_buff1_pc1}} & commit_addr1) | ({5{able_buff1_pc2}} & commit_addr2) | ({5{able_buff1_pc3}} & commit_addr3) | commit_addrbuff[0];
             commit_databuff [0]     <= ({64{able_buff1_pc1}} & commit_data1) | ({64{able_buff1_pc2}} & commit_data2) | ({64{able_buff1_pc3}} & commit_data3) | commit_databuff[0];
             commit_pcbuff[1][63:0]  <= commit_pcbuff[1][63:0] & {64{~clean_submcont[1]}} ;
             commit_pcbuff[1][67]    <= (commit_pcbuff[1][67] || able_buff2) & ~clean_submcont[1]       ;
             commit_enabuff[1]       <= (able_buff2_pc1 & commit_ena1) | (able_buff2_pc2 & commit_ena2) | (able_buff2_pc3 & commit_ena3) | commit_enabuff[1] ;
+            commit_jumpbuff[1]      <= (commit_jumpbuff[1]) & ~clean_submcont[1] ;
             commit_addrbuff[1]      <= ({5{able_buff2_pc1}} & commit_addr1) | ({5{able_buff2_pc2}} & commit_addr2) | ({5{able_buff2_pc3}} & commit_addr3) | commit_addrbuff[1];
             commit_databuff [1]     <= ({64{able_buff2_pc1}} & commit_data1) | ({64{able_buff2_pc2}} & commit_data2) | ({64{able_buff2_pc3}} & commit_data3) | commit_databuff[1];
             commit_pcbuff[2][63:0]  <= commit_pcbuff[2][63:0] & {64{~clean_submcont[2]}} ;
             commit_pcbuff[2][67]    <= (commit_pcbuff[2][67] || able_buff3) & ~clean_submcont[2]       ;
             commit_enabuff[2]       <= (able_buff3_pc1 & commit_ena1) | (able_buff3_pc2 & commit_ena2) | (able_buff3_pc3 & commit_ena3) | commit_enabuff[2] ;
+            commit_jumpbuff[2]      <= (commit_jumpbuff[2]) & ~clean_submcont[2] ;
             commit_addrbuff[2]      <= ({5{able_buff3_pc1}} & commit_addr1) | ({5{able_buff3_pc2}} & commit_addr2) | ({5{able_buff3_pc3}} & commit_addr3) | commit_addrbuff[2];
             commit_databuff [2]     <= ({64{able_buff3_pc1}} & commit_data1) | ({64{able_buff3_pc2}} & commit_data2) | ({64{able_buff3_pc3}} & commit_data3) | commit_databuff[2];
             commit_pcbuff[3][63:0]  <= commit_pcbuff[3][63:0] & {64{~clean_submcont[3]}} ;
             commit_pcbuff[3][67]    <= (commit_pcbuff[3][67] || able_buff4) & ~clean_submcont[3]       ;
             commit_enabuff[3]       <= (able_buff4_pc1 & commit_ena1) | (able_buff4_pc2 & commit_ena2) | (able_buff4_pc3 & commit_ena3) | commit_enabuff[3] ;
+            commit_jumpbuff[3]      <= (commit_jumpbuff[3]) & ~clean_submcont[3] ;
             commit_addrbuff[3]      <= ({5{able_buff4_pc1}} & commit_addr1) | ({5{able_buff4_pc2}} & commit_addr2) | ({5{able_buff4_pc3}} & commit_addr3) | commit_addrbuff[3];
             commit_databuff [3]     <= ({64{able_buff4_pc1}} & commit_data1) | ({64{able_buff4_pc2}} & commit_data2) | ({64{able_buff4_pc3}} & commit_data3) | commit_databuff[3];
             commit_pcbuff[4][63:0]  <= commit_pcbuff[4][63:0] & {64{~clean_submcont[4]}} ;
             commit_pcbuff[4][67]    <= (commit_pcbuff[4][67] || able_buff5) & ~clean_submcont[4]       ;
             commit_enabuff[4]       <= (able_buff5_pc1 & commit_ena1) | (able_buff5_pc2 & commit_ena2) | (able_buff5_pc3 & commit_ena3) | commit_enabuff[4] ;
+            commit_jumpbuff[4]      <= (commit_jumpbuff[4]) & ~clean_submcont[4] ;
             commit_addrbuff[4]      <= ({5{able_buff5_pc1}} & commit_addr1) | ({5{able_buff5_pc2}} & commit_addr2) | ({5{able_buff5_pc3}} & commit_addr3) | commit_addrbuff[4];
             commit_databuff [4]     <= ({64{able_buff5_pc1}} & commit_data1) | ({64{able_buff5_pc2}} & commit_data2) | ({64{able_buff5_pc3}} & commit_data3) | commit_databuff[4];
             commit_pcbuff[5][63:0]  <= commit_pcbuff[5][63:0] & {64{~clean_submcont[5]}} ;
             commit_pcbuff[5][67]    <= (commit_pcbuff[5][67] || able_buff6) & ~clean_submcont[5]       ;
             commit_enabuff[5]       <= (able_buff6_pc1 & commit_ena1) | (able_buff6_pc2 & commit_ena2) | (able_buff6_pc3 & commit_ena3) | commit_enabuff[5] ;
+            commit_jumpbuff[5]      <= (commit_jumpbuff[5]) & ~clean_submcont[5] ;
             commit_addrbuff[5]      <= ({5{able_buff6_pc1}} & commit_addr1) | ({5{able_buff6_pc2}} & commit_addr2) | ({5{able_buff6_pc3}} & commit_addr3) | commit_addrbuff[5];
             commit_databuff [5]     <= ({64{able_buff6_pc1}} & commit_data1) | ({64{able_buff6_pc2}} & commit_data2) | ({64{able_buff6_pc3}} & commit_data3) | commit_databuff[5];
             commit_pcbuff[6][63:0]  <= commit_pcbuff[6][63:0] & {64{~clean_submcont[6]}} ;
             commit_pcbuff[6][67]    <= (commit_pcbuff[6][67] || able_buff7) & ~clean_submcont[6]       ;
             commit_enabuff[6]       <= (able_buff7_pc1 & commit_ena1) | (able_buff7_pc2 & commit_ena2) | (able_buff7_pc3 & commit_ena3) | commit_enabuff[6] ;
+            commit_jumpbuff[6]      <= (commit_jumpbuff[6]) & ~clean_submcont[6] ;
             commit_addrbuff[6]      <= ({5{able_buff7_pc1}} & commit_addr1) | ({5{able_buff7_pc2}} & commit_addr2) | ({5{able_buff7_pc3}} & commit_addr3) | commit_addrbuff[6];
             commit_databuff [6]     <= ({64{able_buff7_pc1}} & commit_data1) | ({64{able_buff7_pc2}} & commit_data2) | ({64{able_buff7_pc3}} & commit_data3) | commit_databuff[6];
             commit_pcbuff[7][63:0]  <= commit_pcbuff[7][63:0] & {64{~clean_submcont[7]}} ;
             commit_pcbuff[7][67]    <= (commit_pcbuff[7][67] || able_buff8) & ~clean_submcont[7]       ;
             commit_enabuff[7]       <= (able_buff8_pc1 & commit_ena1) | (able_buff8_pc2 & commit_ena2) | (able_buff8_pc3 & commit_ena3) | commit_enabuff[7] ;
+            commit_jumpbuff[7]      <= (commit_jumpbuff[7]) & ~clean_submcont[7] ;
             commit_addrbuff[7]      <= ({5{able_buff8_pc1}} & commit_addr1) | ({5{able_buff8_pc2}} & commit_addr2) | ({5{able_buff8_pc3}} & commit_addr3) | commit_addrbuff[7];
             commit_databuff [7]     <= ({64{able_buff8_pc1}} & commit_data1) | ({64{able_buff8_pc2}} & commit_data2) | ({64{able_buff8_pc3}} & commit_data3) | commit_databuff[7];
         end        
     end
+
+    wire  [7:0]  jump_counter ;
+    assign jump_counter = commit_jumpbuff[0] ? 8'b00000000 :
+                          commit_jumpbuff[1] ? 8'b00000001 :
+                          commit_jumpbuff[2] ? 8'b00000011 :
+                          commit_jumpbuff[3] ? 8'b00000111 :
+                          commit_jumpbuff[4] ? 8'b00001111 :
+                          commit_jumpbuff[5] ? 8'b00011111 :
+                          commit_jumpbuff[6] ? 8'b00111111 :
+                          commit_jumpbuff[7] ? 8'b01111111 :
+                                               8'b00000000 ;
 
 /* verilator lint_off UNUSED */
     reg [63+3:0] old_ready ;
     reg          diff_ena  ;
 
     wire   chose_pc7 ;
-    assign chose_pc7 = (commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD) && ((((commit_pcbuff[7][63:0] < (commit_pcbuff[6][63:0])) && (commit_pcbuff[6][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[6][63:0] == `ysyx22040228_ZEROWORD)) &&
-                        (((commit_pcbuff[7][63:0] < (commit_pcbuff[5][63:0])) && (commit_pcbuff[5][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[5][63:0] == `ysyx22040228_ZEROWORD)) &&
-                        (((commit_pcbuff[7][63:0] < (commit_pcbuff[4][63:0])) && (commit_pcbuff[4][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[4][63:0] == `ysyx22040228_ZEROWORD)) &&
-                        (((commit_pcbuff[7][63:0] < (commit_pcbuff[3][63:0])) && (commit_pcbuff[3][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[3][63:0] == `ysyx22040228_ZEROWORD)) &&
-                        (((commit_pcbuff[7][63:0] < (commit_pcbuff[2][63:0])) && (commit_pcbuff[2][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[2][63:0] == `ysyx22040228_ZEROWORD)) && 
-                        (((commit_pcbuff[7][63:0] < (commit_pcbuff[1][63:0])) && (commit_pcbuff[1][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[1][63:0] == `ysyx22040228_ZEROWORD)) &&
-                        (((commit_pcbuff[7][63:0] < (commit_pcbuff[0][63:0])) && (commit_pcbuff[0][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[0][63:0] == `ysyx22040228_ZEROWORD)) ) && (commit_pcbuff[7][67] == 1'b1) ;
+    assign chose_pc7 = ((commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD) && (~jump_counter[7])) && ((((commit_pcbuff[7][63:0] < (commit_pcbuff[6][63:0])) && (commit_pcbuff[6][63:0] != `ysyx22040228_ZEROWORD)) || ((commit_pcbuff[6][63:0] == `ysyx22040228_ZEROWORD) || jump_counter[6])) &&
+                        (((commit_pcbuff[7][63:0] < (commit_pcbuff[5][63:0])) && (commit_pcbuff[5][63:0] != `ysyx22040228_ZEROWORD)) || ((commit_pcbuff[5][63:0] == `ysyx22040228_ZEROWORD) || jump_counter[5])) &&
+                        (((commit_pcbuff[7][63:0] < (commit_pcbuff[4][63:0])) && (commit_pcbuff[4][63:0] != `ysyx22040228_ZEROWORD)) || ((commit_pcbuff[4][63:0] == `ysyx22040228_ZEROWORD) || jump_counter[4])) &&
+                        (((commit_pcbuff[7][63:0] < (commit_pcbuff[3][63:0])) && (commit_pcbuff[3][63:0] != `ysyx22040228_ZEROWORD)) || ((commit_pcbuff[3][63:0] == `ysyx22040228_ZEROWORD) || jump_counter[3])) &&
+                        (((commit_pcbuff[7][63:0] < (commit_pcbuff[2][63:0])) && (commit_pcbuff[2][63:0] != `ysyx22040228_ZEROWORD)) || ((commit_pcbuff[2][63:0] == `ysyx22040228_ZEROWORD) || jump_counter[2])) && 
+                        (((commit_pcbuff[7][63:0] < (commit_pcbuff[1][63:0])) && (commit_pcbuff[1][63:0] != `ysyx22040228_ZEROWORD)) || ((commit_pcbuff[1][63:0] == `ysyx22040228_ZEROWORD) || jump_counter[1])) &&
+                        (((commit_pcbuff[7][63:0] < (commit_pcbuff[0][63:0])) && (commit_pcbuff[0][63:0] != `ysyx22040228_ZEROWORD)) || ((commit_pcbuff[0][63:0] == `ysyx22040228_ZEROWORD) || jump_counter[0])) ) && (commit_pcbuff[7][67] == 1'b1) ;
     wire   chose_pc6 ;
-    assign chose_pc6 = (commit_pcbuff[6][63:0] != `ysyx22040228_ZEROWORD) && ((((commit_pcbuff[6][63:0] < (commit_pcbuff[7][63:0])) && (commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[7][63:0] == `ysyx22040228_ZEROWORD)) &&
-                        (((commit_pcbuff[6][63:0] < (commit_pcbuff[5][63:0])) && (commit_pcbuff[5][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[5][63:0] == `ysyx22040228_ZEROWORD)) &&
-                        (((commit_pcbuff[6][63:0] < (commit_pcbuff[4][63:0])) && (commit_pcbuff[4][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[4][63:0] == `ysyx22040228_ZEROWORD)) &&
-                        (((commit_pcbuff[6][63:0] < (commit_pcbuff[3][63:0])) && (commit_pcbuff[3][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[3][63:0] == `ysyx22040228_ZEROWORD)) &&
-                        (((commit_pcbuff[6][63:0] < (commit_pcbuff[2][63:0])) && (commit_pcbuff[2][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[2][63:0] == `ysyx22040228_ZEROWORD)) && 
-                        (((commit_pcbuff[6][63:0] < (commit_pcbuff[1][63:0])) && (commit_pcbuff[1][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[1][63:0] == `ysyx22040228_ZEROWORD)) &&
-                        (((commit_pcbuff[6][63:0] < (commit_pcbuff[0][63:0])) && (commit_pcbuff[0][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[0][63:0] == `ysyx22040228_ZEROWORD)) ) && (commit_pcbuff[6][67] == 1'b1) ;
+    assign chose_pc6 = ((commit_pcbuff[6][63:0] != `ysyx22040228_ZEROWORD) && (~jump_counter[6])) && ((((commit_pcbuff[6][63:0] < (commit_pcbuff[7][63:0])) && (commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[7][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[6][63:0] < (commit_pcbuff[5][63:0])) && (commit_pcbuff[5][63:0] != `ysyx22040228_ZEROWORD)) || ((commit_pcbuff[5][63:0] == `ysyx22040228_ZEROWORD) || jump_counter[5])) &&
+                        (((commit_pcbuff[6][63:0] < (commit_pcbuff[4][63:0])) && (commit_pcbuff[4][63:0] != `ysyx22040228_ZEROWORD)) || ((commit_pcbuff[4][63:0] == `ysyx22040228_ZEROWORD) || jump_counter[4])) &&
+                        (((commit_pcbuff[6][63:0] < (commit_pcbuff[3][63:0])) && (commit_pcbuff[3][63:0] != `ysyx22040228_ZEROWORD)) || ((commit_pcbuff[3][63:0] == `ysyx22040228_ZEROWORD) || jump_counter[3])) &&
+                        (((commit_pcbuff[6][63:0] < (commit_pcbuff[2][63:0])) && (commit_pcbuff[2][63:0] != `ysyx22040228_ZEROWORD)) || ((commit_pcbuff[2][63:0] == `ysyx22040228_ZEROWORD) || jump_counter[2])) && 
+                        (((commit_pcbuff[6][63:0] < (commit_pcbuff[1][63:0])) && (commit_pcbuff[1][63:0] != `ysyx22040228_ZEROWORD)) || ((commit_pcbuff[1][63:0] == `ysyx22040228_ZEROWORD) || jump_counter[1])) &&
+                        (((commit_pcbuff[6][63:0] < (commit_pcbuff[0][63:0])) && (commit_pcbuff[0][63:0] != `ysyx22040228_ZEROWORD)) || ((commit_pcbuff[0][63:0] == `ysyx22040228_ZEROWORD) || jump_counter[0])) ) && (commit_pcbuff[6][67] == 1'b1) ;
     wire   chose_pc5 ;
-    assign chose_pc5 = (commit_pcbuff[5][63:0] != `ysyx22040228_ZEROWORD) && ((((commit_pcbuff[5][63:0] < (commit_pcbuff[7][63:0])) && (commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[7][63:0] == `ysyx22040228_ZEROWORD)) &&
-                        (((commit_pcbuff[5][63:0] < (commit_pcbuff[6][63:0])) && (commit_pcbuff[6][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[5][63:0] == `ysyx22040228_ZEROWORD)) &&
-                        (((commit_pcbuff[5][63:0] < (commit_pcbuff[4][63:0])) && (commit_pcbuff[4][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[4][63:0] == `ysyx22040228_ZEROWORD)) &&
-                        (((commit_pcbuff[5][63:0] < (commit_pcbuff[3][63:0])) && (commit_pcbuff[3][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[3][63:0] == `ysyx22040228_ZEROWORD)) &&
-                        (((commit_pcbuff[5][63:0] < (commit_pcbuff[2][63:0])) && (commit_pcbuff[2][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[2][63:0] == `ysyx22040228_ZEROWORD)) && 
-                        (((commit_pcbuff[5][63:0] < (commit_pcbuff[1][63:0])) && (commit_pcbuff[1][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[1][63:0] == `ysyx22040228_ZEROWORD)) &&
-                        (((commit_pcbuff[5][63:0] < (commit_pcbuff[0][63:0])) && (commit_pcbuff[0][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[0][63:0] == `ysyx22040228_ZEROWORD)) ) && (commit_pcbuff[5][67] == 1'b1) ;
+    assign chose_pc5 = ((commit_pcbuff[5][63:0] != `ysyx22040228_ZEROWORD) && (~jump_counter[5])) && ((((commit_pcbuff[5][63:0] < (commit_pcbuff[7][63:0])) && (commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[7][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[5][63:0] < (commit_pcbuff[6][63:0])) && (commit_pcbuff[6][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[6][63:0] == `ysyx22040228_ZEROWORD)) &&
+                        (((commit_pcbuff[5][63:0] < (commit_pcbuff[4][63:0])) && (commit_pcbuff[4][63:0] != `ysyx22040228_ZEROWORD)) || ((commit_pcbuff[4][63:0] == `ysyx22040228_ZEROWORD) || jump_counter[4])) &&
+                        (((commit_pcbuff[5][63:0] < (commit_pcbuff[3][63:0])) && (commit_pcbuff[3][63:0] != `ysyx22040228_ZEROWORD)) || ((commit_pcbuff[3][63:0] == `ysyx22040228_ZEROWORD) || jump_counter[3])) &&
+                        (((commit_pcbuff[5][63:0] < (commit_pcbuff[2][63:0])) && (commit_pcbuff[2][63:0] != `ysyx22040228_ZEROWORD)) || ((commit_pcbuff[2][63:0] == `ysyx22040228_ZEROWORD) || jump_counter[2])) && 
+                        (((commit_pcbuff[5][63:0] < (commit_pcbuff[1][63:0])) && (commit_pcbuff[1][63:0] != `ysyx22040228_ZEROWORD)) || ((commit_pcbuff[1][63:0] == `ysyx22040228_ZEROWORD) || jump_counter[1])) &&
+                        (((commit_pcbuff[5][63:0] < (commit_pcbuff[0][63:0])) && (commit_pcbuff[0][63:0] != `ysyx22040228_ZEROWORD)) || ((commit_pcbuff[0][63:0] == `ysyx22040228_ZEROWORD) || jump_counter[0])) ) && (commit_pcbuff[5][67] == 1'b1) ;
     wire   chose_pc4 ;
-    assign chose_pc4 = (commit_pcbuff[4][63:0] != `ysyx22040228_ZEROWORD) && ((((commit_pcbuff[4][63:0] < (commit_pcbuff[7][63:0])) && (commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[7][63:0] == `ysyx22040228_ZEROWORD)) &&
+    assign chose_pc4 = ((commit_pcbuff[4][63:0] != `ysyx22040228_ZEROWORD) && (~jump_counter[4])) && ((((commit_pcbuff[4][63:0] < (commit_pcbuff[7][63:0])) && (commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[7][63:0] == `ysyx22040228_ZEROWORD)) &&
                         (((commit_pcbuff[4][63:0] < (commit_pcbuff[6][63:0])) && (commit_pcbuff[6][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[6][63:0] == `ysyx22040228_ZEROWORD)) &&
                         (((commit_pcbuff[4][63:0] < (commit_pcbuff[5][63:0])) && (commit_pcbuff[5][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[5][63:0] == `ysyx22040228_ZEROWORD)) &&
-                        (((commit_pcbuff[4][63:0] < (commit_pcbuff[3][63:0])) && (commit_pcbuff[3][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[3][63:0] == `ysyx22040228_ZEROWORD)) &&
-                        (((commit_pcbuff[4][63:0] < (commit_pcbuff[2][63:0])) && (commit_pcbuff[2][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[2][63:0] == `ysyx22040228_ZEROWORD)) && 
-                        (((commit_pcbuff[4][63:0] < (commit_pcbuff[1][63:0])) && (commit_pcbuff[1][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[1][63:0] == `ysyx22040228_ZEROWORD)) &&
-                        (((commit_pcbuff[4][63:0] < (commit_pcbuff[0][63:0])) && (commit_pcbuff[0][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[0][63:0] == `ysyx22040228_ZEROWORD)) ) && (commit_pcbuff[4][67] == 1'b1) ;
+                        (((commit_pcbuff[4][63:0] < (commit_pcbuff[3][63:0])) && (commit_pcbuff[3][63:0] != `ysyx22040228_ZEROWORD)) || ((commit_pcbuff[3][63:0] == `ysyx22040228_ZEROWORD) || jump_counter[3])) &&
+                        (((commit_pcbuff[4][63:0] < (commit_pcbuff[2][63:0])) && (commit_pcbuff[2][63:0] != `ysyx22040228_ZEROWORD)) || ((commit_pcbuff[2][63:0] == `ysyx22040228_ZEROWORD) || jump_counter[2])) && 
+                        (((commit_pcbuff[4][63:0] < (commit_pcbuff[1][63:0])) && (commit_pcbuff[1][63:0] != `ysyx22040228_ZEROWORD)) || ((commit_pcbuff[1][63:0] == `ysyx22040228_ZEROWORD) || jump_counter[1])) &&
+                        (((commit_pcbuff[4][63:0] < (commit_pcbuff[0][63:0])) && (commit_pcbuff[0][63:0] != `ysyx22040228_ZEROWORD)) || ((commit_pcbuff[0][63:0] == `ysyx22040228_ZEROWORD) || jump_counter[0])) ) && (commit_pcbuff[4][67] == 1'b1) ;
     wire   chose_pc3 ;
-    assign chose_pc3 = (commit_pcbuff[3][63:0] != `ysyx22040228_ZEROWORD) && ((((commit_pcbuff[3][63:0] < (commit_pcbuff[7][63:0])) && (commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[7][63:0] == `ysyx22040228_ZEROWORD)) &&
+    assign chose_pc3 = ((commit_pcbuff[3][63:0] != `ysyx22040228_ZEROWORD) && (~jump_counter[3])) && ((((commit_pcbuff[3][63:0] < (commit_pcbuff[7][63:0])) && (commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[7][63:0] == `ysyx22040228_ZEROWORD)) &&
                         (((commit_pcbuff[3][63:0] < (commit_pcbuff[6][63:0])) && (commit_pcbuff[6][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[6][63:0] == `ysyx22040228_ZEROWORD)) &&
                         (((commit_pcbuff[3][63:0] < (commit_pcbuff[5][63:0])) && (commit_pcbuff[5][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[5][63:0] == `ysyx22040228_ZEROWORD)) &&
                         (((commit_pcbuff[3][63:0] < (commit_pcbuff[4][63:0])) && (commit_pcbuff[4][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[4][63:0] == `ysyx22040228_ZEROWORD)) &&
-                        (((commit_pcbuff[3][63:0] < (commit_pcbuff[2][63:0])) && (commit_pcbuff[2][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[2][63:0] == `ysyx22040228_ZEROWORD)) && 
-                        (((commit_pcbuff[3][63:0] < (commit_pcbuff[1][63:0])) && (commit_pcbuff[1][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[1][63:0] == `ysyx22040228_ZEROWORD)) &&
-                        (((commit_pcbuff[3][63:0] < (commit_pcbuff[0][63:0])) && (commit_pcbuff[0][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[0][63:0] == `ysyx22040228_ZEROWORD)) ) && (commit_pcbuff[3][67] == 1'b1) ;
+                        (((commit_pcbuff[3][63:0] < (commit_pcbuff[2][63:0])) && (commit_pcbuff[2][63:0] != `ysyx22040228_ZEROWORD)) || ((commit_pcbuff[2][63:0] == `ysyx22040228_ZEROWORD) || jump_counter[2])) && 
+                        (((commit_pcbuff[3][63:0] < (commit_pcbuff[1][63:0])) && (commit_pcbuff[1][63:0] != `ysyx22040228_ZEROWORD)) || ((commit_pcbuff[1][63:0] == `ysyx22040228_ZEROWORD) || jump_counter[1])) &&
+                        (((commit_pcbuff[3][63:0] < (commit_pcbuff[0][63:0])) && (commit_pcbuff[0][63:0] != `ysyx22040228_ZEROWORD)) || ((commit_pcbuff[0][63:0] == `ysyx22040228_ZEROWORD) || jump_counter[0])) ) && (commit_pcbuff[3][67] == 1'b1) ;
     wire   chose_pc2 ;
-    assign chose_pc2 = (commit_pcbuff[2][63:0] != `ysyx22040228_ZEROWORD) && ((((commit_pcbuff[2][63:0] < (commit_pcbuff[7][63:0])) && (commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[7][63:0] == `ysyx22040228_ZEROWORD)) &&
+    assign chose_pc2 = ((commit_pcbuff[2][63:0] != `ysyx22040228_ZEROWORD) && (~jump_counter[2])) && ((((commit_pcbuff[2][63:0] < (commit_pcbuff[7][63:0])) && (commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[7][63:0] == `ysyx22040228_ZEROWORD)) &&
                         (((commit_pcbuff[2][63:0] < (commit_pcbuff[6][63:0])) && (commit_pcbuff[6][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[6][63:0] == `ysyx22040228_ZEROWORD)) &&
                         (((commit_pcbuff[2][63:0] < (commit_pcbuff[5][63:0])) && (commit_pcbuff[5][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[5][63:0] == `ysyx22040228_ZEROWORD)) &&
                         (((commit_pcbuff[2][63:0] < (commit_pcbuff[4][63:0])) && (commit_pcbuff[4][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[4][63:0] == `ysyx22040228_ZEROWORD)) &&
                         (((commit_pcbuff[2][63:0] < (commit_pcbuff[3][63:0])) && (commit_pcbuff[3][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[3][63:0] == `ysyx22040228_ZEROWORD)) && 
-                        (((commit_pcbuff[2][63:0] < (commit_pcbuff[1][63:0])) && (commit_pcbuff[1][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[1][63:0] == `ysyx22040228_ZEROWORD)) &&
-                        (((commit_pcbuff[2][63:0] < (commit_pcbuff[0][63:0])) && (commit_pcbuff[0][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[0][63:0] == `ysyx22040228_ZEROWORD)) ) && (commit_pcbuff[2][67] == 1'b1) ;
+                        (((commit_pcbuff[2][63:0] < (commit_pcbuff[1][63:0])) && (commit_pcbuff[1][63:0] != `ysyx22040228_ZEROWORD)) || ((commit_pcbuff[1][63:0] == `ysyx22040228_ZEROWORD) || jump_counter[1])) &&
+                        (((commit_pcbuff[2][63:0] < (commit_pcbuff[0][63:0])) && (commit_pcbuff[0][63:0] != `ysyx22040228_ZEROWORD)) || ((commit_pcbuff[0][63:0] == `ysyx22040228_ZEROWORD) || jump_counter[0])) ) && (commit_pcbuff[2][67] == 1'b1) ;
     wire   chose_pc1 ;
-    assign chose_pc1 = (commit_pcbuff[1][63:0] != `ysyx22040228_ZEROWORD) && ((((commit_pcbuff[1][63:0] < (commit_pcbuff[7][63:0])) && (commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[7][63:0] == `ysyx22040228_ZEROWORD)) &&
+    assign chose_pc1 = ((commit_pcbuff[1][63:0] != `ysyx22040228_ZEROWORD) && (~jump_counter[1])) && ((((commit_pcbuff[1][63:0] < (commit_pcbuff[7][63:0])) && (commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[7][63:0] == `ysyx22040228_ZEROWORD)) &&
                         (((commit_pcbuff[1][63:0] < (commit_pcbuff[6][63:0])) && (commit_pcbuff[6][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[6][63:0] == `ysyx22040228_ZEROWORD)) &&
                         (((commit_pcbuff[1][63:0] < (commit_pcbuff[5][63:0])) && (commit_pcbuff[5][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[5][63:0] == `ysyx22040228_ZEROWORD)) &&
                         (((commit_pcbuff[1][63:0] < (commit_pcbuff[4][63:0])) && (commit_pcbuff[4][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[4][63:0] == `ysyx22040228_ZEROWORD)) &&
                         (((commit_pcbuff[1][63:0] < (commit_pcbuff[3][63:0])) && (commit_pcbuff[3][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[3][63:0] == `ysyx22040228_ZEROWORD)) && 
                         (((commit_pcbuff[1][63:0] < (commit_pcbuff[2][63:0])) && (commit_pcbuff[2][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[2][63:0] == `ysyx22040228_ZEROWORD)) &&
-                        (((commit_pcbuff[1][63:0] < (commit_pcbuff[0][63:0])) && (commit_pcbuff[0][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[0][63:0] == `ysyx22040228_ZEROWORD)) ) && (commit_pcbuff[1][67] == 1'b1) ;
+                        (((commit_pcbuff[1][63:0] < (commit_pcbuff[0][63:0])) && (commit_pcbuff[0][63:0] != `ysyx22040228_ZEROWORD)) || ((commit_pcbuff[0][63:0] == `ysyx22040228_ZEROWORD) || jump_counter[0])) ) && (commit_pcbuff[1][67] == 1'b1) ;
     wire   chose_pc0 ;
-    assign chose_pc0 = (commit_pcbuff[0][63:0] != `ysyx22040228_ZEROWORD) && ((((commit_pcbuff[0][63:0] < (commit_pcbuff[7][63:0])) && (commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[7][63:0] == `ysyx22040228_ZEROWORD)) &&
+    assign chose_pc0 = ((commit_pcbuff[0][63:0] != `ysyx22040228_ZEROWORD) && (~jump_counter[0])) && ((((commit_pcbuff[0][63:0] < (commit_pcbuff[7][63:0])) && (commit_pcbuff[7][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[7][63:0] == `ysyx22040228_ZEROWORD)) &&
                         (((commit_pcbuff[0][63:0] < (commit_pcbuff[6][63:0])) && (commit_pcbuff[6][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[6][63:0] == `ysyx22040228_ZEROWORD)) &&
                         (((commit_pcbuff[0][63:0] < (commit_pcbuff[5][63:0])) && (commit_pcbuff[5][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[5][63:0] == `ysyx22040228_ZEROWORD)) &&
                         (((commit_pcbuff[0][63:0] < (commit_pcbuff[4][63:0])) && (commit_pcbuff[4][63:0] != `ysyx22040228_ZEROWORD)) || (commit_pcbuff[4][63:0] == `ysyx22040228_ZEROWORD)) &&
