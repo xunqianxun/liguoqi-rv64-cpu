@@ -34,8 +34,8 @@ module MMU (
     output               wire                                                socreboard_mmu           
 );
 
-assign mem_pc_o = (rst == `ysyx22040228_RSTENA) ? `ysyx22040228_ZEROWORD : mem_pc_i ;
-assign mem_inst_o = (rst == `ysyx22040228_RSTENA) ? 32'b0 : mem_inst_i ;
+assign mem_pc_o = ((rst == `ysyx22040228_RSTENA) || ((re|we) && (mem_finish == 1'b0))) ? `ysyx22040228_ZEROWORD : mem_pc_i ;
+assign mem_inst_o = ((rst == `ysyx22040228_RSTENA) || ((re|we) && (mem_finish == 1'b0))) ? 32'b0 : mem_inst_i ;
 assign socreboard_mmu = (rst == `ysyx22040228_RSTENA) ? 1'b0 : ((re|we) && (mem_finish == 1'b0)) ;
 assign rd_addr_o  = rd_addr_i ;
 assign rd_data_o  = load_data ;

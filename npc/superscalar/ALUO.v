@@ -42,8 +42,8 @@ module ALUO (
     
 );
 
-assign ex_pc_o = (rst == `ysyx22040228_RSTENA) ? `ysyx22040228_ZEROWORD : pc_i ;
-assign ex_inst_o = (rst == `ysyx22040228_RSTENA) ? 32'b0 : id_ex_inst ;
+assign ex_pc_o = ((rst == `ysyx22040228_RSTENA) || (mul_div_req)) ? `ysyx22040228_ZEROWORD : pc_i ;
+assign ex_inst_o = ((rst == `ysyx22040228_RSTENA) || (mul_div_req)) ? 32'b0 : id_ex_inst ;
 assign fence_ready = (inst_opcode_i == `INST_FENCE) ? 1'b1 : 1'b0 ;
 
 reg      [`ysyx22040228_REGBUS]       exe_res   ;
