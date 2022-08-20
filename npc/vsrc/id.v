@@ -166,7 +166,7 @@ wire inst_csr_imm  = inst_csrrwi | inst_csrrsi | inst_csrrci ;
 wire inst_ecall    = inst_type[7] & ~funct3[2] & ~funct3[1] & ~funct3[0] && (imm == 12'd0)         ;
 wire inst_ebreak   = inst_type[7] & ~funct3[2] & ~funct3[1] & ~funct3[0] && (imm == 12'd1)         ;
 wire inst_mret     = inst_type[7] & ~funct3[2] & ~funct3[1] & ~funct3[0] && (funct7 == 7'b0011000) ;
-wire inst_fence_i  = ~funct3[2] & ~funct3[1] & funct3[0] & (opcode == 7'b0000111);
+wire inst_fence_i  = ~funct3[2] & ~funct3[1] & funct3[0] & (opcode == 7'b0001111);
 
 
 assign inst_opcode[0] = (rst == `ysyx22040228_RSTENA) ? 0 :  inst_csrrc  | inst_beq  | inst_addi | inst_srai | inst_slt  | inst_sra  | inst_auipc | inst_slliw | inst_subw | inst_divuw  | inst_divw  | inst_rem    | inst_remu  | inst_remuw  | inst_remw  | inst_ebreak ;
