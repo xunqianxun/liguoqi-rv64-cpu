@@ -169,6 +169,7 @@ module data_cache (
                        transt_sign1  <= `ysyx22040228_ENABLE;
                        check_valid1  <= `ysyx22040228_ENABLE;
                        fence_index <= fence_index + 1       ;
+                       docker_counter <= docker_counter + 1 ;
                     end 
                 end 
                 else if(in_dcache_ready) begin
@@ -192,6 +193,7 @@ module data_cache (
                        transt_sign2  <= `ysyx22040228_ENABLE;
                        check_valid2  <= `ysyx22040228_ENABLE;
                        fence_index <= fence_index + 1       ;
+                       docker_counter <= docker_counter + 1 ;
                     end 
                 end 
                 else if(in_dcache_ready) begin
