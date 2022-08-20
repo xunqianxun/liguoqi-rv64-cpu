@@ -151,12 +151,13 @@ module data_cache (
     always @(posedge clk) begin
         if(rst == `ysyx22040228_RSTENA) begin
             fence_index <= 6'b000000 ;
+            docker_counter <= 8'd1   ;
         end 
-        else if((mem_fence_i) && (docker_counter < 8'd128))begin 
+        else if((mem_fence_i) && (docker_counter < 8'd129))begin 
             if(docker_counter < 8'd64) begin
                 if(counter_temp != docker_counter)begin
                     counter_temp  <= docker_counter       ;
-                    transt_sign1  <= `ysyx22040228_ABLE   ;
+                    //transt_sign1  <= `ysyx22040228_ABLE   ;
                     check_valid1  <= `ysyx22040228_ABLE   ;
                 end 
                 else if(check_valid1) begin
@@ -179,7 +180,7 @@ module data_cache (
             else if(docker_counter >= 8'd64) begin
                 if(counter_temp != docker_counter)begin
                     counter_temp  <= docker_counter       ;
-                    transt_sign2  <= `ysyx22040228_ABLE   ;
+                    //transt_sign2  <= `ysyx22040228_ABLE   ;
                     check_valid2  <= `ysyx22040228_ABLE   ;
                 end 
                 else if(check_valid2) begin
@@ -200,12 +201,12 @@ module data_cache (
                 end  
             end 
         end 
-        else if(docker_counter == 8'd128) begin
+        else if(docker_counter == 8'd129) begin
             fence_finish   <= `ysyx22040228_ABLE   ;
         end 
         else begin
             fence_finish   <= `ysyx22040228_ENABLE ;
-            docker_counter <= 8'd0                 ; 
+            docker_counter <= 8'd1                 ; 
         end 
     end
 
