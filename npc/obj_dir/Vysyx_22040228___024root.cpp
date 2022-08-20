@@ -5638,11 +5638,11 @@ VL_INLINE_OPT void Vysyx_22040228___024root___sequent__TOP__2(Vysyx_22040228___0
         } else if ((vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__depcbf1 
                     < vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__depcbf2)) {
             __Vdlyvval__ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_jumpbuff__v24 
-                = (1U & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_so_type) 
+                = (1U & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_so_type) 
                          >> 3U));
             vlSelf->__Vdlyvset__ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_jumpbuff__v24 = 1U;
             __Vdlyvval__ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_jumpbuff__v25 
-                = (1U & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de2_so_type) 
+                = (1U & ((IData)(vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__de1_so_type) 
                          >> 3U));
             __Vdlyvval__ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_jumpbuff__v26 
                 = (vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_jumpbuff
