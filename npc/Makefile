@@ -22,7 +22,7 @@ VERILAGS+= -build
 VERILAGS+= -timescale 1ns/1ns
 VERILAGS+= -y ./vsrc/
 #VERILAGS+= -y ./superscalar/
-VERILAGS+= --top-module ysyx_22040228
+VERILAGS+= --top-module ysyxSoCFull
 
 
 
