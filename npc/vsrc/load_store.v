@@ -40,7 +40,7 @@ module load_store (
 assign mem_pc_o = (rst == `ysyx22040228_RSTENA) ? `ysyx22040228_ZEROWORD : mem_pc_i ;
 assign mem_inst_o = (rst == `ysyx22040228_RSTENA) ? 32'b0 : mem_inst_i ;
     
-assign mem_stall_req = (rst == `ysyx22040228_RSTENA) ? 1'b0 : (((re|we) && (mem_finish == 1'b0)) | (fence_ready_)) ;
+assign mem_stall_req = (rst == `ysyx22040228_RSTENA) ? 1'b0 : ((((re|we) | (fence_ready_)) && (mem_finish == 1'b0))) ;
 assign fence         = fence_ready_;
 
 assign rd_addr_o  = rd_addr_i ;
