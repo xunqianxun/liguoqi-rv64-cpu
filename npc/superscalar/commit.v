@@ -399,13 +399,13 @@ end
             commit_pcbuff[0][63:0]  <= depcbf2                        ;
             commit_pcbuff[0][67]    <= 1'b0                           ;
             commit_enabuff[0]       <= 1'b0                           ;
-            commit_jumpbuff[0]      <= decode1_jtype                  ;
+            commit_jumpbuff[0]      <= decode2_jtype                  ;
             commit_addrbuff[0]      <= 5'd0                           ;
             commit_databuff [0]     <= 64'h0                          ;
             commit_pcbuff[1][63:0]  <= depcbf1                        ;
             commit_pcbuff[1][67]    <= 1'b0                           ;
             commit_enabuff[1]       <= 1'b0                           ;
-            commit_jumpbuff[1]      <= decode2_jtype                  ;
+            commit_jumpbuff[1]      <= decode1_jtype                  ;
             commit_addrbuff[1]      <= 5'd0                           ;
             commit_databuff [1]     <= 64'h0                          ;
             commit_pcbuff[2][63:0]  <= commit_pcbuff[0][63:0] & {64{~clean_submcont[0]}} ;

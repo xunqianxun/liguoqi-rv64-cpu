@@ -1522,7 +1522,7 @@ VL_INLINE_OPT void Vysyx_22040228___024root___combo__TOP__6(Vysyx_22040228___024
                                                  | (QData)((IData)(
                                                                    vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
                                                                    [6U][0U])))) 
-                                       & (0ULL != (
+                                       | (0ULL != (
                                                    ((QData)((IData)(
                                                                     vlSelf->ysyx_22040228__DOT__rvcpu1__DOT__commit_u__DOT__commit_pcbuff
                                                                     [7U][1U])) 
