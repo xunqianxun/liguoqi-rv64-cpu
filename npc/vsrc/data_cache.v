@@ -185,7 +185,7 @@ module data_cache (
                     check_valid2  <= `ysyx22040228_ABLE   ;
                 end 
                 else if(check_valid2) begin
-                    if(oteg_valid_o) begin
+                    if(tteg_valid_o) begin
                        transt_sign2  <= `ysyx22040228_ABLE  ;
                        check_valid2  <= `ysyx22040228_ENABLE;
                     end 
