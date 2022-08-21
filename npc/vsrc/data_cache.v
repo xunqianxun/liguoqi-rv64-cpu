@@ -204,10 +204,9 @@ module data_cache (
             end 
         end 
         else if(docker_counter == 8'd129) begin
-            fence_finish   <= `ysyx22040228_ABLE   ;
+            docker_counter <= 8'd1                 ;
         end 
         else begin
-            fence_finish   <= `ysyx22040228_ENABLE ;
             docker_counter <= 8'd1                 ; 
         end 
     end
@@ -802,7 +801,7 @@ module data_cache (
 
     assign mem_data_ready  = (state_dread == `ysyx22040228_HIT)   ? hit_data_ready :
                              (state_dwrite == `ysyx22040228_HIT)  ? hitw_data_ready:
-                             fence_finish                         ? `ysyx22040228_ABLE:
+                             (docker_counter == 8'd129)           ? `ysyx22040228_ABLE:
                                                                `ysyx22040228_ENABLE;
 
 /* verilator lint_on LATCH */
