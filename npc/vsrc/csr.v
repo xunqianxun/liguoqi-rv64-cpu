@@ -61,6 +61,7 @@ always @(posedge clk) begin
     else                   begin csr_mcycle <= csr_mcycle + 64'd1 ;end 
 end
 //0x300
+reg csr_mstatus_mpie ;
 wire      sel_mstatus  =  (csr_idx == 12'h300) ;
 wire      rd_mstatus   =  sel_mstatus && csr_rd_en  ;
 wire      wr_mstatus   =  sel_mstatus && csr_wr_en  ;           
@@ -72,7 +73,6 @@ wire      mstatus_mpie_nxt = (ecall_trap_ena | tmr_trap_ena) ? csr_mstatus_mie :
                                                wr_mstatus    ? wbck_csr_data[7]:
                                                                csr_mstatus_mpie;
 
-reg csr_mstatus_mpie ;
 always @(posedge clk) begin
     if(rst == `ysyx22040228_RSTENA)                begin csr_mstatus_mpie <= 1'b0 ; end
     else if(mstatus_mpie_ena & ~ex_stall) begin csr_mstatus_mpie <= mstatus_mpie_nxt ; end

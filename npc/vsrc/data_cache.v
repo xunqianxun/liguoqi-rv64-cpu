@@ -33,7 +33,7 @@ module data_cache (
     input         wire                                        mem_read_valid     ,
     input         wire                                        mem_write_valid    ,
     output        reg         [`ysyx22040228_AXI_REGBUS]      mem_data_out       ,
-    output        reg                                         mem_data_ready     ,
+    output        wire                                        mem_data_ready     ,
 
     input         wire        [`ysyx22040228_DCACHE_DATA_W]   in_dcache_data     ,
     input         wire                                        in_dcache_ready    ,
@@ -46,99 +46,27 @@ module data_cache (
     output        wire        [3:0]                           out_dcache_type        
 );
     //----------------------------------fence-------------------------------------//    
-    // reg [6:0] counter    ;
-    // reg     fence_valid_req;
-    // reg     read_request ;
-    // reg     read_success ;
-    // reg     write_request;
-    // reg     write_success;
-    // always @(posedge clk) begin 
-    //     if(read_success) begin
-    //         read_request  <= `ysyx22040228_ENABLE;
-    //         write_request <= `ysyx22040228_ABLE ;
-    //     end 
-    //     else if(write_success) begin
-    //         write_request <= `ysyx22040228_ENABLE;
-    //         counter       <= counter + 1 ;
-    //     end 
-    //     else if((mem_fence_i) && (counter < 64)) begin
-    //         read_request <= `ysyx22040228_ABLE ;
-    //     end
-    //     else if((mem_fence_i) && (counter >= 64)) begin
-    //         fence_valid_req <= `ysyx22040228_ABLE;
-    //     end 
-    //     else begin
-    //         fence_valid_req <= `ysyx22040228_ENABLE;
-    //         counter <= 7'b0000000;
-    //     end 
-    // end
+    // froce define for verdi
+    wire   [`ysyx22040228_TEG_WITH]  oteg_ata_o    ;
+    wire                             oteg_valid_o  ;
+    wire   [`ysyx22040228_TEG_WITH]  tteg_ata_o    ;
+    wire                             tteg_valid_o  ;
+    wire  [127:0] data_out ;
+    reg    dirty1 [`ysyx22040228_CACHE_DATA_W];
+    reg    dirty2 [`ysyx22040228_CACHE_DATA_W];
+    reg  [2:0]  counter1 [`ysyx22040228_CACHE_DATA_W];
+    reg  [2:0]  counter2 [`ysyx22040228_CACHE_DATA_W];
+    reg          read_ok_    ;
+    reg          read_ok     ;
+    reg        dirty_ok  ;
+    reg          missr_i_ok     ;
+    reg          read_w_ok_    ;
+    reg          read_w_ok     ;
+    reg        dirtyw_ok       ;
+    reg         memw_hit_ok    ;
+    reg          missw_i_ok     ;
 
-    // always @(*) begin
-    //     if(read_request)
-    //         read_success = `ysyx22040228_ABLE;
-    //     else 
-    //         read_success = `ysyx22040228_ENABLE;
-    // end
-    
-    // reg           fence_write_valid1;
-    // reg           fence_write_valid2;
-    // reg  [63:0]   fence_data_out ;
-    // reg  [63:0]   fence_addr_out ;
-    // reg  [3:0]    fence_type_out ;
-    // //reg  [63:0]   fence_addr_cache;
-    // //reg           check_two      ;
-    // always @(*) begin
-    //     if((write_request) && (oteg_valid_o == `ysyx22040228_ABLE)) begin
-    //         if((~in_dcache_ready) && (dirty1[counter[5:0]] == `ysyx22040228_ABLE)) begin
-    //             fence_data_out = data_out[63:0] ;
-    //             fence_addr_out = {32'h0, oteg_ata_o, counter[5:0], 3'b000} ;
-    //             fence_type_out = 4'b0001   ;
-    //         end 
-    //         else if((in_dcache_ready) && (dirty1[counter[5:0]] == `ysyx22040228_ABLE))begin
-    //             fence_data_out = `ysyx22040228_ZEROWORD ;
-    //             fence_addr_out = `ysyx22040228_ZEROWORD ;
-    //             fence_type_out = 4'b0000                ;
-    //         end 
-    //         else begin
-    //             //fence_addr_out = {tag_data1, counter, 3'b000} ;
-    //             fence_write_valid1 = `ysyx22040228_ABLE ;
-    //         end 
-    //     end
-    //     else if((write_request) && (tteg_valid_o == `ysyx22040228_ABLE)) begin
-    //         if((~in_dcache_ready) && (dirty2[counter[5:0]] == `ysyx22040228_ABLE)) begin
-    //             fence_data_out = data_out[127:64] ;
-    //             fence_addr_out = {32'h0, tteg_ata_o, counter[5:0], 3'b000} ; 
-    //             fence_type_out = 4'b0001   ;
-    //         end 
-    //         else if((in_dcache_ready) && (dirty2[counter[5:0]] == `ysyx22040228_ABLE))begin
-    //             fence_data_out = `ysyx22040228_ZEROWORD ;
-    //             fence_addr_out = `ysyx22040228_ZEROWORD ;
-    //             fence_type_out = 4'b0000                ;
-    //         end 
-    //         else begin
-    //             //fence_addr_out = {tag_data1, counter, 3'b000} ;
-    //             fence_write_valid2 = `ysyx22040228_ABLE ;
-    //         end 
-    //     end
-    //     else if(delay_oclk) begin
-    //         write_success = `ysyx22040228_ENABLE;
-    //     end 
-    //     else begin
-    //         fence_write_valid1 = `ysyx22040228_ENABLE;
-    //         write_success  = `ysyx22040228_ABLE;
-    //         fence_write_valid2 = `ysyx22040228_ENABLE;
-    //     end  
-    // end
-    // reg delay_oclk ;
-    // always @(posedge clk) begin
-    //     if(write_success)
-    //         delay_oclk <= `ysyx22040228_ABLE;
-    //     else 
-    //         delay_oclk <= `ysyx22040228_ENABLE;
-    // end
-
-    wire   counterscl ;
-    assign counterscl = (docker_counter == 8'd63) ? 1'b1 : 1'b0  ;
+    // froce define for verdi
 
     reg [7:0] docker_counter ;
     reg [7:0] counter_temp   ;
@@ -148,6 +76,8 @@ module data_cache (
     reg       fence_finish   ;
     reg       check_valid1   ;
     reg       check_valid2   ;
+    wire   counterscl        ;
+    assign counterscl = (docker_counter == 8'd63) ? 1'b1 : 1'b0  ;
     always @(posedge clk) begin
         if(rst == `ysyx22040228_RSTENA) begin
             fence_index <= 6'b000000 ;
@@ -277,8 +207,8 @@ module data_cache (
             endcase 
     end 
 
-    reg          read_ok_    ;
-    reg          read_ok     ;
+    // reg          read_ok_    ;
+    // reg          read_ok     ;
     always @(*) begin
         if(state_dread == `ysyx22040228_READ) begin
             read_ok_ = `ysyx22040228_ABLE  ;
@@ -317,7 +247,7 @@ module data_cache (
         end 
     end 
 
-    reg        dirty_ok  ;
+    // reg        dirty_ok  ;
     reg [63:0] dirty_out_addr ;
     reg [63:0] dirty_out_data ;
     reg [3:0]  dirty_out_type ;
@@ -356,7 +286,7 @@ module data_cache (
         end  
     end
 
-    reg          missr_i_ok     ;
+    // reg          missr_i_ok     ;
     reg  [3: 0]  missr_out_type ;
     reg  [63:0]  missr_out_addr ;
     reg [127: 0] missr_data_strb;
@@ -475,8 +405,8 @@ module data_cache (
             endcase 
     end 
 
-    reg          read_w_ok_    ;
-    reg          read_w_ok     ;
+    // reg          read_w_ok_    ;
+    // reg          read_w_ok     ;
     always @(*) begin
         if(state_dwrite == `ysyx22040228_READ) begin
             read_w_ok_ = `ysyx22040228_ABLE  ;
@@ -489,7 +419,7 @@ module data_cache (
         read_w_ok <= read_w_ok_ ;
     end
 
-    reg         memw_hit_ok    ;
+    // reg         memw_hit_ok    ;
     reg [127:0] hitw_data_strb ;
     reg [127:0] hitw_data_temp ;
     reg         hitw_data_ready; 
@@ -530,7 +460,7 @@ module data_cache (
         end   
     end 
 
-    reg        dirtyw_ok       ;
+    // reg        dirtyw_ok       ;
     reg [63:0] dirtyw_out_addr ;
     reg [63:0] dirtyw_out_data ;
     reg [3:0]  dirtyw_out_type ;
@@ -569,7 +499,7 @@ module data_cache (
         end  
     end
 
-    reg          missw_i_ok     ;
+    // reg          missw_i_ok     ;
     reg  [3: 0]  missw_out_type ;
     reg  [63:0]  missw_out_addr ;
     reg [127: 0] missw_data_strb;
@@ -636,8 +566,8 @@ module data_cache (
     end
 
     //--------------------------------------bit code---------------------------//
-    reg  [2:0]  counter1 [`ysyx22040228_CACHE_DATA_W];
-    reg  [2:0]  counter2 [`ysyx22040228_CACHE_DATA_W];
+    // reg  [2:0]  counter1 [`ysyx22040228_CACHE_DATA_W];
+    // reg  [2:0]  counter2 [`ysyx22040228_CACHE_DATA_W];
     integer i ;
 
     always @(posedge clk) begin
@@ -665,8 +595,8 @@ module data_cache (
         end 
 	end
     //-----------------------------dirty state sign-----------------------------//
-    reg    dirty1 [`ysyx22040228_CACHE_DATA_W];
-    reg    dirty2 [`ysyx22040228_CACHE_DATA_W];
+    // reg    dirty1 [`ysyx22040228_CACHE_DATA_W];
+    // reg    dirty2 [`ysyx22040228_CACHE_DATA_W];
 
     wire   dirty1_ ;
     wire   dirty2_ ;
@@ -711,8 +641,8 @@ module data_cache (
     assign                           oteg_data_i  = mem_fence_i ? 23'h0 : dcache_tag ;
     wire         [5:0]               oteg_addr_i   ; 
     assign                           oteg_addr_i  = mem_fence_i ? fence_index : dcache_index ;
-    wire   [`ysyx22040228_TEG_WITH]  oteg_ata_o    ;
-    wire                             oteg_valid_o  ;
+    // wire   [`ysyx22040228_TEG_WITH]  oteg_ata_o    ;
+    // wire                             oteg_valid_o  ;
     TEG_CC TEG_DCACHEO(
         .clk         (clk          ),
         .addr_i      (oteg_addr_i  ),
@@ -733,8 +663,8 @@ module data_cache (
     assign                           tteg_data_i  = mem_fence_i ? 23'h0 : dcache_tag ;
     wire         [5:0]               tteg_addr_i   ; 
     assign                           tteg_addr_i  = mem_fence_i ? fence_index : dcache_index ;
-    wire   [`ysyx22040228_TEG_WITH]  tteg_ata_o    ;
-    wire                             tteg_valid_o  ;
+    // wire   [`ysyx22040228_TEG_WITH]  tteg_ata_o    ;
+    // wire                             tteg_valid_o  ;
     TEG_CC TEG_DCACHET(
         .clk         (clk          ),
         .addr_i      (tteg_addr_i  ),
@@ -746,7 +676,7 @@ module data_cache (
     );
 
     //-------------------------------ram data---------------------------------//
-    wire  [127:0] data_out ;
+    // wire  [127:0] data_out ;
     wire          CE = 1'b0 ;
     wire  [127:0] w_strb_ram;
     assign        w_strb_ram = (state_dread == `ysyx22040228_MISSR) ? missr_data_strb :

@@ -79,9 +79,9 @@ module clint (
     output   wire                                      time_axi_w_ready   ,
 
     //write response channel
-    output   reg      [`ysyx22040228_ID_BUS   ]        time_axi_b_id      ,
-    output   reg      [`ysyx22040228_RESP_BUS ]        time_axi_b_resp    ,
-    output   reg                                       time_axi_b_valid   ,
+    output   wire     [`ysyx22040228_ID_BUS   ]        time_axi_b_id      ,
+    output   wire     [`ysyx22040228_RESP_BUS ]        time_axi_b_resp    ,
+    output   wire                                      time_axi_b_valid   ,
     input    wire                                      time_axi_b_ready   ,
 
     //read address channel
@@ -97,11 +97,11 @@ module clint (
     output   wire                                      time_axi_ar_ready  ,
 
     //read data channel
-    output   reg      [`ysyx22040228_ID_BUS   ]        time_axi_r_id      ,
-    output   reg      [`ysyx22040228_DATA_BUS ]        time_axi_r_data    ,
-    output   reg      [`ysyx22040228_RESP_BUS ]        time_axi_r_resp    ,
-    output   reg                                       time_axi_r_last    ,
-    output   reg                                       time_axi_r_valid   ,
+    output   wire     [`ysyx22040228_ID_BUS   ]        time_axi_r_id      ,
+    output   wire     [`ysyx22040228_DATA_BUS ]        time_axi_r_data    ,
+    output   wire     [`ysyx22040228_RESP_BUS ]        time_axi_r_resp    ,
+    output   wire                                      time_axi_r_last    ,
+    output   wire                                      time_axi_r_valid   ,
     input    wire                                      time_axi_r_ready   
 );
 

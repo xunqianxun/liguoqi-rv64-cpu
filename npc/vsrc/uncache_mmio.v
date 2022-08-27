@@ -13,7 +13,7 @@
 module uncache_mmio (
     //input     wire                                         clk              ,
     //input     wire                                         rst              ,
-    output    wire          [2:0]                          mmio_sign        ,
+    output    wire          [1:0]                          mmio_sign        ,
 
     input     wire          [63:0]                         core_addr        ,
     input     wire          [63:0]                         core_data        ,
@@ -46,8 +46,8 @@ module uncache_mmio (
 );
     wire   start_sign;
     assign start_sign = (core_we | core_re );
-    assign mmio_sign  = (start_sign &&((core_addr >= `ysyx22040228_CLINT_START) && (core_addr <= `ysyx22040228_CLINT_END))) ? 3'b010 :
-                                                                                                                              3'b100 ;
+    assign mmio_sign  = (start_sign &&((core_addr >= `ysyx22040228_CLINT_START) && (core_addr <= `ysyx22040228_CLINT_END))) ? 2'b01 :
+                                                                                                                              2'b10 ;
     assign dcache_fence = fence_in;
     wire   uncache  ;
     assign uncache    = ((core_addr >= `ysyx22040228_UART_START) && (core_addr <= `ysyx22040228_UART_END)) |

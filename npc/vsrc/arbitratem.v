@@ -140,6 +140,16 @@ module arbitratem (
     output      wire                                         axi_r_ready           
 );
 
+    // froce define for verdi
+    reg     sign_delay_dread  ;
+    reg     sign_delay_dwrite ;
+    reg     sign_delay_iread  ;
+    reg     sign_delay_unread ;
+    reg     sign_delay_unwrite;
+    reg     aw_enable ;
+    reg     aw_enable_n ;
+    // froce define for verdi
+
     wire    read_dcache_shankhand  ;
     wire    write_dcache_shankhand ;
     wire    read_icache_shankhand  ;
@@ -162,11 +172,11 @@ module arbitratem (
             arbitrate_state <= arbitrate_state_nxt   ;
     end
 
-    reg    dread_ok    ;
-    reg    dread_ok_u  ;
-    reg    dwrite_ok   ;
-    reg    dwrite_ok_u ;
-    reg    iread_ok    ;
+    wire    dread_ok    ;
+    wire    dread_ok_u  ;
+    wire    dwrite_ok   ;
+    wire    dwrite_ok_u ;
+    wire    iread_ok    ;
     always @(*) begin
         case (arbitrate_state)
             `ysyx22040228_ARB_IDLE : begin
@@ -342,11 +352,11 @@ module arbitratem (
     //assign i_cache_data     = success_iread       ?  axi_r_data           :   64'h0                ;
     //assign i_cache_valid_   = success_iread       ? `ysyx22040228_ABLE    :   `ysyx22040228_ENABLE ; 
 
-    reg     sign_delay_dread  ;
-    reg     sign_delay_dwrite ;
-    reg     sign_delay_iread  ;
-    reg     sign_delay_unread ;
-    reg     sign_delay_unwrite;
+    // reg     sign_delay_dread  ;
+    // reg     sign_delay_dwrite ;
+    // reg     sign_delay_iread  ;
+    // reg     sign_delay_unread ;
+    // reg     sign_delay_unwrite;
     always @(posedge clk) begin
         if(success_dread) begin
             sign_delay_dread   <= `ysyx22040228_ABLE;
@@ -395,8 +405,8 @@ module arbitratem (
 
     assign axi_shankhand = (axi_w_ready) | axi_ar_ready ;
 
-    reg     aw_enable ;
-    reg     aw_enable_n ;
+    // reg     aw_enable ;
+    // reg     aw_enable_n ;
     always @(posedge clk) begin
         if(rst == `ysyx22040228_RSTENA)
             aw_enable <= `ysyx22040228_ENABLE;

@@ -1,6 +1,6 @@
 /************************************************************
 Author:LiGuoqi
-Name:trg_cc.v
+Name:teg_cc.v
 Function:memory teg data
 ************************************************************/
 `include "cache_defines.v"

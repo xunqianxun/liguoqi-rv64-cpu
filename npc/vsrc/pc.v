@@ -21,25 +21,6 @@ module pc (
     output   reg     [`ysyx22040228_PCBUS]                  pc               
 );
 
-    always @(posedge clk) begin
-        if(rst == `ysyx22040228_RSTENA) begin
-            pc <= `ysyx22040228_START      ; 
-        end
-        else begin
-            if (stall_ctrl[0] == `ysyx22040228_STOP) begin 
-                  pc <= pc                 ;
-            end
-            else if((stall_ctrl[1:0] == 2'b00) && ((ex_pc_change) || (ex_pc_ena))) begin
-                  pc <= pc_ex              ;
-            end 
-            else if((stall_ctrl[1:0] == 2'b00) && ((id_pc_change) || (id_pc_ena))) begin
-                  pc <= pc_id              ;
-            end 
-            else begin
-                  pc <= static_pc_i        ;            
-            end
-        end
-    end
 
     reg        ex_pc_change ;
     reg        id_pc_change ;
@@ -66,6 +47,26 @@ module pc (
             pc_ex <= `ysyx22040228_ZEROWORD ;
             pc_id <= `ysyx22040228_ZEROWORD ;
         end 
+    end
+
+    always @(posedge clk) begin
+        if(rst == `ysyx22040228_RSTENA) begin
+            pc <= `ysyx22040228_START      ; 
+        end
+        else begin
+            if (stall_ctrl[0] == `ysyx22040228_STOP) begin 
+                  pc <= pc                 ;
+            end
+            else if((stall_ctrl[1:0] == 2'b00) && ((ex_pc_change) || (ex_pc_ena))) begin
+                  pc <= pc_ex              ;
+            end 
+            else if((stall_ctrl[1:0] == 2'b00) && ((id_pc_change) || (id_pc_ena))) begin
+                  pc <= pc_id              ;
+            end 
+            else begin
+                  pc <= static_pc_i        ;            
+            end
+        end
     end
     
     

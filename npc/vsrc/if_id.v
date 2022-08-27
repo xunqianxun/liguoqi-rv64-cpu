@@ -36,6 +36,18 @@ module if_id (
     if_id_thepc(id_pc, id_inst);
  end
 
+    reg     fl_bub_temp ;
+    always @(posedge clk) begin
+        if(rst == `ysyx22040228_RSTENA) 
+            fl_bub_temp <= 1'b0    ;
+        else if((stall_ctrl[1:0] == 2'b11) && (if_id_flush | if_id_bubble)) begin
+            fl_bub_temp <= 1'b1    ;
+        end 
+        else if(stall_ctrl[1:0] == 2'b00) begin
+            fl_bub_temp <= 1'b0    ;
+        end 
+    end
+
 always@(posedge clk) begin
         if(rst == `ysyx22040228_RSTENA) begin
             id_pc   <= `ysyx22040228_ZEROWORD;
@@ -57,17 +69,6 @@ always@(posedge clk) begin
             id_pc   <= if_pc;
             id_inst <= if_inst;
         end
-    end
-    reg     fl_bub_temp ;
-    always @(posedge clk) begin
-        if(rst == `ysyx22040228_RSTENA) 
-            fl_bub_temp <= 1'b0    ;
-        else if((stall_ctrl[1:0] == 2'b11) && (if_id_flush | if_id_bubble)) begin
-            fl_bub_temp <= 1'b1    ;
-        end 
-        else if(stall_ctrl[1:0] == 2'b00) begin
-            fl_bub_temp <= 1'b0    ;
-        end 
     end
 
 

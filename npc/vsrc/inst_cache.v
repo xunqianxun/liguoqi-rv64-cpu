@@ -26,11 +26,26 @@ module inst_cache (
     output      reg           [31:0]                         inst_data       ,
     output      reg                                          inst_valid      ,
 
-    output      reg                                          cache_read_ena  ,
-    output      reg           [63:0]                         cache_addr      ,
+    output      wire                                         cache_read_ena  ,
+    output      wire          [63:0]                         cache_addr      ,
     input       wire          [63:0]                         cache_in_data   ,
     input       wire                                         cache_in_valid                                 
 );
+
+    // froce define for verdi
+    reg          read_ok_    ;
+    reg          read_ok     ;
+    wire   [`ysyx22040228_TEG_WITH]  oteg_ata_o    ;
+    wire                             oteg_valid_o  ;
+    wire   [`ysyx22040228_TEG_WITH]  tteg_ata_o    ;
+    wire                             tteg_valid_o  ;
+    wire  [127:0] data_out ;
+    reg  [2:0]  i_counter1 [`ysyx22040228_CACHE_DATA_W];
+    reg  [2:0]  i_counter2 [`ysyx22040228_CACHE_DATA_W];
+    reg         inst_hit_ok ;
+    reg         write_i_ok  ; 
+    reg         write_m_ok  ;
+    // froce define for verdi
 
     wire   icache_if_shankhand   ;
     assign icache_if_shankhand = inst_ready && ~inst_valid  ;
@@ -105,8 +120,8 @@ module inst_cache (
             endcase 
     end 
 
-    reg          read_ok_    ;
-    reg          read_ok     ;
+    // reg          read_ok_    ;
+    // reg          read_ok     ;
     always @(*) begin
         if(state_inst == `ysyx22040228_I_READ) begin
             read_ok_ = `ysyx22040228_ABLE    ;
@@ -119,7 +134,7 @@ module inst_cache (
         read_ok <= read_ok_;
     end
 
-    reg         inst_hit_ok ;
+    // reg         inst_hit_ok ;
     always @(*) begin
         if(state_inst == `ysyx22040228_I_HIT) begin
             if(core_stall == `ysyx22040228_ABLE) begin
@@ -167,7 +182,7 @@ module inst_cache (
     reg   [127:0]   miss_data ;
     reg             miss_ena_l;
     reg   [127:0]   miss_strb_l;
-    reg             write_i_ok;  
+    // reg             write_i_ok;  
 
     reg             cahce_miss_ena ;
     reg   [63:0]    cache_miss_addr ;
@@ -213,7 +228,7 @@ module inst_cache (
     reg   [127:0]   mism_data ;
     reg             mism_ena_l;
     reg   [127:0]   mism_strb_l;
-    reg             write_m_ok;  
+    // reg             write_m_ok;  
 
     reg             cache_mism_ena ;
     reg   [63:0]    cahce_mism_addr ;
@@ -281,8 +296,8 @@ module inst_cache (
     assign                           oteg_data_i  = inst_fence ? 23'h0 : icache_tag ;
     wire         [5:0]               oteg_addr_i   ; 
     assign                           oteg_addr_i  = inst_fence ? fence_counter[5:0] : icache_index ;    
-    wire   [`ysyx22040228_TEG_WITH]  oteg_ata_o    ;
-    wire                             oteg_valid_o  ;
+    // wire   [`ysyx22040228_TEG_WITH]  oteg_ata_o    ;
+    // wire                             oteg_valid_o  ;
     TEG_CC TEG_ICACHEO(
         .clk         (clk          ),
         .addr_i      (oteg_addr_i  ),
@@ -304,8 +319,8 @@ module inst_cache (
     assign                           tteg_data_i  = inst_fence ? 23'h0 : icache_tag ;
     wire         [5:0]               tteg_addr_i   ; 
     assign                           tteg_addr_i  = inst_fence ? fence_counter[5:0] : icache_index ;
-    wire   [`ysyx22040228_TEG_WITH]  tteg_ata_o    ;
-    wire                             tteg_valid_o  ;
+    // wire   [`ysyx22040228_TEG_WITH]  tteg_ata_o    ;
+    // wire                             tteg_valid_o  ;
     TEG_CC TEG_ICACHET(
         .clk         (clk          ),
         .addr_i      (tteg_addr_i  ),
@@ -317,7 +332,7 @@ module inst_cache (
     );
 
     //-------------------------------ram data---------------------------------//
-    wire  [127:0] data_out ;
+    // wire  [127:0] data_out ;
     wire          CE = 1'b0 ;
     wire  [127:0] w_strb_ram;
     assign        w_strb_ram = (state_inst ==  `ysyx22040228_I_MISSRL) ? miss_strb_l :
@@ -343,8 +358,8 @@ module inst_cache (
 
 
     //--------------------------------------bit code---------------------------//
-    reg  [2:0]  i_counter1 [`ysyx22040228_CACHE_DATA_W];
-    reg  [2:0]  i_counter2 [`ysyx22040228_CACHE_DATA_W];
+    // reg  [2:0]  i_counter1 [`ysyx22040228_CACHE_DATA_W];
+    // reg  [2:0]  i_counter2 [`ysyx22040228_CACHE_DATA_W];
     integer i ;
 
     always @(posedge clk) begin
