@@ -378,7 +378,7 @@ ysyx_22040228mem_wb mem_wb8 (
    .wb_rd_ena            (wb_id_ena            )
 );
 
-ctrl ctrl9 (
+ysyx_22040228ctrl ctrl9 (
    .rst                  (rst                  ),
    .if_stall_req         (if_stall_req         ), 
    .id_stall_req         (id_ctrl_req          ),
