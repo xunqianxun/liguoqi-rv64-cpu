@@ -17,12 +17,12 @@ Function:write data cache
 `define ysyx22040228_FENCEEND   3'b100
 
 
-`include "defines.v"
-`include "defines_axi4.v"
-`include "S011HD1P_X32Y2D128_BWF.v"
-`include "TEG_CC.v"
+`include "ysyx_22040228defines.v"
+`include "ysyx_22040228defines_axi4.v"
+//`include "S011HD1P_X32Y2D128_BWF.v"
+`include "ysyx_22040228TEG_CC.v"
 /* verilator lint_off UNUSED */
-module data_cache (
+module ysyx_22040228data_cache (
     input         wire                                        clk                ,
     input         wire                                        rst                ,
     //-------------------------input  cache-------------------------------------//
@@ -43,7 +43,14 @@ module data_cache (
     //type[1]---->  missr
     //type[2]---->  dirtyw
     //type[3]---->  missw
-    output        wire        [3:0]                           out_dcache_type        
+    output        wire        [3:0]                           out_dcache_type    ,
+
+    output        wire                                        CE                 ,
+    output        wire                                        w_data_ena         ,
+    output        wire        [127:0]                         w_strb_ram         ,
+    output        wire        [5:0]                           w_data_addr        ,
+    output        wire        [127:0]                         w_data_ram         ,
+    input         wire        [127:0]                         data_out            
 );
     //----------------------------------fence-------------------------------------//    
     // froce define for verdi
@@ -51,20 +58,20 @@ module data_cache (
     wire                             oteg_valid_o  ;
     wire   [`ysyx22040228_TEG_WITH]  tteg_ata_o    ;
     wire                             tteg_valid_o  ;
-    wire  [127:0] data_out ;
+    //wire  [127:0] data_out ;
     reg    dirty1 [`ysyx22040228_CACHE_DATA_W];
     reg    dirty2 [`ysyx22040228_CACHE_DATA_W];
     reg  [2:0]  counter1 [`ysyx22040228_CACHE_DATA_W];
     reg  [2:0]  counter2 [`ysyx22040228_CACHE_DATA_W];
-    reg          read_ok_    ;
-    reg          read_ok     ;
-    reg        dirty_ok  ;
-    reg          missr_i_ok     ;
+    reg          read_ok_      ;
+    reg          read_ok       ;
+    reg          dirty_ok      ;
+    reg          missr_i_ok    ;
     reg          read_w_ok_    ;
     reg          read_w_ok     ;
-    reg        dirtyw_ok       ;
-    reg         memw_hit_ok    ;
-    reg          missw_i_ok     ;
+    reg          dirtyw_ok     ;
+    reg          memw_hit_ok   ;
+    reg          missw_i_ok    ;
 
     // froce define for verdi
 
@@ -643,7 +650,7 @@ module data_cache (
     assign                           oteg_addr_i  = mem_fence_i ? fence_index : dcache_index ;
     // wire   [`ysyx22040228_TEG_WITH]  oteg_ata_o    ;
     // wire                             oteg_valid_o  ;
-    TEG_CC TEG_DCACHEO(
+    ysyx_22040228TEG_CC TEG_DCACHEO(
         .clk         (clk          ),
         .addr_i      (oteg_addr_i  ),
         .teg_i       (oteg_data_i  ),
@@ -665,7 +672,7 @@ module data_cache (
     assign                           tteg_addr_i  = mem_fence_i ? fence_index : dcache_index ;
     // wire   [`ysyx22040228_TEG_WITH]  tteg_ata_o    ;
     // wire                             tteg_valid_o  ;
-    TEG_CC TEG_DCACHET(
+    ysyx_22040228TEG_CC TEG_DCACHET(
         .clk         (clk          ),
         .addr_i      (tteg_addr_i  ),
         .teg_i       (tteg_data_i  ),
@@ -677,34 +684,34 @@ module data_cache (
 
     //-------------------------------ram data---------------------------------//
     // wire  [127:0] data_out ;
-    wire          CE = 1'b0 ;
-    wire  [127:0] w_strb_ram;
+    /*wire*/ assign          CE = 1'b0 ;
+    //wire  [127:0] w_strb_ram;
     assign        w_strb_ram = (state_dread == `ysyx22040228_MISSR) ? missr_data_strb :
                                (state_dwrite == `ysyx22040228_HIT) ? hitw_data_strb   :
                                (state_dwrite == `ysyx22040228_MISSW)? missw_data_strb :
                                                              `ysyx22040228_CACHE_STRBZ;
-    wire  [127:0] w_data_ram;
+    //wire  [127:0] w_data_ram;
     assign        w_data_ram = (state_dread == `ysyx22040228_MISSR) ? missr_data_temp :
                                (state_dwrite == `ysyx22040228_HIT) ? hitw_data_temp   :
                                (state_dwrite == `ysyx22040228_MISSW)? missw_data_temp :
                                                              `ysyx22040228_CACHE_STRBZ;
-    wire          w_data_ena;
+    //wire          w_data_ena;
     assign        w_data_ena = (state_dread == `ysyx22040228_MISSR) ? missr_data_ena  :
                                (state_dwrite == `ysyx22040228_HIT) ? hitw_data_ena    :
                                (state_dwrite == `ysyx22040228_MISSW)? missw_data_ena  :
                                                                `ysyx22040228_ENABLE   ;
 
-    wire  [5:0]   w_data_addr;
+    //wire  [5:0]   w_data_addr;
     assign        w_data_addr = mem_fence_i ? fence_index : dcache_index ;
-    S011HD1P_X32Y2D128_BWF REM_DCACHE (
-        .Q           (data_out     ) ,
-        .CLK         (clk          ) ,
-        .CEN         (CE           ) ,
-        .WEN         ( ~w_data_ena ) ,
-        .BWEN        ( ~w_strb_ram ) ,
-        .A           (w_data_addr  ) ,
-        .D           (w_data_ram   )
-    );
+    // S011HD1P_X32Y2D128_BWF REM_DCACHE (
+    //     .Q           (data_out     ) ,
+    //     .CLK         (clk          ) ,
+    //     .CEN         (CE           ) ,
+    //     .WEN         ( ~w_data_ena ) ,
+    //     .BWEN        ( ~w_strb_ram ) ,
+    //     .A           (w_data_addr  ) ,
+    //     .D           (w_data_ram   )
+    // );
 
 
     assign out_dcache_type = (state_dread == `ysyx22040228_DIRTY) ? dirty_out_type :

@@ -3,11 +3,11 @@ Author:LiGuoqi
 Name:ex.v
 Function:Instruction execution module and CSR is instantiated
 ************************************************************/
-`include "csr.v"
-`include "divider.v"
-`include "multiplier.v"
-`include "defines.v"
-module ex (
+`include "ysyx_22040228csr.v"
+`include "ysyx_22040228divider.v"
+`include "ysyx_22040228multiplier.v"
+`include "ysyx_22040228defines.v"
+module ysyx_22040228ex (
     input         wire                                        clk               ,
     input         wire                                        rst               ,
     input         wire          [`ysyx22040228_PCBUS]         pc_i              ,
@@ -141,7 +141,7 @@ assign mul_ready =  (inst_opcode_i == `INST_MUL   ) |
                     (inst_opcode_i == `INST_MULHU ) | 
                     (inst_opcode_i == `INST_MULW  ) ;
 
-multiplier multiplier1 (
+ysyx_22040228multiplier multiplier1 (
     .clk             (clk_in         ) ,
     .rst             (rst            ) ,
     .mult_ready      (mul_ready      ) ,
@@ -185,7 +185,7 @@ assign op2_divdata = (inst_opcode_i == `INST_DIV     ) ? op2_i         :
                      (inst_opcode_i == `INST_REMUW   ) ? {32'b0, op2_i[31:0]}   :    
                      (inst_opcode_i == `INST_REMW    ) ? (op2_i[32] ? {32'hffffffff, op2_i[31:0]} : {32'b0, op2_i[31:0]})   :
                                                 `ysyx22040228_ZEROWORD ;           
-divider divider2 (
+ysyx_22040228divider divider2 (
     .clk              (clk_in         ) ,
     .rst              (rst            ) ,
 
@@ -242,7 +242,7 @@ reg   [`ysyx22040228_REGBUS]    trap_mcause_value ;
 wire [`ysyx22040228_REGBUS] mask_set_res   = read_csr_data | op1_i ;
 wire [`ysyx22040228_REGBUS] mask_clear_res = read_csr_data & (~op1_i) ;
 
- csr csr0 (
+ ysyx_22040228csr csr0 (
      .clk               (clk_in)             ,
      .rst               (rst)                ,
 

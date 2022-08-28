@@ -9,7 +9,7 @@ Function:execute muliplication instruction
 `define ysyx22040228_DIV_DOING      3'b010
 `define ysyx22040228_DIV_READUC     3'b100
 
-module divider (
+module ysyx_22040228divider (
     input        wire                                       clk               ,
     input        wire                                       rst               ,
 

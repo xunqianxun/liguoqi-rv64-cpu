@@ -3,8 +3,8 @@ Author:LiGuoqi
 Name:teg_cc.v
 Function:memory teg data
 ************************************************************/
-`include "cache_defines.v"
-module TEG_CC (
+`include "ysyx_22040228cache_defines.v"
+module ysyx_22040228TEG_CC (
     input            wire                                                         clk        ,
     input            wire       [5:0]                                             addr_i     ,
     input            wire       [`ysyx22040228_TEG_WITH]                          teg_i      ,

@@ -1,6 +1,6 @@
-`include "defines.v"
-`include "defines_axi4.v"
-`include "cache_defines.v"
+`include "ysyx_22040228defines.v"
+`include "ysyx_22040228defines_axi4.v"
+`include "ysyx_22040228cache_defines.v"
 /* verilator lint_off LATCH */
 `define AXI_SIZE_BYTES_1                                    3'b000
 `define AXI_SIZE_BYTES_2                                    3'b001
@@ -10,7 +10,7 @@
 `define AXI_SIZE_BYTES_32                                   3'b101
 `define AXI_SIZE_BYTES_64                                   3'b110
 `define AXI_SIZE_BYTES_128                                  3'b111
-module uncache_mmio (
+module ysyx_22040228uncache_mmio (
     //input     wire                                         clk              ,
     //input     wire                                         rst              ,
     output    wire          [1:0]                          mmio_sign        ,

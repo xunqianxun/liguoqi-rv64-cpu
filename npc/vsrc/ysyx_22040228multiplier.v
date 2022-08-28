@@ -4,7 +4,7 @@ Name:multiplier.v
 Function:execute muliplication instruction
 ************************************************************/
 `include "defines.v"
-module multiplier (
+module ysyx_22040228multiplier (
     inout          wire                                            clk              ,
     input          wire                                            rst              ,
     input          wire                                            mult_ready       ,

@@ -4,11 +4,11 @@ Name:inst_cache.v
 Function:write instraction cache
 ************************************************************/
 /* verilator lint_off LATCH */
-`include "defines.v"
-`include "defines_axi4.v"
-`include "TEG_CC.v"
-`include "S011HD1P_X32Y2D128_BW.v"
-`include "cache_defines.v"
+`include "ysyx_22040228defines.v"
+`include "ysyx_22040228defines_axi4.v"
+`include "ysyx_22040228TEG_CC.v"
+//`include "S011HD1P_X32Y2D128_BW.v"
+`include "ysyx_22040228cache_defines.v"
 
 `define ysyx22040228_I_IDLE    6'b000001
 `define ysyx22040228_I_MISSRL  6'b000010 //--> read chiplink can use burst
@@ -16,7 +16,7 @@ Function:write instraction cache
 `define ysyx22040228_I_MISSRH  6'b001000 //--> read APB can't use burst
 `define ysyx22040228_I_READ    6'b100000
 
-module inst_cache (
+module ysyx_22040228inst_cache (
     input       wire                                         clk             ,
     input       wire                                         rst             ,
     input       wire          [63:0]                         inst_addr       ,
@@ -29,7 +29,14 @@ module inst_cache (
     output      wire                                         cache_read_ena  ,
     output      wire          [63:0]                         cache_addr      ,
     input       wire          [63:0]                         cache_in_data   ,
-    input       wire                                         cache_in_valid                                 
+    input       wire                                         cache_in_valid  ,
+
+    output      wire                                         CE              ,
+    output      wire                                         w_data_ena      ,
+    output      wire          [127:0]                        w_strb_ram      ,
+    output      wire          [5:0]                          icache_index    ,
+    output      wire          [127:0]                        w_data_ram      ,
+    input       wire          [127:0]                        data_out                     
 );
 
     // froce define for verdi
@@ -39,7 +46,7 @@ module inst_cache (
     wire                             oteg_valid_o  ;
     wire   [`ysyx22040228_TEG_WITH]  tteg_ata_o    ;
     wire                             tteg_valid_o  ;
-    wire  [127:0] data_out ;
+    //wire  [127:0] data_out ;
     reg  [2:0]  i_counter1 [`ysyx22040228_CACHE_DATA_W];
     reg  [2:0]  i_counter2 [`ysyx22040228_CACHE_DATA_W];
     reg         inst_hit_ok ;
@@ -51,7 +58,7 @@ module inst_cache (
     assign icache_if_shankhand = inst_ready && ~inst_valid  ;
 
     wire [`ysyx22040228_TEG_WITH]   icache_tag    =   inst_addr[31:9 ];
-    wire [`ysyx22040228_INDEX_WITH] icache_index  =   inst_addr[ 8:3 ];
+    /*wire [`ysyx22040228_INDEX_WITH] */assign icache_index  =   inst_addr[ 8:3 ];
 
 
     reg  [5:0]  state_inst     ;
@@ -298,7 +305,7 @@ module inst_cache (
     assign                           oteg_addr_i  = inst_fence ? fence_counter[5:0] : icache_index ;    
     // wire   [`ysyx22040228_TEG_WITH]  oteg_ata_o    ;
     // wire                             oteg_valid_o  ;
-    TEG_CC TEG_ICACHEO(
+    ysyx_22040228TEG_CC TEG_ICACHEO(
         .clk         (clk          ),
         .addr_i      (oteg_addr_i  ),
         .teg_i       (oteg_data_i  ),
@@ -321,7 +328,7 @@ module inst_cache (
     assign                           tteg_addr_i  = inst_fence ? fence_counter[5:0] : icache_index ;
     // wire   [`ysyx22040228_TEG_WITH]  tteg_ata_o    ;
     // wire                             tteg_valid_o  ;
-    TEG_CC TEG_ICACHET(
+    ysyx_22040228TEG_CC TEG_ICACHET(
         .clk         (clk          ),
         .addr_i      (tteg_addr_i  ),
         .teg_i      (tteg_data_i  ),
@@ -333,28 +340,28 @@ module inst_cache (
 
     //-------------------------------ram data---------------------------------//
     // wire  [127:0] data_out ;
-    wire          CE = 1'b0 ;
-    wire  [127:0] w_strb_ram;
+    /*wire*/   assign       CE = 1'b0 ;
+    //wire  [127:0] w_strb_ram;
     assign        w_strb_ram = (state_inst ==  `ysyx22040228_I_MISSRL) ? miss_strb_l :
                                (state_inst ==  `ysyx22040228_I_MISSRH) ? mism_strb_l :
                                                           `ysyx22040228_CACHE_STRBZ  ;
-    wire  [127:0] w_data_ram;
+    //wire  [127:0] w_data_ram;
     assign        w_data_ram = (state_inst ==  `ysyx22040228_I_MISSRL) ? miss_data :
                                (state_inst ==  `ysyx22040228_I_MISSRH) ? mism_data :
                                                           `ysyx22040228_CACHE_STRBZ;
-    wire          w_data_ena;
+    //wire          w_data_ena;
     assign        w_data_ena = (state_inst ==  `ysyx22040228_I_MISSRL) ? miss_ena_l :
                                (state_inst ==  `ysyx22040228_I_MISSRH) ? mism_ena_l :
                                                                `ysyx22040228_ENABLE ;
-    S011HD1P_X32Y2D128_BW REM_ICACHE (
-        .Q           (data_out     ) ,
-        .CLK         (clk          ) ,
-        .CEN         (CE           ) ,
-        .WEN         ( ~w_data_ena ) ,
-        .BWEN        ( ~w_strb_ram ) ,
-        .A           (icache_index ) ,
-        .D           (w_data_ram   )
-    );
+    // S011HD1P_X32Y2D128_BW REM_ICACHE (
+    //     .Q           (data_out     ) ,
+    //     .CLK         (clk          ) ,
+    //     .CEN         (CE           ) ,
+    //     .WEN         ( ~w_data_ena ) ,
+    //     .BWEN        ( ~w_strb_ram ) ,
+    //     .A           (icache_index ) ,
+    //     .D           (w_data_ram   )
+    // );
 
 
     //--------------------------------------bit code---------------------------//

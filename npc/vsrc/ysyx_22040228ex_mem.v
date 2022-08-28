@@ -4,7 +4,7 @@ Name:ex_mem.v
 Function:Intermediate module for memory access
 ************************************************************/
 `include "defines.v"
-module ex_mem (
+module ysyx_22040228ex_mem (
     input              wire                                              clk             ,
     input              wire                                              rst             ,
     input              wire          [`ysyx22040228_PCBUS]               ex_mem_pc_i     ,

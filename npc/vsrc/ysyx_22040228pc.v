@@ -4,7 +4,7 @@ Name:pc.v
 Function:Instruction address transmitter
 ************************************************************/
 `include "defines.v"
-module pc ( 
+module ysyx_22040228pc ( 
     //系统输入
     input    wire                                           clk          ,
     input    wire                                           rst          ,

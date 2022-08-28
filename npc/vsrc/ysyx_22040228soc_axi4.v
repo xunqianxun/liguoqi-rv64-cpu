@@ -3,8 +3,8 @@ Author:LiGuoqi
 Name:soc_axi.v
 Function:AXI4 bus
 ************************************************************/
-`include "defines_axi4.v"
-`include "defines.v"
+`include "ysyx_22040228defines_axi4.v"
+`include "ysyx_22040228defines.v"
 // `define  IO_ADDR   
 // `define  TIME_ADDR
 parameter SLAVE_NUM = 2 ;
@@ -13,7 +13,7 @@ parameter SLAVE_NUM = 2 ;
 //SLAVE_NUM 2 --> TIME
 //slave_NUM 3 --> ELSE
 
-module soc_axi4(
+module ysyx_22040228soc_axi4(
     inout             wire                                               clk                  ,
     input             wire                                               rst                  ,
     input             wire         [1:0]                                 prot_chose_write     ,

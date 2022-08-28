@@ -1,5 +1,5 @@
-`include "defines_axi4.v"
-`include "defines.v"
+`include "ysyx_22040228defines_axi4.v"
+`include "ysyx_22040228defines.v"
 
 // Burst types
 `define AXI_BURST_TYPE_FIXED                                2'b00
@@ -53,7 +53,7 @@
 `define ysyx22040228_TIMER_RESPW    2'b10
 `define ysyx22040228_TIMER_RESPR    2'b11
 /* verilator lint_off UNUSED */
-module clint (
+module ysyx_22040228clint (
     input    wire                                      clk                ,
     input    wire                                      rst                ,
     output   wire                                      time_interrupt     ,

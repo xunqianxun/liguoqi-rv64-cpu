@@ -64,10 +64,10 @@ Function:arbitrate i_cache and d_cache
 `define ysyx22040228_AXI_WRITE      3'b101
 
 
-`include "defines.v"
-`include "defines_axi4.v"
-`include "cache_defines.v"
-module arbitratem (
+`include "ysyx_22040228defines.v"
+`include "ysyx_22040228defines_axi4.v"
+`include "ysyx_22040228cache_defines.v"
+module ysyx_22040228arbitratem (
     //-----------------------------system----------------------------------------//
     input       wire                                         clk                  ,
     input       wire                                         rst                  ,

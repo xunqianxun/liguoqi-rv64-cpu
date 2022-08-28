@@ -4,7 +4,7 @@ Name:regfile.v
 Function:32 general purpose registers
 ************************************************************/
 `include "defines.v"
-module regfile (
+module ysyx22040228regfile (
 	input                   wire                                     clk            ,
 	input                   wire                                     rst            ,
 

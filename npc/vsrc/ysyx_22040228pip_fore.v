@@ -4,7 +4,7 @@ Data    :2022,03,21
 Function:this module use to pipeline prediction
 **********************************************************************/
 `include "defines.v"
-module pip_fore (
+module ysyx_22040228pip_fore (
     input            wire                                   rst      ,
     input            wire    [`ysyx22040228_PCBUS]          pc_i     ,
     input            wire    [`ysyx22040228_INSTBUS]        inst     ,

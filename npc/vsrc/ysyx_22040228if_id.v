@@ -4,7 +4,7 @@ Name:if_idr.v
 Function:From IR-DATA get instruct spread id module
 ************************************************************/
 `include "defines.v"
-module if_id (
+module ysyx_22040228if_id (
     //系统信号
     input    wire                                              clk          ,
     input    wire                                              rst          ,

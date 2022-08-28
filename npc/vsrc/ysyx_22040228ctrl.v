@@ -4,7 +4,7 @@ Name:ctrl.v
 Function:Pause control of the whole pipeline
 ************************************************************/
 `include "defines.v"
-module ctrl (
+module ysyx_22040228ctrl (
     input                   wire                                      rst           ,
     input                   wire                                      if_stall_req  ,
     input                   wire                                      id_stall_req  ,

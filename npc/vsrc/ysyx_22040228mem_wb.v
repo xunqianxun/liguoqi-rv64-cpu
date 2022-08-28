@@ -5,7 +5,7 @@ Function:write data back to regfile module
 ************************************************************/
 /* verilator lint_off UNUSED */
 `include "defines.v"
-module mem_wb (
+module ysyx_22040228mem_wb (
     input                   wire                                             clk            ,
     input                   wire                                             rst            ,
     input                   wire          [`ysyx22040228_PCBUS]              wb_pc_i        ,

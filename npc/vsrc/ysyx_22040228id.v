@@ -6,7 +6,7 @@ Function:Decoding module it is used to parse the key information
          of the instruction
 ************************************************************/
 `include "defines.v"
-module id (
+module ysyx_22040228id (
     //系统输入
     input       wire                                                           rst                 ,
     input       wire         [`ysyx22040228_INSTBUS]                           inst_i              ,

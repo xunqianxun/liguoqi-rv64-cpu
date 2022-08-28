@@ -4,7 +4,7 @@ Name:id_ex.v
 Function: Intermediate module for compiling code and executing
 ************************************************************/
 `include "defines.v"
-module id_ex (
+module ysyx_22040228id_ex (
     input       wire                                     clk                ,
     input       wire                                     rst                ,
     input       wire                                     id_ex_bubble       ,

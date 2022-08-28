@@ -5,7 +5,7 @@ Function:The necessary registers in machine mode are designed
          andimplented.
 ************************************************************/
 `include "defines.v"
-module csr (
+module ysyx_22040228csr (
     input          wire                                        clk              ,
     input          wire                                        rst              ,
     input          wire        [`ysyx22040228_PCBUS]           pc_i             ,

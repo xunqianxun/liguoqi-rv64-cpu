@@ -6,95 +6,144 @@ Function:top module of this soc
 /* verilator lint_off UNUSED */
 /* verilator lint_off MODDUP */
 /* verilator lint_off LATCH */
-`include "arbitratem.v"
-`include "inst_cache.v"
-`include "data_cache.v"
-`include "soc_axi4.v"
-`include "clint.v"
-`include "rvcpu.v"
-`include "defines_axi4.v"
-`include "defines.v"
-`include "uncache_mmio.v"
+`include "ysyx_22040228arbitratem.v"
+`include "ysyx_22040228inst_cache.v"
+`include "ysyx_22040228data_cache.v"
+`include "ysyx_22040228soc_axi4.v"
+`include "ysyx_22040228clint.v"
+`include "ysyx_22040228rvcpu.v"
+`include "ysyx_22040228defines_axi4.v"
+`include "ysyx_22040228defines.v"
+`include "ysyx_22040228uncache_mmio.v"
 module ysyx_22040228 (
-    input       wire                                         clk                  ,
-    input       wire                                         rst                  ,
+    input       wire                                         clock                ,
+    input       wire                                         reset                ,
 
-    input       wire                                         io_interrput         ,
+    input       wire                                         io_interrupt         ,
    //-----------------------------AXI--------------------------------------------//
    //----------------------write address cahnnel---------------------------------//
-    output      wire       [`ysyx22040228_ID_BUS]            out_axi_aw_id        ,
-    output      wire       [31:0]                            out_axi_aw_addr      ,
-    output      wire       [`ysyx22040228_LEN_BUS]           out_axi_aw_len       ,
-    output      wire       [`ysyx22040228_SIZE_BUS]          out_axi_aw_size      ,
-    output      wire       [`ysyx22040228_BURST_BUS]         out_axi_aw_burst     ,
-    output      wire       [`ysyx22040228_CACHE_BUS]         out_axi_aw_cache     ,
-    output      wire       [`ysyx22040228_PROT_BUS]          out_axi_aw_port      ,
-    output      wire       [`ysyx22040228_QOS_BUS]           out_axi_aw_qos       ,
-    output      wire                                         out_axi_aw_valid     ,
-    input       wire                                         out_axi_aw_ready     ,
+    output      wire       [`ysyx22040228_ID_BUS]            io_master_awid       ,
+    output      wire       [31:0]                            io_master_awaddr     ,
+    output      wire       [`ysyx22040228_LEN_BUS]           io_master_awlen      ,
+    output      wire       [`ysyx22040228_SIZE_BUS]          io_master_awsize     ,
+    output      wire       [`ysyx22040228_BURST_BUS]         io_master_awburst    ,
+    // output      wire       [`ysyx22040228_CACHE_BUS]         out_axi_aw_cache     ,
+    // output      wire       [`ysyx22040228_PROT_BUS]          out_axi_aw_port      ,
+    // output      wire       [`ysyx22040228_QOS_BUS]           out_axi_aw_qos       ,
+    output      wire                                         io_master_awvalid    ,
+    input       wire                                         io_master_awready    ,
 
     //----------------------write data channel-----------------------------------//
-    output      wire       [`ysyx22040228_DATA_BUS]          out_axi_w_data       ,
-    output      wire       [`ysyx22040228_STRB_BUS]          out_axi_w_strb       ,
-    output      wire                                         out_axi_w_last       ,
-    output      wire                                         out_axi_w_valid      ,
-    input       wire                                         out_axi_w_ready      ,
+    output      wire       [`ysyx22040228_DATA_BUS]          io_master_wdata       ,
+    output      wire       [`ysyx22040228_STRB_BUS]          io_master_wstrb       ,
+    output      wire                                         io_master_wlast       ,
+    output      wire                                         io_master_wvalid      ,
+    input       wire                                         io_master_wready      ,
 
     //-----------------------write response channel------------------------------//
-    input       wire       [`ysyx22040228_ID_BUS]            out_axi_b_id         ,
-    input       wire       [`ysyx22040228_RESP_BUS]          out_axi_b_resp       ,
-    input       wire                                         out_axi_b_valid      ,
-    output      wire                                         out_axi_b_ready      ,
+    input       wire       [`ysyx22040228_ID_BUS]            io_master_bid         ,
+    input       wire       [`ysyx22040228_RESP_BUS]          io_master_bresp       ,
+    input       wire                                         io_master_bvalid      ,
+    output      wire                                         io_master_bready      ,
 
     //------------------------read address channel-------------------------------//
-    output      wire       [`ysyx22040228_ID_BUS]            out_axi_ar_id        ,
-    output      wire       [31:0]                            out_axi_ar_addr      ,
-    output      wire       [`ysyx22040228_LEN_BUS]           out_axi_ar_len       ,
-    output      wire       [`ysyx22040228_SIZE_BUS]          out_axi_ar_size      ,
-    output      wire       [`ysyx22040228_BURST_BUS]         out_axi_ar_burst     ,
-    output      wire       [`ysyx22040228_CACHE_BUS]         out_axi_ar_cache     ,
-    output      wire       [`ysyx22040228_PROT_BUS]          out_axi_ar_prot      ,
-    output      wire       [`ysyx22040228_QOS_BUS]           out_axi_ar_qos       ,
-    output      wire                                         out_axi_ar_valid     ,
-    input       wire                                         out_axi_ar_ready     ,
+    output      wire       [`ysyx22040228_ID_BUS]            io_master_arid        ,
+    output      wire       [31:0]                            io_master_araddr      ,
+    output      wire       [`ysyx22040228_LEN_BUS]           io_master_arlen       ,
+    output      wire       [`ysyx22040228_SIZE_BUS]          io_master_arsize      ,
+    output      wire       [`ysyx22040228_BURST_BUS]         io_master_arburst     ,
+    // output      wire       [`ysyx22040228_CACHE_BUS]         out_axi_ar_cache     ,
+    // output      wire       [`ysyx22040228_PROT_BUS]          out_axi_ar_prot      ,
+    // output      wire       [`ysyx22040228_QOS_BUS]           out_axi_ar_qos       ,
+    output      wire                                         io_master_arvalid     ,
+    input       wire                                         io_master_arready     ,
 
     //------------------------read data channel----------------------------------//
-    input       wire       [`ysyx22040228_ID_BUS]            out_axi_r_id         ,
-    input       wire       [`ysyx22040228_DATA_BUS]          out_axi_r_data       ,
-    input       wire       [`ysyx22040228_RESP_BUS]          out_axi_r_resp       ,
-    input       wire                                         out_axi_r_last       ,
-    input       wire                                         out_axi_r_valid      ,
-    output      wire                                         out_axi_r_ready      ,
+    input       wire       [`ysyx22040228_ID_BUS]            io_master_rid         ,
+    input       wire       [`ysyx22040228_DATA_BUS]          io_master_rdata       ,
+    input       wire       [`ysyx22040228_RESP_BUS]          io_master_rresp       ,
+    input       wire                                         io_master_rlast       ,
+    input       wire                                         io_master_rvalid      ,
+    output      wire                                         io_master_rready      ,
 
-    output      wire                                         io_slave_awready,
-    input       wire                                         io_slave_awvalid,
-    input       wire       [`ysyx22040228_ID_BUS]            io_slave_awid,
-    input       wire       [31:0]                            io_slave_awaddr,
-    input       wire       [`ysyx22040228_LEN_BUS]           io_slave_awlen,
-    input       wire       [`ysyx22040228_SIZE_BUS]          io_slave_awsize,
-    input       wire       [`ysyx22040228_BURST_BUS]         io_slave_awburst,
-    output      wire                                         io_slave_wready,
-    input       wire                                         io_slave_wvalid,
-    input       wire       [`ysyx22040228_DATA_BUS]          io_slave_wdata,
-    input       wire       [`ysyx22040228_STRB_BUS]          io_slave_wstrb,
-    input       wire                                         io_slave_wlast,
-    input       wire                                         io_slave_bready,
-    output      wire                                         io_slave_bvalid, 
-    output      wire       [`ysyx22040228_ID_BUS]            io_slave_bid,
-    output      wire       [`ysyx22040228_RESP_BUS]          io_slave_bresp,
-    output      wire                                         io_slave_arready,
-    input       wire                                         io_slave_arvalid,
-    input       wire       [`ysyx22040228_ID_BUS]            io_slave_arid,
-    input       wire       [31:0]                            io_slave_araddr,
-    input       wire       [`ysyx22040228_LEN_BUS]           io_slave_arlen,
-    input       wire       [`ysyx22040228_SIZE_BUS]          io_slave_arsize,
-    input       wire       [`ysyx22040228_BURST_BUS]         io_slave_arburst,
-    input       wire                                         io_slave_rready,
-    output      wire                                         io_slave_rvalid,
-    output      wire       [`ysyx22040228_ID_BUS]            io_slave_rid,
-    output      wire       [`ysyx22040228_DATA_BUS]          io_slave_rdata,
-    output      wire       [`ysyx22040228_RESP_BUS]          io_slave_rresp,
-    output      wire                                         io_slave_rlast    
+    output      wire                                         io_slave_awready      ,
+    input       wire                                         io_slave_awvalid      ,
+    input       wire       [`ysyx22040228_ID_BUS]            io_slave_awid         ,
+    input       wire       [31:0]                            io_slave_awaddr       ,
+    input       wire       [`ysyx22040228_LEN_BUS]           io_slave_awlen        ,
+    input       wire       [`ysyx22040228_SIZE_BUS]          io_slave_awsize       ,
+    input       wire       [`ysyx22040228_BURST_BUS]         io_slave_awburst      ,
+    output      wire                                         io_slave_wready       ,
+    input       wire                                         io_slave_wvalid       ,
+    input       wire       [`ysyx22040228_DATA_BUS]          io_slave_wdata        ,
+    input       wire       [`ysyx22040228_STRB_BUS]          io_slave_wstrb        ,
+    input       wire                                         io_slave_wlast        ,
+    input       wire                                         io_slave_bready       ,
+    output      wire                                         io_slave_bvalid       , 
+    output      wire       [`ysyx22040228_ID_BUS]            io_slave_bid          ,
+    output      wire       [`ysyx22040228_RESP_BUS]          io_slave_bresp        ,
+    output      wire                                         io_slave_arready      ,
+    input       wire                                         io_slave_arvalid      ,
+    input       wire       [`ysyx22040228_ID_BUS]            io_slave_arid         ,
+    input       wire       [31:0]                            io_slave_araddr       ,
+    input       wire       [`ysyx22040228_LEN_BUS]           io_slave_arlen        ,
+    input       wire       [`ysyx22040228_SIZE_BUS]          io_slave_arsize       ,
+    input       wire       [`ysyx22040228_BURST_BUS]         io_slave_arburst      ,
+    input       wire                                         io_slave_rready       ,
+    output      wire                                         io_slave_rvalid       ,
+    output      wire       [`ysyx22040228_ID_BUS]            io_slave_rid          ,
+    output      wire       [`ysyx22040228_DATA_BUS]          io_slave_rdata        ,
+    output      wire       [`ysyx22040228_RESP_BUS]          io_slave_rresp        ,
+    output      wire                                         io_slave_rlast        ,
+
+    output      wire       [5:0]                             io_sram0_addr         ,
+    output      wire                                         io_sram0_cen          ,
+    output      wire                                         io_sram0_wen          ,
+    output      wire       [127:0]                           io_sram0_wmask        ,
+    output      wire       [127:0]                           io_sram0_wdata        ,
+    input       wire       [127:0]                           io_sram0_rdata        ,
+    output      wire       [5:0]                             io_sram1_addr         ,
+    output      wire                                         io_sram1_cen          ,
+    output      wire                                         io_sram1_wen          ,
+    output      wire       [127:0]                           io_sram1_wmask        , 
+    output      wire       [127:0]                           io_sram1_wdata        ,
+    input       wire       [127:0]                           io_sram1_rdata        ,
+    output      wire       [5:0]                             io_sram2_addr         ,
+    output                                                   io_sram2_cen          ,
+    output                                                   io_sram2_wen          ,
+    output      wire       [127:0]                           io_sram2_wmask        ,
+    output      wire       [127:0]                           io_sram2_wdata        ,
+    input       wire       [127:0]                           io_sram2_rdata        ,
+    output      wire       [5:0]                             io_sram3_addr         ,
+    output      wire                                         io_sram3_cen          ,
+    output      wire                                         io_sram3_wen          ,
+    output      wire       [127:0]                           io_sram3_wmask        ,
+    output      wire       [127:0]                           io_sram3_wdata        ,
+    input       wire       [127:0]                           io_sram3_rdata        ,
+    output      wire       [5:0]                             io_sram4_addr         ,
+    output      wire                                         io_sram4_cen          ,
+    output      wire                                         io_sram4_wen          ,
+    output      wire       [127:0]                           io_sram4_wmask        ,
+    output      wire       [127:0]                           io_sram4_wdata        ,
+    input       wire       [127:0]                           io_sram4_rdata        ,
+    output      wire       [5:0]                             io_sram5_addr         ,
+    output      wire                                         io_sram5_cen          ,
+    output      wire                                         io_sram5_wen          ,
+    output      wire       [127:0]                           io_sram5_wmask        ,
+    output      wire       [127:0]                           io_sram5_wdata        ,
+    input       wire       [127:0]                           io_sram5_rdata        ,
+    output      wire       [5:0]                             io_sram6_addr         ,
+    output      wire                                         io_sram6_cen          ,
+    output      wire                                         io_sram6_wen          ,
+    output      wire       [127:0]                           io_sram6_wmask        ,
+    output      wire       [127:0]                           io_sram6_wdata        ,
+    input       wire       [127:0]                           io_sram6_rdata        ,
+    output      wire       [5:0]                             io_sram7_addr         ,
+    output      wire                                         io_sram7_cen          ,
+    output      wire                                         io_sram7_wen          ,
+    output      wire       [127:0]                           io_sram7_wmask        ,
+    output      wire       [127:0]                           io_sram7_wdata        ,
+    input       wire       [127:0]                           io_sram7_rdata        
 );
 
     assign io_slave_awready = 1'b0 ;
@@ -109,10 +158,45 @@ module ysyx_22040228 (
     assign io_slave_rresp   = 2'b00 ;
     assign io_slave_rlast   = 1'b0  ;
 
-    //parameter SLAVE_NUM =  3 ;
+    assign io_sram2_addr    = 6'b000000  ;
+    assign io_sram2_cen     = 1'b1       ;
+    assign io_sram2_wen     = 1'b1       ;
+    assign io_sram2_wmask   = 128'h0     ;
+    assign io_sram2_wdata   = 128'h0     ;
+
+    assign io_sram3_addr    = 6'b000000  ;
+    assign io_sram3_cen     = 1'b1       ;
+    assign io_sram3_wen     = 1'b1       ;
+    assign io_sram3_wmask   = 128'h0     ;
+    assign io_sram3_wdata   = 128'h0     ;
+
+    assign io_sram4_addr    = 6'b000000  ;
+    assign io_sram4_cen     = 1'b1       ;
+    assign io_sram4_wen     = 1'b1       ;
+    assign io_sram4_wmask   = 128'h0     ;
+    assign io_sram4_wdata   = 128'h0     ;
+
+    assign io_sram5_addr    = 6'b000000  ;
+    assign io_sram5_cen     = 1'b1       ;
+    assign io_sram5_wen     = 1'b1       ;
+    assign io_sram5_wmask   = 128'h0     ;
+    assign io_sram5_wdata   = 128'h0     ;
+
+    assign io_sram6_addr    = 6'b000000  ;
+    assign io_sram6_cen     = 1'b1       ;
+    assign io_sram6_wen     = 1'b1       ;
+    assign io_sram6_wmask   = 128'h0     ;
+    assign io_sram6_wdata   = 128'h0     ;
+
+    assign io_sram7_addr    = 6'b000000  ;
+    assign io_sram7_cen     = 1'b1       ;
+    assign io_sram7_wen     = 1'b1       ;
+    assign io_sram7_wmask   = 128'h0     ;
+    assign io_sram7_wdata   = 128'h0     ;
+
     //-----------------------------wire about rvcpu------------------------------//
     wire aclk;
-    assign aclk = clk ;
+    assign aclk = clock ;
 
     wire  [63:0]    rvcpu_inst_addr  ;
     wire  [63:0]    rvcpu_data_addr  ;
@@ -165,7 +249,7 @@ module ysyx_22040228 (
 
     wire   time_init_sign            ;
     wire   interrupt_                ;
-    assign interrupt_ = time_init_sign | io_interrput;
+    assign interrupt_ = time_init_sign | io_interrupt;
 
     wire   [`ysyx22040228_ID_BUS]    t_axi_aw_id    ;
     wire   [`ysyx22040228_ADDR_BUS]  t_axi_aw_addr  ;
@@ -413,9 +497,9 @@ module ysyx_22040228 (
     assign  {soc_axi_r_ready   , tim_axi_r_ready   /* , io_axi_r_ready   */}   =  add_axi_r_ready ;
 
 
-    rvcpu rvcpu1 (
+    ysyx_22040228rvcpu rvcpu1 (
         .clk                 (aclk                ) ,
-        .rst                 (rst                 ) ,
+        .rst                 (reset               ) ,
         
         .inst_addr           (rvcpu_inst_addr     ) ,
     
@@ -440,7 +524,7 @@ module ysyx_22040228 (
     );
 
     wire [1:0] mmio_thing ;
-    uncache_mmio uncache_mmio7(
+    ysyx_22040228uncache_mmio uncache_mmio7(
         //.clk                 (aclk                ) ,
         //.rst                 (rst                 ) ,
         .mmio_sign           (mmio_thing          ) ,
@@ -474,10 +558,20 @@ module ysyx_22040228 (
         .in_dcache_data      (uncache_dc_data_o   ) ,
         .in_dcache_finish    (uncache_dc_finish   )
     );
+    wire   [5:0]   inst_cache_addr ;
+    assign io_sram0_addr = inst_cache_addr ;
+    wire           inst_cache_ce   ;
+    assign io_sram0_cen  = inst_cache_ce   ;
+    wire           inst_cache_we   ;
+    assign io_sram0_wen = inst_cache_we    ;        
+    wire   [127:0] inst_cache_strb ;
+    assign io_sram0_wmask = inst_cache_strb ;
+    wire   [127:0] inst_cache_wdata ;
+    assign io_sram0_wdata = inst_cache_wdata ;
 
-    inst_cache inst_cache2 (
+    ysyx_22040228inst_cache inst_cache2 (
         .clk                 (aclk                ) ,
-        .rst                 (rst                 ) ,
+        .rst                 (reset               ) ,
         .inst_addr           (rvcpu_inst_addr     ) ,
         .inst_ready          (i_cache_ready       ) ,
         .core_stall          (core_stall_l        ) ,
@@ -488,12 +582,28 @@ module ysyx_22040228 (
         .cache_read_ena      (i_cache_read_ena    ) ,
         .cache_addr          (i_cache_addr        ) ,
         .cache_in_data       (arbitrate_i_data    ) ,
-        .cache_in_valid      (arbitrate_i_ok      )                       
+        .cache_in_valid      (arbitrate_i_ok      ) ,
+
+        .CE                  (inst_cache_ce       ) ,
+        .w_data_ena          (~inst_cache_we      ) ,
+        .w_strb_ram          (~inst_cache_strb    ) ,
+        .icache_index        (inst_cache_addr     ) ,
+        .w_data_ram          (inst_cache_wdata    ) ,
+        .data_out            (io_sram0_rdata      )                
 );
-    
-    data_cache data_cache3 (
+    wire   [5:0]   data_cache_addr ;
+    assign io_sram1_addr = data_cache_addr ;
+    wire           data_cache_ce   ;
+    assign io_sram1_cen  = data_cache_ce   ;
+    wire           data_cache_we   ;
+    assign io_sram1_wen = data_cache_we    ;        
+    wire   [127:0] data_cache_strb ;
+    assign io_sram1_wmask = data_cache_strb ;
+    wire   [127:0] data_cache_wdata ;
+    assign io_sram1_wdata = data_cache_wdata ;
+    ysyx_22040228data_cache data_cache3 (
         .clk                 (aclk               ) ,
-        .rst                 (rst                ) ,
+        .rst                 (reset              ) ,
 
         .mem_addr_i          (uncache_dc_addr    ) ,
         .mem_data_i          (uncache_dc_data    ) ,
@@ -508,13 +618,20 @@ module ysyx_22040228 (
         .in_dcache_ready     (arbitrate_d_ok     ) ,
         .out_dcache_addr     (d_cache_out_addr   ) ,
         .out_dcache_data     (d_cache_out_data   ) ,
-        .out_dcache_type     (d_cache_out_type   )
+        .out_dcache_type     (d_cache_out_type   ) ,
+
+        .CE                  (data_cache_ce      ) ,
+        .w_data_ena          (~data_cache_we     ) ,
+        .w_strb_ram          (~data_cache_strb   ) ,
+        .w_data_addr         (data_cache_addr    ) ,
+        .w_data_ram          (data_cache_wdata   ) ,
+        .data_out            (io_sram1_rdata     )
 
     );
 
-    arbitratem arbitratem4(
+    ysyx_22040228arbitratem arbitratem4(
         .clk                 (aclk               ) ,
-        .rst                 (rst                ) ,
+        .rst                 (reset              ) ,
 
         .d_cache_addr        (d_cache_out_addr   ) ,
         .d_cache_data        (d_cache_out_data   ) ,
@@ -646,45 +763,45 @@ module ysyx_22040228 (
     //     .write_ram_addr      (write_addr_sign    )     
     // );
 
-    assign out_axi_aw_id   = soc_axi_aw_id ;
-    assign out_axi_aw_addr = soc_axi_aw_addr[31:0];
-    assign out_axi_aw_len  = soc_axi_aw_len ;
-    assign out_axi_aw_size = soc_axi_aw_size;
-    assign out_axi_aw_burst = soc_axi_aw_burst;
-    assign out_axi_aw_cache = soc_axi_aw_cache;
-    assign out_axi_aw_port  = soc_axi_aw_port;
-    assign out_axi_aw_qos   = soc_axi_aw_qos ;
-    assign out_axi_aw_valid = soc_axi_aw_valid;
-    assign soc_axi_aw_ready = out_axi_aw_ready;
+    assign io_master_awid   = soc_axi_aw_id ;
+    assign io_master_awaddr = soc_axi_aw_addr[31:0];
+    assign io_master_awlen  = soc_axi_aw_len ;
+    assign io_master_awsize = soc_axi_aw_size;
+    assign io_master_awburst = soc_axi_aw_burst;
+    // assign out_axi_aw_cache = soc_axi_aw_cache;
+    // assign out_axi_aw_port  = soc_axi_aw_port;
+    // assign out_axi_aw_qos   = soc_axi_aw_qos ;
+    assign io_master_awvalid = soc_axi_aw_valid;
+    assign soc_axi_aw_ready = io_master_awready;
 
-    assign out_axi_w_data   = soc_axi_w_data ;
-    assign out_axi_w_strb   = soc_axi_w_strb ;
-    assign out_axi_w_last   = soc_axi_w_last ;
-    assign out_axi_w_valid  = soc_axi_w_valid;
-    assign soc_axi_w_ready  = out_axi_w_ready;
+    assign io_master_wdata   = soc_axi_w_data ;
+    assign io_master_wstrb   = soc_axi_w_strb ;
+    assign io_master_wlast   = soc_axi_w_last ;
+    assign io_master_wvalid  = soc_axi_w_valid;
+    assign soc_axi_w_ready  = io_master_wready;
 
-    assign soc_axi_b_id     = out_axi_b_id   ;
-    assign soc_axi_b_resp   = out_axi_b_resp ;
-    assign soc_axi_b_valid  = out_axi_b_valid;
-    assign out_axi_b_ready  = soc_axi_b_ready;
+    assign soc_axi_b_id     = io_master_bid   ;
+    assign soc_axi_b_resp   = io_master_bresp ;
+    assign soc_axi_b_valid  = io_master_bvalid;
+    assign io_master_bready  = soc_axi_b_ready;
 
-    assign out_axi_ar_id    = soc_axi_ar_id  ;
-    assign out_axi_ar_addr  = soc_axi_ar_addr[31:0];
-    assign out_axi_ar_len   = soc_axi_ar_len ;
-    assign out_axi_ar_size  = soc_axi_ar_size;
-    assign out_axi_ar_burst = soc_axi_ar_burst;
-    assign out_axi_ar_cache = soc_axi_ar_cache;
-    assign out_axi_ar_prot  = soc_axi_ar_prot;
-    assign out_axi_ar_qos   = soc_axi_ar_qos ;
-    assign out_axi_ar_valid = soc_axi_ar_valid;
-    assign soc_axi_ar_ready = out_axi_ar_ready;
+    assign io_master_arid    = soc_axi_ar_id  ;
+    assign io_master_araddr  = soc_axi_ar_addr[31:0];
+    assign io_master_arlen   = soc_axi_ar_len ;
+    assign io_master_arsize  = soc_axi_ar_size;
+    assign io_master_arburst = soc_axi_ar_burst;
+    // assign out_axi_ar_cache = soc_axi_ar_cache;
+    // assign out_axi_ar_prot  = soc_axi_ar_prot;
+    // assign out_axi_ar_qos   = soc_axi_ar_qos ;
+    assign io_master_arvalid = soc_axi_ar_valid;
+    assign soc_axi_ar_ready = io_master_arready;
 
-    assign soc_axi_r_data   = out_axi_r_data ;
-    assign soc_axi_r_id     = out_axi_r_id   ;
-    assign soc_axi_r_last   = out_axi_r_last ;
-    assign soc_axi_r_resp   = out_axi_r_resp ;
-    assign soc_axi_r_valid  = out_axi_r_valid;
-    assign out_axi_r_ready  = soc_axi_r_ready;
+    assign soc_axi_r_data   = io_master_rdata ;
+    assign soc_axi_r_id     = io_master_rid   ;
+    assign soc_axi_r_last   = io_master_rlast ;
+    assign soc_axi_r_resp   = io_master_rresp ;
+    assign soc_axi_r_valid  = io_master_rvalid;
+    assign io_master_rready  = soc_axi_r_ready;
 
 
 
@@ -692,9 +809,9 @@ module ysyx_22040228 (
     assign prot_chose_write = mmio_thing ;
     wire   [1:0]   prot_chose_read ;// = 3'b100 ;
     assign prot_chose_read = mmio_thing;
-    soc_axi4 soc_axi45 (
+    ysyx_22040228soc_axi4 soc_axi45 (
         .clk                 (aclk              ) ,
-        .rst                 (rst               ) ,
+        .rst                 (reset             ) ,
         .prot_chose_write    (prot_chose_write  ) ,
         .prot_chose_read     (prot_chose_read   ) ,
 
@@ -781,9 +898,9 @@ module ysyx_22040228 (
         .slave_axi_r_ready   (add_axi_r_ready   ) 
     );
 
-    clint clint6 (
+    ysyx_22040228clint clint6 (
         .clk                 (aclk              ) ,
-        .rst                 (rst               ) ,
+        .rst                 (reset             ) ,
         .time_interrupt      (time_init_sign    ) ,
 
         .time_axi_aw_id      (tim_axi_aw_id     ) , 
