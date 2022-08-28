@@ -4,7 +4,7 @@ Name:csr.v
 Function:The necessary registers in machine mode are designed
          andimplented.
 ************************************************************/
-`include "defines.v"
+`include "ysyx_22040228defines.v"
 module ysyx_22040228csr (
     input          wire                                        clk              ,
     input          wire                                        rst              ,

@@ -3,8 +3,8 @@ Author:LiGuoqi
 Name:regfile.v
 Function:32 general purpose registers
 ************************************************************/
-`include "defines.v"
-module ysyx22040228regfile (
+`include "ysyx_22040228defines.v"
+module ysyx_22040228regfile (
 	input                   wire                                     clk            ,
 	input                   wire                                     rst            ,
 

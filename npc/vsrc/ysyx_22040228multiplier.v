@@ -3,7 +3,7 @@ Author:LiGuoqi
 Name:multiplier.v
 Function:execute muliplication instruction
 ************************************************************/
-`include "defines.v"
+`include "ysyx_22040228defines.v"
 module ysyx_22040228multiplier (
     inout          wire                                            clk              ,
     input          wire                                            rst              ,

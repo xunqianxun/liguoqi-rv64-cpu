@@ -3,7 +3,7 @@ Author:LiGuoqi
 Name:if_idr.v
 Function:From IR-DATA get instruct spread id module
 ************************************************************/
-`include "defines.v"
+`include "ysyx_22040228defines.v"
 module ysyx_22040228if_id (
     //系统信号
     input    wire                                              clk          ,

@@ -3,7 +3,7 @@ Author:LiGuoqi
 Name:pc.v
 Function:Instruction address transmitter
 ************************************************************/
-`include "defines.v"
+`include "ysyx_22040228defines.v"
 module ysyx_22040228pc ( 
     //系统输入
     input    wire                                           clk          ,

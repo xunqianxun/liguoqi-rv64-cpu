@@ -3,7 +3,7 @@ Author:LiGuoqi
 Name:ex_mem.v
 Function:Intermediate module for memory access
 ************************************************************/
-`include "defines.v"
+`include "ysyx_22040228defines.v"
 module ysyx_22040228ex_mem (
     input              wire                                              clk             ,
     input              wire                                              rst             ,

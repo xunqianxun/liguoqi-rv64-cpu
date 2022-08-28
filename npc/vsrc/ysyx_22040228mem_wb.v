@@ -4,7 +4,7 @@ Name:mem_wb.v
 Function:write data back to regfile module
 ************************************************************/
 /* verilator lint_off UNUSED */
-`include "defines.v"
+`include "ysyx_22040228defines.v"
 module ysyx_22040228mem_wb (
     input                   wire                                             clk            ,
     input                   wire                                             rst            ,

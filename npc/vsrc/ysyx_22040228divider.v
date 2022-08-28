@@ -3,7 +3,7 @@ Author:LiGuoqi
 Name:divider.v
 Function:execute muliplication instruction
 ************************************************************/
-`include "defines.v"
+`include "ysyx_22040228defines.v"
 
 `define ysyx22040228_DIV_SIGN       3'b001 
 `define ysyx22040228_DIV_DOING      3'b010

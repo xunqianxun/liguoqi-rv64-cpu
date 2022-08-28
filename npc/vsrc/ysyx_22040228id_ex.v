@@ -3,7 +3,7 @@ Author:LiGuoqi
 Name:id_ex.v
 Function: Intermediate module for compiling code and executing
 ************************************************************/
-`include "defines.v"
+`include "ysyx_22040228defines.v"
 module ysyx_22040228id_ex (
     input       wire                                     clk                ,
     input       wire                                     rst                ,

@@ -3,7 +3,7 @@ Author:LiGuoqi
 Name:ctrl.v
 Function:Pause control of the whole pipeline
 ************************************************************/
-`include "defines.v"
+`include "ysyx_22040228defines.v"
 module ysyx_22040228ctrl (
     input                   wire                                      rst           ,
     input                   wire                                      if_stall_req  ,
