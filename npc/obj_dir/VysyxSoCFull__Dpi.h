@@ -15,7 +15,7 @@ extern "C" {
     // DPI IMPORTS
     // DPI import at vsrc//spiFlash.v:88:30
     extern void flash_read(long long addr, long long* data);
-    // DPI import at vsrc//if_id.v:33:31
+    // DPI import at vsrc//ysyx_22040228if_id.v:33:31
     extern void if_id_thepc(long long thepc_data, const svBitVecVal* the_inst);
 
 #ifdef __cplusplus

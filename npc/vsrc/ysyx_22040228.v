@@ -563,9 +563,9 @@ module ysyx_22040228 (
     wire           inst_cache_ce   ;
     assign io_sram0_cen  = inst_cache_ce   ;
     wire           inst_cache_we   ;
-    assign io_sram0_wen = inst_cache_we    ;        
+    assign io_sram0_wen = ~inst_cache_we    ;        
     wire   [127:0] inst_cache_strb ;
-    assign io_sram0_wmask = inst_cache_strb ;
+    assign io_sram0_wmask = ~inst_cache_strb ;
     wire   [127:0] inst_cache_wdata ;
     assign io_sram0_wdata = inst_cache_wdata ;
 
@@ -585,8 +585,8 @@ module ysyx_22040228 (
         .cache_in_valid      (arbitrate_i_ok      ) ,
 
         .CE                  (inst_cache_ce       ) ,
-        .w_data_ena          (~inst_cache_we      ) ,
-        .w_strb_ram          (~inst_cache_strb    ) ,
+        .w_data_ena          (inst_cache_we       ) ,
+        .w_strb_ram          (inst_cache_strb    ) ,
         .icache_index        (inst_cache_addr     ) ,
         .w_data_ram          (inst_cache_wdata    ) ,
         .data_out            (io_sram0_rdata      )                
@@ -596,9 +596,9 @@ module ysyx_22040228 (
     wire           data_cache_ce   ;
     assign io_sram1_cen  = data_cache_ce   ;
     wire           data_cache_we   ;
-    assign io_sram1_wen = data_cache_we    ;        
+    assign io_sram1_wen = ~data_cache_we    ;        
     wire   [127:0] data_cache_strb ;
-    assign io_sram1_wmask = data_cache_strb ;
+    assign io_sram1_wmask = ~data_cache_strb ;
     wire   [127:0] data_cache_wdata ;
     assign io_sram1_wdata = data_cache_wdata ;
     ysyx_22040228data_cache data_cache3 (
@@ -621,8 +621,8 @@ module ysyx_22040228 (
         .out_dcache_type     (d_cache_out_type   ) ,
 
         .CE                  (data_cache_ce      ) ,
-        .w_data_ena          (~data_cache_we     ) ,
-        .w_strb_ram          (~data_cache_strb   ) ,
+        .w_data_ena          (data_cache_we      ) ,
+        .w_strb_ram          (data_cache_strb    ) ,
         .w_data_addr         (data_cache_addr    ) ,
         .w_data_ram          (data_cache_wdata   ) ,
         .data_out            (io_sram1_rdata     )
