@@ -104,10 +104,29 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
     VlWide<16>/*511:0*/ __Vtemp667;
     VlWide<16>/*511:0*/ __Vtemp670;
     VlWide<16>/*511:0*/ __Vtemp671;
-    VlWide<16>/*511:0*/ __Vtemp672;
-    VlWide<16>/*511:0*/ __Vtemp675;
-    VlWide<16>/*511:0*/ __Vtemp676;
     // Body
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
+                      & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
+                     & (~ ((0U == (0xffU & (~ (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_mask)))) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136001: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+                  64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136001, "");
+    }
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
+                      & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
+                     & (~ ((~ (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_corrupt)) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_FWRITEF(0x80000002U,"Assertion failed: 'A' channel AcquireBlock is corrupt (connected at ChipLinkBridge.scala:171:32)\n    at Monitor.scala:42 assert(cond, message)\n");
+    }
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
+                      & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
+                     & (~ ((~ (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_corrupt)) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136025: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+                  64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136025, "");
+    }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (7U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
                      & (~ ((((((((((0U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_source) 
@@ -130,9 +149,33 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                                & (0U == (0x1000U & 
                                          (0x1000U ^ vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_address))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:135867: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_FWRITEF(0x80000002U,"Assertion failed: 'A' channel carries AcquirePerm type which is unexpected using diplomatic parameters (connected at ChipLinkBridge.scala:171:32)\n    at Monitor.scala:42 assert(cond, message)\n");
+    }
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
+                      & (7U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
+                     & (~ ((((((((((0U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_source) 
+                                                 >> 4U))) 
+                                   | (1U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_source) 
+                                                   >> 4U)))) 
+                                  | (2U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_source) 
+                                                  >> 4U)))) 
+                                 | (3U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_source) 
+                                                 >> 4U)))) 
+                                | (4U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_source) 
+                                                >> 4U)))) 
+                               | (5U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_source) 
+                                               >> 4U)))) 
+                              | (6U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_source) 
+                                              >> 4U)))) 
+                             | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_source) 
+                                             >> 4U)))) 
+                            & ((6U >= (7U & (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_size))) 
+                               & (0U == (0x1000U & 
+                                         (0x1000U ^ vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_address))))) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136049: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 135867, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136049, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (7U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -152,9 +195,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                             & (0U == (0x1000U & (0x1000U 
                                                  ^ vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_address)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:135891: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136073: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 135891, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136073, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (7U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -196,9 +239,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                             | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_source) 
                                             >> 4U)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:135915: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136097: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 135915, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136097, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (7U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -210,9 +253,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                       & (7U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
                      & (~ ((3U <= (7U & (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_size))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:135939: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136121: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 135939, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136121, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (7U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -234,9 +277,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                                                      (7U 
                                                       & (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_size)))))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:135963: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136145: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 135963, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136145, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (7U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -248,9 +291,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                       & (7U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
                      & (~ ((2U >= (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:135987: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136169: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 135987, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136169, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (7U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -262,9 +305,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                       & (7U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
                      & (~ ((0U != (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136011: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136193: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136011, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136193, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (7U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -276,9 +319,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                       & (7U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
                      & (~ ((0U == (0xffU & (~ (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_mask)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136035: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136217: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136035, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136217, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (7U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -290,9 +333,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                       & (7U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
                      & (~ ((~ (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_corrupt)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136059: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136241: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136059, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136241, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -334,9 +377,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                             | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_source) 
                                             >> 4U)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136083: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136265: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136083, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136265, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -352,9 +395,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                             & (0U == (0x1000U & (0x1000U 
                                                  ^ vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_address)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136107: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136289: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136107, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136289, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -396,9 +439,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                             | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_source) 
                                             >> 4U)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136131: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136313: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136131, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136313, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -420,9 +463,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                                                      (7U 
                                                       & (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_size)))))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136155: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136337: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136155, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136337, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -434,9 +477,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
                      & (~ ((0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136179: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136361: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136179, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136361, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -450,9 +493,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                      & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_mask) 
                             == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__mask)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136203: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136385: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136203, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136385, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -464,9 +507,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
                      & (~ ((~ (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_corrupt)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136227: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136409: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136227, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136409, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -514,9 +557,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                                & (0U == (0x1000U & 
                                          (0x1000U ^ vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_address))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136251: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136433: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136251, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136433, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -558,9 +601,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                             | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_source) 
                                             >> 4U)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136275: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136457: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136275, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136457, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -582,9 +625,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                                                      (7U 
                                                       & (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_size)))))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136299: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136481: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136299, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136481, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -596,9 +639,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                       & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
                      & (~ ((0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136323: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136505: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136323, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136505, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -612,9 +655,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                      & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_mask) 
                             == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__mask)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136347: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136529: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136347, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136529, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (1U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -662,9 +705,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                                & (0U == (0x1000U & 
                                          (0x1000U ^ vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_address))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136371: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136553: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136371, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136553, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (1U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -706,9 +749,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                             | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_source) 
                                             >> 4U)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136395: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136577: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136395, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136577, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (1U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -730,9 +773,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                                                      (7U 
                                                       & (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_size)))))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136419: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136601: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136419, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136601, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (1U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -744,9 +787,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                       & (1U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
                      & (~ ((0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136443: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136625: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136443, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136625, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (1U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -760,9 +803,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                      & (~ ((0U == ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_mask) 
                                    & (~ (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__mask)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136467: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136649: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136467, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136649, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (2U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -810,9 +853,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                                & (0U == (0x1000U & 
                                          (0x1000U ^ vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_address))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136491: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136673: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136491, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136673, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (2U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -854,9 +897,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                             | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_source) 
                                             >> 4U)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136515: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136697: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136515, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136697, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (2U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -878,9 +921,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                                                      (7U 
                                                       & (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_size)))))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136539: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136721: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136539, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136721, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (2U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -892,9 +935,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                       & (2U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
                      & (~ ((4U >= (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136563: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136745: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136563, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136745, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (2U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -908,9 +951,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                      & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_mask) 
                             == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__mask)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136587: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136769: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136587, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136769, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (3U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -958,9 +1001,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                                & (0U == (0x1000U & 
                                          (0x1000U ^ vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_address))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136611: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136793: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136611, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136793, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (3U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -1002,9 +1045,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                             | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_source) 
                                             >> 4U)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136635: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136817: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136635, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136817, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (3U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -1026,9 +1069,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                                                      (7U 
                                                       & (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_size)))))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136659: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136841: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136659, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136841, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (3U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -1040,9 +1083,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                       & (3U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
                      & (~ ((3U >= (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136683: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136865: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136683, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136865, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (3U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -1056,9 +1099,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                      & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_mask) 
                             == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__mask)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136707: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136889: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136707, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136889, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -1106,9 +1149,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                                & (0U == (0x1000U & 
                                          (0x1000U ^ vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_address))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136731: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136913: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136731, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136913, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -1150,9 +1193,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                             | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_source) 
                                             >> 4U)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136755: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136937: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136755, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136937, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -1174,9 +1217,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                                                      (7U 
                                                       & (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_size)))))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136779: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136961: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136779, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136961, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -1188,9 +1231,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
                      & (~ ((1U >= (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136803: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136985: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136803, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136985, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -1204,9 +1247,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                      & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_mask) 
                             == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__mask)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136827: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137009: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136827, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137009, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
@@ -1218,9 +1261,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))) 
                      & (~ ((~ (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_corrupt)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136851: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137033: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136851, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137033, "");
     }
     if (VL_UNLIKELY(((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor_io_in_d_valid) 
                      & (~ ((6U >= (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode)) 
@@ -1230,9 +1273,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
     if (VL_UNLIKELY(((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor_io_in_d_valid) 
                      & (~ ((6U >= (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136875: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137057: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136875, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137057, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor_io_in_d_valid) 
                       & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode))) 
@@ -1274,9 +1317,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                             | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_source) 
                                             >> 4U)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136899: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137081: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136899, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137081, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor_io_in_d_valid) 
                       & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode))) 
@@ -1288,9 +1331,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                       & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode))) 
                      & (~ ((3U <= (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_size)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136923: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137105: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136923, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137105, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor_io_in_d_valid) 
                       & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode))) 
@@ -1302,9 +1345,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                       & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode))) 
                      & (~ ((0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136947: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137129: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136947, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137129, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor_io_in_d_valid) 
                       & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode))) 
@@ -1318,9 +1361,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                      & (~ ((~ ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_corrupt) 
                                | (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__corrupt_reg))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136971: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137153: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136971, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137153, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor_io_in_d_valid) 
                       & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode))) 
@@ -1332,9 +1375,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                       & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode))) 
                      & (~ ((~ (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_denied)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:136995: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137177: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 136995, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137177, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor_io_in_d_valid) 
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode))) 
@@ -1376,9 +1419,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                             | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_source) 
                                             >> 4U)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137019: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137201: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137019, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137201, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor_io_in_d_valid) 
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode))) 
@@ -1390,9 +1433,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode))) 
                      & (~ ((3U <= (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_size)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137043: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137225: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137043, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137225, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor_io_in_d_valid) 
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode))) 
@@ -1404,9 +1447,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode))) 
                      & (~ ((2U >= (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137067: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137249: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137067, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137249, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor_io_in_d_valid) 
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode))) 
@@ -1418,9 +1461,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode))) 
                      & (~ ((2U != (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137091: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137273: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137091, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137273, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor_io_in_d_valid) 
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode))) 
@@ -1434,9 +1477,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                      & (~ ((~ ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_corrupt) 
                                | (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__corrupt_reg))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137115: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137297: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137115, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137297, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor_io_in_d_valid) 
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode))) 
@@ -1478,9 +1521,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                             | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_source) 
                                             >> 4U)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137139: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137321: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137139, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137321, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor_io_in_d_valid) 
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode))) 
@@ -1492,9 +1535,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode))) 
                      & (~ ((3U <= (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_size)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137163: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137345: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137163, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137345, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor_io_in_d_valid) 
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode))) 
@@ -1506,9 +1549,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode))) 
                      & (~ ((2U >= (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137187: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137369: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137187, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137369, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor_io_in_d_valid) 
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode))) 
@@ -1520,9 +1563,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode))) 
                      & (~ ((2U != (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137211: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137393: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137211, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137393, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor_io_in_d_valid) 
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode))) 
@@ -1538,9 +1581,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                             | ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_corrupt) 
                                | (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__corrupt_reg))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137235: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137417: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137235, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137417, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor_io_in_d_valid) 
                       & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode))) 
@@ -1582,9 +1625,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                             | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_source) 
                                             >> 4U)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137259: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137441: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137259, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137441, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor_io_in_d_valid) 
                       & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode))) 
@@ -1596,9 +1639,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                       & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode))) 
                      & (~ ((0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137283: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137465: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137283, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137465, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor_io_in_d_valid) 
                       & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode))) 
@@ -1612,9 +1655,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                      & (~ ((~ ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_corrupt) 
                                | (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__corrupt_reg))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137307: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137489: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137307, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137489, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor_io_in_d_valid) 
                       & (1U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode))) 
@@ -1656,9 +1699,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                             | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_source) 
                                             >> 4U)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137331: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137513: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137331, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137513, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor_io_in_d_valid) 
                       & (1U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode))) 
@@ -1670,9 +1713,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                       & (1U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode))) 
                      & (~ ((0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137355: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137537: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137355, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137537, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor_io_in_d_valid) 
                       & (1U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode))) 
@@ -1688,9 +1731,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                             | ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_corrupt) 
                                | (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__corrupt_reg))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137379: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137561: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137379, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137561, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor_io_in_d_valid) 
                       & (2U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode))) 
@@ -1732,9 +1775,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                             | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_source) 
                                             >> 4U)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137403: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137585: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137403, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137585, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor_io_in_d_valid) 
                       & (2U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode))) 
@@ -1746,9 +1789,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                       & (2U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode))) 
                      & (~ ((0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137427: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137609: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137427, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137609, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor_io_in_d_valid) 
                       & (2U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode))) 
@@ -1762,9 +1805,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                      & (~ ((~ ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_corrupt) 
                                | (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__corrupt_reg))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137451: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137633: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137451, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137633, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
@@ -1778,9 +1821,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                      & (~ ((0U == (0x1000U & (0x1000U 
                                               ^ vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_address))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137475: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137657: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137475, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137657, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
@@ -1822,9 +1865,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                             | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_source) 
                                             >> 3U)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137499: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137681: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137499, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137681, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
@@ -1836,9 +1879,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
                      & (~ ((3U <= (7U & (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_size))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137523: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137705: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137523, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137705, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
@@ -1860,9 +1903,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                                                      (7U 
                                                       & (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_size)))))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137547: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137729: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137547, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137729, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
@@ -1874,9 +1917,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
                      & (~ ((5U >= (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137571: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137753: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137571, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137753, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
@@ -1890,9 +1933,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                      & (~ ((0U == (0x1000U & (0x1000U 
                                               ^ vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_address))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137595: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137777: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137595, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137777, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
@@ -1934,9 +1977,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                             | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_source) 
                                             >> 3U)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137619: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137801: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137619, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137801, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
@@ -1948,9 +1991,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
                      & (~ ((3U <= (7U & (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_size))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137643: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137825: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137643, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137825, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
@@ -1972,9 +2015,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                                                      (7U 
                                                       & (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_size)))))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137667: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137849: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137667, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137849, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
@@ -1986,9 +2029,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
                      & (~ ((5U >= (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137691: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137873: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137691, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137873, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
@@ -2036,9 +2079,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                                & (0U == (0x1000U & 
                                          (0x1000U ^ vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_address))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137715: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137897: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137715, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137897, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
@@ -2058,9 +2101,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                             & (0U == (0x1000U & (0x1000U 
                                                  ^ vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_address)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137739: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137921: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137739, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137921, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
@@ -2102,9 +2145,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                             | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_source) 
                                             >> 3U)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137763: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137945: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137763, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137945, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
@@ -2116,9 +2159,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                       & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
                      & (~ ((3U <= (7U & (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_size))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137787: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137969: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137787, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137969, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
@@ -2140,9 +2183,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                                                      (7U 
                                                       & (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_size)))))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137811: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137993: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137811, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137993, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
@@ -2154,9 +2197,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                       & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
                      & (~ ((5U >= (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137835: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138017: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137835, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138017, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (7U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
@@ -2204,9 +2247,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                                & (0U == (0x1000U & 
                                          (0x1000U ^ vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_address))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137859: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138041: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137859, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138041, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (7U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
@@ -2226,9 +2269,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                             & (0U == (0x1000U & (0x1000U 
                                                  ^ vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_address)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137883: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138065: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137883, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138065, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (7U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
@@ -2270,9 +2313,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                             | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_source) 
                                             >> 3U)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137907: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138089: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137907, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138089, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (7U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
@@ -2284,9 +2327,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                       & (7U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
                      & (~ ((3U <= (7U & (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_size))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137931: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138113: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137931, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138113, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (7U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
@@ -2308,9 +2351,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                                                      (7U 
                                                       & (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_size)))))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137955: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138137: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137955, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138137, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (7U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
@@ -2322,9 +2365,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                       & (7U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
                      & (~ ((5U >= (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:137979: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138161: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 137979, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138161, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
@@ -2338,9 +2381,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                      & (~ ((0U == (0x1000U & (0x1000U 
                                               ^ vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_address))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138003: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138185: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138003, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138185, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
@@ -2382,9 +2425,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                             | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_source) 
                                             >> 3U)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138027: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138209: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138027, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138209, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
@@ -2406,9 +2449,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                                                      (7U 
                                                       & (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_size)))))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138051: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138233: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138051, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138233, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
@@ -2420,9 +2463,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                       & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
                      & (~ ((0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138075: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138257: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138075, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138257, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (1U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
@@ -2436,9 +2479,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                      & (~ ((0U == (0x1000U & (0x1000U 
                                               ^ vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_address))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138099: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138281: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138099, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138281, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (1U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
@@ -2480,9 +2523,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                             | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_source) 
                                             >> 3U)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138123: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138305: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138123, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138305, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (1U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
@@ -2504,9 +2547,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                                                      (7U 
                                                       & (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_size)))))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138147: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138329: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138147, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138329, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (1U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
@@ -2518,9 +2561,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                       & (1U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
                      & (~ ((0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138171: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138353: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138171, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138353, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (2U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
@@ -2534,9 +2577,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                      & (~ ((0U == (0x1000U & (0x1000U 
                                               ^ vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_address))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138195: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138377: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138195, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138377, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (2U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
@@ -2578,9 +2621,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                             | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_source) 
                                             >> 3U)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138219: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138401: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138219, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138401, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (2U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
@@ -2602,9 +2645,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                                                      (7U 
                                                       & (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_size)))))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138243: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138425: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138243, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138425, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (2U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
@@ -2616,9 +2659,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                       & (2U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode))) 
                      & (~ ((0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138267: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138449: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138267, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138449, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (0U != (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__a_first_counter))) 
@@ -2632,9 +2675,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                      & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode) 
                             == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__opcode)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138291: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138473: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138291, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138473, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (0U != (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__a_first_counter))) 
@@ -2648,9 +2691,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                      & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_param) 
                             == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138315: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138497: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138315, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138497, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (0U != (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__a_first_counter))) 
@@ -2664,9 +2707,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                      & (~ (((7U & (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_size)) 
                             == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__size)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138339: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138521: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138339, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138521, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (0U != (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__a_first_counter))) 
@@ -2680,9 +2723,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                      & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_source) 
                             == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__source)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138363: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138545: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138363, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138545, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_a_valid) 
                       & (0U != (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__a_first_counter))) 
@@ -2696,9 +2739,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                      & (~ (((0x1fffU & vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_address) 
                             == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__address)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138387: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138569: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138387, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138569, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor_io_in_d_valid) 
                       & (0U != (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__d_first_counter))) 
@@ -2712,9 +2755,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                      & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_opcode) 
                             == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__opcode_1)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138411: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138593: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138411, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138593, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor_io_in_d_valid) 
                       & (0U != (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__d_first_counter))) 
@@ -2728,9 +2771,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                      & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_param) 
                             == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__param_1)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138435: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138617: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138435, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138617, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor_io_in_d_valid) 
                       & (0U != (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__d_first_counter))) 
@@ -2744,9 +2787,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                      & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_size) 
                             == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__size_1)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138459: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138641: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138459, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138641, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor_io_in_d_valid) 
                       & (0U != (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__d_first_counter))) 
@@ -2760,9 +2803,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                      & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_source) 
                             == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__source_1)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138483: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138665: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138483, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138665, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor_io_in_d_valid) 
                       & (0U != (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__d_first_counter))) 
@@ -2776,9 +2819,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                      & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_denied) 
                             == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__denied)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138507: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138689: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138507, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138689, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (0U != (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__c_first_counter))) 
@@ -2792,9 +2835,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                      & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode) 
                             == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__opcode_3)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138531: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138713: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138531, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138713, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (0U != (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__c_first_counter))) 
@@ -2808,9 +2851,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                      & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_param) 
                             == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__param_3)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138555: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138737: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138555, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138737, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (0U != (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__c_first_counter))) 
@@ -2824,9 +2867,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                      & (~ (((7U & (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_size)) 
                             == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__size_3)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138579: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138761: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138579, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138761, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (0U != (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__c_first_counter))) 
@@ -2840,9 +2883,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                      & (~ ((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_source) 
                              << 1U) == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__source_3)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138603: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138785: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138603, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138785, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1_auto_out_c_valid) 
                       & (0U != (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__c_first_counter))) 
@@ -2856,9 +2899,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                      & (~ (((0x1fffU & vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_address) 
                             == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__address_2)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138627: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138809: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138627, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138809, "");
     }
     VL_SHIFTR_WWI(128,128,7, __Vtemp507, vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__inflight, (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_source));
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT___a_first_T) 
@@ -2870,9 +2913,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT___a_first_T) 
                       & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__a_first_counter_1))) 
                      & (~ ((~ __Vtemp508[0U]) | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138651: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138833: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138651, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138833, "");
     }
     VL_SHIFTR_WWI(128,128,7, __Vtemp509, vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__inflight, (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_source));
     if (VL_UNLIKELY(((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor_io_in_d_valid) 
@@ -2896,9 +2939,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                                               & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_source) 
                                                  == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_source)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138675: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138857: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138675, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138857, "");
     }
     if (VL_UNLIKELY((((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor_io_in_d_valid) 
                         & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__d_first_counter_1))) 
@@ -2934,9 +2977,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                                     ? 4U : ((6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_opcode))
                                              ? 5U : (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT___GEN_42))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138699: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138881: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138699, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138881, "");
     }
     if (VL_UNLIKELY((((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor_io_in_d_valid) 
                         & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__d_first_counter_1))) 
@@ -2960,9 +3003,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                      & (~ (((7U & (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_size)) 
                             == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_size)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138723: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138905: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138723, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138905, "");
     }
     __Vtemp513[0U] = (VysyxSoCFull__ConstPool__CONST_0b2d9f06_0[0U] 
                       & (((VysyxSoCFull__ConstPool__CONST_3ad9c2be_0[1U] 
@@ -3764,9 +3807,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                                               __Vtemp542[0U]))
                                              ? 5U : (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT___GEN_58))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138747: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138929: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138747, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138929, "");
     }
     VL_SHIFTR_WWI(512,512,10, __Vtemp543, vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__inflight_sizes, 
                   ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_source) 
@@ -3964,9 +4007,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                      & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_size) 
                             == (0xfU & __Vtemp552[0U])) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138771: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138953: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138771, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138953, "");
     }
     if (VL_UNLIKELY((((((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor_io_in_d_valid) 
                           & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__d_first_counter_1))) 
@@ -3990,9 +4033,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                      & (~ (((~ (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_d_ready)) 
                             | (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__repeated_repeater_io_enq_ready)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138793: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138975: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138793, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138975, "");
     }
     __Vtemp553[0U] = 1U;
     __Vtemp553[1U] = 0U;
@@ -4082,9 +4125,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                                                | vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__a_set_wo_ready[2U]) 
                                               | vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__a_set_wo_ready[3U]))))) 
                               | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138817: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138999: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138817, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138999, "");
     }
     if (VL_UNLIKELY((1U & (~ ((((~ (IData)((0U != (
                                                    ((vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__inflight[0U] 
@@ -4106,9 +4149,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                                | (vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__watchdog 
                                   < vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__plusarg_reader__DOT__myplus)) 
                               | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138841: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:139023: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138841, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 139023, "");
     }
     VL_SHIFTR_WWI(128,128,7, __Vtemp563, vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__inflight_1, 
                   ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_source) 
@@ -4126,9 +4169,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                        & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__c_first_counter_1))) 
                       & (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT___T_2335)) 
                      & (~ ((~ __Vtemp564[0U]) | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138865: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:139047: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138865, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 139047, "");
     }
     VL_SHIFTR_WWI(128,128,7, __Vtemp565, vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__inflight_1, (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_source));
     if (VL_UNLIKELY(((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor_io_in_d_valid) 
@@ -4156,9 +4199,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                                                   << 1U) 
                                                  == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_source)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138889: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:139071: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138889, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 139071, "");
     }
     if (VL_UNLIKELY((((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor_io_in_d_valid) 
                         & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__d_first_counter_2))) 
@@ -4184,9 +4227,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                      & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_size) 
                             == (7U & (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_size))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138913: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:139095: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138913, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 139095, "");
     }
     VL_SHIFTR_WWI(512,512,10, __Vtemp567, vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__inflight_sizes_1, 
                   ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_source) 
@@ -4386,9 +4429,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                      & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err_auto_in_d_bits_size) 
                             == (0xfU & __Vtemp576[0U])) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138937: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:139119: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138937, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 139119, "");
     }
     if (VL_UNLIKELY((((((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor_io_in_d_valid) 
                           & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__d_first_counter_2))) 
@@ -4412,9 +4455,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                      & (~ (((~ (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_d_ready)) 
                             | (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__repeated_repeater_1_io_enq_ready)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138959: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:139141: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138959, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 139141, "");
     }
     __Vtemp577[0U] = 1U;
     __Vtemp577[1U] = 0U;
@@ -4594,9 +4637,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                                                  __Vtemp603[3U]
                                                   : 0U)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:138983: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:139165: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 138983, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 139165, "");
     }
     if (VL_UNLIKELY((1U & (~ ((((~ (IData)((0U != (
                                                    ((vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__inflight_1[0U] 
@@ -4618,9 +4661,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                                | (vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__watchdog_1 
                                   < vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__plusarg_reader_1__DOT__myplus)) 
                               | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:139007: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:139189: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 139007, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 139189, "");
     }
     if (VL_UNLIKELY(((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT___d_first_T) 
                        & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__d_first_counter_3))) 
@@ -4634,9 +4677,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                       & (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT___T_2406)) 
                      & (~ ((~ (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__inflight_2)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:139031: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:139213: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 139031, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 139213, "");
     }
     if (VL_UNLIKELY(((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_e_valid) 
                      & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT___GEN_84) 
@@ -4648,9 +4691,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                      & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT___GEN_84) 
                             | (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__monitor__DOT__inflight_2)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:139055: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:139237: Assertion failed in %NysyxSoCFull.fpga.widget_2.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 139055, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 139237, "");
     }
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sinkA__DOT__inject_io_i_q__DOT__ram_address__v0 = 0U;
     vlSelf->__Vdly__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_1__DOT__count 
@@ -8629,133 +8672,5 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__15(VysyxSoCFull___024r
                             == (0xfU & __Vtemp671[0U])) 
                            | (IData)(vlSelf->reset)))))) {
         VL_FWRITEF(0x80000002U,"Assertion failed: 'D' channel contains improper response size (connected at ChipLinkBridge.scala:151:47)\n    at Monitor.scala:49 assert(cond, message)\n");
-    }
-    VL_SHIFTR_WWI(512,512,10, __Vtemp672, vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__atomics__DOT__monitor__DOT__inflight_sizes_1, 
-                  ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_auto_in_d_bits_source) 
-                   << 2U));
-    __Vtemp675[0U] = (VysyxSoCFull__ConstPool__CONST_0b2d9f06_0[0U] 
-                      & (((VysyxSoCFull__ConstPool__CONST_3ad9c2be_0[1U] 
-                           & __Vtemp672[1U]) << 0x1fU) 
-                         | ((VysyxSoCFull__ConstPool__CONST_3ad9c2be_0[0U] 
-                             & __Vtemp672[0U]) >> 1U)));
-    __Vtemp675[1U] = (VysyxSoCFull__ConstPool__CONST_0b2d9f06_0[1U] 
-                      & (((VysyxSoCFull__ConstPool__CONST_3ad9c2be_0[2U] 
-                           & __Vtemp672[2U]) << 0x1fU) 
-                         | ((VysyxSoCFull__ConstPool__CONST_3ad9c2be_0[1U] 
-                             & __Vtemp672[1U]) >> 1U)));
-    __Vtemp675[2U] = (VysyxSoCFull__ConstPool__CONST_0b2d9f06_0[2U] 
-                      & (((VysyxSoCFull__ConstPool__CONST_3ad9c2be_0[3U] 
-                           & __Vtemp672[3U]) << 0x1fU) 
-                         | ((VysyxSoCFull__ConstPool__CONST_3ad9c2be_0[2U] 
-                             & __Vtemp672[2U]) >> 1U)));
-    __Vtemp675[3U] = (VysyxSoCFull__ConstPool__CONST_0b2d9f06_0[3U] 
-                      & (((VysyxSoCFull__ConstPool__CONST_3ad9c2be_0[4U] 
-                           & __Vtemp672[4U]) << 0x1fU) 
-                         | ((VysyxSoCFull__ConstPool__CONST_3ad9c2be_0[3U] 
-                             & __Vtemp672[3U]) >> 1U)));
-    __Vtemp675[4U] = (VysyxSoCFull__ConstPool__CONST_0b2d9f06_0[4U] 
-                      & (((VysyxSoCFull__ConstPool__CONST_3ad9c2be_0[5U] 
-                           & __Vtemp672[5U]) << 0x1fU) 
-                         | ((VysyxSoCFull__ConstPool__CONST_3ad9c2be_0[4U] 
-                             & __Vtemp672[4U]) >> 1U)));
-    __Vtemp675[5U] = (VysyxSoCFull__ConstPool__CONST_0b2d9f06_0[5U] 
-                      & (((VysyxSoCFull__ConstPool__CONST_3ad9c2be_0[6U] 
-                           & __Vtemp672[6U]) << 0x1fU) 
-                         | ((VysyxSoCFull__ConstPool__CONST_3ad9c2be_0[5U] 
-                             & __Vtemp672[5U]) >> 1U)));
-    __Vtemp675[6U] = (VysyxSoCFull__ConstPool__CONST_0b2d9f06_0[6U] 
-                      & (((VysyxSoCFull__ConstPool__CONST_3ad9c2be_0[7U] 
-                           & __Vtemp672[7U]) << 0x1fU) 
-                         | ((VysyxSoCFull__ConstPool__CONST_3ad9c2be_0[6U] 
-                             & __Vtemp672[6U]) >> 1U)));
-    __Vtemp675[7U] = (VysyxSoCFull__ConstPool__CONST_0b2d9f06_0[7U] 
-                      & (((VysyxSoCFull__ConstPool__CONST_3ad9c2be_0[8U] 
-                           & __Vtemp672[8U]) << 0x1fU) 
-                         | ((VysyxSoCFull__ConstPool__CONST_3ad9c2be_0[7U] 
-                             & __Vtemp672[7U]) >> 1U)));
-    __Vtemp675[8U] = (VysyxSoCFull__ConstPool__CONST_0b2d9f06_0[8U] 
-                      & (((VysyxSoCFull__ConstPool__CONST_3ad9c2be_0[9U] 
-                           & __Vtemp672[9U]) << 0x1fU) 
-                         | ((VysyxSoCFull__ConstPool__CONST_3ad9c2be_0[8U] 
-                             & __Vtemp672[8U]) >> 1U)));
-    __Vtemp675[9U] = (VysyxSoCFull__ConstPool__CONST_0b2d9f06_0[9U] 
-                      & (((VysyxSoCFull__ConstPool__CONST_3ad9c2be_0[0xaU] 
-                           & __Vtemp672[0xaU]) << 0x1fU) 
-                         | ((VysyxSoCFull__ConstPool__CONST_3ad9c2be_0[9U] 
-                             & __Vtemp672[9U]) >> 1U)));
-    __Vtemp675[0xaU] = (VysyxSoCFull__ConstPool__CONST_0b2d9f06_0[0xaU] 
-                        & (((VysyxSoCFull__ConstPool__CONST_3ad9c2be_0[0xbU] 
-                             & __Vtemp672[0xbU]) << 0x1fU) 
-                           | ((VysyxSoCFull__ConstPool__CONST_3ad9c2be_0[0xaU] 
-                               & __Vtemp672[0xaU]) 
-                              >> 1U)));
-    __Vtemp675[0xbU] = (VysyxSoCFull__ConstPool__CONST_0b2d9f06_0[0xbU] 
-                        & (((VysyxSoCFull__ConstPool__CONST_3ad9c2be_0[0xcU] 
-                             & __Vtemp672[0xcU]) << 0x1fU) 
-                           | ((VysyxSoCFull__ConstPool__CONST_3ad9c2be_0[0xbU] 
-                               & __Vtemp672[0xbU]) 
-                              >> 1U)));
-    __Vtemp675[0xcU] = (VysyxSoCFull__ConstPool__CONST_0b2d9f06_0[0xcU] 
-                        & (((VysyxSoCFull__ConstPool__CONST_3ad9c2be_0[0xdU] 
-                             & __Vtemp672[0xdU]) << 0x1fU) 
-                           | ((VysyxSoCFull__ConstPool__CONST_3ad9c2be_0[0xcU] 
-                               & __Vtemp672[0xcU]) 
-                              >> 1U)));
-    __Vtemp675[0xdU] = (VysyxSoCFull__ConstPool__CONST_0b2d9f06_0[0xdU] 
-                        & (((VysyxSoCFull__ConstPool__CONST_3ad9c2be_0[0xeU] 
-                             & __Vtemp672[0xeU]) << 0x1fU) 
-                           | ((VysyxSoCFull__ConstPool__CONST_3ad9c2be_0[0xdU] 
-                               & __Vtemp672[0xdU]) 
-                              >> 1U)));
-    __Vtemp675[0xeU] = (VysyxSoCFull__ConstPool__CONST_0b2d9f06_0[0xeU] 
-                        & (((VysyxSoCFull__ConstPool__CONST_3ad9c2be_0[0xfU] 
-                             & __Vtemp672[0xfU]) << 0x1fU) 
-                           | ((VysyxSoCFull__ConstPool__CONST_3ad9c2be_0[0xeU] 
-                               & __Vtemp672[0xeU]) 
-                              >> 1U)));
-    __Vtemp675[0xfU] = (VysyxSoCFull__ConstPool__CONST_0b2d9f06_0[0xfU] 
-                        & ((VysyxSoCFull__ConstPool__CONST_3ad9c2be_0[0xfU] 
-                            & __Vtemp672[0xfU]) >> 1U));
-    VL_EXTEND_WW(512,511, __Vtemp676, __Vtemp675);
-    if (VL_UNLIKELY((((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__atomics__DOT__monitor_io_in_d_valid) 
-                        & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__atomics__DOT__monitor__DOT__d_first_counter_2))) 
-                       & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__atomics__DOT__monitor_io_in_d_bits_opcode))) 
-                      & (~ ((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_1_auto_out_c_valid) 
-                              & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__atomics__DOT__monitor__DOT__c_first_counter_1))) 
-                             & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__atomics__DOT__monitor__DOT___T_2471)) 
-                            & (((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__mbypass_auto_out_c_bits_source) 
-                                << 1U) == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_auto_in_d_bits_source))))) 
-                     & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_auto_in_d_bits_size) 
-                            == (0xfU & __Vtemp676[0U])) 
-                           | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:56965: Assertion failed in %NysyxSoCFull.asic.chipMaster.atomics.monitor\n",
-                  64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 56965, "");
-    }
-    if (VL_UNLIKELY((((((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__atomics__DOT__monitor_io_in_d_valid) 
-                          & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__atomics__DOT__monitor__DOT__d_first_counter_2))) 
-                         & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__atomics__DOT__monitor__DOT__c_first_counter_1))) 
-                        & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_1_auto_out_c_valid)) 
-                       & (((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__mbypass_auto_out_c_bits_source) 
-                           << 1U) == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_auto_in_d_bits_source))) 
-                      & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__atomics__DOT__monitor_io_in_d_bits_opcode))) 
-                     & (~ (((~ (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_1__DOT__repeated_repeater_io_enq_ready)) 
-                            | (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_2__DOT__repeated_repeater_1_io_enq_ready)) 
-                           | (IData)(vlSelf->reset)))))) {
-        VL_FWRITEF(0x80000002U,"Assertion failed: ready check\n    at Monitor.scala:49 assert(cond, message)\n");
-    }
-    if (VL_UNLIKELY((((((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__atomics__DOT__monitor_io_in_d_valid) 
-                          & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__atomics__DOT__monitor__DOT__d_first_counter_2))) 
-                         & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__atomics__DOT__monitor__DOT__c_first_counter_1))) 
-                        & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_1_auto_out_c_valid)) 
-                       & (((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__mbypass_auto_out_c_bits_source) 
-                           << 1U) == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_auto_in_d_bits_source))) 
-                      & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__atomics__DOT__monitor_io_in_d_bits_opcode))) 
-                     & (~ (((~ (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_1__DOT__repeated_repeater_io_enq_ready)) 
-                            | (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_2__DOT__repeated_repeater_1_io_enq_ready)) 
-                           | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:56987: Assertion failed in %NysyxSoCFull.asic.chipMaster.atomics.monitor\n",
-                  64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 56987, "");
     }
 }

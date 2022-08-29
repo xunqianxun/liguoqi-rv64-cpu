@@ -52,15 +52,63 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
     VlWide<8>/*255:0*/ __Vtemp1365;
     VlWide<8>/*255:0*/ __Vtemp1366;
     // Body
+    if (VL_UNLIKELY((1U & (~ (((vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__monitor__DOT__a_set_wo_ready 
+                                != ((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_valid) 
+                                      & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__monitor__DOT__d_first_counter_1))) 
+                                     & (6U != (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode)))
+                                     ? (1ULL << (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_source))
+                                     : 0ULL)) | (~ (IData)(
+                                                           (0U 
+                                                            != vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__monitor__DOT__a_set_wo_ready)))) 
+                              | (IData)(vlSelf->reset)))))) {
+        VL_FWRITEF(0x80000002U,"Assertion failed: 'A' and 'D' concurrent, despite minlatency 1 (connected at ChipLinkBridge.scala:170:118)\n    at Monitor.scala:49 assert(cond, message)\n");
+    }
+    if (VL_UNLIKELY((1U & (~ (((vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__monitor__DOT__a_set_wo_ready 
+                                != ((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_valid) 
+                                      & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__monitor__DOT__d_first_counter_1))) 
+                                     & (6U != (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode)))
+                                     ? (1ULL << (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_source))
+                                     : 0ULL)) | (~ (IData)(
+                                                           (0U 
+                                                            != vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__monitor__DOT__a_set_wo_ready)))) 
+                              | (IData)(vlSelf->reset)))))) {
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:133614: Assertion failed in %NysyxSoCFull.fpga.widget_1.monitor\n",
+                  64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 133614, "");
+    }
+    if (VL_UNLIKELY((1U & (~ ((((~ (IData)((0U != vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__monitor__DOT__inflight))) 
+                                | (0U == vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__monitor__DOT__plusarg_reader__DOT__myplus)) 
+                               | (vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__monitor__DOT__watchdog 
+                                  < vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__monitor__DOT__plusarg_reader__DOT__myplus)) 
+                              | (IData)(vlSelf->reset)))))) {
+        VL_FWRITEF(0x80000002U,"Assertion failed: TileLink timeout expired (connected at ChipLinkBridge.scala:170:118)\n    at Monitor.scala:42 assert(cond, message)\n");
+    }
+    if (VL_UNLIKELY((1U & (~ ((((~ (IData)((0U != vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__monitor__DOT__inflight))) 
+                                | (0U == vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__monitor__DOT__plusarg_reader__DOT__myplus)) 
+                               | (vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__monitor__DOT__watchdog 
+                                  < vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__monitor__DOT__plusarg_reader__DOT__myplus)) 
+                              | (IData)(vlSelf->reset)))))) {
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:133638: Assertion failed in %NysyxSoCFull.fpga.widget_1.monitor\n",
+                  64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 133638, "");
+    }
     if (VL_UNLIKELY(((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__monitor__DOT___c_first_T) 
                        & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__monitor__DOT__c_first_counter_1))) 
                       & (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__monitor__DOT___T_2610)) 
                      & (~ ((~ (IData)((vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__monitor__DOT__inflight_1 
                                        >> (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_source)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:133480: Assertion failed in %NysyxSoCFull.fpga.widget_1.monitor\n",
+        VL_FWRITEF(0x80000002U,"Assertion failed: 'C' channel re-used a source ID (connected at ChipLinkBridge.scala:170:118)\n    at Monitor.scala:42 assert(cond, message)\n");
+    }
+    if (VL_UNLIKELY(((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__monitor__DOT___c_first_T) 
+                       & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__monitor__DOT__c_first_counter_1))) 
+                      & (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__monitor__DOT___T_2610)) 
+                     & (~ ((~ (IData)((vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__monitor__DOT__inflight_1 
+                                       >> (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_source)))) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:133662: Assertion failed in %NysyxSoCFull.fpga.widget_1.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 133480, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 133662, "");
     }
     if (VL_UNLIKELY(((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_valid) 
                        & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__monitor__DOT__d_first_counter_2))) 
@@ -86,9 +134,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_source) 
                                   == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_source)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:133504: Assertion failed in %NysyxSoCFull.fpga.widget_1.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:133686: Assertion failed in %NysyxSoCFull.fpga.widget_1.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 133504, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 133686, "");
     }
     if (VL_UNLIKELY((((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_valid) 
                         & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__monitor__DOT__d_first_counter_2))) 
@@ -114,9 +162,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                      & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_size) 
                             == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_size)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:133528: Assertion failed in %NysyxSoCFull.fpga.widget_1.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:133710: Assertion failed in %NysyxSoCFull.fpga.widget_1.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 133528, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 133710, "");
     }
     VL_SHIFTR_WWI(512,512,9, __Vtemp1305, vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__monitor__DOT__inflight_sizes_1, 
                   ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_source) 
@@ -316,9 +364,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                      & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_size) 
                             == (0xffU & __Vtemp1314[0U])) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:133552: Assertion failed in %NysyxSoCFull.fpga.widget_1.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:133734: Assertion failed in %NysyxSoCFull.fpga.widget_1.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 133552, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 133734, "");
     }
     if (VL_UNLIKELY((((((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_valid) 
                           & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__monitor__DOT__d_first_counter_2))) 
@@ -342,9 +390,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                      & (~ (((~ (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_d_ready)) 
                             | (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__monitor_io_in_c_ready)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:133574: Assertion failed in %NysyxSoCFull.fpga.widget_1.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:133756: Assertion failed in %NysyxSoCFull.fpga.widget_1.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 133574, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 133756, "");
     }
     if (VL_UNLIKELY(((0U != ((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_valid) 
                                & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__monitor__DOT__c_first_counter_1))) 
@@ -392,9 +440,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                                    << (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_source))
                                                    : 0ULL)) 
                                              | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:133598: Assertion failed in %NysyxSoCFull.fpga.widget_1.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:133780: Assertion failed in %NysyxSoCFull.fpga.widget_1.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 133598, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 133780, "");
     }
     if (VL_UNLIKELY((1U & (~ ((((~ (IData)((0U != vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__monitor__DOT__inflight_1))) 
                                 | (0U == vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__monitor__DOT__plusarg_reader_1__DOT__myplus)) 
@@ -408,9 +456,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                | (vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__monitor__DOT__watchdog_1 
                                   < vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__monitor__DOT__plusarg_reader_1__DOT__myplus)) 
                               | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:133622: Assertion failed in %NysyxSoCFull.fpga.widget_1.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:133804: Assertion failed in %NysyxSoCFull.fpga.widget_1.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 133622, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 133804, "");
     }
     if (VL_UNLIKELY(((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__monitor__DOT___d_first_T) 
                        & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__monitor__DOT__d_first_counter_3))) 
@@ -424,9 +472,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                       & (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__monitor__DOT___T_2681)) 
                      & (~ ((~ (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__monitor__DOT__inflight_2)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:133646: Assertion failed in %NysyxSoCFull.fpga.widget_1.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:133828: Assertion failed in %NysyxSoCFull.fpga.widget_1.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 133646, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 133828, "");
     }
     if (VL_UNLIKELY((((~ (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_e_bits_sink)) 
                       & (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_e_valid)) 
@@ -442,9 +490,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                    | (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__monitor__DOT__inflight_2))) 
                             >> (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_e_bits_sink)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:133670: Assertion failed in %NysyxSoCFull.fpga.widget_1.monitor\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:133852: Assertion failed in %NysyxSoCFull.fpga.widget_1.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 133670, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 133852, "");
     }
     if (VL_UNLIKELY((1U & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__idle) 
                                | (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__counter))) 
@@ -454,9 +502,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
     if (VL_UNLIKELY((1U & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__idle) 
                                | (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__counter))) 
                               | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:113619: Assertion failed in %NysyxSoCFull.fpga.err\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:113801: Assertion failed in %NysyxSoCFull.fpga.err\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 113619, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 113801, "");
     }
     if (VL_UNLIKELY((1U & (~ (((~ (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__dc_valid)) 
                                | (~ (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__earlyWinner_1))) 
@@ -466,9 +514,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
     if (VL_UNLIKELY((1U & (~ (((~ (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__dc_valid)) 
                                | (~ (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__earlyWinner_1))) 
                               | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:113643: Assertion failed in %NysyxSoCFull.fpga.err\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:113825: Assertion failed in %NysyxSoCFull.fpga.err\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 113643, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 113825, "");
     }
     if (VL_UNLIKELY((1U & (~ (((~ ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__dc_valid) 
                                    | (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__da_valid))) 
@@ -482,9 +530,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                | ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__dc_valid) 
                                   | (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__earlyWinner_1))) 
                               | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:113667: Assertion failed in %NysyxSoCFull.fpga.err\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:113849: Assertion failed in %NysyxSoCFull.fpga.err\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 113667, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 113849, "");
     }
     if (VL_UNLIKELY((1U & (~ (((~ ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__dc_valid) 
                                    | (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__da_valid))) 
@@ -496,9 +544,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                    | (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__da_valid))) 
                                | (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT___T_21)) 
                               | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:113691: Assertion failed in %NysyxSoCFull.fpga.err\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:113873: Assertion failed in %NysyxSoCFull.fpga.err\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 113691, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 113873, "");
     }
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sourceA__DOT__cams_5__DOT__data__v0 = 0U;
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sourceA__DOT__cams_6__DOT__data__v0 = 0U;
@@ -4679,9 +4727,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                                              (0x1000U 
                                                               ^ (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT___extract_io_i_bits_address_T_1)))))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:92759: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:92941: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 92759, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 92941, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -4701,9 +4749,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                             & ((0xcU >= (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_size)) 
                                & (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass__DOT__monitor_1__DOT___T_294))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:92783: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:92965: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 92783, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 92965, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -4745,9 +4793,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                             | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_source) 
                                             >> 3U)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:92807: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:92989: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 92807, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 92989, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -4759,9 +4807,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                       & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
                      & (~ ((2U <= (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_size)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:92831: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93013: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 92831, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93013, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -4779,9 +4827,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                                   & ((IData)(0xffU) 
                                                      << (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_size))))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:92855: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93037: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 92855, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93037, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -4793,9 +4841,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                       & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
                      & (~ ((2U >= (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:92879: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93061: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 92879, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93061, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -4893,9 +4941,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                                                       (3U 
                                                                        & vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT___GEN_6))))))))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:92903: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93085: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 92903, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93085, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (7U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -4917,9 +4965,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                                              (0x1000U 
                                                               ^ (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT___extract_io_i_bits_address_T_1)))))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:92927: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93109: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 92927, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93109, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (7U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -4939,9 +4987,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                             & ((0xcU >= (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_size)) 
                                & (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass__DOT__monitor_1__DOT___T_294))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:92951: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93133: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 92951, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93133, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (7U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -4983,9 +5031,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                             | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_source) 
                                             >> 3U)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:92975: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93157: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 92975, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93157, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (7U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -4997,9 +5045,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                       & (7U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
                      & (~ ((2U <= (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_size)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:92999: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93181: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 92999, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93181, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (7U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -5017,9 +5065,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                                   & ((IData)(0xffU) 
                                                      << (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_size))))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93023: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93205: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93023, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93205, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (7U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -5031,9 +5079,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                       & (7U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
                      & (~ ((2U >= (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93047: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93229: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93047, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93229, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (7U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -5045,9 +5093,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                       & (7U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
                      & (~ ((0U != (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93071: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93253: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93071, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93253, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (7U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -5145,9 +5193,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                                                       (3U 
                                                                        & vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT___GEN_6))))))))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93095: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93277: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93095, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93277, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -5159,9 +5207,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
                      & (~ ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass__DOT__monitor_1__DOT___T_177) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93119: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93301: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93119, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93301, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -5175,9 +5223,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                      & (~ (((6U >= (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_size)) 
                             & (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass__DOT__monitor_1__DOT___T_294)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93143: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93325: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93143, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93325, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -5219,9 +5267,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                             | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_source) 
                                             >> 3U)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93167: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93349: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93167, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93349, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -5239,9 +5287,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                                   & ((IData)(0xffU) 
                                                      << (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_size))))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93191: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93373: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93191, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93373, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -5253,9 +5301,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
                      & (~ ((0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93215: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93397: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93215, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93397, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -5337,9 +5385,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                                          & vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT___GEN_6)))))))) 
                             == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass__DOT__monitor_1__DOT__mask)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93239: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93421: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93239, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93421, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -5379,9 +5427,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                                                 (0x40000000U 
                                                                  ^ (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT___extract_io_i_bits_address_T_1))))))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93263: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93445: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93263, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93445, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -5423,9 +5471,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                             | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_source) 
                                             >> 3U)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93287: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93469: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93287, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93469, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -5443,9 +5491,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                                   & ((IData)(0xffU) 
                                                      << (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_size))))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93311: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93493: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93311, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93493, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -5457,9 +5505,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                       & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
                      & (~ ((0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93335: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93517: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93335, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93517, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -5541,9 +5589,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                                          & vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT___GEN_6)))))))) 
                             == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass__DOT__monitor_1__DOT__mask)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93359: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93541: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93359, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93541, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (1U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -5583,9 +5631,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                                                 (0x40000000U 
                                                                  ^ (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT___extract_io_i_bits_address_T_1))))))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93383: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93565: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93383, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93565, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (1U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -5627,9 +5675,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                             | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_source) 
                                             >> 3U)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93407: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93589: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93407, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93589, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (1U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -5647,9 +5695,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                                   & ((IData)(0xffU) 
                                                      << (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_size))))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93431: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93613: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93431, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93613, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (1U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -5661,9 +5709,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                       & (1U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
                      & (~ ((0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93455: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93637: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93455, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93637, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (1U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -5751,9 +5799,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                                            & vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT___GEN_6)))))))) 
                                    & (~ (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass__DOT__monitor_1__DOT__mask)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93479: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93661: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93479, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93661, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (2U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -5769,9 +5817,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                             & ((3U >= (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_size)) 
                                & (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass__DOT__monitor_1__DOT___T_294))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93503: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93685: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93503, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93685, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (2U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -5813,9 +5861,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                             | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_source) 
                                             >> 3U)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93527: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93709: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93527, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93709, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (2U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -5833,9 +5881,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                                   & ((IData)(0xffU) 
                                                      << (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_size))))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93551: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93733: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93551, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93733, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (2U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -5847,9 +5895,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                       & (2U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
                      & (~ ((4U >= (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93575: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93757: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93575, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93757, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (2U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -5931,9 +5979,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                                          & vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT___GEN_6)))))))) 
                             == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass__DOT__monitor_1__DOT__mask)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93599: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93781: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93599, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93781, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (3U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -5949,9 +5997,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                             & ((3U >= (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_size)) 
                                & (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass__DOT__monitor_1__DOT___T_294))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93623: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93805: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93623, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93805, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (3U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -5993,9 +6041,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                             | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_source) 
                                             >> 3U)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93647: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93829: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93647, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93829, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (3U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -6013,9 +6061,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                                   & ((IData)(0xffU) 
                                                      << (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_size))))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93671: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93853: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93671, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93853, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (3U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -6027,9 +6075,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                       & (3U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
                      & (~ ((3U >= (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93695: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93877: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93695, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93877, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (3U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -6111,9 +6159,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                                          & vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT___GEN_6)))))))) 
                             == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass__DOT__monitor_1__DOT__mask)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93719: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93901: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93719, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93901, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -6153,9 +6201,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                                                 (0x40000000U 
                                                                  ^ (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT___extract_io_i_bits_address_T_1))))))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93743: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93925: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93743, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93925, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -6197,9 +6245,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                             | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_source) 
                                             >> 3U)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93767: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93949: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93767, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93949, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -6217,9 +6265,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                                   & ((IData)(0xffU) 
                                                      << (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_size))))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93791: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93973: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93791, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93973, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -6231,9 +6279,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
                      & (~ ((1U >= (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93815: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93997: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93815, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93997, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_o_valid) 
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT__extract_io_i_bits_opcode))) 
@@ -6315,9 +6363,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                                          & vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceA__DOT___GEN_6)))))))) 
                             == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass__DOT__monitor_1__DOT__mask)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93839: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94021: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93839, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94021, "");
     }
     if (VL_UNLIKELY(((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass__DOT__monitor_1_io_in_d_valid) 
                      & (~ ((6U >= (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode)) 
@@ -6327,9 +6375,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
     if (VL_UNLIKELY(((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass__DOT__monitor_1_io_in_d_valid) 
                      & (~ ((6U >= (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93863: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94045: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93863, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94045, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass__DOT__monitor_1_io_in_d_valid) 
                       & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode))) 
@@ -6371,9 +6419,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                             | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_source) 
                                             >> 3U)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93887: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94069: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93887, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94069, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass__DOT__monitor_1_io_in_d_valid) 
                       & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode))) 
@@ -6385,9 +6433,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                       & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode))) 
                      & (~ ((2U <= (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_size)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93911: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94093: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93911, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94093, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass__DOT__monitor_1_io_in_d_valid) 
                       & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode))) 
@@ -6399,9 +6447,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                       & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode))) 
                      & (~ ((0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93935: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94117: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93935, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94117, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass__DOT__monitor_1_io_in_d_valid) 
                       & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode))) 
@@ -6417,9 +6465,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                 ? (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater__DOT__saved_corrupt)
                                 : (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_in_d_bits_corrupt))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93959: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94141: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93959, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94141, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass__DOT__monitor_1_io_in_d_valid) 
                       & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode))) 
@@ -6431,9 +6479,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                       & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode))) 
                      & (~ ((~ (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_denied)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:93983: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94165: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 93983, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94165, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass__DOT__monitor_1_io_in_d_valid) 
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode))) 
@@ -6475,9 +6523,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                             | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_source) 
                                             >> 3U)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94007: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94189: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94007, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94189, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass__DOT__monitor_1_io_in_d_valid) 
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode))) 
@@ -6489,9 +6537,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode))) 
                      & (~ ((2U <= (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_size)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94031: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94213: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94031, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94213, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass__DOT__monitor_1_io_in_d_valid) 
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode))) 
@@ -6503,9 +6551,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode))) 
                      & (~ ((2U >= (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94055: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94237: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94055, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94237, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass__DOT__monitor_1_io_in_d_valid) 
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode))) 
@@ -6517,9 +6565,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode))) 
                      & (~ ((2U != (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94079: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94261: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94079, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94261, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass__DOT__monitor_1_io_in_d_valid) 
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode))) 
@@ -6535,9 +6583,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                 ? (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater__DOT__saved_corrupt)
                                 : (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_in_d_bits_corrupt))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94103: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94285: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94103, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94285, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass__DOT__monitor_1_io_in_d_valid) 
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode))) 
@@ -6579,9 +6627,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                             | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_source) 
                                             >> 3U)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94127: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94309: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94127, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94309, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass__DOT__monitor_1_io_in_d_valid) 
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode))) 
@@ -6593,9 +6641,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode))) 
                      & (~ ((2U <= (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_size)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94151: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94333: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94151, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94333, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass__DOT__monitor_1_io_in_d_valid) 
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode))) 
@@ -6607,9 +6655,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode))) 
                      & (~ ((2U >= (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94175: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94357: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94175, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94357, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass__DOT__monitor_1_io_in_d_valid) 
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode))) 
@@ -6621,9 +6669,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode))) 
                      & (~ ((2U != (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94199: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94381: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94199, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94381, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass__DOT__monitor_1_io_in_d_valid) 
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode))) 
@@ -6641,9 +6689,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                 ? (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater__DOT__saved_corrupt)
                                 : (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_in_d_bits_corrupt))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94223: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94405: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94223, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94405, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass__DOT__monitor_1_io_in_d_valid) 
                       & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode))) 
@@ -6685,9 +6733,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                             | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_source) 
                                             >> 3U)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94247: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94429: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94247, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94429, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass__DOT__monitor_1_io_in_d_valid) 
                       & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode))) 
@@ -6699,9 +6747,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                       & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode))) 
                      & (~ ((0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94271: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94453: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94271, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94453, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass__DOT__monitor_1_io_in_d_valid) 
                       & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode))) 
@@ -6717,9 +6765,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                 ? (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater__DOT__saved_corrupt)
                                 : (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_in_d_bits_corrupt))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94295: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94477: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94295, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94477, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass__DOT__monitor_1_io_in_d_valid) 
                       & (1U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode))) 
@@ -6761,9 +6809,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                             | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_source) 
                                             >> 3U)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94319: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94501: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94319, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94501, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass__DOT__monitor_1_io_in_d_valid) 
                       & (1U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode))) 
@@ -6775,9 +6823,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                       & (1U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode))) 
                      & (~ ((0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94343: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94525: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94343, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94525, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass__DOT__monitor_1_io_in_d_valid) 
                       & (1U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode))) 
@@ -6795,9 +6843,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                 ? (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater__DOT__saved_corrupt)
                                 : (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_in_d_bits_corrupt))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94367: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94549: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94367, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94549, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass__DOT__monitor_1_io_in_d_valid) 
                       & (2U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode))) 
@@ -6839,9 +6887,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                             | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_source) 
                                             >> 3U)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94391: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94573: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94391, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94573, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass__DOT__monitor_1_io_in_d_valid) 
                       & (2U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode))) 
@@ -6853,9 +6901,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                       & (2U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode))) 
                      & (~ ((0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94415: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94597: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94415, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94597, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass__DOT__monitor_1_io_in_d_valid) 
                       & (2U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater_io_deq_bits_opcode))) 
@@ -6871,9 +6919,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                 ? (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_1__DOT__repeated_repeater__DOT__saved_corrupt)
                                 : (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_in_d_bits_corrupt))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94439: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94621: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94439, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94621, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC_io_c_valid) 
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC_io_c_bits_opcode))) 
@@ -6907,9 +6955,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                                           (0x1000U 
                                                            ^ (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC__DOT___io_c_bits_address_T_1))))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94463: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94645: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94463, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94645, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC_io_c_valid) 
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC_io_c_bits_opcode))) 
@@ -6951,9 +6999,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                             | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC__DOT___io_c_bits_source_T) 
                                             >> 3U)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94487: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94669: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94487, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94669, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC_io_c_valid) 
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC_io_c_bits_opcode))) 
@@ -6965,9 +7013,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC_io_c_bits_opcode))) 
                      & (~ ((2U <= (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC_io_c_bits_size)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94511: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94693: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94511, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94693, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC_io_c_valid) 
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC_io_c_bits_opcode))) 
@@ -6985,9 +7033,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                                   & ((IData)(0xffU) 
                                                      << (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC_io_c_bits_size))))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94535: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94717: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94535, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94717, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC_io_c_valid) 
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC_io_c_bits_opcode))) 
@@ -6999,9 +7047,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                       & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC_io_c_bits_opcode))) 
                      & (~ ((5U >= (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC_io_c_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94559: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94741: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94559, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94741, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC_io_c_valid) 
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC_io_c_bits_opcode))) 
@@ -7035,9 +7083,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                                           (0x1000U 
                                                            ^ (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC__DOT___io_c_bits_address_T_1))))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94583: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94765: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94583, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94765, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC_io_c_valid) 
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC_io_c_bits_opcode))) 
@@ -7079,9 +7127,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                             | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC__DOT___io_c_bits_source_T) 
                                             >> 3U)))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94607: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94789: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94607, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94789, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC_io_c_valid) 
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC_io_c_bits_opcode))) 
@@ -7093,9 +7141,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC_io_c_bits_opcode))) 
                      & (~ ((2U <= (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC_io_c_bits_size)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94631: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94813: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94631, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94813, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC_io_c_valid) 
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC_io_c_bits_opcode))) 
@@ -7113,9 +7161,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                                   & ((IData)(0xffU) 
                                                      << (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC_io_c_bits_size))))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94655: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94837: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94655, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94837, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC_io_c_valid) 
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC_io_c_bits_opcode))) 
@@ -7127,9 +7175,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                       & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC_io_c_bits_opcode))) 
                      & (~ ((5U >= (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC_io_c_bits_param)) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94679: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94861: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94679, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94861, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC_io_c_valid) 
                       & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC_io_c_bits_opcode))) 
@@ -7191,9 +7239,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                                              (0x1000U 
                                                               ^ (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC__DOT___io_c_bits_address_T_1)))))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94703: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94885: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94703, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94885, "");
     }
     if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC_io_c_valid) 
                       & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC_io_c_bits_opcode))) 
@@ -7235,52 +7283,8 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__20(VysyxSoCFull___024r
                                                                 (0x80000000U 
                                                                  ^ (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC__DOT___io_c_bits_address_T_1))))))))) 
                            | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94727: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94909: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94727, "");
-    }
-    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC_io_c_valid) 
-                      & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC_io_c_bits_opcode))) 
-                     & (~ (((((((((0U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC__DOT___io_c_bits_source_T) 
-                                                >> 3U))) 
-                                  | (1U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC__DOT___io_c_bits_source_T) 
-                                                  >> 3U)))) 
-                                 | (2U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC__DOT___io_c_bits_source_T) 
-                                                 >> 3U)))) 
-                                | (3U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC__DOT___io_c_bits_source_T) 
-                                                >> 3U)))) 
-                               | (4U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC__DOT___io_c_bits_source_T) 
-                                               >> 3U)))) 
-                              | (5U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC__DOT___io_c_bits_source_T) 
-                                              >> 3U)))) 
-                             | (6U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC__DOT___io_c_bits_source_T) 
-                                             >> 3U)))) 
-                            | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC__DOT___io_c_bits_source_T) 
-                                            >> 3U)))) 
-                           | (IData)(vlSelf->reset)))))) {
-        VL_FWRITEF(0x80000002U,"Assertion failed: 'C' channel Release carries invalid source ID (connected at ChipLink.scala:71:16)\n    at Monitor.scala:42 assert(cond, message)\n");
-    }
-    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC_io_c_valid) 
-                      & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC_io_c_bits_opcode))) 
-                     & (~ (((((((((0U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC__DOT___io_c_bits_source_T) 
-                                                >> 3U))) 
-                                  | (1U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC__DOT___io_c_bits_source_T) 
-                                                  >> 3U)))) 
-                                 | (2U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC__DOT___io_c_bits_source_T) 
-                                                 >> 3U)))) 
-                                | (3U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC__DOT___io_c_bits_source_T) 
-                                                >> 3U)))) 
-                               | (4U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC__DOT___io_c_bits_source_T) 
-                                               >> 3U)))) 
-                              | (5U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC__DOT___io_c_bits_source_T) 
-                                              >> 3U)))) 
-                             | (6U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC__DOT___io_c_bits_source_T) 
-                                             >> 3U)))) 
-                            | (7U == (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__sourceC__DOT___io_c_bits_source_T) 
-                                            >> 3U)))) 
-                           | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:94751: Assertion failed in %NysyxSoCFull.fpga.chiplink.mbypass.monitor_1\n",
-                  64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94751, "");
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 94909, "");
     }
 }

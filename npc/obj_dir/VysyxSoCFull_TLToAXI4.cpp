@@ -2261,6 +2261,8 @@ VL_INLINE_OPT void VysyxSoCFull_TLToAXI4___sequent__TOP__ysyxSoCFull__DOT__asic_
                                      - (IData)(1U)));
     vlSelf->__PVT__monitor_io_in_d_bits_denied = ((IData)(vlSelf->__PVT__r_holds_d) 
                                                   & (IData)(vlSelf->__PVT___GEN_261));
+    vlSelf->auto_in_d_bits_corrupt = ((IData)(vlSelf->__PVT__r_holds_d) 
+                                      & (IData)(vlSelf->__PVT___GEN_261));
     vlSelf->auto_in_d_bits_denied = ((IData)(vlSelf->__PVT__r_holds_d) 
                                      & (IData)(vlSelf->__PVT___GEN_261));
     vlSelf->__PVT__monitor__DOT__a_first_counter1 = 
@@ -2269,22 +2271,13 @@ VL_INLINE_OPT void VysyxSoCFull_TLToAXI4___sequent__TOP__ysyxSoCFull__DOT__asic_
     vlSelf->__PVT__monitor__DOT__a_first = (0U == (IData)(vlSelf->__PVT__monitor__DOT__a_first_counter));
 }
 
-VL_INLINE_OPT void VysyxSoCFull_TLToAXI4___sequent__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4__5(VysyxSoCFull_TLToAXI4* vlSelf) {
-    if (false && vlSelf) {}  // Prevent unused
-    VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_TLToAXI4___sequent__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4__5\n"); );
-    // Body
-    vlSelf->auto_in_d_bits_corrupt = ((IData)(vlSelf->__PVT__r_holds_d) 
-                                      & (IData)(vlSelf->__PVT___GEN_261));
-}
-
 extern const VlWide<33>/*1055:0*/ VysyxSoCFull__ConstPool__CONST_f1d99c76_0;
 extern const VlWide<33>/*1055:0*/ VysyxSoCFull__ConstPool__CONST_ac7e6362_0;
 
-VL_INLINE_OPT void VysyxSoCFull_TLToAXI4___multiclk__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4__13(VysyxSoCFull_TLToAXI4* vlSelf) {
+VL_INLINE_OPT void VysyxSoCFull_TLToAXI4___multiclk__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4__12(VysyxSoCFull_TLToAXI4* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_TLToAXI4___multiclk__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4__13\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_TLToAXI4___multiclk__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4__12\n"); );
     // Variables
     CData/*0:0*/ __PVT___GEN_151;
     CData/*0:0*/ __PVT___GEN_172;
