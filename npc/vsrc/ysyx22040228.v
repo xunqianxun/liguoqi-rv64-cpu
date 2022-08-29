@@ -1,3 +1,256 @@
+//system 
+`define ysyx22040228_RSTENA    1'b1
+`define ysyx22040228_MTIMECMP  64'h0000000002004000
+`define ysyx22040228_MTIME     64'h000000000200bff8
+`define ysyx22040228_SERIAL_H  64'h00000000a00003ff
+`define ysyx22040228_SERIAL_L  64'h00000000a00003f8
+`define ysyx22040228_DIV_ZERO  128'h000000000000000000000000000000
+
+//pip define 
+`define ysyx22040228_PCBUS     63:0
+`define ysyx22040228_INSTBUS   31:0
+`define ysyx22040228_REGBUS    63:0
+`define ysyx22040228_ZEROWORD  64'h0000000000000000
+`define ysyx22040228_NEXTPC    64'h0000000000000004
+`define ysyx22040228_NNXPC     64'h0000000000000008
+`define ysyx22040228_THISPC    64'h0000000000000000
+//pc
+//`define ysyx22040228_START     64'h0000000080000000
+`define ysyx22040228_START     64'h0000000030000000
+//id
+//`define ysyx22040228_REGBUS       63:0
+`define ysyx22040228_REGADDRBUS   4:0
+`define ysyx22040228_SYS          5'b11100
+`define ysyx22040228_REGIMM        5'b00100
+`define ysyx22040228_REGREG        5'b01100
+`define ysyx22040228_REGIMMW      5'b00110
+`define ysyx22040228_REGREGW      5'b01110
+`define ysyx22040228_LUI            5'b01101
+`define ysyx22040228_AUIPC          5'b00101
+`define ysyx22040228_JAL            5'b11011
+`define ysyx22040228_JALR           5'b11001
+`define ysyx22040228_BRANCH             5'b11000
+`define ysyx22040228_LOAD               5'b00000
+`define ysyx22040228_STORE              5'b01000
+`define FENCH              5'b00011
+`define ysyx22040228_FLUSHDISABLE 1'b0
+`define ysyx22040228_FLUSHABLE    1'b1
+//ctrl
+`define ysyx22040228_STOP      1'b1
+`define ysyx22040228_NOSTOP    1'b0
+//ex
+`define ysyx22040228_WDISABLE  1'b0
+`define ysyx22040228_WENABLE   1'b1
+`define ysyx22040228_RDISABLE  1'b0
+`define ysyx22040228_RENABLE   1'b1
+`define ysyx22040228_DATAADDRBUS   63:0
+`define ysyx22040228_DATABUS       63:0
+
+//inst
+`define EBREAK_TRAP        32'b00000000000100000000000001110011
+`define INST_ADDI          8'b00000001
+`define INST_SLTI          8'b00000010
+`define INST_SLTIU         8'b00000100
+`define INST_XORI          8'b00001000
+`define INST_ORI           8'b00010000
+`define INST_ANDI          8'b00100000
+`define INST_SLLI          8'b01000000
+`define INST_SRLI          8'b10000000
+`define INST_SRAI          8'b00000011
+`define INST_ADD           8'b00001100
+`define INST_SUB           8'b00110000
+`define INST_SLL           8'b11000000
+`define INST_SLT           8'b00000101
+`define INST_SLTU          8'b00001010
+`define INST_XOR           8'b01010000
+`define INST_SRL           8'b10100000
+`define INST_SRA           8'b00010001
+`define INST_OR            8'b00100010
+`define INST_AND           8'b01000100
+`define INST_LUI           8'b10001000
+`define INST_AUIPC         8'b10000001
+`define INST_ADDIW         8'b00011000
+`define INST_SLLIW         8'b00001001
+`define INST_SRLIW         8'b10010000
+`define INST_SRAIW         8'b00000110
+`define INST_ADDW          8'b01100000
+`define INST_SUBW          8'b00100001
+`define INST_SLLW          8'b00010010
+`define INST_SRLW          8'b10000100
+`define INST_SRAW          8'b01001000
+
+`define INST_JAL           8'b01000010
+`define INST_JALR          8'b00100100
+
+`define INST_BEQ           8'b00000001
+`define INST_BNE           8'b00000010
+`define INST_BLT           8'b00000100
+`define INST_BGE           8'b00001000
+`define INST_BLTU          8'b00010000
+`define INST_BGEU          8'b00100000
+
+`define INST_MUL           8'b00001110
+`define INST_MULH          8'b00011100
+`define INST_MULHSU        8'b00111000
+`define INST_MULHU         8'b01110000
+`define INST_MULW          8'b11100000
+
+`define INST_DIV           8'b10000110
+`define INST_DIVU          8'b00011010
+`define INST_DIVUW         8'b00100101
+`define INST_DIVW          8'b01010001
+
+`define INST_REM           8'b11000001
+`define INST_REMU          8'b10000101
+`define INST_REMUW         8'b01000011
+`define INST_REMW          8'b00010011
+
+
+`define INST_CSRRW         8'b01000000
+`define INST_CSRRS         8'b10000000
+`define INST_CSRRC         8'b00000001
+`define INST_CSRRWI        8'b00000010
+`define INST_CSRRSI        8'b00000100
+`define INST_CSRRCI        8'b00001000
+
+`define INST_EBREAK        8'b00000111
+`define INST_ECALL         8'b00010000
+`define INST_MRET          8'b00100000
+`define INST_FENCE         8'b10101000
+
+//mem
+//`define DATA_BUS           63:0
+`define LB_SEL             3'b000
+`define LH_SEL             3'b001
+`define LW_SEL             3'b010
+`define LBU_SEL            3'b100
+`define LHU_SEL            3'b101
+`define LWU_SEL            3'b110
+`define LD_SEL             3'b011
+
+`define SB_SEL             3'b000
+`define SH_SEL             3'b001
+`define SW_SEL             3'b010
+`define SD_SEL             3'b011
+//defines
+/************************************************************
+Author:LiGuoqi
+Name:define_axi4.v
+Function:AXI4 use define
+************************************************************/
+
+`define  SLAVE_NUM 3
+
+
+`define ysyx22040228_ID_BUS       3:0
+`define ysyx22040228_ADDR_BUS     63:0
+`define ysyx22040228_LEN_BUS      7:0
+`define ysyx22040228_SIZE_BUS     2:0
+`define ysyx22040228_BURST_BUS    1:0
+//`define ysyx22040228_LOCK     1:0
+`define ysyx22040228_CACHE_BUS    3:0
+`define ysyx22040228_PROT_BUS     2:0
+`define ysyx22040228_QOS_BUS      3:0
+// `define ysyx22040228_REGION
+// `define ysyx22040228_USER
+
+`define ysyx22040228_DATA_BUS     63:0
+`define ysyx22040228_STRB_BUS     7:0       
+//`define ysyx22040228_LAST 
+//`define ysyx22040228_USER   
+`define ysyx22040228_RESP_BUS     1:0
+
+
+
+//multiply by six relative to the input bit width
+`define ysyx22040228_SLAVE_ID       23:0 //4*6-1
+`define ysyx22040228_SLAVE_ADDR     383:0//64*6-1
+`define ysyx22040228_SLAVE_LEN      47:0 //8*6-1
+`define ysyx22040228_SLAVE_SIZE     17:0 //3*6-1
+`define ysyx22040228_SLAVE_BURST    11:0 //2*6-1 
+`define ysyx22040228_SLAVE_LOCK     11:0 //2*6-1
+`define ysyx22040228_SLAVE_CACHE    23:0 //4*6-1
+`define ysyx22040228_SLAVE_PROT     17:0 //3*6-1
+`define ysyx22040228_SLAVE_QOS  
+`define ysyx22040228_SLAVE_REGION
+`define ysyx22040228_SLAVE_USER
+`define ysyx22040228_SLAVE_DATA     383:0//64*6-1
+`define ysyx22040228_SLAVE_STRB     
+`define ysyx22040228_SLAVE_LAST 
+//`define ysyx22040228_SLAVE_USER   
+`define ysyx22040228_SLAVE_RESP
+
+//number of the port 
+`define ysyx22040228_STRBN  
+`define ysyx22040228_LASTN 
+
+//signal zero data
+`define ysyx22040228_ID_ZERO    4'b0000 
+`define ysyx22040228_ADDR_ZERO  64'b0
+`define ysyx22040228_LEN_ZERO   8'b0
+`define ysyx22040228_SIZE_ZERO  3'b0
+`define ysyx22040228_BURST_ZERO 2'b0
+`define ysyx22040228_LOCK_ZERO  2'b0
+`define ysyx22040228_CACHE_ZERO 4'b0
+`define ysyx22040228_PROT_ZERO  3'b0
+`define ysyx22040228_QOS_ZERO   
+`define ysyx22040228_REGION_ZERO
+`define ysyx22040228_USER_ZERO
+`define ysyx22040228_DATA_ZERO  64'b0
+`define ysyx22040228_STRB_ZERO
+`define ysyx22040228_LAST_ZERO
+`define ysyx22040228_RESP_ZERO 
+
+
+`define ysyx22040228_TIME     6'b000001
+`define ysyx22040228_UART     6'b000010
+`define ysyx22040228_IO       6'b000100
+`define ysyx22040228_VGA      6'b001000
+`define ysyx22040228_KEY      6'b010000
+`define ysyx22040228_OUT      6'b100000
+`define ysyx22040228_NOSELECT    0
+`define ysyx22040228_TIME_SLECT  1
+`define ysyx22040228_UART_SLECT  2
+`define ysyx22040228_IO_SLECT    3
+`define ysyx22040228_VGA_SLECT   4
+`define ysyx22040228_KEY_SLECT   5
+`define ysyx22040228_OUT_SlECT   6
+
+`define ysyx22040228_AXI_RSTENA    1'b1
+`define ysyx22040228_TIME_WAITE    2'b00
+`define ysyx22040228_TIME_WRITE    2'b01
+`define ysyx22040228_TIME_READ     2'b01
+`define ysyx22040228_TIME_RESP     2'b10
+`define ysyx22040228_TIME_WIBK     2'b10
+`define ysyx22040228_AXI_ZERO_WORD 64'b0
+`define ysyx22040228_AXI_REGBUS    63:0
+
+`define ysyx22040228_CACHE_DATA_W  63:0
+
+`define ysyx22040228_DCACHE_ADDR_W  31:0
+`define ysyx22040228_DCACHE_DATA_W  63:0
+
+`define ysyx22040228_ABLE         1'b1
+`define ysyx22040228_ENABLE       1'b0
+
+`define ysyx22040228_TEG_WITH      22:0
+`define ysyx22040228_INDEX_WITH    5:0
+`define ysyx22040228_CLINT_START   64'h0000000002000000
+`define ysyx22040228_CLINT_END     64'h000000000200ffff
+`define ysyx22040228_UART_START    64'h0000000010000000
+`define ysyx22040228_UART_END      64'h0000000010000fff
+`define ysyx22040228_SPICTRL_START 64'h0000000010001000
+`define ysyx22040228_SPICTRL_END   64'h0000000010001fff
+`define ysyx22040228_SPI_START     64'h0000000030000000
+`define ysyx22040228_SPI_END       64'h000000003fffffff
+`define ysyx22040228_CHIPLINK_START 64'h0000000040000000
+`define ysyx22040228_CHIPLINK_END   64'h000000007fffffff
+`define ysyx22040228_APB_START     64'h0000000010000000
+`define ysyx22040228_APB_END       64'h000000003fffffff
+`define ysyx22040228_CACHE_STRBL   128'h0000000000000000ffffffffffffffff
+`define ysyx22040228_CACHE_STRBH   128'hffffffffffffffff0000000000000000
+`define ysyx22040228_CACHE_STRBZ   128'h00000000000000000000000000000000
+
 /************************************************************
 Author:LiGuoqi
 Name:arbitrate.v
@@ -64,9 +317,9 @@ Function:arbitrate i_cache and d_cache
 `define ysyx22040228_AXI_WRITE      3'b101
 
 
-`include "ysyx_22040228defines.v"
-`include "ysyx_22040228defines_axi4.v"
-`include "ysyx_22040228cache_defines.v"
+// `include "ysyx_22040228defines.v"
+// `include "ysyx_22040228defines_axi4.v"
+// `include "ysyx_22040228cache_defines.v"
 module ysyx_22040228arbitratem (
     //-----------------------------system----------------------------------------//
     input       wire                                         clk                  ,
@@ -427,11 +680,11 @@ Name:inst_cache.v
 Function:write instraction cache
 ************************************************************/
 /* verilator lint_off LATCH */
-`include "ysyx_22040228defines.v"
-`include "ysyx_22040228defines_axi4.v"
-`include "ysyx_22040228TEG_CC.v"
+// `include "ysyx_22040228defines.v"
+// `include "ysyx_22040228defines_axi4.v"
+// `include "ysyx_22040228TEG_CC.v"
 //`include "S011HD1P_X32Y2D128_BW.v"
-`include "ysyx_22040228cache_defines.v"
+//`include "ysyx_22040228cache_defines.v"
 
 `define ysyx22040228_I_IDLE    6'b000001
 `define ysyx22040228_I_MISSRL  6'b000010 //--> read chiplink can use burst
@@ -815,55 +1068,55 @@ module ysyx_22040228inst_cache (
 /* verilator lint_on LATCH */
 
 endmodule    
-`include "ysyx_22040228defines_axi4.v"
-`include "ysyx_22040228defines.v"
+// `include "ysyx_22040228defines_axi4.v"
+// `include "ysyx_22040228defines.v"
 
-// Burst types
-`define AXI_BURST_TYPE_FIXED                                2'b00
-`define AXI_BURST_TYPE_INCR                                 2'b01
-`define AXI_BURST_TYPE_WRAP                                 2'b10
-// Access permissions
-`define AXI_PROT_UNPRIVILEGED_ACCESS                        3'b000
-`define AXI_PROT_PRIVILEGED_ACCESS                          3'b001
-`define AXI_PROT_SECURE_ACCESS                              3'b000
-`define AXI_PROT_NON_SECURE_ACCESS                          3'b010
-`define AXI_PROT_DATA_ACCESS                                3'b000
-`define AXI_PROT_INSTRUCTION_ACCESS                         3'b100
-// Memory types (AR)
-`define AXI_ARCACHE_DEVICE_NON_BUFFERABLE                   4'b0000
-`define AXI_ARCACHE_DEVICE_BUFFERABLE                       4'b0001
-`define AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE     4'b0010
-`define AXI_ARCACHE_NORMAL_NON_CACHEABLE_BUFFERABLE         4'b0011
-`define AXI_ARCACHE_WRITE_THROUGH_NO_ALLOCATE               4'b1010
-`define AXI_ARCACHE_WRITE_THROUGH_READ_ALLOCATE             4'b1110
-`define AXI_ARCACHE_WRITE_THROUGH_WRITE_ALLOCATE            4'b1010
-`define AXI_ARCACHE_WRITE_THROUGH_READ_AND_WRITE_ALLOCATE   4'b1110
-`define AXI_ARCACHE_WRITE_BACK_NO_ALLOCATE                  4'b1011
-`define AXI_ARCACHE_WRITE_BACK_READ_ALLOCATE                4'b1111
-`define AXI_ARCACHE_WRITE_BACK_WRITE_ALLOCATE               4'b1011
-`define AXI_ARCACHE_WRITE_BACK_READ_AND_WRITE_ALLOCATE      4'b1111
-// Memory types (AW)
-`define AXI_AWCACHE_DEVICE_NON_BUFFERABLE                   4'b0000
-`define AXI_AWCACHE_DEVICE_BUFFERABLE                       4'b0001
-`define AXI_AWCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE     4'b0010
-`define AXI_AWCACHE_NORMAL_NON_CACHEABLE_BUFFERABLE         4'b0011
-`define AXI_AWCACHE_WRITE_THROUGH_NO_ALLOCATE               4'b0110
-`define AXI_AWCACHE_WRITE_THROUGH_READ_ALLOCATE             4'b0110
-`define AXI_AWCACHE_WRITE_THROUGH_WRITE_ALLOCATE            4'b1110
-`define AXI_AWCACHE_WRITE_THROUGH_READ_AND_WRITE_ALLOCATE   4'b1110
-`define AXI_AWCACHE_WRITE_BACK_NO_ALLOCATE                  4'b0111
-`define AXI_AWCACHE_WRITE_BACK_READ_ALLOCATE                4'b0111
-`define AXI_AWCACHE_WRITE_BACK_WRITE_ALLOCATE               4'b1111
-`define AXI_AWCACHE_WRITE_BACK_READ_AND_WRITE_ALLOCATE      4'b1111
+// // Burst types
+// `define AXI_BURST_TYPE_FIXED                                2'b00
+// `define AXI_BURST_TYPE_INCR                                 2'b01
+// `define AXI_BURST_TYPE_WRAP                                 2'b10
+// // Access permissions
+// `define AXI_PROT_UNPRIVILEGED_ACCESS                        3'b000
+// `define AXI_PROT_PRIVILEGED_ACCESS                          3'b001
+// `define AXI_PROT_SECURE_ACCESS                              3'b000
+// `define AXI_PROT_NON_SECURE_ACCESS                          3'b010
+// `define AXI_PROT_DATA_ACCESS                                3'b000
+// `define AXI_PROT_INSTRUCTION_ACCESS                         3'b100
+// // Memory types (AR)
+// `define AXI_ARCACHE_DEVICE_NON_BUFFERABLE                   4'b0000
+// `define AXI_ARCACHE_DEVICE_BUFFERABLE                       4'b0001
+// `define AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE     4'b0010
+// `define AXI_ARCACHE_NORMAL_NON_CACHEABLE_BUFFERABLE         4'b0011
+// `define AXI_ARCACHE_WRITE_THROUGH_NO_ALLOCATE               4'b1010
+// `define AXI_ARCACHE_WRITE_THROUGH_READ_ALLOCATE             4'b1110
+// `define AXI_ARCACHE_WRITE_THROUGH_WRITE_ALLOCATE            4'b1010
+// `define AXI_ARCACHE_WRITE_THROUGH_READ_AND_WRITE_ALLOCATE   4'b1110
+// `define AXI_ARCACHE_WRITE_BACK_NO_ALLOCATE                  4'b1011
+// `define AXI_ARCACHE_WRITE_BACK_READ_ALLOCATE                4'b1111
+// `define AXI_ARCACHE_WRITE_BACK_WRITE_ALLOCATE               4'b1011
+// `define AXI_ARCACHE_WRITE_BACK_READ_AND_WRITE_ALLOCATE      4'b1111
+// // Memory types (AW)
+// `define AXI_AWCACHE_DEVICE_NON_BUFFERABLE                   4'b0000
+// `define AXI_AWCACHE_DEVICE_BUFFERABLE                       4'b0001
+// `define AXI_AWCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE     4'b0010
+// `define AXI_AWCACHE_NORMAL_NON_CACHEABLE_BUFFERABLE         4'b0011
+// `define AXI_AWCACHE_WRITE_THROUGH_NO_ALLOCATE               4'b0110
+// `define AXI_AWCACHE_WRITE_THROUGH_READ_ALLOCATE             4'b0110
+// `define AXI_AWCACHE_WRITE_THROUGH_WRITE_ALLOCATE            4'b1110
+// `define AXI_AWCACHE_WRITE_THROUGH_READ_AND_WRITE_ALLOCATE   4'b1110
+// `define AXI_AWCACHE_WRITE_BACK_NO_ALLOCATE                  4'b0111
+// `define AXI_AWCACHE_WRITE_BACK_READ_ALLOCATE                4'b0111
+// `define AXI_AWCACHE_WRITE_BACK_WRITE_ALLOCATE               4'b1111
+// `define AXI_AWCACHE_WRITE_BACK_READ_AND_WRITE_ALLOCATE      4'b1111
 
-`define AXI_SIZE_BYTES_1                                    3'b000
-`define AXI_SIZE_BYTES_2                                    3'b001
-`define AXI_SIZE_BYTES_4                                    3'b010
-`define AXI_SIZE_BYTES_8                                    3'b011
-`define AXI_SIZE_BYTES_16                                   3'b100
-`define AXI_SIZE_BYTES_32                                   3'b101
-`define AXI_SIZE_BYTES_64                                   3'b110
-`define AXI_SIZE_BYTES_128                                  3'b111
+// `define AXI_SIZE_BYTES_1                                    3'b000
+// `define AXI_SIZE_BYTES_2                                    3'b001
+// `define AXI_SIZE_BYTES_4                                    3'b010
+// `define AXI_SIZE_BYTES_8                                    3'b011
+// `define AXI_SIZE_BYTES_16                                   3'b100
+// `define AXI_SIZE_BYTES_32                                   3'b101
+// `define AXI_SIZE_BYTES_64                                   3'b110
+// `define AXI_SIZE_BYTES_128                                  3'b111
 
 `define ysyx22040228_TIMER_IDLE     2'b00 
 `define ysyx22040228_TIMER_HANDL    2'b01
@@ -1099,7 +1352,7 @@ Name:csr.v
 Function:The necessary registers in machine mode are designed
          andimplented.
 ************************************************************/
-`include "ysyx_22040228defines.v"
+//`include "ysyx_22040228defines.v"
 module ysyx_22040228csr (
     input          wire                                        clk              ,
     input          wire                                        rst              ,
@@ -1349,7 +1602,7 @@ Author:LiGuoqi
 Name:ctrl.v
 Function:Pause control of the whole pipeline
 ************************************************************/
-`include "ysyx_22040228defines.v"
+//`include "ysyx_22040228defines.v"
 module ysyx_22040228ctrl (
     input                   wire                                      rst           ,
     input                   wire                                      if_stall_req  ,
@@ -1390,10 +1643,10 @@ Function:write data cache
 `define ysyx22040228_FENCEEND   3'b100
 
 
-`include "ysyx_22040228defines.v"
-`include "ysyx_22040228defines_axi4.v"
+// `include "ysyx_22040228defines.v"
+// `include "ysyx_22040228defines_axi4.v"
 //`include "S011HD1P_X32Y2D128_BWF.v"
-`include "ysyx_22040228TEG_CC.v"
+//`include "ysyx_22040228TEG_CC.v"
 /* verilator lint_off UNUSED */
 module ysyx_22040228data_cache (
     input         wire                                        clk                ,
@@ -2122,7 +2375,7 @@ Author:LiGuoqi
 Name:divider.v
 Function:execute muliplication instruction
 ************************************************************/
-`include "ysyx_22040228defines.v"
+//`include "ysyx_22040228defines.v"
 
 `define ysyx22040228_DIV_SIGN       3'b001 
 `define ysyx22040228_DIV_DOING      3'b010
@@ -2250,7 +2503,7 @@ Author:LiGuoqi
 Name:ex_mem.v
 Function:Intermediate module for memory access
 ************************************************************/
-`include "ysyx_22040228defines.v"
+//`include "ysyx_22040228defines.v"
 module ysyx_22040228ex_mem (
     input              wire                                              clk             ,
     input              wire                                              rst             ,
@@ -2321,10 +2574,10 @@ Author:LiGuoqi
 Name:ex.v
 Function:Instruction execution module and CSR is instantiated
 ************************************************************/
-`include "ysyx_22040228csr.v"
-`include "ysyx_22040228divider.v"
-`include "ysyx_22040228multiplier.v"
-`include "ysyx_22040228defines.v"
+// `include "ysyx_22040228csr.v"
+// `include "ysyx_22040228divider.v"
+// `include "ysyx_22040228multiplier.v"
+// `include "ysyx_22040228defines.v"
 module ysyx_22040228ex (
     input         wire                                        clk               ,
     input         wire                                        rst               ,
@@ -2647,7 +2900,7 @@ Author:LiGuoqi
 Name:id_ex.v
 Function: Intermediate module for compiling code and executing
 ************************************************************/
-`include "ysyx_22040228defines.v"
+//`include "ysyx_22040228defines.v"
 module ysyx_22040228id_ex (
     input       wire                                     clk                ,
     input       wire                                     rst                ,
@@ -2738,7 +2991,7 @@ Name:id.v
 Function:Decoding module it is used to parse the key information 
          of the instruction
 ************************************************************/
-`include "ysyx_22040228defines.v"
+//`include "ysyx_22040228defines.v"
 module ysyx_22040228id (
     //系统输入
     input       wire                                                           rst                 ,
@@ -2997,7 +3250,7 @@ Author:LiGuoqi
 Name:if_idr.v
 Function:From IR-DATA get instruct spread id module
 ************************************************************/
-`include "ysyx_22040228defines.v"
+//`include "ysyx_22040228defines.v"
 module ysyx_22040228if_id (
     //系统信号
     input    wire                                              clk          ,
@@ -3080,7 +3333,7 @@ Author:LiGuoqi
 Name:mem.v
 Function:Reading and write data in the DATA-memory module
 ************************************************************/
-`include "ysyx_22040228defines.v"
+//`include "ysyx_22040228defines.v"
 module ysyx_22040228load_store (
     input                wire                                                rst                  ,
     input                wire          [ 7:0]                                inst_type_i          ,
@@ -3343,7 +3596,7 @@ Name:mem_wb.v
 Function:write data back to regfile module
 ************************************************************/
 /* verilator lint_off UNUSED */
-`include "ysyx_22040228defines.v"
+//`include "ysyx_22040228defines.v"
 module ysyx_22040228mem_wb (
     input                   wire                                             clk            ,
     input                   wire                                             rst            ,
@@ -3449,7 +3702,7 @@ Author:LiGuoqi
 Name:multiplier.v
 Function:execute muliplication instruction
 ************************************************************/
-`include "ysyx_22040228defines.v"
+//`include "ysyx_22040228defines.v"
 module ysyx_22040228multiplier (
     inout          wire                                            clk              ,
     input          wire                                            rst              ,
@@ -3527,7 +3780,7 @@ Author:LiGuoqi
 Name:pc.v
 Function:Instruction address transmitter
 ************************************************************/
-`include "ysyx_22040228defines.v"
+//`include "ysyx_22040228defines.v"
 module ysyx_22040228pc ( 
     //系统输入
     input    wire                                           clk          ,
@@ -3601,7 +3854,7 @@ Author  :LiGuoQi
 Data    :2022,03,21
 Function:this module use to pipeline prediction
 **********************************************************************/
-`include "ysyx_22040228defines.v"
+//`include "ysyx_22040228defines.v"
 module ysyx_22040228pip_fore (
     input            wire                                   rst      ,
     input            wire    [`ysyx22040228_PCBUS]          pc_i     ,
@@ -3783,18 +4036,18 @@ data:2021,10.21
 Name:rvcpu.v
 Function:Core top level module
 ************************************************************/
-`include "ysyx_22040228pip_fore.v"
-`include "ysyx_22040228pc.v"
-`include "ysyx_22040228if_id.v"
-`include "ysyx_22040228id.v"
-`include "ysyx_22040228id_ex.v"
-`include "ysyx_22040228ex.v"
-`include "ysyx_22040228ex_mem.v"
-`include "ysyx_22040228load_store.v"
-`include "ysyx_22040228mem_wb.v"
-`include "ysyx_22040228ctrl.v"
-`include "ysyx_22040228defines.v"
-`include "ysyx_22040228regfile.v"
+// `include "ysyx_22040228pip_fore.v"
+// `include "ysyx_22040228pc.v"
+// `include "ysyx_22040228if_id.v"
+// `include "ysyx_22040228id.v"
+// `include "ysyx_22040228id_ex.v"
+// `include "ysyx_22040228ex.v"
+// `include "ysyx_22040228ex_mem.v"
+// `include "ysyx_22040228load_store.v"
+// `include "ysyx_22040228mem_wb.v"
+// `include "ysyx_22040228ctrl.v"
+// `include "ysyx_22040228defines.v"
+// `include "ysyx_22040228regfile.v"
 /* verilator lint_off UNUSED */
 module ysyx_22040228rvcpu (
     input           wire                                        clk            ,
@@ -4199,8 +4452,8 @@ Author:LiGuoqi
 Name:soc_axi.v
 Function:AXI4 bus
 ************************************************************/
-`include "ysyx_22040228defines_axi4.v"
-`include "ysyx_22040228defines.v"
+// `include "ysyx_22040228defines_axi4.v"
+// `include "ysyx_22040228defines.v"
 // `define  IO_ADDR   
 // `define  TIME_ADDR
 parameter SLAVE_NUM = 2 ;
@@ -4512,7 +4765,7 @@ Author:LiGuoqi
 Name:teg_cc.v
 Function:memory teg data
 ************************************************************/
-`include "ysyx_22040228cache_defines.v"
+//`include "ysyx_22040228cache_defines.v"
 module ysyx_22040228TEG_CC (
     input            wire                                                         clk        ,
     input            wire       [5:0]                                             addr_i     ,
@@ -4544,18 +4797,18 @@ module ysyx_22040228TEG_CC (
 
 endmodule
 
-`include "ysyx_22040228defines.v"
-`include "ysyx_22040228defines_axi4.v"
-`include "ysyx_22040228cache_defines.v"
+// `include "ysyx_22040228defines.v"
+// `include "ysyx_22040228defines_axi4.v"
+// `include "ysyx_22040228cache_defines.v"
 /* verilator lint_off LATCH */
-`define AXI_SIZE_BYTES_1                                    3'b000
-`define AXI_SIZE_BYTES_2                                    3'b001
-`define AXI_SIZE_BYTES_4                                    3'b010
-`define AXI_SIZE_BYTES_8                                    3'b011
-`define AXI_SIZE_BYTES_16                                   3'b100
-`define AXI_SIZE_BYTES_32                                   3'b101
-`define AXI_SIZE_BYTES_64                                   3'b110
-`define AXI_SIZE_BYTES_128                                  3'b111
+// `define AXI_SIZE_BYTES_1                                    3'b000
+// `define AXI_SIZE_BYTES_2                                    3'b001
+// `define AXI_SIZE_BYTES_4                                    3'b010
+// `define AXI_SIZE_BYTES_8                                    3'b011
+// `define AXI_SIZE_BYTES_16                                   3'b100
+// `define AXI_SIZE_BYTES_32                                   3'b101
+// `define AXI_SIZE_BYTES_64                                   3'b110
+// `define AXI_SIZE_BYTES_128                                  3'b111
 module ysyx_22040228uncache_mmio (
     //input     wire                                         clk              ,
     //input     wire                                         rst              ,
@@ -4690,15 +4943,15 @@ Function:top module of this soc
 /* verilator lint_off UNUSED */
 /* verilator lint_off MODDUP */
 /* verilator lint_off LATCH */
-`include "ysyx_22040228arbitratem.v"
-`include "ysyx_22040228inst_cache.v"
-`include "ysyx_22040228data_cache.v"
-`include "ysyx_22040228soc_axi4.v"
-`include "ysyx_22040228clint.v"
-`include "ysyx_22040228rvcpu.v"
-`include "ysyx_22040228defines_axi4.v"
-`include "ysyx_22040228defines.v"
-`include "ysyx_22040228uncache_mmio.v"
+// `include "ysyx_22040228arbitratem.v"
+// `include "ysyx_22040228inst_cache.v"
+// `include "ysyx_22040228data_cache.v"
+// `include "ysyx_22040228soc_axi4.v"
+// `include "ysyx_22040228clint.v"
+// `include "ysyx_22040228rvcpu.v"
+// `include "ysyx_22040228defines_axi4.v"
+// `include "ysyx_22040228defines.v"
+// `include "ysyx_22040228uncache_mmio.v"
 module ysyx_22040228 (
     input       wire                                         clock                ,
     input       wire                                         reset                ,
@@ -5686,257 +5939,59 @@ module ysyx_22040228 (
 
 endmodule
 
-//system 
-`define ysyx22040228_RSTENA    1'b1
-`define ysyx22040228_MTIMECMP  64'h0000000002004000
-`define ysyx22040228_MTIME     64'h000000000200bff8
-`define ysyx22040228_SERIAL_H  64'h00000000a00003ff
-`define ysyx22040228_SERIAL_L  64'h00000000a00003f8
-`define ysyx22040228_DIV_ZERO  128'h000000000000000000000000000000
-
-//pip define 
-`define ysyx22040228_PCBUS     63:0
-`define ysyx22040228_INSTBUS   31:0
-`define ysyx22040228_REGBUS    63:0
-`define ysyx22040228_ZEROWORD  64'h0000000000000000
-`define ysyx22040228_NEXTPC    64'h0000000000000004
-`define ysyx22040228_NNXPC     64'h0000000000000008
-`define ysyx22040228_THISPC    64'h0000000000000000
-//pc
-//`define ysyx22040228_START     64'h0000000080000000
-`define ysyx22040228_START     64'h0000000030000000
-//id
-//`define ysyx22040228_REGBUS       63:0
-`define ysyx22040228_REGADDRBUS   4:0
-`define ysyx22040228_SYS          5'b11100
-`define ysyx22040228_REGIMM        5'b00100
-`define ysyx22040228_REGREG        5'b01100
-`define ysyx22040228_REGIMMW      5'b00110
-`define ysyx22040228_REGREGW      5'b01110
-`define ysyx22040228_LUI            5'b01101
-`define ysyx22040228_AUIPC          5'b00101
-`define ysyx22040228_JAL            5'b11011
-`define ysyx22040228_JALR           5'b11001
-`define ysyx22040228_BRANCH             5'b11000
-`define ysyx22040228_LOAD               5'b00000
-`define ysyx22040228_STORE              5'b01000
-`define FENCH              5'b00011
-`define ysyx22040228_FLUSHDISABLE 1'b0
-`define ysyx22040228_FLUSHABLE    1'b1
-//ctrl
-`define ysyx22040228_STOP      1'b1
-`define ysyx22040228_NOSTOP    1'b0
-//ex
-`define ysyx22040228_WDISABLE  1'b0
-`define ysyx22040228_WENABLE   1'b1
-`define ysyx22040228_RDISABLE  1'b0
-`define ysyx22040228_RENABLE   1'b1
-`define ysyx22040228_DATAADDRBUS   63:0
-`define ysyx22040228_DATABUS       63:0
-
-//inst
-`define EBREAK_TRAP        32'b00000000000100000000000001110011
-`define INST_ADDI          8'b00000001
-`define INST_SLTI          8'b00000010
-`define INST_SLTIU         8'b00000100
-`define INST_XORI          8'b00001000
-`define INST_ORI           8'b00010000
-`define INST_ANDI          8'b00100000
-`define INST_SLLI          8'b01000000
-`define INST_SRLI          8'b10000000
-`define INST_SRAI          8'b00000011
-`define INST_ADD           8'b00001100
-`define INST_SUB           8'b00110000
-`define INST_SLL           8'b11000000
-`define INST_SLT           8'b00000101
-`define INST_SLTU          8'b00001010
-`define INST_XOR           8'b01010000
-`define INST_SRL           8'b10100000
-`define INST_SRA           8'b00010001
-`define INST_OR            8'b00100010
-`define INST_AND           8'b01000100
-`define INST_LUI           8'b10001000
-`define INST_AUIPC         8'b10000001
-`define INST_ADDIW         8'b00011000
-`define INST_SLLIW         8'b00001001
-`define INST_SRLIW         8'b10010000
-`define INST_SRAIW         8'b00000110
-`define INST_ADDW          8'b01100000
-`define INST_SUBW          8'b00100001
-`define INST_SLLW          8'b00010010
-`define INST_SRLW          8'b10000100
-`define INST_SRAW          8'b01001000
-
-`define INST_JAL           8'b01000010
-`define INST_JALR          8'b00100100
-
-`define INST_BEQ           8'b00000001
-`define INST_BNE           8'b00000010
-`define INST_BLT           8'b00000100
-`define INST_BGE           8'b00001000
-`define INST_BLTU          8'b00010000
-`define INST_BGEU          8'b00100000
-
-`define INST_MUL           8'b00001110
-`define INST_MULH          8'b00011100
-`define INST_MULHSU        8'b00111000
-`define INST_MULHU         8'b01110000
-`define INST_MULW          8'b11100000
-
-`define INST_DIV           8'b10000110
-`define INST_DIVU          8'b00011010
-`define INST_DIVUW         8'b00100101
-`define INST_DIVW          8'b01010001
-
-`define INST_REM           8'b11000001
-`define INST_REMU          8'b10000101
-`define INST_REMUW         8'b01000011
-`define INST_REMW          8'b00010011
-
-
-`define INST_CSRRW         8'b01000000
-`define INST_CSRRS         8'b10000000
-`define INST_CSRRC         8'b00000001
-`define INST_CSRRWI        8'b00000010
-`define INST_CSRRSI        8'b00000100
-`define INST_CSRRCI        8'b00001000
-
-`define INST_EBREAK        8'b00000111
-`define INST_ECALL         8'b00010000
-`define INST_MRET          8'b00100000
-`define INST_FENCE         8'b10101000
-
-//mem
-//`define DATA_BUS           63:0
-`define LB_SEL             3'b000
-`define LH_SEL             3'b001
-`define LW_SEL             3'b010
-`define LBU_SEL            3'b100
-`define LHU_SEL            3'b101
-`define LWU_SEL            3'b110
-`define LD_SEL             3'b011
-
-`define SB_SEL             3'b000
-`define SH_SEL             3'b001
-`define SW_SEL             3'b010
-`define SD_SEL             3'b011
-//defines
-/************************************************************
-Author:LiGuoqi
-Name:define_axi4.v
-Function:AXI4 use define
-************************************************************/
-
-`define  SLAVE_NUM 3
-
-
-`define ysyx22040228_ID_BUS       3:0
-`define ysyx22040228_ADDR_BUS     63:0
-`define ysyx22040228_LEN_BUS      7:0
-`define ysyx22040228_SIZE_BUS     2:0
-`define ysyx22040228_BURST_BUS    1:0
-//`define ysyx22040228_LOCK     1:0
-`define ysyx22040228_CACHE_BUS    3:0
-`define ysyx22040228_PROT_BUS     2:0
-`define ysyx22040228_QOS_BUS      3:0
-// `define ysyx22040228_REGION
-// `define ysyx22040228_USER
-
-`define ysyx22040228_DATA_BUS     63:0
-`define ysyx22040228_STRB_BUS     7:0       
-//`define ysyx22040228_LAST 
-//`define ysyx22040228_USER   
-`define ysyx22040228_RESP_BUS     1:0
 
 
 
-//multiply by six relative to the input bit width
-`define ysyx22040228_SLAVE_ID       23:0 //4*6-1
-`define ysyx22040228_SLAVE_ADDR     383:0//64*6-1
-`define ysyx22040228_SLAVE_LEN      47:0 //8*6-1
-`define ysyx22040228_SLAVE_SIZE     17:0 //3*6-1
-`define ysyx22040228_SLAVE_BURST    11:0 //2*6-1 
-`define ysyx22040228_SLAVE_LOCK     11:0 //2*6-1
-`define ysyx22040228_SLAVE_CACHE    23:0 //4*6-1
-`define ysyx22040228_SLAVE_PROT     17:0 //3*6-1
-`define ysyx22040228_SLAVE_QOS  
-`define ysyx22040228_SLAVE_REGION
-`define ysyx22040228_SLAVE_USER
-`define ysyx22040228_SLAVE_DATA     383:0//64*6-1
-`define ysyx22040228_SLAVE_STRB     
-`define ysyx22040228_SLAVE_LAST 
-//`define ysyx22040228_SLAVE_USER   
-`define ysyx22040228_SLAVE_RESP
-
-//number of the port 
-`define ysyx22040228_STRBN  
-`define ysyx22040228_LASTN 
-
-//signal zero data
-`define ysyx22040228_ID_ZERO    4'b0000 
-`define ysyx22040228_ADDR_ZERO  64'b0
-`define ysyx22040228_LEN_ZERO   8'b0
-`define ysyx22040228_SIZE_ZERO  3'b0
-`define ysyx22040228_BURST_ZERO 2'b0
-`define ysyx22040228_LOCK_ZERO  2'b0
-`define ysyx22040228_CACHE_ZERO 4'b0
-`define ysyx22040228_PROT_ZERO  3'b0
-`define ysyx22040228_QOS_ZERO   
-`define ysyx22040228_REGION_ZERO
-`define ysyx22040228_USER_ZERO
-`define ysyx22040228_DATA_ZERO  64'b0
-`define ysyx22040228_STRB_ZERO
-`define ysyx22040228_LAST_ZERO
-`define ysyx22040228_RESP_ZERO 
 
 
-`define ysyx22040228_TIME     6'b000001
-`define ysyx22040228_UART     6'b000010
-`define ysyx22040228_IO       6'b000100
-`define ysyx22040228_VGA      6'b001000
-`define ysyx22040228_KEY      6'b010000
-`define ysyx22040228_OUT      6'b100000
-`define ysyx22040228_NOSELECT    0
-`define ysyx22040228_TIME_SLECT  1
-`define ysyx22040228_UART_SLECT  2
-`define ysyx22040228_IO_SLECT    3
-`define ysyx22040228_VGA_SLECT   4
-`define ysyx22040228_KEY_SLECT   5
-`define ysyx22040228_OUT_SlECT   6
 
-`define ysyx22040228_AXI_RSTENA    1'b1
-`define ysyx22040228_TIME_WAITE    2'b00
-`define ysyx22040228_TIME_WRITE    2'b01
-`define ysyx22040228_TIME_READ     2'b01
-`define ysyx22040228_TIME_RESP     2'b10
-`define ysyx22040228_TIME_WIBK     2'b10
-`define ysyx22040228_AXI_ZERO_WORD 64'b0
-`define ysyx22040228_AXI_REGBUS    63:0
 
-`define ysyx22040228_CACHE_DATA_W  63:0
 
-`define ysyx22040228_DCACHE_ADDR_W  31:0
-`define ysyx22040228_DCACHE_DATA_W  63:0
 
-`define ysyx22040228_ABLE         1'b1
-`define ysyx22040228_ENABLE       1'b0
 
-`define ysyx22040228_TEG_WITH      22:0
-`define ysyx22040228_INDEX_WITH    5:0
-`define ysyx22040228_CLINT_START   64'h0000000002000000
-`define ysyx22040228_CLINT_END     64'h000000000200ffff
-`define ysyx22040228_UART_START    64'h0000000010000000
-`define ysyx22040228_UART_END      64'h0000000010000fff
-`define ysyx22040228_SPICTRL_START 64'h0000000010001000
-`define ysyx22040228_SPICTRL_END   64'h0000000010001fff
-`define ysyx22040228_SPI_START     64'h0000000030000000
-`define ysyx22040228_SPI_END       64'h000000003fffffff
-`define ysyx22040228_CHIPLINK_START 64'h0000000040000000
-`define ysyx22040228_CHIPLINK_END   64'h000000007fffffff
-`define ysyx22040228_APB_START     64'h0000000010000000
-`define ysyx22040228_APB_END       64'h000000003fffffff
-`define ysyx22040228_CACHE_STRBL   128'h0000000000000000ffffffffffffffff
-`define ysyx22040228_CACHE_STRBH   128'hffffffffffffffff0000000000000000
-`define ysyx22040228_CACHE_STRBZ   128'h00000000000000000000000000000000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
