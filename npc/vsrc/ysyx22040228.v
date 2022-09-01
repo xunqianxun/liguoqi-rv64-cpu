@@ -1426,25 +1426,23 @@ always @(posedge clk) begin
     else if(mstatus_mpie_ena & ~ex_stall) begin csr_mstatus_mpie <= mstatus_mpie_nxt ; end
     else                                  begin csr_mstatus_mpie <= csr_mstatus_mpie ; end
 end
-
+reg csr_mstatus_mie ;
 wire mstatus_mie_ena = mstatus_mpie_ena ;
 wire mstatus_mie_nxt = (ecall_trap_ena | tmr_trap_ena) ? 1'b0            :
                                           cmt_mret_ena ? csr_mstatus_mpie:
                                             wr_mstatus ? wbck_csr_data[3]:
                                                          csr_mstatus_mie ;
-reg csr_mstatus_mie ;
 always @(posedge clk) begin
     if(rst == `ysyx22040228_RSTENA)               begin csr_mstatus_mie <= 1'b0 ; end
     else if(mstatus_mie_ena & ~ex_stall) begin csr_mstatus_mie <= mstatus_mie_nxt ; end 
     else                                 begin csr_mstatus_mie <= csr_mstatus_mie ; end 
 end
-
+reg [1:0] csr_mstatus_mpp ;
 wire mstatus_mpp_ena = mstatus_mpie_ena ;
 wire [1:0] mstatus_mpp_nxt = (ecall_trap_ena | tmr_trap_ena) ? 2'b11                   :
                                                 cmt_mret_ena ? 2'b00                   :
                                                   wr_mstatus ? wbck_csr_data[12:11]    :
                                                             csr_mstatus_mpp            ;
-reg [1:0] csr_mstatus_mpp ;
 always @(posedge clk ) begin
     if(rst == `ysyx22040228_RSTENA)   begin csr_mstatus_mpp <= 2'b00 ;  end
     else if(mstatus_mpp_ena) begin csr_mstatus_mpp <= mstatus_mpp_nxt ; end
@@ -1514,6 +1512,7 @@ always @(posedge clk) begin
 end
 
 //0x342
+reg [`ysyx22040228_REGBUS] csr_mcause ;
 wire sel_mcause = (csr_idx == 12'h342) ;
 wire rd_mcause  = sel_mcause && csr_rd_en ;
 wire wr_mcause  = sel_mcause && csr_wr_en ;
@@ -1522,7 +1521,6 @@ wire [`ysyx22040228_REGBUS] csr_mcause_nxt = (ecall_trap_ena | tmr_trap_ena) ? t
                                                        wr_mcause ? wbck_csr_data     :
                                                                    csr_mcause        ;
 
-reg [`ysyx22040228_REGBUS] csr_mcause ;
 always @(posedge clk) begin
     if(rst == `ysyx22040228_RSTENA)     begin csr_mcause <= `ysyx22040228_ZEROWORD ; end
     else if(csr_mcause_ena)    begin csr_mcause <= csr_mcause_nxt ; end
@@ -1775,6 +1773,10 @@ module ysyx_22040228data_cache (
     end
 
     //-----------------------------------dcache----------------------------------//
+    reg  [5:0]  state_dread     ;
+    reg  [5:0]  state_dread_nxt ;
+    reg  [5:0]  state_dwrite     ;
+    reg  [5:0]  state_dwrite_nxt ;
     wire   dcache_read_shankhand   ;
     wire   dcache_write_shankhand  ;
     wire   dcache_read_ready ;
@@ -1788,8 +1790,6 @@ module ysyx_22040228data_cache (
     wire [ 5:0 ] dcache_index  =   mem_addr_i[ 8:3 ];
     //wire [ 2:0 ] dcache_offset =   mem_addr_i[ 2:0 ];
 
-    reg  [5:0]  state_dread     ;
-    reg  [5:0]  state_dread_nxt ;
 
     always @(posedge clk) begin
         if(rst == `ysyx22040228_RSTENA) begin
@@ -1799,7 +1799,7 @@ module ysyx_22040228data_cache (
             state_dread <= state_dread_nxt    ;
         end 
     end
-
+    reg         mem_hit_ok ;
     always @(*) begin 
             case (state_dread)
                `ysyx22040228_IDLE : begin
@@ -1854,7 +1854,6 @@ module ysyx_22040228data_cache (
         read_ok <= read_ok_;
     end
 
-    reg         mem_hit_ok ;
     reg         hit_data_ready;
     always @(*) begin
         if(state_dread == `ysyx22040228_HIT) begin
@@ -1986,8 +1985,6 @@ module ysyx_22040228data_cache (
         end 
     end
 
-    reg  [5:0]  state_dwrite     ;
-    reg  [5:0]  state_dwrite_nxt ;
 
     always @(posedge clk) begin
         if(rst == `ysyx22040228_RSTENA) begin
@@ -2655,7 +2652,7 @@ wire     [`ysyx22040228_REGBUS]  sraw_res      = {{32{op1_sraw_op2[31]}},op1_sra
 wire     [31:0]      op1_subw_op2  = op1_i[31:0] - op2_i[31:0]             ;
 wire     [`ysyx22040228_REGBUS]  subw_res      = {{32{op1_subw_op2[31]}},op1_subw_op2} ;
 
-
+wire  [`ysyx22040228_REGBUS]    read_csr_data  ;
 assign rd_data_o    = inst_type_i[0] ? op2_i : ((inst_type_i[7] && (inst_opcode_i != `INST_EBREAK)) ? read_csr_data : exe_res) ;
 
 assign inst_type_o  = inst_type_i & {8{~tmr_trap_ena}} ;
@@ -2666,7 +2663,8 @@ assign ls_addr_o    = (inst_type_i[1]|inst_type_i[0]) ? (op1_i + {{52{addr_offse
 assign ls_sel_o     = ls_sel_i  ;
 
 wire     [`ysyx22040228_REGBUS]  upper_imm = {{32{op2_i[19]}},op2_i[19:0],12'd0} ;
-
+reg   [63:0]   mul_data        ;
+reg   [63:0]   divrem_data     ;
 always @(*) begin
     if(rst == `ysyx22040228_RSTENA) begin  exe_res = `ysyx22040228_ZEROWORD   ;     end
     else begin
@@ -2703,7 +2701,6 @@ end
 
 wire clk_in ;
 assign clk_in = clk ;
-reg   [63:0]   mul_data        ;
 reg            mul_finish_sign ;
 wire           mul_ready       ;
 assign mul_ready =  (inst_opcode_i == `INST_MUL   ) | 
@@ -2723,7 +2720,6 @@ ysyx_22040228multiplier multiplier1 (
     .mult_finish     (mul_finish_sign)  
 );
 
-reg   [63:0]   divrem_data      ;
 reg            dr_finish_sign   ;
 wire           dr_ready         ;
 assign  dr_ready  = (inst_opcode_i == `INST_DIV     ) |
@@ -2788,6 +2784,8 @@ always @(*) begin
     end
 end
 
+wire                trap_ena     ;
+reg                 cmt_mret_ena   ;
 assign branch_pc_ena = (ex_flush_branch == `ysyx22040228_FLUSHABLE) | trap_ena | cmt_mret_ena ;
 assign branch_pc     = (trap_ena | cmt_mret_ena) ? read_csr_data :
                        (ex_flush_branch == `ysyx22040228_FLUSHABLE) ? pc_i + 64'd4 :
@@ -2797,12 +2795,10 @@ assign ex_stall_req = mul_div_req    ;
 assign ex_flush     = branch_pc_ena  ;
 
 //CSR
-wire                tmr_trap_ena ;
-wire  [11:0]        csr_idx = inst_type_i[7] ? op2_i[11:0] : 12'd0  ;
-wire  [`ysyx22040228_REGBUS]    read_csr_data  ;
-wire                trap_ena = ecall_trap_ena | (tmr_trap_ena) ;
 reg                 ecall_trap_ena ;
-reg                 cmt_mret_ena   ;
+wire                tmr_trap_ena   ;
+wire  [11:0]        csr_idx = inst_type_i[7] ? op2_i[11:0] : 12'd0  ;
+assign              trap_ena = ecall_trap_ena | (tmr_trap_ena) ;
 reg                 csr_wr_en      ;
 reg                 csr_rd_en      ;
 reg   [`ysyx22040228_REGBUS]    wbck_csr_data  ;
@@ -3052,7 +3048,7 @@ wire   [11:0]   imm    ;
 assign  opcode   =  inst_i [6:0]    ;
 assign  rd       =  inst_i [11:7]   ;
 assign  funct3   =  inst_i [14:12]  ;
-assign  rs1      = inst_ebreak ? 5'b01011 : inst_i [19:15]  ;
+assign  rs1      =  inst_i [19:15]  ;
 assign  imm      =  inst_i [31:20]  ;
 
 //R-Type
@@ -3277,11 +3273,11 @@ module ysyx_22040228if_id (
     output   reg      [`ysyx22040228_INSTBUS]                  id_inst        //输出给id译码阶段的指令数据
 );
 
- import "DPI-C" function void if_id_thepc(input longint thepc_data, input bit[31:0] the_inst);
+//  import "DPI-C" function void if_id_thepc(input longint thepc_data, input bit[31:0] the_inst);
 
- always @(posedge clk) begin
-    if_id_thepc(id_pc, id_inst);
- end
+//  always @(posedge clk) begin
+//     if_id_thepc(id_pc, id_inst);
+//  end
 
     reg     fl_bub_temp ;
     always @(posedge clk) begin
@@ -3373,9 +3369,10 @@ assign mem_inst_o = (rst == `ysyx22040228_RSTENA) ? 32'b0 : mem_inst_i ;
 assign mem_stall_req = (rst == `ysyx22040228_RSTENA) ? 1'b0 : ((((re|we) | (fence_ready_)) && (mem_finish == 1'b0))) ;
 assign fence         = fence_ready_;
 
-assign rd_addr_o  = rd_addr_i ;
+reg [`ysyx22040228_DATABUS] load_data ;
+assign rd_addr_o  = rd_addr_i         ;
 assign rd_data_o  = inst_type_i[1] ? load_data : rd_data_i ;
-assign rd_ena_o   = rd_ena_i  ;
+assign rd_ena_o   = rd_ena_i          ;
 
 //-------------------------------write type------------------------------------//
 //                we_type_sel == 3'b000 ------------>>> SB                     //
@@ -3407,7 +3404,6 @@ assign re_type_sel    = (rst == `ysyx22040228_RSTENA)                           
                                                                                                    3'b111                 ;
 assign data_addr_o    = (rst == `ysyx22040228_RSTENA) ? `ysyx22040228_ZEROWORD : ls_addr_i ;
 
-reg [`ysyx22040228_DATABUS] load_data ;
 
 wire [ 2:0] byte_sel      = ls_addr_i[2:0] ;
 wire [ 1:0] half_byte_sel = ls_addr_i[2:1] ;
@@ -3713,8 +3709,8 @@ module ysyx_22040228multiplier (
     output         wire            [63:0]                          product_val      ,
     output         wire                                            mult_finish              
 );
-
-    reg     mult_valid ;
+    reg  [63:0] multipler ;
+    reg     mult_valid    ;
     assign  mult_finish = mult_valid & ~( | multipler) ;
 
     always @(posedge clk) begin
@@ -3742,7 +3738,7 @@ module ysyx_22040228multiplier (
         else if(mult_ready)
             multiplcand <= {64'b0,op1_absolute}; 
     end
-    reg  [63:0] multipler ;
+
     always @(posedge clk) begin
         if(mult_valid)
             multipler <= {1'b0, multipler[63:1]} ;
@@ -3908,7 +3904,7 @@ Author:LiGuoqi
 Name:regfile.v
 Function:32 general purpose registers
 ************************************************************/
-`include "ysyx_22040228defines.v"
+//`include "ysyx_22040228defines.v"
 module ysyx_22040228regfile (
 	input                   wire                                     clk            ,
 	input                   wire                                     rst            ,
