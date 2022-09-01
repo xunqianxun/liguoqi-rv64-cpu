@@ -1415,7 +1415,7 @@ wire      rd_mstatus   =  sel_mstatus && csr_rd_en  ;
 wire      wr_mstatus   =  sel_mstatus && csr_wr_en  ;           
     
 wire      mstatus_mpie_ena = wr_mstatus | cmt_mret_ena | (ecall_trap_ena | tmr_trap_ena) ;
-
+reg csr_mstatus_mie ;
 wire      mstatus_mpie_nxt = (ecall_trap_ena | tmr_trap_ena) ? csr_mstatus_mie : 
                                                cmt_mret_ena  ? 1'b1            :
                                                wr_mstatus    ? wbck_csr_data[7]:
@@ -1426,7 +1426,6 @@ always @(posedge clk) begin
     else if(mstatus_mpie_ena & ~ex_stall) begin csr_mstatus_mpie <= mstatus_mpie_nxt ; end
     else                                  begin csr_mstatus_mpie <= csr_mstatus_mpie ; end
 end
-reg csr_mstatus_mie ;
 wire mstatus_mie_ena = mstatus_mpie_ena ;
 wire mstatus_mie_nxt = (ecall_trap_ena | tmr_trap_ena) ? 1'b0            :
                                           cmt_mret_ena ? csr_mstatus_mpie:
@@ -2654,7 +2653,7 @@ wire     [`ysyx22040228_REGBUS]  subw_res      = {{32{op1_subw_op2[31]}},op1_sub
 
 wire  [`ysyx22040228_REGBUS]    read_csr_data  ;
 assign rd_data_o    = inst_type_i[0] ? op2_i : ((inst_type_i[7] && (inst_opcode_i != `INST_EBREAK)) ? read_csr_data : exe_res) ;
-
+wire                tmr_trap_ena   ;
 assign inst_type_o  = inst_type_i & {8{~tmr_trap_ena}} ;
 assign rd_ena_o     = rd_ena_i    & (~tmr_trap_ena)    ;
 assign rd_addr_o    = rd_addr_i                        ;
@@ -2796,7 +2795,6 @@ assign ex_flush     = branch_pc_ena  ;
 
 //CSR
 reg                 ecall_trap_ena ;
-wire                tmr_trap_ena   ;
 wire  [11:0]        csr_idx = inst_type_i[7] ? op2_i[11:0] : 12'd0  ;
 assign              trap_ena = ecall_trap_ena | (tmr_trap_ena) ;
 reg                 csr_wr_en      ;
