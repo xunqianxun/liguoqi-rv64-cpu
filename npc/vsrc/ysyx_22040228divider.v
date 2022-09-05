@@ -22,8 +22,9 @@ module ysyx_22040228divider (
 );
 
 
-reg     [6:0]     counter ;
+reg     [6:0]    counter ;
 reg              sign    ;
+reg              sign_y  ;
 reg     [63:0]   dividend_t;
 reg     [63:0]   divider_t ;
 
@@ -35,13 +36,14 @@ assign sigin_inst = (inst_opcode == `INST_DIV) || (inst_opcode == `INST_DIVW) ||
 /* verilator lint_off BLKSEQ */
 always @(posedge clk ) begin
     if(rst == `ysyx22040228_RSTENA) begin
-        counter = 7'b0 ;
+        counter = 7'b0     ;
         dividend_t = 64'h0 ;
         divider_t  = 64'h0 ;
         temp_a     = 129'h0 ;
         temp_b     = 65'h0  ;
-        finish     = 1'b0;
-        sign       = 1'b0 ;
+        finish     = 1'b0   ;
+        sign       = 1'b0   ;
+        sign_y     = 1'b0   ;
     end
     else begin
         case (counter)
@@ -53,21 +55,25 @@ always @(posedge clk ) begin
                         dividend_t = ~dividend + 1 ;
                         divider_t  = ~diviser + 1  ;
                         sign       = 1'b0          ;
+                        sign_y     = 1'b1          ;
                     end 
                     else if((sigin_inst) && dividend[63]) begin
                         dividend_t = ~dividend + 1 ;
-                        divider_t  = divider_t     ;
-                        sign      = 1'b1        ;
+                        divider_t  = diviser       ;
+                        sign       = 1'b1           ;
+                        sign_y     = 1'b1           ;
                     end 
                     else if((sigin_inst) && diviser[63]) begin
-                        divider_t  = ~diviser + 1    ;
-                        dividend_t  = dividend_t     ;
-                        sign      = 1'b1          ;
+                        divider_t   = ~diviser + 1    ;
+                        dividend_t  = dividend        ;
+                        sign        = 1'b1            ;
+                        sign_y      = 1'b0            ;
                     end
                     else begin
-                        divider_t = diviser ;
+                        divider_t  = diviser  ;
                         dividend_t = dividend ;
-                        sign     = 1'b0    ; 
+                        sign       = 1'b0     ; 
+                        sign_y     = 1'b0     ;
                     end 
                 end
             end
@@ -106,9 +112,17 @@ always @(*) begin
         shang = `ysyx22040228_ZEROWORD ;
     end 
     else if(finish) begin
-        if(sign) begin
+        if((sign) && (!sign_y)) begin
+            yushu = temp_a[127:64]      ;
+            shang = ~temp_a[63:0]   + 1 ;
+        end 
+        else if((sign) && (sign_y)) begin
             yushu = ~temp_a[127:64] + 1 ;
             shang = ~temp_a[63:0]   + 1 ;
+        end 
+        else if((!sign) && (sign_y)) begin
+            yushu = ~temp_a[127:64] + 1 ;
+            shang = temp_a[63:0]        ;
         end 
         else begin
             yushu = temp_a[127:64] ;
