@@ -552,9 +552,9 @@ module ysyx_22040228arbitratem (
     assign axi_w_strb     =   ((arbitrate_state == `ysyx22040228_ARB_DWRITE) && (axi_state == `ysyx22040228_AXI_SEND))   ? 8'b11111111  :
                               ((arbitrate_state == `ysyx22040228_ARB_DWRITEU) && (axi_state == `ysyx22040228_AXI_SEND))  ? uncache_mask :
                                                                                                                            8'b0         ;
-    assign axi_w_data     =   ((arbitrate_state == `ysyx22040228_ARB_DWRITE) && (axi_state == `ysyx22040228_AXI_SEND))   ? d_cache_data :
-                              ((arbitrate_state == `ysyx22040228_ARB_DWRITEU) && (axi_state == `ysyx22040228_AXI_SEND))  ? uncache_data :
-                                                                                                                           64'h0        ;
+    // assign axi_w_data     =   ((arbitrate_state == `ysyx22040228_ARB_DWRITE) && (axi_state == `ysyx22040228_AXI_SEND))   ? d_cache_data :
+    //                           ((arbitrate_state == `ysyx22040228_ARB_DWRITEU) && (axi_state == `ysyx22040228_AXI_SEND))  ? uncache_data :
+    //                                                                                                                        64'h0        ;
     assign axi_w_last     =   `ysyx22040228_ABLE                                                                                        ;
     assign axi_w_valid    =   ((arbitrate_state == `ysyx22040228_ARB_DWRITE) && (axi_state == `ysyx22040228_AXI_SEND))   ? `ysyx22040228_ABLE  :
                               ((arbitrate_state == `ysyx22040228_ARB_DWRITEU) && (axi_state == `ysyx22040228_AXI_SEND))  ? `ysyx22040228_ABLE  :
@@ -2390,8 +2390,9 @@ module ysyx_22040228divider (
 );
 
 
-reg     [6:0]     counter ;
+reg     [6:0]    counter ;
 reg              sign    ;
+reg              sign_y  ;
 reg     [63:0]   dividend_t;
 reg     [63:0]   divider_t ;
 
@@ -2403,13 +2404,14 @@ assign sigin_inst = (inst_opcode == `INST_DIV) || (inst_opcode == `INST_DIVW) ||
 /* verilator lint_off BLKSEQ */
 always @(posedge clk ) begin
     if(rst == `ysyx22040228_RSTENA) begin
-        counter = 7'b0 ;
+        counter = 7'b0     ;
         dividend_t = 64'h0 ;
         divider_t  = 64'h0 ;
         temp_a     = 129'h0 ;
         temp_b     = 65'h0  ;
-        finish     = 1'b0;
-        sign       = 1'b0 ;
+        finish     = 1'b0   ;
+        sign       = 1'b0   ;
+        sign_y     = 1'b0   ;
     end
     else begin
         case (counter)
@@ -2421,21 +2423,25 @@ always @(posedge clk ) begin
                         dividend_t = ~dividend + 1 ;
                         divider_t  = ~diviser + 1  ;
                         sign       = 1'b0          ;
+                        sign_y     = 1'b1          ;
                     end 
                     else if((sigin_inst) && dividend[63]) begin
                         dividend_t = ~dividend + 1 ;
-                        divider_t  = divider_t     ;
-                        sign      = 1'b1        ;
+                        divider_t  = diviser       ;
+                        sign       = 1'b1           ;
+                        sign_y     = 1'b1           ;
                     end 
                     else if((sigin_inst) && diviser[63]) begin
-                        divider_t  = ~diviser + 1    ;
-                        dividend_t  = dividend_t     ;
-                        sign      = 1'b1          ;
+                        divider_t   = ~diviser + 1    ;
+                        dividend_t  = dividend        ;
+                        sign        = 1'b1            ;
+                        sign_y      = 1'b0            ;
                     end
                     else begin
-                        divider_t = diviser ;
+                        divider_t  = diviser  ;
                         dividend_t = dividend ;
-                        sign     = 1'b0    ; 
+                        sign       = 1'b0     ; 
+                        sign_y     = 1'b0     ;
                     end 
                 end
             end
@@ -2474,9 +2480,17 @@ always @(*) begin
         shang = `ysyx22040228_ZEROWORD ;
     end 
     else if(finish) begin
-        if(sign) begin
+        if((sign) && (!sign_y)) begin
+            yushu = temp_a[127:64]      ;
+            shang = ~temp_a[63:0]   + 1 ;
+        end 
+        else if((sign) && (sign_y)) begin
             yushu = ~temp_a[127:64] + 1 ;
             shang = ~temp_a[63:0]   + 1 ;
+        end 
+        else if((!sign) && (sign_y)) begin
+            yushu = ~temp_a[127:64] + 1 ;
+            shang = temp_a[63:0]        ;
         end 
         else begin
             yushu = temp_a[127:64] ;
@@ -3886,7 +3900,7 @@ assign operand1 = inst_jalr ? x1_data:pc_i;
 assign operand2 = inst_jal  ? {{44{j_imm[20]}} , j_imm[20:1] << 1} :
                   inst_bxx  ? {{52{b_imm[12]}} , b_imm[12:1] << 1} :
                   inst_jalr ? {{52{i_imm[11]}} , i_imm[11:0]}      :
-                  (rst ===`ysyx22040228_RSTENA) ? `ysyx22040228_THISPC:
+                  (rst ==`ysyx22040228_RSTENA) ? `ysyx22040228_THISPC:
                                                `ysyx22040228_NEXTPC; 
 
 wire [63:0] j_pc;
