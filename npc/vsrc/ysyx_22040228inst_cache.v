@@ -65,7 +65,10 @@ module ysyx_22040228inst_cache (
     reg  [5:0]  state_inst_nxt ;
     reg  [6:0]  fence_counter  ;
     always @(posedge clk) begin
-        if(inst_fence)begin
+        if(rst == `ysyx22040228_RSTENA) begin
+            fence_counter <= 7'h0 ; 
+        end 
+        else if(inst_fence)begin
             if(fence_counter >= 64)
                 fence_counter <= fence_counter;
             else 
@@ -86,6 +89,10 @@ module ysyx_22040228inst_cache (
     end
 
     always @(*) begin 
+        if(rst == `ysyx22040228_RSTENA) begin
+            state_inst_nxt       =  `ysyx22040228_I_IDLE ;
+        end 
+        else begin 
             case (state_inst)
                `ysyx22040228_I_IDLE : begin
                    if(icache_if_shankhand)
@@ -125,12 +132,16 @@ module ysyx_22040228inst_cache (
                   state_inst_nxt       =  `ysyx22040228_I_IDLE ;
                 end 
             endcase 
+        end 
     end 
 
     // reg          read_ok_    ;
     // reg          read_ok     ;
     always @(*) begin
-        if(state_inst == `ysyx22040228_I_READ) begin
+        if(rst == `ysyx22040228_RSTENA) begin
+            read_ok_ = `ysyx22040228_ENABLE  ;
+        end 
+        else if(state_inst == `ysyx22040228_I_READ) begin
             read_ok_ = `ysyx22040228_ABLE    ;
         end 
         else begin
@@ -138,12 +149,22 @@ module ysyx_22040228inst_cache (
         end 
     end
     always @(posedge clk) begin
-        read_ok <= read_ok_;
+        if(rst == `ysyx22040228_RSTENA) begin
+            read_ok <= `ysyx22040228_ENABLE  ;
+        end 
+        else begin
+            read_ok <= read_ok_;
+        end 
     end
 
     // reg         inst_hit_ok ;
     always @(*) begin
-        if(state_inst == `ysyx22040228_I_HIT) begin
+        if(rst == `ysyx22040228_RSTENA) begin
+            inst_data    = 32'b0                   ;
+            inst_hit_ok  = `ysyx22040228_ENABLE    ;
+            inst_valid   = `ysyx22040228_ENABLE    ;
+        end 
+        else if(state_inst == `ysyx22040228_I_HIT) begin
             if(core_stall == `ysyx22040228_ABLE) begin
                 inst_data = 32'b0 ;
                 inst_hit_ok = `ysyx22040228_ENABLE;
@@ -194,7 +215,15 @@ module ysyx_22040228inst_cache (
     reg             cahce_miss_ena ;
     reg   [63:0]    cache_miss_addr ;
     always @(*) begin
-        if((state_inst ==  `ysyx22040228_I_MISSRL) && (~cache_in_valid)) begin
+        if(rst == `ysyx22040228_RSTENA) begin
+            cahce_miss_ena = `ysyx22040228_ENABLE;
+            cache_miss_addr = `ysyx22040228_ZEROWORD ;
+            miss_data =  128'h0  ;
+            write_i_ok = `ysyx22040228_ENABLE ;
+            miss_ena_l = `ysyx22040228_ENABLE ;
+            miss_strb_l = `ysyx22040228_CACHE_STRBZ;
+        end 
+        else if((state_inst ==  `ysyx22040228_I_MISSRL) && (~cache_in_valid)) begin
             cahce_miss_ena = `ysyx22040228_ABLE     ;
             cache_miss_addr = {inst_addr[63:3],3'b0};
         end 
@@ -247,9 +276,17 @@ module ysyx_22040228inst_cache (
     end
 
     always @(*) begin
-        if((state_inst ==  `ysyx22040228_I_MISSRH) && (~cache_in_valid)) begin
+        if(rst == `ysyx22040228_RSTENA) begin
+            cache_mism_ena = `ysyx22040228_ENABLE;
+            cahce_mism_addr = `ysyx22040228_ZEROWORD ;
+            missr_counter_n  = 2'b00               ;
+            write_m_ok     = `ysyx22040228_ENABLE   ;
+            mism_ena_l     = `ysyx22040228_ENABLE ;
+            mism_strb_l = `ysyx22040228_CACHE_STRBZ;
+        end 
+        else if((state_inst ==  `ysyx22040228_I_MISSRH) && (~cache_in_valid)) begin
             if(missr_counter <= 2'b01) begin
-                cache_mism_ena = `ysyx22040228_ABLE    ;
+                cache_mism_ena = `ysyx22040228_ABLE      ;
                 cahce_mism_addr = {inst_addr[63:3], 1'b1, 2'b0};
                 missr_counter_n  = 2'b01                 ;
             end 
@@ -370,6 +407,12 @@ module ysyx_22040228inst_cache (
     integer i ;
 
     always @(posedge clk) begin
+        if(rst == `ysyx22040228_RSTENA) begin
+		    for(i = 0;i<64;i=i+1) begin
+			   i_counter1[i][2:0] <= 3'd0;
+               i_counter2[i][2:0] <= 3'd0;
+		    end
+        end 
         if(((state_inst == `ysyx22040228_I_HIT) && ((oteg_ata_o == icache_tag) && (oteg_valid_o == `ysyx22040228_ABLE))) || ((miss_strb_l == `ysyx22040228_CACHE_STRBL) | (mism_strb_l == `ysyx22040228_CACHE_STRBL)))
             i_counter1[icache_index] <= 3'b0 ;
         if(((state_inst == `ysyx22040228_I_HIT) && ((tteg_ata_o == icache_tag) && (tteg_valid_o == `ysyx22040228_ABLE))) || ((miss_strb_l == `ysyx22040228_CACHE_STRBH) | (mism_strb_l == `ysyx22040228_CACHE_STRBH)))

@@ -264,8 +264,8 @@ wire [`ysyx22040228_REGBUS] mask_clear_res = read_csr_data & (~op1_i) ;
 );
 
 always @(*) begin
-    if(~inst_type_i[7]) begin
-        csr_wr_en          = `ysyx22040228_WDISABLE ;
+    if((~inst_type_i[7] ) || (rst == `ysyx22040228_RSTENA)) begin
+        csr_wr_en          = `ysyx22040228_WDISABLE  ;
         csr_rd_en          = `ysyx22040228_RDISABLE  ;
         cmt_mret_ena       = 1'b0          ;
         ecall_trap_ena     = 1'b0          ;

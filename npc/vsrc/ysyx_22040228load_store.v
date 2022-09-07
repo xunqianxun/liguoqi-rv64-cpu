@@ -87,32 +87,45 @@ reg  [ 7:0] data_byte      ;
 reg  [15:0] data_half_byte ;
 wire [31:0] data_word      ;
 
-always @(*) begin 
-    case (byte_sel)
-        3'b000: data_byte = data_i[ 7: 0] ;
-        3'b001: data_byte = data_i[15: 8] ;
-        3'b010: data_byte = data_i[23:16] ;
-        3'b011: data_byte = data_i[31:24] ;
-        3'b100: data_byte = data_i[39:32] ;
-        3'b101: data_byte = data_i[47:40] ;
-        3'b110: data_byte = data_i[55:48] ;
-        default: data_byte = data_i[63:56] ;
-    endcase
+always @(*) begin
+    if(rst == `ysyx22040228_RSTENA) begin
+        data_byte = 8'b00000000           ;
+    end 
+    else begin 
+        case (byte_sel)
+            3'b000: data_byte = data_i[ 7: 0] ;
+            3'b001: data_byte = data_i[15: 8] ;
+            3'b010: data_byte = data_i[23:16] ;
+            3'b011: data_byte = data_i[31:24] ;
+            3'b100: data_byte = data_i[39:32] ;
+            3'b101: data_byte = data_i[47:40] ;
+            3'b110: data_byte = data_i[55:48] ;
+            default: data_byte = data_i[63:56] ;
+        endcase
+    end 
 end
 
 always @(*) begin
-    case (half_byte_sel)
-        2'b00: data_half_byte = data_i[15: 0] ;
-        2'b01: data_half_byte = data_i[31:16] ;
-        2'b10: data_half_byte = data_i[47:32] ; 
-        default: data_half_byte = data_i[63:48] ;
-    endcase
+    if(rst == `ysyx22040228_RSTENA) begin 
+        data_half_byte = 16'h0  ;
+    end 
+    else begin 
+        case (half_byte_sel)
+            2'b00: data_half_byte = data_i[15: 0] ;
+            2'b01: data_half_byte = data_i[31:16] ;
+            2'b10: data_half_byte = data_i[47:32] ; 
+            default: data_half_byte = data_i[63:48] ;
+        endcase
+    end 
 end
 
 assign data_word = word_sel ? data_i[63:32] : data_i[31:0] ;
 
 always @(*) begin
-    if(inst_type_i == 8'b00000010 ) begin
+    if(rst == `ysyx22040228_RSTENA) begin
+        load_data = `ysyx22040228_ZEROWORD ;
+    end 
+    else if(inst_type_i == 8'b00000010 ) begin
         case (ls_sel_i)
             `LB_SEL:begin load_data = {{56{data_byte[7]}} , data_byte} ; end
             `LH_SEL:begin load_data = {{48{data_half_byte[15]}} , data_half_byte} ; end

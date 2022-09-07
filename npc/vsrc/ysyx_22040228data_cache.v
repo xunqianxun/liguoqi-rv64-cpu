@@ -89,6 +89,12 @@ module ysyx_22040228data_cache (
         if(rst == `ysyx22040228_RSTENA) begin
             fence_index <= 6'b000000 ;
             docker_counter <= 8'd1   ;
+            counter_temp <= 8'd0     ;
+            transt_sign1 <= `ysyx22040228_ENABLE ;
+            transt_sign2 <= `ysyx22040228_ENABLE ;
+            fence_finish <= `ysyx22040228_ENABLE ;
+            check_valid1 <= `ysyx22040228_ENABLE ;
+            check_valid2 <= `ysyx22040228_ENABLE ;
         end 
         else if((mem_fence_i) && (docker_counter < 8'd129))begin 
             if(docker_counter < 8'd64) begin
@@ -175,6 +181,10 @@ module ysyx_22040228data_cache (
     end
 
     always @(*) begin 
+        if(rst == `ysyx22040228_RSTENA) begin
+            state_dread_nxt = `ysyx22040228_IDLE;  
+        end 
+        else begin
             case (state_dread)
                `ysyx22040228_IDLE : begin
                    if(dcache_read_shankhand)
@@ -212,12 +222,16 @@ module ysyx_22040228data_cache (
                   state_dread_nxt       =  `ysyx22040228_IDLE ;
                 end 
             endcase 
+        end 
     end 
 
     // reg          read_ok_    ;
     // reg          read_ok     ;
     always @(*) begin
-        if(state_dread == `ysyx22040228_READ) begin
+        if(rst == `ysyx22040228_RSTENA) begin
+            read_ok_ = `ysyx22040228_ENABLE ;
+        end 
+        else if(state_dread == `ysyx22040228_READ) begin
             read_ok_ = `ysyx22040228_ABLE  ;
         end 
         else begin
@@ -225,13 +239,21 @@ module ysyx_22040228data_cache (
         end 
     end
     always @(posedge clk) begin
-        read_ok <= read_ok_;
+        if(rst == `ysyx22040228_RSTENA)
+            read_ok <= `ysyx22040228_ENABLE ;
+        else 
+            read_ok <= read_ok_;
     end
 
     reg         mem_hit_ok ;
     reg         hit_data_ready;
     always @(*) begin
-        if(state_dread == `ysyx22040228_HIT) begin
+        if(rst == `ysyx22040228_RSTENA) begin
+            mem_hit_ok     = `ysyx22040228_ENABLE    ; 
+            mem_data_out   = 64'b0                   ;
+            hit_data_ready = `ysyx22040228_ENABLE    ; 
+        end 
+        else if(state_dread == `ysyx22040228_HIT) begin
             if((oteg_ata_o == dcache_tag) && (oteg_valid_o == `ysyx22040228_ABLE))begin
                 mem_hit_ok     = `ysyx22040228_ABLE  ;
                 mem_data_out   = data_out[63:0]      ;
@@ -261,7 +283,15 @@ module ysyx_22040228data_cache (
     reg        dirty_clean_o  ;
     reg        dirty_clean_t  ;
     always @(*) begin
-        if((state_dread == `ysyx22040228_DIRTY) && (~in_dcache_ready)) begin
+        if(rst == `ysyx22040228_RSTENA) begin
+            dirty_out_addr = `ysyx22040228_ZEROWORD  ;
+            dirty_out_data = `ysyx22040228_ZEROWORD  ;
+            dirty_out_type  = 4'b0000                ;
+            dirty_ok       = `ysyx22040228_ENABLE    ;
+            dirty_clean_o = `ysyx22040228_ENABLE     ;
+            dirty_clean_t = `ysyx22040228_ENABLE     ;
+        end 
+        else if((state_dread == `ysyx22040228_DIRTY) && (~in_dcache_ready)) begin
             if((dirty1[dcache_index] == `ysyx22040228_ABLE) && (counter1[dcache_index] >= counter2[dcache_index])) begin
                 dirty_out_addr = {32'h0, oteg_ata_o, dcache_index, 3'b000} ;
                 dirty_out_data = data_out[63:0]  ;
@@ -306,7 +336,9 @@ module ysyx_22040228data_cache (
     reg          write_regr     ;
     reg          write_regr_    ;
     always @(posedge clk) begin
-        if(write_regr == `ysyx22040228_ABLE)
+        if(rst == `ysyx22040228_RSTENA) 
+            write_regr_ <= `ysyx22040228_ENABLE ;
+        else if(write_regr == `ysyx22040228_ABLE)
             write_regr_ <= `ysyx22040228_ABLE;
         else if((write_regr_) && (in_dcache_ready))
             write_regr_ <= `ysyx22040228_ENABLE;
@@ -315,7 +347,18 @@ module ysyx_22040228data_cache (
     end
 
     always @(*) begin
-        if((state_dread == `ysyx22040228_MISSR) && (~in_dcache_ready)) begin
+        if(rst == `ysyx22040228_RSTENA) begin
+            missr_out_type = 4'b0000                ;
+            missr_out_addr = `ysyx22040228_ZEROWORD ;
+            write_regr     = `ysyx22040228_ENABLE   ;
+            missr_data_ena   = `ysyx22040228_ENABLE ;
+            missr_data_strb  = `ysyx22040228_CACHE_STRBZ;
+            missr_data_temp  = `ysyx22040228_CACHE_STRBZ;
+            missr_tag_ena1   = `ysyx22040228_ENABLE;
+            missr_i_ok       = 1'b0                ;
+            missr_tag_ena2   = `ysyx22040228_ENABLE;
+        end 
+        else if((state_dread == `ysyx22040228_MISSR) && (~in_dcache_ready)) begin
             missr_out_type = 4'b0010    ;
             missr_out_addr = {mem_addr_i[63:3],3'b0} ;
             write_regr     = `ysyx22040228_ABLE      ;
@@ -373,6 +416,10 @@ module ysyx_22040228data_cache (
     end
 
     always @(*) begin 
+        if(rst == `ysyx22040228_RSTENA) begin
+            state_dwrite_nxt = `ysyx22040228_IDLE;  
+        end 
+        else begin 
             case (state_dwrite)
                `ysyx22040228_IDLE : begin
                    if(dcache_write_shankhand)
@@ -410,12 +457,16 @@ module ysyx_22040228data_cache (
                   state_dwrite_nxt       =  `ysyx22040228_IDLE ;
                 end 
             endcase 
+        end 
     end 
 
     // reg          read_w_ok_    ;
     // reg          read_w_ok     ;
     always @(*) begin
-        if(state_dwrite == `ysyx22040228_READ) begin
+        if(rst == `ysyx22040228_RSTENA) begin
+            read_w_ok_ = `ysyx22040228_ENABLE ;
+        end 
+        else if(state_dwrite == `ysyx22040228_READ) begin
             read_w_ok_ = `ysyx22040228_ABLE  ;
         end 
         else begin
@@ -423,7 +474,10 @@ module ysyx_22040228data_cache (
         end 
     end
     always @(posedge clk) begin
-        read_w_ok <= read_w_ok_ ;
+        if(rst == `ysyx22040228_RSTENA)
+            read_w_ok <= `ysyx22040228_ENABLE ;
+        else 
+            read_w_ok <= read_w_ok_ ;
     end
 
     // reg         memw_hit_ok    ;
@@ -436,7 +490,14 @@ module ysyx_22040228data_cache (
                                  {8{mem_strb_i[3]}}, {8{mem_strb_i[2]}}, {8{mem_strb_i[1]}}, {8{mem_strb_i[0]}}};
 
     always @(*) begin
-        if(state_dwrite == `ysyx22040228_HIT) begin
+        if(rst == `ysyx22040228_RSTENA) begin
+            memw_hit_ok  = `ysyx22040228_ENABLE    ; 
+            hitw_data_strb = `ysyx22040228_CACHE_STRBZ;
+            hitw_data_temp  =  `ysyx22040228_CACHE_STRBZ; 
+            hitw_data_ready = `ysyx22040228_ENABLE ; 
+            hitw_data_ena   = `ysyx22040228_ENABLE ;
+        end 
+        else if(state_dwrite == `ysyx22040228_HIT) begin
             if((oteg_ata_o == dcache_tag) && (oteg_valid_o == `ysyx22040228_ABLE))begin
                 memw_hit_ok     = `ysyx22040228_ABLE   ;
                 hitw_data_strb  = {64'h0, strb_extection} ;
@@ -474,7 +535,15 @@ module ysyx_22040228data_cache (
     reg        dirtyw_clean_o  ;
     reg        dirtyw_clean_t  ;
     always @(*) begin
-        if((state_dwrite == `ysyx22040228_DIRTY) && (~in_dcache_ready)) begin
+        if(rst == `ysyx22040228_RSTENA) begin
+            dirtyw_out_addr = `ysyx22040228_ZEROWORD  ;
+            dirtyw_out_data = `ysyx22040228_ZEROWORD  ;
+            dirtyw_ok   = `ysyx22040228_ENABLE;
+            dirtyw_out_type = 4'b0000                 ;
+            dirtyw_clean_o = `ysyx22040228_ENABLE     ;
+            dirtyw_clean_t = `ysyx22040228_ENABLE     ;
+        end 
+        else if((state_dwrite == `ysyx22040228_DIRTY) && (~in_dcache_ready)) begin
             if((dirty1[dcache_index] == `ysyx22040228_ABLE) && (counter1[dcache_index] >= counter2[dcache_index])) begin
                 dirtyw_out_addr = {32'h0,oteg_ata_o, dcache_index, 3'b000} ;
                 dirtyw_out_data = data_out[63:0]  ;
@@ -518,7 +587,9 @@ module ysyx_22040228data_cache (
     reg          write_regw     ;
     reg          write_regw_    ;
     always @(posedge clk) begin
-        if(write_regw == `ysyx22040228_ABLE)
+        if(rst ==`ysyx22040228_RSTENA) 
+            write_regw_ <= `ysyx22040228_ENABLE;
+        else if(write_regw == `ysyx22040228_ABLE)
             write_regw_ <= `ysyx22040228_ABLE;
         else if((write_regw_) && (in_dcache_ready))
             write_regw_ <= `ysyx22040228_ENABLE;
@@ -527,7 +598,18 @@ module ysyx_22040228data_cache (
     end
 
     always @(*) begin
-        if((state_dwrite == `ysyx22040228_MISSW) && (~in_dcache_ready)) begin
+        if(rst == `ysyx22040228_RSTENA) begin
+            missw_out_type = 4'b0000                ;
+            missw_out_addr = `ysyx22040228_ZEROWORD ;
+            write_regw     = `ysyx22040228_ENABLE   ;
+            missw_data_ena   = `ysyx22040228_ENABLE ;
+            missw_data_strb = `ysyx22040228_CACHE_STRBZ;
+            missw_tag_ena1   = `ysyx22040228_ENABLE;
+            missw_tag_ena2   = `ysyx22040228_ENABLE;
+            missw_data_temp  = `ysyx22040228_CACHE_STRBZ;
+            missw_i_ok       = `ysyx22040228_ENABLE;
+        end 
+        else if((state_dwrite == `ysyx22040228_MISSW) && (~in_dcache_ready)) begin
             missw_out_type = 4'b1000    ;
             missw_out_addr = {mem_addr_i[63:3],3'b0} ;
             write_regw     = `ysyx22040228_ABLE      ;
