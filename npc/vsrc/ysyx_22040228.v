@@ -321,6 +321,7 @@ Function:arbitrate i_cache and d_cache
 // `include "ysyx_22040228defines.v"
 // `include "ysyx_22040228defines_axi4.v"
 // `include "ysyx_22040228cache_defines.v"
+/* verilator lint_off DECLFILENAME */
 module ysyx_22040228arbitratem (
     //-----------------------------system----------------------------------------//
     input       wire                                         clk                  ,

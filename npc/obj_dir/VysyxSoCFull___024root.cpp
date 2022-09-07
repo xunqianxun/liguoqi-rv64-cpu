@@ -9,18 +9,6 @@
 
 //==========
 
-extern "C" void if_id_thepc(long long thepc_data, const svBitVecVal* the_inst);
-
-VL_INLINE_OPT void VysyxSoCFull___024root____Vdpiimwrap_ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__rvcpu1__DOT__if_id2__DOT__if_id_thepc_TOP(QData/*63:0*/ thepc_data, IData/*31:0*/ the_inst) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    VysyxSoCFull___024root____Vdpiimwrap_ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__rvcpu1__DOT__if_id2__DOT__if_id_thepc_TOP\n"); );
-    // Body
-    long long thepc_data__Vcvt;
-    for (size_t thepc_data__Vidx = 0; thepc_data__Vidx < 1; ++thepc_data__Vidx) thepc_data__Vcvt = thepc_data;
-    svBitVecVal the_inst__Vcvt[1];
-    for (size_t the_inst__Vidx = 0; the_inst__Vidx < 1; ++the_inst__Vidx) VL_SET_SVBV_I(32, the_inst__Vcvt + 1 * the_inst__Vidx, the_inst);
-    if_id_thepc(thepc_data__Vcvt, the_inst__Vcvt);
-}
-
 VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__11(VysyxSoCFull___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
@@ -82,6 +70,8 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__11(VysyxSoCFull___024r
         = vlSelf->ysyxSoCFull__DOT__mem__DOT__axi4buf__DOT__bundleOut_0_awdeq__DOT__value_1;
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_13__DOT__ram_extra_id__v0 = 0U;
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_14__DOT__ram_extra_id__v0 = 0U;
+    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_15__DOT__ram_extra_id__v0 = 0U;
+    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__mem__DOT__axi4frag__DOT__deq_1__DOT__ram_burst__v0 = 0U;
 }
 
 void VysyxSoCFull___024unit____Vdpiimwrap_flash_read_TOP____024unit(QData/*63:0*/ addr, QData/*63:0*/ &data);
@@ -145,10 +135,8 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__12(VysyxSoCFull___024r
     VlWide<4>/*127:0*/ __Vtemp130;
     VlWide<4>/*127:0*/ __Vtemp134;
     VlWide<4>/*127:0*/ __Vtemp135;
-    QData/*63:0*/ __Vtask_flash_read__1__data;
+    QData/*63:0*/ __Vtask_flash_read__0__data;
     // Body
-    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_15__DOT__ram_extra_id__v0 = 0U;
-    vlSelf->__Vdlyvset__ysyxSoCFull__DOT__mem__DOT__axi4frag__DOT__deq_1__DOT__ram_burst__v0 = 0U;
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_7__DOT__ram_extra_id__v0 = 0U;
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_8__DOT__ram_extra_id__v0 = 0U;
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_9__DOT__ram_extra_id__v0 = 0U;
@@ -1487,9 +1475,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__12(VysyxSoCFull___024r
                                                                                 (0x3ffffffU 
                                                                                 & (vlSelf->ysyxSoCFull__DOT__asic__DOT__axi42apb_auto_out_paddr 
                                                                                 >> 2U)))) 
-                                                                        << 2U), __Vtask_flash_read__1__data);
+                                                                        << 2U), __Vtask_flash_read__0__data);
         vlSelf->ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__data 
-            = __Vtask_flash_read__1__data;
+            = __Vtask_flash_read__0__data;
     }
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver__DOT__fifo_rx__DOT__rfifo__DOT__ram__v0 = 0U;
     vlSelf->__Vdlyvset__ysyxSoCFull__DOT__fpga__DOT__axi4yank_1__DOT__QueueCompatibility_29__DOT__ram_tl_state_source__v0 = 0U;
