@@ -397,8 +397,11 @@ module ysyx_22040228inst_cache (
         if(rst == `ysyx22040228_RSTENA) begin
             temp_inst <= `ysyx22040228_ZEROWORD ;
         end 
-        else begin
+        else if(((state_inst ==  `ysyx22040228_I_MISSRH) && (cache_in_valid) && (missr_counter  == 2'b01))) begin
             temp_inst <= {cache_in_data[31:0], 32'h0};
+        end 
+        else begin
+            temp_inst <= temp_inst ;
         end 
     end
 
