@@ -43,6 +43,7 @@ assign mem_inst_o = (rst == `ysyx22040228_RSTENA) ? 32'b0 : mem_inst_i ;
 assign mem_stall_req = (rst == `ysyx22040228_RSTENA) ? 1'b0 : ((((re|we) | (fence_ready_)) && (mem_finish == 1'b0))) ;
 assign fence         = fence_ready_;
 
+reg [`ysyx22040228_DATABUS] load_data ;
 assign rd_addr_o  = rd_addr_i ;
 assign rd_data_o  = inst_type_i[1] ? load_data : rd_data_i ;
 assign rd_ena_o   = rd_ena_i  ;
@@ -76,8 +77,6 @@ assign re_type_sel    = (rst == `ysyx22040228_RSTENA)                           
                         ((inst_type_i[1]) && (ls_sel_i == `LD_SEL))                              ? 3'b100                 :
                                                                                                    3'b111                 ;
 assign data_addr_o    = (rst == `ysyx22040228_RSTENA) ? `ysyx22040228_ZEROWORD : ls_addr_i ;
-
-reg [`ysyx22040228_DATABUS] load_data ;
 
 wire [ 2:0] byte_sel      = ls_addr_i[2:0] ;
 wire [ 1:0] half_byte_sel = ls_addr_i[2:1] ;

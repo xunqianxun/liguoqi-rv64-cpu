@@ -159,6 +159,8 @@ module ysyx_22040228data_cache (
     wire   dcache_write_shankhand  ;
     wire   dcache_read_ready ;
     wire   dcache_write_ready;
+    reg  [5:0]  state_dread     ;
+    reg  [5:0]  state_dwrite     ;
     assign dcache_read_shankhand  = mem_read_valid && dcache_read_ready  ;
     assign dcache_write_shankhand = mem_write_valid && dcache_write_ready;
     assign dcache_read_ready      = (state_dread == `ysyx22040228_IDLE)  ;
@@ -168,7 +170,6 @@ module ysyx_22040228data_cache (
     wire [ 5:0 ] dcache_index  =   mem_addr_i[ 8:3 ];
     //wire [ 2:0 ] dcache_offset =   mem_addr_i[ 2:0 ];
 
-    reg  [5:0]  state_dread     ;
     reg  [5:0]  state_dread_nxt ;
 
     always @(posedge clk) begin
@@ -179,7 +180,7 @@ module ysyx_22040228data_cache (
             state_dread <= state_dread_nxt    ;
         end 
     end
-
+    reg         mem_hit_ok ;
     always @(*) begin 
         if(rst == `ysyx22040228_RSTENA) begin
             state_dread_nxt = `ysyx22040228_IDLE;  
@@ -245,7 +246,6 @@ module ysyx_22040228data_cache (
             read_ok <= read_ok_;
     end
 
-    reg         mem_hit_ok ;
     reg         hit_data_ready;
     always @(*) begin
         if(rst == `ysyx22040228_RSTENA) begin
@@ -403,7 +403,6 @@ module ysyx_22040228data_cache (
         end 
     end
 
-    reg  [5:0]  state_dwrite     ;
     reg  [5:0]  state_dwrite_nxt ;
 
     always @(posedge clk) begin

@@ -67,7 +67,7 @@ wire      rd_mstatus   =  sel_mstatus && csr_rd_en  ;
 wire      wr_mstatus   =  sel_mstatus && csr_wr_en  ;           
     
 wire      mstatus_mpie_ena = wr_mstatus | cmt_mret_ena | (ecall_trap_ena | tmr_trap_ena) ;
-
+reg csr_mstatus_mie ;
 wire      mstatus_mpie_nxt = (ecall_trap_ena | tmr_trap_ena) ? csr_mstatus_mie : 
                                                cmt_mret_ena  ? 1'b1            :
                                                wr_mstatus    ? wbck_csr_data[7]:
@@ -84,19 +84,17 @@ wire mstatus_mie_nxt = (ecall_trap_ena | tmr_trap_ena) ? 1'b0            :
                                           cmt_mret_ena ? csr_mstatus_mpie:
                                             wr_mstatus ? wbck_csr_data[3]:
                                                          csr_mstatus_mie ;
-reg csr_mstatus_mie ;
 always @(posedge clk) begin
     if(rst == `ysyx22040228_RSTENA)               begin csr_mstatus_mie <= 1'b0 ; end
     else if(mstatus_mie_ena & ~ex_stall) begin csr_mstatus_mie <= mstatus_mie_nxt ; end 
     else                                 begin csr_mstatus_mie <= csr_mstatus_mie ; end 
 end
-
+reg [1:0] csr_mstatus_mpp ;
 wire mstatus_mpp_ena = mstatus_mpie_ena ;
 wire [1:0] mstatus_mpp_nxt = (ecall_trap_ena | tmr_trap_ena) ? 2'b11                   :
                                                 cmt_mret_ena ? 2'b00                   :
                                                   wr_mstatus ? wbck_csr_data[12:11]    :
                                                             csr_mstatus_mpp            ;
-reg [1:0] csr_mstatus_mpp ;
 always @(posedge clk ) begin
     if(rst == `ysyx22040228_RSTENA)   begin csr_mstatus_mpp <= 2'b00 ;  end
     else if(mstatus_mpp_ena) begin csr_mstatus_mpp <= mstatus_mpp_nxt ; end
@@ -170,11 +168,11 @@ wire sel_mcause = (csr_idx == 12'h342) ;
 wire rd_mcause  = sel_mcause && csr_rd_en ;
 wire wr_mcause  = sel_mcause && csr_wr_en ;
 wire csr_mcause_ena = wr_mcause | ecall_trap_ena | tmr_trap_ena ;
+reg [`ysyx22040228_REGBUS] csr_mcause ;
 wire [`ysyx22040228_REGBUS] csr_mcause_nxt = (ecall_trap_ena | tmr_trap_ena) ? trap_mcause_value :
                                                        wr_mcause ? wbck_csr_data     :
                                                                    csr_mcause        ;
 
-reg [`ysyx22040228_REGBUS] csr_mcause ;
 always @(posedge clk) begin
     if(rst == `ysyx22040228_RSTENA)     begin csr_mcause <= `ysyx22040228_ZEROWORD ; end
     else if(csr_mcause_ena)    begin csr_mcause <= csr_mcause_nxt ; end

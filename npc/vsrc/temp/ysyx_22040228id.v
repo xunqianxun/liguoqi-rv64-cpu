@@ -66,7 +66,7 @@ wire   [11:0]   imm    ;
 assign  opcode   =  inst_i [6:0]    ;
 assign  rd       =  inst_i [11:7]   ;
 assign  funct3   =  inst_i [14:12]  ;
-assign  rs1      = inst_ebreak ? 5'b01011 : inst_i [19:15]  ;
+assign  rs1      =  inst_i [19:15]  ;
 assign  imm      =  inst_i [31:20]  ;
 
 //R-Type

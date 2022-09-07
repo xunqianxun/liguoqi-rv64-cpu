@@ -38,7 +38,7 @@ flash_init(path);
 while((1) && !Verilated::gotFinish()){
 	  if( main_time % 10 == 0 ) {ysyxSoCFull->clock = 0;}
 	  if( main_time % 10 == 5 ) {ysyxSoCFull->clock = 1;} 
-	  if( main_time < 20 )
+	  if( main_time < 20)
 	  {
 		ysyxSoCFull->reset = 1;
 	  }

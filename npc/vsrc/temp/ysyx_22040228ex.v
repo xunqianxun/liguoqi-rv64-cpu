@@ -84,9 +84,9 @@ wire     [`ysyx22040228_REGBUS]  sraw_res      = {{32{op1_sraw_op2[31]}},op1_sra
 wire     [31:0]      op1_subw_op2  = op1_i[31:0] - op2_i[31:0]             ;
 wire     [`ysyx22040228_REGBUS]  subw_res      = {{32{op1_subw_op2[31]}},op1_subw_op2} ;
 
-
+wire  [`ysyx22040228_REGBUS]    read_csr_data  ;
 assign rd_data_o    = inst_type_i[0] ? op2_i : ((inst_type_i[7] && (inst_opcode_i != `INST_EBREAK)) ? read_csr_data : exe_res) ;
-
+wire                tmr_trap_ena ;
 assign inst_type_o  = inst_type_i & {8{~tmr_trap_ena}} ;
 assign rd_ena_o     = rd_ena_i    & (~tmr_trap_ena)    ;
 assign rd_addr_o    = rd_addr_i                        ;
@@ -96,6 +96,8 @@ assign ls_sel_o     = ls_sel_i  ;
 
 wire     [`ysyx22040228_REGBUS]  upper_imm = {{32{op2_i[19]}},op2_i[19:0],12'd0} ;
 
+reg   [63:0]   mul_data        ;
+reg   [63:0]   divrem_data      ;
 always @(*) begin
     if(rst == `ysyx22040228_RSTENA) begin  exe_res = `ysyx22040228_ZEROWORD   ;     end
     else begin
@@ -132,7 +134,6 @@ end
 
 wire clk_in ;
 assign clk_in = clk ;
-reg   [63:0]   mul_data        ;
 reg            mul_finish_sign ;
 wire           mul_ready       ;
 assign mul_ready =  (inst_opcode_i == `INST_MUL   ) | 
@@ -152,7 +153,6 @@ ysyx_22040228multiplier multiplier1 (
     .mult_finish     (mul_finish_sign)  
 );
 
-reg   [63:0]   divrem_data      ;
 reg            dr_finish_sign   ;
 wire           dr_ready         ;
 assign  dr_ready  = (inst_opcode_i == `INST_DIV     ) |
@@ -217,6 +217,8 @@ always @(*) begin
     end
 end
 
+wire                trap_ena ;
+reg                 cmt_mret_ena   ;
 assign branch_pc_ena = (ex_flush_branch == `ysyx22040228_FLUSHABLE) | trap_ena | cmt_mret_ena ;
 assign branch_pc     = (trap_ena | cmt_mret_ena) ? read_csr_data :
                        (ex_flush_branch == `ysyx22040228_FLUSHABLE) ? pc_i + 64'd4 :
@@ -226,12 +228,9 @@ assign ex_stall_req = mul_div_req    ;
 assign ex_flush     = branch_pc_ena  ;
 
 //CSR
-wire                tmr_trap_ena ;
 wire  [11:0]        csr_idx = inst_type_i[7] ? op2_i[11:0] : 12'd0  ;
-wire  [`ysyx22040228_REGBUS]    read_csr_data  ;
-wire                trap_ena = ecall_trap_ena | (tmr_trap_ena) ;
 reg                 ecall_trap_ena ;
-reg                 cmt_mret_ena   ;
+assign              trap_ena = ecall_trap_ena | (tmr_trap_ena) ;
 reg                 csr_wr_en      ;
 reg                 csr_rd_en      ;
 reg   [`ysyx22040228_REGBUS]    wbck_csr_data  ;

@@ -16,6 +16,7 @@ module ysyx_22040228multiplier (
 );
 
     reg     mult_valid ;
+    reg  [63:0] multipler ;
     assign  mult_finish = mult_valid & ~( | multipler) ;
 
     always @(posedge clk) begin
@@ -45,7 +46,6 @@ module ysyx_22040228multiplier (
         else if(mult_ready)
             multiplcand <= {64'b0,op1_absolute}; 
     end
-    reg  [63:0] multipler ;
     always @(posedge clk) begin
         if(rst == `ysyx22040228_RSTENA)
             multipler <= `ysyx22040228_ZEROWORD ;

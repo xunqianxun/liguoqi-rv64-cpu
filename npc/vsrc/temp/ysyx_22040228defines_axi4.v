@@ -36,18 +36,18 @@ Function:AXI4 use define
 `define ysyx22040228_SLAVE_LOCK     11:0 //2*6-1
 `define ysyx22040228_SLAVE_CACHE    23:0 //4*6-1
 `define ysyx22040228_SLAVE_PROT     17:0 //3*6-1
-`define ysyx22040228_SLAVE_QOS  
-`define ysyx22040228_SLAVE_REGION
-`define ysyx22040228_SLAVE_USER
+// `define ysyx22040228_SLAVE_QOS  
+// `define ysyx22040228_SLAVE_REGION
+// `define ysyx22040228_SLAVE_USER
 `define ysyx22040228_SLAVE_DATA     383:0//64*6-1
-`define ysyx22040228_SLAVE_STRB     
-`define ysyx22040228_SLAVE_LAST 
+// `define ysyx22040228_SLAVE_STRB     
+// `define ysyx22040228_SLAVE_LAST 
 //`define ysyx22040228_SLAVE_USER   
-`define ysyx22040228_SLAVE_RESP
+//`define ysyx22040228_SLAVE_RESP
 
 //number of the port 
-`define ysyx22040228_STRBN  
-`define ysyx22040228_LASTN 
+// `define ysyx22040228_STRBN  
+// `define ysyx22040228_LASTN 
 
 //signal zero data
 `define ysyx22040228_ID_ZERO    4'b0000 
@@ -58,13 +58,13 @@ Function:AXI4 use define
 `define ysyx22040228_LOCK_ZERO  2'b0
 `define ysyx22040228_CACHE_ZERO 4'b0
 `define ysyx22040228_PROT_ZERO  3'b0
-`define ysyx22040228_QOS_ZERO   
-`define ysyx22040228_REGION_ZERO
-`define ysyx22040228_USER_ZERO
+// `define ysyx22040228_QOS_ZERO   
+// `define ysyx22040228_REGION_ZERO
+// `define ysyx22040228_USER_ZERO
 `define ysyx22040228_DATA_ZERO  64'b0
-`define ysyx22040228_STRB_ZERO
-`define ysyx22040228_LAST_ZERO
-`define ysyx22040228_RESP_ZERO 
+// `define ysyx22040228_STRB_ZERO
+// `define ysyx22040228_LAST_ZERO
+// `define ysyx22040228_RESP_ZERO 
 
 
 `define ysyx22040228_TIME     6'b000001
