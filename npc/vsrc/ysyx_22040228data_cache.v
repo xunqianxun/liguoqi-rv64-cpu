@@ -3,7 +3,6 @@ Author:LiGuoqi
 Name:d_cache1.v
 Function:write data cache
 ************************************************************/
-/* verilator lint_off LATCH */
 `define ysyx22040228_IDLE    6'b000001
 `define ysyx22040228_READ    6'b000010
 `define ysyx22040228_HIT     6'b000100
@@ -16,7 +15,7 @@ Function:write data cache
 `define ysyx22040228_FENCECOUNT 3'b010
 `define ysyx22040228_FENCEEND   3'b100
 
-
+/* verilator lint_off LATCH */
 `include "ysyx_22040228defines.v"
 `include "ysyx_22040228defines_axi4.v"
 //`include "S011HD1P_X32Y2D128_BWF.v"
@@ -218,6 +217,8 @@ module ysyx_22040228data_cache (
                `ysyx22040228_DIRTY : begin
                    if(dirty_ok)
                         state_dread_nxt = `ysyx22040228_MISSR;
+                    else 
+                        state_dread_nxt = `ysyx22040228_DIRTY;
                end 
                 default: begin
                   state_dread_nxt       =  `ysyx22040228_IDLE ;
@@ -265,6 +266,7 @@ module ysyx_22040228data_cache (
                 hit_data_ready = `ysyx22040228_ABLE  ;
             end
             else begin
+                mem_hit_ok     = `ysyx22040228_ABLE  ;
                 mem_data_out   = 64'b0               ;
                 hit_data_ready = `ysyx22040228_ENABLE;
             end
@@ -451,6 +453,8 @@ module ysyx_22040228data_cache (
                `ysyx22040228_DIRTY : begin
                    if(dirtyw_ok)
                         state_dwrite_nxt = `ysyx22040228_MISSW;
+                   else 
+                        state_dwrite_nxt = `ysyx22040228_DIRTY;
                end 
                 default: begin
                   state_dwrite_nxt       =  `ysyx22040228_IDLE ;
@@ -520,6 +524,7 @@ module ysyx_22040228data_cache (
             end
         end   
         else  begin
+            hitw_data_temp  =  `ysyx22040228_CACHE_STRBZ; 
             memw_hit_ok  = `ysyx22040228_ENABLE    ; 
             hitw_data_strb = `ysyx22040228_CACHE_STRBZ;  
             hitw_data_ready = `ysyx22040228_ENABLE ; 
