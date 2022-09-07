@@ -1672,6 +1672,42 @@ VL_INLINE_OPT void VysyxSoCFull_TLMonitor_7___sequent__TOP__ysyxSoCFull__DOT__as
                                                >> ((IData)(vlSymsp->TOP.ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sourceD_io_d_bits_source) 
                                                    << 2U))
                                             : 0ULL);
+    vlSelf->__PVT__source_ok = 1U;
+    vlSelf->__PVT___T_88 = ((0ULL == (0x1c0000000ULL 
+                                      & (QData)((IData)(
+                                                        (0x40000000U 
+                                                         ^ vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address))))) 
+                            | (0ULL == (0x180000000ULL 
+                                        & (QData)((IData)(
+                                                          (0x80000000U 
+                                                           ^ vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address))))));
+    vlSelf->__PVT__mask_acc = (1U & ((2U <= (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_size)) 
+                                     | (1U & ((((IData)(1U) 
+                                                << 
+                                                (1U 
+                                                 & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_size))) 
+                                               >> 1U) 
+                                              & (~ 
+                                                 (vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address 
+                                                  >> 1U))))));
+    vlSelf->__PVT__mask_acc_1 = (1U & ((2U <= (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_size)) 
+                                       | (1U & ((((IData)(1U) 
+                                                  << 
+                                                  (1U 
+                                                   & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_size))) 
+                                                 >> 1U) 
+                                                & (vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address 
+                                                   >> 1U)))));
+    vlSelf->__PVT___GEN_30 = ((5U == (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_opcode))
+                               ? 2U : ((4U == (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_opcode))
+                                        ? 1U : ((3U 
+                                                 == (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_opcode))
+                                                 ? 1U
+                                                 : 
+                                                ((2U 
+                                                  == (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_opcode))
+                                                  ? 1U
+                                                  : 0U))));
     vlSelf->__PVT___GEN_46 = ((5U == (7U & (IData)(
                                                    (7ULL 
                                                     & (vlSelf->__PVT___a_opcode_lookup_T_1 
@@ -1698,6 +1734,32 @@ VL_INLINE_OPT void VysyxSoCFull_TLMonitor_7___sequent__TOP__ysyxSoCFull__DOT__as
                                                                  >> 1U)))))
                                                   ? 1U
                                                   : 0U))));
+    vlSelf->__PVT__mask = ((8U & (((IData)(vlSelf->__PVT__mask_acc_1) 
+                                   << 3U) | (0xfffffff8U 
+                                             & ((vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address 
+                                                 << 2U) 
+                                                & (vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address 
+                                                   << 3U))))) 
+                           | ((4U & (((IData)(vlSelf->__PVT__mask_acc_1) 
+                                      | (IData)((2U 
+                                                 == 
+                                                 (3U 
+                                                  & vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address)))) 
+                                     << 2U)) | ((2U 
+                                                 & (((IData)(vlSelf->__PVT__mask_acc) 
+                                                     | (IData)(
+                                                               (1U 
+                                                                == 
+                                                                (3U 
+                                                                 & vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address)))) 
+                                                    << 1U)) 
+                                                | (1U 
+                                                   & ((IData)(vlSelf->__PVT__mask_acc) 
+                                                      | (IData)(
+                                                                (0U 
+                                                                 == 
+                                                                 (3U 
+                                                                  & vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address))))))));
 }
 
 VL_INLINE_OPT void VysyxSoCFull_TLMonitor_7___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__monitor__9(VysyxSoCFull_TLMonitor_7* vlSelf) {
@@ -1864,75 +1926,6 @@ VL_INLINE_OPT void VysyxSoCFull_TLMonitor_7___settle__TOP__ysyxSoCFull__DOT__asi
                                                  << 0x20U) 
                                                 | (QData)((IData)(
                                                                   vlSelf->__PVT___GEN_23[0U])))));
-}
-
-VL_INLINE_OPT void VysyxSoCFull_TLMonitor_7___combo__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__monitor__13(VysyxSoCFull_TLMonitor_7* vlSelf) {
-    if (false && vlSelf) {}  // Prevent unused
-    VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+              VysyxSoCFull_TLMonitor_7___combo__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__monitor__13\n"); );
-    // Body
-    vlSelf->__PVT___GEN_30 = ((5U == (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_opcode))
-                               ? 2U : ((4U == (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_opcode))
-                                        ? 1U : ((3U 
-                                                 == (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_opcode))
-                                                 ? 1U
-                                                 : 
-                                                ((2U 
-                                                  == (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_opcode))
-                                                  ? 1U
-                                                  : 0U))));
-    vlSelf->__PVT__source_ok = 1U;
-    vlSelf->__PVT___T_88 = ((0ULL == (0x1c0000000ULL 
-                                      & (QData)((IData)(
-                                                        (0x40000000U 
-                                                         ^ vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address))))) 
-                            | (0ULL == (0x180000000ULL 
-                                        & (QData)((IData)(
-                                                          (0x80000000U 
-                                                           ^ vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address))))));
-    vlSelf->__PVT__mask_acc = (1U & ((2U <= (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_size)) 
-                                     | (1U & ((((IData)(1U) 
-                                                << 
-                                                (1U 
-                                                 & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_size))) 
-                                               >> 1U) 
-                                              & (~ 
-                                                 (vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address 
-                                                  >> 1U))))));
-    vlSelf->__PVT__mask_acc_1 = (1U & ((2U <= (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_size)) 
-                                       | (1U & ((((IData)(1U) 
-                                                  << 
-                                                  (1U 
-                                                   & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_size))) 
-                                                 >> 1U) 
-                                                & (vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address 
-                                                   >> 1U)))));
-    vlSelf->__PVT__mask = ((8U & (((IData)(vlSelf->__PVT__mask_acc_1) 
-                                   << 3U) | (0xfffffff8U 
-                                             & ((vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address 
-                                                 << 2U) 
-                                                & (vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address 
-                                                   << 3U))))) 
-                           | ((4U & (((IData)(vlSelf->__PVT__mask_acc_1) 
-                                      | (IData)((2U 
-                                                 == 
-                                                 (3U 
-                                                  & vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address)))) 
-                                     << 2U)) | ((2U 
-                                                 & (((IData)(vlSelf->__PVT__mask_acc) 
-                                                     | (IData)(
-                                                               (1U 
-                                                                == 
-                                                                (3U 
-                                                                 & vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address)))) 
-                                                    << 1U)) 
-                                                | (1U 
-                                                   & ((IData)(vlSelf->__PVT__mask_acc) 
-                                                      | (IData)(
-                                                                (0U 
-                                                                 == 
-                                                                 (3U 
-                                                                  & vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address))))))));
 }
 
 VL_INLINE_OPT void VysyxSoCFull_TLMonitor_7___sequent__TOP__ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__monitor__4(VysyxSoCFull_TLMonitor_7* vlSelf) {
