@@ -5,7 +5,6 @@ Function:top module of this soc
 ************************************************************/
 /* verilator lint_off UNUSED */
 /* verilator lint_off MODDUP */
-/* verilator lint_off LATCH */
 `include "ysyx_22040228arbitratem.v"
 `include "ysyx_22040228inst_cache.v"
 `include "ysyx_22040228data_cache.v"
