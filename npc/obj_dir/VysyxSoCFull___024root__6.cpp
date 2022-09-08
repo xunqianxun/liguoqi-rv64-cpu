@@ -15,28 +15,6 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__18(VysyxSoCFull___024r
     VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    VysyxSoCFull___024root___sequent__TOP__18\n"); );
     // Variables
-    VlWide<8>/*255:0*/ __Vtemp1009;
-    VlWide<8>/*255:0*/ __Vtemp1010;
-    VlWide<8>/*255:0*/ __Vtemp1013;
-    VlWide<8>/*255:0*/ __Vtemp1014;
-    VlWide<8>/*255:0*/ __Vtemp1017;
-    VlWide<8>/*255:0*/ __Vtemp1018;
-    VlWide<8>/*255:0*/ __Vtemp1021;
-    VlWide<8>/*255:0*/ __Vtemp1022;
-    VlWide<8>/*255:0*/ __Vtemp1025;
-    VlWide<8>/*255:0*/ __Vtemp1026;
-    VlWide<8>/*255:0*/ __Vtemp1029;
-    VlWide<8>/*255:0*/ __Vtemp1030;
-    VlWide<8>/*255:0*/ __Vtemp1033;
-    VlWide<8>/*255:0*/ __Vtemp1034;
-    VlWide<8>/*255:0*/ __Vtemp1037;
-    VlWide<8>/*255:0*/ __Vtemp1038;
-    VlWide<8>/*255:0*/ __Vtemp1039;
-    VlWide<8>/*255:0*/ __Vtemp1042;
-    VlWide<8>/*255:0*/ __Vtemp1043;
-    VlWide<8>/*255:0*/ __Vtemp1044;
-    VlWide<8>/*255:0*/ __Vtemp1047;
-    VlWide<8>/*255:0*/ __Vtemp1048;
     VlWide<8>/*255:0*/ __Vtemp1049;
     VlWide<8>/*255:0*/ __Vtemp1052;
     VlWide<8>/*255:0*/ __Vtemp1053;
@@ -71,556 +49,10 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__18(VysyxSoCFull___024r
     VlWide<8>/*255:0*/ __Vtemp1106;
     VlWide<8>/*255:0*/ __Vtemp1109;
     VlWide<8>/*255:0*/ __Vtemp1110;
+    VlWide<4>/*127:0*/ __Vtemp1111;
+    VlWide<4>/*127:0*/ __Vtemp1112;
+    VlWide<4>/*127:0*/ __Vtemp1113;
     // Body
-    if (VL_UNLIKELY((((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__atomics_auto_in_d_valid) 
-                        & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT__d_first_counter_1))) 
-                       & (6U != (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor_io_in_d_bits_opcode))) 
-                      & (((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_1_auto_out_a_valid) 
-                          & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT__a_first_counter_1))) 
-                         & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__mbypass_auto_out_a_bits_source) 
-                            == (0x3fU & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_auto_in_d_bits_source) 
-                                         >> 1U))))) 
-                     & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__mbypass_auto_out_a_bits_size) 
-                            == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_auto_in_d_bits_size)) 
-                           | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:68104: Assertion failed in %NysyxSoCFull.asic.chipMaster.hints.monitor\n",
-                  64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 68104, "");
-    }
-    __Vtemp1009[0U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[0U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[1U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[1U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[0U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[0U]) 
-                                        >> 1U)));
-    __Vtemp1009[1U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[1U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[2U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[2U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[1U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[1U]) 
-                                        >> 1U)));
-    __Vtemp1009[2U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[2U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[3U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[3U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[2U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[2U]) 
-                                        >> 1U)));
-    __Vtemp1009[3U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[3U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[4U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[4U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[3U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[3U]) 
-                                        >> 1U)));
-    __Vtemp1009[4U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[4U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[5U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[5U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[4U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[4U]) 
-                                        >> 1U)));
-    __Vtemp1009[5U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[5U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[6U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[6U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[5U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[5U]) 
-                                        >> 1U)));
-    __Vtemp1009[6U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[6U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[7U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[7U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[6U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[6U]) 
-                                        >> 1U)));
-    __Vtemp1009[7U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[7U] 
-                       & ((VysyxSoCFull__ConstPool__CONST_57168600_0[7U] 
-                           & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[7U]) 
-                          >> 1U));
-    VL_EXTEND_WW(256,255, __Vtemp1010, __Vtemp1009);
-    __Vtemp1013[0U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[0U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[1U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[1U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[0U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[0U]) 
-                                        >> 1U)));
-    __Vtemp1013[1U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[1U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[2U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[2U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[1U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[1U]) 
-                                        >> 1U)));
-    __Vtemp1013[2U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[2U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[3U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[3U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[2U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[2U]) 
-                                        >> 1U)));
-    __Vtemp1013[3U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[3U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[4U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[4U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[3U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[3U]) 
-                                        >> 1U)));
-    __Vtemp1013[4U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[4U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[5U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[5U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[4U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[4U]) 
-                                        >> 1U)));
-    __Vtemp1013[5U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[5U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[6U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[6U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[5U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[5U]) 
-                                        >> 1U)));
-    __Vtemp1013[6U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[6U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[7U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[7U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[6U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[6U]) 
-                                        >> 1U)));
-    __Vtemp1013[7U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[7U] 
-                       & ((VysyxSoCFull__ConstPool__CONST_57168600_0[7U] 
-                           & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[7U]) 
-                          >> 1U));
-    VL_EXTEND_WW(256,255, __Vtemp1014, __Vtemp1013);
-    __Vtemp1017[0U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[0U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[1U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[1U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[0U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[0U]) 
-                                        >> 1U)));
-    __Vtemp1017[1U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[1U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[2U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[2U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[1U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[1U]) 
-                                        >> 1U)));
-    __Vtemp1017[2U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[2U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[3U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[3U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[2U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[2U]) 
-                                        >> 1U)));
-    __Vtemp1017[3U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[3U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[4U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[4U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[3U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[3U]) 
-                                        >> 1U)));
-    __Vtemp1017[4U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[4U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[5U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[5U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[4U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[4U]) 
-                                        >> 1U)));
-    __Vtemp1017[5U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[5U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[6U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[6U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[5U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[5U]) 
-                                        >> 1U)));
-    __Vtemp1017[6U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[6U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[7U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[7U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[6U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[6U]) 
-                                        >> 1U)));
-    __Vtemp1017[7U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[7U] 
-                       & ((VysyxSoCFull__ConstPool__CONST_57168600_0[7U] 
-                           & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[7U]) 
-                          >> 1U));
-    VL_EXTEND_WW(256,255, __Vtemp1018, __Vtemp1017);
-    __Vtemp1021[0U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[0U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[1U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[1U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[0U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[0U]) 
-                                        >> 1U)));
-    __Vtemp1021[1U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[1U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[2U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[2U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[1U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[1U]) 
-                                        >> 1U)));
-    __Vtemp1021[2U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[2U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[3U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[3U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[2U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[2U]) 
-                                        >> 1U)));
-    __Vtemp1021[3U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[3U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[4U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[4U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[3U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[3U]) 
-                                        >> 1U)));
-    __Vtemp1021[4U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[4U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[5U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[5U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[4U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[4U]) 
-                                        >> 1U)));
-    __Vtemp1021[5U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[5U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[6U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[6U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[5U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[5U]) 
-                                        >> 1U)));
-    __Vtemp1021[6U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[6U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[7U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[7U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[6U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[6U]) 
-                                        >> 1U)));
-    __Vtemp1021[7U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[7U] 
-                       & ((VysyxSoCFull__ConstPool__CONST_57168600_0[7U] 
-                           & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[7U]) 
-                          >> 1U));
-    VL_EXTEND_WW(256,255, __Vtemp1022, __Vtemp1021);
-    if (VL_UNLIKELY((((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__atomics_auto_in_d_valid) 
-                        & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT__d_first_counter_1))) 
-                       & (6U != (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor_io_in_d_bits_opcode))) 
-                      & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_1_auto_out_a_valid) 
-                             & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT__a_first_counter_1))) 
-                            & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__mbypass_auto_out_a_bits_source) 
-                               == (0x3fU & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_auto_in_d_bits_source) 
-                                            >> 1U)))))) 
-                     & (~ ((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor_io_in_d_bits_opcode) 
-                             == ((7U == (7U & __Vtemp1010[0U]))
-                                  ? 4U : ((6U == (7U 
-                                                  & __Vtemp1014[0U]))
-                                           ? 4U : (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___GEN_58)))) 
-                            | ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor_io_in_d_bits_opcode) 
-                               == ((7U == (7U & __Vtemp1018[0U]))
-                                    ? 4U : ((6U == 
-                                             (7U & 
-                                              __Vtemp1022[0U]))
-                                             ? 5U : (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___GEN_58))))) 
-                           | (IData)(vlSelf->reset)))))) {
-        VL_FWRITEF(0x80000002U,"Assertion failed: 'D' channel contains improper opcode response (connected at ChipLinkBridge.scala:151:98)\n    at Monitor.scala:49 assert(cond, message)\n");
-    }
-    __Vtemp1025[0U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[0U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[1U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[1U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[0U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[0U]) 
-                                        >> 1U)));
-    __Vtemp1025[1U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[1U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[2U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[2U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[1U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[1U]) 
-                                        >> 1U)));
-    __Vtemp1025[2U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[2U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[3U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[3U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[2U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[2U]) 
-                                        >> 1U)));
-    __Vtemp1025[3U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[3U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[4U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[4U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[3U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[3U]) 
-                                        >> 1U)));
-    __Vtemp1025[4U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[4U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[5U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[5U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[4U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[4U]) 
-                                        >> 1U)));
-    __Vtemp1025[5U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[5U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[6U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[6U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[5U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[5U]) 
-                                        >> 1U)));
-    __Vtemp1025[6U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[6U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[7U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[7U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[6U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[6U]) 
-                                        >> 1U)));
-    __Vtemp1025[7U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[7U] 
-                       & ((VysyxSoCFull__ConstPool__CONST_57168600_0[7U] 
-                           & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[7U]) 
-                          >> 1U));
-    VL_EXTEND_WW(256,255, __Vtemp1026, __Vtemp1025);
-    __Vtemp1029[0U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[0U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[1U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[1U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[0U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[0U]) 
-                                        >> 1U)));
-    __Vtemp1029[1U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[1U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[2U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[2U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[1U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[1U]) 
-                                        >> 1U)));
-    __Vtemp1029[2U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[2U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[3U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[3U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[2U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[2U]) 
-                                        >> 1U)));
-    __Vtemp1029[3U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[3U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[4U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[4U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[3U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[3U]) 
-                                        >> 1U)));
-    __Vtemp1029[4U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[4U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[5U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[5U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[4U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[4U]) 
-                                        >> 1U)));
-    __Vtemp1029[5U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[5U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[6U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[6U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[5U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[5U]) 
-                                        >> 1U)));
-    __Vtemp1029[6U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[6U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[7U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[7U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[6U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[6U]) 
-                                        >> 1U)));
-    __Vtemp1029[7U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[7U] 
-                       & ((VysyxSoCFull__ConstPool__CONST_57168600_0[7U] 
-                           & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[7U]) 
-                          >> 1U));
-    VL_EXTEND_WW(256,255, __Vtemp1030, __Vtemp1029);
-    __Vtemp1033[0U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[0U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[1U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[1U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[0U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[0U]) 
-                                        >> 1U)));
-    __Vtemp1033[1U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[1U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[2U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[2U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[1U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[1U]) 
-                                        >> 1U)));
-    __Vtemp1033[2U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[2U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[3U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[3U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[2U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[2U]) 
-                                        >> 1U)));
-    __Vtemp1033[3U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[3U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[4U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[4U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[3U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[3U]) 
-                                        >> 1U)));
-    __Vtemp1033[4U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[4U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[5U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[5U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[4U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[4U]) 
-                                        >> 1U)));
-    __Vtemp1033[5U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[5U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[6U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[6U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[5U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[5U]) 
-                                        >> 1U)));
-    __Vtemp1033[6U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[6U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[7U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[7U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[6U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[6U]) 
-                                        >> 1U)));
-    __Vtemp1033[7U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[7U] 
-                       & ((VysyxSoCFull__ConstPool__CONST_57168600_0[7U] 
-                           & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[7U]) 
-                          >> 1U));
-    VL_EXTEND_WW(256,255, __Vtemp1034, __Vtemp1033);
-    __Vtemp1037[0U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[0U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[1U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[1U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[0U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[0U]) 
-                                        >> 1U)));
-    __Vtemp1037[1U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[1U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[2U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[2U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[1U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[1U]) 
-                                        >> 1U)));
-    __Vtemp1037[2U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[2U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[3U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[3U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[2U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[2U]) 
-                                        >> 1U)));
-    __Vtemp1037[3U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[3U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[4U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[4U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[3U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[3U]) 
-                                        >> 1U)));
-    __Vtemp1037[4U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[4U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[5U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[5U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[4U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[4U]) 
-                                        >> 1U)));
-    __Vtemp1037[5U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[5U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[6U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[6U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[5U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[5U]) 
-                                        >> 1U)));
-    __Vtemp1037[6U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[6U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[7U] 
-                            & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[7U]) 
-                           << 0x1fU) | ((VysyxSoCFull__ConstPool__CONST_57168600_0[6U] 
-                                         & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[6U]) 
-                                        >> 1U)));
-    __Vtemp1037[7U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[7U] 
-                       & ((VysyxSoCFull__ConstPool__CONST_57168600_0[7U] 
-                           & vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___a_opcode_lookup_T_1[7U]) 
-                          >> 1U));
-    VL_EXTEND_WW(256,255, __Vtemp1038, __Vtemp1037);
-    if (VL_UNLIKELY((((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__atomics_auto_in_d_valid) 
-                        & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT__d_first_counter_1))) 
-                       & (6U != (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor_io_in_d_bits_opcode))) 
-                      & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_1_auto_out_a_valid) 
-                             & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT__a_first_counter_1))) 
-                            & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__mbypass_auto_out_a_bits_source) 
-                               == (0x3fU & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_auto_in_d_bits_source) 
-                                            >> 1U)))))) 
-                     & (~ ((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor_io_in_d_bits_opcode) 
-                             == ((7U == (7U & __Vtemp1026[0U]))
-                                  ? 4U : ((6U == (7U 
-                                                  & __Vtemp1030[0U]))
-                                           ? 4U : (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___GEN_58)))) 
-                            | ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor_io_in_d_bits_opcode) 
-                               == ((7U == (7U & __Vtemp1034[0U]))
-                                    ? 4U : ((6U == 
-                                             (7U & 
-                                              __Vtemp1038[0U]))
-                                             ? 5U : (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT___GEN_58))))) 
-                           | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:68128: Assertion failed in %NysyxSoCFull.asic.chipMaster.hints.monitor\n",
-                  64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 68128, "");
-    }
-    VL_SHIFTR_WWI(256,256,9, __Vtemp1039, vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT__inflight_sizes, 
-                  (0xfcU & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_auto_in_d_bits_source) 
-                            << 1U)));
-    __Vtemp1042[0U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[0U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[1U] 
-                            & __Vtemp1039[1U]) << 0x1fU) 
-                          | ((VysyxSoCFull__ConstPool__CONST_57168600_0[0U] 
-                              & __Vtemp1039[0U]) >> 1U)));
-    __Vtemp1042[1U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[1U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[2U] 
-                            & __Vtemp1039[2U]) << 0x1fU) 
-                          | ((VysyxSoCFull__ConstPool__CONST_57168600_0[1U] 
-                              & __Vtemp1039[1U]) >> 1U)));
-    __Vtemp1042[2U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[2U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[3U] 
-                            & __Vtemp1039[3U]) << 0x1fU) 
-                          | ((VysyxSoCFull__ConstPool__CONST_57168600_0[2U] 
-                              & __Vtemp1039[2U]) >> 1U)));
-    __Vtemp1042[3U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[3U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[4U] 
-                            & __Vtemp1039[4U]) << 0x1fU) 
-                          | ((VysyxSoCFull__ConstPool__CONST_57168600_0[3U] 
-                              & __Vtemp1039[3U]) >> 1U)));
-    __Vtemp1042[4U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[4U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[5U] 
-                            & __Vtemp1039[5U]) << 0x1fU) 
-                          | ((VysyxSoCFull__ConstPool__CONST_57168600_0[4U] 
-                              & __Vtemp1039[4U]) >> 1U)));
-    __Vtemp1042[5U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[5U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[6U] 
-                            & __Vtemp1039[6U]) << 0x1fU) 
-                          | ((VysyxSoCFull__ConstPool__CONST_57168600_0[5U] 
-                              & __Vtemp1039[5U]) >> 1U)));
-    __Vtemp1042[6U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[6U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[7U] 
-                            & __Vtemp1039[7U]) << 0x1fU) 
-                          | ((VysyxSoCFull__ConstPool__CONST_57168600_0[6U] 
-                              & __Vtemp1039[6U]) >> 1U)));
-    __Vtemp1042[7U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[7U] 
-                       & ((VysyxSoCFull__ConstPool__CONST_57168600_0[7U] 
-                           & __Vtemp1039[7U]) >> 1U));
-    VL_EXTEND_WW(256,255, __Vtemp1043, __Vtemp1042);
-    if (VL_UNLIKELY((((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__atomics_auto_in_d_valid) 
-                        & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT__d_first_counter_1))) 
-                       & (6U != (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor_io_in_d_bits_opcode))) 
-                      & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_1_auto_out_a_valid) 
-                             & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT__a_first_counter_1))) 
-                            & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__mbypass_auto_out_a_bits_source) 
-                               == (0x3fU & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_auto_in_d_bits_source) 
-                                            >> 1U)))))) 
-                     & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_auto_in_d_bits_size) 
-                            == (0xfU & __Vtemp1043[0U])) 
-                           | (IData)(vlSelf->reset)))))) {
-        VL_FWRITEF(0x80000002U,"Assertion failed: 'D' channel contains improper response size (connected at ChipLinkBridge.scala:151:98)\n    at Monitor.scala:49 assert(cond, message)\n");
-    }
-    VL_SHIFTR_WWI(256,256,9, __Vtemp1044, vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT__inflight_sizes, 
-                  (0xfcU & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_auto_in_d_bits_source) 
-                            << 1U)));
-    __Vtemp1047[0U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[0U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[1U] 
-                            & __Vtemp1044[1U]) << 0x1fU) 
-                          | ((VysyxSoCFull__ConstPool__CONST_57168600_0[0U] 
-                              & __Vtemp1044[0U]) >> 1U)));
-    __Vtemp1047[1U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[1U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[2U] 
-                            & __Vtemp1044[2U]) << 0x1fU) 
-                          | ((VysyxSoCFull__ConstPool__CONST_57168600_0[1U] 
-                              & __Vtemp1044[1U]) >> 1U)));
-    __Vtemp1047[2U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[2U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[3U] 
-                            & __Vtemp1044[3U]) << 0x1fU) 
-                          | ((VysyxSoCFull__ConstPool__CONST_57168600_0[2U] 
-                              & __Vtemp1044[2U]) >> 1U)));
-    __Vtemp1047[3U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[3U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[4U] 
-                            & __Vtemp1044[4U]) << 0x1fU) 
-                          | ((VysyxSoCFull__ConstPool__CONST_57168600_0[3U] 
-                              & __Vtemp1044[3U]) >> 1U)));
-    __Vtemp1047[4U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[4U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[5U] 
-                            & __Vtemp1044[5U]) << 0x1fU) 
-                          | ((VysyxSoCFull__ConstPool__CONST_57168600_0[4U] 
-                              & __Vtemp1044[4U]) >> 1U)));
-    __Vtemp1047[5U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[5U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[6U] 
-                            & __Vtemp1044[6U]) << 0x1fU) 
-                          | ((VysyxSoCFull__ConstPool__CONST_57168600_0[5U] 
-                              & __Vtemp1044[5U]) >> 1U)));
-    __Vtemp1047[6U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[6U] 
-                       & (((VysyxSoCFull__ConstPool__CONST_57168600_0[7U] 
-                            & __Vtemp1044[7U]) << 0x1fU) 
-                          | ((VysyxSoCFull__ConstPool__CONST_57168600_0[6U] 
-                              & __Vtemp1044[6U]) >> 1U)));
-    __Vtemp1047[7U] = (VysyxSoCFull__ConstPool__CONST_db979007_0[7U] 
-                       & ((VysyxSoCFull__ConstPool__CONST_57168600_0[7U] 
-                           & __Vtemp1044[7U]) >> 1U));
-    VL_EXTEND_WW(256,255, __Vtemp1048, __Vtemp1047);
-    if (VL_UNLIKELY((((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__atomics_auto_in_d_valid) 
-                        & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT__d_first_counter_1))) 
-                       & (6U != (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor_io_in_d_bits_opcode))) 
-                      & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget_1_auto_out_a_valid) 
-                             & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT__a_first_counter_1))) 
-                            & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__mbypass_auto_out_a_bits_source) 
-                               == (0x3fU & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_auto_in_d_bits_source) 
-                                            >> 1U)))))) 
-                     & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_auto_in_d_bits_size) 
-                            == (0xfU & __Vtemp1048[0U])) 
-                           | (IData)(vlSelf->reset)))))) {
-        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:68152: Assertion failed in %NysyxSoCFull.asic.chipMaster.hints.monitor\n",
-                  64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
-        VL_STOP_MT("vsrc/ysyxSoCFull.v", 68152, "");
-    }
     if (VL_UNLIKELY((((((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__atomics_auto_in_d_valid) 
                           & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT__d_first_counter_1))) 
                          & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__monitor__DOT__a_first_counter_1))) 
@@ -7462,5 +6894,131 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__18(VysyxSoCFull___024r
         VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:112750: Assertion failed in %NysyxSoCFull.fpga.err.monitor\n",
                   64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
         VL_STOP_MT("vsrc/ysyxSoCFull.v", 112750, "");
+    }
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor_io_in_d_valid) 
+                      & (0U != (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor__DOT__d_first_counter))) 
+                     & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor_io_in_d_bits_denied) 
+                            == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor__DOT__denied)) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_FWRITEF(0x80000002U,"Assertion failed: 'D' channel denied changed with multibeat operation (connected at ChipLinkBridge.scala:171:12)\n    at Monitor.scala:49 assert(cond, message)\n");
+    }
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor_io_in_d_valid) 
+                      & (0U != (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor__DOT__d_first_counter))) 
+                     & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor_io_in_d_bits_denied) 
+                            == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor__DOT__denied)) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:112774: Assertion failed in %NysyxSoCFull.fpga.err.monitor\n",
+                  64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 112774, "");
+    }
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__repeated_repeater_1_io_deq_valid) 
+                      & (0U != (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor__DOT__c_first_counter))) 
+                     & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__repeated_repeater_1_io_deq_bits_opcode) 
+                            == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor__DOT__opcode_3)) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_FWRITEF(0x80000002U,"Assertion failed: 'C' channel opcode changed within multibeat operation (connected at ChipLinkBridge.scala:171:12)\n    at Monitor.scala:42 assert(cond, message)\n");
+    }
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__repeated_repeater_1_io_deq_valid) 
+                      & (0U != (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor__DOT__c_first_counter))) 
+                     & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__repeated_repeater_1_io_deq_bits_opcode) 
+                            == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor__DOT__opcode_3)) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:112798: Assertion failed in %NysyxSoCFull.fpga.err.monitor\n",
+                  64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 112798, "");
+    }
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__repeated_repeater_1_io_deq_valid) 
+                      & (0U != (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor__DOT__c_first_counter))) 
+                     & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__repeated_repeater_1_io_deq_bits_param) 
+                            == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor__DOT__param_3)) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_FWRITEF(0x80000002U,"Assertion failed: 'C' channel param changed within multibeat operation (connected at ChipLinkBridge.scala:171:12)\n    at Monitor.scala:42 assert(cond, message)\n");
+    }
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__repeated_repeater_1_io_deq_valid) 
+                      & (0U != (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor__DOT__c_first_counter))) 
+                     & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__repeated_repeater_1_io_deq_bits_param) 
+                            == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor__DOT__param_3)) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:112822: Assertion failed in %NysyxSoCFull.fpga.err.monitor\n",
+                  64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 112822, "");
+    }
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__repeated_repeater_1_io_deq_valid) 
+                      & (0U != (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor__DOT__c_first_counter))) 
+                     & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__repeated_repeater_1_io_deq_bits_size) 
+                            == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor__DOT__size_3)) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_FWRITEF(0x80000002U,"Assertion failed: 'C' channel size changed within multibeat operation (connected at ChipLinkBridge.scala:171:12)\n    at Monitor.scala:42 assert(cond, message)\n");
+    }
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__repeated_repeater_1_io_deq_valid) 
+                      & (0U != (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor__DOT__c_first_counter))) 
+                     & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__repeated_repeater_1_io_deq_bits_size) 
+                            == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor__DOT__size_3)) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:112846: Assertion failed in %NysyxSoCFull.fpga.err.monitor\n",
+                  64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 112846, "");
+    }
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__repeated_repeater_1_io_deq_valid) 
+                      & (0U != (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor__DOT__c_first_counter))) 
+                     & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__repeated_repeater_1_io_deq_bits_source) 
+                            == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor__DOT__source_3)) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_FWRITEF(0x80000002U,"Assertion failed: 'C' channel source changed within multibeat operation (connected at ChipLinkBridge.scala:171:12)\n    at Monitor.scala:42 assert(cond, message)\n");
+    }
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__repeated_repeater_1_io_deq_valid) 
+                      & (0U != (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor__DOT__c_first_counter))) 
+                     & (~ (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__repeated_repeater_1_io_deq_bits_source) 
+                            == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor__DOT__source_3)) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:112870: Assertion failed in %NysyxSoCFull.fpga.err.monitor\n",
+                  64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 112870, "");
+    }
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__repeated_repeater_1_io_deq_valid) 
+                      & (0U != (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor__DOT__c_first_counter))) 
+                     & (~ (((0x1fffU & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__repeated_repeater_1__DOT__full)
+                                         ? (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__repeated_repeater_1__DOT__saved_address)
+                                         : vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_address)) 
+                            == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor__DOT__address_2)) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_FWRITEF(0x80000002U,"Assertion failed: 'C' channel address changed with multibeat operation (connected at ChipLinkBridge.scala:171:12)\n    at Monitor.scala:42 assert(cond, message)\n");
+    }
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__repeated_repeater_1_io_deq_valid) 
+                      & (0U != (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor__DOT__c_first_counter))) 
+                     & (~ (((0x1fffU & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__repeated_repeater_1__DOT__full)
+                                         ? (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__repeated_repeater_1__DOT__saved_address)
+                                         : vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_address)) 
+                            == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor__DOT__address_2)) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:112894: Assertion failed in %NysyxSoCFull.fpga.err.monitor\n",
+                  64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 112894, "");
+    }
+    VL_SHIFTR_WWI(128,128,7, __Vtemp1111, vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor__DOT__inflight, (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__repeated_repeater_io_deq_bits_source));
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor__DOT___a_first_T) 
+                      & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor__DOT__a_first_counter_1))) 
+                     & (~ ((~ __Vtemp1111[0U]) | (IData)(vlSelf->reset)))))) {
+        VL_FWRITEF(0x80000002U,"Assertion failed: 'A' channel re-used a source ID (connected at ChipLinkBridge.scala:171:12)\n    at Monitor.scala:42 assert(cond, message)\n");
+    }
+    VL_SHIFTR_WWI(128,128,7, __Vtemp1112, vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor__DOT__inflight, (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__repeated_repeater_io_deq_bits_source));
+    if (VL_UNLIKELY((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor__DOT___a_first_T) 
+                      & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor__DOT__a_first_counter_1))) 
+                     & (~ ((~ __Vtemp1112[0U]) | (IData)(vlSelf->reset)))))) {
+        VL_WRITEF("[%0t] %%Error: ysyxSoCFull.v:112918: Assertion failed in %NysyxSoCFull.fpga.err.monitor\n",
+                  64,VL_TIME_UNITED_Q(100),-9,vlSymsp->name());
+        VL_STOP_MT("vsrc/ysyxSoCFull.v", 112918, "");
+    }
+    VL_SHIFTR_WWI(128,128,7, __Vtemp1113, vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor__DOT__inflight, (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor_io_in_d_bits_source));
+    if (VL_UNLIKELY(((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor_io_in_d_valid) 
+                       & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor__DOT__d_first_counter_1))) 
+                      & (6U != (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor_io_in_d_bits_opcode))) 
+                     & (~ ((__Vtemp1113[0U] | (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__repeated_repeater_io_deq_valid) 
+                                                & (0U 
+                                                   == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor__DOT__a_first_counter_1))) 
+                                               & ((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__repeated_repeater_io_deq_bits_source) 
+                                                  == (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__err__DOT__monitor_io_in_d_bits_source)))) 
+                           | (IData)(vlSelf->reset)))))) {
+        VL_FWRITEF(0x80000002U,"Assertion failed: 'D' channel acknowledged for nothing inflight (connected at ChipLinkBridge.scala:171:12)\n    at Monitor.scala:49 assert(cond, message)\n");
     }
 }

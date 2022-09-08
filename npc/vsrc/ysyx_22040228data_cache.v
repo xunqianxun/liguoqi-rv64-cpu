@@ -413,7 +413,7 @@ module ysyx_22040228data_cache (
                 missr_i_ok      = `ysyx22040228_ABLE;
                 missr_tag_ena2   = `ysyx22040228_ENABLE;
             end 
-            else if(counter1[dcache_index] < counter2[dcache_index])begin
+            else /*if(counter1[dcache_index] < counter2[dcache_index])*/begin
                 write_regr     = `ysyx22040228_ENABLE   ;
                 missr_data_ena = `ysyx22040228_ABLE     ;
                 missr_data_strb = `ysyx22040228_CACHE_STRBH;
@@ -537,7 +537,7 @@ module ysyx_22040228data_cache (
                 hitw_data_ready = `ysyx22040228_ABLE   ;
                 hitw_data_ena   = `ysyx22040228_ABLE   ;
             end
-            else if((tteg_ata_o == dcache_tag) && (tteg_valid_o == `ysyx22040228_ABLE))begin
+            else /*if((tteg_ata_o == dcache_tag) && (tteg_valid_o == `ysyx22040228_ABLE))*/begin
                 memw_hit_ok     = `ysyx22040228_ABLE   ;
                 hitw_data_strb  = {strb_extection, 64'h0} ;
                 hitw_data_temp  = {mem_data_i, 64'h0} ;
@@ -700,7 +700,7 @@ module ysyx_22040228data_cache (
                 missw_data_ena = `ysyx22040228_ABLE     ;
                 missw_tag_ena2  = `ysyx22040228_ENABLE;   
             end 
-            else if(counter1[dcache_index] < counter2[dcache_index]) begin
+            else /*if(counter1[dcache_index] < counter2[dcache_index])*/ begin
                 missw_data_strb = `ysyx22040228_CACHE_STRBH;
                 missw_tag_ena2  = `ysyx22040228_ABLE;
                 missw_data_temp = {in_dcache_data, 64'h0};
