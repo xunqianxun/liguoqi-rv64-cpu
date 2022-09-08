@@ -32,7 +32,7 @@ Verilated::traceEverOn(true) ; //out vcd need
 tfp = new VerilatedVcdC ; // out vcd need
 ysyxSoCFull->trace(tfp,0) ;
 tfp->open("obj_dir/ysyxSoCFull.vcd") ; // open vcd
-char *path = (char *)"/home/mulin/ysyxSoC/hello-riscv64-mycpu.bin";
+char *path = (char *)"/home/mulin/ysyxSoC/ysyx/program/bin/flash/memtest-flash.bin";
 flash_init(path);
 
 while((1) && !Verilated::gotFinish()){
