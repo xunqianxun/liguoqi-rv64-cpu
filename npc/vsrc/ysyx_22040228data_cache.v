@@ -317,6 +317,14 @@ module ysyx_22040228data_cache (
             //     dirty_clean_t  = `ysyx22040228_ENABLE    ;
             // end  
         end 
+        else if((state_dread == `ysyx22040228_DIRTY) && (in_dcache_ready)) begin
+            dirty_out_addr = `ysyx22040228_ZEROWORD  ;
+            dirty_out_data = `ysyx22040228_ZEROWORD  ;
+            dirty_out_type  = 4'b0000                ;
+            dirty_ok     = `ysyx22040228_ENABLE      ;
+            dirty_clean_o = `ysyx22040228_ENABLE     ;
+            dirty_clean_t = `ysyx22040228_ENABLE     ;
+        end 
         else if((state_dread == `ysyx22040228_DIRTY) && (delay_cnt)) begin
             dirty_out_addr = `ysyx22040228_ZEROWORD  ;
             dirty_out_data = `ysyx22040228_ZEROWORD  ;
@@ -632,6 +640,14 @@ module ysyx_22040228data_cache (
             //     dirtyw_out_data = `ysyx22040228_ZEROWORD  ;
             //     dirtyw_out_type  = 4'b0000                ;
             // end  
+        end 
+        else if((in_dcache_ready) && (state_dwrite == `ysyx22040228_DIRTY)) begin
+            dirtyw_out_addr = `ysyx22040228_ZEROWORD  ;
+            dirtyw_out_data = `ysyx22040228_ZEROWORD  ;
+            dirtyw_ok     = `ysyx22040228_ENABLE      ;
+            dirtyw_out_type = 4'b0000                 ;
+            dirtyw_clean_o = `ysyx22040228_ENABLE     ;
+            dirtyw_clean_t = `ysyx22040228_ENABLE     ;
         end 
         else if((delayw_cnt) && (state_dwrite == `ysyx22040228_DIRTY)) begin
             dirtyw_out_addr = `ysyx22040228_ZEROWORD  ;
