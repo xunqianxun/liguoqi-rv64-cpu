@@ -2465,8 +2465,8 @@ module ysyx_22040228data_cache (
     end
 
     // reg          missw_i_ok     ;
-    reg  [3: 0]  missw_out_type ;
-    reg  [63:0]  missw_out_addr ;
+    // reg  [3: 0]  missw_out_type ;
+    // reg  [63:0]  missw_out_addr ;
     reg [127: 0] missw_data_strb;
     reg          missw_tag_ena1 ;
     reg [127: 0] missw_data_temp;
@@ -5507,6 +5507,23 @@ module ysyx_22040228 (
     input       wire       [127:0]                           io_sram7_rdata        
 );
 
+    reg  rst ;
+    reg [4:0] countr ;
+    always @(posedge clock) begin
+        if(reset == `ysyx22040228_RSTENA) begin
+            countr <= 5'b00000 ;
+            rst <= 1'b1       ;
+        end 
+        else if(countr < 5'd31) begin
+            countr <= countr + 5'd1 ;
+            rst <= 1'b1       ;
+        end 
+        else begin
+            countr <= countr  ;
+            rst <= 1'b0       ;
+        end 
+    end
+
     assign io_slave_awready = 1'b0 ;
     assign io_slave_wready  = 1'b0 ;
     assign io_slave_bvalid  = 1'b0 ;
@@ -5860,7 +5877,7 @@ module ysyx_22040228 (
 
     ysyx_22040228rvcpu rvcpu1 (
         .clk                 (aclk                ) ,
-        .rst                 (reset               ) ,
+        .rst                 (rst                 ) ,
         
         .inst_addr           (rvcpu_inst_addr     ) ,
     
@@ -5932,7 +5949,7 @@ module ysyx_22040228 (
 
     ysyx_22040228inst_cache inst_cache2 (
         .clk                 (aclk                ) ,
-        .rst                 (reset               ) ,
+        .rst                 (rst                 ) ,
         .inst_addr           (rvcpu_inst_addr     ) ,
         .inst_ready          (i_cache_ready       ) ,
         .core_stall          (core_stall_l        ) ,
@@ -5964,7 +5981,7 @@ module ysyx_22040228 (
     assign io_sram1_wdata = data_cache_wdata ;
     ysyx_22040228data_cache data_cache3 (
         .clk                 (aclk               ) ,
-        .rst                 (reset              ) ,
+        .rst                 (rst                ) ,
 
         .mem_addr_i          (uncache_dc_addr    ) ,
         .mem_data_i          (uncache_dc_data    ) ,
@@ -5992,7 +6009,7 @@ module ysyx_22040228 (
 
     ysyx_22040228arbitratem arbitratem4(
         .clk                 (aclk               ) ,
-        .rst                 (reset              ) ,
+        .rst                 (rst                ) ,
 
         .d_cache_addr        (d_cache_out_addr   ) ,
         .d_cache_data        (d_cache_out_data   ) ,
@@ -6172,7 +6189,7 @@ module ysyx_22040228 (
     assign prot_chose_read = mmio_thing;
     ysyx_22040228soc_axi4 soc_axi45 (
         .clk                 (aclk              ) ,
-        .rst                 (reset             ) ,
+        .rst                 (rst               ) ,
         .prot_chose_write    (prot_chose_write  ) ,
         .prot_chose_read     (prot_chose_read   ) ,
 
@@ -6261,7 +6278,7 @@ module ysyx_22040228 (
 
     ysyx_22040228clint clint6 (
         .clk                 (aclk              ) ,
-        .rst                 (reset             ) ,
+        .rst                 (rst               ) ,
         .time_interrupt      (time_init_sign    ) ,
 
         .time_axi_aw_id      (tim_axi_aw_id     ) , 

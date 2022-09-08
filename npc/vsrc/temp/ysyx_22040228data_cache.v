@@ -17,7 +17,6 @@ Function:write data cache
 
 `include "ysyx_22040228defines.v"
 `include "ysyx_22040228defines_axi4.v"
-//`include "S011HD1P_X32Y2D128_BWF.v"
 `include "ysyx_22040228TEG_CC.v"
 /* verilator lint_off UNUSED */
 
@@ -696,8 +695,8 @@ module ysyx_22040228data_cache (
     end
 
     // reg          missw_i_ok     ;
-    reg  [3: 0]  missw_out_type ;
-    reg  [63:0]  missw_out_addr ;
+    // reg  [3: 0]  missw_out_type ;
+    // reg  [63:0]  missw_out_addr ;
     reg [127: 0] missw_data_strb;
     reg          missw_tag_ena1 ;
     reg [127: 0] missw_data_temp;
@@ -968,6 +967,5 @@ module ysyx_22040228data_cache (
                              (docker_counter == 8'd129)           ? `ysyx22040228_ABLE:
                                                                `ysyx22040228_ENABLE;
 
-/* verilator lint_on LATCH */
 
 endmodule
