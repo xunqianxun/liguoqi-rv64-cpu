@@ -259,15 +259,10 @@ module ysyx_22040228data_cache (
                 mem_data_out   = data_out[63:0]      ;
                 hit_data_ready = `ysyx22040228_ABLE  ;
             end
-            else if((tteg_ata_o == dcache_tag) && (tteg_valid_o == `ysyx22040228_ABLE))begin
+            else /*if((tteg_ata_o == dcache_tag) && (tteg_valid_o == `ysyx22040228_ABLE))*/begin
                 mem_hit_ok     = `ysyx22040228_ABLE  ;
                 mem_data_out   = data_out[127:64]    ;
                 hit_data_ready = `ysyx22040228_ABLE  ;
-            end
-            else begin
-                mem_hit_ok     = `ysyx22040228_ABLE  ;
-                mem_data_out   = 64'b0               ;
-                hit_data_ready = `ysyx22040228_ENABLE;
             end
         end   
         else   begin
@@ -541,20 +536,20 @@ module ysyx_22040228data_cache (
                 hitw_data_ready = `ysyx22040228_ABLE   ;
                 hitw_data_ena   = `ysyx22040228_ABLE   ;
             end
-            else if((tteg_ata_o == dcache_tag) && (tteg_valid_o == `ysyx22040228_ABLE))begin
+            else /*if((tteg_ata_o == dcache_tag) && (tteg_valid_o == `ysyx22040228_ABLE))*/begin
                 memw_hit_ok     = `ysyx22040228_ABLE   ;
                 hitw_data_strb  = {strb_extection, 64'h0} ;
                 hitw_data_temp  = {mem_data_i, 64'h0} ;
                 hitw_data_ready = `ysyx22040228_ABLE   ;
                 hitw_data_ena   = `ysyx22040228_ABLE   ;
             end
-            else begin
-                memw_hit_ok     = `ysyx22040228_ABLE   ; 
-                hitw_data_strb  =  `ysyx22040228_CACHE_STRBZ;
-                hitw_data_temp  =  `ysyx22040228_CACHE_STRBZ;  
-                hitw_data_ready = `ysyx22040228_ENABLE ;
-                hitw_data_ena   = `ysyx22040228_ENABLE ;
-            end
+            // else begin
+            //     memw_hit_ok     = `ysyx22040228_ABLE   ; 
+            //     hitw_data_strb  =  `ysyx22040228_CACHE_STRBZ;
+            //     hitw_data_temp  =  `ysyx22040228_CACHE_STRBZ;  
+            //     hitw_data_ready = `ysyx22040228_ENABLE ;
+            //     hitw_data_ena   = `ysyx22040228_ENABLE ;
+            // end
         end   
         else  begin
             hitw_data_temp  =  `ysyx22040228_CACHE_STRBZ; 
