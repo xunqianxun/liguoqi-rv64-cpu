@@ -291,7 +291,7 @@ module ysyx_22040228data_cache (
             dirty_clean_o = `ysyx22040228_ENABLE     ;
             dirty_clean_t = `ysyx22040228_ENABLE     ;
         end 
-        else if((state_dread == `ysyx22040228_DIRTY) && (~in_dcache_ready)) begin
+        else if((state_dread == `ysyx22040228_DIRTY) && (~in_dcache_ready) && (~delay_cnt)) begin
             if((dirty1[dcache_index] == `ysyx22040228_ABLE) && (counter1[dcache_index] >= counter2[dcache_index])) begin
                 dirty_out_addr = {32'h0, oteg_ata_o, dcache_index, 3'b000} ;
                 dirty_out_data = data_out[63:0]  ;
@@ -411,7 +411,7 @@ module ysyx_22040228data_cache (
             missr_i_ok       = 1'b0                ;
             missr_tag_ena2   = `ysyx22040228_ENABLE;
         end 
-        else if((state_dread == `ysyx22040228_MISSR) && (~in_dcache_ready) && ((~delay_cnt))) begin
+        else if((state_dread == `ysyx22040228_MISSR) && (~in_dcache_ready)) begin
             // missr_out_type = 4'b0010    ;
             // missr_out_addr = {mem_addr_i[63:3],3'b0} ;
             write_regr     = `ysyx22040228_ABLE      ;
