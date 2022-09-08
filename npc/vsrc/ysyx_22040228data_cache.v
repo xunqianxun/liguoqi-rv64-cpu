@@ -678,12 +678,12 @@ module ysyx_22040228data_cache (
             delayw_cnt2 <= delayw_cnt2          ;
             delayw_cnt <= `ysyx22040228_ABLE    ;
         end 
-        else if(dirty_clean_o) begin
+        else if(dirtyw_clean_o) begin
             delayw_cnt1 <= `ysyx22040228_ABLE   ;
             delayw_cnt2 <= `ysyx22040228_ENABLE ;
             delayw_cnt <= `ysyx22040228_ENABLE  ;
         end 
-        else if(dirty_clean_t) begin
+        else if(dirtyw_clean_t) begin
             delayw_cnt2 <= `ysyx22040228_ABLE   ;
             delayw_cnt1 <= `ysyx22040228_ENABLE ;
             delayw_cnt <= `ysyx22040228_ENABLE  ;
