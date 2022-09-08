@@ -20,6 +20,7 @@ Function:write data cache
 //`include "S011HD1P_X32Y2D128_BWF.v"
 `include "ysyx_22040228TEG_CC.v"
 /* verilator lint_off UNUSED */
+/* verilator lint_off LATCH */
 module ysyx_22040228data_cache (
     input         wire                                        clk                ,
     input         wire                                        rst                ,
@@ -296,7 +297,7 @@ module ysyx_22040228data_cache (
                 dirty_ok       = `ysyx22040228_ENABLE    ;
                 dirty_clean_t = `ysyx22040228_ENABLE     ;
             end 
-            else /*if((dirty2[dcache_index] == `ysyx22040228_ABLE) && (counter1[dcache_index] < counter2[dcache_index]))*/ begin
+            else if((dirty2[dcache_index] == `ysyx22040228_ABLE) && (counter1[dcache_index] < counter2[dcache_index])) begin
                 dirty_out_addr = {32'h0, tteg_ata_o, dcache_index, 3'b000} ;
                 dirty_out_data = data_out[127:64]  ;
                 dirty_out_type = 4'b0001   ;
@@ -412,7 +413,7 @@ module ysyx_22040228data_cache (
                 missr_i_ok      = `ysyx22040228_ABLE;
                 missr_tag_ena2   = `ysyx22040228_ENABLE;
             end 
-            else /*if(counter1[dcache_index] < counter2[dcache_index])*/ begin
+            else if(counter1[dcache_index] < counter2[dcache_index])begin
                 write_regr     = `ysyx22040228_ENABLE   ;
                 missr_data_ena = `ysyx22040228_ABLE     ;
                 missr_data_strb = `ysyx22040228_CACHE_STRBH;
@@ -536,7 +537,7 @@ module ysyx_22040228data_cache (
                 hitw_data_ready = `ysyx22040228_ABLE   ;
                 hitw_data_ena   = `ysyx22040228_ABLE   ;
             end
-            else /*if((tteg_ata_o == dcache_tag) && (tteg_valid_o == `ysyx22040228_ABLE))*/begin
+            else if((tteg_ata_o == dcache_tag) && (tteg_valid_o == `ysyx22040228_ABLE))begin
                 memw_hit_ok     = `ysyx22040228_ABLE   ;
                 hitw_data_strb  = {strb_extection, 64'h0} ;
                 hitw_data_temp  = {mem_data_i, 64'h0} ;
@@ -584,7 +585,7 @@ module ysyx_22040228data_cache (
                 dirtyw_ok   = `ysyx22040228_ENABLE   ;
                 dirtyw_clean_t = `ysyx22040228_ENABLE;
             end 
-            else /*if((dirty2[dcache_index] == `ysyx22040228_ABLE) && (counter1[dcache_index] < counter2[dcache_index]))*/ begin
+            else if((dirty2[dcache_index] == `ysyx22040228_ABLE) && (counter1[dcache_index] < counter2[dcache_index])) begin
                 dirtyw_out_addr = {32'h0,tteg_ata_o, dcache_index, 3'b000} ;
                 dirtyw_out_data = data_out[127:64]  ;
                 dirtyw_out_type = 4'b0100    ;
@@ -699,7 +700,7 @@ module ysyx_22040228data_cache (
                 missw_data_ena = `ysyx22040228_ABLE     ;
                 missw_tag_ena2  = `ysyx22040228_ENABLE;   
             end 
-            else /*if(counter1[dcache_index] < counter2[dcache_index])*/ begin
+            else if(counter1[dcache_index] < counter2[dcache_index]) begin
                 missw_data_strb = `ysyx22040228_CACHE_STRBH;
                 missw_tag_ena2  = `ysyx22040228_ABLE;
                 missw_data_temp = {in_dcache_data, 64'h0};

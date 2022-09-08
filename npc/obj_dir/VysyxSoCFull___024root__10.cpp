@@ -29,16 +29,16 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
     VlWide<4>/*127:0*/ __Vtemp1560;
     VlWide<4>/*127:0*/ __Vtemp1566;
     VlWide<4>/*127:0*/ __Vtemp1575;
-    VlWide<4>/*127:0*/ __Vtemp1588;
-    VlWide<4>/*127:0*/ __Vtemp1594;
-    VlWide<4>/*127:0*/ __Vtemp1606;
-    VlWide<4>/*127:0*/ __Vtemp1626;
-    VlWide<4>/*127:0*/ __Vtemp1657;
-    VlWide<4>/*127:0*/ __Vtemp1660;
-    VlWide<4>/*127:0*/ __Vtemp1679;
+    VlWide<4>/*127:0*/ __Vtemp1585;
+    VlWide<4>/*127:0*/ __Vtemp1591;
+    VlWide<4>/*127:0*/ __Vtemp1603;
+    VlWide<4>/*127:0*/ __Vtemp1623;
+    VlWide<4>/*127:0*/ __Vtemp1651;
+    VlWide<4>/*127:0*/ __Vtemp1654;
+    VlWide<4>/*127:0*/ __Vtemp1673;
+    VlWide<4>/*127:0*/ __Vtemp1701;
+    VlWide<4>/*127:0*/ __Vtemp1706;
     VlWide<4>/*127:0*/ __Vtemp1710;
-    VlWide<4>/*127:0*/ __Vtemp1715;
-    CData/*31:0*/ __Vtemp1718;
     // Body
     if (((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sinkA__DOT__inject_io_i_q__DOT__maybe_full)
           ? (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__sinkA__DOT__inject_io_i_q__DOT___do_enq_T)
@@ -4203,16 +4203,7 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                    & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__write_regr_))))
           : ((4U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
               ? ((~ (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)) 
-                 & ((4U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite)) 
-                    & (((vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__out_data_r 
-                         == (0x7fffffU & (IData)((vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_dc_addr 
-                                                  >> 9U)))) 
-                        & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__out_valid_r)) 
-                       | ((vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHET__DOT__out_data_r 
-                           == (0x7fffffU & (IData)(
-                                                   (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_dc_addr 
-                                                    >> 9U)))) 
-                          & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHET__DOT__out_valid_r)))))
+                 & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite)))
               : ((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite)) 
                  & ((~ (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)) 
                     & ((~ ((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite)) 
@@ -4223,10 +4214,10 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
         VL_EXTEND_WQ(128,64, __Vtemp1560, vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitrate_d_data);
         VL_EXTEND_WQ(128,64, __Vtemp1566, vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitrate_d_data);
         VL_EXTEND_WQ(128,64, __Vtemp1575, vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_dc_data);
-        VL_EXTEND_WQ(128,64, __Vtemp1588, vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitrate_d_data);
-        VL_EXTEND_WQ(128,64, __Vtemp1594, vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitrate_d_data);
+        VL_EXTEND_WQ(128,64, __Vtemp1585, vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitrate_d_data);
+        VL_EXTEND_WQ(128,64, __Vtemp1591, vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitrate_d_data);
         if ((4U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))) {
-            __Vtemp1606[0U] = ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
+            __Vtemp1603[0U] = ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
                                 ? 0U : ((4U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
                                          ? (((vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__out_data_r 
                                               == (0x7fffffU 
@@ -4236,7 +4227,7 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                                              & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__out_valid_r))
                                              ? __Vtemp1575[0U]
                                              : 0U) : 0U));
-            __Vtemp1606[1U] = ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
+            __Vtemp1603[1U] = ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
                                 ? 0U : ((4U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
                                          ? (((vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__out_data_r 
                                               == (0x7fffffU 
@@ -4246,7 +4237,7 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                                              & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__out_valid_r))
                                              ? __Vtemp1575[1U]
                                              : 0U) : 0U));
-            __Vtemp1606[2U] = ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
+            __Vtemp1603[2U] = ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
                                 ? 0U : ((4U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
                                          ? (((vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__out_data_r 
                                               == (0x7fffffU 
@@ -4255,17 +4246,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                                                              >> 9U)))) 
                                              & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__out_valid_r))
                                              ? __Vtemp1575[2U]
-                                             : (((vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHET__DOT__out_data_r 
-                                                  == 
-                                                  (0x7fffffU 
-                                                   & (IData)(
-                                                             (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_dc_addr 
-                                                              >> 9U)))) 
-                                                 & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHET__DOT__out_valid_r))
-                                                 ? (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_dc_data)
-                                                 : 0U))
+                                             : (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_dc_data))
                                          : 0U));
-            __Vtemp1606[3U] = ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
+            __Vtemp1603[3U] = ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
                                 ? 0U : ((4U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
                                          ? (((vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__out_data_r 
                                               == (0x7fffffU 
@@ -4274,20 +4257,12 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                                                              >> 9U)))) 
                                              & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__out_valid_r))
                                              ? __Vtemp1575[3U]
-                                             : (((vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHET__DOT__out_data_r 
-                                                  == 
-                                                  (0x7fffffU 
-                                                   & (IData)(
-                                                             (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_dc_addr 
-                                                              >> 9U)))) 
-                                                 & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHET__DOT__out_valid_r))
-                                                 ? (IData)(
-                                                           (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_dc_data 
-                                                            >> 0x20U))
-                                                 : 0U))
+                                             : (IData)(
+                                                       (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_dc_data 
+                                                        >> 0x20U)))
                                          : 0U));
         } else {
-            __Vtemp1606[0U] = ((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
+            __Vtemp1603[0U] = ((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
                                 ? ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
                                     ? 0U : (((0x10U 
                                               == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite)) 
@@ -4315,14 +4290,14 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                                                                (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_dc_addr 
                                                                 >> 3U)))])
                                                     ? 
-                                                   __Vtemp1588[0U]
+                                                   __Vtemp1585[0U]
                                                     : 0U)
                                                    : 0U)
                                                   : 
-                                                 __Vtemp1594[0U])
+                                                 __Vtemp1591[0U])
                                               : 0U)))
                                 : 0U);
-            __Vtemp1606[1U] = ((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
+            __Vtemp1603[1U] = ((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
                                 ? ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
                                     ? 0U : (((0x10U 
                                               == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite)) 
@@ -4350,14 +4325,14 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                                                                (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_dc_addr 
                                                                 >> 3U)))])
                                                     ? 
-                                                   __Vtemp1588[1U]
+                                                   __Vtemp1585[1U]
                                                     : 0U)
                                                    : 0U)
                                                   : 
-                                                 __Vtemp1594[1U])
+                                                 __Vtemp1591[1U])
                                               : 0U)))
                                 : 0U);
-            __Vtemp1606[2U] = ((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
+            __Vtemp1603[2U] = ((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
                                 ? ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
                                     ? 0U : (((0x10U 
                                               == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite)) 
@@ -4385,14 +4360,14 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                                                                (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_dc_addr 
                                                                 >> 3U)))])
                                                     ? 
-                                                   __Vtemp1588[2U]
+                                                   __Vtemp1585[2U]
                                                     : (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitrate_d_data))
                                                    : (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitrate_d_data))
                                                   : 
-                                                 __Vtemp1594[2U])
+                                                 __Vtemp1591[2U])
                                               : 0U)))
                                 : 0U);
-            __Vtemp1606[3U] = ((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
+            __Vtemp1603[3U] = ((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
                                 ? ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
                                     ? 0U : (((0x10U 
                                               == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite)) 
@@ -4420,7 +4395,7 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                                                                (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_dc_addr 
                                                                 >> 3U)))])
                                                     ? 
-                                                   __Vtemp1588[3U]
+                                                   __Vtemp1585[3U]
                                                     : (IData)(
                                                               (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitrate_d_data 
                                                                >> 0x20U)))
@@ -4428,13 +4403,13 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                                                              (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitrate_d_data 
                                                               >> 0x20U)))
                                                   : 
-                                                 __Vtemp1594[3U])
+                                                 __Vtemp1591[3U])
                                               : 0U)))
                                 : 0U);
         }
-        VL_EXTEND_WQ(128,64, __Vtemp1626, vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__strb_extection);
+        VL_EXTEND_WQ(128,64, __Vtemp1623, vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__strb_extection);
         if ((4U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))) {
-            __Vtemp1657[0U] = ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
+            __Vtemp1651[0U] = ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
                                 ? 0U : ((4U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
                                          ? (((vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__out_data_r 
                                               == (0x7fffffU 
@@ -4442,9 +4417,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                                                             (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_dc_addr 
                                                              >> 9U)))) 
                                              & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__out_valid_r))
-                                             ? __Vtemp1626[0U]
+                                             ? __Vtemp1623[0U]
                                              : 0U) : 0U));
-            __Vtemp1657[1U] = ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
+            __Vtemp1651[1U] = ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
                                 ? 0U : ((4U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
                                          ? (((vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__out_data_r 
                                               == (0x7fffffU 
@@ -4452,9 +4427,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                                                             (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_dc_addr 
                                                              >> 9U)))) 
                                              & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__out_valid_r))
-                                             ? __Vtemp1626[1U]
+                                             ? __Vtemp1623[1U]
                                              : 0U) : 0U));
-            __Vtemp1657[2U] = ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
+            __Vtemp1651[2U] = ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
                                 ? 0U : ((4U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
                                          ? (((vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__out_data_r 
                                               == (0x7fffffU 
@@ -4462,18 +4437,10 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                                                             (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_dc_addr 
                                                              >> 9U)))) 
                                              & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__out_valid_r))
-                                             ? __Vtemp1626[2U]
-                                             : (((vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHET__DOT__out_data_r 
-                                                  == 
-                                                  (0x7fffffU 
-                                                   & (IData)(
-                                                             (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_dc_addr 
-                                                              >> 9U)))) 
-                                                 & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHET__DOT__out_valid_r))
-                                                 ? (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__strb_extection)
-                                                 : 0U))
+                                             ? __Vtemp1623[2U]
+                                             : (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__strb_extection))
                                          : 0U));
-            __Vtemp1657[3U] = ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
+            __Vtemp1651[3U] = ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
                                 ? 0U : ((4U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
                                          ? (((vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__out_data_r 
                                               == (0x7fffffU 
@@ -4481,21 +4448,13 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                                                             (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_dc_addr 
                                                              >> 9U)))) 
                                              & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__out_valid_r))
-                                             ? __Vtemp1626[3U]
-                                             : (((vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHET__DOT__out_data_r 
-                                                  == 
-                                                  (0x7fffffU 
-                                                   & (IData)(
-                                                             (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_dc_addr 
-                                                              >> 9U)))) 
-                                                 & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHET__DOT__out_valid_r))
-                                                 ? (IData)(
-                                                           (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__strb_extection 
-                                                            >> 0x20U))
-                                                 : 0U))
+                                             ? __Vtemp1623[3U]
+                                             : (IData)(
+                                                       (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__strb_extection 
+                                                        >> 0x20U)))
                                          : 0U));
         } else {
-            __Vtemp1657[0U] = ((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
+            __Vtemp1651[0U] = ((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
                                 ? ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
                                     ? 0U : (((0x10U 
                                               == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite)) 
@@ -4528,7 +4487,7 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                                                   : 0xffffffffU)
                                               : 0U)))
                                 : 0U);
-            __Vtemp1657[1U] = ((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
+            __Vtemp1651[1U] = ((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
                                 ? ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
                                     ? 0U : (((0x10U 
                                               == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite)) 
@@ -4561,7 +4520,7 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                                                   : 0xffffffffU)
                                               : 0U)))
                                 : 0U);
-            __Vtemp1657[2U] = ((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
+            __Vtemp1651[2U] = ((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
                                 ? ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
                                     ? 0U : (((0x10U 
                                               == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite)) 
@@ -4594,7 +4553,7 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                                                   : 0U)
                                               : 0U)))
                                 : 0U);
-            __Vtemp1657[3U] = ((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
+            __Vtemp1651[3U] = ((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
                                 ? ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
                                     ? 0U : (((0x10U 
                                               == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite)) 
@@ -4628,7 +4587,7 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                                               : 0U)))
                                 : 0U);
         }
-        __Vtemp1660[0U] = (((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dread))
+        __Vtemp1654[0U] = (((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dread))
                              ? ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
                                  ? 0U : (((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dread)) 
                                           & (~ (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitrate_d_ok)))
@@ -4662,7 +4621,7 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                                                     : 
                                                    __Vtemp1566[0U])
                                                    : 0U)))
-                             : __Vtemp1606[0U]) & (
+                             : __Vtemp1603[0U]) & (
                                                    (0x10U 
                                                     == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dread))
                                                     ? 
@@ -4702,8 +4661,8 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                                                         : 0xffffffffU)
                                                        : 0U)))
                                                     : 
-                                                   __Vtemp1657[0U]));
-        __Vtemp1660[1U] = (((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dread))
+                                                   __Vtemp1651[0U]));
+        __Vtemp1654[1U] = (((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dread))
                              ? ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
                                  ? 0U : (((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dread)) 
                                           & (~ (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitrate_d_ok)))
@@ -4737,7 +4696,7 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                                                     : 
                                                    __Vtemp1566[1U])
                                                    : 0U)))
-                             : __Vtemp1606[1U]) & (
+                             : __Vtemp1603[1U]) & (
                                                    (0x10U 
                                                     == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dread))
                                                     ? 
@@ -4777,8 +4736,8 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                                                         : 0xffffffffU)
                                                        : 0U)))
                                                     : 
-                                                   __Vtemp1657[1U]));
-        __Vtemp1660[2U] = (((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dread))
+                                                   __Vtemp1651[1U]));
+        __Vtemp1654[2U] = (((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dread))
                              ? ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
                                  ? 0U : (((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dread)) 
                                           & (~ (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitrate_d_ok)))
@@ -4812,7 +4771,7 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                                                     : 
                                                    __Vtemp1566[2U])
                                                    : 0U)))
-                             : __Vtemp1606[2U]) & (
+                             : __Vtemp1603[2U]) & (
                                                    (0x10U 
                                                     == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dread))
                                                     ? 
@@ -4852,8 +4811,8 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                                                         : 0U)
                                                        : 0U)))
                                                     : 
-                                                   __Vtemp1657[2U]));
-        __Vtemp1660[3U] = (((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dread))
+                                                   __Vtemp1651[2U]));
+        __Vtemp1654[3U] = (((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dread))
                              ? ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
                                  ? 0U : (((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dread)) 
                                           & (~ (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitrate_d_ok)))
@@ -4891,7 +4850,7 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                                                     : 
                                                    __Vtemp1566[3U])
                                                    : 0U)))
-                             : __Vtemp1606[3U]) & (
+                             : __Vtemp1603[3U]) & (
                                                    (0x10U 
                                                     == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dread))
                                                     ? 
@@ -4931,10 +4890,10 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                                                         : 0U)
                                                        : 0U)))
                                                     : 
-                                                   __Vtemp1657[3U]));
-        VL_EXTEND_WQ(128,64, __Vtemp1679, vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__strb_extection);
+                                                   __Vtemp1651[3U]));
+        VL_EXTEND_WQ(128,64, __Vtemp1673, vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__strb_extection);
         if ((4U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))) {
-            __Vtemp1710[0U] = ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
+            __Vtemp1701[0U] = ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
                                 ? 0U : ((4U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
                                          ? (((vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__out_data_r 
                                               == (0x7fffffU 
@@ -4942,9 +4901,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                                                             (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_dc_addr 
                                                              >> 9U)))) 
                                              & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__out_valid_r))
-                                             ? __Vtemp1679[0U]
+                                             ? __Vtemp1673[0U]
                                              : 0U) : 0U));
-            __Vtemp1710[1U] = ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
+            __Vtemp1701[1U] = ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
                                 ? 0U : ((4U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
                                          ? (((vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__out_data_r 
                                               == (0x7fffffU 
@@ -4952,9 +4911,9 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                                                             (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_dc_addr 
                                                              >> 9U)))) 
                                              & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__out_valid_r))
-                                             ? __Vtemp1679[1U]
+                                             ? __Vtemp1673[1U]
                                              : 0U) : 0U));
-            __Vtemp1710[2U] = ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
+            __Vtemp1701[2U] = ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
                                 ? 0U : ((4U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
                                          ? (((vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__out_data_r 
                                               == (0x7fffffU 
@@ -4962,18 +4921,10 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                                                             (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_dc_addr 
                                                              >> 9U)))) 
                                              & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__out_valid_r))
-                                             ? __Vtemp1679[2U]
-                                             : (((vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHET__DOT__out_data_r 
-                                                  == 
-                                                  (0x7fffffU 
-                                                   & (IData)(
-                                                             (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_dc_addr 
-                                                              >> 9U)))) 
-                                                 & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHET__DOT__out_valid_r))
-                                                 ? (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__strb_extection)
-                                                 : 0U))
+                                             ? __Vtemp1673[2U]
+                                             : (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__strb_extection))
                                          : 0U));
-            __Vtemp1710[3U] = ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
+            __Vtemp1701[3U] = ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
                                 ? 0U : ((4U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
                                          ? (((vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__out_data_r 
                                               == (0x7fffffU 
@@ -4981,21 +4932,13 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                                                             (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_dc_addr 
                                                              >> 9U)))) 
                                              & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__out_valid_r))
-                                             ? __Vtemp1679[3U]
-                                             : (((vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHET__DOT__out_data_r 
-                                                  == 
-                                                  (0x7fffffU 
-                                                   & (IData)(
-                                                             (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_dc_addr 
-                                                              >> 9U)))) 
-                                                 & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHET__DOT__out_valid_r))
-                                                 ? (IData)(
-                                                           (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__strb_extection 
-                                                            >> 0x20U))
-                                                 : 0U))
+                                             ? __Vtemp1673[3U]
+                                             : (IData)(
+                                                       (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__strb_extection 
+                                                        >> 0x20U)))
                                          : 0U));
         } else {
-            __Vtemp1710[0U] = ((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
+            __Vtemp1701[0U] = ((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
                                 ? ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
                                     ? 0U : (((0x10U 
                                               == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite)) 
@@ -5028,7 +4971,7 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                                                   : 0xffffffffU)
                                               : 0U)))
                                 : 0U);
-            __Vtemp1710[1U] = ((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
+            __Vtemp1701[1U] = ((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
                                 ? ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
                                     ? 0U : (((0x10U 
                                               == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite)) 
@@ -5061,7 +5004,7 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                                                   : 0xffffffffU)
                                               : 0U)))
                                 : 0U);
-            __Vtemp1710[2U] = ((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
+            __Vtemp1701[2U] = ((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
                                 ? ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
                                     ? 0U : (((0x10U 
                                               == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite)) 
@@ -5094,7 +5037,7 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                                                   : 0U)
                                               : 0U)))
                                 : 0U);
-            __Vtemp1710[3U] = ((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
+            __Vtemp1701[3U] = ((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
                                 ? ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)
                                     ? 0U : (((0x10U 
                                               == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite)) 
@@ -5128,7 +5071,7 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                                               : 0U)))
                                 : 0U);
         }
-        __Vtemp1715[0U] = (__Vtemp1660[0U] | (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__SRAM1__DOT__ram
+        __Vtemp1706[0U] = (__Vtemp1654[0U] | (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__SRAM1__DOT__ram
                                               [(0x3fU 
                                                 & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__rvcpu1__DOT__exmem_mem_fence)
                                                     ? (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__fence_index)
@@ -5175,8 +5118,8 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                                                        : 0xffffffffU)
                                                       : 0U)))
                                                    : 
-                                                  __Vtemp1710[0U]))));
-        __Vtemp1715[1U] = (__Vtemp1660[1U] | (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__SRAM1__DOT__ram
+                                                  __Vtemp1701[0U]))));
+        __Vtemp1706[1U] = (__Vtemp1654[1U] | (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__SRAM1__DOT__ram
                                               [(0x3fU 
                                                 & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__rvcpu1__DOT__exmem_mem_fence)
                                                     ? (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__fence_index)
@@ -5223,8 +5166,8 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                                                        : 0xffffffffU)
                                                       : 0U)))
                                                    : 
-                                                  __Vtemp1710[1U]))));
-        __Vtemp1715[2U] = (__Vtemp1660[2U] | (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__SRAM1__DOT__ram
+                                                  __Vtemp1701[1U]))));
+        __Vtemp1706[2U] = (__Vtemp1654[2U] | (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__SRAM1__DOT__ram
                                               [(0x3fU 
                                                 & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__rvcpu1__DOT__exmem_mem_fence)
                                                     ? (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__fence_index)
@@ -5271,8 +5214,8 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                                                        : 0U)
                                                       : 0U)))
                                                    : 
-                                                  __Vtemp1710[2U]))));
-        __Vtemp1715[3U] = (__Vtemp1660[3U] | (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__SRAM1__DOT__ram
+                                                  __Vtemp1701[2U]))));
+        __Vtemp1706[3U] = (__Vtemp1654[3U] | (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__SRAM1__DOT__ram
                                               [(0x3fU 
                                                 & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__rvcpu1__DOT__exmem_mem_fence)
                                                     ? (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__fence_index)
@@ -5319,15 +5262,15 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                                                        : 0U)
                                                       : 0U)))
                                                    : 
-                                                  __Vtemp1710[3U]))));
+                                                  __Vtemp1701[3U]))));
         vlSelf->__Vdlyvval__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__SRAM1__DOT__ram__v0[0U] 
-            = __Vtemp1715[0U];
+            = __Vtemp1706[0U];
         vlSelf->__Vdlyvval__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__SRAM1__DOT__ram__v0[1U] 
-            = __Vtemp1715[1U];
+            = __Vtemp1706[1U];
         vlSelf->__Vdlyvval__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__SRAM1__DOT__ram__v0[2U] 
-            = __Vtemp1715[2U];
+            = __Vtemp1706[2U];
         vlSelf->__Vdlyvval__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__SRAM1__DOT__ram__v0[3U] 
-            = __Vtemp1715[3U];
+            = __Vtemp1706[3U];
         vlSelf->__Vdlyvset__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__SRAM1__DOT__ram__v0 = 1U;
         vlSelf->__Vdlyvdim0__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__SRAM1__DOT__ram__v0 
             = (0x3fU & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__rvcpu1__DOT__exmem_mem_fence)
@@ -5335,69 +5278,57 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                          : (IData)((vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_dc_addr 
                                     >> 3U))));
     }
-    __Vtemp1718 = ((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dread))
-                    ? ((~ (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)) 
-                       & ((~ ((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dread)) 
-                              & (~ (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitrate_d_ok)))) 
-                          & (((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitrate_d_ok) 
-                              & (0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dread))) 
-                             & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__write_regr_))))
-                    : ((4U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
-                        ? ((~ (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)) 
-                           & ((4U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite)) 
-                              & (((vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__out_data_r 
-                                   == (0x7fffffU & (IData)(
-                                                           (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_dc_addr 
-                                                            >> 9U)))) 
-                                  & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__out_valid_r)) 
-                                 | ((vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHET__DOT__out_data_r 
-                                     == (0x7fffffU 
-                                         & (IData)(
-                                                   (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_dc_addr 
-                                                    >> 9U)))) 
-                                    & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHET__DOT__out_valid_r)))))
-                        : ((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite)) 
-                           & ((~ (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)) 
-                              & ((~ ((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite)) 
-                                     & (~ (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitrate_d_ok)))) 
-                                 & (((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitrate_d_ok) 
-                                     & (0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))) 
-                                    & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__write_regw_)))))));
-    if (__Vtemp1718) {
-        vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__data_out1[0U] 
-            = VL_RANDOM_I(32);
-        vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__data_out1[1U] 
-            = VL_RANDOM_I(32);
-        vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__data_out1[2U] 
-            = VL_RANDOM_I(32);
-        vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__data_out1[3U] 
-            = VL_RANDOM_I(32);
+    if (((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dread))
+          ? ((~ (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)) 
+             & ((~ ((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dread)) 
+                    & (~ (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitrate_d_ok)))) 
+                & (((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitrate_d_ok) 
+                    & (0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dread))) 
+                   & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__write_regr_))))
+          : ((4U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))
+              ? ((~ (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)) 
+                 & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite)))
+              : ((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite)) 
+                 & ((~ (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)) 
+                    & ((~ ((0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite)) 
+                           & (~ (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitrate_d_ok)))) 
+                       & (((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitrate_d_ok) 
+                           & (0x10U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite))) 
+                          & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__write_regw_)))))))) {
+        __Vtemp1710[0U] = VL_RANDOM_I(32);
+        __Vtemp1710[1U] = VL_RANDOM_I(32);
+        __Vtemp1710[2U] = VL_RANDOM_I(32);
+        __Vtemp1710[3U] = VL_RANDOM_I(32);
     } else {
-        vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__data_out1[0U] 
-            = vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__SRAM1__DOT__ram
+        __Vtemp1710[0U] = vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__SRAM1__DOT__ram
             [(0x3fU & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__rvcpu1__DOT__exmem_mem_fence)
                         ? (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__fence_index)
                         : (IData)((vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_dc_addr 
                                    >> 3U))))][0U];
-        vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__data_out1[1U] 
-            = vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__SRAM1__DOT__ram
+        __Vtemp1710[1U] = vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__SRAM1__DOT__ram
             [(0x3fU & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__rvcpu1__DOT__exmem_mem_fence)
                         ? (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__fence_index)
                         : (IData)((vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_dc_addr 
                                    >> 3U))))][1U];
-        vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__data_out1[2U] 
-            = vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__SRAM1__DOT__ram
+        __Vtemp1710[2U] = vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__SRAM1__DOT__ram
             [(0x3fU & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__rvcpu1__DOT__exmem_mem_fence)
                         ? (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__fence_index)
                         : (IData)((vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_dc_addr 
                                    >> 3U))))][2U];
-        vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__data_out1[3U] 
-            = vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__SRAM1__DOT__ram
+        __Vtemp1710[3U] = vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__SRAM1__DOT__ram
             [(0x3fU & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__rvcpu1__DOT__exmem_mem_fence)
                         ? (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__fence_index)
                         : (IData)((vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_dc_addr 
                                    >> 3U))))][3U];
     }
+    vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__data_out1[0U] 
+        = __Vtemp1710[0U];
+    vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__data_out1[1U] 
+        = __Vtemp1710[1U];
+    vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__data_out1[2U] 
+        = __Vtemp1710[2U];
+    vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__data_out1[3U] 
+        = __Vtemp1710[3U];
     if (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset) {
         vlSelf->__Vdlyvset__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__inst_cache2__DOT__i_counter2__v0 = 1U;
     }
@@ -10610,5 +10541,36 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
          & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__fixer_1__DOT__monitor__DOT__c_first_counter)))) {
         vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__fixer_1__DOT__monitor__DOT__opcode_3 
             = vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode;
+    }
+    if (((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__fixer_1__DOT__monitor__DOT___d_first_T) 
+         & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__fixer_1__DOT__monitor__DOT__d_first_counter)))) {
+        vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__fixer_1__DOT__monitor__DOT__source_1 
+            = vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_auto_in_d_bits_source;
+    }
+    if (vlSelf->reset) {
+        vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__fixer_1__DOT__monitor__DOT__a_first_counter_1 = 0U;
+    } else if (vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__fixer_1__DOT__monitor__DOT___a_first_T) {
+        vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__fixer_1__DOT__monitor__DOT__a_first_counter_1 
+            = (7U & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__fixer_1__DOT__monitor__DOT__a_first_1)
+                      ? ((4U & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints_auto_out_a_bits_opcode))
+                          ? 0U : (~ (0x3ffU & (((IData)(0x3fU) 
+                                                << (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__a_repeater_io_deq_bits_size)) 
+                                               >> 3U))))
+                      : (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__fixer_1__DOT__monitor__DOT__a_first_counter1_1)));
+    }
+    if (((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__fixer_1__DOT__monitor__DOT___a_first_T) 
+         & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__fixer_1__DOT__monitor__DOT__a_first_counter)))) {
+        vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__fixer_1__DOT__monitor__DOT__param 
+            = vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints_auto_out_a_bits_param;
+    }
+    if (((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__fixer_1__DOT__monitor__DOT___a_first_T) 
+         & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__fixer_1__DOT__monitor__DOT__a_first_counter)))) {
+        vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__fixer_1__DOT__monitor__DOT__size 
+            = vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints__DOT__a_repeater_io_deq_bits_size;
+    }
+    if (((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__fixer_1__DOT__monitor__DOT___a_first_T) 
+         & (0U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__fixer_1__DOT__monitor__DOT__a_first_counter)))) {
+        vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__fixer_1__DOT__monitor__DOT__source 
+            = vlSelf->ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__hints_auto_out_a_bits_source;
     }
 }
