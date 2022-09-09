@@ -657,7 +657,7 @@ module ysyx_22040228arbitratem (
         end 
         else if(success_dwrite) begin
             sign_delay_dwrite  <= `ysyx22040228_ABLE;
-            success_dread_ <= `ysyx22040228_ABLE    ;
+            success_dread_ <= `ysyx22040228_ENABLE  ;
             success_dwrite_ <= `ysyx22040228_ABLE   ;
             success_iread_ <= `ysyx22040228_ENABLE  ;
             success_uncahceread_ <= `ysyx22040228_ENABLE  ;
@@ -666,7 +666,7 @@ module ysyx_22040228arbitratem (
         else if(success_iread) begin
             axi_r_temp  <= axi_r_data ;
             sign_delay_iread   <= `ysyx22040228_ABLE;
-            success_dread_ <= `ysyx22040228_ABLE    ;
+            success_dread_ <= `ysyx22040228_ENABLE  ;
             success_dwrite_ <= `ysyx22040228_ENABLE ;
             success_iread_ <= `ysyx22040228_ABLE    ;
             success_uncahceread_ <= `ysyx22040228_ENABLE  ;
@@ -675,7 +675,7 @@ module ysyx_22040228arbitratem (
         else if(success_uncahceread) begin
             axi_r_temp  <= axi_r_data ;
             sign_delay_unread <= `ysyx22040228_ABLE ;
-            success_dread_ <= `ysyx22040228_ABLE    ;
+            success_dread_ <= `ysyx22040228_ENABLE  ;
             success_dwrite_ <= `ysyx22040228_ENABLE ;
             success_iread_ <= `ysyx22040228_ENABLE  ;
             success_uncahceread_ <= `ysyx22040228_ABLE    ;
@@ -683,7 +683,7 @@ module ysyx_22040228arbitratem (
         end 
         else if(success_uncahcewrite) begin
             sign_delay_unwrite <= `ysyx22040228_ABLE;
-            success_dread_ <= `ysyx22040228_ABLE    ;
+            success_dread_ <= `ysyx22040228_ENABLE  ;
             success_dwrite_ <= `ysyx22040228_ENABLE ;
             success_iread_ <= `ysyx22040228_ENABLE  ;
             success_uncahceread_ <= `ysyx22040228_ENABLE  ;

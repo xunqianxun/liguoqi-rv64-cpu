@@ -43,7 +43,6 @@ VM_CLASSES_FAST += \
 	VysyxSoCFull___024root__14 \
 	VysyxSoCFull___024root__15 \
 	VysyxSoCFull___024root__16 \
-	VysyxSoCFull___024root__17 \
 	VysyxSoCFull___024unit \
 	VysyxSoCFull_TLXbar_1 \
 	VysyxSoCFull_TLError \
