@@ -685,7 +685,7 @@ module ysyx_22040228arbitratem (
     assign dread_ok_u  = sign_delay_unread   ;
     assign dwrite_ok_u = sign_delay_unwrite  ;
 
-    assign axi_shankhand = (axi_w_ready) | axi_ar_ready ;
+    assign axi_shankhand = (axi_w_ready & (write_uncahce_shankhand | write_dcache_shankhand)) | ((read_uncahce_shankhand | read_icache_shankhand | read_dcache_shankhand) & axi_ar_ready );
 
     // reg     aw_enable ;
     // reg     aw_enable_n ;
