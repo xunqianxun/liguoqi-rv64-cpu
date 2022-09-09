@@ -200,7 +200,7 @@ void VysyxSoCFull___024root__traceChgSub1(VysyxSoCFull___024root* vlSelf, Verila
     VlWide<16>/*511:0*/ __Vtemp7680;
     VlWide<17>/*543:0*/ __Vtemp7681;
     VlWide<16>/*511:0*/ __Vtemp7685;
-    vluint32_t* const oldp = tracep->oldp(vlSymsp->__Vm_baseCode + 4308);
+    vluint32_t* const oldp = tracep->oldp(vlSymsp->__Vm_baseCode + 4307);
     if (false && oldp) {}  // Prevent unused
     // Body
     {
@@ -246,10 +246,9 @@ void VysyxSoCFull___024root__traceChgSub1(VysyxSoCFull___024root* vlSelf, Verila
                                               (1U & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__rst))) 
                                              & ((1U 
                                                  & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__mmio_thing))
-                                                 ? (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__add_axi_aw_ready)
+                                                 ? (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__add_axi_aw_valid)
                                                  : 
-                                                (((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__mmio_thing) 
-                                                  & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__add_axi_aw_ready)) 
+                                                ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__mmio_thing) 
                                                  >> 1U))))));
             tracep->chgBit(oldp+21,(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitratem4__DOT__read_dcache_shankhand));
             tracep->chgBit(oldp+22,(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitratem4__DOT__write_dcache_shankhand));
@@ -328,10 +327,8 @@ void VysyxSoCFull___024root__traceChgSub1(VysyxSoCFull___024root* vlSelf, Verila
                                                    >> 1U))) 
                                            | ((~ (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__rst)) 
                                               & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__mmio_thing) 
-                                                 | (((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__mmio_thing) 
-                                                     >> 1U) 
-                                                    & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__axi4xbar__DOT__in_0_arready) 
-                                                       & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__axi4xbar__DOT___GEN_47)))))))));
+                                                 | ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__mmio_thing) 
+                                                    >> 1U)))))));
             tracep->chgBit(oldp+31,((((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitratem4__DOT__read_dcache_shankhand) 
                                         | (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitratem4__DOT__write_dcache_shankhand)) 
                                        | (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitratem4__DOT__read_icache_shankhand)) 
@@ -16401,6 +16398,9 @@ void VysyxSoCFull___024root__traceChgSub1(VysyxSoCFull___024root* vlSelf, Verila
                                                         == 
                                                         (3U 
                                                          & vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_a_bits_address)))))));
+            tracep->chgBit(oldp+5157,((IData)((1U == 
+                                               (3U 
+                                                & vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_a_bits_address)))));
         }
     }
 }
