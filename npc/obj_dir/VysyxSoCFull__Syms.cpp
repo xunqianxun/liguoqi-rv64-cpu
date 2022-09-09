@@ -18,6 +18,7 @@
 #include "VysyxSoCFull_AsyncQueueSink.h"
 #include "VysyxSoCFull_TX.h"
 #include "VysyxSoCFull_AsyncQueueSource.h"
+#include "VysyxSoCFull_ysyx_210340_Meta.h"
 
 // FUNCTIONS
 VysyxSoCFull__Syms::~VysyxSoCFull__Syms()
@@ -51,6 +52,14 @@ VysyxSoCFull__Syms::VysyxSoCFull__Syms(VerilatedContext* contextp, const char* n
     , TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4(Verilated::catName(namep, "ysyxSoCFull.asic.chipMaster.tl2axi4"))
     , TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget(Verilated::catName(namep, "ysyxSoCFull.asic.chipMaster.widget"))
     , TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_1(Verilated::catName(namep, "ysyxSoCFull.asic.chipMaster.xbar_1"))
+    , TOP__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__dcache__DOT__cache__DOT__meta_0(Verilated::catName(namep, "ysyxSoCFull.asic.cpu.cpu.core.dcache.cache.meta_0"))
+    , TOP__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__dcache__DOT__cache__DOT__meta_1(Verilated::catName(namep, "ysyxSoCFull.asic.cpu.cpu.core.dcache.cache.meta_1"))
+    , TOP__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__dcache__DOT__cache__DOT__meta_2(Verilated::catName(namep, "ysyxSoCFull.asic.cpu.cpu.core.dcache.cache.meta_2"))
+    , TOP__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__dcache__DOT__cache__DOT__meta_3(Verilated::catName(namep, "ysyxSoCFull.asic.cpu.cpu.core.dcache.cache.meta_3"))
+    , TOP__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__icache__DOT__cache__DOT__meta_0(Verilated::catName(namep, "ysyxSoCFull.asic.cpu.cpu.core.icache.cache.meta_0"))
+    , TOP__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__icache__DOT__cache__DOT__meta_1(Verilated::catName(namep, "ysyxSoCFull.asic.cpu.cpu.core.icache.cache.meta_1"))
+    , TOP__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__icache__DOT__cache__DOT__meta_2(Verilated::catName(namep, "ysyxSoCFull.asic.cpu.cpu.core.icache.cache.meta_2"))
+    , TOP__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__icache__DOT__cache__DOT__meta_3(Verilated::catName(namep, "ysyxSoCFull.asic.cpu.cpu.core.icache.cache.meta_3"))
     , TOP__ysyxSoCFull__DOT__fpga__DOT__axi4deint__DOT__qs_queue_0(Verilated::catName(namep, "ysyxSoCFull.fpga.axi4deint.qs_queue_0"))
     , TOP__ysyxSoCFull__DOT__fpga__DOT__axi4deint__DOT__qs_queue_1(Verilated::catName(namep, "ysyxSoCFull.fpga.axi4deint.qs_queue_1"))
     , TOP__ysyxSoCFull__DOT__fpga__DOT__axi4deint__DOT__qs_queue_10(Verilated::catName(namep, "ysyxSoCFull.fpga.axi4deint.qs_queue_10"))
@@ -113,6 +122,14 @@ VysyxSoCFull__Syms::VysyxSoCFull__Syms(VerilatedContext* contextp, const char* n
     TOP.__PVT__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4 = &TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4;
     TOP.__PVT__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget = &TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget;
     TOP.__PVT__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_1 = &TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_1;
+    TOP.__PVT__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__dcache__DOT__cache__DOT__meta_0 = &TOP__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__dcache__DOT__cache__DOT__meta_0;
+    TOP.__PVT__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__dcache__DOT__cache__DOT__meta_1 = &TOP__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__dcache__DOT__cache__DOT__meta_1;
+    TOP.__PVT__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__dcache__DOT__cache__DOT__meta_2 = &TOP__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__dcache__DOT__cache__DOT__meta_2;
+    TOP.__PVT__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__dcache__DOT__cache__DOT__meta_3 = &TOP__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__dcache__DOT__cache__DOT__meta_3;
+    TOP.__PVT__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__icache__DOT__cache__DOT__meta_0 = &TOP__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__icache__DOT__cache__DOT__meta_0;
+    TOP.__PVT__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__icache__DOT__cache__DOT__meta_1 = &TOP__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__icache__DOT__cache__DOT__meta_1;
+    TOP.__PVT__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__icache__DOT__cache__DOT__meta_2 = &TOP__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__icache__DOT__cache__DOT__meta_2;
+    TOP.__PVT__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__icache__DOT__cache__DOT__meta_3 = &TOP__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__icache__DOT__cache__DOT__meta_3;
     TOP.__PVT__ysyxSoCFull__DOT__fpga__DOT__axi4deint__DOT__qs_queue_0 = &TOP__ysyxSoCFull__DOT__fpga__DOT__axi4deint__DOT__qs_queue_0;
     TOP.__PVT__ysyxSoCFull__DOT__fpga__DOT__axi4deint__DOT__qs_queue_1 = &TOP__ysyxSoCFull__DOT__fpga__DOT__axi4deint__DOT__qs_queue_1;
     TOP.__PVT__ysyxSoCFull__DOT__fpga__DOT__axi4deint__DOT__qs_queue_10 = &TOP__ysyxSoCFull__DOT__fpga__DOT__axi4deint__DOT__qs_queue_10;
@@ -172,6 +189,14 @@ VysyxSoCFull__Syms::VysyxSoCFull__Syms(VerilatedContext* contextp, const char* n
     TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4.__Vconfigure(this, true);
     TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__Vconfigure(this, true);
     TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_1.__Vconfigure(this, true);
+    TOP__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__dcache__DOT__cache__DOT__meta_0.__Vconfigure(this, true);
+    TOP__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__dcache__DOT__cache__DOT__meta_1.__Vconfigure(this, false);
+    TOP__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__dcache__DOT__cache__DOT__meta_2.__Vconfigure(this, false);
+    TOP__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__dcache__DOT__cache__DOT__meta_3.__Vconfigure(this, false);
+    TOP__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__icache__DOT__cache__DOT__meta_0.__Vconfigure(this, false);
+    TOP__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__icache__DOT__cache__DOT__meta_1.__Vconfigure(this, false);
+    TOP__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__icache__DOT__cache__DOT__meta_2.__Vconfigure(this, false);
+    TOP__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__icache__DOT__cache__DOT__meta_3.__Vconfigure(this, false);
     TOP__ysyxSoCFull__DOT__fpga__DOT__axi4deint__DOT__qs_queue_0.__Vconfigure(this, true);
     TOP__ysyxSoCFull__DOT__fpga__DOT__axi4deint__DOT__qs_queue_1.__Vconfigure(this, false);
     TOP__ysyxSoCFull__DOT__fpga__DOT__axi4deint__DOT__qs_queue_10.__Vconfigure(this, false);

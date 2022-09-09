@@ -29,6 +29,7 @@
 #include "VysyxSoCFull_AsyncQueueSink.h"
 #include "VysyxSoCFull_TX.h"
 #include "VysyxSoCFull_AsyncQueueSource.h"
+#include "VysyxSoCFull_ysyx_210340_Meta.h"
 
 // DPI TYPES for DPI Export callbacks (Internal use)
 
@@ -64,6 +65,14 @@ class VysyxSoCFull__Syms final : public VerilatedSyms {
     VysyxSoCFull_TLToAXI4          TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__tl2axi4;
     VysyxSoCFull_TLWidthWidget     TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget;
     VysyxSoCFull_TLXbar_1          TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__xbar_1;
+    VysyxSoCFull_ysyx_210340_Meta  TOP__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__dcache__DOT__cache__DOT__meta_0;
+    VysyxSoCFull_ysyx_210340_Meta  TOP__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__dcache__DOT__cache__DOT__meta_1;
+    VysyxSoCFull_ysyx_210340_Meta  TOP__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__dcache__DOT__cache__DOT__meta_2;
+    VysyxSoCFull_ysyx_210340_Meta  TOP__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__dcache__DOT__cache__DOT__meta_3;
+    VysyxSoCFull_ysyx_210340_Meta  TOP__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__icache__DOT__cache__DOT__meta_0;
+    VysyxSoCFull_ysyx_210340_Meta  TOP__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__icache__DOT__cache__DOT__meta_1;
+    VysyxSoCFull_ysyx_210340_Meta  TOP__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__icache__DOT__cache__DOT__meta_2;
+    VysyxSoCFull_ysyx_210340_Meta  TOP__ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__core__DOT__icache__DOT__cache__DOT__meta_3;
     VysyxSoCFull_Queue_38          TOP__ysyxSoCFull__DOT__fpga__DOT__axi4deint__DOT__qs_queue_0;
     VysyxSoCFull_Queue_38          TOP__ysyxSoCFull__DOT__fpga__DOT__axi4deint__DOT__qs_queue_1;
     VysyxSoCFull_Queue_38          TOP__ysyxSoCFull__DOT__fpga__DOT__axi4deint__DOT__qs_queue_10;

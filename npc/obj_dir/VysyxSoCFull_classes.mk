@@ -43,6 +43,8 @@ VM_CLASSES_FAST += \
 	VysyxSoCFull___024root__14 \
 	VysyxSoCFull___024root__15 \
 	VysyxSoCFull___024root__16 \
+	VysyxSoCFull___024root__17 \
+	VysyxSoCFull___024root__18 \
 	VysyxSoCFull___024unit \
 	VysyxSoCFull_TLXbar_1 \
 	VysyxSoCFull_TLError \
@@ -59,6 +61,8 @@ VM_CLASSES_FAST += \
 	VysyxSoCFull_AsyncQueueSink \
 	VysyxSoCFull_TX \
 	VysyxSoCFull_AsyncQueueSource \
+	VysyxSoCFull_ysyx_210340_Meta \
+	VysyxSoCFull_ysyx_210340_Meta__1 \
 
 # Generated module classes, non-fast-path, compile with low/medium optimization
 VM_CLASSES_SLOW += \
@@ -82,6 +86,7 @@ VM_CLASSES_SLOW += \
 	VysyxSoCFull_AsyncQueueSink__Slow \
 	VysyxSoCFull_TX__Slow \
 	VysyxSoCFull_AsyncQueueSource__Slow \
+	VysyxSoCFull_ysyx_210340_Meta__Slow \
 
 # Generated support classes, fast-path, compile with highest optimization
 VM_SUPPORT_FAST += \
@@ -101,6 +106,7 @@ VM_SUPPORT_SLOW += \
 	VysyxSoCFull__Trace__3__Slow \
 	VysyxSoCFull__Trace__4__Slow \
 	VysyxSoCFull__Trace__5__Slow \
+	VysyxSoCFull__Trace__6__Slow \
 
 # Global classes, need linked once per executable, fast-path, compile with highest optimization
 VM_GLOBAL_FAST += \
