@@ -409,6 +409,12 @@ module ysyx_22040228arbitratem (
     wire    read_uncahce_shankhand ;
     wire    write_uncahce_shankhand;
 
+    wire   write_uncache_awandw ;
+    wire   read_uncache_ar      ;
+    wire   read_icache_ar       ;
+    wire   write_dcache_awandw  ;
+    wire   read_dcache_ar       ;
+
     assign read_uncahce_shankhand  =  (~read_icache_shankhand) && (uncache_read_ena) ;
     assign write_uncahce_shankhand =  (~read_icache_shankhand) && (uncache_write_ena);
     assign read_dcache_shankhand   =  (~read_icache_shankhand) && ((d_cache_type == 4'b0010) || (d_cache_type == 4'b1000));
@@ -516,8 +522,8 @@ module ysyx_22040228arbitratem (
                         axi_state_n = `ysyx22040228_AXI_IDLE;
                 end
                 `ysyx22040228_AXI_SEND: begin
-                    if(success)
-                        axi_state_n = `ysyx22040228_AXI_IDLE ;
+                    if(axi_shankhand)
+                        axi_state_n = `ysyx22040228_AXI_WRITE  ;
                     else 
                         axi_state_n = `ysyx22040228_AXI_SEND ;
                 end 
@@ -527,12 +533,6 @@ module ysyx_22040228arbitratem (
                     else 
                         axi_state_n = `ysyx22040228_AXI_WRITE;
                 end 
-                // `ysyx22040228_AXI_SEND: begin
-                //     if(success)
-                //         axi_state_n = `ysyx22040228_AXI_IDLE ;
-                //     else 
-                //         axi_state_n = `ysyx22040228_AXI_SEND ;
-                // end 
                 default: axi_state_n = `ysyx22040228_AXI_IDLE;
             endcase
         end 
@@ -685,7 +685,15 @@ module ysyx_22040228arbitratem (
     assign dread_ok_u  = sign_delay_unread   ;
     assign dwrite_ok_u = sign_delay_unwrite  ;
 
-    assign axi_shankhand = (axi_w_ready & (write_uncahce_shankhand | write_dcache_shankhand)) | ((read_uncahce_shankhand | read_icache_shankhand | read_dcache_shankhand) & axi_ar_ready );
+
+    assign write_uncache_awandw = write_uncahce_shankhand & axi_aw_ready & axi_w_valid & axi_w_ready & axi_w_valid ;
+    assign write_dcache_awandw  = write_dcache_shankhand  & axi_aw_ready & axi_w_valid & axi_w_ready & axi_w_valid ;
+    assign read_uncache_ar      = read_uncahce_shankhand  & axi_ar_valid & axi_ar_ready ;    
+    assign read_icache_ar       = read_icache_shankhand   & axi_ar_valid & axi_ar_ready ;     
+    assign read_dcache_ar       = read_dcache_shankhand   & axi_ar_valid & axi_ar_ready ; 
+
+    assign axi_shankhand = write_uncache_awandw | write_dcache_awandw | read_uncache_ar | read_icache_ar | read_dcache_ar;
+
 
     // reg     aw_enable ;
     // reg     aw_enable_n ;
