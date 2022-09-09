@@ -1,5 +1,6 @@
 /* verilator lint_off DECLFILENAME */
 /* verilator lint_off UNUSED */
+/* verilator lint_off BLKSEQ */
 `timescale 1ns / 1ps
 
 
