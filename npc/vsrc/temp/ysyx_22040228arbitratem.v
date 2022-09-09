@@ -245,7 +245,7 @@ module ysyx_22040228arbitratem (
     wire   success_iread         ;
     wire   success_uncahceread   ;
     wire   success_uncahcewrite  ;
-    wire   axi_shankhand         ;
+    //wire   axi_shankhand         ;
     wire   shankhand  ;
     assign shankhand = read_dcache_shankhand | write_dcache_shankhand | read_icache_shankhand | read_uncahce_shankhand | write_uncahce_shankhand ;
     wire   success    ;
@@ -262,17 +262,23 @@ module ysyx_22040228arbitratem (
                     else 
                         axi_state_n = `ysyx22040228_AXI_IDLE;
                 end
+                // `ysyx22040228_AXI_SEND: begin
+                //     if(axi_shankhand)
+                //         axi_state_n = `ysyx22040228_AXI_WRITE  ;
+                //     else 
+                //         axi_state_n = `ysyx22040228_AXI_SEND ;
+                // end 
+                // `ysyx22040228_AXI_WRITE: begin
+                //     if(success)
+                //         axi_state_n = `ysyx22040228_AXI_IDLE ;
+                //     else 
+                //         axi_state_n = `ysyx22040228_AXI_WRITE;
+                // end 
                 `ysyx22040228_AXI_SEND: begin
-                    if(axi_shankhand)
-                        axi_state_n = `ysyx22040228_AXI_WRITE  ;
-                    else 
-                        axi_state_n = `ysyx22040228_AXI_SEND ;
-                end 
-                `ysyx22040228_AXI_WRITE: begin
                     if(success)
                         axi_state_n = `ysyx22040228_AXI_IDLE ;
                     else 
-                        axi_state_n = `ysyx22040228_AXI_WRITE;
+                        axi_state_n = `ysyx22040228_AXI_SEND ;
                 end 
                 default: axi_state_n = `ysyx22040228_AXI_IDLE;
             endcase
@@ -426,7 +432,7 @@ module ysyx_22040228arbitratem (
     assign dread_ok_u  = sign_delay_unread   ;
     assign dwrite_ok_u = sign_delay_unwrite  ;
 
-    assign axi_shankhand = (axi_w_ready) | axi_ar_ready ;
+    // assign axi_shankhand = (axi_w_ready) | axi_ar_ready ;
 
     // reg     aw_enable ;
     // reg     aw_enable_n ;
