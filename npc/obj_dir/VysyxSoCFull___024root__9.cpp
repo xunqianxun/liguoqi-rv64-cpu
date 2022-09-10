@@ -4395,6 +4395,10 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__21(VysyxSoCFull___024r
     if (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__rst) {
         vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__j = 0x40U;
     }
+    vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitratem4__DOT__chosel 
+        = ((~ (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__rst)) 
+           & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__t_axi_ar_ready) 
+              & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__t_axi_ar_valid)));
     vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__data_out7[0U] 
         = VL_RANDOM_I(32);
     vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__data_out7[1U] 

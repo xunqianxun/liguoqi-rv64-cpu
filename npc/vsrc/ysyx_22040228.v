@@ -896,6 +896,7 @@ Function:write instraction cache
 `define ysyx22040228_I_HIT     6'b000100
 `define ysyx22040228_I_MISSRH  6'b001000 //--> read APB can't use burst
 `define ysyx22040228_I_READ    6'b100000
+/* verilator lint_off LATCH */
 
 module ysyx_22040228inst_cache (
     input       wire                                         clk             ,
@@ -1052,44 +1053,28 @@ module ysyx_22040228inst_cache (
                 inst_valid  = `ysyx22040228_ENABLE;
             end 
             else if((oteg_ata_o == icache_tag) && (oteg_valid_o == `ysyx22040228_ABLE))begin
-                inst_data = ({32{inst_addr[2]}} & data_out[63:32]) | ({32{~inst_addr[2]}} & data_out[31:0 ]) ;
-                inst_hit_ok  = `ysyx22040228_ABLE  ;
-                inst_valid   = `ysyx22040228_ABLE;
-                // if(inst_addr[2] == `ysyx22040228_ABLE)   begin
-                //     inst_data =    data_out[63:32]      ;
-                //     inst_hit_ok  = `ysyx22040228_ABLE  ;
-                //     inst_valid   = `ysyx22040228_ABLE;
-                // end 
-                // else if(inst_addr[2] == `ysyx22040228_ENABLE) begin
-                //     inst_data =    data_out[31:0 ]      ;
-                //     inst_hit_ok  = `ysyx22040228_ABLE  ;
-                //     inst_valid   = `ysyx22040228_ABLE;
-                // end
-                // else begin
-                //     inst_data = inst_data ;
-                //     inst_hit_ok  = inst_hit_ok ;
-                //     inst_valid   = inst_valid  ;
-                // end 
+                if(inst_addr[2] == `ysyx22040228_ABLE)   begin
+                    inst_data =    data_out[63:32]      ;
+                    inst_hit_ok  = `ysyx22040228_ABLE  ;
+                    inst_valid   = `ysyx22040228_ABLE;
+                end 
+                else if(inst_addr[2] == `ysyx22040228_ENABLE) begin
+                    inst_data =    data_out[31:0 ]      ;
+                    inst_hit_ok  = `ysyx22040228_ABLE  ;
+                    inst_valid   = `ysyx22040228_ABLE;
+                end
             end
             else if((tteg_ata_o == icache_tag) && (tteg_valid_o == `ysyx22040228_ABLE))begin
-                inst_data = ({32{inst_addr[2]}} & data_out[127:96]) | ({32{~inst_addr[2]}} & data_out[95:64]) ;
-                inst_hit_ok  = `ysyx22040228_ABLE  ;
-                inst_valid   = `ysyx22040228_ABLE;
-                // if(inst_addr[2] == `ysyx22040228_ABLE)   begin
-                //     inst_data = data_out[127:96]      ;
-                //     inst_hit_ok  = `ysyx22040228_ABLE  ;
-                //     inst_valid   = `ysyx22040228_ABLE;
-                // end 
-                // else if(inst_addr[2] == `ysyx22040228_ENABLE) begin
-                //     inst_data = data_out[95:64]      ;
-                //     inst_hit_ok  = `ysyx22040228_ABLE  ;
-                //     inst_valid   = `ysyx22040228_ABLE;
-                // end
-                // else begin
-                //     inst_data = inst_data ;
-                //     inst_hit_ok  = inst_hit_ok ;
-                //     inst_valid   = inst_valid  ;
-                // end 
+                if(inst_addr[2] == `ysyx22040228_ABLE)   begin
+                    inst_data = data_out[127:96]      ;
+                    inst_hit_ok  = `ysyx22040228_ABLE  ;
+                    inst_valid   = `ysyx22040228_ABLE;
+                end 
+                else if(inst_addr[2] == `ysyx22040228_ENABLE) begin
+                    inst_data = data_out[95:64]      ;
+                    inst_hit_ok  = `ysyx22040228_ABLE  ;
+                    inst_valid   = `ysyx22040228_ABLE;
+                end
             end
             else begin
                 inst_data    = 32'b0                   ;
@@ -1098,7 +1083,6 @@ module ysyx_22040228inst_cache (
             end
         end 
         else begin  
-          inst_data    = 32'b0                         ;
           inst_hit_ok  = `ysyx22040228_ENABLE          ; 
           inst_valid   = `ysyx22040228_ENABLE          ;   
         end 
@@ -1108,70 +1092,46 @@ module ysyx_22040228inst_cache (
     reg   [127:0]   miss_data ;
     reg             miss_ena_l;
     reg   [127:0]   miss_strb_l;
+    // reg             write_i_ok;  
 
-    //reg             cahce_miss_ena ;
-    //reg   [63:0]    cache_miss_addr ;
-
-    wire            cahce_miss_ena ;
-    assign          cahce_miss_ena = ((state_inst ==  `ysyx22040228_I_MISSRL) && (~cache_in_valid)) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE ;
-    wire    [63:0]  cache_miss_addr ;
-    assign          cache_miss_addr = ((state_inst ==  `ysyx22040228_I_MISSRL) && (~cache_in_valid)) ? {inst_addr[63:3],3'b0} : `ysyx22040228_ZEROWORD ;
+    reg             cahce_miss_ena ;
+    reg   [63:0]    cache_miss_addr ;
     always @(*) begin
         if(rst == `ysyx22040228_RSTENA) begin
-            //cahce_miss_ena = `ysyx22040228_ENABLE;
-            //cache_miss_addr = `ysyx22040228_ZEROWORD ;
-            miss_data =  128'h0               ;
+            cahce_miss_ena = `ysyx22040228_ENABLE;
+            cache_miss_addr = `ysyx22040228_ZEROWORD ;
+            miss_data =  128'h0  ;
             write_i_ok = `ysyx22040228_ENABLE ;
             miss_ena_l = `ysyx22040228_ENABLE ;
             miss_strb_l = `ysyx22040228_CACHE_STRBZ;
         end 
         else if((state_inst ==  `ysyx22040228_I_MISSRL) && (~cache_in_valid)) begin
-            //cahce_miss_ena = `ysyx22040228_ABLE     ;
-            //cache_miss_addr = {inst_addr[63:3],3'b0};
-            miss_data =  128'h0                     ;
-            write_i_ok = `ysyx22040228_ENABLE       ;
-            miss_ena_l = `ysyx22040228_ENABLE       ;
-            miss_strb_l = `ysyx22040228_CACHE_STRBZ ;
+            cahce_miss_ena = `ysyx22040228_ABLE     ;
+            cache_miss_addr = {inst_addr[63:3],3'b0};
         end 
         else if((state_inst ==  `ysyx22040228_I_MISSRL) && (cache_in_valid)) begin
-            //cahce_miss_ena = `ysyx22040228_ENABLE;
+            cahce_miss_ena = `ysyx22040228_ENABLE;
             miss_data      = {cache_in_data, cache_in_data}  ;
             write_i_ok     = `ysyx22040228_ABLE  ;
-            miss_ena_l     = (oteg_valid_o == `ysyx22040228_ENABLE) ? `ysyx22040228_ABLE :
-                             (tteg_valid_o == `ysyx22040228_ENABLE) ? `ysyx22040228_ABLE :
-                             (i_counter1[icache_index] >= i_counter2[icache_index]) ? `ysyx22040228_ABLE : 
-                             (i_counter1[icache_index] < i_counter2[icache_index]) ? `ysyx22040228_ABLE :
-                                                                                     `ysyx22040228_ENABLE ;
-            miss_strb_l    = (oteg_valid_o == `ysyx22040228_ENABLE) ? `ysyx22040228_CACHE_STRBL :
-                             (tteg_valid_o == `ysyx22040228_ENABLE) ? `ysyx22040228_CACHE_STRBH :
-                             (i_counter1[icache_index] >= i_counter2[icache_index]) ? `ysyx22040228_CACHE_STRBL : 
-                             (i_counter1[icache_index] < i_counter2[icache_index]) ? `ysyx22040228_CACHE_STRBH :
-                                                                                     `ysyx22040228_CACHE_STRBZ ;
-            //cache_miss_addr = `ysyx22040228_ZEROWORD ;
-            
-            // if(oteg_valid_o == `ysyx22040228_ENABLE) begin
-            //     miss_strb_l = `ysyx22040228_CACHE_STRBL;
-            //     miss_ena_l     = `ysyx22040228_ABLE  ;
-            // end 
-            // else if(tteg_valid_o == `ysyx22040228_ENABLE) begin
-            //     miss_strb_l = `ysyx22040228_CACHE_STRBH;
-            //     miss_ena_l     = `ysyx22040228_ABLE  ;
-            // end 
-            // else if(i_counter1[icache_index] >= i_counter2[icache_index])begin
-            //     miss_strb_l = `ysyx22040228_CACHE_STRBL;
-            //     miss_ena_l     = `ysyx22040228_ABLE  ;
-            // end   
-            // else if(i_counter1[icache_index] < i_counter2[icache_index]) begin
-            //     miss_strb_l = `ysyx22040228_CACHE_STRBH;
-            //     miss_ena_l     = `ysyx22040228_ABLE  ;
-            // end
-            // else begin
-            //     miss_strb_l = `ysyx22040228_CACHE_STRBZ;
-            //     miss_ena_l = `ysyx22040228_ENABLE ;
-            // end  
+            miss_ena_l     = `ysyx22040228_ABLE  ;
+            if(oteg_valid_o == `ysyx22040228_ENABLE) begin
+                miss_strb_l = `ysyx22040228_CACHE_STRBL;
+            end 
+            else if(tteg_valid_o == `ysyx22040228_ENABLE) begin
+                miss_strb_l = `ysyx22040228_CACHE_STRBH;
+            end 
+            else if(i_counter1[icache_index] >= i_counter2[icache_index])begin
+                miss_strb_l = `ysyx22040228_CACHE_STRBL;
+            end   
+            else if(i_counter1[icache_index] < i_counter2[icache_index]) begin
+                miss_strb_l = `ysyx22040228_CACHE_STRBH;
+            end
+            else begin
+                miss_strb_l = `ysyx22040228_CACHE_STRBZ;
+                miss_ena_l = `ysyx22040228_ENABLE ;
+            end  
         end
         else begin
-            //cahce_miss_ena = | cahce_miss_ena ;
             miss_data      = `ysyx22040228_CACHE_STRBZ ;
             miss_ena_l     = `ysyx22040228_ENABLE ;
             miss_strb_l = `ysyx22040228_CACHE_STRBZ;
@@ -1196,95 +1156,59 @@ module ysyx_22040228inst_cache (
         else 
             missr_counter <= missr_counter_n ;
     end
-                
+
     always @(*) begin
         if(rst == `ysyx22040228_RSTENA) begin
             cache_mism_ena = `ysyx22040228_ENABLE;
             cahce_mism_addr = `ysyx22040228_ZEROWORD ;
-            missr_counter_n  = 2'b00                 ;
-            write_m_ok     = `ysyx22040228_ENABLE    ;
-            mism_ena_l     = `ysyx22040228_ENABLE    ;
-            mism_strb_l = `ysyx22040228_CACHE_STRBZ  ;
+            missr_counter_n  = 2'b00               ;
+            write_m_ok     = `ysyx22040228_ENABLE   ;
+            mism_ena_l     = `ysyx22040228_ENABLE ;
+            mism_strb_l = `ysyx22040228_CACHE_STRBZ;
         end 
         else if((state_inst ==  `ysyx22040228_I_MISSRH) && (~cache_in_valid)) begin
-            //if(missr_counter <= 2'b01) begin
+            if(missr_counter <= 2'b01) begin
                 cache_mism_ena = `ysyx22040228_ABLE      ;
-                cahce_mism_addr = (missr_counter <= 2'b01) ? {inst_addr[63:3], 1'b1, 2'b0} : {inst_addr[63:3], 1'b0, 2'b0};
-                missr_counter_n  = (missr_counter <= 2'b01) ?  2'b01 : 2'b11   ;
-                write_m_ok     = `ysyx22040228_ENABLE    ;
-                mism_ena_l     = `ysyx22040228_ENABLE    ;
-                mism_strb_l = `ysyx22040228_CACHE_STRBZ  ;
-            // end 
-            // else begin
-            //     cache_mism_ena = `ysyx22040228_ABLE    ;
-            //     cahce_mism_addr = {inst_addr[63:3], 1'b0, 2'b0};
-            //     missr_counter_n  = 2'b11                 ;
-            // end 
+                cahce_mism_addr = {inst_addr[63:3], 1'b1, 2'b0};
+                missr_counter_n  = 2'b01                 ;
+            end 
+            else begin
+                cache_mism_ena = `ysyx22040228_ABLE    ;
+                cahce_mism_addr = {inst_addr[63:3], 1'b0, 2'b0};
+                missr_counter_n  = 2'b11                 ;
+            end 
         end 
         else if((state_inst ==  `ysyx22040228_I_MISSRH) && (cache_in_valid) && (missr_counter  == 2'b01)) begin
             cache_mism_ena = `ysyx22040228_ABLE    ;
             cahce_mism_addr = {inst_addr[63:3], 1'b0, 2'b0};
             missr_counter_n  = 2'b11                 ;
-            write_m_ok     = `ysyx22040228_ENABLE    ;
-            mism_ena_l     = `ysyx22040228_ENABLE    ;
-            mism_strb_l = `ysyx22040228_CACHE_STRBZ  ;
+            temp_inst      = {cache_in_data[31:0], 32'h0};
         end 
         else if((state_inst ==  `ysyx22040228_I_MISSRH) && (cache_in_valid) && (missr_counter  == 2'b11)) begin
             missr_counter_n  = 2'b00               ;
-            cahce_mism_addr = `ysyx22040228_ZEROWORD;
+            mism_data      = {temp_inst[63:32], cache_in_data[31:0], temp_inst[63:32], cache_in_data[31:0]};
             cache_mism_ena = `ysyx22040228_ENABLE;
             write_m_ok     = `ysyx22040228_ABLE  ;
             mism_ena_l     = `ysyx22040228_ABLE  ;
-            mism_strb_l    = (oteg_valid_o == `ysyx22040228_ENABLE) ? `ysyx22040228_CACHE_STRBL : 
-                             (tteg_valid_o == `ysyx22040228_ENABLE) ? `ysyx22040228_CACHE_STRBH :
-                             (i_counter1[icache_index] >= i_counter2[icache_index]) ? `ysyx22040228_CACHE_STRBL :
-                             (i_counter1[icache_index] < i_counter2[icache_index]) ? `ysyx22040228_CACHE_STRBH  :
-                                                                                      `ysyx22040228_CACHE_STRBZ ;
-            // if(oteg_valid_o == `ysyx22040228_ENABLE) begin
-            //     mism_strb_l = `ysyx22040228_CACHE_STRBL;
-            // end 
-            // else if(tteg_valid_o == `ysyx22040228_ENABLE) begin
-            //     mism_strb_l = `ysyx22040228_CACHE_STRBH;
-            // end 
-            // else if(i_counter1[icache_index] >= i_counter2[icache_index])begin
-            //     mism_strb_l = `ysyx22040228_CACHE_STRBL;
-            // end   
-            // else if(i_counter1[icache_index] < i_counter2[icache_index]) begin
-            //     mism_strb_l = `ysyx22040228_CACHE_STRBH;
-            // end 
+            if(oteg_valid_o == `ysyx22040228_ENABLE) begin
+                mism_strb_l = `ysyx22040228_CACHE_STRBL;
+            end 
+            else if(tteg_valid_o == `ysyx22040228_ENABLE) begin
+                mism_strb_l = `ysyx22040228_CACHE_STRBH;
+            end 
+            else if(i_counter1[icache_index] >= i_counter2[icache_index])begin
+                mism_strb_l = `ysyx22040228_CACHE_STRBL;
+            end   
+            else if(i_counter1[icache_index] < i_counter2[icache_index]) begin
+                mism_strb_l = `ysyx22040228_CACHE_STRBH;
+            end 
         end
         else begin
-            missr_counter_n  = 2'b00               ;
-            cahce_mism_addr = `ysyx22040228_ZEROWORD;
-            cache_mism_ena = `ysyx22040228_ENABLE;
+            mism_data      = `ysyx22040228_CACHE_STRBZ ;
             mism_ena_l     = `ysyx22040228_ENABLE ;
             mism_strb_l = `ysyx22040228_CACHE_STRBZ;
             write_m_ok     = `ysyx22040228_ENABLE   ;
         end
-    end
-
-    always @(*) begin
-        if(rst == `ysyx22040228_RSTENA) begin
-            mism_data      = `ysyx22040228_CACHE_STRBZ ;
-        end 
-        else if((state_inst ==  `ysyx22040228_I_MISSRH) && (cache_in_valid) && (missr_counter  == 2'b11)) begin
-            mism_data      = {temp_inst[63:32], cache_in_data[31:0], temp_inst[63:32], cache_in_data[31:0]};
-        end 
-        else begin
-            mism_data      = `ysyx22040228_CACHE_STRBZ ;
-        end 
-    end
-
-    always @(posedge clk) begin
-        if(rst == `ysyx22040228_RSTENA) begin
-            temp_inst <= `ysyx22040228_ZEROWORD ;
-        end 
-        else if(((state_inst ==  `ysyx22040228_I_MISSRH) && (cache_in_valid) && (missr_counter  == 2'b01))) begin
-            temp_inst <= {cache_in_data[31:0], 32'h0};
-        end 
-        else begin
-            temp_inst <= temp_inst ;
-        end 
     end
 
     wire                             oteg_ena_i    ;
