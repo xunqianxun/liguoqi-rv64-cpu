@@ -425,6 +425,11 @@ module ysyx_22040228arbitratem (
     assign write_dcache_shankhand  =  (~read_icache_shankhand) && ((d_cache_type == 4'b0001) || (d_cache_type == 4'b0100)); 
     assign read_icache_shankhand   =  ((d_cache_type == 4'b0000) | (~uncache_read_ena) | (~uncache_write_ena)) && i_cache_ena ;
 
+    wire   shankhand_write ;
+    assign shankhand_write = write_uncahce_shankhand | write_dcache_shankhand ;
+    wire   shankhand_read  ;
+    assign shankhand_read  = read_uncahce_shankhand | read_dcache_shankhand | read_icache_shankhand ;
+
     reg  [2:0]    arbitrate_state ;
     reg  [2:0]    arbitrate_state_nxt ;
 
@@ -528,7 +533,7 @@ module ysyx_22040228arbitratem (
                     axiw_state <= `ysyx22040228_AXIW_ADDR ;
                 end 
                 `ysyx22040228_AXIW_ADDR : begin
-                    if(axi_aw_ready) 
+                    if(axi_aw_ready & shankhand_write) 
                         axiw_state <= `ysyx22040228_AXIW_WRITE ;
                     else 
                         axiw_state <= `ysyx22040228_AXIW_ADDR  ;
@@ -570,7 +575,7 @@ module ysyx_22040228arbitratem (
                     axir_state_n = `ysyx22040228_AXIR_ADDR ;
                 end  
                 `ysyx22040228_AXIR_ADDR : begin
-                    if(axi_ar_valid & axi_ar_ready)
+                    if(axi_ar_valid & axi_ar_ready & shankhand_read)
                         axir_state_n = `ysyx22040228_AXIR_READ ;
                     else 
                         axir_state_n = `ysyx22040228_AXIR_ADDR ;
