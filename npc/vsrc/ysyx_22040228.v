@@ -530,10 +530,13 @@ module ysyx_22040228arbitratem (
         else begin
             case (axiw_state)
                 `ysyx22040228_AXIW_IDLE : begin
-                    axiw_state <= `ysyx22040228_AXIW_ADDR ;
+                    if(shankhand_write)
+                        axiw_state <= `ysyx22040228_AXIW_ADDR ;
+                    else 
+                        axiw_state <= `ysyx22040228_AXIW_IDLE ;
                 end 
                 `ysyx22040228_AXIW_ADDR : begin
-                    if(axi_aw_ready & shankhand_write) 
+                    if(axi_aw_ready) 
                         axiw_state <= `ysyx22040228_AXIW_WRITE ;
                     else 
                         axiw_state <= `ysyx22040228_AXIW_ADDR  ;
