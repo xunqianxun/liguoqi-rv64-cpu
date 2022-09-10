@@ -760,26 +760,26 @@ module ysyx_22040228arbitratem (
     assign success_uncahceread  = ((arbitrate_state == `ysyx22040228_ARB_DREADU)  && (axi_r_id != 4'b1111) && (axi_r_last == `ysyx22040228_ABLE) && (axi_r_valid == `ysyx22040228_ABLE) && (axi_r_resp == 2'b00));
     assign success_uncahcewrite = ((arbitrate_state == `ysyx22040228_ARB_DWRITEU) && (axi_b_id == 4'b0010) && (axi_b_resp == 2'b00             ) && (axi_b_valid == `ysyx22040228_ABLE));
 
-    reg  success_dwrite_new ;
-    reg  success_uncachewrite_new ;
-    always @(posedge clk) begin
-        if(rst == `ysyx22040228_RSTENA) begin
-            success_dwrite_new <= `ysyx22040228_ENABLE ;
-            success_uncachewrite_new <= `ysyx22040228_ENABLE ;
-        end 
-        else if(success_dwrite) begin
-            success_dwrite_new <= `ysyx22040228_ABLE ;
-            success_uncachewrite_new <= `ysyx22040228_ENABLE ;
-        end 
-        else if(success_uncahcewrite)begin
-            success_dwrite_new <= `ysyx22040228_ENABLE ;
-            success_uncachewrite_new <= `ysyx22040228_ABLE ;
-        end 
-        else begin
-            success_dwrite_new <= `ysyx22040228_ENABLE ;
-            success_uncachewrite_new <= `ysyx22040228_ENABLE ;
-        end 
-    end
+    // reg  success_dwrite_new ;
+    // reg  success_uncachewrite_new ;
+    // always @(posedge clk) begin
+    //     if(rst == `ysyx22040228_RSTENA) begin
+    //         success_dwrite_new <= `ysyx22040228_ENABLE ;
+    //         success_uncachewrite_new <= `ysyx22040228_ENABLE ;
+    //     end 
+    //     else if(success_dwrite) begin
+    //         success_dwrite_new <= `ysyx22040228_ABLE ;
+    //         success_uncachewrite_new <= `ysyx22040228_ENABLE ;
+    //     end 
+    //     else if(success_uncahcewrite)begin
+    //         success_dwrite_new <= `ysyx22040228_ENABLE ;
+    //         success_uncachewrite_new <= `ysyx22040228_ABLE ;
+    //     end 
+    //     else begin
+    //         success_dwrite_new <= `ysyx22040228_ENABLE ;
+    //         success_uncachewrite_new <= `ysyx22040228_ENABLE ;
+    //     end 
+    // end
 
     always @(posedge clk) begin
         if(rst == `ysyx22040228_RSTENA) begin
@@ -800,7 +800,7 @@ module ysyx_22040228arbitratem (
             d_cache_data_o     <= axi_r_data        ;
             d_cache_valid_     <= `ysyx22040228_ABLE;
         end 
-        else if(success_dwrite_new) begin
+        else if(success_dwrite) begin
             sign_delay_dwrite  <= `ysyx22040228_ABLE;
             d_cache_valid_     <= `ysyx22040228_ABLE;
         end 
@@ -815,7 +815,7 @@ module ysyx_22040228arbitratem (
             uncahce_valid_     <= `ysyx22040228_ABLE;
 
         end 
-        else if(success_uncachewrite_new) begin
+        else if(success_uncahcewrite) begin
             sign_delay_unwrite <= `ysyx22040228_ABLE;
             uncahce_valid_     <= `ysyx22040228_ABLE;
         end 
