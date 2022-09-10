@@ -7,7 +7,7 @@
 
 #include "verilated_dpi.h"
 
-extern const VlUnpacked<CData/*2:0*/, 1024> VysyxSoCFull__ConstPool__TABLE_c184c27d_0;
+extern const VlUnpacked<CData/*2:0*/, 1024> VysyxSoCFull__ConstPool__TABLE_969f2150_0;
 extern const VlWide<16>/*511:0*/ VysyxSoCFull__ConstPool__CONST_93e1b771_0;
 extern const VlWide<32>/*1023:0*/ VysyxSoCFull__ConstPool__CONST_d6b7ba52_0;
 
@@ -3638,7 +3638,7 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__22(VysyxSoCFull___024r
                                                      << 1U) 
                                                     | (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__rst))))))));
     vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitratem4__DOT__axiw_state 
-        = VysyxSoCFull__ConstPool__TABLE_c184c27d_0
+        = VysyxSoCFull__ConstPool__TABLE_969f2150_0
         [__Vtableidx1];
     vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitratem4__DOT__arbitrate_state 
         = ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__rst)

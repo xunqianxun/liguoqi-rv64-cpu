@@ -426,9 +426,7 @@ module ysyx_22040228arbitratem (
     assign read_icache_shankhand   =  ((d_cache_type == 4'b0000) & (~uncache_read_ena) & (~uncache_write_ena)) && i_cache_ena ;
 
     wire   shankhand_write ;
-    assign shankhand_write = write_uncahce_shankhand | write_dcache_shankhand ;
     wire   shankhand_read  ;
-    assign shankhand_read  = read_uncahce_shankhand | read_dcache_shankhand | read_icache_shankhand ;
 
     reg  [2:0]    arbitrate_state ;
     reg  [2:0]    arbitrate_state_nxt ;
@@ -499,6 +497,9 @@ module ysyx_22040228arbitratem (
             endcase
         end 
     end
+
+    assign shankhand_read  = (arbitrate_state == `ysyx22040228_ARB_DREADU) | (arbitrate_state == `ysyx22040228_ARB_IREAD) | (arbitrate_state == `ysyx22040228_ARB_DREAD) ;
+    assign shankhand_write = (arbitrate_state == `ysyx22040228_ARB_DWRITE) | (arbitrate_state == `ysyx22040228_ARB_DWRITEU) ;
 
     // reg  [2:0]    axi_state ;
     // reg  [2:0]    axi_state_n ;
