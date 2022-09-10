@@ -439,12 +439,23 @@ module ysyx_22040228arbitratem (
     // assign axi_ar_valid   =   ((arbitrate_state == `ysyx22040228_ARB_DREAD) && (axi_state == `ysyx22040228_AXI_SEND))    ? `ysyx22040228_ABLE   :
     //                           ((arbitrate_state == `ysyx22040228_ARB_DREADU) && (axi_state == `ysyx22040228_AXI_SEND))   ? `ysyx22040228_ABLE   :
     //                           ((arbitrate_state == `ysyx22040228_ARB_IREAD) && (axi_state == `ysyx22040228_AXI_SEND))    ? `ysyx22040228_ABLE   :
-    //                                                                                                                        `ysyx22040228_ENABLE ;
+    //                                                                                                             `ysyx22040228_ENABLE ;      
+    reg  chosel ;
+    always @(posedge clk) begin
+        if(rst == `ysyx22040228_RSTENA) begin
+            chosel = `ysyx22040228_ENABLE ;
+        end
+        else if(axi_ar_ready & axi_ar_valid)begin
+            chosel = `ysyx22040228_ABLE ;
+        end  
+        else begin
+            chosel = `ysyx22040228_ENABLE ;
+        end 
+    end                
 
-
-    assign axi_ar_valid   =   ((arbitrate_state == `ysyx22040228_ARB_IREAD) && (axir_state == `ysyx22040228_AXIR_ADDR))  ? axi_ar_ready : 
-                              ((arbitrate_state == `ysyx22040228_ARB_DREAD) && (axir_state == `ysyx22040228_AXIR_ADDR))  ? axi_ar_ready : 
-                              ((arbitrate_state == `ysyx22040228_ARB_DREADU) && (axir_state == `ysyx22040228_AXIR_ADDR)) ? axi_ar_ready :
+    assign axi_ar_valid   =   ((arbitrate_state == `ysyx22040228_ARB_IREAD) && (axir_state == `ysyx22040228_AXIR_ADDR))  ? ((axi_ar_addr[31]) ? axi_ar_ready : ~chosel): 
+                              ((arbitrate_state == `ysyx22040228_ARB_DREAD) && (axir_state == `ysyx22040228_AXIR_ADDR))  ? ((axi_ar_addr[31]) ? axi_ar_ready : ~chosel): 
+                              ((arbitrate_state == `ysyx22040228_ARB_DREADU) && (axir_state == `ysyx22040228_AXIR_ADDR)) ? ((axi_ar_addr[31]) ? axi_ar_ready : ~chosel): 
                                                                                                                            `ysyx22040228_ENABLE ; 
 
     assign axi_ar_addr    =   ((arbitrate_state == `ysyx22040228_ARB_IREAD) && ((axir_state == `ysyx22040228_AXIR_ADDR) | (axir_state == `ysyx22040228_AXIR_READ))) ? i_cache_addr : 

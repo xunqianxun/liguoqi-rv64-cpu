@@ -508,86 +508,45 @@ module ysyx_22040228arbitratem (
     wire   success_iread         ;
     wire   success_uncahceread   ;
     wire   success_uncahcewrite  ;
-    //wire   axi_shankhand         ;
-    // wire   shankhand  ;
-    // assign shankhand = read_dcache_shankhand | write_dcache_shankhand | read_icache_shankhand | read_uncahce_shankhand | write_uncahce_shankhand ;
-    //wire   success    ;
-    //assign success   = sign_delay_dread | sign_delay_dwrite | sign_delay_iread | sign_delay_unread | sign_delay_unwrite ;
-
-
-    // always @(*) begin
-    //     if(rst == `ysyx22040228_RSTENA) begin
-    //         axi_state_n = `ysyx22040228_AXI_IDLE;
-    //     end 
-    //     else begin
-    //         case (axi_state)
-    //             `ysyx22040228_AXI_IDLE: begin
-    //                 if(shankhand)
-    //                     axi_state_n = `ysyx22040228_AXI_SEND;
-    //                 else 
-    //                     axi_state_n = `ysyx22040228_AXI_IDLE;
-    //             end
-    //             `ysyx22040228_AXI_SEND: begin
-    //                 if(axi_shankhand)
-    //                     axi_state_n = `ysyx22040228_AXI_WRITE  ;
-    //                 else 
-    //                     axi_state_n = `ysyx22040228_AXI_SEND ;
-    //             end 
-    //             `ysyx22040228_AXI_WRITE: begin
-    //                 if(success)
-    //                     axi_state_n = `ysyx22040228_AXI_IDLE ;
-    //                 else 
-    //                     axi_state_n = `ysyx22040228_AXI_WRITE;
-    //             end 
-    //             // `ysyx22040228_AXI_SEND: begin
-    //             //     if(success)
-    //             //         axi_state_n = `ysyx22040228_AXI_IDLE ;
-    //             //     else 
-    //             //         axi_state_n = `ysyx22040228_AXI_SEND ;
-    //             // end 
-    //             default: axi_state_n = `ysyx22040228_AXI_IDLE;
-    //         endcase
-    //     end 
-    // end
 
     reg  [2:0]  axiw_state   ;
-    reg  [2:0]  axiw_state_n ;
-    always @(posedge clk) begin
-        if(rst == `ysyx22040228_RSTENA)
-            axiw_state <= `ysyx22040228_AXIW_IDLE ;
-        else 
-            axiw_state <= axiw_state_n            ;
-    end
+    // reg  [2:0]  axiw_state_n ;
+    // always @(posedge clk) begin
+    //     if(rst == `ysyx22040228_RSTENA)
+    //         axiw_state <= `ysyx22040228_AXIW_IDLE ;
+    //     else 
+    //         axiw_state <= axiw_state_n            ;
+    // end
 
-    always @(*) begin
+    always @(posedge clk) begin
         if(rst == `ysyx22040228_RSTENA) begin
-            axiw_state_n = `ysyx22040228_AXIW_IDLE ;
+            axiw_state <= `ysyx22040228_AXIW_IDLE ;
         end 
         else begin
             case (axiw_state)
                 `ysyx22040228_AXIW_IDLE : begin
-                    axiw_state_n = `ysyx22040228_AXIW_ADDR ;
+                    axiw_state <= `ysyx22040228_AXIW_ADDR ;
                 end 
                 `ysyx22040228_AXIW_ADDR : begin
                     if(axi_aw_ready) 
-                        axiw_state_n = `ysyx22040228_AXIW_WRITE ;
+                        axiw_state <= `ysyx22040228_AXIW_WRITE ;
                     else 
-                        axiw_state_n = `ysyx22040228_AXIW_ADDR  ;
+                        axiw_state <= `ysyx22040228_AXIW_ADDR  ;
                 end 
                 `ysyx22040228_AXIW_WRITE : begin
                     if(axi_w_ready & axi_w_valid & axi_w_last)
-                        axiw_state_n = `ysyx22040228_AXIW_RESP ;
+                        axiw_state <= `ysyx22040228_AXIW_RESP ;
                     else begin
-                        axiw_state_n = `ysyx22040228_AXIW_WRITE;
+                        axiw_state <= `ysyx22040228_AXIW_WRITE;
                     end 
                 end 
                 `ysyx22040228_AXIW_RESP : begin
                     if(axi_b_valid) 
-                        axiw_state_n = `ysyx22040228_AXIW_IDLE ;
+                        axiw_state <= `ysyx22040228_AXIW_IDLE ;
                     else 
-                        axiw_state_n = `ysyx22040228_AXIW_RESP ;
+                        axiw_state <= `ysyx22040228_AXIW_RESP ;
                 end 
-                default: axiw_state_n = `ysyx22040228_AXIW_IDLE ;
+                default: axiw_state <= `ysyx22040228_AXIW_IDLE ;
             endcase
         end 
     end
@@ -801,6 +760,27 @@ module ysyx_22040228arbitratem (
     assign success_uncahceread  = ((arbitrate_state == `ysyx22040228_ARB_DREADU)  && (axi_r_id != 4'b1111) && (axi_r_last == `ysyx22040228_ABLE) && (axi_r_valid == `ysyx22040228_ABLE) && (axi_r_resp == 2'b00));
     assign success_uncahcewrite = ((arbitrate_state == `ysyx22040228_ARB_DWRITEU) && (axi_b_id == 4'b0010) && (axi_b_resp == 2'b00             ) && (axi_b_valid == `ysyx22040228_ABLE));
 
+    reg  success_dwrite_new ;
+    reg  success_uncachewrite_new ;
+    always @(posedge clk) begin
+        if(rst == `ysyx22040228_RSTENA) begin
+            success_dwrite_new <= `ysyx22040228_ENABLE ;
+            success_uncachewrite_new <= `ysyx22040228_ENABLE ;
+        end 
+        else if(success_dwrite) begin
+            success_dwrite_new <= `ysyx22040228_ABLE ;
+            success_uncachewrite_new <= `ysyx22040228_ENABLE ;
+        end 
+        else if(success_uncahcewrite)begin
+            success_dwrite_new <= `ysyx22040228_ENABLE ;
+            success_uncachewrite_new <= `ysyx22040228_ABLE ;
+        end 
+        else begin
+            success_dwrite_new <= `ysyx22040228_ENABLE ;
+            success_uncachewrite_new <= `ysyx22040228_ENABLE ;
+        end 
+    end
+
     always @(posedge clk) begin
         if(rst == `ysyx22040228_RSTENA) begin
             sign_delay_dread   <= `ysyx22040228_ENABLE;
@@ -820,7 +800,7 @@ module ysyx_22040228arbitratem (
             d_cache_data_o     <= axi_r_data        ;
             d_cache_valid_     <= `ysyx22040228_ABLE;
         end 
-        else if(success_dwrite) begin
+        else if(success_dwrite_new) begin
             sign_delay_dwrite  <= `ysyx22040228_ABLE;
             d_cache_valid_     <= `ysyx22040228_ABLE;
         end 
@@ -835,7 +815,7 @@ module ysyx_22040228arbitratem (
             uncahce_valid_     <= `ysyx22040228_ABLE;
 
         end 
-        else if(success_uncahcewrite) begin
+        else if(success_uncachewrite_new) begin
             sign_delay_unwrite <= `ysyx22040228_ABLE;
             uncahce_valid_     <= `ysyx22040228_ABLE;
         end 
