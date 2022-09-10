@@ -7657,7 +7657,7 @@ void VysyxSoCFull___024root__traceInitSub0(VysyxSoCFull___024root* vlSelf, Veril
         tracep->declBus(c+97,"ysyxSoCFull asic cpu cpu io_master_awsize", false,-1, 2,0);
         tracep->declBus(c+98,"ysyxSoCFull asic cpu cpu io_master_awburst", false,-1, 1,0);
         tracep->declBit(c+113,"ysyxSoCFull asic cpu cpu io_master_awvalid", false,-1);
-        tracep->declBit(c+112,"ysyxSoCFull asic cpu cpu io_master_awready", false,-1);
+        tracep->declBit(c+19858,"ysyxSoCFull asic cpu cpu io_master_awready", false,-1);
         tracep->declQuad(c+101,"ysyxSoCFull asic cpu cpu io_master_wdata", false,-1, 63,0);
         tracep->declBus(c+103,"ysyxSoCFull asic cpu cpu io_master_wstrb", false,-1, 7,0);
         tracep->declBit(c+104,"ysyxSoCFull asic cpu cpu io_master_wlast", false,-1);
@@ -7882,7 +7882,7 @@ void VysyxSoCFull___024root__traceInitSub0(VysyxSoCFull___024root* vlSelf, Veril
         tracep->declBus(c+3669,"ysyxSoCFull asic cpu cpu soc_axi_aw_cache", false,-1, 3,0);
         tracep->declBus(c+3670,"ysyxSoCFull asic cpu cpu soc_axi_aw_port", false,-1, 2,0);
         tracep->declBus(c+3671,"ysyxSoCFull asic cpu cpu soc_axi_aw_qos", false,-1, 3,0);
-        tracep->declBit(c+112,"ysyxSoCFull asic cpu cpu soc_axi_aw_ready", false,-1);
+        tracep->declBit(c+19858,"ysyxSoCFull asic cpu cpu soc_axi_aw_ready", false,-1);
         tracep->declBit(c+113,"ysyxSoCFull asic cpu cpu soc_axi_aw_valid", false,-1);
         tracep->declQuad(c+101,"ysyxSoCFull asic cpu cpu soc_axi_w_data", false,-1, 63,0);
         tracep->declBus(c+103,"ysyxSoCFull asic cpu cpu soc_axi_w_strb", false,-1, 7,0);
