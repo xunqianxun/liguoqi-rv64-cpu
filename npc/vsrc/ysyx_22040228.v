@@ -412,12 +412,73 @@ module ysyx_22040228arbitratem  (
     assign write_dcache_shankhand  =  /*(~read_icache_shankhand) &&*/  ((d_cache_type == 4'b0001) || (d_cache_type == 4'b0100)); 
     assign read_icache_shankhand   =  /*((d_cache_type == 4'b0000) & (~uncache_read_ena) & (~uncache_write_ena)) &&*/  i_cache_ena ;
 
-    wire [2:0]  shankhand_chose ;
-    assign      shankhand_chose = write_dcache_shankhand  ? `ysyx22040228_ARB_DWRITE  :
-                                  write_uncahce_shankhand ? `ysyx22040228_ARB_DWRITEU :
-                                  read_dcache_shankhand   ? `ysyx22040228_ARB_DREAD   :
-                                  read_uncahce_shankhand  ? `ysyx22040228_ARB_DREADU  : 
-                                  read_icache_shankhand   ? `ysyx22040228_ARB_IREAD   : `ysyx22040228_ARB_IDLE ;
+    // wire [2:0]  shankhand_chose ;
+    // assign      shankhand_chose = write_dcache_shankhand  ? `ysyx22040228_ARB_DWRITE  :
+    //                               write_uncahce_shankhand ? `ysyx22040228_ARB_DWRITEU :
+    //                               read_dcache_shankhand   ? `ysyx22040228_ARB_DREAD   :
+    //                               read_uncahce_shankhand  ? `ysyx22040228_ARB_DREADU  : 
+    //                               read_icache_shankhand   ? `ysyx22040228_ARB_IREAD   : `ysyx22040228_ARB_IDLE ;
+    reg         write_dcache_ok  ;
+    reg         write_uncache_ok ;
+    reg         read_dcache_ok   ;
+    reg         read_uncache_ok  ;
+    reg         read_icache_ok   ;
+/* verilator lint_off BLKSEQ */
+    reg  [2:0]  shankhand_chose ;
+    always @(posedge clk) begin
+        if(rst == `ysyx22040228_RSTENA) begin
+            shankhand_chose = `ysyx22040228_ARB_IDLE ;
+        end 
+        else begin
+            case (shankhand_chose)
+                `ysyx22040228_ARB_IDLE : begin
+                    if(write_dcache_shankhand)
+                       shankhand_chose = `ysyx22040228_ARB_DWRITE ;
+                    else if(write_uncahce_shankhand) 
+                       shankhand_chose = `ysyx22040228_ARB_DWRITEU;
+                    else if(read_dcache_shankhand)
+                       shankhand_chose = `ysyx22040228_ARB_DREAD  ;
+                    else if(read_uncahce_shankhand)
+                       shankhand_chose = `ysyx22040228_ARB_DREADU ;
+                    else if(read_icache_shankhand) 
+                       shankhand_chose = `ysyx22040228_ARB_IREAD  ;
+                    else 
+                       shankhand_chose = `ysyx22040228_ARB_IDLE   ;  
+                end
+                `ysyx22040228_ARB_DWRITE : begin
+                    if(write_dcache_ok)
+                       shankhand_chose = `ysyx22040228_ARB_IDLE   ;
+                    else  
+                       shankhand_chose = `ysyx22040228_ARB_DWRITE ; 
+                end 
+                `ysyx22040228_ARB_DWRITEU : begin
+                    if(write_uncache_ok)
+                       shankhand_chose = `ysyx22040228_ARB_IDLE   ;
+                    else  
+                       shankhand_chose = `ysyx22040228_ARB_DWRITEU; 
+                end 
+                `ysyx22040228_ARB_DREAD : begin
+                    if(read_dcache_ok)
+                       shankhand_chose = `ysyx22040228_ARB_IDLE   ;
+                    else  
+                       shankhand_chose = `ysyx22040228_ARB_DREAD  ; 
+                end 
+                `ysyx22040228_ARB_DREADU : begin
+                    if(read_uncache_ok)
+                       shankhand_chose = `ysyx22040228_ARB_IDLE   ;
+                    else  
+                       shankhand_chose = `ysyx22040228_ARB_DREADU ; 
+                end 
+                `ysyx22040228_ARB_IREAD : begin
+                    if(read_icache_ok)
+                       shankhand_chose = `ysyx22040228_ARB_IDLE   ;
+                    else  
+                       shankhand_chose = `ysyx22040228_ARB_IREAD  ; 
+                end 
+                default: shankhand_chose = `ysyx22040228_ARB_IDLE ; 
+            endcase
+        end 
+    end
 
     wire   read_valid  ;
     wire   write_valid ;
@@ -820,25 +881,55 @@ module ysyx_22040228arbitratem  (
             i_cache_valid_     <= `ysyx22040228_ENABLE;
             uncahce_data_o     <= 64'h0               ;
             uncahce_valid_     <= `ysyx22040228_ENABLE;
+            write_dcache_ok    <= `ysyx22040228_ENABLE;
+            write_uncache_ok   <= `ysyx22040228_ENABLE;
+            read_dcache_ok     <= `ysyx22040228_ENABLE;
+            read_uncache_ok    <= `ysyx22040228_ENABLE;
+            read_icache_ok     <= `ysyx22040228_ENABLE;
+
         end 
         else if(read_dcache_shankhand & (axi_r_last & axi_r_valid)) begin
             d_cache_data_o     <= axi_r_data        ;
             d_cache_valid_     <= `ysyx22040228_ABLE;
+            write_dcache_ok    <= `ysyx22040228_ENABLE;
+            write_uncache_ok   <= `ysyx22040228_ENABLE;
+            read_dcache_ok     <= `ysyx22040228_ABLE  ;
+            read_uncache_ok    <= `ysyx22040228_ENABLE;
+            read_icache_ok     <= `ysyx22040228_ENABLE;
         end 
         else if(write_dcache_shankhand & (axi_b_ready & axi_b_valid)) begin
             d_cache_valid_     <= `ysyx22040228_ABLE;
+            write_dcache_ok    <= `ysyx22040228_ABLE  ;
+            write_uncache_ok   <= `ysyx22040228_ENABLE;
+            read_dcache_ok     <= `ysyx22040228_ENABLE;
+            read_uncache_ok    <= `ysyx22040228_ENABLE;
+            read_icache_ok     <= `ysyx22040228_ENABLE;
         end 
         else if(read_icache_shankhand & (axi_r_last & axi_r_valid))begin
             i_cache_data       <= axi_r_data        ;
             i_cache_valid_     <= `ysyx22040228_ABLE;
+            write_dcache_ok    <= `ysyx22040228_ENABLE;
+            write_uncache_ok   <= `ysyx22040228_ENABLE;
+            read_dcache_ok     <= `ysyx22040228_ENABLE;
+            read_uncache_ok    <= `ysyx22040228_ENABLE;
+            read_icache_ok     <= `ysyx22040228_ABLE  ;
         end 
         else if(read_uncahce_shankhand & (axi_r_last & axi_r_valid)) begin          
             uncahce_data_o     <= axi_r_data        ;
             uncahce_valid_     <= `ysyx22040228_ABLE;
-
+            write_dcache_ok    <= `ysyx22040228_ENABLE;
+            write_uncache_ok   <= `ysyx22040228_ENABLE;
+            read_dcache_ok     <= `ysyx22040228_ENABLE;
+            read_uncache_ok    <= `ysyx22040228_ABLE  ;
+            read_icache_ok     <= `ysyx22040228_ENABLE;
         end 
         else if(write_uncahce_shankhand & (axi_b_ready & axi_b_valid)) begin
             uncahce_valid_     <= `ysyx22040228_ABLE;
+            write_dcache_ok    <= `ysyx22040228_ENABLE;
+            write_uncache_ok   <= `ysyx22040228_ABLE  ;
+            read_dcache_ok     <= `ysyx22040228_ENABLE;
+            read_uncache_ok    <= `ysyx22040228_ENABLE;
+            read_icache_ok     <= `ysyx22040228_ENABLE;
         end 
         else begin
             d_cache_data_o     <= 64'h0               ;
@@ -847,6 +938,11 @@ module ysyx_22040228arbitratem  (
             i_cache_valid_     <= `ysyx22040228_ENABLE;
             uncahce_data_o     <= 64'h0               ;
             uncahce_valid_     <= `ysyx22040228_ENABLE;
+            write_dcache_ok    <= `ysyx22040228_ENABLE;
+            write_uncache_ok   <= `ysyx22040228_ENABLE;
+            read_dcache_ok     <= `ysyx22040228_ENABLE;
+            read_uncache_ok    <= `ysyx22040228_ENABLE;
+            read_icache_ok     <= `ysyx22040228_ENABLE;
         end 
     end
 
