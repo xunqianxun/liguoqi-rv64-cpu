@@ -638,7 +638,7 @@ module ysyx_22040228arbitratem  (
                         axi_ar_valid  = (uncache_addr[31] == 1 )?axi_ar_ready:~chosel;
                         axi_ar_addr   =  uncache_addr;
                         axi_ar_size   = uncache_size_data ;
-                        axi_ar_len    = 8'b0000_0001;
+                        axi_ar_len    = 8'b0000_0000;
                         axi_ar_burst  = 2'b01;
                         axi_ar_id     = 4'b0000;
                         axi_r_ready   = 1'b0;
