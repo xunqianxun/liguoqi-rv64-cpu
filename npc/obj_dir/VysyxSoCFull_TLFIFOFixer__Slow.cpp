@@ -55,10 +55,10 @@ void VysyxSoCFull_TLFIFOFixer___initial__TOP__ysyxSoCFull__DOT__asic__DOT__chipM
     }
 }
 
-void VysyxSoCFull_TLFIFOFixer___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__fixer__7(VysyxSoCFull_TLFIFOFixer* vlSelf) {
+void VysyxSoCFull_TLFIFOFixer___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__fixer__6(VysyxSoCFull_TLFIFOFixer* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_TLFIFOFixer___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__fixer__7\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_TLFIFOFixer___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__fixer__6\n"); );
     // Body
     vlSelf->__PVT__a_first = (0U == (IData)(vlSelf->__PVT__a_first_counter));
     vlSelf->__PVT__a_first_counter1 = (0xfU & ((IData)(vlSelf->__PVT__a_first_counter) 
@@ -92,126 +92,10 @@ void VysyxSoCFull_TLFIFOFixer___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMa
     vlSelf->__PVT__monitor__DOT__d_first = (0U == (IData)(vlSelf->__PVT__monitor__DOT__d_first_counter));
 }
 
-void VysyxSoCFull_TLFIFOFixer___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__fixer__9(VysyxSoCFull_TLFIFOFixer* vlSelf) {
+void VysyxSoCFull_TLFIFOFixer___settle__TOP__ysyxSoCFull__DOT__fpga__DOT__fixer__9(VysyxSoCFull_TLFIFOFixer* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_TLFIFOFixer___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__fixer__9\n"); );
-    // Body
-    vlSelf->__PVT__monitor__DOT___GEN_30 = ((5U == (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_opcode))
-                                             ? 2U : 
-                                            ((4U == (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_opcode))
-                                              ? 1U : 
-                                             ((3U == (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_opcode))
-                                               ? 1U
-                                               : ((2U 
-                                                   == (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_opcode))
-                                                   ? 1U
-                                                   : 0U))));
-    vlSelf->__PVT__monitor__DOT__source_ok = 1U;
-    vlSelf->__PVT__monitor__DOT___T_77 = ((6U >= (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_size)) 
-                                          & (0ULL == 
-                                             (0x1fffff000ULL 
-                                              & (QData)((IData)(
-                                                                (0x1000U 
-                                                                 ^ vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address))))));
-    vlSelf->__PVT__monitor__DOT__mask_acc = (1U & (
-                                                   (2U 
-                                                    <= (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_size)) 
-                                                   | (1U 
-                                                      & ((((IData)(1U) 
-                                                           << 
-                                                           (1U 
-                                                            & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_size))) 
-                                                          >> 1U) 
-                                                         & (~ 
-                                                            (vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address 
-                                                             >> 1U))))));
-    vlSelf->__PVT__monitor__DOT__mask_acc_1 = (1U & 
-                                               ((2U 
-                                                 <= (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_size)) 
-                                                | (1U 
-                                                   & ((((IData)(1U) 
-                                                        << 
-                                                        (1U 
-                                                         & (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_size))) 
-                                                       >> 1U) 
-                                                      & (vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address 
-                                                         >> 1U)))));
-    vlSelf->__PVT__a_id = (((0ULL == (0xc0000000ULL 
-                                      & (QData)((IData)(
-                                                        (0x40000000U 
-                                                         ^ vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address))))) 
-                            | (0ULL == (0x80000000ULL 
-                                        & (QData)((IData)(
-                                                          (0x80000000U 
-                                                           ^ vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address)))))) 
-                           | ((0ULL == (0xc0000000ULL 
-                                        & (QData)((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address))))
-                               ? 2U : 0U));
-    vlSelf->__PVT__monitor__DOT__mask = ((8U & (((IData)(vlSelf->__PVT__monitor__DOT__mask_acc_1) 
-                                                 << 3U) 
-                                                | (0xfffffff8U 
-                                                   & ((vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address 
-                                                       << 2U) 
-                                                      & (vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address 
-                                                         << 3U))))) 
-                                         | ((4U & (
-                                                   ((IData)(vlSelf->__PVT__monitor__DOT__mask_acc_1) 
-                                                    | (IData)(
-                                                              (2U 
-                                                               == 
-                                                               (3U 
-                                                                & vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address)))) 
-                                                   << 2U)) 
-                                            | ((2U 
-                                                & (((IData)(vlSelf->__PVT__monitor__DOT__mask_acc) 
-                                                    | (IData)(
-                                                              (1U 
-                                                               == 
-                                                               (3U 
-                                                                & vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address)))) 
-                                                   << 1U)) 
-                                               | (1U 
-                                                  & ((IData)(vlSelf->__PVT__monitor__DOT__mask_acc) 
-                                                     | (IData)(
-                                                               (0U 
-                                                                == 
-                                                                (3U 
-                                                                 & vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_address))))))));
-    vlSelf->__PVT__stall = (((((~ ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_source) 
-                                   >> 3U)) & (0U == (IData)(vlSelf->__PVT__a_first_counter))) 
-                              & ((((((((IData)(vlSelf->__PVT__flight_0) 
-                                       | (IData)(vlSelf->__PVT__flight_1)) 
-                                      | (IData)(vlSelf->__PVT__flight_2)) 
-                                     | (IData)(vlSelf->__PVT__flight_3)) 
-                                    | (IData)(vlSelf->__PVT__flight_4)) 
-                                   | (IData)(vlSelf->__PVT__flight_5)) 
-                                  | (IData)(vlSelf->__PVT__flight_6)) 
-                                 | (IData)(vlSelf->__PVT__flight_7))) 
-                             & ((0U == (IData)(vlSelf->__PVT__a_id)) 
-                                | ((IData)(vlSelf->__PVT__stalls_id) 
-                                   != (IData)(vlSelf->__PVT__a_id)))) 
-                            | (((((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_bits_source) 
-                                  >> 3U) & (0U == (IData)(vlSelf->__PVT__a_first_counter))) 
-                                & ((((((((IData)(vlSelf->__PVT__flight_8) 
-                                         | (IData)(vlSelf->__PVT__flight_9)) 
-                                        | (IData)(vlSelf->__PVT__flight_10)) 
-                                       | (IData)(vlSelf->__PVT__flight_11)) 
-                                      | (IData)(vlSelf->__PVT__flight_12)) 
-                                     | (IData)(vlSelf->__PVT__flight_13)) 
-                                    | (IData)(vlSelf->__PVT__flight_14)) 
-                                   | (IData)(vlSelf->__PVT__flight_15))) 
-                               & ((0U == (IData)(vlSelf->__PVT__a_id)) 
-                                  | ((IData)(vlSelf->__PVT__stalls_id_1) 
-                                     != (IData)(vlSelf->__PVT__a_id)))));
-    vlSelf->auto_out_a_valid = ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__widget.__PVT__repeated_repeater_io_deq_valid) 
-                                & (~ (IData)(vlSelf->__PVT__stall)));
-}
-
-void VysyxSoCFull_TLFIFOFixer___settle__TOP__ysyxSoCFull__DOT__fpga__DOT__fixer__10(VysyxSoCFull_TLFIFOFixer* vlSelf) {
-    if (false && vlSelf) {}  // Prevent unused
-    VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_TLFIFOFixer___settle__TOP__ysyxSoCFull__DOT__fpga__DOT__fixer__10\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_TLFIFOFixer___settle__TOP__ysyxSoCFull__DOT__fpga__DOT__fixer__9\n"); );
     // Body
     vlSelf->__PVT__monitor__DOT___GEN_30 = ((5U == (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__widget.__PVT__repeated_repeater_io_deq_bits_opcode))
                                              ? 2U : 
@@ -324,10 +208,10 @@ void VysyxSoCFull_TLFIFOFixer___settle__TOP__ysyxSoCFull__DOT__fpga__DOT__fixer_
                                 & (~ (IData)(vlSelf->__PVT__stall)));
 }
 
-void VysyxSoCFull_TLFIFOFixer___settle__TOP__ysyxSoCFull__DOT__fpga__DOT__fixer__12(VysyxSoCFull_TLFIFOFixer* vlSelf) {
+void VysyxSoCFull_TLFIFOFixer___settle__TOP__ysyxSoCFull__DOT__fpga__DOT__fixer__11(VysyxSoCFull_TLFIFOFixer* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_TLFIFOFixer___settle__TOP__ysyxSoCFull__DOT__fpga__DOT__fixer__12\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_TLFIFOFixer___settle__TOP__ysyxSoCFull__DOT__fpga__DOT__fixer__11\n"); );
     // Variables
     VlWide<5>/*159:0*/ __Vtemp32;
     VlWide<5>/*159:0*/ __Vtemp33;
