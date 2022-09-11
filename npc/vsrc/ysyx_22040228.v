@@ -446,31 +446,31 @@ module ysyx_22040228arbitratem  (
                        shankhand_chose = `ysyx22040228_ARB_IDLE   ;  
                 end
                 `ysyx22040228_ARB_DWRITE : begin
-                    if(write_dcache_ok)
+                    if((axi_b_ready & axi_b_valid))
                        shankhand_chose = `ysyx22040228_ARB_IDLE   ;
                     else  
                        shankhand_chose = `ysyx22040228_ARB_DWRITE ; 
                 end 
                 `ysyx22040228_ARB_DWRITEU : begin
-                    if(write_uncache_ok)
+                    if((axi_b_ready & axi_b_valid))
                        shankhand_chose = `ysyx22040228_ARB_IDLE   ;
                     else  
                        shankhand_chose = `ysyx22040228_ARB_DWRITEU; 
                 end 
                 `ysyx22040228_ARB_DREAD : begin
-                    if(read_dcache_ok)
+                    if((axi_r_last & axi_r_valid))
                        shankhand_chose = `ysyx22040228_ARB_IDLE   ;
                     else  
                        shankhand_chose = `ysyx22040228_ARB_DREAD  ; 
                 end 
                 `ysyx22040228_ARB_DREADU : begin
-                    if(read_uncache_ok)
+                    if((axi_r_last & axi_r_valid))
                        shankhand_chose = `ysyx22040228_ARB_IDLE   ;
                     else  
                        shankhand_chose = `ysyx22040228_ARB_DREADU ; 
                 end 
                 `ysyx22040228_ARB_IREAD : begin
-                    if(read_icache_ok)
+                    if((axi_r_last & axi_r_valid))
                        shankhand_chose = `ysyx22040228_ARB_IDLE   ;
                     else  
                        shankhand_chose = `ysyx22040228_ARB_IREAD  ; 
