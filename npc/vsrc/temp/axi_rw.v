@@ -359,8 +359,7 @@ module axi_rw (
                         axi_w_strb    =8'h00;
                         axi_w_valid  = 1'b0;
                         axi_b_ready   = 1'b0;                    
-                        //axi_w_data   = d_cache_data;
-                        axi_w_strb   = 8'h0;                    
+                        //axi_w_data   = d_cache_data;          
                     end
                     default:;
             endcase
@@ -403,7 +402,6 @@ module axi_rw (
                         axi_ar_burst  = 2'b0;
                         axi_ar_id     = 4'b0000;
                         axi_aw_valid  =1'b0;
-                        axi_w_strb    =8'h00;
                         axi_w_valid  = 1'b0;
                         axi_b_ready   = 1'b0;                    
                         //axi_w_data   = d_cache_data;
