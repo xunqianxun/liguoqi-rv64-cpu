@@ -406,17 +406,17 @@ module ysyx_22040228arbitratem  (
     wire    read_uncahce_shankhand ;
     wire    write_uncahce_shankhand;
 
-    assign read_uncahce_shankhand  =  (~read_icache_shankhand) && (uncache_read_ena) ;
-    assign write_uncahce_shankhand =  (~read_icache_shankhand) && (uncache_write_ena);
-    assign read_dcache_shankhand   =  (~read_icache_shankhand) && ((d_cache_type == 4'b0010) || (d_cache_type == 4'b1000));
-    assign write_dcache_shankhand  =  (~read_icache_shankhand) && ((d_cache_type == 4'b0001) || (d_cache_type == 4'b0100)); 
-    assign read_icache_shankhand   =  ((d_cache_type == 4'b0000) & (~uncache_read_ena) & (~uncache_write_ena)) && i_cache_ena ;
+    assign read_uncahce_shankhand  =  /*(~read_icache_shankhand) &&*/ (uncache_read_ena) ;
+    assign write_uncahce_shankhand =  /*(~read_icache_shankhand) &&*/  (uncache_write_ena);
+    assign read_dcache_shankhand   =  /*(~read_icache_shankhand) &&*/  ((d_cache_type == 4'b0010) || (d_cache_type == 4'b1000));
+    assign write_dcache_shankhand  =  /*(~read_icache_shankhand) &&*/  ((d_cache_type == 4'b0001) || (d_cache_type == 4'b0100)); 
+    assign read_icache_shankhand   =  /*((d_cache_type == 4'b0000) & (~uncache_read_ena) & (~uncache_write_ena)) &&*/  i_cache_ena ;
 
     wire [2:0]  shankhand_chose ;
-    assign      shankhand_chose = read_uncahce_shankhand  ? `ysyx22040228_ARB_DREADU  :
-                                  write_uncahce_shankhand ? `ysyx22040228_ARB_DWRITEU : 
+    assign      shankhand_chose = write_dcache_shankhand  ? `ysyx22040228_ARB_DWRITE  :
+                                  write_uncahce_shankhand ? `ysyx22040228_ARB_DWRITEU :
                                   read_dcache_shankhand   ? `ysyx22040228_ARB_DREAD   :
-                                  write_dcache_shankhand  ? `ysyx22040228_ARB_DWRITE  :
+                                  read_uncahce_shankhand  ? `ysyx22040228_ARB_DREADU  : 
                                   read_icache_shankhand   ? `ysyx22040228_ARB_IREAD   : `ysyx22040228_ARB_IDLE ;
 
     wire   read_valid  ;
