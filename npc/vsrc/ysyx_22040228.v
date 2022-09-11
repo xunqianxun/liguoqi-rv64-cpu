@@ -410,7 +410,7 @@ module ysyx_22040228arbitratem  (
     assign write_uncahce_shankhand =  (~read_icache_shankhand) && (uncache_write_ena);
     assign read_dcache_shankhand   =  (~read_icache_shankhand) && ((d_cache_type == 4'b0010) || (d_cache_type == 4'b1000));
     assign write_dcache_shankhand  =  (~read_icache_shankhand) && ((d_cache_type == 4'b0001) || (d_cache_type == 4'b0100)); 
-    assign read_icache_shankhand   =  ((d_cache_type == 4'b0000) | (~uncache_read_ena) | (~uncache_write_ena)) && i_cache_ena ;
+    assign read_icache_shankhand   =  ((d_cache_type == 4'b0000) & (~uncache_read_ena) & (~uncache_write_ena)) && i_cache_ena ;
 
     wire [2:0]  shankhand_chose ;
     assign      shankhand_chose = read_uncahce_shankhand  ? `ysyx22040228_ARB_DREADU  :
