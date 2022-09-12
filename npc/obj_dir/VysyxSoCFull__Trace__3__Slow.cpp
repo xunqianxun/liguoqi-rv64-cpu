@@ -218,29 +218,6 @@ void VysyxSoCFull___024root__traceFullSub1(VysyxSoCFull___024root* vlSelf, Veril
     if (false && oldp) {}  // Prevent unused
     // Body
     {
-        tracep->fullBit(oldp+4427,(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset_chain__DOT__output_chain__DOT__sync_8));
-        tracep->fullBit(oldp+4428,(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset_chain__DOT__output_chain__DOT__sync_9));
-        tracep->fullBit(oldp+4429,(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_corrupt));
-        tracep->fullBit(oldp+4430,(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__repeated_repeater_1_io_enq_ready));
-        tracep->fullCData(oldp+4431,(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode),3);
-        tracep->fullCData(oldp+4432,(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_param),3);
-        tracep->fullCData(oldp+4433,(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_size),4);
-        tracep->fullCData(oldp+4434,(((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_source) 
-                                      << 1U)),7);
-        tracep->fullIData(oldp+4435,(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_address),32);
-        tracep->fullBit(oldp+4436,(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_d_ready));
-        tracep->fullBit(oldp+4437,(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_in_d_valid));
-        tracep->fullCData(oldp+4438,(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_in_d_bits_opcode),3);
-        tracep->fullCData(oldp+4439,(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_in_d_bits_param),2);
-        tracep->fullCData(oldp+4440,(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_in_d_bits_size),4);
-        tracep->fullCData(oldp+4441,(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_in_d_bits_source),7);
-        tracep->fullBit(oldp+4442,(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_in_d_bits_denied));
-        tracep->fullQData(oldp+4443,(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_in_d_bits_data),64);
-        tracep->fullBit(oldp+4445,(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_in_d_bits_corrupt));
-        tracep->fullBit(oldp+4446,((1U & (~ (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_e_bits_sink)))));
-        tracep->fullBit(oldp+4447,(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_e_bits_sink));
-        tracep->fullBit(oldp+4448,(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__repeated_repeater_io_enq_ready));
-        tracep->fullCData(oldp+4449,((7U & (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_size))),3);
         tracep->fullSData(oldp+4450,((0x1fffU & vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_address)),13);
         tracep->fullBit(oldp+4451,(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_out_2_d_ready));
         tracep->fullBit(oldp+4452,(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2_auto_in_d_valid));
