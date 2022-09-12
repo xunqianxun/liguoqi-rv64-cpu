@@ -661,7 +661,7 @@ module ysyx_22040228arbitratem  (
                         axi_w_strb    =8'h00;
                         axi_w_valid  = 1'b0;
                         axi_b_ready   = 1'b0; 
-                        axi_ar_addr   = d_cache_addr;                 
+                        axi_ar_addr   = 64'h0;                 
                     end
 
                 `ysyx22040228_AXIR_ADDR : begin
@@ -708,7 +708,7 @@ module ysyx_22040228arbitratem  (
                         axi_w_strb    =8'h00;
                         axi_w_valid  = 1'b0;
                         axi_b_ready   = 1'b0;  
-                        axi_ar_addr   = uncache_addr;                 
+                        axi_ar_addr   = 64'h0;                 
                     end
 
                 `ysyx22040228_AXIR_ADDR : begin
@@ -755,8 +755,8 @@ module ysyx_22040228arbitratem  (
                     axi_aw_size  = 3'b000;
                     axi_aw_burst = 2'b0;
                     axi_w_valid  = 1'b0;
-                    axi_w_data   = d_cache_data;
-                    axi_w_strb   = 8'b11111111;
+                    axi_w_data   = 64'h0;
+                    axi_w_strb   = 8'b00000000;
                     axi_w_last    = 1'b0;
                     axi_b_ready   = 1'b0;
                     axi_r_ready  = 1'b0;

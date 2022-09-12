@@ -90,7 +90,6 @@ VM_SUPPORT_FAST += \
 	VysyxSoCFull__Trace__1 \
 	VysyxSoCFull__Trace__2 \
 	VysyxSoCFull__Trace__3 \
-	VysyxSoCFull__Trace__4 \
 
 # Generated support classes, non-fast-path, compile with low/medium optimization
 VM_SUPPORT_SLOW += \

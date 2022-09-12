@@ -90,7 +90,7 @@ VysyxSoCFull__Syms::VysyxSoCFull__Syms(VerilatedContext* contextp, const char* n
 {
     // Configure time unit / time precision
     _vm_contextp__->timeunit(-9);
-    _vm_contextp__->timeprecision(-11);
+    _vm_contextp__->timeprecision(-12);
     // Setup each module's pointers to their submodules
     TOP.__PVT____024unit = &TOP____024unit;
     TOP.__PVT__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi4yank_1 = &TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi4yank_1;
