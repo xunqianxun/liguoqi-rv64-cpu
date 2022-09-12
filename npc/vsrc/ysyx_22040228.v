@@ -406,76 +406,79 @@ module ysyx_22040228arbitratem  (
     wire    read_uncahce_shankhand ;
     wire    write_uncahce_shankhand;
 
-    assign read_uncahce_shankhand  =  /*(~read_icache_shankhand) &&*/ (uncache_read_ena) ;
-    assign write_uncahce_shankhand =  /*(~read_icache_shankhand) &&*/  (uncache_write_ena);
-    assign read_dcache_shankhand   =  /*(~read_icache_shankhand) &&*/  ((d_cache_type == 4'b0010) || (d_cache_type == 4'b1000));
-    assign write_dcache_shankhand  =  /*(~read_icache_shankhand) &&*/  ((d_cache_type == 4'b0001) || (d_cache_type == 4'b0100)); 
-    assign read_icache_shankhand   =  /*((d_cache_type == 4'b0000) & (~uncache_read_ena) & (~uncache_write_ena)) &&*/  i_cache_ena ;
+    assign read_uncahce_shankhand  =  (~read_icache_shankhand) && (uncache_read_ena) ;
+    assign write_uncahce_shankhand =  (~read_icache_shankhand) && (uncache_write_ena);
+    assign read_dcache_shankhand   =  (~read_icache_shankhand) && ((d_cache_type == 4'b0010) || (d_cache_type == 4'b1000));
+    assign write_dcache_shankhand  =  (~read_icache_shankhand) && ((d_cache_type == 4'b0001) || (d_cache_type == 4'b0100)); 
+    assign read_icache_shankhand   =  ((d_cache_type == 4'b0000) | (~uncache_read_ena) | (~uncache_write_ena)) && i_cache_ena ;
 
-    // wire [2:0]  shankhand_chose ;
-    // assign      shankhand_chose = write_dcache_shankhand  ? `ysyx22040228_ARB_DWRITE  :
-    //                               write_uncahce_shankhand ? `ysyx22040228_ARB_DWRITEU :
-    //                               read_dcache_shankhand   ? `ysyx22040228_ARB_DREAD   :
-    //                               read_uncahce_shankhand  ? `ysyx22040228_ARB_DREADU  : 
-    //                               read_icache_shankhand   ? `ysyx22040228_ARB_IREAD   : `ysyx22040228_ARB_IDLE ;
     reg         write_dcache_ok  ;
     reg         write_uncache_ok ;
     reg         read_dcache_ok   ;
     reg         read_uncache_ok  ;
     reg         read_icache_ok   ;
-/* verilator lint_off BLKSEQ */
-    reg  [2:0]  shankhand_chose ;
+
+    reg  [2:0]    arbitrate_state ;
+    reg  [2:0]    arbitrate_state_nxt ;
+
     always @(posedge clk) begin
+        if(rst == `ysyx22040228_RSTENA)
+            arbitrate_state <= `ysyx22040228_ARB_IDLE ;
+        else 
+            arbitrate_state <= arbitrate_state_nxt   ;
+    end
+
+   always @(*) begin
         if(rst == `ysyx22040228_RSTENA) begin
-            shankhand_chose = `ysyx22040228_ARB_IDLE ;
+            arbitrate_state_nxt = `ysyx22040228_ARB_IDLE  ;
         end 
-        else begin
-            case (shankhand_chose)
+        else begin 
+            case (arbitrate_state)
                 `ysyx22040228_ARB_IDLE : begin
-                    if(write_dcache_shankhand)
-                       shankhand_chose = `ysyx22040228_ARB_DWRITE ;
-                    else if(write_uncahce_shankhand) 
-                       shankhand_chose = `ysyx22040228_ARB_DWRITEU;
-                    else if(read_dcache_shankhand)
-                       shankhand_chose = `ysyx22040228_ARB_DREAD  ;
+                    if(read_dcache_shankhand)
+                        arbitrate_state_nxt = `ysyx22040228_ARB_DREAD ;
                     else if(read_uncahce_shankhand)
-                       shankhand_chose = `ysyx22040228_ARB_DREADU ;
-                    else if(read_icache_shankhand) 
-                       shankhand_chose = `ysyx22040228_ARB_IREAD  ;
+                        arbitrate_state_nxt = `ysyx22040228_ARB_DREADU ;
+                    else if(write_dcache_shankhand)
+                        arbitrate_state_nxt = `ysyx22040228_ARB_DWRITE;
+                    else if(write_uncahce_shankhand)
+                        arbitrate_state_nxt = `ysyx22040228_ARB_DWRITEU;
+                    else if(read_icache_shankhand)
+                        arbitrate_state_nxt = `ysyx22040228_ARB_IREAD ;
                     else 
-                       shankhand_chose = `ysyx22040228_ARB_IDLE   ;  
-                end
-                `ysyx22040228_ARB_DWRITE : begin
-                    if((axi_b_ready & axi_b_valid))
-                       shankhand_chose = `ysyx22040228_ARB_IDLE   ;
-                    else  
-                       shankhand_chose = `ysyx22040228_ARB_DWRITE ; 
-                end 
-                `ysyx22040228_ARB_DWRITEU : begin
-                    if((axi_b_ready & axi_b_valid))
-                       shankhand_chose = `ysyx22040228_ARB_IDLE   ;
-                    else  
-                       shankhand_chose = `ysyx22040228_ARB_DWRITEU; 
+                        arbitrate_state_nxt = `ysyx22040228_ARB_IDLE  ;
                 end 
                 `ysyx22040228_ARB_DREAD : begin
-                    if((axi_r_last & axi_r_valid))
-                       shankhand_chose = `ysyx22040228_ARB_IDLE   ;
-                    else  
-                       shankhand_chose = `ysyx22040228_ARB_DREAD  ; 
+                    if(read_dcache_ok)
+                        arbitrate_state_nxt = `ysyx22040228_ARB_IDLE  ;
+                    else 
+                        arbitrate_state_nxt = `ysyx22040228_ARB_DREAD ;
                 end 
                 `ysyx22040228_ARB_DREADU : begin
-                    if((axi_r_last & axi_r_valid))
-                       shankhand_chose = `ysyx22040228_ARB_IDLE   ;
-                    else  
-                       shankhand_chose = `ysyx22040228_ARB_DREADU ; 
+                    if(read_uncache_ok)
+                        arbitrate_state_nxt = `ysyx22040228_ARB_IDLE  ;
+                    else 
+                        arbitrate_state_nxt = `ysyx22040228_ARB_DREADU ;
                 end 
+                `ysyx22040228_ARB_DWRITE : begin
+                    if(write_dcache_ok)
+                        arbitrate_state_nxt = `ysyx22040228_ARB_IDLE  ;
+                    else 
+                        arbitrate_state_nxt = `ysyx22040228_ARB_DWRITE;
+                end 
+                `ysyx22040228_ARB_DWRITEU : begin
+                    if(write_uncache_ok)
+                        arbitrate_state_nxt = `ysyx22040228_ARB_IDLE  ;
+                    else 
+                        arbitrate_state_nxt = `ysyx22040228_ARB_DWRITEU;
+                end
                 `ysyx22040228_ARB_IREAD : begin
-                    if((axi_r_last & axi_r_valid))
-                       shankhand_chose = `ysyx22040228_ARB_IDLE   ;
-                    else  
-                       shankhand_chose = `ysyx22040228_ARB_IREAD  ; 
+                    if(read_icache_ok)
+                        arbitrate_state_nxt = `ysyx22040228_ARB_IDLE  ;
+                    else 
+                        arbitrate_state_nxt = `ysyx22040228_ARB_IREAD ;
                 end 
-                default: shankhand_chose = `ysyx22040228_ARB_IDLE ; 
+                default:  arbitrate_state_nxt = `ysyx22040228_ARB_IDLE  ;
             endcase
         end 
     end
@@ -588,7 +591,7 @@ module ysyx_22040228arbitratem  (
         axi_ar_qos = 4'h0 ;
         axi_ar_valid = `ysyx22040228_ENABLE ;
         axi_r_ready = `ysyx22040228_ENABLE ;
-        case (shankhand_chose)
+        case (arbitrate_state)
             `ysyx22040228_ARB_IREAD : begin   
                 case (axir_state)
                 `ysyx22040228_AXIR_IDLE : begin
