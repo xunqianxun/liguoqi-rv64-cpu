@@ -901,7 +901,7 @@ module ysyx_22040228arbitratem  (
             read_icache_ok     <= `ysyx22040228_ENABLE;
 
         end 
-        else if(read_dcache_shankhand & (axi_r_last & axi_r_valid)) begin
+        else if((arbitrate_state == `ysyx22040228_ARB_DREAD) & (axi_r_last & axi_r_valid)) begin
             d_cache_data_o     <= axi_r_data        ;
             d_cache_valid_     <= `ysyx22040228_ABLE;
             write_dcache_ok    <= `ysyx22040228_ENABLE;
@@ -910,7 +910,7 @@ module ysyx_22040228arbitratem  (
             read_uncache_ok    <= `ysyx22040228_ENABLE;
             read_icache_ok     <= `ysyx22040228_ENABLE;
         end 
-        else if(write_dcache_shankhand & (axi_b_ready & axi_b_valid)) begin
+        else if((arbitrate_state == `ysyx22040228_ARB_DWRITE) & (axi_b_ready & axi_b_valid)) begin
             d_cache_valid_     <= `ysyx22040228_ABLE;
             write_dcache_ok    <= `ysyx22040228_ABLE  ;
             write_uncache_ok   <= `ysyx22040228_ENABLE;
@@ -918,7 +918,7 @@ module ysyx_22040228arbitratem  (
             read_uncache_ok    <= `ysyx22040228_ENABLE;
             read_icache_ok     <= `ysyx22040228_ENABLE;
         end 
-        else if(read_icache_shankhand & (axi_r_last & axi_r_valid))begin
+        else if((arbitrate_state == `ysyx22040228_ARB_IREAD) & (axi_r_last & axi_r_valid))begin
             i_cache_data       <= axi_r_data        ;
             i_cache_valid_     <= `ysyx22040228_ABLE;
             write_dcache_ok    <= `ysyx22040228_ENABLE;
@@ -927,7 +927,7 @@ module ysyx_22040228arbitratem  (
             read_uncache_ok    <= `ysyx22040228_ENABLE;
             read_icache_ok     <= `ysyx22040228_ABLE  ;
         end 
-        else if(read_uncahce_shankhand & (axi_r_last & axi_r_valid)) begin          
+        else if((arbitrate_state == `ysyx22040228_ARB_DREADU) & (axi_r_last & axi_r_valid)) begin          
             uncahce_data_o     <= axi_r_data        ;
             uncahce_valid_     <= `ysyx22040228_ABLE;
             write_dcache_ok    <= `ysyx22040228_ENABLE;
@@ -936,7 +936,7 @@ module ysyx_22040228arbitratem  (
             read_uncache_ok    <= `ysyx22040228_ABLE  ;
             read_icache_ok     <= `ysyx22040228_ENABLE;
         end 
-        else if(write_uncahce_shankhand & (axi_b_ready & axi_b_valid)) begin
+        else if((arbitrate_state == `ysyx22040228_ARB_DWRITEU) & (axi_b_ready & axi_b_valid)) begin
             uncahce_valid_     <= `ysyx22040228_ABLE;
             write_dcache_ok    <= `ysyx22040228_ENABLE;
             write_uncache_ok   <= `ysyx22040228_ABLE  ;
