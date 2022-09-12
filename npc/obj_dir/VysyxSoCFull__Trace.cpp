@@ -14008,11 +14008,16 @@ void VysyxSoCFull___024root__traceChgSub0(VysyxSoCFull___024root* vlSelf, Verila
             tracep->chgBit(oldp+4337,(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitratem4__DOT__read_icache_ok));
             tracep->chgCData(oldp+4338,(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitratem4__DOT__arbitrate_state),3);
             tracep->chgCData(oldp+4339,(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitratem4__DOT__arbitrate_state_nxt),3);
-            tracep->chgBit(oldp+4340,((((5U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitratem4__DOT__arbitrate_state)) 
-                                        | (6U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitratem4__DOT__arbitrate_state))) 
-                                       | (4U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitratem4__DOT__arbitrate_state)))));
-            tracep->chgBit(oldp+4341,(((2U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitratem4__DOT__arbitrate_state)) 
-                                       | (3U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitratem4__DOT__arbitrate_state)))));
+            tracep->chgBit(oldp+4340,(((((5U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitratem4__DOT__arbitrate_state_nxt)) 
+                                         & (5U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitratem4__DOT__arbitrate_state))) 
+                                        | ((6U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitratem4__DOT__arbitrate_state_nxt)) 
+                                           & (6U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitratem4__DOT__arbitrate_state)))) 
+                                       | ((4U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitratem4__DOT__arbitrate_state_nxt)) 
+                                          & (4U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitratem4__DOT__arbitrate_state))))));
+            tracep->chgBit(oldp+4341,((((2U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitratem4__DOT__arbitrate_state_nxt)) 
+                                        & (2U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitratem4__DOT__arbitrate_state))) 
+                                       | ((3U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitratem4__DOT__arbitrate_state_nxt)) 
+                                          & (3U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitratem4__DOT__arbitrate_state))))));
             tracep->chgCData(oldp+4342,(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitratem4__DOT__axiw_state),3);
             tracep->chgCData(oldp+4343,(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitratem4__DOT__axir_state),2);
             tracep->chgBit(oldp+4344,(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__arbitratem4__DOT__chosel));
@@ -14157,16 +14162,6 @@ void VysyxSoCFull___024root__traceChgSub0(VysyxSoCFull___024root* vlSelf, Verila
                                          << 1U)),7);
             tracep->chgIData(oldp+4434,(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_address),32);
             tracep->chgBit(oldp+4435,(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_d_ready));
-            tracep->chgBit(oldp+4436,(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_in_d_valid));
-            tracep->chgCData(oldp+4437,(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_in_d_bits_opcode),3);
-            tracep->chgCData(oldp+4438,(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_in_d_bits_param),2);
-            tracep->chgCData(oldp+4439,(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_in_d_bits_size),4);
-            tracep->chgCData(oldp+4440,(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_in_d_bits_source),7);
-            tracep->chgBit(oldp+4441,(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_in_d_bits_denied));
-            tracep->chgQData(oldp+4442,(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_in_d_bits_data),64);
-            tracep->chgBit(oldp+4444,(vlSelf->ysyxSoCFull__DOT__fpga__DOT__xbar_auto_in_d_bits_corrupt));
-            tracep->chgBit(oldp+4445,((1U & (~ (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_e_bits_sink)))));
-            tracep->chgBit(oldp+4446,(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_e_bits_sink));
         }
     }
 }

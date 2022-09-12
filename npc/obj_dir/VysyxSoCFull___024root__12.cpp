@@ -120,6 +120,99 @@ VL_INLINE_OPT void VysyxSoCFull___024root___sequent__TOP__24(VysyxSoCFull___024r
     VlWide<16>/*511:0*/ __Vtemp1870;
     VlWide<16>/*511:0*/ __Vtemp1871;
     // Body
+    vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics__DOT__logic_out_lo 
+        = ((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics__DOT__cam_a_0_lut) 
+             >> ((2U & ((IData)((vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics__DOT__cam_a_0_bits_data 
+                                 >> 0x1fU)) << 1U)) 
+                 | (1U & (IData)((vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics__DOT__cam_d_0_data 
+                                  >> 0x1fU))))) << 0x1fU) 
+           | ((0x40000000U & (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics__DOT__cam_a_0_lut) 
+                               >> ((2U & ((IData)((vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics__DOT__cam_a_0_bits_data 
+                                                   >> 0x1eU)) 
+                                          << 1U)) | 
+                                   (1U & (IData)((vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics__DOT__cam_d_0_data 
+                                                  >> 0x1eU))))) 
+                              << 0x1eU)) | ((0x20000000U 
+                                             & (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics__DOT__cam_a_0_lut) 
+                                                 >> 
+                                                 ((2U 
+                                                   & ((IData)(
+                                                              (vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics__DOT__cam_a_0_bits_data 
+                                                               >> 0x1dU)) 
+                                                      << 1U)) 
+                                                  | (1U 
+                                                     & (IData)(
+                                                               (vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics__DOT__cam_d_0_data 
+                                                                >> 0x1dU))))) 
+                                                << 0x1dU)) 
+                                            | ((0x10000000U 
+                                                & (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics__DOT__cam_a_0_lut) 
+                                                    >> 
+                                                    ((2U 
+                                                      & ((IData)(
+                                                                 (vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics__DOT__cam_a_0_bits_data 
+                                                                  >> 0x1cU)) 
+                                                         << 1U)) 
+                                                     | (1U 
+                                                        & (IData)(
+                                                                  (vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics__DOT__cam_d_0_data 
+                                                                   >> 0x1cU))))) 
+                                                   << 0x1cU)) 
+                                               | ((0x8000000U 
+                                                   & (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics__DOT__cam_a_0_lut) 
+                                                       >> 
+                                                       ((2U 
+                                                         & ((IData)(
+                                                                    (vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics__DOT__cam_a_0_bits_data 
+                                                                     >> 0x1bU)) 
+                                                            << 1U)) 
+                                                        | (1U 
+                                                           & (IData)(
+                                                                     (vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics__DOT__cam_d_0_data 
+                                                                      >> 0x1bU))))) 
+                                                      << 0x1bU)) 
+                                                  | ((0x4000000U 
+                                                      & (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics__DOT__cam_a_0_lut) 
+                                                          >> 
+                                                          ((2U 
+                                                            & ((IData)(
+                                                                       (vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics__DOT__cam_a_0_bits_data 
+                                                                        >> 0x1aU)) 
+                                                               << 1U)) 
+                                                           | (1U 
+                                                              & (IData)(
+                                                                        (vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics__DOT__cam_d_0_data 
+                                                                         >> 0x1aU))))) 
+                                                         << 0x1aU)) 
+                                                     | ((0x2000000U 
+                                                         & (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics__DOT__cam_a_0_lut) 
+                                                             >> 
+                                                             ((2U 
+                                                               & ((IData)(
+                                                                          (vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics__DOT__cam_a_0_bits_data 
+                                                                           >> 0x19U)) 
+                                                                  << 1U)) 
+                                                              | (1U 
+                                                                 & (IData)(
+                                                                           (vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics__DOT__cam_d_0_data 
+                                                                            >> 0x19U))))) 
+                                                            << 0x19U)) 
+                                                        | ((0x1000000U 
+                                                            & (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics__DOT__cam_a_0_lut) 
+                                                                >> 
+                                                                ((2U 
+                                                                  & ((IData)(
+                                                                             (vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics__DOT__cam_a_0_bits_data 
+                                                                              >> 0x18U)) 
+                                                                     << 1U)) 
+                                                                 | (1U 
+                                                                    & (IData)(
+                                                                              (vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics__DOT__cam_d_0_data 
+                                                                               >> 0x18U))))) 
+                                                               << 0x18U)) 
+                                                           | (((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics__DOT__logic_out_lo_hi_lo) 
+                                                               << 0x10U) 
+                                                              | (IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics__DOT__logic_out_lo_lo))))))))));
     vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics__DOT__logic_out_hi 
         = ((((IData)(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics__DOT__cam_a_0_lut) 
              >> ((2U & ((IData)((vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics__DOT__cam_a_0_bits_data 
