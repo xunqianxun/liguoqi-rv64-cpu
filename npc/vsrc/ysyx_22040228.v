@@ -495,8 +495,11 @@ module ysyx_22040228arbitratem  (
 
     wire   read_valid  ;
     wire   write_valid ;
-    assign read_valid  = (arbitrate_state == `ysyx22040228_ARB_DREAD) | (arbitrate_state == `ysyx22040228_ARB_DREADU) | (arbitrate_state == `ysyx22040228_ARB_IREAD) ;
-    assign write_valid = (arbitrate_state == `ysyx22040228_ARB_DWRITE) | (arbitrate_state == `ysyx22040228_ARB_DWRITEU) ;
+    assign read_valid  = ((arbitrate_state_nxt == `ysyx22040228_ARB_DREAD) & (arbitrate_state == `ysyx22040228_ARB_DREAD))  |
+                         ((arbitrate_state_nxt == `ysyx22040228_ARB_DREADU) & (arbitrate_state == `ysyx22040228_ARB_DREADU))|
+                         ((arbitrate_state_nxt == `ysyx22040228_ARB_IREAD) & (arbitrate_state == `ysyx22040228_ARB_IREAD))  ;
+    assign write_valid = ((arbitrate_state_nxt == `ysyx22040228_ARB_DWRITE) & (arbitrate_state == `ysyx22040228_ARB_DWRITE))|
+                         ((arbitrate_state_nxt == `ysyx22040228_ARB_DWRITEU) & (arbitrate_state == `ysyx22040228_ARB_DWRITEU));
 
     reg [2:0] axiw_state ;
     always @(posedge clk) begin
