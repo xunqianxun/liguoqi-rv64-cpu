@@ -826,8 +826,8 @@ module ysyx_22040228arbitratem  (
                     axi_aw_size  = 3'b000;
                     axi_aw_burst = 2'b0;
                     axi_w_valid  = 1'b0;
-                    axi_w_data   = uncache_data;
-                    axi_w_strb   = uncache_mask;
+                    axi_w_data   = 64'h0;
+                    axi_w_strb   = 8'h0;
                     axi_w_last    = 1'b0;
                     axi_b_ready   = 1'b0; 
                     axi_r_ready  = 1'b0;
