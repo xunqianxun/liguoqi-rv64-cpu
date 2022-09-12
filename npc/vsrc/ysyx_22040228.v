@@ -406,21 +406,21 @@ module ysyx_22040228arbitratem  (
     wire    read_uncahce_shankhand ;
     wire    write_uncahce_shankhand;
 
-    assign read_uncahce_shankhand  =  (~icache_temp) && (uncache_read_ena) ;
-    assign write_uncahce_shankhand =  (~icache_temp) && (uncache_write_ena);
-    assign read_dcache_shankhand   =  (~icache_temp) && ((d_cache_type == 4'b0010) || (d_cache_type == 4'b1000));
-    assign write_dcache_shankhand  =  (~icache_temp) && ((d_cache_type == 4'b0001) || (d_cache_type == 4'b0100)); 
+    assign read_uncahce_shankhand  =  (~read_icache_shankhand) && (uncache_read_ena) ;
+    assign write_uncahce_shankhand =  (~read_icache_shankhand) && (uncache_write_ena);
+    assign read_dcache_shankhand   =  (~read_icache_shankhand) && ((d_cache_type == 4'b0010) || (d_cache_type == 4'b1000));
+    assign write_dcache_shankhand  =  (~read_icache_shankhand) && ((d_cache_type == 4'b0001) || (d_cache_type == 4'b0100)); 
     assign read_icache_shankhand   =  ((d_cache_type == 4'b0000) & (~uncache_read_ena) & (~uncache_write_ena)) && i_cache_ena ;
 /* verilator lint_off BLKSEQ */
-    reg  icache_temp ;
-    always @(posedge clk) begin
-        if(rst == `ysyx22040228_RSTENA)
-            icache_temp = `ysyx22040228_ENABLE ;
-        else if(read_icache_shankhand)
-            icache_temp = `ysyx22040228_ABLE ;
-        else if(read_icache_ok)
-            icache_temp = `ysyx22040228_ENABLE ;
-    end
+    // reg  icache_temp ;
+    // always @(posedge clk) begin
+    //     if(rst == `ysyx22040228_RSTENA)
+    //         icache_temp = `ysyx22040228_ENABLE ;
+    //     else if(read_icache_shankhand)
+    //         icache_temp = `ysyx22040228_ABLE ;
+    //     else if(read_icache_ok)
+    //         icache_temp = `ysyx22040228_ENABLE ;
+    // end
 
     reg         write_dcache_ok  ;
     reg         write_uncache_ok ;
@@ -495,8 +495,8 @@ module ysyx_22040228arbitratem  (
 
     wire   read_valid  ;
     wire   write_valid ;
-    assign read_valid  = read_uncahce_shankhand | read_dcache_shankhand | icache_temp ;
-    assign write_valid = (write_uncahce_shankhand | write_dcache_shankhand) ;
+    assign read_valid  = (arbitrate_state == `ysyx22040228_ARB_DREAD) | (arbitrate_state == `ysyx22040228_ARB_DREADU) | (arbitrate_state == `ysyx22040228_ARB_IREAD) ;
+    assign write_valid = (arbitrate_state == `ysyx22040228_ARB_DWRITE) | (arbitrate_state == `ysyx22040228_ARB_DWRITEU) ;
 
     reg [2:0] axiw_state ;
     always @(posedge clk) begin

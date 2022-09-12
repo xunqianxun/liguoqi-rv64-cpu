@@ -218,9 +218,6 @@ void VysyxSoCFull___024root__traceFullSub1(VysyxSoCFull___024root* vlSelf, Veril
     if (false && oldp) {}  // Prevent unused
     // Body
     {
-        tracep->fullBit(oldp+4429,(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset_chain__DOT__output_chain__DOT__sync_9));
-        tracep->fullBit(oldp+4430,(vlSelf->ysyxSoCFull__DOT__fpga__DOT__atomics_auto_out_a_bits_corrupt));
-        tracep->fullBit(oldp+4431,(vlSelf->ysyxSoCFull__DOT__fpga__DOT__widget_2__DOT__repeated_repeater_1_io_enq_ready));
         tracep->fullCData(oldp+4432,(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_opcode),3);
         tracep->fullCData(oldp+4433,(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_param),3);
         tracep->fullCData(oldp+4434,(vlSelf->ysyxSoCFull__DOT__fpga__DOT__chiplink__DOT__mbypass_auto_out_c_bits_size),4);
