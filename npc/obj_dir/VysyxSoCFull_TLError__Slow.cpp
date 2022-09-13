@@ -123,6 +123,143 @@ void VysyxSoCFull_TLError___settle__TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster
         vlSelf->__PVT__monitor_io_in_d_bits_denied 
             = vlSelf->__PVT__da_valid;
         vlSelf->auto_in_d_bits_denied = vlSelf->__PVT__da_valid;
+    } else {
+        vlSelf->__PVT__monitor_io_in_d_bits_denied 
+            = vlSelf->__PVT__state_1;
+        vlSelf->auto_in_d_bits_denied = vlSelf->__PVT__state_1;
+    }
+    vlSelf->__PVT___sink_ACancel_earlyValid_T_2 = ((IData)(vlSelf->__PVT__state_1) 
+                                                   & (IData)(vlSelf->__PVT__da_valid));
+    if (vlSelf->auto_in_d_bits_denied) {
+        vlSelf->__PVT__monitor_io_in_d_bits_size = 
+            vlSelf->__PVT__a__DOT__ram_size[0U];
+        vlSelf->__PVT__monitor_io_in_d_bits_opcode 
+            = vlSelf->__PVT__da_bits_opcode;
+        vlSelf->__PVT__monitor_io_in_d_bits_source 
+            = vlSelf->__PVT__a__DOT__ram_source[0U];
+        vlSelf->auto_in_d_bits_corrupt = ((IData)(vlSelf->__PVT__da_bits_opcode) 
+                                          & 1U);
+        vlSelf->auto_in_d_bits_size = vlSelf->__PVT__a__DOT__ram_size
+            [0U];
+        vlSelf->auto_in_d_bits_opcode = vlSelf->__PVT__da_bits_opcode;
+    } else {
+        vlSelf->__PVT__monitor_io_in_d_bits_size = 0U;
+        vlSelf->__PVT__monitor_io_in_d_bits_opcode = 0U;
+        vlSelf->__PVT__monitor_io_in_d_bits_source = 0U;
+        vlSelf->auto_in_d_bits_corrupt = 0U;
+        vlSelf->auto_in_d_bits_size = 0U;
+        vlSelf->auto_in_d_bits_opcode = 0U;
+    }
+    if ((0U == (IData)(vlSelf->__PVT__beatsLeft))) {
+        vlSelf->__PVT__monitor_io_in_d_valid = vlSelf->__PVT__da_valid;
+        vlSelf->auto_in_d_valid = vlSelf->__PVT__da_valid;
+    } else {
+        vlSelf->__PVT__monitor_io_in_d_valid = vlSelf->__PVT___sink_ACancel_earlyValid_T_2;
+        vlSelf->auto_in_d_valid = vlSelf->__PVT___sink_ACancel_earlyValid_T_2;
+    }
+    vlSelf->__PVT__monitor__DOT___a_opcode_lookup_T_1 
+        = ((0x3fU >= ((IData)(vlSelf->__PVT__monitor_io_in_d_bits_source) 
+                      << 2U)) ? (vlSelf->__PVT__monitor__DOT__inflight_opcodes 
+                                 >> ((IData)(vlSelf->__PVT__monitor_io_in_d_bits_source) 
+                                     << 2U)) : 0ULL);
+    vlSelf->__PVT__monitor__DOT___GEN_46 = ((5U == 
+                                             (7U & (IData)(
+                                                           (7ULL 
+                                                            & (vlSelf->__PVT__monitor__DOT___a_opcode_lookup_T_1 
+                                                               >> 1U)))))
+                                             ? 2U : 
+                                            ((4U == 
+                                              (7U & (IData)(
+                                                            (7ULL 
+                                                             & (vlSelf->__PVT__monitor__DOT___a_opcode_lookup_T_1 
+                                                                >> 1U)))))
+                                              ? 1U : 
+                                             ((3U == 
+                                               (7U 
+                                                & (IData)(
+                                                          (7ULL 
+                                                           & (vlSelf->__PVT__monitor__DOT___a_opcode_lookup_T_1 
+                                                              >> 1U)))))
+                                               ? 1U
+                                               : ((2U 
+                                                   == 
+                                                   (7U 
+                                                    & (IData)(
+                                                              (7ULL 
+                                                               & (vlSelf->__PVT__monitor__DOT___a_opcode_lookup_T_1 
+                                                                  >> 1U)))))
+                                                   ? 1U
+                                                   : 0U))));
+}
+
+void VysyxSoCFull_TLError___settle__TOP__ysyxSoCFull__DOT__fpga__DOT__ferr__8(VysyxSoCFull_TLError* vlSelf) {
+    if (false && vlSelf) {}  // Prevent unused
+    VysyxSoCFull__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    VL_DEBUG_IF(VL_DBG_MSGF("+            VysyxSoCFull_TLError___settle__TOP__ysyxSoCFull__DOT__fpga__DOT__ferr__8\n"); );
+    // Body
+    vlSelf->__PVT__a_last_counter1 = (0xfU & ((IData)(vlSelf->__PVT__a_last_counter) 
+                                              - (IData)(1U)));
+    vlSelf->__PVT__a_last_first = (0U == (IData)(vlSelf->__PVT__a_last_counter));
+    vlSelf->__PVT__counter1 = (0xfU & ((IData)(vlSelf->__PVT__counter) 
+                                       - (IData)(1U)));
+    vlSelf->__PVT__da_first = (0U == (IData)(vlSelf->__PVT__counter));
+    vlSelf->__PVT__monitor__DOT__a_first_counter1_1 
+        = (0xfU & ((IData)(vlSelf->__PVT__monitor__DOT__a_first_counter_1) 
+                   - (IData)(1U)));
+    vlSelf->__PVT__monitor__DOT__a_first_1 = (0U == (IData)(vlSelf->__PVT__monitor__DOT__a_first_counter_1));
+    vlSelf->__PVT__monitor__DOT__d_first_counter1_1 
+        = (0xfU & ((IData)(vlSelf->__PVT__monitor__DOT__d_first_counter_1) 
+                   - (IData)(1U)));
+    vlSelf->__PVT__monitor__DOT__d_first_1 = (0U == (IData)(vlSelf->__PVT__monitor__DOT__d_first_counter_1));
+    vlSelf->__PVT__monitor__DOT___watchdog_T_1 = ((IData)(1U) 
+                                                  + vlSelf->__PVT__monitor__DOT__watchdog);
+    vlSelf->__PVT__monitor__DOT__d_first_counter1_2 
+        = (0xfU & ((IData)(vlSelf->__PVT__monitor__DOT__d_first_counter_2) 
+                   - (IData)(1U)));
+    vlSelf->__PVT__monitor__DOT__d_first_2 = (0U == (IData)(vlSelf->__PVT__monitor__DOT__d_first_counter_2));
+    vlSelf->__PVT__monitor__DOT___watchdog_T_3 = ((IData)(1U) 
+                                                  + vlSelf->__PVT__monitor__DOT__watchdog_1);
+    vlSelf->__PVT__da_bits_opcode = ((7U == vlSelf->__PVT__a__DOT__ram_opcode
+                                      [0U]) ? 4U : 
+                                     ((6U == vlSelf->__PVT__a__DOT__ram_opcode
+                                       [0U]) ? 4U : 
+                                      ((5U == vlSelf->__PVT__a__DOT__ram_opcode
+                                        [0U]) ? 2U : 
+                                       ((4U == vlSelf->__PVT__a__DOT__ram_opcode
+                                         [0U]) ? 1U
+                                         : ((3U == 
+                                             vlSelf->__PVT__a__DOT__ram_opcode
+                                             [0U]) ? 1U
+                                             : ((2U 
+                                                 == 
+                                                 vlSelf->__PVT__a__DOT__ram_opcode
+                                                 [0U])
+                                                 ? 1U
+                                                 : 0U))))));
+    vlSelf->__PVT__a_last = ((1U == (IData)(vlSelf->__PVT__a_last_counter)) 
+                             | (0U == ((4U & vlSelf->__PVT__a__DOT__ram_opcode
+                                        [0U]) ? 0U : 
+                                       (0xfU & (~ (0x7ffU 
+                                                   & (((IData)(0x3fU) 
+                                                       << 
+                                                       vlSelf->__PVT__a__DOT__ram_size
+                                                       [0U]) 
+                                                      >> 2U)))))));
+    vlSelf->__PVT__monitor__DOT__a_first_counter1 = 
+        (0xfU & ((IData)(vlSelf->__PVT__monitor__DOT__a_first_counter) 
+                 - (IData)(1U)));
+    vlSelf->__PVT__monitor__DOT__a_first = (0U == (IData)(vlSelf->__PVT__monitor__DOT__a_first_counter));
+    vlSelf->__PVT__monitor__DOT__d_first_counter1 = 
+        (0xfU & ((IData)(vlSelf->__PVT__monitor__DOT__d_first_counter) 
+                 - (IData)(1U)));
+    vlSelf->__PVT__monitor__DOT__d_first = (0U == (IData)(vlSelf->__PVT__monitor__DOT__d_first_counter));
+    vlSelf->__PVT__da_valid = (((IData)(vlSelf->__PVT__a__DOT__maybe_full) 
+                                & (IData)(vlSelf->__PVT__a_last)) 
+                               & (IData)(vlSelf->__PVT__idle));
+    if ((0U == (IData)(vlSelf->__PVT__beatsLeft))) {
+        vlSelf->__PVT__monitor_io_in_d_bits_denied 
+            = vlSelf->__PVT__da_valid;
+        vlSelf->auto_in_d_bits_denied = vlSelf->__PVT__da_valid;
         vlSelf->__PVT__muxStateEarly_1 = vlSelf->__PVT__da_valid;
     } else {
         vlSelf->__PVT__monitor_io_in_d_bits_denied 
