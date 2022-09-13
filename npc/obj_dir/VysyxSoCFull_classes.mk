@@ -43,6 +43,9 @@ VM_CLASSES_FAST += \
 	VysyxSoCFull___024root__14 \
 	VysyxSoCFull___024root__15 \
 	VysyxSoCFull___024root__16 \
+	VysyxSoCFull___024root__17 \
+	VysyxSoCFull___024root__18 \
+	VysyxSoCFull___024root__19 \
 	VysyxSoCFull___024unit \
 	VysyxSoCFull_TLXbar_1 \
 	VysyxSoCFull_TLError \
@@ -68,6 +71,7 @@ VM_CLASSES_SLOW += \
 	VysyxSoCFull___024root__2__Slow \
 	VysyxSoCFull___024root__3__Slow \
 	VysyxSoCFull___024root__4__Slow \
+	VysyxSoCFull___024root__5__Slow \
 	VysyxSoCFull___024unit__Slow \
 	VysyxSoCFull_TLXbar_1__Slow \
 	VysyxSoCFull_TLError__Slow \
