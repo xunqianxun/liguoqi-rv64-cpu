@@ -583,20 +583,22 @@ module ysyx_22040228arbitratem (
     // id == 4'b0001 ---> dcache
     // id == 4'b0010 ---> unchace
     // id == 4'b0100 ---> icache
-    assign axi_aw_id      =   ((arbitrate_state == `ysyx22040228_ARB_DWRITE) && ((axiw_state == `ysyx22040228_AXIW_ADDR) | (axiw_state == `ysyx22040228_AXIW_WRITE)))   ? 4'b0001 :
-                              ((arbitrate_state == `ysyx22040228_ARB_DWRITEU) && ((axiw_state == `ysyx22040228_AXIW_ADDR) | (axiw_state == `ysyx22040228_AXIW_WRITE)))  ? 4'b0010 :
-                                                                                                                             4'b0000 ; 
+    assign axi_aw_id      =   ((arbitrate_state == `ysyx22040228_ARB_DWRITE) && ((axiw_state == `ysyx22040228_AXIW_ADDR) | (axiw_state == `ysyx22040228_AXIW_WRITE) | (axiw_state == `ysyx22040228_AXIW_RESP)))   ? 4'b0001 :
+                              ((arbitrate_state == `ysyx22040228_ARB_DWRITEU) && ((axiw_state == `ysyx22040228_AXIW_ADDR) | (axiw_state == `ysyx22040228_AXIW_WRITE) | (axiw_state == `ysyx22040228_AXIW_RESP)))  ? 4'b0010 :
+                                                                                                                                                                                                                    4'b0000 ; 
 
-    assign axi_aw_addr    =   ((arbitrate_state == `ysyx22040228_ARB_DWRITE) && ((axiw_state == `ysyx22040228_AXIW_ADDR) | (axiw_state == `ysyx22040228_AXIW_WRITE)))   ? d_cache_addr :
-                              ((arbitrate_state == `ysyx22040228_ARB_DWRITEU) && ((axiw_state == `ysyx22040228_AXIW_ADDR) | (axiw_state == `ysyx22040228_AXIW_WRITE)))  ? uncache_addr :
-                                                                                                                           64'h0        ;    
-    assign axi_aw_len     =    ((arbitrate_state == `ysyx22040228_ARB_DWRITE) && ((axiw_state == `ysyx22040228_AXIW_ADDR) | (axiw_state == `ysyx22040228_AXIW_WRITE)))  ? 8'h00   :
-                              ((arbitrate_state == `ysyx22040228_ARB_DWRITEU) && ((axiw_state == `ysyx22040228_AXIW_ADDR) | (axiw_state == `ysyx22040228_AXIW_WRITE)))  ? 8'h00   :
-                                                                                                                           8'h00   ; 
-    assign axi_aw_size    =   ((arbitrate_state == `ysyx22040228_ARB_DWRITE) && ((axiw_state == `ysyx22040228_AXIW_ADDR) | (axiw_state == `ysyx22040228_AXIW_WRITE)))   ? `AXI_SIZE_BYTES_8  :
-                              ((arbitrate_state == `ysyx22040228_ARB_DWRITEU) && ((axiw_state == `ysyx22040228_AXIW_ADDR) | (axiw_state == `ysyx22040228_AXIW_WRITE)))  ? uncache_size_data  :
-                                                                                                                           `AXI_SIZE_BYTES_1  ;
-    assign axi_aw_burst   =   `AXI_BURST_TYPE_INCR                                                                                 ;
+    assign axi_aw_addr    =   ((arbitrate_state == `ysyx22040228_ARB_DWRITE) && ((axiw_state == `ysyx22040228_AXIW_ADDR) | (axiw_state == `ysyx22040228_AXIW_WRITE) | (axiw_state == `ysyx22040228_AXIW_RESP)))   ? d_cache_addr :
+                              ((arbitrate_state == `ysyx22040228_ARB_DWRITEU) && ((axiw_state == `ysyx22040228_AXIW_ADDR) | (axiw_state == `ysyx22040228_AXIW_WRITE) | (axiw_state == `ysyx22040228_AXIW_RESP)))  ? uncache_addr :
+                                                                                                                                                                                                                    64'h0        ;    
+    assign axi_aw_len     =    ((arbitrate_state == `ysyx22040228_ARB_DWRITE) && ((axiw_state == `ysyx22040228_AXIW_ADDR) | (axiw_state == `ysyx22040228_AXIW_WRITE) | (axiw_state == `ysyx22040228_AXIW_RESP)))  ? 8'h00   :
+                              ((arbitrate_state == `ysyx22040228_ARB_DWRITEU) && ((axiw_state == `ysyx22040228_AXIW_ADDR) | (axiw_state == `ysyx22040228_AXIW_WRITE) | (axiw_state == `ysyx22040228_AXIW_RESP)))  ? 8'h00   :
+                                                                                                                                                                                                                    8'h00   ; 
+    assign axi_aw_size    =   ((arbitrate_state == `ysyx22040228_ARB_DWRITE) && ((axiw_state == `ysyx22040228_AXIW_ADDR) | (axiw_state == `ysyx22040228_AXIW_WRITE) | (axiw_state == `ysyx22040228_AXIW_RESP)))   ? `AXI_SIZE_BYTES_8  :
+                              ((arbitrate_state == `ysyx22040228_ARB_DWRITEU) && ((axiw_state == `ysyx22040228_AXIW_ADDR) | (axiw_state == `ysyx22040228_AXIW_WRITE) | (axiw_state == `ysyx22040228_AXIW_RESP)))  ? uncache_size_data  :
+                                                                                                                                                                                                                    `AXI_SIZE_BYTES_1  ;
+    assign axi_aw_burst   =   ((arbitrate_state == `ysyx22040228_ARB_DWRITE) && ((axiw_state == `ysyx22040228_AXIW_ADDR) | (axiw_state == `ysyx22040228_AXIW_WRITE) | (axiw_state == `ysyx22040228_AXIW_RESP)))   ? `AXI_BURST_TYPE_INCR  :
+                              ((arbitrate_state == `ysyx22040228_ARB_DWRITEU) && ((axiw_state == `ysyx22040228_AXIW_ADDR) | (axiw_state == `ysyx22040228_AXIW_WRITE) | (axiw_state == `ysyx22040228_AXIW_RESP)))  ? `AXI_BURST_TYPE_INCR  :
+                                                                                                                                                                                                                    2'b00  ;
     assign axi_aw_port    =   `AXI_PROT_UNPRIVILEGED_ACCESS                                                                        ;
     assign axi_aw_qos     =   4'h0                                                                                                 ;
     assign axi_aw_cache   =   `AXI_ARCACHE_NORMAL_NON_CACHEABLE_NON_BUFFERABLE                                                     ;
