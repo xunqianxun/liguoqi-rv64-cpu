@@ -90,7 +90,7 @@ VysyxSoCFull__Syms::VysyxSoCFull__Syms(VerilatedContext* contextp, const char* n
 {
     // Configure time unit / time precision
     _vm_contextp__->timeunit(-9);
-    _vm_contextp__->timeprecision(-12);
+    _vm_contextp__->timeprecision(-11);
     // Setup each module's pointers to their submodules
     TOP.__PVT____024unit = &TOP____024unit;
     TOP.__PVT__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi4yank_1 = &TOP__ysyxSoCFull__DOT__asic__DOT__chipMaster__DOT__axi4yank_1;
@@ -240,6 +240,7 @@ VysyxSoCFull__Syms::VysyxSoCFull__Syms(VerilatedContext* contextp, const char* n
     __Vscope_ysyxSoCFull__asic__chipMaster__xbar_1.configure(this, name(), "ysyxSoCFull.asic.chipMaster.xbar_1", "xbar_1", -9, VerilatedScope::SCOPE_OTHER);
     __Vscope_ysyxSoCFull__asic__chipMaster__xbar_1__monitor.configure(this, name(), "ysyxSoCFull.asic.chipMaster.xbar_1.monitor", "monitor", -9, VerilatedScope::SCOPE_OTHER);
     __Vscope_ysyxSoCFull__asic__chipMaster__xbar__monitor.configure(this, name(), "ysyxSoCFull.asic.chipMaster.xbar.monitor", "monitor", -9, VerilatedScope::SCOPE_OTHER);
+    __Vscope_ysyxSoCFull__asic__lspi__mspi.configure(this, name(), "ysyxSoCFull.asic.lspi.mspi", "mspi", -9, VerilatedScope::SCOPE_OTHER);
     __Vscope_ysyxSoCFull__fpga__atomics.configure(this, name(), "ysyxSoCFull.fpga.atomics", "atomics", -9, VerilatedScope::SCOPE_OTHER);
     __Vscope_ysyxSoCFull__fpga__atomics__monitor.configure(this, name(), "ysyxSoCFull.fpga.atomics.monitor", "monitor", -9, VerilatedScope::SCOPE_OTHER);
     __Vscope_ysyxSoCFull__fpga__axi42tl.configure(this, name(), "ysyxSoCFull.fpga.axi42tl", "axi42tl", -9, VerilatedScope::SCOPE_OTHER);
