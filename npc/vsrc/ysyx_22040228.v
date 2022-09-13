@@ -583,18 +583,18 @@ module ysyx_22040228arbitratem (
     // id == 4'b0001 ---> dcache
     // id == 4'b0010 ---> unchace
     // id == 4'b0100 ---> icache
-    assign axi_aw_id      =   ((arbitrate_state == `ysyx22040228_ARB_DWRITE) && (axiw_state == `ysyx22040228_AXIW_ADDR))   ? 4'b0001 :
-                              ((arbitrate_state == `ysyx22040228_ARB_DWRITEU) && (axiw_state == `ysyx22040228_AXIW_ADDR))  ? 4'b0010 :
+    assign axi_aw_id      =   ((arbitrate_state == `ysyx22040228_ARB_DWRITE) && ((axiw_state == `ysyx22040228_AXIW_ADDR) | (axiw_state == `ysyx22040228_AXIW_WRITE)))   ? 4'b0001 :
+                              ((arbitrate_state == `ysyx22040228_ARB_DWRITEU) && ((axiw_state == `ysyx22040228_AXIW_ADDR) | (axiw_state == `ysyx22040228_AXIW_WRITE)))  ? 4'b0010 :
                                                                                                                              4'b0000 ; 
 
-    assign axi_aw_addr    =   ((arbitrate_state == `ysyx22040228_ARB_DWRITE) && (axiw_state == `ysyx22040228_AXIW_ADDR))   ? d_cache_addr :
-                              ((arbitrate_state == `ysyx22040228_ARB_DWRITEU) && (axiw_state == `ysyx22040228_AXIW_ADDR))  ? uncache_addr :
+    assign axi_aw_addr    =   ((arbitrate_state == `ysyx22040228_ARB_DWRITE) && ((axiw_state == `ysyx22040228_AXIW_ADDR) | (axiw_state == `ysyx22040228_AXIW_WRITE)))   ? d_cache_addr :
+                              ((arbitrate_state == `ysyx22040228_ARB_DWRITEU) && ((axiw_state == `ysyx22040228_AXIW_ADDR) | (axiw_state == `ysyx22040228_AXIW_WRITE)))  ? uncache_addr :
                                                                                                                            64'h0        ;    
-    assign axi_aw_len     =    ((arbitrate_state == `ysyx22040228_ARB_DWRITE) && (axiw_state == `ysyx22040228_AXIW_ADDR))  ? 8'h00   :
-                              ((arbitrate_state == `ysyx22040228_ARB_DWRITEU) && (axiw_state == `ysyx22040228_AXIW_ADDR))  ? 8'h00   :
+    assign axi_aw_len     =    ((arbitrate_state == `ysyx22040228_ARB_DWRITE) && ((axiw_state == `ysyx22040228_AXIW_ADDR) | (axiw_state == `ysyx22040228_AXIW_WRITE)))  ? 8'h00   :
+                              ((arbitrate_state == `ysyx22040228_ARB_DWRITEU) && ((axiw_state == `ysyx22040228_AXIW_ADDR) | (axiw_state == `ysyx22040228_AXIW_WRITE)))  ? 8'h00   :
                                                                                                                            8'h00   ; 
-    assign axi_aw_size    =   ((arbitrate_state == `ysyx22040228_ARB_DWRITE) && (axiw_state == `ysyx22040228_AXIW_ADDR))   ? `AXI_SIZE_BYTES_8  :
-                              ((arbitrate_state == `ysyx22040228_ARB_DWRITEU) && (axiw_state == `ysyx22040228_AXIW_ADDR))  ? uncache_size_data  :
+    assign axi_aw_size    =   ((arbitrate_state == `ysyx22040228_ARB_DWRITE) && ((axiw_state == `ysyx22040228_AXIW_ADDR) | (axiw_state == `ysyx22040228_AXIW_WRITE)))   ? `AXI_SIZE_BYTES_8  :
+                              ((arbitrate_state == `ysyx22040228_ARB_DWRITEU) && ((axiw_state == `ysyx22040228_AXIW_ADDR) | (axiw_state == `ysyx22040228_AXIW_WRITE)))  ? uncache_size_data  :
                                                                                                                            `AXI_SIZE_BYTES_1  ;
     assign axi_aw_burst   =   `AXI_BURST_TYPE_INCR                                                                                 ;
     assign axi_aw_port    =   `AXI_PROT_UNPRIVILEGED_ACCESS                                                                        ;
@@ -621,23 +621,23 @@ module ysyx_22040228arbitratem (
                                                                                                                               `ysyx22040228_ENABLE;
     assign axi_b_ready    =   `ysyx22040228_ABLE                                                                                         ;         
 
-    assign axi_ar_id      =   ((arbitrate_state == `ysyx22040228_ARB_DREAD) && (axir_state == `ysyx22040228_AXIR_ADDR))    ? 4'b0001      :
-                              ((arbitrate_state == `ysyx22040228_ARB_DREADU) && (axir_state == `ysyx22040228_AXIR_ADDR))   ? 4'b0010      :
-                              ((arbitrate_state == `ysyx22040228_ARB_IREAD) && (axir_state == `ysyx22040228_AXIR_ADDR))    ? 4'b0100      :
+    assign axi_ar_id      =   ((arbitrate_state == `ysyx22040228_ARB_DREAD) && ((axir_state == `ysyx22040228_AXIR_ADDR) | (axir_state == `ysyx22040228_AXIR_READ)))    ? 4'b0001      :
+                              ((arbitrate_state == `ysyx22040228_ARB_DREADU) && ((axir_state == `ysyx22040228_AXIR_ADDR) | (axir_state == `ysyx22040228_AXIR_READ)))   ? 4'b0010      :
+                              ((arbitrate_state == `ysyx22040228_ARB_IREAD) && ((axir_state == `ysyx22040228_AXIR_ADDR) | (axir_state == `ysyx22040228_AXIR_READ)))    ? 4'b0100      :
                                                                                                                            4'b0000      ;
-    assign axi_ar_addr    =   ((arbitrate_state == `ysyx22040228_ARB_DREAD) && (axir_state == `ysyx22040228_AXIR_ADDR))    ? d_cache_addr :
-                              ((arbitrate_state == `ysyx22040228_ARB_DREADU) && (axir_state == `ysyx22040228_AXIR_ADDR))   ? uncache_addr :
-                              ((arbitrate_state == `ysyx22040228_ARB_IREAD) && (axir_state == `ysyx22040228_AXIR_ADDR))    ? i_cache_addr :
+    assign axi_ar_addr    =   ((arbitrate_state == `ysyx22040228_ARB_DREAD) && ((axir_state == `ysyx22040228_AXIR_ADDR) | (axir_state == `ysyx22040228_AXIR_READ)))    ? d_cache_addr :
+                              ((arbitrate_state == `ysyx22040228_ARB_DREADU) && ((axir_state == `ysyx22040228_AXIR_ADDR) | (axir_state == `ysyx22040228_AXIR_READ)))   ? uncache_addr :
+                              ((arbitrate_state == `ysyx22040228_ARB_IREAD) && ((axir_state == `ysyx22040228_AXIR_ADDR) | (axir_state == `ysyx22040228_AXIR_READ)))    ? i_cache_addr :
                                                                                                                            64'h0        ;
-    assign axi_ar_len     =   ((arbitrate_state == `ysyx22040228_ARB_DREAD) && (axir_state == `ysyx22040228_AXIR_ADDR))    ? 8'h00        :
-                              ((arbitrate_state == `ysyx22040228_ARB_DREADU) && (axir_state == `ysyx22040228_AXIR_ADDR))   ? 8'h00        :
-                              ((arbitrate_state == `ysyx22040228_ARB_IREAD) && (axir_state == `ysyx22040228_AXIR_ADDR))    ? 8'h00        :
+    assign axi_ar_len     =   ((arbitrate_state == `ysyx22040228_ARB_DREAD) && ((axir_state == `ysyx22040228_AXIR_ADDR) | (axir_state == `ysyx22040228_AXIR_READ)))    ? 8'h00        :
+                              ((arbitrate_state == `ysyx22040228_ARB_DREADU) && ((axir_state == `ysyx22040228_AXIR_ADDR) | (axir_state == `ysyx22040228_AXIR_READ)))   ? 8'h00        :
+                              ((arbitrate_state == `ysyx22040228_ARB_IREAD) && ((axir_state == `ysyx22040228_AXIR_ADDR) | (axir_state == `ysyx22040228_AXIR_READ)))    ? 8'h00        :
                                                                                                                            8'h00        ;
-    assign axi_ar_size    =   ((arbitrate_state == `ysyx22040228_ARB_DREAD) && (axir_state == `ysyx22040228_AXIR_ADDR))    ? `AXI_SIZE_BYTES_8 :
-                              ((arbitrate_state == `ysyx22040228_ARB_DREADU) && (axir_state == `ysyx22040228_AXIR_ADDR))   ? uncache_size_data  :
-                              (((arbitrate_state == `ysyx22040228_ARB_IREAD) && (axir_state == `ysyx22040228_AXIR_ADDR)) && 
+    assign axi_ar_size    =   ((arbitrate_state == `ysyx22040228_ARB_DREAD) && ((axir_state == `ysyx22040228_AXIR_ADDR) | (axir_state == `ysyx22040228_AXIR_READ)))    ? `AXI_SIZE_BYTES_8 :
+                              ((arbitrate_state == `ysyx22040228_ARB_DREADU) && ((axir_state == `ysyx22040228_AXIR_ADDR) | (axir_state == `ysyx22040228_AXIR_READ)))   ? uncache_size_data  :
+                              (((arbitrate_state == `ysyx22040228_ARB_IREAD) && ((axir_state == `ysyx22040228_AXIR_ADDR) | (axir_state == `ysyx22040228_AXIR_READ))) && 
                               ((i_cache_addr >= `ysyx22040228_APB_START) && (i_cache_addr <= `ysyx22040228_APB_END)))    ? `AXI_SIZE_BYTES_4 :
-                              (((arbitrate_state == `ysyx22040228_ARB_IREAD) && (axir_state == `ysyx22040228_AXIR_ADDR)) && 
+                              (((arbitrate_state == `ysyx22040228_ARB_IREAD) && ((axir_state == `ysyx22040228_AXIR_ADDR) | (axir_state == `ysyx22040228_AXIR_READ))) && 
                               ((i_cache_addr < `ysyx22040228_APB_START) || (i_cache_addr > `ysyx22040228_APB_END)))      ? `AXI_SIZE_BYTES_8 :
                                                                                                                            `AXI_SIZE_BYTES_1  ;
     assign axi_ar_burst   =   `AXI_BURST_TYPE_INCR                                                                                 ;
@@ -771,6 +771,7 @@ Function:write instraction cache
 `define ysyx22040228_I_HIT     6'b000100
 `define ysyx22040228_I_MISSRH  6'b001000 //--> read APB can't use burst
 `define ysyx22040228_I_READ    6'b100000
+/* verilator lint_off LATCH */
 
 module ysyx_22040228inst_cache (
     input       wire                                         clk             ,
@@ -927,44 +928,28 @@ module ysyx_22040228inst_cache (
                 inst_valid  = `ysyx22040228_ENABLE;
             end 
             else if((oteg_ata_o == icache_tag) && (oteg_valid_o == `ysyx22040228_ABLE))begin
-                inst_data = ({32{inst_addr[2]}} & data_out[63:32]) | ({32{~inst_addr[2]}} & data_out[31:0 ]) ;
-                inst_hit_ok  = `ysyx22040228_ABLE  ;
-                inst_valid   = `ysyx22040228_ABLE;
-                // if(inst_addr[2] == `ysyx22040228_ABLE)   begin
-                //     inst_data =    data_out[63:32]      ;
-                //     inst_hit_ok  = `ysyx22040228_ABLE  ;
-                //     inst_valid   = `ysyx22040228_ABLE;
-                // end 
-                // else if(inst_addr[2] == `ysyx22040228_ENABLE) begin
-                //     inst_data =    data_out[31:0 ]      ;
-                //     inst_hit_ok  = `ysyx22040228_ABLE  ;
-                //     inst_valid   = `ysyx22040228_ABLE;
-                // end
-                // else begin
-                //     inst_data = inst_data ;
-                //     inst_hit_ok  = inst_hit_ok ;
-                //     inst_valid   = inst_valid  ;
-                // end 
+                if(inst_addr[2] == `ysyx22040228_ABLE)   begin
+                    inst_data =    data_out[63:32]      ;
+                    inst_hit_ok  = `ysyx22040228_ABLE  ;
+                    inst_valid   = `ysyx22040228_ABLE;
+                end 
+                else if(inst_addr[2] == `ysyx22040228_ENABLE) begin
+                    inst_data =    data_out[31:0 ]      ;
+                    inst_hit_ok  = `ysyx22040228_ABLE  ;
+                    inst_valid   = `ysyx22040228_ABLE;
+                end
             end
             else if((tteg_ata_o == icache_tag) && (tteg_valid_o == `ysyx22040228_ABLE))begin
-                inst_data = ({32{inst_addr[2]}} & data_out[127:96]) | ({32{~inst_addr[2]}} & data_out[95:64]) ;
-                inst_hit_ok  = `ysyx22040228_ABLE  ;
-                inst_valid   = `ysyx22040228_ABLE;
-                // if(inst_addr[2] == `ysyx22040228_ABLE)   begin
-                //     inst_data = data_out[127:96]      ;
-                //     inst_hit_ok  = `ysyx22040228_ABLE  ;
-                //     inst_valid   = `ysyx22040228_ABLE;
-                // end 
-                // else if(inst_addr[2] == `ysyx22040228_ENABLE) begin
-                //     inst_data = data_out[95:64]      ;
-                //     inst_hit_ok  = `ysyx22040228_ABLE  ;
-                //     inst_valid   = `ysyx22040228_ABLE;
-                // end
-                // else begin
-                //     inst_data = inst_data ;
-                //     inst_hit_ok  = inst_hit_ok ;
-                //     inst_valid   = inst_valid  ;
-                // end 
+                if(inst_addr[2] == `ysyx22040228_ABLE)   begin
+                    inst_data = data_out[127:96]      ;
+                    inst_hit_ok  = `ysyx22040228_ABLE  ;
+                    inst_valid   = `ysyx22040228_ABLE;
+                end 
+                else if(inst_addr[2] == `ysyx22040228_ENABLE) begin
+                    inst_data = data_out[95:64]      ;
+                    inst_hit_ok  = `ysyx22040228_ABLE  ;
+                    inst_valid   = `ysyx22040228_ABLE;
+                end
             end
             else begin
                 inst_data    = 32'b0                   ;
@@ -973,7 +958,6 @@ module ysyx_22040228inst_cache (
             end
         end 
         else begin  
-          inst_data    = 32'b0                         ;
           inst_hit_ok  = `ysyx22040228_ENABLE          ; 
           inst_valid   = `ysyx22040228_ENABLE          ;   
         end 
@@ -983,70 +967,46 @@ module ysyx_22040228inst_cache (
     reg   [127:0]   miss_data ;
     reg             miss_ena_l;
     reg   [127:0]   miss_strb_l;
+    // reg             write_i_ok;  
 
-    //reg             cahce_miss_ena ;
-    //reg   [63:0]    cache_miss_addr ;
-
-    wire            cahce_miss_ena ;
-    assign          cahce_miss_ena = ((state_inst ==  `ysyx22040228_I_MISSRL) && (~cache_in_valid)) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE ;
-    wire    [63:0]  cache_miss_addr ;
-    assign          cache_miss_addr = ((state_inst ==  `ysyx22040228_I_MISSRL) && (~cache_in_valid)) ? {inst_addr[63:3],3'b0} : `ysyx22040228_ZEROWORD ;
+    reg             cahce_miss_ena ;
+    reg   [63:0]    cache_miss_addr ;
     always @(*) begin
         if(rst == `ysyx22040228_RSTENA) begin
-            //cahce_miss_ena = `ysyx22040228_ENABLE;
-            //cache_miss_addr = `ysyx22040228_ZEROWORD ;
-            miss_data =  128'h0               ;
+            cahce_miss_ena = `ysyx22040228_ENABLE;
+            cache_miss_addr = `ysyx22040228_ZEROWORD ;
+            miss_data =  128'h0  ;
             write_i_ok = `ysyx22040228_ENABLE ;
             miss_ena_l = `ysyx22040228_ENABLE ;
             miss_strb_l = `ysyx22040228_CACHE_STRBZ;
         end 
         else if((state_inst ==  `ysyx22040228_I_MISSRL) && (~cache_in_valid)) begin
-            //cahce_miss_ena = `ysyx22040228_ABLE     ;
-            //cache_miss_addr = {inst_addr[63:3],3'b0};
-            miss_data =  128'h0                     ;
-            write_i_ok = `ysyx22040228_ENABLE       ;
-            miss_ena_l = `ysyx22040228_ENABLE       ;
-            miss_strb_l = `ysyx22040228_CACHE_STRBZ ;
+            cahce_miss_ena = `ysyx22040228_ABLE     ;
+            cache_miss_addr = {inst_addr[63:3],3'b0};
         end 
         else if((state_inst ==  `ysyx22040228_I_MISSRL) && (cache_in_valid)) begin
-            //cahce_miss_ena = `ysyx22040228_ENABLE;
+            cahce_miss_ena = `ysyx22040228_ENABLE;
             miss_data      = {cache_in_data, cache_in_data}  ;
             write_i_ok     = `ysyx22040228_ABLE  ;
-            miss_ena_l     = (oteg_valid_o == `ysyx22040228_ENABLE) ? `ysyx22040228_ABLE :
-                             (tteg_valid_o == `ysyx22040228_ENABLE) ? `ysyx22040228_ABLE :
-                             (i_counter1[icache_index] >= i_counter2[icache_index]) ? `ysyx22040228_ABLE : 
-                             (i_counter1[icache_index] < i_counter2[icache_index]) ? `ysyx22040228_ABLE :
-                                                                                     `ysyx22040228_ENABLE ;
-            miss_strb_l    = (oteg_valid_o == `ysyx22040228_ENABLE) ? `ysyx22040228_CACHE_STRBL :
-                             (tteg_valid_o == `ysyx22040228_ENABLE) ? `ysyx22040228_CACHE_STRBH :
-                             (i_counter1[icache_index] >= i_counter2[icache_index]) ? `ysyx22040228_CACHE_STRBL : 
-                             (i_counter1[icache_index] < i_counter2[icache_index]) ? `ysyx22040228_CACHE_STRBH :
-                                                                                     `ysyx22040228_CACHE_STRBZ ;
-            //cache_miss_addr = `ysyx22040228_ZEROWORD ;
-            
-            // if(oteg_valid_o == `ysyx22040228_ENABLE) begin
-            //     miss_strb_l = `ysyx22040228_CACHE_STRBL;
-            //     miss_ena_l     = `ysyx22040228_ABLE  ;
-            // end 
-            // else if(tteg_valid_o == `ysyx22040228_ENABLE) begin
-            //     miss_strb_l = `ysyx22040228_CACHE_STRBH;
-            //     miss_ena_l     = `ysyx22040228_ABLE  ;
-            // end 
-            // else if(i_counter1[icache_index] >= i_counter2[icache_index])begin
-            //     miss_strb_l = `ysyx22040228_CACHE_STRBL;
-            //     miss_ena_l     = `ysyx22040228_ABLE  ;
-            // end   
-            // else if(i_counter1[icache_index] < i_counter2[icache_index]) begin
-            //     miss_strb_l = `ysyx22040228_CACHE_STRBH;
-            //     miss_ena_l     = `ysyx22040228_ABLE  ;
-            // end
-            // else begin
-            //     miss_strb_l = `ysyx22040228_CACHE_STRBZ;
-            //     miss_ena_l = `ysyx22040228_ENABLE ;
-            // end  
+            miss_ena_l     = `ysyx22040228_ABLE  ;
+            if(oteg_valid_o == `ysyx22040228_ENABLE) begin
+                miss_strb_l = `ysyx22040228_CACHE_STRBL;
+            end 
+            else if(tteg_valid_o == `ysyx22040228_ENABLE) begin
+                miss_strb_l = `ysyx22040228_CACHE_STRBH;
+            end 
+            else if(i_counter1[icache_index] >= i_counter2[icache_index])begin
+                miss_strb_l = `ysyx22040228_CACHE_STRBL;
+            end   
+            else if(i_counter1[icache_index] < i_counter2[icache_index]) begin
+                miss_strb_l = `ysyx22040228_CACHE_STRBH;
+            end
+            else begin
+                miss_strb_l = `ysyx22040228_CACHE_STRBZ;
+                miss_ena_l = `ysyx22040228_ENABLE ;
+            end  
         end
         else begin
-            //cahce_miss_ena = | cahce_miss_ena ;
             miss_data      = `ysyx22040228_CACHE_STRBZ ;
             miss_ena_l     = `ysyx22040228_ENABLE ;
             miss_strb_l = `ysyx22040228_CACHE_STRBZ;
@@ -1071,95 +1031,59 @@ module ysyx_22040228inst_cache (
         else 
             missr_counter <= missr_counter_n ;
     end
-                
+
     always @(*) begin
         if(rst == `ysyx22040228_RSTENA) begin
             cache_mism_ena = `ysyx22040228_ENABLE;
             cahce_mism_addr = `ysyx22040228_ZEROWORD ;
-            missr_counter_n  = 2'b00                 ;
-            write_m_ok     = `ysyx22040228_ENABLE    ;
-            mism_ena_l     = `ysyx22040228_ENABLE    ;
-            mism_strb_l = `ysyx22040228_CACHE_STRBZ  ;
+            missr_counter_n  = 2'b00               ;
+            write_m_ok     = `ysyx22040228_ENABLE   ;
+            mism_ena_l     = `ysyx22040228_ENABLE ;
+            mism_strb_l = `ysyx22040228_CACHE_STRBZ;
         end 
         else if((state_inst ==  `ysyx22040228_I_MISSRH) && (~cache_in_valid)) begin
-            //if(missr_counter <= 2'b01) begin
+            if(missr_counter <= 2'b01) begin
                 cache_mism_ena = `ysyx22040228_ABLE      ;
-                cahce_mism_addr = (missr_counter <= 2'b01) ? {inst_addr[63:3], 1'b1, 2'b0} : {inst_addr[63:3], 1'b0, 2'b0};
-                missr_counter_n  = (missr_counter <= 2'b01) ?  2'b01 : 2'b11   ;
-                write_m_ok     = `ysyx22040228_ENABLE    ;
-                mism_ena_l     = `ysyx22040228_ENABLE    ;
-                mism_strb_l = `ysyx22040228_CACHE_STRBZ  ;
-            // end 
-            // else begin
-            //     cache_mism_ena = `ysyx22040228_ABLE    ;
-            //     cahce_mism_addr = {inst_addr[63:3], 1'b0, 2'b0};
-            //     missr_counter_n  = 2'b11                 ;
-            // end 
+                cahce_mism_addr = {inst_addr[63:3], 1'b1, 2'b0};
+                missr_counter_n  = 2'b01                 ;
+            end 
+            else begin
+                cache_mism_ena = `ysyx22040228_ABLE    ;
+                cahce_mism_addr = {inst_addr[63:3], 1'b0, 2'b0};
+                missr_counter_n  = 2'b11                 ;
+            end 
         end 
         else if((state_inst ==  `ysyx22040228_I_MISSRH) && (cache_in_valid) && (missr_counter  == 2'b01)) begin
             cache_mism_ena = `ysyx22040228_ABLE    ;
             cahce_mism_addr = {inst_addr[63:3], 1'b0, 2'b0};
             missr_counter_n  = 2'b11                 ;
-            write_m_ok     = `ysyx22040228_ENABLE    ;
-            mism_ena_l     = `ysyx22040228_ENABLE    ;
-            mism_strb_l = `ysyx22040228_CACHE_STRBZ  ;
+            temp_inst      = {cache_in_data[31:0], 32'h0};
         end 
         else if((state_inst ==  `ysyx22040228_I_MISSRH) && (cache_in_valid) && (missr_counter  == 2'b11)) begin
             missr_counter_n  = 2'b00               ;
-            cahce_mism_addr = `ysyx22040228_ZEROWORD;
+            mism_data      = {temp_inst[63:32], cache_in_data[31:0], temp_inst[63:32], cache_in_data[31:0]};
             cache_mism_ena = `ysyx22040228_ENABLE;
             write_m_ok     = `ysyx22040228_ABLE  ;
             mism_ena_l     = `ysyx22040228_ABLE  ;
-            mism_strb_l    = (oteg_valid_o == `ysyx22040228_ENABLE) ? `ysyx22040228_CACHE_STRBL : 
-                             (tteg_valid_o == `ysyx22040228_ENABLE) ? `ysyx22040228_CACHE_STRBH :
-                             (i_counter1[icache_index] >= i_counter2[icache_index]) ? `ysyx22040228_CACHE_STRBL :
-                             (i_counter1[icache_index] < i_counter2[icache_index]) ? `ysyx22040228_CACHE_STRBH  :
-                                                                                      `ysyx22040228_CACHE_STRBZ ;
-            // if(oteg_valid_o == `ysyx22040228_ENABLE) begin
-            //     mism_strb_l = `ysyx22040228_CACHE_STRBL;
-            // end 
-            // else if(tteg_valid_o == `ysyx22040228_ENABLE) begin
-            //     mism_strb_l = `ysyx22040228_CACHE_STRBH;
-            // end 
-            // else if(i_counter1[icache_index] >= i_counter2[icache_index])begin
-            //     mism_strb_l = `ysyx22040228_CACHE_STRBL;
-            // end   
-            // else if(i_counter1[icache_index] < i_counter2[icache_index]) begin
-            //     mism_strb_l = `ysyx22040228_CACHE_STRBH;
-            // end 
+            if(oteg_valid_o == `ysyx22040228_ENABLE) begin
+                mism_strb_l = `ysyx22040228_CACHE_STRBL;
+            end 
+            else if(tteg_valid_o == `ysyx22040228_ENABLE) begin
+                mism_strb_l = `ysyx22040228_CACHE_STRBH;
+            end 
+            else if(i_counter1[icache_index] >= i_counter2[icache_index])begin
+                mism_strb_l = `ysyx22040228_CACHE_STRBL;
+            end   
+            else if(i_counter1[icache_index] < i_counter2[icache_index]) begin
+                mism_strb_l = `ysyx22040228_CACHE_STRBH;
+            end 
         end
         else begin
-            missr_counter_n  = 2'b00               ;
-            cahce_mism_addr = `ysyx22040228_ZEROWORD;
-            cache_mism_ena = `ysyx22040228_ENABLE;
+            mism_data      = `ysyx22040228_CACHE_STRBZ ;
             mism_ena_l     = `ysyx22040228_ENABLE ;
             mism_strb_l = `ysyx22040228_CACHE_STRBZ;
             write_m_ok     = `ysyx22040228_ENABLE   ;
         end
-    end
-
-    always @(*) begin
-        if(rst == `ysyx22040228_RSTENA) begin
-            mism_data      = `ysyx22040228_CACHE_STRBZ ;
-        end 
-        else if((state_inst ==  `ysyx22040228_I_MISSRH) && (cache_in_valid) && (missr_counter  == 2'b11)) begin
-            mism_data      = {temp_inst[63:32], cache_in_data[31:0], temp_inst[63:32], cache_in_data[31:0]};
-        end 
-        else begin
-            mism_data      = `ysyx22040228_CACHE_STRBZ ;
-        end 
-    end
-
-    always @(posedge clk) begin
-        if(rst == `ysyx22040228_RSTENA) begin
-            temp_inst <= `ysyx22040228_ZEROWORD ;
-        end 
-        else if(((state_inst ==  `ysyx22040228_I_MISSRH) && (cache_in_valid) && (missr_counter  == 2'b01))) begin
-            temp_inst <= {cache_in_data[31:0], 32'h0};
-        end 
-        else begin
-            temp_inst <= temp_inst ;
-        end 
     end
 
     wire                             oteg_ena_i    ;
@@ -1379,119 +1303,100 @@ module ysyx_22040228clint (
     reg     [63:0]           csr_mtime          ;
     reg     [63:0]           csr_mtimecmp       ;
     assign                   time_interrupt = (csr_mtime >= csr_mtimecmp)         ;
-    wire                     success_aw         ;
-    assign                   success_aw  = time_axi_aw_ready && time_axi_aw_valid ;
-    wire                     success_w                                            ;
-    assign                   success_w   = time_axi_w_ready  && time_axi_w_ready  ;
-    wire                     success_ar                                           ;
-    assign                   success_ar  = time_axi_ar_ready && time_axi_ar_valid ;
-    wire                     success_r                                            ;
-    assign                   success_r   = time_axi_r_ready  && time_axi_r_valid  ;
-    wire                     success_b                                            ;
-    assign                   success_b   = time_axi_b_ready  && time_axi_b_valid  ;
-    wire                     shankhand_successw                                      ;
-    assign                   shankhand_successw =  success_w                         ;
-    wire                     shankhand_successr                                      ;
-    assign                   shankhand_successr = success_ar                         ;
-    wire                     resp_success                                            ;
-    assign                   resp_success      = success_r | success_b               ;
 
     wire    [63:0]           wmask              ;
     assign                   wmask     = {{8{time_axi_w_strb[7]}}, {8{time_axi_w_strb[6]}}, {8{time_axi_w_strb[5]}}, {8{time_axi_w_strb[4]}}, 
                                          {8{time_axi_w_strb[3]}}, {8{time_axi_w_strb[2]}}, {8{time_axi_w_strb[1]}}, {8{time_axi_w_strb[0]}}};  
 
-    reg     [1:0]            timer_state        ;
-    reg     [1:0]            timer_state_n      ;
+    reg [2:0] time_write ;
     always @(posedge clk) begin
-        if(rst == `ysyx22040228_RSTENA)
-            timer_state <= `ysyx22040228_TIMER_IDLE;
-        else 
-            timer_state <= timer_state_n ;
-    end
-
-    always @(*) begin
-        case (timer_state)
-            `ysyx22040228_TIMER_IDLE: begin
-                if(shankhand_successr)
-                    timer_state_n = `ysyx22040228_TIMER_HANDL ;
-                else 
-                    timer_state_n = `ysyx22040228_TIMER_IDLE  ;
-            end  
-            `ysyx22040228_TIMER_HANDL: begin
-                timer_state_n = `ysyx22040228_TIMER_RESPR  ;
-            end 
-            `ysyx22040228_TIMER_RESPR : begin
-                if(resp_success)
-                    timer_state_n = `ysyx22040228_TIMER_IDLE ;
-                else 
-                    timer_state_n = `ysyx22040228_TIMER_RESPR ;
-            end 
-            default: timer_state_n = `ysyx22040228_TIMER_IDLE ; 
-        endcase
-    end
-
-    reg     [1:0]            timew_state        ;
-    reg     [1:0]            timew_state_n      ;
-    always @(posedge clk) begin
-        if(rst == `ysyx22040228_RSTENA)
-            timew_state <= `ysyx22040228_TIMER_IDLE;
-        else 
-            timew_state <= timew_state_n ;
-    end
-
-    always @(*) begin
-        case (timew_state)
-            `ysyx22040228_TIMER_IDLE: begin
-                if(shankhand_successw)
-                    timew_state_n = `ysyx22040228_TIMER_HANDL ;
-                else 
-                    timew_state_n = `ysyx22040228_TIMER_IDLE  ;
-            end  
-            `ysyx22040228_TIMER_HANDL: begin
-                timew_state_n = `ysyx22040228_TIMER_RESPW  ;
-            end 
-            `ysyx22040228_TIMER_RESPW : begin
-                if(resp_success)
-                    timew_state_n = `ysyx22040228_TIMER_IDLE ;
-                else 
-                    timew_state_n = `ysyx22040228_TIMER_RESPW ;
-            end 
-            default: timew_state_n = `ysyx22040228_TIMER_IDLE ; 
-        endcase
-    end
-
-    assign time_axi_aw_ready = 1'b1 && time_axi_aw_valid ;
-    assign time_axi_w_ready  = 1'b1 && success_aw ;
-
-
-    reg    [3:0 ]  timeraw_id_temp   ;
-
-    always @(posedge clk) begin
-        if(success_aw) begin
-            timeraw_id_temp <= time_axi_aw_id ;
-        end 
-        else if(success_b) begin
-            timeraw_id_temp <= 4'b0000        ;
+        if(rst == `ysyx22040228_RSTENA) begin
+            time_write <= 3'b000 ;
         end 
         else begin
-            timeraw_id_temp <= timeraw_id_temp;
+                case (time_write)
+                    3'b000 : begin
+                        if(time_axi_aw_valid) 
+                            time_write <= 3'b001 ;
+                        else 
+                            time_write <= 3'b000 ;
+                    end 
+                    3'b001 : begin
+                        if(time_axi_w_ready & time_axi_w_valid & time_axi_w_last)
+                            time_write <= 3'b010 ;
+                        else begin
+                            time_write <= 3'b001;
+                        end 
+                    end 
+                    3'b010 : begin
+                        if(time_axi_b_ready) 
+                            time_write <= 3'b100 ;
+                        else 
+                            time_write <= 3'b10 ;
+                    end
+                    3'b100 : begin
+                       time_write <= 3'b000 ; 
+                    end 
+                    default: time_write <= 3'b000 ;
+                endcase
         end 
     end
 
-    assign time_axi_b_id    = (timew_state == `ysyx22040228_TIMER_RESPW) ? timeraw_id_temp : 4'b0000 ;
-    assign time_axi_b_resp  = (timew_state == `ysyx22040228_TIMER_RESPW) ? 2'b00           : 2'b00   ; 
-    assign time_axi_b_valid = (timew_state == `ysyx22040228_TIMER_RESPW) ? 1'b1            : 1'b0    ;
+    reg [1:0] time_read ;
+    always @(posedge clk) begin
+        if(rst == `ysyx22040228_RSTENA) begin
+            time_read <= 2'b00 ;
+        end 
+        else begin
+                case (time_read) 
+                    2'b00 : begin
+                        if(time_axi_ar_valid & time_axi_ar_ready)
+                            time_read <= 2'b01 ;
+                        else 
+                            time_read <= 2'b00 ;
+                    end 
+                    2'b01 : begin
+                        if(time_axi_r_ready)
+                            time_read <= 2'b10 ;
+                        else
+                            time_read <= 2'b01 ;
+                    end 
+                    2'b10 : begin
+                        time_read <= 2'b00 ;
+                    end 
+                    default: time_read <= 2'b00 ;
+                endcase
+        end 
+    end
+    reg  [63:0] temp_mtime_r ;
+    assign time_axi_aw_ready = 1'b1 & time_axi_aw_valid ;
+    assign time_axi_w_ready = 1'b1 & time_axi_w_valid ;
+    assign time_axi_b_valid = (time_write == 3'b100) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE ;
+    assign time_axi_b_id    = (time_write == 3'b100) ? 4'b0010 : 4'b0000 ;
+    assign time_axi_b_resp = 2'b00 ;
+
+    assign time_axi_ar_ready = 1'b1 & time_axi_ar_valid ;
+    assign time_axi_r_valid = (time_read == 2'b10) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE ;
+    assign time_axi_r_data  = (time_read == 2'b10) ? temp_mtime_r : 64'h0                      ;
+    assign time_axi_r_last  = (time_read == 2'b10) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE ;
+    assign time_axi_r_id    = (time_write == 3'b100) ? 4'b0010 : 4'b0000 ; 
+    assign time_axi_r_resp  = 2'b00 ;
+
+    
 
 
-    wire   csr_mtime_readena                                                                  ;
-    assign csr_mtime_readena    = success_ar && (time_axi_ar_addr == `ysyx22040228_MTIME)     ;
-    wire   csr_mtimecmp_readena                                                               ;
-    assign csr_mtimecmp_readena = success_ar && (time_axi_ar_addr == `ysyx22040228_MTIMECMP)  ;
 
-    wire   csr_mtime_writeena                                                                ;
-    assign csr_mtime_writeena     = success_w && (time_axi_aw_addr == `ysyx22040228_MTIME)   ;
-    wire   csr_mtimecmp_writeena                                                             ;
-    assign csr_mtimecmp_writeena  =  success_w && (time_axi_aw_addr == `ysyx22040228_MTIMECMP);
+
+    wire   csr_mtime_readena                                                                                               ;
+    assign csr_mtime_readena    = (time_axi_ar_valid & time_axi_ar_ready) && (time_axi_ar_addr == `ysyx22040228_MTIME)     ;
+    wire   csr_mtimecmp_readena                                                                                            ;
+    assign csr_mtimecmp_readena = (time_axi_ar_valid & time_axi_ar_ready) && (time_axi_ar_addr == `ysyx22040228_MTIMECMP)  ;
+
+    wire   csr_mtime_writeena                                                                                                              ;
+    assign csr_mtime_writeena     = (time_axi_w_ready & time_axi_w_valid & time_axi_w_last) && (time_axi_aw_addr == `ysyx22040228_MTIME)   ;
+    wire   csr_mtimecmp_writeena                                                                                                            ;
+    assign csr_mtimecmp_writeena  =  (time_axi_w_ready & time_axi_w_valid & time_axi_w_last) && (time_axi_aw_addr == `ysyx22040228_MTIMECMP);
+
 
     wire   [63:0] csr_mtime_temp    ;
     wire   [63:0] csr_mtimecmp_temp ;
@@ -1509,41 +1414,17 @@ module ysyx_22040228clint (
         end 
     end
 
-    assign time_axi_ar_ready = 1'b1 ;
-
-    reg   [63:0] read_csrdata_temp ;
     always @(posedge clk) begin
-        if(csr_mtime_readena)
-            read_csrdata_temp <= csr_mtime ;
-        else if(csr_mtimecmp_readena) 
-            read_csrdata_temp <= csr_mtimecmp;
-        else if(success_r) 
-            read_csrdata_temp <= 64'h0       ;
-        else 
-            read_csrdata_temp <= read_csrdata_temp;
-    end
-
-    
-    reg     [3:0]  timerar_id_temp ;
-
-    always @(posedge clk) begin
-        if(success_ar) begin
-            timerar_id_temp <= time_axi_ar_id ;
-        end           
-        else if(success_r) begin
-            timerar_id_temp <= 4'b0000        ;
+        if(rst == `ysyx22040228_RSTENA) begin
+            temp_mtime_r <= 64'h0 ;
         end 
-        else begin
-            timerar_id_temp <= timerar_id_temp;
+        else if(csr_mtime_readena) begin
+            temp_mtime_r <= csr_mtime ;
+        end 
+        else if(csr_mtimecmp_readena) begin
+            temp_mtime_r <= csr_mtimecmp  ;
         end 
     end
-
-    assign time_axi_r_data = (timer_state == `ysyx22040228_TIMER_RESPR) ? read_csrdata_temp : 64'h0  ;
-    assign time_axi_r_id   = (timer_state == `ysyx22040228_TIMER_RESPR) ? timerar_id_temp   : 4'b0000;
-    assign time_axi_r_last = (timer_state == `ysyx22040228_TIMER_RESPR) ? 1'b1              : 1'b0   ;
-    assign time_axi_r_resp = (timer_state == `ysyx22040228_TIMER_RESPR) ? 2'b00             : 2'b00  ;
-    assign time_axi_r_valid= (timer_state == `ysyx22040228_TIMER_RESPR) ? 1'b1              : 1'b0   ;
-
 endmodule
 
 /************************************************************

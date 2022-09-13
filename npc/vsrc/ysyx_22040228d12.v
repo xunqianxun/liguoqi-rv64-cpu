@@ -5418,7 +5418,7 @@ Function:top module of this soc
 // `include "ysyx_22040228defines_axi4.v"
 // `include "ysyx_22040228defines.v"
 // `include "ysyx_22040228uncache_mmio.v"
-module ysyx_22040228 (
+module ysyx_22040228d12 (
     input       wire                                         clock                ,
     input       wire                                         reset                ,
 
