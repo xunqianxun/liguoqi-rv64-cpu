@@ -620,8 +620,8 @@ module ysyx_22040228arbitratem (
     assign axi_w_last     =   ((arbitrate_state == `ysyx22040228_ARB_DWRITE) && ((axiw_state == `ysyx22040228_AXIW_ADDR) | (axiw_state == `ysyx22040228_AXIW_WRITE) | (axiw_state == `ysyx22040228_AXIW_RESP)))   ? `ysyx22040228_ABLE  :
                               ((arbitrate_state == `ysyx22040228_ARB_DWRITEU) && ((axiw_state == `ysyx22040228_AXIW_ADDR) | (axiw_state == `ysyx22040228_AXIW_WRITE) | (axiw_state == `ysyx22040228_AXIW_RESP)))  ? `ysyx22040228_ABLE  :
                                                                                                                                                                                                                     `ysyx22040228_ENABLE;
-    assign axi_w_valid    =   ((arbitrate_state == `ysyx22040228_ARB_DWRITE) && ((axiw_state == `ysyx22040228_AXIW_ADDR) | (axiw_state == `ysyx22040228_AXIW_WRITE) | (axiw_state == `ysyx22040228_AXIW_RESP)))   ? `ysyx22040228_ABLE  :
-                              ((arbitrate_state == `ysyx22040228_ARB_DWRITEU) && ((axiw_state == `ysyx22040228_AXIW_ADDR) | (axiw_state == `ysyx22040228_AXIW_WRITE) | (axiw_state == `ysyx22040228_AXIW_RESP)))  ? `ysyx22040228_ABLE  :
+    assign axi_w_valid    =   ((arbitrate_state == `ysyx22040228_ARB_DWRITE) && ((axiw_state == `ysyx22040228_AXIW_ADDR) | (axiw_state == `ysyx22040228_AXIW_WRITE)))   ? `ysyx22040228_ABLE  :
+                              ((arbitrate_state == `ysyx22040228_ARB_DWRITEU) && ((axiw_state == `ysyx22040228_AXIW_ADDR) | (axiw_state == `ysyx22040228_AXIW_WRITE)))  ? `ysyx22040228_ABLE  :
                                                                                                                                                                                                                     `ysyx22040228_ENABLE;
     assign axi_b_ready    =   `ysyx22040228_ABLE                                                                                         ;         
 
