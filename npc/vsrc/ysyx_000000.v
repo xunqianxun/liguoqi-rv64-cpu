@@ -1,3 +1,5 @@
+/* verilator lint_off DECLFILENAME */
+/* verilator lint_off UNUSED */
 module ysyx_210539_Fetch(
   input         clock,
   input         reset,
