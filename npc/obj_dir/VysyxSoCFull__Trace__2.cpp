@@ -405,9 +405,7 @@ void VysyxSoCFull___024root__traceChgSub2(VysyxSoCFull___024root* vlSelf, Verila
     VlWide<5>/*159:0*/ __Vtemp8028;
     VlWide<5>/*159:0*/ __Vtemp8034;
     VlWide<5>/*159:0*/ __Vtemp8035;
-    VlWide<5>/*159:0*/ __Vtemp8041;
-    VlWide<5>/*159:0*/ __Vtemp8042;
-    vluint32_t* const oldp = tracep->oldp(vlSymsp->__Vm_baseCode + 10233);
+    vluint32_t* const oldp = tracep->oldp(vlSymsp->__Vm_baseCode + 10238);
     if (false && oldp) {}  // Prevent unused
     // Body
     {
@@ -11635,6 +11633,22 @@ void VysyxSoCFull___024root__traceChgSub2(VysyxSoCFull___024root* vlSelf, Verila
                                                             (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_dc_addr 
                                                              >> 9U)))) 
                                                 & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHET__DOT__out_valid_r)))))));
+            tracep->chgBit(oldp+4877,(((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__dirty1_) 
+                                         & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__counter_one) 
+                                            >= (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__counter_two))) 
+                                        & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHET__DOT__out_valid_r)) 
+                                       | (((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__dirty2_) 
+                                           & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__counter_one) 
+                                              < (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__counter_two))) 
+                                          & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__out_valid_r)))));
+            tracep->chgBit(oldp+4878,((1U & (~ ((((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__dirty1_) 
+                                                  & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__counter_one) 
+                                                     >= (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__counter_two))) 
+                                                 & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHET__DOT__out_valid_r)) 
+                                                | (((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__dirty2_) 
+                                                    & ((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__counter_one) 
+                                                       < (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__counter_two))) 
+                                                   & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__out_valid_r)))))));
             VL_EXTEND_WQ(128,64, __Vtemp7533, vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__strb_extection);
             if (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset) {
                 __Vtemp7543[0U] = 0U;
@@ -11695,8 +11709,8 @@ void VysyxSoCFull___024root__traceChgSub2(VysyxSoCFull___024root* vlSelf, Verila
                                                        >> 0x20U))
                                             : 0U)) : 0U);
             }
-            tracep->chgWData(oldp+4877,(__Vtemp7543),128);
-            tracep->chgBit(oldp+4881,(((~ (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)) 
+            tracep->chgWData(oldp+4879,(__Vtemp7543),128);
+            tracep->chgBit(oldp+4883,(((~ (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu_reset)) 
                                        & ((4U == (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__state_dwrite)) 
                                           & (((vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHEO__DOT__out_data_r 
                                                == (0x7fffffU 
@@ -11711,14 +11725,6 @@ void VysyxSoCFull___024root__traceChgSub2(VysyxSoCFull___024root* vlSelf, Verila
                                                             (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_dc_addr 
                                                              >> 9U)))) 
                                                 & (IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__TEG_DCACHET__DOT__out_valid_r)))))));
-            tracep->chgBit(oldp+4882,(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__dirty1
-                                      [(0x3fU & (IData)(
-                                                        (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_dc_addr 
-                                                         >> 3U)))]));
-            tracep->chgBit(oldp+4883,(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_cache3__DOT__dirty2
-                                      [(0x3fU & (IData)(
-                                                        (vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__uncache_dc_addr 
-                                                         >> 3U)))]));
             tracep->chgIData(oldp+4884,(((IData)(vlSelf->ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__rvcpu1__DOT__exmem_mem_fence)
                                           ? 0U : (0x7fffffU 
                                                   & (IData)(
@@ -18192,33 +18198,6 @@ void VysyxSoCFull___024root__traceChgSub2(VysyxSoCFull___024root* vlSelf, Verila
                                                                << 2U)))
                                                            : 0ULL) 
                                                          >> 1U)))),4);
-            __Vtemp8041[0U] = 0xfU;
-            __Vtemp8041[1U] = 0U;
-            __Vtemp8041[2U] = 0U;
-            __Vtemp8041[3U] = 0U;
-            __Vtemp8041[4U] = 0U;
-            VL_SHIFTL_WWI(143,143,7, __Vtemp8042, __Vtemp8041, 
-                          ((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__xbar_1.auto_in_d_bits_source) 
-                           << 2U));
-            tracep->chgQData(oldp+5977,((((QData)((IData)(
-                                                          ((((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__fixer.__PVT__monitor__DOT___d_first_T) 
-                                                             & (0U 
-                                                                == (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__fixer.__PVT__monitor__DOT__d_first_counter_2))) 
-                                                            & (6U 
-                                                               == (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__xbar_1.auto_in_d_bits_opcode)))
-                                                            ? 
-                                                           __Vtemp8042[1U]
-                                                            : 0U))) 
-                                          << 0x20U) 
-                                         | (QData)((IData)(
-                                                           ((((IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__fixer.__PVT__monitor__DOT___d_first_T) 
-                                                              & (0U 
-                                                                 == (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__fixer.__PVT__monitor__DOT__d_first_counter_2))) 
-                                                             & (6U 
-                                                                == (IData)(vlSymsp->TOP__ysyxSoCFull__DOT__fpga__DOT__xbar_1.auto_in_d_bits_opcode)))
-                                                             ? 
-                                                            __Vtemp8042[0U]
-                                                             : 0U))))),64);
         }
     }
 }
