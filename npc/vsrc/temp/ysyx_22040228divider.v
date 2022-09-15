@@ -32,6 +32,7 @@ reg     [128: 0] temp_a   ;
 reg     [64:0]   temp_b   ;
 reg              finish   ;
 wire             sigin_inst ;
+reg     [63:0]   shang_temp ;
 assign sigin_inst = (inst_opcode == `INST_DIV) || (inst_opcode == `INST_DIVW) || (inst_opcode == `INST_REM) || (inst_opcode == `INST_REMW);
 /* verilator lint_off BLKSEQ */
 always @(posedge clk ) begin
@@ -79,7 +80,7 @@ always @(posedge clk ) begin
             end
             1 : begin
                 temp_a = {65'b0, dividend_t};
-                temp_b = {1'b0 , divider_t} ;
+                temp_b = {1'b0, divider_t} ;
                 counter = counter + 1 ;
             end  
             66 : begin
@@ -92,10 +93,14 @@ always @(posedge clk ) begin
             end 
             default:  begin
                 temp_a = {temp_a[127:0],1'b0};
-                if(temp_a[128:64] >= temp_b) 
-                    temp_a = ({(temp_a[128:64] - temp_b), temp_a[63:0]}) + 1 ;
-                else 
+                if(temp_a[128:64] >= temp_b) begin 
+                    temp_a = ({(temp_a[128:64] - temp_b), temp_a[63:0]}) ;
+                    shang_temp = {shang_temp[63:1], 1'b1};
+                end 
+                else begin 
                     temp_a = temp_a ;
+                    shang_temp = {shang_temp[63:1], 1'b0};
+                end 
                 counter = counter + 1 ;
             end 
         endcase
@@ -114,24 +119,24 @@ always @(*) begin
     else if(finish) begin
         if((sign) && (!sign_y)) begin
             yushu = temp_a[127:64]      ;
-            shang = ~temp_a[63:0]   + 1 ;
+            shang = ~shang_temp     + 1 ;
         end 
         else if((sign) && (sign_y)) begin
             yushu = ~temp_a[127:64] + 1 ;
-            shang = ~temp_a[63:0]   + 1 ;
+            shang = ~shang_temp     + 1 ;
         end 
         else if((!sign) && (sign_y)) begin
             yushu = ~temp_a[127:64] + 1 ;
-            shang = temp_a[63:0]        ;
+            shang = shang_temp          ;
         end 
         else begin
             yushu = temp_a[127:64] ;
-            shang = temp_a[63:0]   ;
+            shang = shang_temp     ;
         end 
     end
     else begin
         yushu = temp_a[127:64] ;
-        shang = temp_a[63:0]   ;
+        shang = shang_temp     ;
     end 
 end
 

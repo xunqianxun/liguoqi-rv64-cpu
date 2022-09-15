@@ -663,10 +663,10 @@ module ysyx_22040228arbitratem (
     wire   success_uncahcewrite ;
 
     assign success_dread        = ((arbitrate_state == `ysyx22040228_ARB_DREAD)   && (axi_r_last == `ysyx22040228_ABLE) && (axi_r_valid == `ysyx22040228_ABLE));
-    assign success_dwrite       = ((arbitrate_state == `ysyx22040228_ARB_DWRITE)  && (axi_b_resp == 2'b00             ) && (axi_b_valid == `ysyx22040228_ABLE));
+    assign success_dwrite       = ((arbitrate_state == `ysyx22040228_ARB_DWRITE)  && (axi_b_resp != 2'b11             ) && (axi_b_valid == `ysyx22040228_ABLE));
     assign success_iread        = ((arbitrate_state == `ysyx22040228_ARB_IREAD)   && (axi_r_last == `ysyx22040228_ABLE) && (axi_r_valid == `ysyx22040228_ABLE));
     assign success_uncahceread  = ((arbitrate_state == `ysyx22040228_ARB_DREADU)  && (axi_r_last == `ysyx22040228_ABLE) && (axi_r_valid == `ysyx22040228_ABLE));
-    assign success_uncahcewrite = ((arbitrate_state == `ysyx22040228_ARB_DWRITEU) && (axi_b_resp == 2'b00             ) && (axi_b_valid == `ysyx22040228_ABLE));
+    assign success_uncahcewrite = ((arbitrate_state == `ysyx22040228_ARB_DWRITEU) && (axi_b_resp != 2'b11             ) && (axi_b_valid == `ysyx22040228_ABLE));
 
     //assign d_cache_data_o   = success_dread       ?  axi_r_data           :   64'h0                ;
     //assign d_cache_valid_   = success_dread       ? `ysyx22040228_ABLE    :   `ysyx22040228_ENABLE ;
@@ -1105,6 +1105,7 @@ module ysyx_22040228inst_cache (
     // wire                             oteg_valid_o  ;
     ysyx_22040228TEG_CC TEG_ICACHEO(
         .clk         (clk          ),
+        .rst         (rst          ),
         .addr_i      (oteg_addr_i  ),
         .teg_i       (oteg_data_i  ),
         .teg_valid   (oteg_valid_i ),
@@ -1128,8 +1129,9 @@ module ysyx_22040228inst_cache (
     // wire                             tteg_valid_o  ;
     ysyx_22040228TEG_CC TEG_ICACHET(
         .clk         (clk          ),
+        .rst         (rst          ),
         .addr_i      (tteg_addr_i  ),
-        .teg_i      (tteg_data_i  ),
+        .teg_i       (tteg_data_i  ),
         .teg_valid   (tteg_valid_i ),
         .teg_ena     (tteg_ena_i   ),
         .data_o      (tteg_ata_o   ),
@@ -2468,6 +2470,7 @@ module ysyx_22040228data_cache (
     // wire                             oteg_valid_o  ;
     ysyx_22040228TEG_CC TEG_DCACHEO(
         .clk         (clk          ),
+        .rst         (rst          ),
         .addr_i      (oteg_addr_i  ),
         .teg_i       (oteg_data_i  ),
         .teg_valid   (oteg_valid_i ),
@@ -2490,6 +2493,7 @@ module ysyx_22040228data_cache (
     // wire                             tteg_valid_o  ;
     ysyx_22040228TEG_CC TEG_DCACHET(
         .clk         (clk          ),
+        .rst         (rst          ),
         .addr_i      (tteg_addr_i  ),
         .teg_i       (tteg_data_i  ),
         .teg_valid   (tteg_valid_i ),
@@ -2565,7 +2569,7 @@ Author:LiGuoqi
 Name:divider.v
 Function:execute muliplication instruction
 ************************************************************/
-// `include "ysyx_22040228defines.v"
+//`include "ysyx_22040228defines.v"
 
 `define ysyx22040228_DIV_SIGN       3'b001 
 `define ysyx22040228_DIV_DOING      3'b010
@@ -2594,6 +2598,7 @@ reg     [128: 0] temp_a   ;
 reg     [64:0]   temp_b   ;
 reg              finish   ;
 wire             sigin_inst ;
+reg     [63:0]   shang_temp ;
 assign sigin_inst = (inst_opcode == `INST_DIV) || (inst_opcode == `INST_DIVW) || (inst_opcode == `INST_REM) || (inst_opcode == `INST_REMW);
 /* verilator lint_off BLKSEQ */
 always @(posedge clk ) begin
@@ -2641,7 +2646,7 @@ always @(posedge clk ) begin
             end
             1 : begin
                 temp_a = {65'b0, dividend_t};
-                temp_b = {1'b0 , divider_t} ;
+                temp_b = {1'b0, divider_t} ;
                 counter = counter + 1 ;
             end  
             66 : begin
@@ -2654,10 +2659,14 @@ always @(posedge clk ) begin
             end 
             default:  begin
                 temp_a = {temp_a[127:0],1'b0};
-                if(temp_a[128:64] >= temp_b) 
-                    temp_a = ({(temp_a[128:64] - temp_b), temp_a[63:0]}) + 1 ;
-                else 
+                if(temp_a[128:64] >= temp_b) begin 
+                    temp_a = ({(temp_a[128:64] - temp_b), temp_a[63:0]}) ;
+                    shang_temp = {shang_temp[63:1], 1'b1};
+                end 
+                else begin 
                     temp_a = temp_a ;
+                    shang_temp = {shang_temp[63:1], 1'b0};
+                end 
                 counter = counter + 1 ;
             end 
         endcase
@@ -2676,24 +2685,24 @@ always @(*) begin
     else if(finish) begin
         if((sign) && (!sign_y)) begin
             yushu = temp_a[127:64]      ;
-            shang = ~temp_a[63:0]   + 1 ;
+            shang = ~shang_temp     + 1 ;
         end 
         else if((sign) && (sign_y)) begin
             yushu = ~temp_a[127:64] + 1 ;
-            shang = ~temp_a[63:0]   + 1 ;
+            shang = ~shang_temp     + 1 ;
         end 
         else if((!sign) && (sign_y)) begin
             yushu = ~temp_a[127:64] + 1 ;
-            shang = temp_a[63:0]        ;
+            shang = shang_temp          ;
         end 
         else begin
             yushu = temp_a[127:64] ;
-            shang = temp_a[63:0]   ;
+            shang = shang_temp     ;
         end 
     end
     else begin
         yushu = temp_a[127:64] ;
-        shang = temp_a[63:0]   ;
+        shang = shang_temp     ;
     end 
 end
 
@@ -2944,21 +2953,21 @@ wire  [63:0]  op2_divdata ;
 assign op1_divdata = (inst_opcode_i == `INST_DIV     ) ? op1_i         :
                      (inst_opcode_i == `INST_DIVU    ) ? op1_i         :
                      (inst_opcode_i == `INST_DIVUW   ) ? {32'b0, op1_i[31:0]}   :
-                     (inst_opcode_i == `INST_DIVW    ) ? (op1_i[32] ? {32'hffffffff, op1_i[31:0]} : {32'b0, op1_i[31:0]})   :
+                     (inst_opcode_i == `INST_DIVW    ) ? (op1_i[31] ? {32'hffffffff, op1_i[31:0]} : {32'b0, op1_i[31:0]})   :
                      (inst_opcode_i == `INST_REM     ) ? op1_i         :
                      (inst_opcode_i == `INST_REMU    ) ? op1_i         :
                      (inst_opcode_i == `INST_REMUW   ) ? {32'b0, op1_i[31:0]}   :
-                     (inst_opcode_i == `INST_REMW    ) ? (op1_i[32] ? {32'hffffffff, op1_i[31:0]} : {32'b0, op1_i[31:0]})   :
+                     (inst_opcode_i == `INST_REMW    ) ? (op1_i[31] ? {32'hffffffff, op1_i[31:0]} : {32'b0, op1_i[31:0]})   :
                                                 `ysyx22040228_ZEROWORD ;
 
 assign op2_divdata = (inst_opcode_i == `INST_DIV     ) ? op2_i         :
                      (inst_opcode_i == `INST_DIVU    ) ? op2_i         : 
                      (inst_opcode_i == `INST_DIVUW   ) ? {32'b0, op2_i[31:0]}   :
-                     (inst_opcode_i == `INST_DIVW    ) ? (op2_i[32] ? {32'hffffffff, op2_i[31:0]} : {32'b0, op2_i[31:0]})   : 
+                     (inst_opcode_i == `INST_DIVW    ) ? (op2_i[31] ? {32'hffffffff, op2_i[31:0]} : {32'b0, op2_i[31:0]})   : 
                      (inst_opcode_i == `INST_REM     ) ? op2_i         :
                      (inst_opcode_i == `INST_REMU    ) ? op2_i         :  
                      (inst_opcode_i == `INST_REMUW   ) ? {32'b0, op2_i[31:0]}   :    
-                     (inst_opcode_i == `INST_REMW    ) ? (op2_i[32] ? {32'hffffffff, op2_i[31:0]} : {32'b0, op2_i[31:0]})   :
+                     (inst_opcode_i == `INST_REMW    ) ? (op2_i[31] ? {32'hffffffff, op2_i[31:0]} : {32'b0, op2_i[31:0]})   :
                                                 `ysyx22040228_ZEROWORD ;           
 ysyx_22040228divider divider2 (
     .clk              (clk_in         ) ,
@@ -4991,6 +5000,7 @@ Function:memory teg data
 // `include "ysyx_22040228cache_defines.v"
 module ysyx_22040228TEG_CC (
     input            wire                                                         clk        ,
+    input            wire                                                         rst        ,
     input            wire       [5:0]                                             addr_i     ,
     input            wire       [`ysyx22040228_TEG_WITH]                          teg_i      ,
     input            wire                                                         teg_valid  ,
@@ -5003,8 +5013,15 @@ module ysyx_22040228TEG_CC (
     reg                              valid [0:63] ;
     reg   [`ysyx22040228_TEG_WITH]   out_data_r   ;
     reg                              out_valid_r  ;
+    integer t ;
     always @(posedge clk) begin
-        if(teg_ena) begin
+        if(rst == `ysyx22040228_RSTENA) begin
+            for(t = 0;t<64;t=t+1) begin
+                ram[t] <= 23'h0 ;
+                valid[t] <= `ysyx22040228_ENABLE ;
+            end
+        end 
+        else if(teg_ena) begin
             ram[addr_i]   <= teg_i    ;
             valid[addr_i] <= teg_valid;
         end 
