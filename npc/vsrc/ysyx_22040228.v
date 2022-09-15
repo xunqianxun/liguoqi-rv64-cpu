@@ -1322,7 +1322,9 @@ module ysyx_22040228clint (
         else begin
                 case (time_write)
                     3'b000 : begin
-                        if(time_axi_aw_valid) 
+                        if((time_axi_w_ready & time_axi_w_valid & time_axi_w_last) & (time_axi_aw_valid))
+                            time_write <= 3'b010 ;
+                        else if(time_axi_aw_valid) 
                             time_write <= 3'b001 ;
                         else 
                             time_write <= 3'b000 ;
@@ -1385,7 +1387,7 @@ module ysyx_22040228clint (
     assign time_axi_r_valid = (time_read == 2'b10) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE ;
     assign time_axi_r_data  = (time_read == 2'b10) ? temp_mtime_r : 64'h0                      ;
     assign time_axi_r_last  = (time_read == 2'b10) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE ;
-    assign time_axi_r_id    = (time_write == 3'b100) ? 4'b0010 : 4'b0000 ; 
+    assign time_axi_r_id    = (time_read == 2'b10) ? 4'b0010 : 4'b0000 ; 
     assign time_axi_r_resp  = 2'b00 ;
 
     
