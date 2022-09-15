@@ -2663,11 +2663,11 @@ always @(posedge clk ) begin
                 temp_a = {temp_a[127:0],1'b0};
                 if(temp_a[128:64] >= temp_b) begin 
                     temp_a = ({(temp_a[128:64] - temp_b), temp_a[63:0]}) ;
-                    shang_temp = {shang_temp[63:1], 1'b1};
+                    shang_temp = {shang_temp[62:0], 1'b1};
                 end 
                 else begin 
                     temp_a = temp_a ;
-                    shang_temp = {shang_temp[63:1], 1'b0};
+                    shang_temp = {shang_temp[62:0], 1'b0};
                 end 
                 counter = counter + 1 ;
             end 
