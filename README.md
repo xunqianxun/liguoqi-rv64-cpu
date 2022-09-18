@@ -11,6 +11,7 @@
 # 项目介绍 ：
 
 ​	项目实现的是支持RISCV64IM一款五级流水线，可支持机器模式，带有ICACHE和DCACHE，总线使用的AXI4协议连接SOC，其中SOC包含APB和chiplink等协议。可以运行RT-Thread等系统
+（最后的代码在./npc/vsrc/ysyx_040228.v)
 
 ​	作品是四期的一生一芯项目。
 
