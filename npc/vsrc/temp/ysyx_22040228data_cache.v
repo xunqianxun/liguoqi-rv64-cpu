@@ -18,7 +18,6 @@ Function:write data cache
 `include "ysyx_22040228defines.v"
 `include "ysyx_22040228defines_axi4.v"
 `include "ysyx_22040228TEG_CC.v"
-/* verilator lint_off UNUSED */
 
 module ysyx_22040228data_cache (
     input         wire                                        clk                ,
@@ -78,7 +77,6 @@ module ysyx_22040228data_cache (
     reg [5:0] fence_index    ;
     reg       transt_sign1   ;
     reg       transt_sign2   ;
-    reg       fence_finish   ;
     reg       check_valid1   ;
     reg       check_valid2   ;
     wire   counterscl        ;
@@ -90,7 +88,6 @@ module ysyx_22040228data_cache (
             counter_temp <= 8'd0     ;
             transt_sign1 <= `ysyx22040228_ENABLE ;
             transt_sign2 <= `ysyx22040228_ENABLE ;
-            fence_finish <= `ysyx22040228_ENABLE ;
             check_valid1 <= `ysyx22040228_ENABLE ;
             check_valid2 <= `ysyx22040228_ENABLE ;
         end 
@@ -253,18 +250,16 @@ module ysyx_22040228data_cache (
             mem_data_out   = 64'b0                   ;
             hit_data_ready = `ysyx22040228_ENABLE    ; 
         end 
-        else if(state_dread == `ysyx22040228_HIT) begin
-            if((oteg_ata_o == dcache_tag) && (oteg_valid_o == `ysyx22040228_ABLE))begin
-                mem_hit_ok     = `ysyx22040228_ABLE  ;
-                mem_data_out   = data_out[63:0]      ;
-                hit_data_ready = `ysyx22040228_ABLE  ;
+        else if((state_dread == `ysyx22040228_HIT) && ((oteg_ata_o == dcache_tag) && (oteg_valid_o == `ysyx22040228_ABLE)))begin
+            mem_hit_ok     = `ysyx22040228_ABLE  ;
+            mem_data_out   = data_out[63:0]      ;
+            hit_data_ready = `ysyx22040228_ABLE  ;
             end
-            else /*if((tteg_ata_o == dcache_tag) && (tteg_valid_o == `ysyx22040228_ABLE))*/begin
-                mem_hit_ok     = `ysyx22040228_ABLE  ;
-                mem_data_out   = data_out[127:64]    ;
-                hit_data_ready = `ysyx22040228_ABLE  ;
-            end
-        end   
+        else if((state_dread == `ysyx22040228_HIT) && ((tteg_ata_o == dcache_tag) && (tteg_valid_o == `ysyx22040228_ABLE)))begin
+            mem_hit_ok     = `ysyx22040228_ABLE  ;
+            mem_data_out   = data_out[127:64]    ;
+            hit_data_ready = `ysyx22040228_ABLE  ;
+            end  
         else   begin
             mem_hit_ok     = `ysyx22040228_ENABLE    ; 
             mem_data_out   = 64'b0                   ;
@@ -290,32 +285,22 @@ module ysyx_22040228data_cache (
             dirty_clean_o = `ysyx22040228_ENABLE     ;
             dirty_clean_t = `ysyx22040228_ENABLE     ;
         end 
-        else if((state_dread == `ysyx22040228_DIRTY) && (~in_dcache_ready) && (~delay_cnt)) begin
-            if((dirty1[dcache_index] == `ysyx22040228_ABLE) && (counter1[dcache_index] >= counter2[dcache_index])) begin
-                dirty_out_addr = {32'h0, oteg_ata_o, dcache_index, 3'b000} ;
-                dirty_out_data = data_out[63:0]  ;
-                dirty_out_type = 4'b0001         ;
-                dirty_clean_o  = `ysyx22040228_ABLE ;
-                dirty_ok       = `ysyx22040228_ENABLE    ;
-                dirty_clean_t = `ysyx22040228_ENABLE     ;
+        else if(((state_dread == `ysyx22040228_DIRTY) && (~in_dcache_ready) && (~delay_cnt)) && ((dirty1[dcache_index] == `ysyx22040228_ABLE) && (counter1[dcache_index] >= counter2[dcache_index]))) begin
+            dirty_out_addr = {32'h0, oteg_ata_o, dcache_index, 3'b000} ;
+            dirty_out_data = data_out[63:0]  ;
+            dirty_out_type = 4'b0001         ;
+            dirty_clean_o  = `ysyx22040228_ABLE ;
+            dirty_ok       = `ysyx22040228_ENABLE    ;
+            dirty_clean_t = `ysyx22040228_ENABLE     ;
             end 
-            else /*if((dirty2[dcache_index] == `ysyx22040228_ABLE) && (counter1[dcache_index] < counter2[dcache_index]))*/ begin
-                dirty_out_addr = {32'h0, tteg_ata_o, dcache_index, 3'b000} ;
-                dirty_out_data = data_out[127:64]  ;
-                dirty_out_type = 4'b0001   ;
-                dirty_clean_t  = `ysyx22040228_ABLE ;
-                dirty_ok       = `ysyx22040228_ENABLE    ;
-                dirty_clean_o = `ysyx22040228_ENABLE     ;
+        else  if(((state_dread == `ysyx22040228_DIRTY) && (~in_dcache_ready) && (~delay_cnt)) && ((dirty2[dcache_index] == `ysyx22040228_ABLE) && (counter1[dcache_index] < counter2[dcache_index]))) begin
+            dirty_out_addr = {32'h0, tteg_ata_o, dcache_index, 3'b000} ;
+            dirty_out_data = data_out[127:64]  ;
+            dirty_out_type = 4'b0001   ;
+            dirty_clean_t  = `ysyx22040228_ABLE ;
+            dirty_ok       = `ysyx22040228_ENABLE    ;
+            dirty_clean_o = `ysyx22040228_ENABLE     ;
             end
-            // else begin
-            //     dirty_out_addr = `ysyx22040228_ZEROWORD  ;
-            //     dirty_out_data = `ysyx22040228_ZEROWORD  ;
-            //     dirty_out_type  = 4'b0000                ;
-            //     dirty_clean_o  = `ysyx22040228_ABLE      ;
-            //     dirty_ok       = `ysyx22040228_ENABLE    ;
-            //     dirty_clean_t  = `ysyx22040228_ENABLE    ;
-            // end  
-        end 
         else if((state_dread == `ysyx22040228_DIRTY) && (in_dcache_ready)) begin
             dirty_out_addr = `ysyx22040228_ZEROWORD  ;
             dirty_out_data = `ysyx22040228_ZEROWORD  ;
@@ -567,29 +552,20 @@ module ysyx_22040228data_cache (
             hitw_data_ready = `ysyx22040228_ENABLE ; 
             hitw_data_ena   = `ysyx22040228_ENABLE ;
         end 
-        else if(state_dwrite == `ysyx22040228_HIT) begin
-            if((oteg_ata_o == dcache_tag) && (oteg_valid_o == `ysyx22040228_ABLE))begin
-                memw_hit_ok     = `ysyx22040228_ABLE   ;
-                hitw_data_strb  = {64'h0, strb_extection} ;
-                hitw_data_temp  = {64'h0, mem_data_i} ;
-                hitw_data_ready = `ysyx22040228_ABLE   ;
-                hitw_data_ena   = `ysyx22040228_ABLE   ;
+        else if((state_dwrite == `ysyx22040228_HIT) && ((oteg_ata_o == dcache_tag) && (oteg_valid_o == `ysyx22040228_ABLE)))begin
+            memw_hit_ok     = `ysyx22040228_ABLE   ;
+            hitw_data_strb  = {64'h0, strb_extection} ;
+            hitw_data_temp  = {64'h0, mem_data_i} ;
+            hitw_data_ready = `ysyx22040228_ABLE   ;
+            hitw_data_ena   = `ysyx22040228_ABLE   ;
             end
-            else /*if((tteg_ata_o == dcache_tag) && (tteg_valid_o == `ysyx22040228_ABLE))*/begin
-                memw_hit_ok     = `ysyx22040228_ABLE   ;
-                hitw_data_strb  = {strb_extection, 64'h0} ;
-                hitw_data_temp  = {mem_data_i, 64'h0} ;
-                hitw_data_ready = `ysyx22040228_ABLE   ;
-                hitw_data_ena   = `ysyx22040228_ABLE   ;
-            end
-            // else begin
-            //     memw_hit_ok     = `ysyx22040228_ABLE   ; 
-            //     hitw_data_strb  =  `ysyx22040228_CACHE_STRBZ;
-            //     hitw_data_temp  =  `ysyx22040228_CACHE_STRBZ;  
-            //     hitw_data_ready = `ysyx22040228_ENABLE ;
-            //     hitw_data_ena   = `ysyx22040228_ENABLE ;
-            // end
-        end   
+        else if((state_dwrite == `ysyx22040228_HIT) && ((tteg_ata_o == dcache_tag) && (tteg_valid_o == `ysyx22040228_ABLE)))begin
+            memw_hit_ok     = `ysyx22040228_ABLE   ;
+            hitw_data_strb  = {strb_extection, 64'h0} ;
+            hitw_data_temp  = {mem_data_i, 64'h0} ;
+            hitw_data_ready = `ysyx22040228_ABLE   ;
+            hitw_data_ena   = `ysyx22040228_ABLE   ;
+            end 
         else  begin
             hitw_data_temp  =  `ysyx22040228_CACHE_STRBZ; 
             memw_hit_ok  = `ysyx22040228_ENABLE    ; 
@@ -617,29 +593,22 @@ module ysyx_22040228data_cache (
             dirtyw_clean_o = `ysyx22040228_ENABLE     ;
             dirtyw_clean_t = `ysyx22040228_ENABLE     ;
         end 
-        else if((state_dwrite == `ysyx22040228_DIRTY) && (~in_dcache_ready) && (~delayw_cnt)) begin
-            if((dirty1[dcache_index] == `ysyx22040228_ABLE) && (counter1[dcache_index] >= counter2[dcache_index])) begin
-                dirtyw_out_addr = {32'h0,oteg_ata_o, dcache_index, 3'b000} ;
-                dirtyw_out_data = data_out[63:0]  ;
-                dirtyw_out_type = 4'b0100         ;
-                dirtyw_clean_o  = `ysyx22040228_ABLE ;
-                dirtyw_ok   = `ysyx22040228_ENABLE   ;
-                dirtyw_clean_t = `ysyx22040228_ENABLE;
-            end 
-            else /*if((dirty2[dcache_index] == `ysyx22040228_ABLE) && (counter1[dcache_index] < counter2[dcache_index]))*/ begin
-                dirtyw_out_addr = {32'h0,tteg_ata_o, dcache_index, 3'b000} ;
-                dirtyw_out_data = data_out[127:64]  ;
-                dirtyw_out_type = 4'b0100    ;
-                dirtyw_clean_t  = `ysyx22040228_ABLE ;
-                dirtyw_ok   = `ysyx22040228_ENABLE   ;
-                dirtyw_clean_o = `ysyx22040228_ENABLE;
-            end
-            // else begin
-            //     dirtyw_out_addr = `ysyx22040228_ZEROWORD  ;
-            //     dirtyw_out_data = `ysyx22040228_ZEROWORD  ;
-            //     dirtyw_out_type  = 4'b0000                ;
-            // end  
+        else if(((state_dwrite == `ysyx22040228_DIRTY) && (~in_dcache_ready) && (~delayw_cnt)) && ((dirty1[dcache_index] == `ysyx22040228_ABLE) && (counter1[dcache_index] >= counter2[dcache_index]))) begin
+            dirtyw_out_addr = {32'h0,oteg_ata_o, dcache_index, 3'b000} ;
+            dirtyw_out_data = data_out[63:0]  ;
+            dirtyw_out_type = 4'b0100         ;
+            dirtyw_clean_o  = `ysyx22040228_ABLE ;
+            dirtyw_ok   = `ysyx22040228_ENABLE   ;
+            dirtyw_clean_t = `ysyx22040228_ENABLE;
         end 
+        else if(((state_dwrite == `ysyx22040228_DIRTY) && (~in_dcache_ready) && (~delayw_cnt)) && ((dirty2[dcache_index] == `ysyx22040228_ABLE) && (counter1[dcache_index] < counter2[dcache_index]))) begin
+            dirtyw_out_addr = {32'h0,tteg_ata_o, dcache_index, 3'b000} ;
+            dirtyw_out_data = data_out[127:64]  ;
+            dirtyw_out_type = 4'b0100    ;
+            dirtyw_clean_t  = `ysyx22040228_ABLE ;
+            dirtyw_ok   = `ysyx22040228_ENABLE   ;
+            dirtyw_clean_o = `ysyx22040228_ENABLE;
+        end
         else if((in_dcache_ready) && (state_dwrite == `ysyx22040228_DIRTY)) begin
             dirtyw_out_addr = `ysyx22040228_ZEROWORD  ;
             dirtyw_out_data = `ysyx22040228_ZEROWORD  ;
@@ -831,10 +800,6 @@ module ysyx_22040228data_cache (
     // reg    dirty1 [`ysyx22040228_CACHE_DATA_W];
     // reg    dirty2 [`ysyx22040228_CACHE_DATA_W];
 
-    wire   dirty1_ ;
-    wire   dirty2_ ;
-    assign dirty1_ = dirty1[dcache_index];
-    assign dirty2_ = dirty2[dcache_index];
     //assign dirty2[dcache_index] = ((state_dwrite == `ysyx22040228_HIT) && (tag_data2 == dcache_tag)) ? `ysyx22040228_ABLE : `ysyx22040228_ENABLE;
     integer j;
     always @(posedge clk) begin
@@ -878,6 +843,7 @@ module ysyx_22040228data_cache (
     // wire                             oteg_valid_o  ;
     ysyx_22040228TEG_CC TEG_DCACHEO(
         .clk         (clk          ),
+        .rst         (rst          ),
         .addr_i      (oteg_addr_i  ),
         .teg_i       (oteg_data_i  ),
         .teg_valid   (oteg_valid_i ),
@@ -900,6 +866,7 @@ module ysyx_22040228data_cache (
     // wire                             tteg_valid_o  ;
     ysyx_22040228TEG_CC TEG_DCACHET(
         .clk         (clk          ),
+        .rst         (rst          ),
         .addr_i      (tteg_addr_i  ),
         .teg_i       (tteg_data_i  ),
         .teg_valid   (tteg_valid_i ),

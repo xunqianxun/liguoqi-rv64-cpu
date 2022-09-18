@@ -28,85 +28,82 @@ reg              sign_y  ;
 reg     [63:0]   dividend_t;
 reg     [63:0]   divider_t ;
 
-reg     [128: 0] temp_a   ;
+reg     [127: 0] temp_a   ;
 reg     [64:0]   temp_b   ;
 reg              finish   ;
 wire             sigin_inst ;
 reg     [63:0]   shang_temp ;
 assign sigin_inst = (inst_opcode == `INST_DIV) || (inst_opcode == `INST_DIVW) || (inst_opcode == `INST_REM) || (inst_opcode == `INST_REMW);
-/* verilator lint_off BLKSEQ */
 always @(posedge clk ) begin
     if(rst == `ysyx22040228_RSTENA) begin
-        counter = 7'b0     ;
-        dividend_t = 64'h0 ;
-        divider_t  = 64'h0 ;
-        temp_a     = 129'h0 ;
-        temp_b     = 65'h0  ;
-        finish     = 1'b0   ;
-        sign       = 1'b0   ;
-        sign_y     = 1'b0   ;
+        counter <= 7'b0     ;
+        dividend_t <= 64'h0 ;
+        divider_t  <= 64'h0 ;
+        temp_a     <= 128'h0 ;
+        temp_b     <= 65'h0  ;
+        finish     <= 1'b0   ;
+        sign       <= 1'b0   ;
+        sign_y     <= 1'b0   ;
     end
     else begin
         case (counter)
             0 : begin
                 if(div_ready) begin
-                    counter = counter + 1 ;
-                    finish  = 1'b0        ;
+                    counter <= counter + 1 ;
+                    finish  <= 1'b0        ;
                     if((sigin_inst) && (dividend[63]) && (diviser[63])) begin
-                        dividend_t = ~dividend + 1 ;
-                        divider_t  = ~diviser + 1  ;
-                        sign       = 1'b0          ;
-                        sign_y     = 1'b1          ;
+                        dividend_t <= ~dividend + 1 ;
+                        divider_t  <= ~diviser + 1  ;
+                        sign       <= 1'b0          ;
+                        sign_y     <= 1'b1          ;
                     end 
                     else if((sigin_inst) && dividend[63]) begin
-                        dividend_t = ~dividend + 1 ;
-                        divider_t  = diviser       ;
-                        sign       = 1'b1           ;
-                        sign_y     = 1'b1           ;
+                        dividend_t <= ~dividend + 1 ;
+                        divider_t  <= diviser       ;
+                        sign       <= 1'b1           ;
+                        sign_y     <= 1'b1           ;
                     end 
                     else if((sigin_inst) && diviser[63]) begin
-                        divider_t   = ~diviser + 1    ;
-                        dividend_t  = dividend        ;
-                        sign        = 1'b1            ;
-                        sign_y      = 1'b0            ;
+                        divider_t   <= ~diviser + 1    ;
+                        dividend_t  <= dividend        ;
+                        sign        <= 1'b1            ;
+                        sign_y      <= 1'b0            ;
                     end
                     else begin
-                        divider_t  = diviser  ;
-                        dividend_t = dividend ;
-                        sign       = 1'b0     ; 
-                        sign_y     = 1'b0     ;
+                        divider_t  <= diviser  ;
+                        dividend_t <= dividend ;
+                        sign       <= 1'b0     ; 
+                        sign_y     <= 1'b0     ;
                     end 
                 end
             end
             1 : begin
-                temp_a = {65'b0, dividend_t};
-                temp_b = {1'b0, divider_t} ;
-                counter = counter + 1 ;
+                temp_a <= {64'b0, dividend_t};
+                temp_b <= {1'b0, divider_t} ;
+                counter <= counter + 1 ;
             end  
             66 : begin
-                finish = 1'b1 ;
-                counter = counter + 1 ;
+                finish <= 1'b1 ;
+                counter <= counter + 1 ;
             end 
             67 : begin
-                 counter = 7'h0 ;
-                 finish = 1'b0  ;
+                 counter <= 7'h0 ;
+                 finish <= 1'b0  ;
             end 
             default:  begin
-                temp_a = {temp_a[127:0],1'b0};
-                if(temp_a[128:64] >= temp_b) begin 
-                    temp_a = ({(temp_a[128:64] - temp_b), temp_a[63:0]}) ;
-                    shang_temp = {shang_temp[62:0], 1'b1};
+                counter <= counter + 1 ;
+                if(temp_a[127:63] >= temp_b) begin 
+                    temp_a <= ({(temp_a[127:63] - temp_b), temp_a[62:0]}) ;
+                    shang_temp <= {shang_temp[62:0], 1'b1};
                 end 
                 else begin 
-                    temp_a = temp_a ;
-                    shang_temp = {shang_temp[62:0], 1'b0};
+                    temp_a <= temp_a ;
+                    shang_temp <= {shang_temp[62:0], 1'b0};
                 end 
-                counter = counter + 1 ;
             end 
         endcase
     end 
 end
-/* verilator lint_on BLKSEQ */
 
 reg [63:0] yushu ;
 reg [63:0] shang ;
